@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Reader.Content.Published>
+@{
+  PageData["Title"] = Loc("title1", "Search");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+}
+@using(Html.BtDiv(BtStyle.Well)) {
+@Loc("text1", "Results of global search")
+}
+<h2>@Loc("title2", @"{0} apps found ({1} total)", Model.Count(), (int)ViewBag.QueryCount)</h2>
+<br />
+@foreach (var item in Model) {
+  <div>
+    @Html.ActionLink(item.Title, "Published", "Reader", new { id = item.Id, area = "ReaderPortal" }, null)
+    | @item.SubTitle
+    <ul>
+      <li>@Loc("textRating", @"Rating:") <strong class="colorGreen">@item.Rating</strong> @Loc("textPoints", @"points")</li>
+      @if (item.Reviews.Any()) {
+        <li>@Loc("textPeer", @"There are <em><span data-args='0' data-desc='Count'>{0}</span></em> peer reviews.", item.Reviews.Count())</li>
+      } else {
+        <li>@Loc("textNoPeer", @"There are no peer reviews.")</li>
+      }
+    </ul>
+  </div>
+}
+@Create.ActionTask("", false, Url.Action("Index", "Home", null), ViewResources.LinkButton_Reader_Catalog)
+@Create.ActionTask("", false, Url.Action("Library", "Reader", null), ViewResources.LinkButton_Reader_Library)
+@Create.ActionTask("", false, Url.Action("Products", "Products"), ViewResources.TasksButton_Reader_Products)

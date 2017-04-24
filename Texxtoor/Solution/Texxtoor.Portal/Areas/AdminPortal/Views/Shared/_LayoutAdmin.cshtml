@@ -1,0 +1,96 @@
+﻿@{
+  Layout = Url.GetGlobalLayout();
+}
+@section helpSection{
+  <div class="helpsection">
+    @RenderSection("helpSection", false)
+  </div>
+}
+@section HeadContent
+{
+  @if (IsSectionDefined("HeadContent")) {
+    @RenderSection("HeadContent")
+  }
+}
+<div class="btn-group" style="margin-bottom: 15px; width: 900px;">
+  @if (User.IsInRole("TenantAdmin")) {
+    <div class="btn-group dropdown">
+      <button class="btn dropdown-toggle" data-toggle="dropdown" data-target="admintasks">
+        Tenants
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" data-target="admintasks">
+        <li>@Html.ActionLink("Tenant Manager", "Index", new {controller = "Tenant"})</li>
+        <li>@Html.ActionLink("Show Applications", "Index", new {controller = "Applications"}, new {@class = "level2"})</li>
+        <li>@Html.ActionLink("Create Applications", "Create", new {controller = "Applications"}, new {@class = "level2"})</li>
+      </ul>
+    </div>
+  }
+  <div class="btn-group dropdown">
+    <button class="btn dropdown-toggle" data-toggle="dropdown" data-target="usertasks">
+      Users, Media &amp; Orders
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" data-target="usertasks">
+      <li>@Html.ActionLink("Show User", "Index", new { controller = "User" }, new { @class = "level2" })</li>
+      <li>@Html.ActionLink("Show Addresses", "Index", new { controller = "Address" }, new { @class = "level2" })</li>
+      <li class="separator"></li>
+      <li>@Html.ActionLink("Show Roles", "Index", new { controller = "Role" }, new { @class = "level2" })</li>
+      <li>@Html.ActionLink("Create Role", "Create", new { controller = "Role" }, new { @class = "level2" })</li>
+      <li class="separator"></li>
+      <li>@Html.ActionLink("Show Order", "Index", new { controller = "Order" }, new { @class = "level2" })</li>      
+      <li class="separator"></li>
+      <li>@Html.ActionLink("Show Media", "Index", new { controller = "Media" }, new { @class = "level2" })</li>
+      <li>@Html.ActionLink("Create Media", "Create", new { controller = "Media" }, new { @class = "level2" })</li>
+    </ul>
+  </div>
+  <div class="btn-group dropdown">
+    <button class="btn dropdown-toggle" data-toggle="dropdown" data-target="projecttasks">
+      Projects & Teams
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" data-target="projecttasks">
+      <li>@Html.ActionLink("Show Projects", "Index", new { controller = "Project" }, new { @class = "level2" })</li>
+      <li>@Html.ActionLink("Show Teams", "Index", new { controller = "Team" }, new { @class = "level2" })</li>
+    </ul>
+  </div>
+  <div class="btn-group dropdown">
+    <button class="btn dropdown-toggle" data-toggle="dropdown" data-target="catalogtasks">
+      Catalog
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" data-target="catalogtasks">
+      <li>@Html.ActionLink("Show Catalog", "Index", new { controller = "Catalog" }, new { @class = "level2" })</li>
+    </ul>
+  </div>
+  <div class="btn-group dropdown">
+    <button class="btn dropdown-toggle" data-toggle="dropdown" data-target="pagetasks">
+      Menus & Pages
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" data-target="pagetasks">
+      <li>@Html.ActionLink("Show Pages", "Index", new { controller = "Page" }, new { @class = "level2" })</li>
+      <li>@Html.ActionLink("Create Pages", "Create", new { controller = "Page" }, new { @class = "level2" })</li>
+      <li class="separator"></li>
+      <li>@Html.ActionLink("Show Menus", "Index", new { controller = "Menu" }, new { @class = "level2" })</li>
+      <li>@Html.ActionLink("Create Menus", "Create", new { controller = "Menu" }, new { @class = "level2" })</li>
+      <li>@Html.ActionLink("Show Menu Items", "Index", new { controller = "MenuItem" }, new { @class = "level2" })</li>
+      <li>@Html.ActionLink("Create Menu Items", "Create", new { controller = "MenuItem" }, new { @class = "level2" })</li>
+    </ul>
+  </div>
+</div>
+@RenderBody()
+@section FooterContent {
+  @if (!IsSectionDefined("FooterContent")) {
+    @Html.Action("Show", "Navigation", new { menuName = "footer-simple", area = "" })
+  } else {
+    @RenderSection("FooterContent", false)
+  }
+}
+@*
+  <div id="topmenu" class="topmenudiv">
+    <ul class="menu menu-dropdown">
+
+    </ul>
+  </div>
+*@

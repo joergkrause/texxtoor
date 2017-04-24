@@ -1,0 +1,4 @@
+﻿@using Texxtoor.DataModels.Models.JobPortal
+@model JobContractType
+@Create.CheckBoxListFromEnum(typeof(JobContractType), "ContractTypes", (int)Model, true, "ContractTypes")
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

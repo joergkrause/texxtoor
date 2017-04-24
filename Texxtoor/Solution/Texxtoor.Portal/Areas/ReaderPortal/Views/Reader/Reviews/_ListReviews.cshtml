@@ -1,0 +1,47 @@
+﻿@using Texxtoor.DataModels.Models.Reader.Content
+@model IPagedList<Texxtoor.DataModels.Models.Reader.Content.ReaderReview>
+@Html.Partial("_Pagination", PaginationViewModel<ReaderReview>.Create(Model, "javascript:UpdateTable({page}, '{order}', '{dir}', {pagesize});",
+    new Dictionary<string, string> {
+    {"id", "addBtn"},
+    {"action", "ui.addElement()" },
+    {"text", ViewResources.Action_Opus_CreateReview},
+    {"cssclass", "btn-primary"}
+  },
+  true,
+  m => m.Reviewer.UserName, m => m.CreatedAt))
+@if (Model == null || !Model.Any()) {
+  <div class="alert alert-danger">
+    @Loc("textNoModel", @"There are no Reviews. Add a peer reviwer role to the project to let people review this work.")
+  </div>
+} else {
+  <div class="multilist">
+    @foreach (var item in Model) {
+      if (item.Reviewer == null) {
+        continue;
+      }
+      <div class="firstRow">
+        @Badges.NewItem(item.Reviewer.UserName, item.CreatedAt, TimeSpan.FromDays(30))
+      </div>
+      <div class="secondRow">
+        @Loc("text", @"
+          This review was created at <em><span data-args='0' data-desc='At'>{0}</span></em>
+          and by <em><span data-args='1' data-desc='Name'>{1}</span></em>.
+          It is ranked with <em><span data-args='3' data-desc='Review'>{2}</span></em> stars.",
+          item.CreatedAt.ToLongDateString(),
+          item.Reviewer.UserName,
+          item.Level)
+        <div class="well well-sm">
+          @item.Comment
+        </div>
+      </div>
+      <div class="thirdRow">
+        <div class="optionFields" data-item="item.Id">
+          @if (item.Reviewer.UserName == User.Identity.Name && !item.Approved) {
+            @:@Create.FormButtonOnClick("editReview", "ui.editElement(" + item.Id + ")", ViewResources.Action_Opus_ReviewEdit, BtStyle.ButtonDefault)
+            @:@Create.FormButtonOnClick("delReview", "ui.deleteElement(" + item.Id + ")", ViewResources.Action_Opus_ReviewDelete, BtStyle.ButtonWarning)
+          }
+        </div>
+      </div>
+    }
+  </div>
+}

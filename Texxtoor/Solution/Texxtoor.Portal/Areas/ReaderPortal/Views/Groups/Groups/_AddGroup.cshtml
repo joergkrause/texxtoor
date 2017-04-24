@@ -1,0 +1,7 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Functions.ReaderGroup
+@using (Html.BeginForm("AddGroup", "Groups", new { area = "ReaderPortal" }, FormMethod.Post, new { id = "addGroupForm" })) {
+  using(Html.BtFieldset(Loc("legendGrp", @"Create New Group"))) {
+    @Html.EditorForModel()
+    @Button.FormSendButtons("addGroupSendButton", ViewResources.Action_Groups_CreateGroup, "addGroupCancelButton", ViewResources.Button_CancelAndClose)
+  }
+}

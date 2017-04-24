@@ -1,0 +1,48 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.Catalog
+
+@{
+  PageData["Title"] = "Create Catalog Item";
+  Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+<script src="~/Scripts/jquery/jquery.validate.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery/jquery.validate.unobtrusive.js" type="text/javascript"></script>
+@using (Html.BeginForm()) {
+  @Html.ValidationSummary(true)
+  using (Html.BtFieldset("Catalog")) {
+    <div class="editor-label">
+      @Html.LabelFor(model => model.Description)
+    </div>
+    <div class="editor-field">
+      @Html.EditorFor(model => model.Description)
+      @Html.ValidationMessageFor(model => model.Description)
+    </div>
+
+    <div class="editor-label">
+      @Html.LabelFor(model => model.LocaleId)
+    </div>
+    <div class="editor-field">
+      @Html.EditorFor(model => model.LocaleId)
+      @Html.ValidationMessageFor(model => model.LocaleId)
+    </div>
+
+    <div class="editor-label">
+      @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="editor-field">
+      @Html.EditorFor(model => model.Name)
+      @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="editor-label">
+      @Html.LabelFor(model => model.OrderNr)
+    </div>
+    <div class="editor-field">
+      @Html.EditorFor(model => model.OrderNr)
+      @Html.ValidationMessageFor(model => model.OrderNr)
+    </div>
+    <div class="formsendButtons">
+      <button class="btn btn-sm btn-primary" type="submit">Save Catalog Item</button>
+      @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-sm btn-default" })
+    </div>
+  }
+}

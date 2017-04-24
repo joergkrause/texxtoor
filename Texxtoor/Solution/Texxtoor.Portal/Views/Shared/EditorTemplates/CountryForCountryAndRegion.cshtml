@@ -1,0 +1,6 @@
+﻿@model string
+@{
+  var countryList = UserProfileManager.Instance.GetCountryListForSelect(Model);
+}
+@Html.DropDownListFor(m => m, countryList, ViewResources.DropList_Profile_SelectCountry, new Dictionary<string, object> { { "style", "width:250px" } })
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

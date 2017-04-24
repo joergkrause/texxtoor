@@ -1,0 +1,16 @@
+﻿@model Texxtoor.DataModels.Models.Content.ResourceFile
+<input type="text" name="newlabel" style="width:150px; display: inline-block;" class="form-control" />
+@Loc("or", "or")
+<select name="label" style="width: 150px; display: inline-block;" class="form-control" data-item="@(Model == null ? 0 : Model.Id)" @(Model != null ? "data-action=label" : "")>
+  <option value=""></option>
+  @foreach (var label in (IEnumerable<Texxtoor.DataModels.Models.Content.ResourceFolder>)ViewData["Labels"]) {
+    if (Model == null || Model.Parent == null) {
+      <option value="@label">@label</option>
+    } else {
+      <option value="@label" @(label.Name == Model.Parent.Name ? "selected='selected'" : "")>
+        @label
+      </option>
+    }
+  }
+</select>
+@Loc("then", "then")

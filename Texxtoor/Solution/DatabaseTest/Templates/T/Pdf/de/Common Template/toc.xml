@@ -1,0 +1,5 @@
+﻿<div class="toc" id="toc-h-1" xmlns:t="http://www.texxtoor.de/2014/templating">
+  <h1 class='builder'></h1>
+  <h2 class='builder'></h2>
+  <t:toc containerelement="ul" buildelement="li" />
+</div>

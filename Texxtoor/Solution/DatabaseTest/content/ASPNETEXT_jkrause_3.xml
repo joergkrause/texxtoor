@@ -1,0 +1,4042 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Content>
+  <Element Type="Opus" Name="ASP.NET Extensibility - Modules and Handlers" Short="Explore how to break through ASP.NET's boundaries" Description="Pro ASP.NET Extensibility, a book for advanced users of ASP.NET.">
+    ASP.NET Extensibility
+    <Element Type="Section" Name = "Modules and Handlers" >
+      Modules and Handlers
+      <Element Type="Text">
+        <p>
+          In this chapter, we will look more
+          closely at the extensibility of ASP.NET through the addition of custom modules
+          and handlers. Handlers and modules are integrated into IIS so that your web
+          applications can perform and scale well. In the previous chapter, you learned
+          how to use asynchronous handlers to handle custom threads. Here, we’ll learn
+          more about how ASP.NET can be extended using handlers. The objectives of this
+          chapter are:
+        </p>
+        <ul>
+          <li>Learn what internal modules are for</li>
+          <li>Find out how to create, activate, and debug custom modules</li>
+          <li>Discover the handlers included in ASP.NET</li>
+          <li>Extend, customize, and replace handlers</li>
+          <li>Write your own handlers with both synchronous and asynchronous behavior</li>
+        </ul>
+      </Element>
+      <Element Type="Section" Name="Module, handlers and IIS">
+        Module, handlers and IIS
+        <Element Type="Text">
+
+          <p>
+            IIS7 Web server features fit into one
+            of two categories:
+          </p>
+          <ul>
+            <li>Modules</li>
+            <li>Handlers</li>
+          </ul>
+          <p>
+            Similar to the <i>ISAPI filter</i>
+            in previous IIS versions, a module participates in the processing of each request.
+            Its role is to change or add content to the request. Examples of some out-of-the-box
+            modules in IIS7 include authentication modules, compression modules, and
+            logging modules. The names indicate the function of each module.
+          </p>
+
+          <p>
+            A module is a .NET class that implements
+            the <code>System.Web.IHttpModule</code> interface and uses APIs in the <code>
+              System.Web
+            </code>
+            namespace to participate in one or more of ASP.NET’s request processing stages.
+            I explained the stages of this ‘pipeline’ in chapter 1.
+          </p>
+
+          <p>
+            By contrast, a handler,
+            similar to the <i>ISAPI extension</i> in previous IIS versions, is responsible
+            for handling requests and creating responses for specific content types. The
+            main difference between modules and handlers is that handlers are typically
+            mapped to a particular request path or extension. They also support the
+            processing of a specific resource to which that path or extension corresponds. Handlers
+            provided with IIS7 include ASP.NET’s <code>
+              PageHandlerFactory
+            </code>, which processes .aspx pages, among others. This kind of a handler
+            is a .NET class that implements the ASP.NET <code>
+              System.Web.IHttpHandler
+            </code> or <code>
+              System.Web.IHttpAsyncHandler
+            </code> interface.
+            It uses APIs in the <code>
+              System.Web
+            </code> namespace to
+            produce an HTTP response for the specific content it creates.
+          </p>
+
+          <p>
+            When developing an IIS7
+            feature or ASP.NET extension, you’ll need to decide whether a module or a
+            handler is appropriate. No common task requires both. If your feature is
+            responsible for serving requests to a specific URL or file extension, like
+            *.png, then a handler is the right choice as handlers are primarily for
+            specific tasks. Alternatively, if you want to respond to some or all requests,
+            a module is appropriate.
+          </p>
+
+          <p>
+            Creating images on the fly corresponds
+            to a specific file type—use a handler to achieve this. Adding footers to all
+            your pages from one location is a good idea—implement a module to do that.
+          </p>
+
+        </Element>
+      </Element>
+      <Element Type="Section" Name="Modules">
+        Modules
+        <Element Type="Text">
+          <p>
+            This section explains how to create
+            internal modules and gives some examples that you can use in your own
+            applications.
+          </p>
+
+        </Element>
+        <Element Type="Section" Name="IIS7 Architecture">
+          IIS7 Architecture
+          <Element Type="Text">
+
+            <p>
+              ASP.NET is tightly integrated with
+              IIS7. Even though it’s possible to run ASP.NET with any host, thanks to its modular
+              architecture, you should keep in mind that IIS is the best platform “by
+              design". Extending and customizing ASP.NET is only possible with a good
+              understanding of IIS and its parts.
+            </p>
+
+            <p>
+              Microsoft changed large parts
+              of the architecture of IIS7 compared to previous versions. One of the major changes
+              was the greatly enhanced extensibility. Instead of a powerful but monolithic
+              Web server, with IIS7 there is now a Web server engine to which you can add or
+              remove components. These components are called modules.
+            </p>
+
+            <p>
+              Modules build the features offered
+              by the Web server. All modules have one primary task—processing a request. This
+              can become complicated, however, as a request isn’t just a call to static
+              resources. Consider requests involving the authentication of client
+              credentials, compression and decompression, or cache management.
+            </p>
+
+            <p>
+              Assuming that IIS7 is the
+              primary platform for running ASP.NET, any discussion about extensibility does
+              not make sense without understanding what accompanies IIS7. IIS7 comes with two
+              module types:
+            </p>
+            <ul>
+              <li>Native Modules</li>
+              <li>Managed Modules</li>
+            </ul>
+
+          </Element>
+          <Element Type="Section" Name="Native Modules">
+            Native Modules
+            <Element Type="Text">
+
+              <p>
+                Native modules perform all the basic
+                tasks of a Web server. However, not all modules manage common requests. It
+                depends on your installation and configuration as to whether a module is
+                available and running. Inside IIS7 are:
+              </p>
+              <ul>
+                <li>HTTP Modules</li>
+                <li>Security Modules</li>
+                <li>Content Modules</li>
+                <li>Compression Modules</li>
+                <li>Caching Modules</li>
+                <li>Logging and Diagnosing Modules</li>
+                <li>Integration of Managed Modules</li>
+              </ul>
+              <p>
+                You can find all modules—apart from
+                those whose full path is given below—in the following directory:
+              </p>
+
+              <p class="Query">%WinDir%\System32\InetSrv</p>
+
+              <p>
+                The HTTP modules perform tasks specific
+                to Hypertext Transfer Protocol.
+              </p>
+            </Element>
+            <Element Type="table" Name="HTTP Modules">
+              <table>
+                <tr>
+                  <th>Module Name</th>
+                  <th>DLL</th>
+                  <th>Description</th>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      CustomErrorModule
+                    </code>
+                  </td>
+                  <td>Custerr.dll</td>
+                  <td>
+                    Sends
+                    default and configured HTTP error messages when an error status code is set on
+                    a response.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+                      HttpRedirectionModule
+                    </code>
+                  </td>
+                  <td>Redirect.dll</td>
+                  <td>
+                    Supports
+                    configurable redirection for HTTP requests.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>ProtocolSupportModule</code>
+                  </td>
+                  <td>Protsup.dll</td>
+                  <td>
+                    Performs protocol-related actions, such as
+                    setting response headers and redirecting headers based on configuration.
+                  </td>
+                </tr>
+              </table>
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                Security is essential for a Web server,
+                as shown by the number of modules in this section.
+              </p>
+
+            </Element>
+            <Element Type="table" Name="Security Modules">
+              <table>
+                <tr>
+                  <th>Module Name</th>
+                  <th>DLL</th>
+                  <th>Description</th>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      AnonymousAuthenticationModule
+                    </code>
+                  </td>
+                  <td>Authanon.dll</td>
+                  <td>
+                    Performs
+                    anonymous authentication when no other authentication method succeeds.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      BasicAuthenticationModule
+                    </code>
+                  </td>
+                  <td>Authbas.dll</td>
+                  <td>Performs Basic authentication.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      CertificateMappingAuthenticationModule
+                    </code>
+                  </td>
+                  <td>Authcert.dll</td>
+                  <td>
+                    Performs
+                    Certificate Mapping authentication using Active Directory.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      DigestAuthenticationModule
+                    </code>
+                  </td>
+                  <td>Authmd5.dll</td>
+                  <td>
+                    Performs
+                    Digest authentication.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      IISCertificateMappingAuthenticationModule
+                    </code>
+                  </td>
+                  <td>Authmap.dll</td>
+                  <td>
+                    Performs Certificate Mapping
+                    authentication using IIS certificate configuration.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      RequestFilteringModule
+                    </code>
+                  </td>
+                  <td>Modrqflt.dll</td>
+                  <td>
+                    Performs
+                    URLScan tasks such as configuring allowed verbs and file extensions, setting
+                    limits, and scanning for bad character sequences.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      UrlAuthorizationModule
+                    </code>
+                  </td>
+                  <td>Urlauthz.dll</td>
+                  <td>
+                    Performs
+                    URL authorization.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      WindowsAuthenticationModule
+                    </code>
+                  </td>
+                  <td>Authsspi.dll</td>
+                  <td>
+                    Performs
+                    NTLM integrated authentication.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>IpRestrictionModule</code>
+                  </td>
+                  <td>iprestr.dll</td>
+                  <td>
+                    Restricts IPv4 addresses listed in the IpSecurity
+                    list in configuration.
+                  </td>
+                </tr>
+              </table>
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                Once the request is accepted and
+                authorized, the requested resources must be handled. Several modules perform these
+                specific tasks.
+              </p>
+
+            </Element>
+            <Element Type="table" Name="Content Modules">
+              <table>
+                <tr>
+                  <th>Module Name</th>
+                  <th>DLL</th>
+                  <th>Description</th>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      CgiModule
+                    </code>
+                  </td>
+                  <td>Cgi.dll</td>
+                  <td>
+                    Executes
+                    Common Gateway Interface (CGI) processes to build response output.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      DefaultDocumentModule
+                    </code>
+                  </td>
+                  <td>Defdoc.dll</td>
+                  <td>
+                    Attempts
+                    to return a default document for requests made to the parent directory.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      DirectoryListingModule
+                    </code>
+                  </td>
+                  <td>dirlist.dll</td>
+                  <td>
+                    Lists
+                    the contents of a directory.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      IsapiModule
+                    </code>
+                  </td>
+                  <td>Isapi.dll</td>
+                  <td>
+                    Hosts ISAPI
+                    extension DLLs.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      IsapiFilterModule
+                    </code>
+                  </td>
+                  <td>Filter.dll</td>
+                  <td>
+                    Supports
+                    ISAPI filter DLLs.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      ServerSideIncludeModule
+                    </code>
+                  </td>
+                  <td>Iis_ssi.dll</td>
+                  <td>
+                    Processes
+                    server-side includes code.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      StaticFileModule
+                    </code>
+                  </td>
+                  <td>Static.dll</td>
+                  <td>
+                    Serves
+                    static files.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>FastCgiModule</code>
+                  </td>
+                  <td>iisfcgi.dll</td>
+                  <td>
+                    Supports FastCGI, which provides a high-performance
+                    alternative to CGI.
+                  </td>
+                </tr>
+              </table>
+            </Element>
+            <Element Type="Text">
+              <p>
+                Compression is a common way to save
+                bandwidth and transfer large files more efficiently.
+              </p>
+
+            </Element>
+            <Element Type="table" Name="Compression Modules">
+              <table>
+                <tr>
+                  <th>Module Name</th>
+                  <th>DLL</th>
+                  <th>Description</th>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      DynamicCompressionModule
+                    </code>
+                  </td>
+                  <td>Compdyn.dll</td>
+                  <td>
+                    Compresses
+                    responses using <i>gzip</i> compression transfer coding on-the-fly.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>StaticCompressionModule</code>
+                  </td>
+                  <td>Compstat.dll</td>
+                  <td>
+                    Performs pre-compression of static
+                    content.
+                  </td>
+                </tr>
+              </table>
+            </Element>
+            <Element Type="Text">
+              <p>
+                Caching is another way to improve
+                performance. Several modules store files so that the delivery process is either
+                accelerated or eliminated altogether.
+              </p>
+
+            </Element>
+            <Element Type="table" Name="Caching Modules">
+              <table>
+                <tr>
+                  <th>Module Name</th>
+                  <th>DLL</th>
+                  <th>Description</th>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      FileCacheModule
+                    </code>
+                  </td>
+                  <td>Cachfile.dll</td>
+                  <td>
+                    Provides
+                    user mode caching for files and file handles.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      HTTPCacheModule
+                    </code>
+                  </td>
+                  <td>Cachhttp.dll</td>
+                  <td>
+                    Provides
+                    kernel mode and user mode caching in HTTP.sys.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      TokenCacheModule
+                    </code>
+                  </td>
+                  <td>Cachtokn.dll</td>
+                  <td>
+                    Provides
+                    user mode caching of user name and token pairs for modules that produce Windows
+                    user principals.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>UriCacheModule</code>
+                  </td>
+                  <td>Cachuri.dll</td>
+                  <td>Provides user mode caching of URL information.</td>
+                </tr>
+              </table>
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                Knowing what is happening is essential
+                for Web server administrators. There are several steps from the code on your
+                server—where you probably have debug capabilities—to the browser, where you might
+                miss seeing the desired output. Even production systems do not always behave as
+                expected. Logging and diagnostic modules help you understand the internal
+                processing of requests and responses.
+              </p>
+
+            </Element>
+            <Element Type="table" Name="Table 3-6. Logging and Diagnostic Modules">
+              <table>
+                <tr>
+                  <th>Module Name</th>
+                  <th>DLL</th>
+                  <th>Description</th>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      CustomLoggingModule
+                    </code>
+                  </td>
+                  <td>Logcust.dll</td>
+                  <td>
+                    Loads
+                    custom logging modules.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      FailedRequestsTracingModule
+                    </code>
+                  </td>
+                  <td>Iisfreb.dll</td>
+                  <td>
+                    Supports
+                    the Failed Request Tracing feature.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+                      HttpLoggingModule
+                    </code>
+                  </td>
+                  <td>Loghttp.dll</td>
+                  <td>
+                    Passes
+                    information and processing status to HTTP.sys for logging.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      RequestMonitorModule
+                    </code>
+                  </td>
+                  <td>Iisreqs.dll</td>
+                  <td>
+                    Tracks
+                    requests currently executing in worker processes and reports information with
+                    Runtime Status and Control Application Programming Interface (RSCA).
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>TracingModule</code>
+                  </td>
+                  <td>Iisetw.dll</td>
+                  <td>
+                    Reports events to Microsoft Event Tracing
+                    for Windows (ETW).
+                  </td>
+                </tr>
+              </table>
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                Finally, you need an interface to the
+                managed world. In chapter 1, you saw how modules interacted. The next table
+                shows which modules are involved in this interaction.
+              </p>
+            </Element>
+            <Element Type="table" Name="Integration of Managed Modules">
+              <table>
+                <tr>
+                  <th>Module Name</th>
+                  <th>DLL/Assembly</th>
+                  <th>Description</th>
+                </tr>
+                <tr>
+                  <td>
+                    <code>ManagedEngine</code>
+                  </td>
+                  <td>Microsoft.NET\Framework\v2.0.50727\webengine.dll</td>
+                  <td>
+                    Provides integration of managed code modules in the IIS request-processing
+                    pipeline.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>ConfigurationValidationModule</code>
+                  </td>
+                  <td>
+                    validcfg.dll
+                  </td>
+                  <td>
+                    Validates configuration issues, such as when
+                    an application is running in Integrated mode but has handlers or modules
+                    declared in the system.web section.
+                  </td>
+                </tr>
+              </table>
+            </Element>
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Managed Modules">
+          Managed Modules
+          <Element Type="Text">
+
+            <p>
+              While extending IIS7 via native modules
+              is one method of writing high performance applications, for most projects, this
+              is not necessary or desirable. Extending ASP.NET using managed modules has
+              significant advantages in development time and reliability. IIS7 includes several
+              built-in, managed modules, which show that it is possible to write low-level
+              infrastructure components in managed code.
+            </p>
+
+            <p>
+              You can find the definition of security
+              modules in the <code>System.Web.Security</code> namespace.
+            </p>
+
+          </Element>
+          <Element Type="table" Name="Managed code Security Modules shipped with IIS7">
+            <table>
+              <tr>
+                <th>Module Name</th>
+                <th>Class</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>AnonymousIdentification</td>
+                <td>
+                  <code>AnonymousIdentificationModule</code>
+                </td>
+                <td>
+                  Manages anonymous identifiers, which are used by features that
+                  support anonymous identification such as the ASP.NET profile.
+                </td>
+              </tr>
+              <tr>
+                <td>DefaultAuthentication</td>
+                <td>
+                  <code>DefaultAuthenticationModule</code>
+                </td>
+                <td>
+                  Ensures that an authentication object is present in the
+                  context.
+                </td>
+              </tr>
+              <tr>
+                <td>FileAuthorization</td>
+                <td>
+                  <code>FileAuthorizationModule</code>
+                </td>
+                <td>Verifies that a user has permission to access the requested file.</td>
+              </tr>
+              <tr>
+                <td>FormsAuthentication</td>
+                <td>
+                  <code>FormsAuthenticationModule</code>
+                </td>
+                <td>Supports authentication using Forms authentication.</td>
+              </tr>
+              <tr>
+                <td>RoleManager</td>
+                <td>
+                  <code>RoleManagerModule</code>
+                </td>
+                <td>Manages a RolePrincipal instance for the current user.</td>
+              </tr>
+              <tr>
+                <td>UrlAuthorization </td>
+                <td>
+                  <code>UrlAuthorizationModule</code>
+                </td>
+                <td>
+                  Determines whether the current user is permitted access to the
+                  requested URL, based on the user name or membership of a suitable role.
+                </td>
+              </tr>
+              <tr>
+                <td>WindowsAuthentication</td>
+                <td>
+                  <code>WindowsAuthenticationModule</code>
+                </td>
+                <td>
+                  Sets the identity of the user for an ASP.NET application when
+                  Windows authentication is enabled.
+                </td>
+              </tr>
+            </table>
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              The definition of the cache module is
+              stored in <code>System.Web.Caching</code>. This module is declared as <code>internal</code> and is not accessible by user code.
+            </p>
+
+          </Element>
+          <Element Type="table" Name="Managed code Caching Modules shipped with IIS7">
+            <table>
+              <tr>
+                <th>Module Name</th>
+                <th>Class</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>OutputCache</td>
+                <td>
+                  <code>OutputCacheModule</code>
+                </td>
+                <td>Supports output caching.</td>
+              </tr>
+            </table>
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              The module for profile handling is in the
+              <code>System.Web.Profile</code> namespace.
+            </p>
+
+          </Element>
+          <Element Type="table" Name="Managed code Profiles Modules shipped with IIS7">
+            <table>
+              <tr>
+                <th>Module Name</th>
+                <th>Class</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>Profile</td>
+                <td>
+                  <code>ProfileModule</code>
+                </td>
+                <td>
+                  Manages user profiles by using the ASP.NET profile, which
+                  stores and retrieves user settings in a data source such as a database.
+                </td>
+              </tr>
+            </table>
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              For session handling modules, look into
+              the <code>System.Web.SessionState</code> namespace.
+            </p>
+
+          </Element>
+          <Element Type="table" Name="Managed code Session Modules shipped with IIS7">
+            <table>
+              <tr>
+                <th>Module Name</th>
+                <th>Class</th>
+                <th>Description </th>
+              </tr>
+              <tr>
+                <td>Session</td>
+                <td>
+                  <code>SessionStateModule</code>
+                </td>
+                <td>
+                  Supports the maintenance of a session state, which enables the
+                  storage of data specific to a single client within an application on the server.
+                </td>
+              </tr>
+            </table>
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              The modules for URL handling are stored
+              in the root namespace <code>
+                System.Web
+              </code>.
+            </p>
+
+          </Element>
+          <Element Type="table" Name="Managed code URL Modules shipped with IIS7">
+            <table>
+              <tr>
+                <th>Module Name</th>
+                <th>Class</th>
+                <th>Description </th>
+              </tr>
+              <tr>
+                <td>UrlMappingsModule</td>
+                <td>
+                  <code>UrlMappingsModule</code>
+                </td>
+                <td>Supports mapping a real URL to a more user-friendly URL.</td>
+              </tr>
+            </table>
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              Given this list of modules, you might
+              feel that there is no need to write custom modules to perform standard tasks. This
+              is true; the developers of ASP.NET and IIS have delivered everything you need
+              for common infrastructure work. However, if you’d like to program an application-specific
+              task, writing your own module is an excellent way to extend ASP.NET and add
+              sophisticated features of your choice.
+            </p>
+
+          </Element>
+        </Element>
+        <Element Type="Section" Name="The IIS7 Managed Module Starter Kit">
+          The IIS7 Managed Module Starter Kit
+          <Element Type="Text">
+
+            <p>
+              Microsoft provides a starter kit to
+              make it easy to write your first module for the new IIS7 managed API. This
+              Visual Studio Content Installer contains a project template for building IIS7
+              Modules using the .NET Framework.
+            </p>
+
+          </Element>
+          <Element Type="Section" Name="Get the Starter Kit">
+            Get the Starter Kit
+            <Element Type="Text">
+
+              <p>
+                The Starter Kit is available at no cost
+                from Microsoft at the www.iis.net website:
+              </p>
+
+              <p class="Query">http://www.iis.net/downloads/default.aspx?tabid=34&amp;i=1302&amp;g=6</p>
+
+              <p>
+                Click on Download, save the file and
+                unzip to a current folder. The kit is a Visual Studio template installer, provided
+                as a .vsi file.
+              </p>
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Benefits of Module Development Kit">
+            Benefits of Module Development Kit
+            <Element Type="Text">
+
+              <p>
+                Since IIS7 supports development using managed
+                code, it means you can program HTTP request processing in managed code. The
+                entire event structure of IIS7, written in native API (C/C++), is also
+                available to managed code developers.
+              </p>
+
+            </Element>
+
+            <Element Type="Image" Name="Installing the template">
+              images/19835f0301.png
+            </Element>
+            <Element Type="SideBar" SidebarType="Note">
+              <header>Note</header>
+              <aside>
+                the Starter Kit
+                simplifies the first steps. However, you don’t need it to run the samples
+                provided in this chapter.
+              </aside>
+            </Element>
+            <Element Type="Text">
+              <p>Once the template is installed, you can add new modules by using the right item for your project. </p>
+            </Element>
+            <Element Type="Image" Name="Adding a new module code item to a current project">
+              images/19835f0302.png
+            </Element>
+            <Element Type="Text">
+              <ul>
+                <li>This item creates a class skeleton, which looks like</li>
+              </ul>
+
+            </Element>
+            <Element Type="Listing" Name="Skeleton of a module class"></Element>
+
+            using System;
+            using System.Web;
+            namespace Apress.HttpModules
+            {
+                public class DirListModule : IHttpModule
+                {
+                    /// &lt;summary&gt;
+                    /// You will need to configure this module in the web.config file
+            /// and register it with IIS before being able to use it.
+                    /// For more information
+            /// see the following link: http://go.microsoft.com/?linkid=8101007
+                    /// &lt;/summary&gt;
+                    #region IHttpModule Members                    public void Dispose()
+                    {
+                        //clean-up code here.
+                    }
+
+                    public void Init(HttpApplication context)
+                      {         
+            // Below is an example of how you can handle LogRequest
+                        // event and provide
+                        // custom logging implementation for it
+                        context.LogRequest += new EventHandler(OnLogRequest);
+                    }
+
+                    #endregion                    public void OnLogRequest(Object source, EventArgs e)
+                    {
+                        //custom logging logic can go here
+                    }
+                }
+            }
+
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              For the sake of clarity and space, I
+              will not repeat this part of the module code in the following sections when
+              examining the various examples.
+            </p>
+
+          </Element>
+          <Element Type="Section" Name="Building a Module">
+            Building a Module
+            <Element Type="Text">
+
+              <p>
+                As requests move through the pipeline,
+                a number of events fire on the <code>
+                  HttpApplication
+                </code> object.
+                As you’ve seen already, these events are published as event methods in <i>Global.asax</i>.
+                This approach is application-specific, but not always ideal. If you want to
+                build generic <code>
+                  HttpApplication
+                </code> event hooks that can be
+                plugged into any Web application, you can use <code>
+                  HttpModules
+                </code>.
+                These are reusable and require an entry in <i>web.config</i> instead of application-specific
+                code.
+              </p>
+
+            </Element>
+            <Element Type="Section" Name="Define the Modules">
+              Define the Modules
+              <Element Type="Text">
+                <p>
+                  Modules allow you to hook events for any
+                  request that passes through the ASP.NET <code>HttpApplication</code> object. These modules are stored as classes in external assemblies configured
+                  in <i>web.config</i>, which causes them to load when the application starts. By
+                  implementing specific interfaces and methods, the module is hooked up to the <code>HttpApplication</code> event chain. Multiple
+                  <code>HttpModules</code> can hook the same event. Their order is determined by their order of appearance
+                  in <i>web.config</i>. A handler definition in <i>web.config</i>
+                  looks like:
+                </p>
+              </Element>
+              <Element Type="Listing" Name="Register a module in web.config">
+                &lt;configuration&gt;
+                  &lt;system.web&gt;
+                    &lt;httpModules&gt;
+                                  &lt;add Name= &quot;MyModule&quot; type=&quot;Apress.HttpModules.Modules,MyModule&quot; /&gt;
+                    &lt;/httpModules&gt;
+                  &lt;/system.web&gt;
+                &lt;/configuration&gt;
+              </Element>
+              <Element Type="Text">
+                <p>
+                  Note that you need to specify both a
+                  full type name and an assembly name without the DLL extension.
+                </p>
+                <p>
+                  Modules allow you observe each
+                  incoming request and perform an action based on the events that fire. Modules
+                  are excellent for modifying a request or responding to particular content in
+                  order to provide custom authentication or pre- or post-processing to each request
+                  that arrives.
+                </p>
+                <p>
+                  Many of ASP.NET’s features,
+                  such as the Authentication and Session engines, are implemented as HTTP
+                  Modules. While <code>HttpModules</code> might feel similar to <i>ISAPI Filters</i>
+                  in that they examine every request that arrives through an ASP.NET
+                  Application, in reality they are limited to scrutinizing requests mapped to a
+                  single specific ASP.NET application or virtual directory.
+                </p>
+                <p>
+                  You can thus inspect all .aspx
+                  pages or any other custom extensions that are mapped to this application. However,
+                  you cannot look at standard .html or image files unless you explicitly map the
+                  extension to the ASP.NET ISAPI.dll.
+                </p>
+              </Element>
+            </Element>
+            <Element Type="Section" Name="Example—Write a Simple Authentication Module">
+              Example—Write a Simple Authentication Module
+              <Element Type="Text">
+                <p>
+                  This first example shows how to
+                  intercept the authentication procedure of the request pipeline. It also
+                  demonstrates how to add your own authentication module to handle tasks independently
+                  of the existing code.
+                </p>
+                <p>
+                  Implementing an HTTP Module is very easy.
+                  Implement the <code>IHttpModule</code> interface, which contains
+                  two methods: <code>Init</code> and <code>Dispose</code>.
+                </p>
+              </Element>
+              <Element Type="SideBar" SidebarType="Note">
+                <header>Note</header>
+                <aside>
+                  The Starter Kit item
+                  additionally creates a <code>LogRequest</code> handler. You
+                  can safely remove the handler and event assignment if you don’t need it.
+                </aside>
+              </Element>
+              <Element Type="Text">
+                <p>
+                  The event parameters passed include a
+                  reference to the <code>HTTPApplication</code> object,
+                  which in turn gives you access to the <code>HttpContext</code>
+                  object. Using the <code>Init</code> method, you can
+                  hook up to <code>HttpApplication</code> events. For example, if
+                  you want to hook the <code>AuthenticateRequest</code>
+                  event to a module you would do so as shown in Listing 3-3.
+                </p>
+              </Element>
+              <Element Type="Listing" Name="Simple implementation of an HTTP Module">
+                public class BasicAuthCustomModule : IHttpModule
+                {
+                  public void Init(HttpApplication application)
+                  {
+                     application.AuthenticateRequest +=
+                        new EventHandler(this.OnAuthenticateRequest);
+                  }
+
+                  public void Dispose() { }
+
+                  public void OnAuthenticateRequest(object source, Even-tArgs eventArgs)
+                  {
+                    HttpApplication app = (HttpApplication) source;
+                    HttpContext Context = HttpContext.Current;
+                    // and action
+                }
+
+              </Element>
+              <Element Type="Text">
+
+                <p>
+                  Remember that your Module has access to
+                  the <code>HttpContext</code> object and from there to all other intrinsic ASP.NET pipeline
+                  objects, such as <code>
+                    Response
+                  </code> and <code>Request</code>. From here, you can retrieve input, create content, and so forth. However,
+                  keep in mind that certain things may not be available until further down the
+                  chain.
+                </p>
+                <p>
+                  You can hook as many events as you like
+                  in the <code>Init</code> method so that your module is able to manage multiple operations with
+                  different functions. It is tidier to separate differing logic into separate modules.
+                  This ensures that the modules are, indeed, modular, as their name implies. In
+                  many cases, any functionality that you implement could require hooking multiple
+                  events. For example, a logging filter might log the start time of a request in <code>BeginRequest</code> and then write the request completion into the log in <code>EndRequest</code>.
+                </p>
+
+              </Element>
+              <Element Type="SideBar" SidebarType="Warning">
+                <header>Warning</header>
+                <aside>
+                  Modules work deep inside the
+                  processing pipeline. Calling certain methods can prevent the pipeline from proceeding
+                  to the next step. In particular, <code>Response.End</code>
+                  and <code>Application.CompleteRequest</code> complete the request and force the pipeline to end, thus skipping
+                  all subsequent steps. The pipeline will return control to the Web server and no
+                  further modules will be invoked. A better practice is to leave the pipeline
+                  running, but use a context variable to inform subsequent modules not to execute.
+                </aside>
+              </Element>
+              <Element Type="Text">
+
+                <p>
+                  The purpose of the <code>Dispose</code> method is to clean up any resources when the module unloads and to
+                  release other resources before the garbage collector finalizes the module
+                  instance. If there is nothing to dispose, leave the method body blank.
+                </p>
+                <p>
+                  The <code>Init</code> method
+                  is the main method of interest. Here, you can initialize your module and wire it
+                  up to one or more request processing events available on the <code>HttpApplication</code> class. Keep in mind that events fire when the appropriate step in
+                  the pipeline is reached, in a defined order and in conjunction with other
+                  modules. Without a clear understanding of the pipeline architecture explained
+                  in chapter 1, you’ll have difficulty writing sophisticated modules which
+                  perform well.
+                </p>
+
+              </Element>
+            </Element>
+            <Element Type="Section" Name="Example—Check for a Specific Header">
+              Example—Check for a Specific Header
+              <Element Type="Text">
+
+                <p>
+                  The following example checks for a
+                  specific header, called a referrer, which provides information about the
+                  referring page. The referrer is, paradoxically, named “referer". Don’t worry
+                  about the misspelled word (the sidebar explains more).
+                </p>
+
+              </Element>
+              <Element Type="Sidebar" SidebarType="Box">
+
+                <header>Wikipedia on the Word, Referer</header>
+                <aside>
+                  <p>
+                    <i>Referer</i> is
+                    a common misspelling of the word <i>referrer</i>. It is so common, in fact,
+                    that it made it into the official specification of HTTP – the communication
+                    protocol of the World Wide Web – and has therefore become a widely used
+                    industry spelling when discussing HTTP referrers. The misspelling usage is not
+                    universal; the correct spelling of &quot;referrer&quot; occurs in some web
+                    specifications such as the Document Object Model. [Source: http://en.wikipedia.org/wiki/Referer]
+                  </p>
+                  <p>I advise you to pay attention to which word you’re using! </p>
+                </aside>
+
+              </Element>
+              <Element Type="Text">
+
+                <p>
+                  In this example, we’ll look for
+                  a specific referrer or referring page—the URL of the previous page. (It’s the
+                  page containing the link to the page we’re currently processing.) The usage of
+                  the header is voluntary, according to HTTP standards, but most sites use it to
+                  track users or manage logging. However, some pages are not intended to be
+                  called from outside our site. If linked to from another page within our application,
+                  such pages will execute correctly, but if linked to from anywhere else, we’ll treat
+                  that as an exception. Such external links typically occur when a user bookmarks
+                  a specific page deep within your application. When attempting to open one of
+                  these pages, it is not possible, because there are several prerequisite steps
+                  to be completed beforehand. Using a module like the one in Listing 3-4, you can
+                  capture these requests outside the common page code and redirect users to a suitable
+                  page, such as one which explains appropriate usage of bookmarks.
+                </p>
+
+              </Element>
+              <Element Type="Listing" Name="An HTTP Module that looks for the Referer Header">
+
+                public class ReferrerModule : IHttpModule
+                {
+                    #region IHttpModule Members                    public void Dispose()
+                    {
+                        //clean-up code here.
+                    }
+
+                    public void Init(HttpApplication context)
+                    {
+                        context.PreRequestHandlerExecute +=
+                             new EventHandler(context_PreRequestHandlerExecute);
+                    }
+                    void context_PreRequestHandlerExecute(object sender, EventArgs e)
+                    {
+                        HttpApplication app = (HttpApplication)sender;
+                        HttpRequest request = app.Context.Request;
+                        if (!request.Url.LocalPath.EndsWith(&quot;Default.aspx&quot;))
+                        {
+                            if (String.IsNullOrEmpty(request.Headers[&quot;Referer&quot;]))
+                            {
+                                throw new HttpException(403, &quot;Bookmarking is not allowed&quot;);
+                            }
+                        }
+
+                    }
+
+                    #endregion                }
+
+              </Element>
+              <Element Type="Text">
+
+                <p>
+                  This code assumes that you have a page
+                  called Default.aspx linking to another page in your application. The name of
+                  the other page doesn’t matter.
+                </p>
+                <p>To test this module:</p>
+                <ol>
+                  <li>
+                    1. Configure <i>web.config</i> to activate the module.
+                  </li>
+                  <li>2. Create two pages, Default.aspx and RefererTest.aspx. Default.aspx has a hyperlink to RefererTest.aspx.</li>
+                  <li>3. Compile and start the application by launching the Default.aspx page.</li>
+                  <li>4. Click the hyperlink on Default.aspx—the RefererTest.aspx page is displayed.</li>
+                  <li>5. Bookmark the RefererTest.aspx page.</li>
+                  <li>6. Close your browser, re-open it, and load the bookmark, then press F5 to force a refresh of the page from the server.</li>
+                  <li>7. An exception occurs and the browser shows a 403 error.</li>
+                </ol>
+                <p>
+                  You might insist that this all can be
+                  accomplished on the page level using conventional code. This is correct, but fundamental
+                  tasks are best handled on a fundamental level. In addition, intercepting
+                  low-level events to handle low-level action is faster, more secure, and more reliable.
+                  Adding more pages with the same behavior does not require any change to the
+                  code. It simply works because the module tests all pages in the application.
+                </p>
+
+              </Element>
+
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Interaction between Modules">
+            Interaction between Modules
+            <Element Type="Text">
+
+              <p>
+                Writing private modules is a powerful technique
+                for extending ASP.NET. However, extending can mean replacing existing
+                functionality. Sometimes a smart solution results simply from using the internal
+                modules and your own module together.
+              </p>
+
+              <p>
+                To begin with, you’ll need access to the
+                internal modules at runtime. You should make connections in the <code>Init</code> event in order to have access at an early stage. The next example
+                shows you how to retrieve information about internal modules and other kinds of
+                modules attached to the pipeline so far.
+              </p>
+
+            </Element>
+            <Element Type="Listing" Name="Retrieving information about modules">
+
+              public class SessionLogModule : IHttpModule
+              {
+                  #region IHttpModule Members                  public void Dispose()
+                  {
+                  }
+
+                  public void Init(HttpApplication application)
+                  {
+                      HttpContext context = HttpContext.Current;
+                      foreach (string key in application.Modules.AllKeys)
+                      {
+                          context.Response.Write( String.Format(&quot;{0}= {1} {2}&lt;br&gt;&quot;,
+                              key,
+                              application.Modules[key].GetType().IsPublic ? &quot;public&quot; : &quot;internal&quot;,
+                              application.Modules[key].GetType().AssemblyQualifiedName));
+                      }
+                  }
+
+                  #endregion
+              }
+
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                The current context is used to output
+                the text directly into the current page where the request is handled. You can
+                use the <code>Modules</code> property to get a list of the modules and where they are defined.
+              </p>
+
+            </Element>
+            <Element Type="Image" Name="Modules already available">
+              images/19835f0307.png
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                You probably need to use this method of
+                getting access to an embedded module, as not all modules offer direct access to
+                their states and events. Once you know the name and type of a specific module,
+                you can cast the type and get the object you need.
+              </p>
+
+            </Element>
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Configuration and Deployment">
+          Configuration and Deployment
+          <Element Type="Text">
+
+            <p>
+              Now that the module is implemented, we
+              can compile it into an assembly that ASP.NET is able to load at runtime. This
+              is straightforward as long as the module is in the web application. No special
+              action is required. You will probably want to create several modules and have
+              them in different assemblies for easy reuse. The assemblies will need to be referenced
+              by your web project. To construct such a module, choose “Class Library" as the project
+              template. Remove the default class created by the template, and add an object
+              of type “ASP.NET Module".
+            </p>
+
+          </Element>
+          <Element Type="Image" Name="Add a module to current project">
+            images/19835f0306.png
+          </Element>
+          <Element Type="Section" Name="Configuring the Default Web Server and Development Environment">
+            Configuring the Default Web Server and Development Environment
+            <Element Type="Text">
+
+              <p>
+                To test the module,  you’ll need to
+                configure the settings in <i>web.config</i>. Place the appropriate lines in the
+                <code>&lt;system.web&gt;</code> section:
+              </p>
+
+              <p class="CodeFirst">&lt;httpModules&gt;</p>
+
+            </Element>
+            <Element Type="Listing">
+
+                &lt;add Name=&quot;ReferrerModule&quot;
+                     type=&quot;Apress.AspNetExtensibility.HttpModules.ReferrerModule &quot;/&gt;
+              &lt;/httpModules&gt;
+
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                The settings for the development
+                environment also apply for IIS5, IIS6, and IIS7 in classic mode. There are
+                several advantages to running the IIS7 integrated pipeline, however, which  requires
+                different settings:
+              </p>
+
+            </Element>
+            <Element Type="table" Name="Options of the httpModule settings">
+              <table>
+                <tr>
+                  <th>Attribute</th>
+                  <th>
+                    Typical
+                    Values
+                  </th>
+                  <th>Description</th>
+                </tr>
+                <tr>
+                  <td>
+                    <code>name</code>
+                  </td>
+                  <td>any string</td>
+                  <td>
+                    The module name
+                    that appears in settings dialogs
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>type</code>
+                  </td>
+                  <td>
+                    class,
+                    assembly
+                  </td>
+                  <td>Module type</td>
+                </tr>
+              </table>
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Configuring IIS7 Settings">
+            Configuring IIS7 Settings
+            <Element Type="Text">
+
+              <p>
+                In the main (web) project, add a
+                reference to the project containing the module. Assuming the namespace of the
+                external project is <code>
+                  Apress.HttpHandler.ImageHandler,
+                </code> add the following to <i>web.config</i>:
+              </p>
+
+              <p>&lt;system.webServer&gt;</p>
+
+            </Element>
+            <Element Type="Listing">
+
+                &lt;modules&gt;
+                  &lt;add Name=&quot;ReferrerModule&quot;
+                       type=&quot;Apress.HttpHandler.ImageHandler&quot; resourceType=&quot;File&quot;
+                       requireAccess=&quot;Read&quot; preCondition=&quot;integratedMode&quot; /&gt;
+                &lt;/modules&gt;
+              &lt;/system.webServer&gt;
+
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                Compile both the project containing the module
+                and the web project. Add the mapping in Internet Information Services Manager,
+                as shown before. The mapping will now function perfectly for both the
+                development environment and direct usage from the local IIS7.
+              </p>
+
+            </Element>
+            <Element Type="table" Name="Options for the handler settings for IIS7 integrated mode">
+              <table>
+                <tr>
+                  <th>Attribute</th>
+                  <th>
+                    Typical
+                    Values
+                  </th>
+                  <th>Description</th>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      name
+                    </code>
+                  </td>
+                  <td>any string</td>
+                  <td>
+                    The module name
+                    that appears in settings dialogs
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>
+
+                      precondition
+                    </code>
+                  </td>
+                  <td>string</td>
+                  <td>
+                    Name of
+                    another handler or module required before this one
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>type</code>
+                  </td>
+                  <td>
+                    class,
+                    assembly
+                  </td>
+                  <td>Type information of the handlers definition</td>
+                </tr>
+              </table>
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Configure using IIS Management Console">
+            Configure using IIS Management Console
+            <Element Type="Text">
+
+              <p>
+                Rather than
+                adding the IIS7 integrated mode settings to <i>web.config</i> you can simply use
+                the IIS Management Console. The settings correspond directly. Altering <i>web.config</i>
+                will result in an immediate change to the Management Console settings, and vice
+                versa. To configure using the IIS Management Console:
+              </p>
+
+              <p class="NumListFirst">
+                1. Open Internet Information Service
+                Manager.
+              </p>
+
+              <p class="NumList">2. Open the web you want to change.</p>
+
+              <p class="NumList">
+                3. In the IIS section, double click on the Modules
+                icon.
+              </p>
+
+              <p class="NumList">
+                4. Click on “Add managed module" in the task
+                list to the right.
+              </p>
+
+              <p class="NumList">5. Enter these values in the dialog:</p>
+
+              <p class="NumSubList">
+                a.  Give the module an
+                appropriate name
+              </p>
+              <p class="NumSubList">
+                b.  Open the type drop down
+                and select the module’s type
+              </p>
+
+              <p class="NumSubList">
+                g.  Close the dialog by
+                clicking “OK"
+              </p>
+
+              <p class="NumListLast">6. Close the main dialog by pressing “OK".</p>
+
+              <p>
+                No restart is required to activate the
+                new settings.
+              </p>
+
+            </Element>
+
+          </Element>
+        </Element>
+      </Element>
+      <Element Type="Section" Name="Handlers">
+        Handlers
+        <Element Type="Text">
+
+          <p>
+            This section focuses on developing HTTP
+            handlers for IIS7 using the .NET Framework. We’ll look at when it is
+            appropriate to develop an IIS7 handler rather than a module.
+          </p>
+
+        </Element>
+        <Element Type="Section" Name="Built-in Handlers"></Element>
+        Built-in Handlers
+        <Element Type="Text">
+
+          <p>
+            ASP.NET offers several default HTTP
+            handlers:
+          </p>
+          <ul>
+            <li>Page Handler (.aspx) – Handles Web pages</li>
+            <li>User Control Handler (.ascx) – Handles Web user control pages</li>
+            <li>Web Service Handler (.asmx) – Handles Web service pages</li>
+            <li>Trace Handler (trace.axd) – Handles trace functionality</li>
+            <li>Assembly Resource Loader (WebResource.axd) – Handles embedded resources in assemblies</li>
+            <li>Script resource handler (ScriptResource.axd) – Handles the scripting support for AJAX enabled projects</li>
+            <li>Forbidden Handler (.config) – Denies access to files that contain confidential information</li>
+          </ul>
+          <p>
+            The IIS configuration defines the
+            assignments. You will also find other assignments there. Extensions such as .xoml,
+            .rem, .soap, and .svc relate to the capabilities provided by Windows
+            Communication Foundation (WCF) and its predecessor, .NET remoting.
+          </p>
+
+        </Element>
+        <Element Type="Section" Name="Extending ASP.NET using Http Handlers">
+          Extending ASP.NET using Http Handlers
+          <Element Type="Text">
+
+            <p>
+              While modules are low level, and run against
+              every inbound request to the ASP.NET application, HTTP Handlers focus more on a
+              specific request mapping. This is usually a mapping of a file extension.
+            </p>
+            <p>
+              HTTP Handler implementations
+              are very simple in their concept, but having access to the <code>HttpContext</code> object enables enormous versatility. Handlers are implemented
+              through the <code>
+                IHttpHandler
+              </code> interface, or its
+              asynchronous counterpart, <code>
+                IHttpAsyncHandler
+              </code>. The
+              interface consists of a single method, <code>
+                ProcessRequest
+              </code> and a single property <code>
+                IsReusable
+              </code>. The
+              asynchronous version has a pair of methods (<code>
+                BeginProcessRequest
+              </code> and <code>
+                EndProcessRequest
+              </code>) and
+              the same <code>IsReusable</code> property. The vital ingredient is <code>
+                ProcessRequest
+              </code>, which receives an instance of the <code>
+                HttpContext
+              </code>
+              object. This single method is responsible for handling a Web request from start
+              to finish.
+            </p>
+
+            <p>
+              However, simple does not imply simplistic.
+              As you may know, the regular page processing code and the web service
+              processing code are implemented as handlers. Both are anything but simple. Their
+              power originates from the <code>
+                HttpContext
+              </code> object,
+              which has access to both the request information and the response data. This
+              means that, like a web server, a handler can control the whole process on its
+              own. Whatever you want to implement on the level of specific mapping is
+              achievable using handlers.
+            </p>
+
+          </Element>
+          <Element Type="Section" Name="Scenarios when to use HTTP Handlers">
+            Scenarios when to use HTTP Handlers
+            <Element Type="Text">
+
+              <p>
+                To better understand the power of
+                handlers, let’s take a look at what others have implemented on top of <code>IHttpHandler</code>:
+              </p>
+              <ul>
+                <li>Creating dynamic images</li>
+                <li>Watermarking existing images</li>
+                <li>“Pretty printing" of the page’s source code</li>
+                <li>Generating dynamic content pulled from a database or external resource</li>
+                <li>Transforming content from other resources, such as XML into HTML</li>
+                <li>Extracting resources from assemblies on the fly</li>
+                <li>Redirecting to/from SSL</li>
+                <li>Implementing Pingback and Trackback capabilities, even if the site is not a blog</li>
+              </ul>
+              <p>
+                Additionally, you can implement handlers
+                asynchronously. This vastly extends the potential usage scenarios. Because
+                asynchronous calls are closely related to threading and performance, we looked
+                at threading and how it could benefit from asynchronous programming in chapter
+                2. In this section, I will focus more on common usages of basic HTTP handler
+                implementations.
+              </p>
+
+            </Element>
+            <Element Type="Section" Name="Getting Started">
+              Getting Started
+              <Element Type="Text">
+
+                <p>
+                  For an HTTP Handler, all the action
+                  occurs through a single call to <code>
+                    ProcessRequest
+                  </code>. This
+                  can be as simple as:
+                </p>
+                <pre>
+                  public void ProcessRequest(HttpContext context)
+                  {
+                     context.Response.Write(&quot;Hello World&quot;);
+                  }
+                </pre>
+
+              </Element>
+              <Element Type="Text">
+
+                <p>
+                  Using the <code>HttpContext</code> object, you have access to the <code>
+                    Request
+                  </code>, <code>Response</code>, <code>
+                    Session
+                  </code> and <code>Cache</code> objects. You have all the key features of an ASP.NET request at
+                  your disposal, and you can use this to determine what users submitted and to return
+                  content back to the client. (Refer to chapter 1 to see why <code>HttpContext</code> plays such an important role in the request processing process.)
+                </p>
+
+                <p>
+                  The key operation of the handler
+                  is to write output into the <code>
+                    Response
+                  </code> object—or, more
+                  specifically, the <code>
+                    Response
+                  </code> object’s <code>OutputStream</code>. This output is what is sent back to the client. Behind the scenes,
+                  the <code>ISAPIWorkerRequest</code> sends the <code>
+                    OutputStream
+                  </code> back to
+                  the ISAPI <code>ecb.WriteClient</code> method, which actually performs the IIS output generation. Again,
+                  refer to chapter 1 and chapter 2 to learn more about these steps.
+                </p>
+
+              </Element>
+            </Element>
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Building a Handler">
+          Building a Handler
+          <Element Type="Text">
+            <p>
+              Now, let’s build a simple handler. To
+              do this, we define a class, which implements the <code>
+                System.Web.IHttpHandler
+              </code> interface.
+            </p>
+
+            <p>
+              Despite the prominence of the <code>ProcessRequest</code> method, you’ll also need to implement a property—<code>IsReusable</code>. This property, which returns a Boolean value, indicates whether the
+              instance can be re-used for subsequent requests. In some cases, after
+              processing a request, your handler may not be in a valid state for processing
+              further requests—especially if data about the previous request was stored in
+              member variables. This is because the ASP.NET runtime can handle many requests at
+              the same time. As long as there are threads available in the thread pool, a new
+              request will be processed even if another one is still running. Each thread requires
+              a new instance of the handler, even if the handler is marked “is reusable". When
+              a request is completed, the current handler instance is retained in memory, and
+              re-used for the next request. This can lead to odd behavior, depending on the workload
+              and on the existence of other instances of the handler. Such problems can be unpredictable
+              and difficult to simulate or recognize in a development environment.
+            </p>
+
+            <p>
+              For stable and reliable behavior,
+              you might assume that setting the <code>
+                IsReusable
+              </code>
+              property to <code>
+                false
+              </code> is the solution. After all, this
+              would create a new instance of the object any time a request is about to be
+              processed. However, depending on how “intensive" your code is, this can lead to
+              higher memory consumption, more CPU workload, and less throughput. There is no
+              strict rule about it, but re-using the instances is the preferred solution. Keep
+              in mind that access to members is not exactly what you might expect. Therefore,
+              it is advisable to avoid private members that hold data, if possible. If you
+              still wish to use member variables, remember that they need to be thread safe. When
+              replacing regular members with static methods, you’ll have to implement thread
+              safe code. If any of these requirements cannot be fulfilled, you should set <code>IsReusable</code> to <code>
+                false
+              </code>. Otherwise, the implementation will
+              look like:
+            </p>
+
+          </Element>
+          <Element Type="Listing">
+
+            public bool IsReusable
+            {
+                get
+                {
+                  return true;
+                }
+            }
+
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              <code>IsReusable</code> should be a constant.
+            </p>
+
+          </Element>
+          <Element Type="Section" Name="The Entry Point">
+            The Entry Point
+            <Element Type="Text">
+
+              <p>
+                The <code>ProcessRequest</code> method is the main entry point for the handler. Its role is to work
+                off the request specified by the <code>HttpRequest</code>
+                instance, from the provided <code>HttpContext</code> instance,
+                and generate an appropriate response using the <code>HttpResponse</code>
+                instance. The <code>ProcessRequest</code> method is invoked by the .NET
+                runtime during the <code>ExecuteRequestHandler</code>
+                request processing stage, assuming that the mapping is able to route the
+                request to the specific handler. This is in contrast to modules, which receive all
+                requests passing through the pipeline.
+              </p>
+
+              <p>
+                Finally, let’s implement the <code>ProcessRequest</code> method, so that our handler has something to do. To keep things
+                simple, our handler will return the current time of the server. We can specify the
+                time zone in the query string. Our goal is to request a URL, such as http://myserver/page.time,
+                and obtain the current time of the server. In addition, we can get the universal
+                coordinated time (UTC) by requesting http://myserver/page.time?utc=true. Here’s
+                the implementation:
+              </p>
+
+            </Element>
+            <Element Type="Listing" Name="Simple Handler mapped to a new *.time file extension">
+
+              public class TimeHandler : IHttpHandler
+              {
+                  #region IHttpHandler Members                  public bool IsReusable
+                  {
+                      get { return true; }
+                  }
+
+                  public void ProcessRequest(HttpContext context)
+                  {
+                      DateTime dt;
+                      string useUtc = context.Request.QueryString[&quot;utc&quot;];
+                      if (!String.IsNullOrEmpty(useUtc) &amp;&amp; useUtc.Equals(&quot;true&quot;))
+                      {
+                          dt = DateTime.UtcNow;
+                      }
+                      else
+                      {
+                          dt = DateTime.Now;
+                      }
+                      context.Response.Write(
+                          String.Format(&quot;&lt;html&gt;&lt;body&gt;&lt;h1&gt;{0}&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;&quot;,
+                                         dt.ToLongTimeString()
+                                         ));
+
+                  }
+
+                  #endregion
+              }
+
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                As we assign this handler to a specific
+                extension—time—we’ll only receive it when the client uses this specific URL.
+                The response is simple and creates a small HTML page. You could even tailor the
+                response to suit clients that are not browsers.
+              </p>
+
+              <p>
+                We use the <code>HttpRequest.QueryString</code> collection to retrieve a query string variable, and write the
+                current time in response using the <code>
+                  HttpResponse.Write
+                </code> method. I recommend using the <code>
+                  OutputStream
+                </code>
+                if other handlers are processing the request, or if you want to add to the
+                existing response. In the example above, we write a complete response in the
+                one handler and thus the <code>
+                  Write
+                </code> method is appropriate.
+              </p>
+
+            </Element>
+            <Element Type="Image" Name="Setting the mapping of a managed handler in IIS7">
+              images/19835f0320.png
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                IIS7 does not require a restart or any
+                other action in order to activate the handler. A request that uses the mapped
+                extension should work immediately.
+              </p>
+
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Example—Image Handler">
+            Example—Image Handler
+            <Element Type="Text">
+
+              <p>
+                A very common scenario for handlers is
+                the manipulation of images. As with any other resource, a browser obtains an
+                image by sending a GET request. Handling large numbers of images at multiple
+                resolutions can be a challenge. Imagine a web shop with thousands of product
+                images stored at one resolution. However, different image sizes are required
+                throughout the site, from catalog thumbnails to large preview panes and icons in
+                the shopping basket. Converting all these images into several different sizes
+                could be expensive, even with a batch script. Images change frequently, and maintaining
+                all current pictures in many different source sizes is an image management
+                headache.
+              </p>
+
+              <p>
+                Writing code and creating images
+                dynamically is a typical task for a handler. Attaching requests to an image
+                could achieved by using a path filter like *.png. The following example shows
+                how easy it is to manipulate content and send it to a client.
+              </p>
+
+            </Element>
+            <Element Type="Listing" Name="Adding a watermark to an image using a handler">
+
+              namespace Apress.HttpHandler
+              {
+                public class ImageHandler : IHttpHandler
+                {
+                  #region IHttpHandler Members                  private const float FONTSIZE = 72F;
+                  private const string FONT = &quot;Verdana&quot;;
+                  private const string TEXT = &quot;Watermark&quot;;
+
+                  public bool IsReusable
+                  {
+                    get { return true; }
+                  }
+                  public void ProcessRequest(HttpContext context)
+                  {
+                    // determine an image request
+                    if ((Path.GetDirectoryName(
+                         context.Request.Url.AbsolutePath)).EndsWith(&quot;Images&quot;))  
+                    {
+                        // load image and add watermark
+                        Bitmap img = (Bitmap) Bitmap.FromFile(
+                                      context.Server.MapPath(context.Request.Url.AbsolutePath));
+                        Graphics g = Graphics.FromImage(img);
+                        Brush b = new SolidBrush(Color.Silver);
+                        Font f = new Font(FONT, FONTSIZE);
+                        SizeF stringMeasure = g.MeasureString(TEXT, f);
+                        // calculate the string position to center output
+                        float x, y;
+                        x = img.Width / 2 - stringMeasure.Width / 2;
+                        y = img.Height / 2 - stringMeasure.Height / 2;
+                        g.DrawString(TEXT, new Font(FONT, FONTSIZE), b, x, y);
+                        // output to the response stream
+                        img.Save(context.Response.OutputStream, ImageFormat.Jpeg);
+                        img.Dispose();
+                      }
+                    }
+                  }
+
+                  #endregion                }
+              }
+
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                The handler first checks that it is dealing
+                with a file from a particular directory. While the file mapping forces the
+                handler to run for every request for an image with the specified extension, this
+                test restricts the special processing to images in the “Images" folder only.
+                The handler loads the image from disk, resolving the local path via <code>Server.MapPath</code>. Then it applies the watermark to the image. The <code>MeasureString</code> method measures the string size in order to align it with the image
+                so that the text appears centered horizontally and vertically. Streams simplify
+                the output of the image. The <code>
+                  Save
+                </code> method sends the
+                output directly into an output stream in JPEG format. Disposing of the image is
+                required, as frequent use of a handler on a system with high workload could
+                prevent the garbage collector from freeing the memory often enough.
+              </p>
+
+            </Element>
+            <Element Type="Image" Name="Adding a watermark to an image on the fly">
+              images/19835f0305.png
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                Dynamic image manipulation is powerful
+                and flexible, and there are numerous possibilities for using an image handler
+                in your applications. The final step in creating such a handler is to configure
+                it in <i>web.config</i>. Please refer to the section “Configuration and
+                Deployment" to read more about the various settings.
+              </p>
+
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Example—Read Dynamic CSS from Resource">
+            Example—Read Dynamic CSS from Resource
+            <Element Type="Text">
+
+              <p>
+                In the next example, I describe a
+                handler that loads stylesheets stored as embedded resources in an assembly. It
+                replaces any call to a stylesheet by delivering a specific .css file. The
+                definition in the <i> 12.0pt'>web.config</i> looks like this:
+              </p>
+
+            </Element>
+            <Element Type="Listing">
+
+              &lt;add verb=&quot;GET&quot;
+              path=&quot;*.css&quot; type=&quot;Apress.HttpHandler.CssHandler&quot; /&gt;
+
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                See the section “Configuration
+                and Deployment" for more information about configuring a handler for the IIS7
+                integrated mode.
+              </p>
+
+              <p>
+                To obtain the style files, they
+                must be marked as an Embedded Resource. There are several ways to handle data
+                from sources other than the file system.
+              </p>
+
+            </Element>
+            <Element Type="Image" Name="To handle files as embedded resources, use the file’s Property box">
+              images/19835f0308.png
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                The code itself does not have any
+                quirks. It processes whatever it encounters, and decides how to proceed from
+                the information in <code>
+                  HttpContext
+                </code>.
+              </p>
+
+            </Element>
+            <Element Type="Listing" Name="Dynamic handling of CSS from embedded resources">
+
+              public class CssHandler : IHttpHandler
+              {
+                  #region IHttpHandler Members                  public bool IsReusable
+                  {
+                      get { return false; }
+                  }
+
+                  public void ProcessRequest(HttpContext context)
+                  {
+                      UnmanagedMemoryStream s;
+                      if (context.Request.UserAgent.Contains(&quot;MSIE&quot;))
+                      {
+                          s = (UnmanagedMemoryStream)
+                             this.GetType().Assembly.GetManifestResourceStream(
+                             &quot;Apress.HttHandler.HandlerAssembly.Css.ie.css&quot;);
+                      }
+                      else
+                      {
+                          s = (UnmanagedMemoryStream)
+                               this.GetType().Assembly.GetManifestResourceStream(
+                               &quot;Apress.HttHandler.HandlerAssembly.Css.ff.css&quot;);
+                      }
+                      s.Seek(0, SeekOrigin.Begin);
+                      using (MemoryStream ms = new MemoryStream((int)s.Length))
+                      {
+                          byte[] buffer = new byte[s.Length];
+                          s.Read(buffer, 0, buffer.Length);
+                          ms.Write(buffer, 0, buffer.Length);
+                          ms.WriteTo(context.Response.OutputStream);
+                      }
+                  }
+
+                  #endregion
+              }
+
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                Firstly, let’s locate the
+                current user agent in this code by using the property <code>UserAgent</code> of the <code>
+                  HttpRequest
+                </code> object. If
+                the <code>UserAgent</code> is “MSIE", indicating an Internet Explorer browser, then the
+                resource named “ie.css" is retrieved from the assembly. For any other
+                <code>UserAgents</code>, “ff.css" is loaded instead. The stream is copied to
+                a <code>MemoryStream</code> object. The <code>
+                  MemoryStream
+                </code> is helpful
+                as it is able to copy its own content to another stream by using the <code>WriteTo</code>
+                method. In the case of a handler, this is the output stream provided by the <code>
+                  HttpResponse
+                </code> object
+                through the <code>
+                  Response
+                </code> property.
+              </p>
+
+              <p>
+                This technique can be re-used.
+                By looking for specific file extensions and for the “user-agent" header, you can
+                block certain clients from reading the content of these resources or supply
+                them with a replacement resource. Alternatively, reading resources from a
+                database instead of an assembly gives more flexibility without adding code to
+                the pages themselves.
+              </p>
+
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Example—Handler That Does Not Create Content">
+            Example—Handler That Does Not Create Content
+            <Element Type="Text">
+
+              <p>
+                Handlers usually create content—typically
+                HTML or data that builds an image. However, it’s not imperative. Handlers are
+                primarily invoked by the associated file extension. Imagine you define a custom
+                extension named “.counter" and associate it with a handler. Your handler might
+                execute some code, but ignore the Writer and not send anything back to the
+                client. Another idea is to only write data to the client when you run the
+                handler in debug mode and save bandwidth when running on a production server.
+                Whether or not the output is required, you’ll still have to invoke the handler
+                by issuing a GET or POST request to the server. Therefore, you’ll need an
+                element that can force the browser to create such a request. There are only few
+                ways to do this:
+              </p>
+              <ul>
+                <li>Image element</li>
+                <li>Form element</li>
+                <li>IFrame element</li>
+                <li>JavaScript code</li>
+              </ul>
+              <p>
+                I’m using an IFRAME element in the
+                example below, because I want to show the content when in debug mode, and leave
+                the content empty, otherwise. The definition of the IFRAME demonstrates how we
+                invoke the handler:
+              </p>
+
+            </Element>
+            <Element Type="Listing" Name="Invoke a handler using a registered extension">
+
+              &lt;iframe src=&quot;my.counter&quot; width=&quot;100&quot; height=&quot;50&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
+
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                Furthermore, the handler itself shows
+                the processing within the <code>ProcessRequest</code> method.
+              </p>
+
+            </Element>
+            <Element Type="Listing" Name="Code of the handler">
+
+              public class CounterHandler : IHttpHandler
+              {
+
+                  #region IHttpHandler Members                  public bool IsReusable
+                  {
+                      get { return true; }
+                  }
+
+                  public void ProcessRequest(HttpContext context)
+                  {
+                      string path = context.Request.UrlReferrer.LocalPath;
+                      string file = context.Server.MapPath(&quot;Counter.xml&quot;);
+                      XDocument cntDoc = XDocument.Load(file);
+                      var cnt = (from e in cntDoc.Root.Elements(&quot;page&quot;) where
+                                      e.Attribute(&quot;path&quot;).Value.Equals(path)
+                                      select e).FirstOrDefault&lt;XElement&gt;();
+                      if (Debugger.IsAttached)
+                      {
+                          // In debug mode read only and create output
+                          // reading XML is thread safe
+                          context.Response.Write(String.Format(&quot;Counter = {0}&quot;,
+                                                 cnt.Attribute(&quot;count&quot;).Value));
+                      }
+                      else
+                      {
+                          // in production just store values
+                          ReaderWriterLock rwl = new ReaderWriterLock();
+                          rwl.AcquireWriterLock(TimeSpan.FromSeconds(2));
+                          if (cnt == null)
+                          {
+                              // page does not exist yet
+                              XElement newPage = new XElement(&quot;page&quot;,
+                                  new XAttribute(&quot;count&quot;, 1),
+                                  new XAttribute(&quot;path&quot;, path));
+                              cntDoc.Element(&quot;Pages&quot;).Add(newPage);
+                          }
+                          else
+                          {
+                              // increase counter, set time stamp
+                              int i = Int32.Parse(cnt.Attribute(&quot;count&quot;).Value);
+                              cnt.Attribute(&quot;count&quot;).Value = (++i).ToString();
+                          }
+                          cntDoc.Save(file);
+                          rwl.ReleaseWriterLock();
+                      }
+                  }
+
+                  #endregion
+              }
+
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                The handler stores the number of page
+                requests in a single XML document. Other developers can add the IFRAME code to
+                the pages they want included in the counter total. Internally, the file access
+                is shared read mode. The <code>
+                  FileStream
+                </code> class used
+                behind the scenes in <code>
+                  XDocument.Load
+                </code> supports
+                reading from different threads. However, write access requires an exclusive
+                lock, blocking other threads. To achieve this, a <code>
+                  ReaderWriterLock
+                </code> class monitors the threads and blocks other threads from accessing
+                the file during write mode. This isn’t a very efficient method. In a real life
+                scenario, consider replacing the XML access with a database operation. After obtaining
+                access to the XML, LINQ to XML is used to either create elements for the first
+                time or add to the existing counter when the page is requested again.
+              </p>
+
+              <p>
+                In the example, we want to distinguish between debug mode and production
+                mode. You can ascertain debug mode by using the <code>
+                  Debugger.IsAttached
+                </code> property. In debug mode, the content of the IFRAME is filled with
+                the counter for the current page. The LINQ statement prepared at the beginning
+                of the <code>ProcessRequest</code> method returns either <code>
+                  null
+                </code> or the
+                element containing the counter information.
+              </p>
+
+              <p>
+                The figure shows the output in
+                debug mode. The counter does not increase for requests in debug mode. In
+                production mode, the counter increases but no output is displayed.
+              </p>
+
+            </Element>
+            <Element Type="Image" Name="Output of the handler in debug mode">
+              images/19835f0309.png
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                In this example, I showed a handler that
+                doesn’t create content with every use. The concepts behind this are, at a
+                glance:
+              </p>
+              <ul>
+                <li>Defining how and where to invoke the handler</li>
+                <li>Remembering that concurrent threads access the code</li>
+                <li>Recognizing that creating output is not mandatory</li>
+              </ul>
+
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Example—Using IHttpHandlerFactory to Perform URL Rewriting">
+            Example—Using IHttpHandlerFactory to Perform URL Rewriting
+            <Element Type="Text">
+
+              <p>
+                In this example, we’ll introduce another
+                interface. For more flexibility with creating handlers on the fly, the <code>IHttpHandlerFactory</code>
+                interface is available. A closer look at the default <code>PageHandlerFactory</code>
+                used to process .aspx pages shows that it is not derived from <code>IhttpHandler,</code>
+                but from <code>IHttpHandlerFactory</code>.
+              </p>
+              <p>
+                You don’t have to create a factory, but
+                it gives more control over the creation process. It can be useful in more
+                complex scenarios. First, let’s look into the interface definition:
+              </p>
+
+            </Element>
+            <Element Type="Listing">
+
+              public interface IHttpHandlerFactory
+              {
+                  IHttpHandler GetHandler(HttpContext context,
+                                          string requestType,
+                                          string url,
+                                          string pathTranslated);
+                  void ReleaseHandler(IHttpHandler handler);
+              }
+
+            </Element>
+            <Element Type="SideBar" SidebarType="Note">
+              <header>Note</header>
+              <aside>
+                If you decode this using
+                Reflector, you may see another interface named"
+                <code>IHttpHandlerFactory2</code>. This provides another overload for the
+                <code>GetHandler</code> method. We don’t need this at this stage as we’ll only be using the
+                <code>IHttpHandlerFactory</code>.
+              </aside>
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                Imagine you have a page with content such
+                as:
+              </p>
+              <pre>
+                &lt;% = DateTime.Now.ToString(&quot;M&quot;) %&gt;
+              </pre>
+
+            </Element>
+            <Element Type="Text">
+
+              <p>Set the current culture by adding the culture ID to the URL. Typical URLs look like this:</p>
+              <ul>
+                <li>http://localhost/Chapter03/UrlRewriteFactoryHandler/Default.aspx</li>
+                <li>http://localhost/Chapter03/UrlRewriteFactoryHandler/en-us/Default.aspx</li>
+                <li>http://localhost/Chapter03/UrlRewriteFactoryHandler/de-de/Default.aspx</li>
+                <li>http://localhost/Chapter03/UrlRewriteFactoryHandler/fr-fr/Default.aspx</li>
+              </ul>
+              <p>
+                Our goal is to find a way to extract the culture code (such as “de-de" or “en-us") from the URL, set it as the current
+                culture of the thread, and process the page without the culture code, as shown in the first URL.
+              </p>
+
+            </Element>
+            <Element Type="Listing" Name="Using a factory to rewrite a URL">
+
+              public abstract class RewriteFactoryHandler : IHttpHandlerFactory 
+              {
+                  protected RewriteFactoryHandler()
+                      : base() 
+              { 
+              }  
+                  IHttpHandler IHttpHandlerFactory.GetHandler(HttpContext context,
+                                                              string requestType,
+                                                              string url,
+                                                              string pathTranslated) 
+                  {
+                      Pair target = GetRemapInfo(context, requestType, url, pathTranslated); 
+                      string filename = context.Server.MapPath(target.First.ToString());  
+                      context.RewritePath(url, url, target.Second.ToString());
+                      IHttpHandler appHandler =
+                             PageParser.GetCompiledPageInstance(target.First.ToString(),
+                                                                filename, context); 
+                      return appHandler;  
+                  } 
+                  void IHttpHandlerFactory.ReleaseHandler(IHttpHandler handler)  
+                  { 
+                  } 
+
+                  protected abstract Pair GetRemapInfo(HttpContext context, string requestType,
+                                                       string url, string pathTranslated);
+              }
+
+              public class CultureRewriteHandler : RewriteFactoryHandler
+              {
+                  protected override Pair GetRemapInfo(HttpContext context,
+                                                       string requestType,
+                                                       string url,
+                                                       string pathTranslated)
+                  {
+                      string originalPath = HttpContext.Current.Request.Path;
+                      string stemPath = style='color:#A31515'>&quot;/&quot;;
+                      string newPath = originalPath.Substring(originalPath.IndexOf(stemPath) +
+                                                              stemPath.Length);
+                      string[] segments = newPath.Split(style='color:#A31515'>'/');
+                      string queryString = HttpContext.Current.Request.Url.Query;
+                      try
+                      {
+                          string languagePart = segments[0];
+                          CultureInfo ci = new CultureInfo(languagePart);
+                          System.Threading.Thread.CurrentThread.CurrentCulture = ci;
+                          return new Pair(style='color:#A31515'>&quot;/&quot; + stemPath + string.Join(style='color:#A31515'>&quot;/&quot;, segments, 1,
+                                          segments.Length - 1), queryString);
+                      }
+                      catch (NullReferenceException)
+                      {
+                      }
+                      return new Pair(originalPath, queryString);
+                  }
+              }
+
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                The definition in <i>web.config</i>
+                or IIS settings is the same as for any other handler. This means that the
+                ASP.NET engine will accept both <code>
+                  IHttpHandler
+                </code> and <code>IHttpHandlerFactory</code>
+                in order to obtain access to the handler object.
+              </p>
+
+              <p>
+                The code is simplified for
+                clarity. You can extend the error handling by adding code to handle the stem path,
+                even if it’s set to a value other than the root path. The core implementation
+                is around the <code>
+                  GetHandler
+                </code> method, which returns the used
+                handler. If resources are blocked and need to be freed or disposed of, the
+                required code will appear in the <code>
+                  ReleaseHandler
+                </code> method. As shown in the example, this is not always necessary. Keep
+                in mind that the memory consumption of the handler might be an issue if the
+                server has a high workload, in which case releasing resources could help.
+              </p>
+
+              <p>
+                Figure 3-9 shows the behavior
+                for several languages. URL rewriting is a flexible, search engine friendly method
+                of modifying behavior.    
+              </p>
+
+            </Element>
+            <Element Type="Image" Name="Use URL rewriting to set the current culture of a Web application">
+              images/19835f0316.png
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                This example demonstrated a very basic
+                handler factory. In the abstract base class, the <code>
+                  GetHandler
+                </code>
+                method rewrites using <code>
+                  HttpContext.RewritePath
+                </code>.
+                The default page handler is subsequently retrieved and returned. This is
+                required because otherwise, the processing of all .aspx pages is remapped to
+                the new factory. Redefining the internal handler with your own one replaces the
+                mapping, as only one handler can process a specific request. Remapping the
+                default handler requires either a complete implementation of a handler with
+                similar behavior, or creating the original handler and returns it using a
+                factory. From the perspective of extensibility, the latter is the better
+                option.
+              </p>
+
+            </Element>
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Advanced Usage of Handlers">
+          Advanced Usage of Handlers
+          <Element Type="Text">
+
+            <p>
+              The standard handlers cover most, but
+              not all, tasks. Http Handlers can go further. In this section, I’ll discuss
+              advanced extensibility topics:
+            </p>
+            <ul>
+              <li>Accessing the session state</li>
+              <li>Dynamically dealing with handlers in the pipeline</li>
+            </ul>
+
+          </Element>
+          <Element Type="Section" Name="Handlers and Session State">
+            Handlers and Session State
+            <Element Type="Text">
+
+              <p>
+                Handlers are low level programming constructs.
+                They are critical for overall performance and if badly written or configured, could
+                degrade the server’s throughput. While there are ways to deal with long-running
+                threads in the handler code (as you saw in chapter 2), it’s preferable to write
+                handlers that run as fast as possible. To maximize handler speed, Microsoft
+                removed session information from the default handlers. The previous examples
+                show useful tasks accomplished without needing session information.
+              </p>
+              <p>
+                If you do need to access session state
+                information, it is available by implementing one of the following two
+                interfaces:
+              </p>
+              <ul>
+                <li>
+                  <code>IRequiredSessionState</code>
+                </li>
+                <li>
+                  <code>IReadOnlySessionState</code>
+                </li>
+              </ul>
+              <p>
+                It’s possible to obtain session
+                information with minimal performance loss. If you only require read access to
+                the session data, the <code>
+                  IReadOnlySessionState
+                </code>
+                is ideal. <code>IRequiredSessionState</code> gives full access to all session data. When adding either interface
+                to your class, you’ll notice that Visual Studio does not attempt to implement
+                any method bodies. Both interfaces are simply marker interfaces which modify
+                the internal processing within the base class. Your class declaration should
+                look like this:
+              </p>
+              <pre>
+                public class TimeHandler : IHttpHandler, IRequiredSessionState
+              </pre>
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                The session information is now provided to
+                the <code>HttpContext</code> object, and available through the <code>
+                  context
+                </code>
+                parameter of the entry method.
+              </p>
+
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Accessing the Pipeline Using the Context">
+            Accessing the Pipeline Using the Context
+            <Element Type="Text">
+
+              <p>
+                You can use these three properties of
+                the <code>HttpContext</code> object to further modify the behavior of the handler or to retrieve
+                more information about what’s taking place: 
+              </p>
+              <ul>
+                <li>
+                  <code>context.Handler</code>
+                </li>
+                <li>
+                  <code>context.PreviousHandler</code>
+                </li>
+                <li>
+                  <code>context.RemapHandler</code>
+                </li>
+              </ul>
+              <p>
+                Using the <code>
+                  Handler
+                </code>
+                property, you have access to the current handler employed in the current
+                context. As the context is available as a static property, it’s easy to access
+                the handler in classes defined elsewhere. This also applies to the
+                <code>PreviousHandler</code> property, a property which is set when the handler is remapped.
+                Remapping a handler might occur in complex scenarios where a default handler
+                processes all requests, but remaps to another handler under certain circumstances.
+                Listing 3-12 demonstrates this technique:
+              </p>
+
+            </Element>
+            <Element Type="Listing" Name="Remapping to another handler">
+              public class RemapHandler : IHttpHandler
+              {
+                  #region IHttpHandler Members                  public bool IsReusable
+                  {
+                      get { return true; }
+                  }
+                  public void ProcessRequest(HttpContext context)
+                  {
+                      IHttpHandler remapHandler = null;
+                      // determine an image request and handle with private handler
+                      if ((Path.GetExtension(context.Request.Url.AbsolutePath)).Equals(&quot;.png&quot;))
+                      {
+                          remapHandler = new ImageHandler();
+                      }
+                      else
+                      {
+                          // process any other request with default handler
+                          string virtualPath = context.Request.Url.AbsolutePath;
+                          string filename = HttpContext.Current.Request.Path;
+                          remapHandler = PageParser.GetCompiledPageInstance(virtualPath,
+                                                                           filename, context);
+                      }
+                      context.RemapHandler(remapHandler);
+                  }
+
+                  #endregion
+              }
+
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                In this code, the handler searches for
+                .png extensions and assigns private handlers to process them. Otherwise, we use
+                the standard page processing; no other custom code is involved. Simply call
+                <code>context.RemapHandler(remapHandler)</code>
+                to assign to a different handler. All internal processing is
+                redirected to the new handler from the beginning of the pipeline. As there’s no
+                additional overhead, there are no performance issues with the handler
+                remapping.
+              </p>
+
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Configuration and Deployment">
+            Configuration and Deployment
+            <Element Type="Text">
+
+              <p>
+                To create a handler, you chose “Class
+                Library" as the project template, removed the default class created by the
+                template and added an object of type “ASP.NET Handler". Now that you have implemented
+                the handler, you can compile it into an assembly loaded by ASP.NET at runtime.
+                As long as the handler remains in the web application, this is simple. No
+                special action is required. You’ll probably want to implement several handlers
+                and keep them in different assemblies for easy reuse. Simply reference the
+                assemblies in your web project.
+              </p>
+
+            </Element>
+            <Element Type="Image" Name="Add a handler to project">
+              images/19835f0304.png
+            </Element>
+            <Element Type="Section" Name="Configuring Default Web Server and Development Environment">
+              Configuring Default Web Server and Development Environment
+              <Element Type="Text">
+
+                <p>
+                  To test the handler, you’ll need to
+                  configure the settings in <i> 12.0pt'>web.config</i>. Place the appropriate settings in the <code>&lt;system.web&gt;</code> section:
+                </p>
+                <pre>
+                  &lt;httpHandlers&gt;
+                    &lt;add verb=&quot;GET&quot; path=&quot;*.png&quot; type=&quot;Apress.HttpHandler.ImageHandler&quot; /&gt;
+                  &lt;/httpHandlers&gt;
+                </pre>
+
+              </Element>
+              <Element Type="Text">
+
+                <p>
+                  The settings for the development
+                  environment also apply to IIS5, IIS6, and IIS7 in classic mode. There are
+                  several advantages to running the IIS7 integrated pipeline, however, which
+                  involves different settings:
+                </p>
+
+              </Element>
+              <Element Type="table" Name="Options of the httpHandler settings">
+                <table>
+                  <tr>
+                    <th>Attribute</th>
+                    <th>
+                      Typical
+                      Values
+                    </th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>
+
+                        verb
+                      </code>
+                    </td>
+                    <td>GET, POST</td>
+                    <td>
+                      The handler
+                      responds to the HTTP verbs only
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>
+                        path
+                      </code>
+                    </td>
+                    <td>full path or wildcards</td>
+                    <td>
+                      The
+                      path that defines the requests the handlers responds to
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>type</code>
+                    </td>
+                    <td>
+                      class,
+                      assembly
+                    </td>
+                    <td>Type information of the handler’s definition</td>
+                  </tr>
+                </table>
+              </Element>
+            </Element>
+            <Element Type="Section" Name="Configuring IIS7 Settings">
+              Configuring IIS7 Settings
+              <Element Type="Text">
+
+                <p>
+                  In the main (web) project, add a
+                  reference to this project. If the namespace of the external project is <code>Apress.HttHandler.ImageHandler</code>, the following addition to <i>web.config</i> will be required:
+                </p>
+
+              </Element>
+              <Element Type="Listing">
+
+                &lt;system.webServer&gt;
+                  &lt;handlers&gt;
+                    &lt;add Name=&quot;ImageHandler&quot; path=&quot;*.png&quot; verb=&quot;GET&quot;
+                         type=&quot;Apress.HttpHandler.ImageHandler&quot; resourceType=&quot;File&quot;
+                         requireAccess=&quot;Read&quot; preCondition=&quot;integratedMode&quot; /&gt;
+                  &lt;/handlers&gt;
+                &lt;/system.webServer&gt;
+
+              </Element>
+              <Element Type="Text">
+
+                <p>
+                  Compile both the project containing the
+                  handler and the web project. Add the mapping in Internet Information Services
+                  Manager, as shown before. The mapping will now function perfectly for both the
+                  development environment and direct usage from the local IIS7.
+                </p>
+
+              </Element>
+              <Element Type="table" Name="Handler settings for IIS7 integrated mode">
+                <table>
+                  <tr>
+                    <th>Attribute</th>
+                    <th>
+                      Typical
+                      Values
+                    </th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>verb</code>
+                    </td>
+                    <td>GET, POST</td>
+                    <td>
+                      The handler
+                      responds to the HTTP verbs only. Other verbs are DEBUG and HEAD
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>
+
+                        path
+                      </code>
+                    </td>
+                    <td>full path or wildcards</td>
+                    <td>
+                      The
+                      path that defines the requests the handlers respond to
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>
+
+                        resourceType
+                      </code>
+                    </td>
+                    <td>File</td>
+                    <td>
+                      Expect that
+                      the file exists
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>
+
+                        scriptProcessor
+                      </code>
+                    </td>
+                    <td>a path</td>
+                    <td>
+                      Path to the
+                      engine (DLL) that handles the request
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>
+
+                        requireAccess
+                      </code>
+                    </td>
+                    <td>
+                      Script, Execute, None,
+                      Read
+                    </td>
+                    <td>Required settings for resource access</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>
+
+                        preCondition
+                      </code>
+                    </td>
+                    <td>see below</td>
+                    <td>
+                      Conditions
+                      that must be fulfilled to activate the handler. If the request fails, an HTTP
+                      error 412 “precondition failed" is send to the client
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code>type</code>
+                    </td>
+                    <td>
+                      class,
+                      assembly
+                    </td>
+                    <td>Type information of the handler’s definition</td>
+                  </tr>
+                </table>
+              </Element>
+              <Element Type="Text">
+
+                <p>
+                  Typical values for <code>preCondition</code> are these:
+                </p>
+                <ul>
+                  <li>
+                    <code>bitness32</code>, <code>bitness64</code>: Activate 32-bit or 64-bit mode respectively
+                  </li>
+                  <li>
+                    <code>runtimeVersion1.1</code>, <code>runtimeVersion2.0</code>: The required runtime on the server
+                  </li>
+                  <li>
+                    <code>classicMode</code>, <code>integratedMode</code>: Mode that IIS7 is running in
+                  </li>
+                  <li>
+                    <code>managedHandler</code>: Requires the handler to be written in managed code
+                  </li>
+                </ul>
+
+              </Element>
+              <Element Type="Section" Name="Configure via IIS Management Console">
+                Configure via IIS Management Console
+                <Element Type="Text">
+
+                  <p>
+                    The settings in <i>web.config</i>
+                    required by IIS7 integrated mode can be altered via the IIS Management Console.
+                    The settings correspond directly. Altering <i>web.config</i> will result in an
+                    immediate change to the Management Console settings, and vice versa. To configure
+                    using the IIS Management Console:
+                  </p>
+
+                  <p class="NumListFirst">
+                    1. Open Internet Information Service Manager.
+                  </p>
+
+                  <p class="NumList">2. Open the web you want to change. </p>
+
+                  <p class="NumList">
+                    3. In the IIS section, double click on the
+                    Handler Assignments.
+                  </p>
+
+                  <p class="NumList">
+                    4. Click on “Add Managed Handler" in the task
+                    list to the right.
+                  </p>
+
+                  <p class="NumList">5. Enter these values in the dialog:</p>
+
+                  <p class="NumSubList">             a.  The mapping path: *.time</p>
+                  <p class="NumSubList">
+                    b.  Choose the handler from the
+                    drop down list. The handler will appear in the list, as long as you’re in the
+                    right web and the project compiles.
+                  </p>
+
+                  <p class="NumSubList">
+                    c.  Give the handler an
+                    appropriate name
+                  </p>
+
+                  <p class="NumSubList">             d.  Click on Restrictions…</p>
+
+                  <p class="NumSubList">             e.  Open the Verb tab</p>
+
+                  <p class="NumSubList">
+                    f.  Click on one of the
+                    following and enter the value “GET"
+                  </p>
+
+                  <p class="NumSubList">
+                    g.  Leave the dialog by
+                    clicking “OK"
+                  </p>
+
+                  <p class="NumListLast">6. Leave the main dialog by clicking “OK".</p>
+
+                </Element>
+              </Element>
+              <Element Type="Section" Name="Configure Using Generic Handlers">
+                Configure Using Generic Handlers
+                <Element Type="Text">
+
+                  <p>
+                    The final option is not a configuration
+                    option, but a way of invoking handlers without configuring them in <i>web.config</i>.
+                    By default, ASP.NET defines handlers using the extension .ashx. Therefore,
+                    placing the code for a handler in a file using the declarative form below is sufficient
+                    to get it working. There is no further need for <i>web.config</i>. An advantage
+                    of this is that you won’t need to distinguish between the settings for IIS7
+                    integrated mode and other Web servers, nor will you need to maintain settings
+                    in the <i>web.config</i> regarding handlers.
+                  </p>
+                  <p>
+                    Creating such a handler involves two
+                    steps:
+                  </p>
+                  <ul>
+                    <li>For each handler required, create a file with the extension .ashx</li>
+                    <li>Add the following declaration at the top of the file:</li>
+                  </ul>
+                  <pre>
+                    &lt;%@ WebHandler Language=&quot;C#&quot; Class=&quot;Apress.HttpHandler.MyHandler&quot; %&gt;
+                  </pre>
+
+                </Element>
+                <Element Type="Text">
+
+                  <p>
+                    The <code>
+                      WebHandler
+                    </code>
+                    directive is similar to the Page directive. Only a few options are available,
+                    however:
+                  </p>
+
+                </Element>
+                <Element Type="table" Name="Attributes supported for WebHandler directive">
+                  <table>
+                    <tr>
+                      <th>Attribute</th>
+                      <th>
+                        Available
+                        Values
+                      </th>
+                      <th>Usage</th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <code>
+
+                          Language
+                        </code>
+                      </td>
+                      <td>C#, VB</td>
+                      <td>
+                        Language of
+                        the code section
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <code>
+
+                          Class
+                        </code>
+                      </td>
+                      <td>Name</td>
+                      <td>
+                        Name of the class
+                        defined in code, including the namespace
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <code>
+
+                          CodeBehind
+                        </code>
+                      </td>
+                      <td>Name</td>
+                      <td>
+                        Name of the
+                        file containing the code
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <code>
+
+                          CompilerOptions
+                        </code>
+                      </td>
+                      <td></td>
+                      <td>
+                        Options for
+                        on-the-fly compilation
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <code>
+
+                          Debug
+                        </code>
+                      </td>
+                      <td>True, False</td>
+                      <td>
+                        Compile in
+                        debug or release mode. In debug mode the symbol file (.pdb) is created
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <code>
+
+                          WarningLevel
+                        </code>
+                      </td>
+                      <td>0 to 4</td>
+                      <td>Warning level</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <code>Description</code>
+                      </td>
+                      <td></td>
+                      <td>
+                        A
+                        description for documentation purposes only. The page parser does not recognize
+                        this attribute.
+                      </td>
+                    </tr>
+                  </table>
+                </Element>
+                <Element Type="Text">
+
+                  <p>
+                    Whether you use the configuration file
+                    or the .ashx extension is a matter of preference. However, there are some basic
+                    guidelines for selecting the best option. Using the .ashx file within an
+                    application is better for small projects or handlers that have simple, but
+                    specific, tasks. If you plan to reuse the handler several times, or in several
+                    projects on the server, you should separate it into its own assembly and
+                    register it in the Global Assembly Cache (GAC). Storing handlers in assemblies
+                    with signing and deployment capabilities is for larger projects involving
+                    handler reuse.
+                  </p>
+
+                </Element>
+              </Element>
+            </Element>
+          </Element>
+        </Element>
+      </Element>
+      <Element Type="Section" Name="Asynchronous Pages">
+        Asynchronous Pages
+        <Element Type="Text">
+
+          <p>
+            So
+            far, all of the examples of asynchronous request handling have involved
+            building custom handlers. In chapter 3, I’ll cover such handlers in more
+            detail.
+          </p>
+
+          <p>
+            There
+            may be many *.aspx pages in your ASP.NET applications that are also good
+            candidates for asynchronous execution because they perform non-CPU-bound tasks
+            that take significant amounts of time. Such pages are also potential
+            bottlenecks for the ASP.NET thread pool.
+          </p>
+
+          <p>
+            Because
+            pages are also managed by a handler, it seems easy to let pages execute
+            asynchronously. This is already implemented by the framework for us and there
+            is nothing to do but set a property.
+          </p>
+
+        </Element>
+        <Element Type="Section" Name="Define the Right Page Handler">
+          Define the Right Page Handler
+          <Element Type="Text">
+
+            <p>
+              Building
+              asynchronous pages is pretty simple. Begin by including an attribute in the
+              page’s <code>
+                @Page
+              </code>
+              directive:
+            </p>
+            <pre>
+              &lt;%@ Page Async=&quot;true&quot; ... %&gt;
+            </pre>
+            <p>
+              Behind the
+              scenes, this tells ASP.NET to implement <code>
+                IHttpAsyncHandler
+              </code>
+              in the page instead of <code> IHttpHandler</code>
+              used regularly. Next, call the <code> AddOnPreRenderCompleteAsync</code>
+              method early in the page’s lifetime. For
+              example, in <code>
+                10.0pt;Load
+              </code> style='background:
+              yellow'>, this is early enough. Register a <code>
+                Begin
+              </code>
+              method and an <code> End</code>
+              method, as shown in the following code:
+            </p>
+            <pre>
+              AddOnPreRenderCompleteAsync (
+                  new BeginEventHandler(MyBeginMethod),
+                  new EndEventHandler (MyEndMethod)
+              );
+            </pre>
+            <p>
+              The page runs
+              through its normal processing lifecycle until shortly after the <code> PreRender</code>
+              event fires. Then ASP.NET calls the <code> Begin</code>
+              method that you registered using <code> AddOnPreRenderCompleteAsync</code>
+              . The <code>
+                Begin
+              </code>
+              method launches an asynchronous operation
+              and returns immediately. This is a lengthy
+              operation which might require more time, such as a
+              database query or a webservice call to another server. At this point, the
+              thread assigned to the request returns to the thread pool. Furthermore, the <code> Begin</code>
+              method returns an <code> IAsyncResult</code>
+              that allows ASP.NET to determine when the
+              asynchronous operation has been completed. ASP.NET then extracts a thread from
+              the thread pool and calls your <code>
+                End
+              </code>
+              method. After <code>
+                End
+              </code>
+              returns, it executes the remaining
+              portion of the page’s lifecycle. This might sound confusing—getting the thread
+              back from thread pool would again block the thread. But between the time <code> Begin</code>
+              returns and <code> End</code>
+              gets called, the request-processing
+              thread is free to service other requests. Keep in mind that the page processing
+              usually takes only a few milliseconds. The time-consuming operation in the asynchronous
+              handler might run for seconds. The process of freeing the thread pool thread
+              for this time allows ASP.NET to process hundreds if not thousands of regular
+              pages on this very same thread. However, until <code>
+                End
+              </code>
+              is called, the rendering of the current
+              asynchronous page is delayed. This is the same as in the previous example. It
+              improves the situation not only for one user, but for all users. In the sample
+              code, you might look for the <code>
+                IAsyncResult
+              </code>
+              implementation. Instead of implementing
+              our own version, we take one that the Framework implements for us.
+            </p>
+
+          </Element>
+          <Element Type="Image" Name="Synchronous vs. Asynchronous Page Processing">
+            ASPNETEXT_Chapter_03_V1.0-Dateien/image001.png
+          </Element>
+          <Element Type="Text">
+            <p>
+              Figure 2-12 illustrates the difference between
+              a synchronous page and an asynchronous page. When a synchronous page is
+              requested, ASP.NET assigns the request a thread from the thread pool and
+              executes the page on that thread.
+            </p>
+            <p>
+              That’s
+              enough theory for now. It’s time to look at some samples to get a better
+              appreciation of how to implement asynchronous pages. The two examples address
+              two common problems:
+            </p>
+            <ul>
+              <li>Call a database operation asynchronously</li>
+              <li>Call a webservice—a current exchange rate service that converts between US$ and Euro.</li>
+            </ul>
+
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Asynchronous Data Binding">
+          Asynchronous Data Binding
+          <Element Type="Text">
+
+            <p>
+              It is a common
+              task to query databases and data bind the results. Using asynchronous pages to
+              perform asynchronous data binding seems like a perfect symbiosis. The code
+              behind class in Listing 2-21 shows one way to go.
+            </p>
+
+          </Element>
+          <Element Type="Listing" Name="Asynchronous binding to a data source (AsyncDataBind.aspx.cs)">
+
+            using System;
+            using System.Data;
+            using System.Data.SqlClient;
+            using System.Web;
+            using System.Web.UI;
+            using System.Web.UI.WebControls;
+            using System.Web.Configuration;
+
+            public partial class AsyncDataBind : System.Web.UI.Page
+            {
+                private SqlConnection _connection;
+                private SqlCommand _command;
+                private SqlDataReader _reader;
+                protected void Page_Load(object sender, EventArgs e)
+                {
+                    if (!IsPostBack)
+                    {
+                        // Hook PreRenderComplete event for data binding
+                        this.PreRenderComplete +=
+                            new EventHandler(Page_PreRenderComplete);
+
+                        //Register async methods
+                        AddOnPreRenderCompleteAsync(
+                            new BeginEventHandler(BeginAsyncOperation),
+                            new EndEventHandler(EndAsyncOperation)
+                        );
+                    }
+                }
+                IAsyncResult BeginAsyncOperation (object sender, EventArgs e,
+                    AsyncCallback cb, object state)
+                {
+                    string connect = WebConfigurationManager.ConnectionStrings
+                       [&quot;PubsConnectionString&quot;].ConnectionString;
+                    _connection = new SqlConnection(connect);
+                    _connection.Open();
+                    _command = new SqlCommand(
+                       &quot;SELECT title_id, title, price FROM titles&quot;, _connection);
+                    return _command.BeginExecuteReader (cb, state);
+                }
+
+                void EndAsyncOperation(IAsyncResult ar)
+                {
+                    _reader = _command.EndExecuteReader(ar);
+                }
+
+                protected void Page_PreRenderComplete(object sender, EventArgs e)
+                {
+                    Output.DataSource = _reader;
+                    Output.DataBind();
+                }
+
+                public override void Dispose()
+                {
+                    if (_connection != null) _connection.Close();
+                    base.Dispose();
+                }
+            }
+
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              The <code>  AsyncDataBind</code>
+              class uses the <code> AddOnPreRenderCompleteAsync</code>
+              pattern. In its <code> BeginAsyncOperation</code>
+              method, it calls <code> SqlCommand.BeginExecuteReader</code>
+              to perform an asynchronous database query. When the call is completed, <code>
+                EndAsyncOperation
+              </code>
+              calls <code>
+                SqlCommand.EndExecuteReader
+              </code>
+              to get a <code>
+                SqlDataReader
+              </code>
+              , which it stores in a private field. In
+              an event handler for the <code>
+                PreRenderComplete
+              </code>
+              event, which fires after the asynchronous
+              operation completes but before the page is rendered, it binds the
+              <code> SqlDataReader</code>
+              to the Output <code> GridView</code>
+              control. On the outside, the page looks
+              like a normal synchronous page that uses a <code>
+                GridView
+              </code>
+              to render the results of a database
+              query. On the inside, this page is much more scalable because it doesn't tie up a thread-pool thread
+              waiting for the query to return.
+            </p>
+
+          </Element>
+          <Element Type="Section" Name="Calling Web Services Asynchronously">
+            Calling Web Services Asynchronously
+            <Element Type="Text">
+
+              <p>
+                Another
+                I/O-related task commonly performed by ASP.NET Web pages is calling to a Web
+                service. Since Web service calls can take a long time to return, pages that
+                execute them are ideal candidates for asynchronous processing.
+              </p>
+
+              <p>
+                Listing 2-22 shows one way to build an
+                asynchronous page that calls a Web service. It uses the same <code>AddOnPreRenderCompleteAsync</code>
+                mechanism featured in this section. The
+                page’s <code>
+                  Begin
+                </code>
+                method launches an asynchronous Web service call by calling the Web service
+                proxy’s asynchronous <code>
+                  Begin
+                </code>
+                method. The page’s <code>
+                  End
+                </code>
+                method caches in a private field a
+                reference to the <code>
+                  DataSet
+                </code>
+                returned by the Web method, and the <code> PreRenderComplete</code>
+                handler binds the <code> DataSet</code>
+                to a <code>
+                  GridView
+                </code>
+                . For reference, the Web method targeted
+                by the call is shown in the following code:
+              </p>
+
+            </Element>
+            <Element Type="Listing" Name="Calling a webservice from an ASP.NET page asynchronously">
+              [WebMethod]
+              public DataSet GetTitles ()
+              {
+                  string connect = WebConfigurationManager.ConnectionStrings
+                      [&quot;PubsConnectionString&quot;].ConnectionString;
+                  SqlDataAdapter adapter = new SqlDataAdapter
+                      (&quot;SELECT title_id, title, price FROM titles&quot;, connect);
+                  DataSet ds = new DataSet();
+                  adapter.Fill(ds);
+                  return ds;
+              }
+            </Element>
+            <Element Type="Listing" Name="AsyncWSInvoke1.aspx.cs">
+              using System;
+              using System.Data;
+              using System.Configuration;
+              using System.Web;
+              using System.Web.UI;
+              using System.Web.UI.WebControls;
+
+              public partial class
+              AsyncWSInvoke1 : System.Web.UI.Page
+              {
+                  private WS.PubsWebService _ws;
+                  private DataSet _ds;
+
+                  protected void Page_Load(object sender, EventArgs e)
+                  {
+                      if (!IsPostBack)
+                      {
+                          // Hook PreRenderComplete event for data binding
+                          this.PreRenderComplete +=
+                              new EventHandler(Page_PreRenderComplete);
+
+                          //Register async methods
+                          AddOnPreRenderCompleteAsync(
+                              new BeginEventHandler(BeginAsyncOperation),
+                              new EndEventHandler(EndAsyncOperation)
+                          );
+                      }
+                  }
+
+                  IAsyncResult BeginAsyncOperation (object sender, EventArgs e,
+                      AsyncCallback cb, object state)
+                  {
+                      _ws = new WS.PubsWebService();
+                      // Fix up URL for call to local VWD-hosted Web service
+                      _ws.Url = new Uri(Request.Url, &quot;Pubs.asmx&quot;).ToString();
+                      _ws.UseDefaultCredentials = true;
+                      return _ws.BeginGetTitles (cb, state);
+                  }
+                  void EndAsyncOperation(IAsyncResult ar)
+                  {
+                      _ds = _ws.EndGetTitles(ar);
+                                }
+                  protected void Page_PreRenderComplete(object sender, EventArgs e)
+                  {
+                      Output.DataSource = _ds;
+                      Output.DataBind();
+                  }
+                  public override void Dispose()
+                  {
+                      if (_ws != null) _ws.Dispose();
+                      base.Dispose();
+                  }
+              }
+
+            </Element>
+            <Element Type="Text">
+              <p>
+                This
+                is one way to do it, but it’s not the only way. The Web service proxy supports
+                two mechanisms for placing asynchronous calls to Web services. One is the
+                per-method <code>Begin</code> and <code>End</code> The other is the new <code>MethodAsync</code>
+                methods and <code> MethodCompleted</code>
+                events. Even if the Begin/End pattern
+                seems to be easy to read and adopt, because it is similar to the asynchronous
+                pattern of the page’s handler, there are a few advantages to using the other
+                pattern.
+              </p>
+              <p>
+                If a Web service has a method named <code>Foo</code>, then in addition to having methods named <code> Foo</code> , <code>BeginFoo</code>, and <code>EndFoo</code>
+                , a Web service proxy includes a method named <code>FooAsync</code> and an event named <code>FooCompleted</code>.
+                You can call <code>Foo</code> synchronously by registering a handler for the <code>FooCompleted</code> event and calling
+                <code>FooAsync</code>, like this:
+              </p>
+              <pre>
+                proxy.FooCompleted += new FooCompletedEventHandler (OnFooCompleted);
+                proxy.FooAsync (...);
+                ...
+                void OnFooCompleted (Object source, FooCompletedEventArgs e)
+                {
+                    // Called when Foo completes
+                }
+              </pre>
+              <p>
+                The asynchronous call begins when <code>FooAsync</code>
+                completes, and a <code> FooCompleted</code>
+                event fires then, causing your <code>FooCompleted</code>
+                event handler to be called. Both the
+                delegate wrapping the event handler (<code>FooCompletedEventHandler</code>
+                ) and the second parameter passed to it (<code>FooCompletedEventArgs</code>
+                ) are generated with the Web service
+                proxy. You can access <code>Foo</code>’s return value through <code>FooCompletedEventArgs.Result</code>.
+              </p>
+              <p>
+                Listing
+                2-24 presents a code behind class that calls a Web service's GetTitles method
+                asynchronously using the <code>MethodAsync</code>
+                pattern. Functionally, this page is
+                identical to the one shown in Listing 2-23. Internally, it’s quite different.
+                AsyncWSInvoke2.aspx includes a <code>Page</code>
+                directive with property <code> Async</code>
+                set to true. But it doesn’t call <code> AddOnPreRenderCompleteAsync</code>
+                ; it registers a handler for <code> GetTitlesCompleted</code>
+                events and calls <code> GetTitlesAsync</code>
+                on the Web service proxy. ASP.NET still
+                delays rendering the page until <code>GetTitlesAsync</code>
+                completes. Under the hood, it uses an
+                instance of <code>System.Threading.SynchronizationContext</code>, a class that receives notifications when
+                the asynchronous calls begin and when they complete.
+              </p>
+            </Element>
+            <Element Type="Listing" Name="AsyncWSInvoke2.aspx.cs">
+              using System;
+              using System.Data;
+              using System.Configuration;
+              using System.Web;
+              using System.Web.UI;
+              using System.Web.UI.WebControls;
+
+              public partial class AsyncWSInvoke2 : System.Web.UI.Page
+              {
+                  private WS.PubsWebService _ws;
+                  private DataSet _ds;
+
+                  protected void Page_Load(object sender, EventArgs e)
+                  {
+                      if (!IsPostBack)
+                      {
+                          // Hook PreRenderComplete event for data binding
+                          this.PreRenderComplete +=
+                              new EventHandler(Page_PreRenderComplete);
+
+                          // Call the Web service asynchronously
+                          _ws = new WS.PubsWebService();
+                          _ws.GetTitlesCompleted += new
+                              WS.GetTitlesCompletedEventHandler(GetTitlesCompleted);
+                          _ws.Url = new Uri(Request.Url, &quot;Pubs.asmx&quot;).ToString();
+                          _ws.UseDefaultCredentials = true;
+                          _ws.GetTitlesAsync();
+                      }
+                  }
+
+                  void GetTitlesCompleted(Object source,
+                      WS.GetTitlesCompletedEventArgs e)
+                  {
+                  }
+                      _ds = e.Result;
+
+                  protected void Page_PreRenderComplete(object sender, EventArgs e)
+                  {
+                      Output.DataSource = _ds;
+                      Output.DataBind();
+                  }
+
+                  public override void Dispose()
+                  {
+                      if (_ws != null) _ws.Dispose();
+                      base.Dispose();
+                  }
+              }
+            </Element>
+            <Element Type="Text">
+              <p>
+                There are two
+                advantages to using <code>
+                  MethodAsync
+                </code>
+                rather than <code> AddOnPreRenderCompleteAsync</code>
+                to implement asynchronous pages. Firstly,
+                <code>
+                  MethodAsync
+                </code> style='background:
+                yellow'> supports forwarding impersonation, culture, and <code> HttpContext.Current</code>
+                to the <code>
+                  MethodCompleted
+                </code>
+                event handler. Secondly, if the page
+                makes multiple asynchronous calls and must delay rendering until all calls have
+                been completed, using <code>
+                  AddOnPreRenderCompleteAsync
+                </code>
+                requires you to compose an <code> IAsyncResult</code>
+                that remains unsignaled until all the
+                calls are finished. This is not necessary in <code>
+                  MethodAsync
+                </code>
+                ; simply place the calls, as many of them
+                as you like, and the ASP.NET engine will delay the rendering phase until the
+                final call returns.
+              </p>
+            </Element>
+            <Element Type="Section" Name="Asynchronous Tasks">
+              Asynchronous Tasks
+              <Element Type="Text">
+                <p>
+                  <code>
+                    10.0pt;MethodAsync
+                  </code>
+                  is a convenient way to make multiple asynchronous
+                  Web service calls from an asynchronous page and delay the rendering phase until
+                  all the calls complete. Calling a Web service is not the only task that
+                  requires asynchronous programming. I/O-operations can be slow, too, especially
+                  when the server comes under pressure.
+                </p>
+
+              </Element>
+              <Element Type="Section" Name="Register Asynchronous Tasks">
+                Register Asynchronous Tasks
+                <Element Type="Text">
+
+                  <p>
+                    The <code> Page</code>
+                    class introduces another method of
+                    facilitating asynchronous operations: <code>
+                      RegisterAsyncTask
+                    </code>
+                    . <code>
+                      RegisterAsyncTask
+                    </code>
+                    has several advantages. In addition to <code> Begin</code>
+                    and <code>
+                      End
+                    </code>
+                    methods, <code>
+                      RegisterAsyncTask
+                    </code>
+                    lets you register a timeout method that’s
+                    called if an asynchronous operation takes too long to complete. You can set the
+                    timeout declaratively by including an <code>
+                      AsyncTimeout
+                    </code>
+                    attribute in the page’s <code> Page</code>
+                    directive. For example, to set the
+                    timeout to ten seconds:
+                  </p>
+                  <pre>
+                    AsyncTimeout=&quot;10&quot;
+                  </pre>
+                  <p>
+                    The
+                    second advantage is that you can call <code>
+                      RegisterAsyncTask
+                    </code>
+                    several times in one request to register
+                    several asynchronous operations. As with <code>
+                      MethodAsync
+                    </code>
+                    and all other solutions, ASP.NET delays
+                    rendering the page until all operations have been completed. Thirdly, you can
+                    use the fourth parameter of <code>
+                      RegisterAsyncTask
+                    </code>
+                    to pass the state to your <code> Begin</code>
+                    methods. Finally, <code> RegisterAsyncTask</code>
+                    forwards impersonation, culture, and <code> HttpContext.Current</code>
+                    to the <code>
+                      End
+                    </code>
+                    and <code>
+                      Timeout
+                    </code>
+                    methods for easy and transparent access.
+                    As mentioned earlier, the same is not true of an <code>
+                      End
+                    </code>
+                    method registered with <code> AddOnPreRenderCompleteAsync</code>
+                    .
+                  </p>
+
+                  <p>
+                    In
+                    other respects, an asynchronous page that relies on <code> RegisterAsyncTask</code>
+                    is similar to one that relies on <code> AddOnPreRenderCompleteAsync</code>
+                    . The attribute in the page directive <code> Async=&quot;true&quot;</code>
+                    is still required, and it still executes
+                    as normal through the <code>
+                      PreRender
+                    </code>
+                    event. Listing 2-25 demonstrates <code> RegisterAsyncTask</code>
+                    in a short example.
+                  </p>
+
+                </Element>
+                <Element Type="Listing" Name="AsyncPageTask.aspx.cs">
+
+                  using System;
+                  using System.Web;
+                  using System.Web.UI;
+                  using System.Web.UI.WebControls;
+                  using System.Net;
+                  using System.IO;
+                  using System.Text;
+                  using System.Text.RegularExpressions;
+
+                  public partial class AsyncPageTask : System.Web.UI.Page
+                  {
+
+                      private WebRequest _request;
+                      protected void Page_Load(object sender, EventArgs e)
+                      {
+                          PageAsyncTask
+                  task = new PageAsyncTask(
+                              new
+                  BeginEventHandler(BeginAsyncOperation),
+                              new
+                  EndEventHandler(EndAsyncOperation),
+                              new
+                  EndEventHandler(TimeoutAsyncOperation),
+                              null
+                          );
+                          RegisterAsyncTask(task);
+                      }
+
+                      IAsyncResult
+                  BeginAsyncOperation(object sender, EventArgs e,
+                          AsyncCallback
+                  cb, object state)
+                      {
+                          _request =
+                  WebRequest.Create(&quot;http://msdn.microsoft.com&quot;);
+                          return
+                  _request.BeginGetResponse(cb, state);
+                      }
+                      void
+                  EndAsyncOperation(IAsyncResult ar)
+                      {
+                          string text;
+                          using
+                  (WebResponse response = _request.EndGetResponse(ar))
+                          {
+                              using
+                  (StreamReader reader =
+                                  new
+                  StreamReader(response.GetResponseStream()))
+                              {
+                                  text =
+                  reader.ReadToEnd();
+                              }
+                          }
+                          Regex regex =
+                  new Regex(&quot;href\\s*=\\s*\&quot;([^\&quot;]*)\&quot;&quot;,
+                  RegexOptions.IgnoreCase);
+                  MatchCollection matches = regex.Matches(text);
+                          StringBuilder builder = new StringBuilder(1024);
+                          foreach (Match
+                  match in matches)
+                          {
+                  builder.Append(match.Groups[1]);
+                  builder.Append(&quot;&lt;br/&gt;&quot;);
+                          }
+                          Output.Text =
+                  builder.ToString();
+                      }
+                      void
+                  TimeoutAsyncOperation(IAsyncResult ar)
+                      {
+                          Output.Text =
+                  &quot;Data temporarily unavailable&quot;;
+                      }
+                  }
+
+                </Element>
+                <Element Type="Text">
+
+                  <p>
+                    The primary
+                    advantage of <code>
+                      10.0pt;RegisterAsyncTask
+                    </code>
+                    is that it allows asynchronous pages to fire off
+                    multiple asynchronous calls and delays rendering until all the calls have been
+                    completed. It works equally well for one asynchronous call, and it offers a
+                    timeout option that <code>
+                      AddOnPreRenderCompleteAsync
+                    </code>
+                    does not provide. If you build an
+                    asynchronous page which makes just one asynchronous call, you can use <code> AddOnPreRenderCompleteAsync</code>
+                    or <code>
+                      RegisterAsyncTask
+                    </code>
+                    . But for asynchronous pages that place
+                    two or more such calls, <code>
+                      RegisterAsyncTask
+                    </code>
+                    simplifies your life considerably.
+                  </p>
+
+                </Element>
+                <Element Type="Section" Name="Setting Properties">
+                  Setting Properties
+                  <Element Type="Text">
+
+                    <p>
+                      There are a
+                      number of relevant properties that can be set programmatically. (It was not
+                      possible to demonstrate all aspects in the sample code.) Please refer to the
+                      documentation to see what else is possible and how to modify its behavior. The
+                      intention of this chapter is to show ways to improve the overall performance of
+                      a web server through understanding the basics of thread pooling and request
+                      handling.
+                    </p>
+
+                  </Element>
+                </Element>
+              </Element>
+            </Element>
+          </Element>
+        </Element>
+      </Element>
+      <Element Type="Section" Name="Testing and Debugging Modules and Handlers">
+        Testing and Debugging Modules and Handlers
+        <Element Type="Text">
+          <p>
+            Having deployed and configured the module
+            or handler, debugging may be required. In Visual Studio, the normal Debug mode works
+            well for debugging handlers. You’re probably already familiar with the
+            debugging capabilities in Visual Studio. Setting breakpoints and viewing
+            variable’s values is just as simple for handlers as for any other type of .NET solution.
+          </p>
+
+        </Element>
+        <Element Type="Section" Name="Debug using IIS">
+          Debug using IIS
+          <Element Type="Text">
+
+            <p>
+              You may occasionally experience trouble
+              with your application when running on IIS. There are no breakpoints, and adding
+              logging and tracing capabilities can be tedious. In large projects there are
+              often coding guidelines that require you to add tracing code and to log pertinent
+              messages (such as exceptions). In smaller projects, it might not be appropriate
+              to write more code for logging and tracing. Setting a simple breakpoint and
+              examining a value or condition during a request would be nice.
+            </p>
+
+            <p>
+              It can be done. To do so, you can attach
+              a debugger to a running application. In the case of an ASP.NET application
+              running on IIS7, this is the worker process—w3wp.exe. Let’s consider the case
+              where you have not published your project, but simply compiled on the fly, and
+              your sources—the .cs files—are still available beside the .aspx files. (I’ll discuss
+              techniques for attaching to a precompiled project later.) Here, the Visual
+              Studio debugger attaches automatically to the current process when you hit F5,
+              and start a debug session. This current process is the internal Web server
+              included in Visual Studio. You can achieve the same thing simply by attaching
+              the debugger to the worker process. If the worker process is not running, force
+              it by requesting the first page and invoking the modules or handlers configured
+              for your application. It doesn’t matter whether it is running properly or not.
+            </p>
+
+            <p>
+              Here is a brief summary of the
+              pre-conditions so far:
+            </p>
+            <ul>
+              <li>IIS is configured to run the Web directly from project files</li>
+              <li>Visual Studio is running and has the project loaded (however, there is no debug session so far)</li>
+              <li>The Worker process is up and running</li>
+            </ul>
+
+          </Element>
+          <Element Type="SideBar" SidebarType="Tip">
+            <header>Tip</header>
+            <aside>
+              You can force the worker
+              process to start by invoking a first request to the application. To check
+              whether it is available, open Task Manager, switch to the Processes tab, check
+              the box (Windows Server 2008) or click the button (Windows Vista) “Show
+              processes from all users", and search for w3wp.exe in the list.
+            </aside>
+          </Element>
+          <Element Type="Image" Name="Use the Task Manager to check for the worker process">
+            images/19835f0310.png
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              Now open Visual Studio and attach the
+              debugger to the worker process:
+            </p>
+
+            <p class="NumListFirst">
+              1. Open <i>Debug &gt; Attach to Process…</i>
+            </p>
+
+            <p class="NumList">
+              2. In the subsequent dialog, check these
+              settings:
+            </p>
+
+            <p class="NumSubList">
+              a)  <i>Transport</i>: default
+            </p>
+
+            <p class="NumSubList">
+              b)  <i>Qualifier</i>: The
+              name of the server or workstation
+            </p>
+
+            <p class="NumSubList">
+              c)  In the <i>Attached to</i>
+              section, you should at least have the option Managed Code selected. Use the
+              Select button to change settings.
+            </p>
+
+            <p class="NumList">
+              3. In the list of Available Processes, look
+              for the worker process. If it’s not there, tick the checkbox <i>
+                Show processes
+                from all users
+              </i>. This is same option as in the Task Manager.
+            </p>
+
+            <p class="NumList">
+              4. Use the Refresh button to reload the list
+              of processes during the session without closing the dialog
+            </p>
+
+            <p class="NumList">
+              5. Mark available worker processes and click <i>Attach</i>.
+            </p>
+
+          </Element>
+
+          <Element Type="Image" Name="Attaching the debugger to the worker process">
+            images/19835f0311.png
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              Depending on your server
+              conditions, you may find that several worker processes appear in the list. If you’re
+              not sure which process is the one handling the current request, you can attach to
+              all of them. Alternatively, use Task Manager to kill all the worker processes,
+              issue a new request to your application, and refresh the list. If no one else
+              is using the server, one worker process will appear. Of course, the usage of
+              worker processes—as explained in chapter 2—depends on the threads required.
+              Under rare circumstances, the application needs more power and splits the
+              requests into multiple worker processes. However, attaching several instances
+              of the worker process to the same debugger session is quite easy.
+            </p>
+
+            <p>
+              With Visual Studio running in
+              debug mode, as it is when you hit the F5 key, you can set breakpoints within
+              the module or handler code and invoke a request to hit the breakpoint. You can
+              even watch the debug and trace information in the output window.
+            </p>
+
+            <Element Type="Section">
+              <h4>Problems Debugging the Worker Process</h4>
+              <p>
+                Sometimes the behavior of the debugger
+                does not match your expectations. Quite frequently the breakpoints appear inactive,
+                or they can’t be ‘hit’, as Visual Studio calls it.
+              </p>
+
+            </Element>
+            <Element Type="Image" Name="The breakpoint will not currently be hit">
+              images/19835f0312.png
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                Usually this is because the page has not
+                yet been loaded. Because we decided to let ASP.NET compile pages on the fly,
+                the current page might not be available yet and therefore the symbols are not
+                built. To check this, use the <i>Modules</i> dialog in Visual Studio.
+              </p>
+
+            </Element>
+
+            <Element Type="Image" Name="Use the Modules window to retrieve information about loaded symbols">
+              images/19835f0314.png
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                In the Modules window, look for the
+                assembly you built for your module or handler. In the context menu of each
+                entry, use the <i>Symbol load information</i> item to retrieve more
+                information. Either you’ll obtain the full path, or the symbol file (.pdb) is
+                loaded from the list of paths Visual Studio has tried so far.
+              </p>
+
+            </Element>
+            <Element Type="SideBar" SidebarType="Tip">
+              <header>Tip</header>
+              <aside>
+                To debug parts of the
+                operating system or .NET framework, use the Modules dialog to attach foreign
+                pdb files. Additionally, it can be a good idea to set up a symbol server in
+                your company in order to have common symbol files ready, or, alternatively,
+                attach to Microsoft’s public symbol server.
+              </aside>
+            </Element>
+            <Element Type="Image" Name="Use the symbols settings in Visual Studio to optimize access to public PDBs">
+              images/19835f0315.png
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                Once everything is functioning normally and
+                the attached symbols are available, the breakpoints should function as expected
+                and be “hit" when the code execution reaches them.
+              </p>
+            </Element>
+            <Element Type="Image" Name="Everything is ready to go if the breakpoint is active">
+              images/19835f0313.png
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Set up Tracing for Handlers">
+            Set up Tracing for Handlers
+            <Element Type="Text">
+
+              <p>
+                Aspx pages have a powerful and popular
+                tracing feature. When you set the following page directive, the page’s content
+                will be replaced by a complete analysis of the request:
+              </p>
+              <pre>
+                &lt;%@ Page Trace=&quot;true&quot; …
+              </pre>
+              <p>
+                However, the <code>@WebHandler</code> directive does not support this. If you write your module or
+                handler in a separate assembly, using plain code, there is no directive at all.
+              </p>
+              <p>
+                An example of a handler invoked
+                by file extension is the <i>Trace.axd</i> file used for debugging. In order to
+                invoke the <i>Trace.axd</i> handler, configure the website for tracing by
+                adding a trace section to <i>web.config</i> as this:
+              </p>
+              <pre>
+                &lt;configuration&gt;
+                    &lt;system.web&gt;
+                        &lt;trace enabled=&quot;true&quot;/&gt;
+                    &lt;/system.web&gt;
+                &lt;/configuration&gt;
+              </pre>
+              <p>
+                Call the <i>trace.axd</i> file from the root of the website: for example,  <i>http://localhost/trace.axd</i>.
+              </p>
+
+            </Element>
+          </Element>
+        </Element>
+      </Element>
+      <Element Type="Section" Name="Summary">
+        Summary
+        <Element Type="Text">
+          <p>
+            In this chapter, you learned how to
+            extend the pipeline by creating your own modules and handlers. A module
+            provides low level processing and is invoked twice: when the request bubbles up
+            the pipeline and again after all internal processing by the designated handler
+            is complete. Using a handler, you can add your own processing code either
+            assigned to your own file extension or using the generic .ashx extension.
+            Handlers process requests and create the output sent to the client.
+          </p>
+          <p>
+            Asynchronous handlers help to process long-running
+            requests—such as database queries or Web services—without filling the thread
+            pool with threads. This technique improves the overall performance of a Web
+            application and leads to a consistently smooth user experience.
+          </p>
+        </Element>
+
+      </Element>
+    </Element>
+  </Element>
+</Content>

@@ -1,0 +1,21 @@
+﻿@using Texxtoor.DataModels.Models.Reader.Content
+@model Texxtoor.DataModels.Models.Reader.Content.Work
+@using (Html.BtPanel(Loc("titleInfo", "Information for '<span data-args='0' data-desc='Book Title'>{0}</span>'", Model.Name), "green")) {
+  if (Model.Extern == WorkType.Published) {
+    @:@Html.Partial("Published/_Details", Model.Published)
+    <div class="formsendButtons">
+      <a id="btnCloseDetails" class="btn btn-primary">@ViewResources.Button_Back</a>
+    </div>
+  } else {
+    using (Html.BeginForm()) {
+      using (Html.BtFieldset(Loc("titleInfo", "Information for '<span data-args='0' data-desc='Book Title'>{0}</span>'", Model.Name))) {
+        @Html.DisplayForModel()
+        <div class="formsendButtons">
+          <a id="btnEdit" onclick='ui.editElement(@Model.Id)' class="btn btn-info">@ViewResources.Action_Library_EditContent</a>
+          <a id="btnContent" onclick='lib.createChange.loadAll(@Model.Id)' class="btn btn-success">@ViewResources.Action_Collection_EditCollection</a>
+          <a id="btnCloseDetails" class="btn btn-default">@ViewResources.Button_CancelAndClose</a>
+  </div>
+      }
+    }
+  }
+}

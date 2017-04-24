@@ -1,0 +1,41 @@
+﻿@{
+  PageData["Title"] = Loc("title", "Deactivated Projects");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("text1", @"These are previously deactivated projects. You can reactivate or delete finally. Deletion will remove
+the project, all containing books, all related Content, resources, teams and teams' data from database.");
+}
+@section HeadContent{
+  <script type="text/javascript">
+    $(function () {
+      $(function () {
+        ui = new Dialog(
+          {
+          },
+        {
+        },
+        {
+          formId: '#delProject',
+          formDivId: '#delProject',
+          formAction: '@Url.Action("ReactivateProject")',
+          sendBtnId: '#actProjectSendButton',
+          cancelBtnId: '#actProjectCancelButton'
+        },
+        {
+          formId: '#main',
+          formDivId: '#main',
+          formAction: '@Url.Action("ListProjects", new { deactivated = true })'
+        });
+        ui.updateTable();
+      });
+    });
+
+  </script>
+}
+<h2>@Loc("titleSub1", "Deactivated projects")</h2>
+@using (Html.BtDeleteTemplate(Loc("txtDel", "You're about to reactivate a project. Please confirm."))){
+  @Create.FormButtonOnClick("actProjectSendButton", "", ViewResources.Action_Project_Reactivate)
+  @Create.FormButtonOnClick("actProjectCancelButton", "", ViewResources.Button_Cancel)
+}
+@Create.MainContentWithLoader()
+@Create.ActionTask("btnTeams", false, Url.Action("Index", "Team"), ViewResources.TasksButton_ToTeams)
+@Create.ActionTask("btnProjects", false, Url.Action("Index", "Project"), ViewResources.TasksButton_ToProjects)

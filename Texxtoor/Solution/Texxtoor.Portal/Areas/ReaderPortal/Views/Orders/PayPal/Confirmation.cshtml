@@ -1,0 +1,76 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Orders.OrderProduct
+@{
+  PageData["Title"] = Loc("title", @"Order Confirmation");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+  PageData["ShortHelp"] = Loc("text1", @"Your products are ordered and the production is under way.");
+}
+@using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+  @Loc("text2", @"Electronic downloads can be found in the archive. You'll get an email as soon as the download is done. Printed copies may need few working days for production and shipping.")
+}
+@foreach (var m in Model.Media) {
+  switch (m.Name) {
+    case "Web":
+      <h2><i class="@BtIcon.RssSign text-green">&nbsp;&nbsp;</i>RSS Feed</h2>
+      <div class="well well-sm">
+        <p>@Loc("permaTxt", "This is the permanent link to the published work:")</p>
+        <div class="alert alert-info">
+          <small>@Context.Request.Url.Scheme://@Context.Request.Url.Host:@Context.Request.Url.Port/ServiceApi/Services/FeedService.svc/UserRss/@Model.Id/@String.Join("", Model.Owner.Password.Reverse())</small>
+        </div>
+        <a href="/ServiceApi/Services/FeedService.svc/UserRss/@Model.Id/@String.Join("", Model.Owner.Password.Reverse())" target="_blank" class="link">@Loc("permaLnk", "Link for Product '{0}'", Model.Title)</a>
+      </div>
+      break;
+    case "ePub":
+    <h2><i class="@BtIcon.Book text-green">&nbsp;&nbsp;</i>EPUB</h2>
+    <div class="well well-sm">
+      @Loc("archive", "Product will be available as download in the archive very soon.")
+    </div>
+      break;
+    case "Print":
+    <h2><i class="@BtIcon.Print text-red">&nbsp;&nbsp;</i>Print</h2>
+    <div class="well well-sm">
+      @Loc("print", "The production of your book is under way. We print books on demand and send directly from printer to you. This will take three working days approximately.")
+    </div>
+      break;
+    case "PDF":
+    <h2><i class="@BtIcon.Adn text-orange">&nbsp;&nbsp;</i>PDF</h2>
+    <div class="well well-sm">
+      @Loc("archive", "Product will be available as download in the archive very soon.")
+    </div>
+      break;
+    case "iBook":
+    <h2><i class="@BtIcon.Apple text-red">&nbsp;&nbsp;</i>iBook</h2>
+    <div class="well well-sm">
+      @Loc("appibook", "The item is available in the iBook Store. Please refer to the link below to get access.")
+    </div>
+      break;
+    case "Kindle":
+    <h2><i class="@BtIcon.ShoppingCart text-red">&nbsp;&nbsp;</i>Kindle</h2>
+    <div class="well well-sm">
+      @Loc("appkindle", "Product will be available as download in the archive very soon. Connect your kindle to your pc any copy the file to your device.")
+    </div>
+      break;
+    case "AndroidApp":
+    <h2><i class="@BtIcon.Android text-red">&nbsp;&nbsp;</i>Android</h2>
+    <div class="well well-sm">
+      @Loc("app", "Please open the <strong>texxtoor</strong> App or load from Google Play first. The app is free and gives immediate access to purchased items.")
+    </div>
+      break;
+    case "Phone7App":
+    <h2><i class="@BtIcon.Windows text-red">&nbsp;&nbsp;</i>Windows</h2>
+    <div class="well well-sm">
+      @Loc("appwin", "Please open the <strong>texxtoor</strong> App or load from Store first. The app is free and gives immediate access to purchased items.")
+    </div>
+      break;
+    case "iPadApp":
+    <h2><i class="@BtIcon.Tablet text-red">&nbsp;&nbsp;</i>iPad</h2>
+    <div class="well well-sm">
+      @Loc("app", "Please open the <strong>texxtoor</strong> App or load from AppStore first. The app is free and gives immediate access to purchased items.")
+    </div>
+      break;
+  }
+}
+@Create.ActionTask("", false, Url.Action("Archive", "Account", new { area = "" }), ViewResources.TasksButton_Reader_Archive)
+@Create.ActionTask("", false, Url.Action("Library", "Reader"), ViewResources.TasksButton_Reader_Library)
+@Create.ActionTask("", false, Url.Action("Matrix", "Home"), ViewResources.LinkButton_Reader_Matrix)
+@Create.ActionTask("", false, Url.Action("Products", "Products"), ViewResources.LinkButton_Reader_Products)
+@Create.ActionTask("", false, Url.Action("Order", "Orders"), ViewResources.LinkButton_Reader_CurrentOrder)

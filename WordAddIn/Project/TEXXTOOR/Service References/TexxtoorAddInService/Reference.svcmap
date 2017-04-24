@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="102c887e-185b-4757-96be-ae251b1b7dad" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://www.texxtoor.de/ServiceApi/Services/UploadService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UploadService5.xsd" MetadataType="Schema" ID="fb565d83-5347-44e3-a1af-06c078f9c552" SourceId="1" SourceUrl="http://www.texxtoor.de/ServiceApi/Services/UploadService.svc?xsd=xsd4" />
+    <MetadataFile FileName="UploadService1.wsdl" MetadataType="Wsdl" ID="5b8556a7-be25-4d19-9bff-6ff9f7effef7" SourceId="1" SourceUrl="http://www.texxtoor.de/ServiceApi/Services/UploadService.svc?wsdl" />
+    <MetadataFile FileName="UploadService51.xsd" MetadataType="Schema" ID="bb93e9eb-ed82-48c7-bf24-8636ab912970" SourceId="1" SourceUrl="http://www.texxtoor.de/ServiceApi/Services/UploadService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UploadService52.xsd" MetadataType="Schema" ID="e2583f44-f187-4fb5-8b95-462f32f9a2d6" SourceId="1" SourceUrl="http://www.texxtoor.de/ServiceApi/Services/UploadService.svc?xsd=xsd3" />
+    <MetadataFile FileName="UploadService53.xsd" MetadataType="Schema" ID="ec1edc26-53aa-4039-84c3-7ad46762ded5" SourceId="1" SourceUrl="http://www.texxtoor.de/ServiceApi/Services/UploadService.svc?xsd=xsd0" />
+    <MetadataFile FileName="UploadService54.xsd" MetadataType="Schema" ID="5323e979-06a2-4d0e-bb40-ada1073d6aa6" SourceId="1" SourceUrl="http://www.texxtoor.de/ServiceApi/Services/UploadService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UploadService1.disco" MetadataType="Disco" ID="7ddb732b-36da-45af-a782-e68c4e206303" SourceId="1" SourceUrl="http://www.texxtoor.de/ServiceApi/Services/UploadService.svc?disco" />
+    <MetadataFile FileName="UploadService.xsd" MetadataType="Schema" ID="bd8eda63-3831-4deb-989c-d48737a41655" SourceId="1" SourceUrl="http://www.texxtoor.de/ServiceApi/Services/UploadService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,8 @@
+﻿@model Texxtoor.DataModels.ViewModels.Content.Isbn
+@if (Model != null) {
+  @Html.TextBoxFor(m => m.Isbn10, new {disabled = "disabled"})
+}
+else {
+  @Loc("noIsbn", "There is no ISBN")
+}
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

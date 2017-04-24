@@ -1,0 +1,82 @@
+﻿@model IPagedList<Texxtoor.DataModels.Models.Content.Project>
+@Html.Partial("_Pagination", PaginationViewModel<Texxtoor.DataModels.Models.Content.Project>.Create(Model, "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});", true, m => m.Name, m => m.ModifiedAt))
+@if (Model == null || !Model.Any()) {
+  <div class="alert alert-warning">
+    @Loc("textNoModel", @"There is no project available.")
+  </div>
+} else {
+  <div class="multilist">
+    @foreach (var item in Model) {
+      <div class="listitem">
+        @{
+          var leaderBoard = (Dictionary<int, Texxtoor.DataModels.Models.Users.User>) ViewBag.TeamLead;
+          var leader = (leaderBoard != null) ? leaderBoard[item.Id] : null;
+        }
+        <div class="firstRow">
+          @{
+            var green = item.CanPublish();
+            var red = !item.Active;
+            var yellow = !item.CanPublish() && !red && !green;
+            var off = !item.Active;
+          }
+          @if (green) {
+            <img src="~/Content/icons/Project/trafficlight_green_32.png" />
+          }
+          @if (yellow) {
+            <img src="~/Content/icons/Project/trafficlight_yellow_32.png" />
+          }
+          @if (red) {
+            <img src="~/Content/icons/Project/trafficlight_red_32.png" />
+          }
+          @if (off) {
+            <img src="~/Content/icons/Project/trafficlight_off_32.png" />
+          }
+          @Badges.NewItem(item.Name, item.CreatedAt, TimeSpan.FromDays(1))
+        </div>
+        <div class="secondRow">
+          <i class="icon icon-2x icon-info pull-right" onmouseover=" $('div[data-type=infobox]').hide(); $(this).next('div[data-type=infobox]').show(); " onmouseout=" $(this).next('div[data-type=infobox]').hide(); "></i>
+          <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position: absolute; z-index: 1000; width: 80%; box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.65);" onmouseout=" $(this).hide(); ">
+
+            @Loc("textTabCellInfo", @"Project <em><span data-args='0' data-desc='Project Count'>{0}</span></em>, active since <em><span data-args='1' data-desc='CreatedAt'>{1}</span></em>",
+              item.Name, item.CreatedAt.ToShortDateString())
+            @if (leader != null) {
+              if (leader.Id == ((Texxtoor.DataModels.Models.Users.User) ViewBag.CurrentUser).Id) {
+                @:@Loc("txtLeading", "I'm leading this project.")
+              }
+              else {
+                @:@Loc("txtNotLeading", "I'm a team member.") <em>@leader.UserName</em> @Loc("txtIsLeader", "is the project's leader.")
+              }
+            }
+            @Loc("num", "<em>{0}</em> issues available.", @item.Opuses.Count(o => o.Active))
+          </div>
+        </div>
+        <div class="thirdRow" data-item="@item.Id">
+          <div class="optionFields">
+            @if (item.CanPublish()) {
+              <button class="btn btn-primary btn-sm" onmouseover=" $('div[data-type=infobox]').hide(); $(this).next('div[data-type=infobox]').show(); ">
+                <i class="icon icon-2x icon-print"></i>
+                &nbsp;Show Texts and Production Options
+              </button>
+              <div class="hidden-to-show alert alert-success well well-sm"
+                   data-type="infobox" style="position: absolute; z-index: 1000; width: 80%; box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.65);">
+                <i class="icon icon-2x icon-check-minus pull-right" style="cursor: pointer" onclick=" $(this).parent().hide(); "></i>
+                <div style="max-height: 300px; overflow-y: scroll;">
+                  @foreach (var opus in item.Opuses.Where(o => o.Active)) {
+                    <div>Made an issue of <em>@opus.Name</em>, created <em>@opus.CreatedAt.ToLongDateString()</em>.</div>
+                    @Create.ActionLink("lnkProducePdf", false, Url.Action("PdfProduction", "Production", new {id = opus.Id}), ViewResources.Action_Project_ProducePdf, BtStyle.ButtonWarning)
+                    @Create.ActionLink("lnkProduceEpub", false, Url.Action("EpubProduction", "Production", new { id = opus.Id }), ViewResources.Action_Project_ProduceEpub, BtStyle.ButtonWarning)
+                    @Create.ActionLink("lnkProduceApp", false, Url.Action("AppProduction", "Production", new { id = opus.Id }), ViewResources.Action_Project_ProduceApp, BtStyle.ButtonAndDanger)
+                    @Create.ActionLink("lnkProducePreview", true, Url.Action("AuthorPreview", "Publishing", new {id = opus.Id}), ViewResources.Action_Publish_Preview)
+                  }
+                </div>
+              </div>
+            }
+            else {
+              <div class="alert alert-warning">@Loc("txtNotProducable", "There is nothing you can produce right now.")</div>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

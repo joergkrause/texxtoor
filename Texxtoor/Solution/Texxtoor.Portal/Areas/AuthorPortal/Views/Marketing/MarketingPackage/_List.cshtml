@@ -1,0 +1,83 @@
+﻿@model IPagedList<Texxtoor.DataModels.Models.Marketing.MarketingPackage>
+@if (Model.Count == 0) {
+    <div class="alert alert-warning">
+        @Loc("textNoContent", @"There is no package for this project")
+    </div>
+} else {
+    @Html.Partial("_Pagination", PaginationViewModel<Texxtoor.DataModels.Models.Marketing.MarketingPackage>.Create(Model, "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});",
+  new Dictionary<string, string> {
+    {"id", "addElement"},
+    {"action", "ui.addElement()" },
+    {"text", ViewResources.Action_Marketing_CreatePackage},
+    {"cssclass", BtStyle.ButtonPrimary}},
+  true, m => m.Name, m => m.ModifiedAt))
+    <div class="multilist">
+        @foreach (var item in Model) {
+            <div class="listitem">
+                <div class="firstRow">
+                    @Badges.NewItem(item.Name, item.CreatedAt, TimeSpan.FromDays(2))
+                </div>
+                <div class="secondRow">
+                    <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+                    <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+
+                        @Loc("textListItm", @"The package <em><span data-args='0' data-desc='Name'>{0}</span></em>
+            was created at <em><span data-args='1' data-desc='CreatedAt'>{1}</span></em>.<br />
+            <span data-args='2' data-desc='Desc'>{2}</span>.",
+              item.Name,
+              item.CreatedAt.ToShortDateString() + " " + item.CreatedAt.ToShortTimeString(),
+              item.Description.Ellipsis(200))
+                        @if (ViewBag.AssignedPackage != null && ((int)ViewBag.AssignedPackage) == item.Id) {
+                            using (Html.BtDiv(BtStyle.AlertAndInfo & BtStyle.WellSmall)) {
+                                @Loc("txtAssigned", "This package is currently assigned")
+                            }
+                        }
+                        @if (item.AssignedProjects.Any()) {
+                            using (Html.BtDiv(BtStyle.AlertAndWarning & BtStyle.WellSmall)) {
+                                @Loc("txtElseWhere", "This package is assigned to these projects: <em>{0}</em>",
+                  String.Join(", ", item.AssignedProjects.Select(p => p.Name).ToArray()))
+                            }
+                            if (ViewBag.AssignedPackage != null && ((int)ViewBag.AssignedPackage) != item.Id) {
+                                using (Html.BtDiv(BtStyle.AlertAndError & BtStyle.WellSmall)) {
+                                    @Loc("txtCannotUassign", "You cannot change this packages settings because it is already assigned to another project. Choose project first and handle packages, then.")
+                                }
+                            }
+                        }
+                    </div>
+                    @if (item.AssignedProjects.Any()) {
+                        if (item.AssignedProjects.Any(p => p.Active)) {
+                            <div class="pull-right text-dark-orange" style="padding-right: 25px">
+                                <span>@String.Join(", ", item.AssignedProjects.Where(p => p.Active).Select(p => p.Name).ToArray()) <i class="icon icon-play-circle"></i></span>
+                            </div>
+                        }
+                        if (item.AssignedProjects.Any(p => !p.Active)) {
+                            <div class="pull-left text-red">@Loc("lblDeactive", "Project has been deactivated!") &nbsp;</div>
+                            <div class="pull-right text-red" style="padding-right: 25px">
+                                <span>@String.Join(", ", item.AssignedProjects.Where(p => !p.Active).Select(p => p.Name).ToArray()) <i class="icon icon-book"></i></span>
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="thirdRow">
+                    <div class="optionFields" data-item="@item.Id">
+                        @Create.ActionClick("editMarketingPackage", false, "ui.editElement(" + item.Id + ")", ViewResources.Action_Marketing_EditPackage)
+                        @if (!item.AssignedProjects.Any()) {
+                            @:@Create.ActionClick("delMarketingPackage", false, "ui.deleteElement(" + item.Id + ")", ViewResources.Action_Marketing_DeletePackage, "btn-danger")
+                            @:@Create.ActionClick("marketingId-" + item.Id, true, "SetPackage(" + item.Id + "," + "0" + ", false)", ViewResources.Action_Marketing_AssignPackage, "btn-primary")
+            } else {
+                            if (ViewBag.AssignedPackage != null && ((int)ViewBag.AssignedPackage) == item.Id) {
+                                @:@Create.ActionClick("unassign-marketingId-" + item.Id, true, "SetPackage(" + item.Id + "," + item.AssignedProjects.First().Id + ", true)", ViewResources.Action_Marketing_UnAssignPackage, "btn-warning")
+              } else {
+                                if (item.AssignedProjects.Any(p => !p.Active)) {
+                                    @:@Create.ActionClick("unassign-marketingId-" + item.Id, true, "SetPackage(" + item.Id + "," + item.AssignedProjects.First().Id + ", true)", ViewResources.Action_Marketing_UnAssignPackage, "btn-warning")
+                                } else {
+                                    @:@Create.ActionClick("unassign-marketingId-" + item.Id, true, "", ViewResources.Action_Marketing_UnAssignPackage, "disabled")
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

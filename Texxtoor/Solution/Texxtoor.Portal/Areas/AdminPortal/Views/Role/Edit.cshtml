@@ -1,0 +1,30 @@
+﻿@using Texxtoor.DataModels.Models
+@model Texxtoor.DataModels.Models.Users.Role
+
+@{
+  PageData["Title"] = "Edit Role";
+  Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+
+@using (Html.BeginForm()) {
+  @Html.ValidationSummary(true)
+  @Html.AntiForgeryToken()
+  using (Html.BtFieldset("Role Properties")) {
+
+    <div class="editor-label">
+      @Html.LabelFor(model => model.UserRole)
+    </div>
+    <div class="editor-field">
+      @(Html.DropdownForEnum<UserRole>("UserRole", Model.UserRole))
+      @Html.ValidationMessageFor(model => model.UserRole)
+    </div>
+
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="formsendButtons">
+      <button type="submit" class="btn btn-sm btn-primary">Save Role</button>
+      @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-sm btn-default" })
+    </div>
+  }
+}
+

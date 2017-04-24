@@ -1,0 +1,151 @@
+﻿@model Texxtoor.ViewModels.Common.IPaginationViewModel
+@{
+  var tcnt = Model.TotalCount;
+  var fcnt = Model.FilterCount;
+}
+<div class="row datatables-top pagination-digg">
+  @*<ul class="pagination pagination-sm">
+      <li>
+        <img src="~/Content/icons/columns_grid.png" class="pagination-layout" data-layout="1" />@Model.PageIndex</li>
+    </ul>*@
+  <div class="pull-right" >
+    <span onmouseover="javascript: $(this).next('div').show();" onmouseout="javascript: $(this).next('div').hide();">@BtIcon.IconHtml(BtIcon.QuestionSign)</span>
+    <div class="well well-sm hidden-to-show" style="position: absolute; left: 15px; right: 15px; z-index: 1000; box-shadow: silver 3px 3px; ">
+      @Loc("paginationHelp", "Move cursor over tiles to see details. Remove from surface to see options. If cross cursor appears you can move entire rows to favorites to keep a link. Click on top buttons with arrows to order. Write a filter value in the filter textbox and hit enter to filter. Click the crosss button to clear the filter and show all elements. Click the green buttons to invoke functions.")
+    </div>
+  </div>
+  <ul class="pagination pagination-sm">
+    @if (Model.TotalPages > 1) {
+      if (Model.HasPreviousPage) {
+        <li class="previous"><a href="@Model.CreatePageLink(page: Model.PageIndex - 2)">&laquo; @ViewResources.Prev</a></li>
+      } else {
+        <li class="previous disabled"><a href="#">&laquo; @ViewResources.Prev</a></li>
+      }
+
+      if (Model.TotalPages > 2 && Model.TotalPages < 6 && Model.WithPages) {
+        for (int page = 1, send = 0; page <= Model.TotalPages; page++, send++) {
+          if (page == Model.PageIndex) {
+            <li class="disabled"><a href="#">@page.ToString()</a></li>
+          } else {
+            <li class="active">
+              <a href="@Model.CreatePageLink(page: send)">@page.ToString()</a>
+            </li>
+          }
+        }
+      }
+
+      if (Model.TotalPages >= 6 && Model.WithPages) {
+        if (Model.PageIndex > 2) {
+          <li><a href="@Model.CreatePageLink(page: Model.PageIndex - 3)">...</a></li>
+        }
+        var start = Model.PageIndex;
+        if ((Model.TotalPages - Model.PageIndex) < 3) {
+          start = Model.TotalPages - 3;
+        }
+        if (Model.PageIndex < 3) {
+          start = 1;
+        }
+        for (int page = start, send = Model.PageIndex - 1; page < Math.Min(Model.TotalPages, Model.PageIndex + 3); page++, send++) {
+          if (Model.PageIndex == page) {
+            <li class="disabled"><a href="#">@page.ToString()</a></li>
+          } else {
+            <li class="active">
+              <a href="@Model.CreatePageLink(page: send)">@page.ToString()</a>
+            </li>
+          }
+        }
+        if ((Model.TotalPages - Model.PageIndex) > 3) {
+          <li><a href="@Model.CreatePageLink(page: Model.PageIndex + 2)">...</a></li>
+        }
+      }
+
+      if (Model.HasNextPage) {
+        <li class="next">
+          <a href="@Model.CreatePageLink(page: Model.PageIndex)">
+            @ViewResources.Next &raquo;
+          </a>
+        </li>
+      } else {
+        <li class="next disabled"><a href="#">@ViewResources.Next &raquo;</a></li>
+      }
+    }
+    @if (tcnt > 0) {
+      <li class="active">
+        <span>
+          @if (tcnt == fcnt) {
+            @:@tcnt @(tcnt == 1 ? ViewResources.ItemTotal : ViewResources.ItemsTotal)
+          } else {
+            @:@fcnt / @tcnt @(tcnt == 1 ? ViewResources.ItemTotal : ViewResources.ItemsTotal)
+          }
+          @if (tcnt > 5) {
+            <a href="#" class="dropdown-toggle counter" data-toggle="dropdown" data-target="idPaginationDrop">&#9660;</a>
+            <ul class="dropdown-menu" id="idPaginationDrop">
+              <li><a href="@Model.CreatePageLink(pageSize: 5)">5</a></li>
+              @if (Model.TotalCount > 5 && Model.TotalCount < 10) {
+                <li><a href="@Model.CreatePageLink(pageSize: Model.TotalCount)">@Model.TotalCount</a></li>
+              }
+              @if (Model.TotalCount >= 10) {
+                <li><a href="@Model.CreatePageLink(pageSize: 10)">10</a></li>
+              }
+              @if (Model.TotalCount > 10 && Model.TotalCount < 20) {
+                <li><a href="@Model.CreatePageLink(pageSize: Model.TotalCount)">@Model.TotalCount</a></li>
+              }
+              @if (Model.TotalCount >= 20) {
+                <li><a href="@Model.CreatePageLink(pageSize: 20)">20</a></li>
+              }
+              @if (Model.TotalCount > 20 && Model.TotalCount < 100) {
+                <li><a href="@Model.CreatePageLink(pageSize: Model.TotalCount)">@Model.TotalCount</a></li>
+              }
+            </ul>
+          }
+        </span>
+      </li>
+    }
+
+    @if (Model.TotalCount > 1) {
+      foreach (var order in Model.GetOrderColumns()) {
+        if (Model.Order == order) {
+          <li class="activeSort">
+            <a href="@Model.CreatePageLink(page: Model.PageIndex - 1, order: order, dir: !Model.Descending)">
+              @Model.LocalizedOrderColumn(order)
+              <b style="font-size: 125%; line-height: 1em;">@Html.Raw(Model.Descending ? "&darr;" : "&uarr;")</b>
+            </a>
+          </li>
+        } else {
+          <li>
+            <a href="@Model.CreatePageLink(page: Model.PageIndex - 1, order: order)">
+              @Model.LocalizedOrderColumn(order)
+              &uarr;
+            </a>
+          </li>
+        }
+      }
+      foreach (var filter in Model.FilterColumns) {
+        <li>
+          @switch (@filter.Value.FilterUIHint) {
+            case "StringFilter":
+              <div style="position:relative; display:inline-block;">
+                <div class="filter-area" style="position: absolute; top:10px; width: 140px; top:-22px;">&nbsp;@Model.LocalizedFilterColumn(filter.Key):</div>
+                <input type="text" name="filter-@filter.Key" data-name="@filter.Key" class="filter-control col-xs-5 col-md-2" value="@Model.FilterValue" />
+                <i class="icon icon-2x icon-remove" style="cursor: pointer"></i>
+              </div>
+              break;
+          }
+        </li>
+      }
+    }
+    @if (Model.AddButtons != null && Model.AddButtons.Any()) {
+      foreach (var btn in Model.AddButtons) {
+        <li style="width: 100%;left: 5px; @(Model.FilterColumns.Any() ? "position: relative; ": "")">
+          <a id="@btn["id"]" onclick="@(btn.ContainsKey("action") ? "return " + btn["action"] : "")" href="@(btn.ContainsKey("href") ? btn["href"] : "#")" class="btn btn-xs @(btn["cssclass"] == "" ? "btn-success" : btn["cssclass"]) pull-right">@btn["text"]</a>
+        </li>
+      }
+    }
+  </ul>
+
+</div>
+@if (tcnt == 0 && (ViewData.ContainsKey("ShowEmptyWarning") && (bool)ViewData["ShowEmptyWarning"])) {
+  using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+    @Loc("pagWarn", "This list is empty.")
+  }
+}

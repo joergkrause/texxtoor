@@ -1,0 +1,2611 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="RetrievePassword_PasswordAnswer_Provide_Answer" xml:space="preserve">
+    <value>Bitte die Frage beantworten</value>
+  </data>
+  <data name="RetrievePassword_PasswordQuestion_Password_Question" xml:space="preserve">
+    <value>Wiederherstellungsfrage Kennwort</value>
+  </data>
+  <data name="RetrievePassword_UserName_User_name_or_E_Mail" xml:space="preserve">
+    <value>Nutzername oder eMail</value>
+  </data>
+  <data name="LogOn_UserName_User_Name" xml:space="preserve">
+    <value>Nutzername</value>
+  </data>
+  <data name="LogOn_Password_Password" xml:space="preserve">
+    <value>Kennwort</value>
+  </data>
+  <data name="LogOn_RememberMe_Remember_Me" xml:space="preserve">
+    <value>Daten speichern</value>
+  </data>
+  <data name="ChangePassword_OldPassword_Current_password" xml:space="preserve">
+    <value>Aktuelles Kennwort</value>
+  </data>
+  <data name="ChangePassword_NewPassword_New_password" xml:space="preserve">
+    <value>Neues Kennwort</value>
+  </data>
+  <data name="ChangePassword_ConfirmPassword_Confirm_new_password" xml:space="preserve">
+    <value>Kennwort wiederholen</value>
+  </data>
+  <data name="ChangePassword_ConfirmPassword_The_new_password_and_confirmation_password_do_not_match_" xml:space="preserve">
+    <value>Die Kennwörter stimmen nicht überein</value>
+  </data>
+  <data name="Register_ConfirmPassword_Confirm_password" xml:space="preserve">
+    <value>Kennwort bestätigen</value>
+  </data>
+  <data name="Register_PasswordQuestion_Question_asked_to_retrieve_password" xml:space="preserve">
+    <value>Wiederherstellungsfrage Kennwort</value>
+  </data>
+  <data name="Register_PasswordAnswer_Answer_to_get_password_back" xml:space="preserve">
+    <value>Antwort auf Sicherheitsfrage</value>
+  </data>
+  <data name="Register_Roles_Roles_requested" xml:space="preserve">
+    <value>Bitte eine Funktion auswählen</value>
+  </data>
+  <data name="Register_Email_E_Mail" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="ContactModel_Name_Your_name" xml:space="preserve">
+    <value>Der Name</value>
+  </data>
+  <data name="ContactModel_EMail_Your_e_mail_for_response" xml:space="preserve">
+    <value>Die E-Mailadresse</value>
+  </data>
+  <data name="ContactModel_Subject_Subject" xml:space="preserve">
+    <value>Betreff</value>
+  </data>
+  <data name="ContactModel_Message_Your_message" xml:space="preserve">
+    <value>Die Nachricht</value>
+  </data>
+  <data name="ContactFormRequest_Sender_User" xml:space="preserve">
+    <value>Benutzername</value>
+  </data>
+  <data name="ContactFormRequest_Name_Your_Name" xml:space="preserve">
+    <value>Name des Benutzers</value>
+  </data>
+  <data name="ContactFormRequest_EMail_Your_E_Mail_reply_address" xml:space="preserve">
+    <value>E-Mailadresse des Nutzers</value>
+  </data>
+  <data name="ContactFormRequest_Subject_Subject" xml:space="preserve">
+    <value>Betreff</value>
+  </data>
+  <data name="JobAdvertisment_Reference_Reference" xml:space="preserve">
+    <value>Referenzen</value>
+  </data>
+  <data name="JobAdvertisment_VisibleFrom_VisibleFrom" xml:space="preserve">
+    <value>Sichtbare Formular</value>
+  </data>
+  <data name="JobAdvertisment_VisibleTo_VisibleTo" xml:space="preserve">
+    <value>Sichtbar für</value>
+  </data>
+  <data name="JobAdvertisment_JobTitle_JobTitle" xml:space="preserve">
+    <value>Jobbezeichnung</value>
+  </data>
+  <data name="JobAdvertisment_JobShortDescription_JobShortDescription" xml:space="preserve">
+    <value>JobShortDescription</value>
+  </data>
+  <data name="JobAdvertisment_JobLongDescription_JobLongDescription" xml:space="preserve">
+    <value>Jobkurzbeschreibung</value>
+  </data>
+  <data name="UserProfile_User_User" xml:space="preserve">
+    <value>Nutzer</value>
+  </data>
+  <data name="UserProfile_User_User_Description" xml:space="preserve">
+    <value>Ähnliche Nutzer</value>
+  </data>
+  <data name="UserProfile_Description_Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="UserProfile_Walltext_Wall_Text" xml:space="preserve">
+    <value>Profiltext</value>
+  </data>
+  <data name="UserProfile_Notes_Public_Notes" xml:space="preserve">
+    <value>Öffentliche Notiz</value>
+  </data>
+  <data name="UserProfile_ConsumerMatrix_Consumer_Matrix" xml:space="preserve">
+    <value>Nutzermatrix</value>
+  </data>
+  <data name="UserProfile_ContributorMatrix_Contributor_Skill_Matrix" xml:space="preserve">
+    <value>Mitarbeiterfähigkeiten- matrix</value>
+  </data>
+  <data name="UserProfile_LanguageMatrix_Language_Matrix" xml:space="preserve">
+    <value>Sprachen</value>
+  </data>
+  <data name="UserProfile_Application_Application" xml:space="preserve">
+    <value>"Über mich"-Text</value>
+  </data>
+  <data name="UserProfile_ShowWalltextOnApplication_Show_private_page" xml:space="preserve">
+    <value>Text öffentlich anzeigen</value>
+  </data>
+  <data name="UserProfile_StartAvailability_Available_from" xml:space="preserve">
+    <value>Verfügbar ab</value>
+  </data>
+  <data name="UserProfile_EndAvailability_Available_until" xml:space="preserve">
+    <value>Verfügbar bis</value>
+  </data>
+  <data name="UserProfile_Hidden_Hidden" xml:space="preserve">
+    <value>Nicht sichtbar</value>
+  </data>
+  <data name="UserProfile_ExternalProfileUrl_External_Profil" xml:space="preserve">
+    <value>Weitere Profile</value>
+  </data>
+  <data name="UserProfile_ContractAccepted_Contract" xml:space="preserve">
+    <value>Vertrag</value>
+  </data>
+  <data name="UserProfile_SharingAccepted_Shared_Revenues" xml:space="preserve">
+    <value>Bezahlung durch Anteile akzeptiert</value>
+  </data>
+  <data name="UserProfile_MinHourlyRate_Hourly_min" xml:space="preserve">
+    <value>Minimaler Stundensatz</value>
+  </data>
+  <data name="UserProfile_MaxHourlyRate_Hourly_max" xml:space="preserve">
+    <value>Höchster Stundensatz</value>
+  </data>
+  <data name="UserProfile_PayPalUserId_Paypal_User_Id" xml:space="preserve">
+    <value>Paypal-Nutzername</value>
+  </data>
+  <data name="UserProfile_FirstName_FirstName" xml:space="preserve">
+    <value>Vorname</value>
+  </data>
+  <data name="UserProfile_LastName_LastName" xml:space="preserve">
+    <value>Nachname</value>
+  </data>
+  <data name="UserProfile_MiddleName_MiddleName" xml:space="preserve">
+    <value>Mittlerer Name</value>
+  </data>
+  <data name="UserProfile_StatementOfTaste_StatementOfTaste" xml:space="preserve">
+    <value>Eigenes Befinden</value>
+  </data>
+  <data name="UserProfile_Newsletter_Newsletter" xml:space="preserve">
+    <value>Newsletter</value>
+  </data>
+  <data name="UserProfile_Gender_Gender" xml:space="preserve">
+    <value>Geschlecht</value>
+  </data>
+  <data name="UserProfile_UILanguage_UILanguage" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="UserProfile_BirthDay_BirthDay" xml:space="preserve">
+    <value>Geburtstag</value>
+  </data>
+  <data name="AddressBook_Name_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AddressBook_StreetNumber_Street" xml:space="preserve">
+    <value>Straße</value>
+  </data>
+  <data name="AddressBook_Zip_ZipCode" xml:space="preserve">
+    <value>PLZ</value>
+  </data>
+  <data name="AddressBook_City_City" xml:space="preserve">
+    <value>Stadt</value>
+  </data>
+  <data name="AddressBook_Country_Country" xml:space="preserve">
+    <value>Land</value>
+  </data>
+  <data name="AddressBook_Default_Default_Address" xml:space="preserve">
+    <value>Standardadresse</value>
+  </data>
+  <data name="AddressBook_Invoice_Address_used_for_invoice" xml:space="preserve">
+    <value>Rechnungsadresse</value>
+  </data>
+  <data name="BaseProduct_Authors_Authors" xml:space="preserve">
+    <value>Autoren</value>
+  </data>
+  <data name="BaseProduct_Name_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="BaseProduct_Colored_Colored" xml:space="preserve">
+    <value>Farbig</value>
+  </data>
+  <data name="BaseProduct_Title_Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="BaseProduct_SubTitle_Sub_title" xml:space="preserve">
+    <value>Untertitel</value>
+  </data>
+  <data name="BaseProduct_Proprietor_Proprietor" xml:space="preserve">
+    <value>Besitzer</value>
+  </data>
+  <data name="BaseProduct_Issue_Issue" xml:space="preserve">
+    <value>Ausgabe</value>
+  </data>
+  <data name="BaseProduct_Dedication_Dedication" xml:space="preserve">
+    <value>Widmung</value>
+  </data>
+  <data name="BaseProduct_TableOfContent_Table_of_Content" xml:space="preserve">
+    <value>Inhaltsverzeichnis</value>
+  </data>
+  <data name="BaseProduct_Index_Index" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="User_Password_User_s_password_" xml:space="preserve">
+    <value>Nutzerpasswort</value>
+  </data>
+  <data name="User_Application_Applications" xml:space="preserve">
+    <value>Verwendung</value>
+  </data>
+  <data name="User_Application_Password" xml:space="preserve">
+    <value>Kennwort</value>
+  </data>
+  <data name="Application_ApplicationName_Application" xml:space="preserve">
+    <value>Name der Applikation</value>
+  </data>
+  <data name="Application_Description_Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="User_Roles_User_s_Roles" xml:space="preserve">
+    <value>Nutzerfunktion</value>
+  </data>
+  <data name="User_ReaderGroupsMember_Reading_groups" xml:space="preserve">
+    <value>Lesergruppe</value>
+  </data>
+  <data name="User_ReaderGroupsAdmin_Reading_groups_where_user_is_admin" xml:space="preserve">
+    <value>Lesergrupe in der der Nutzer Administrator ist</value>
+  </data>
+  <data name="User_Comment_Comment" xml:space="preserve">
+    <value>Kommentar</value>
+  </data>
+  <data name="User_FailedPasswordAnswerAttemptWindowStart_Failed_password_anser_attempt_window_start" xml:space="preserve">
+    <value>Falsches Kennwort</value>
+  </data>
+  <data name="User_FailedPasswordAnswerAttemptCount_Failed_password_answer_attempt_counts" xml:space="preserve">
+    <value>Fehlversuche Kennwort</value>
+  </data>
+  <data name="User_FailedPasswordAttemptWindowStart_Failed_password_attempt_window" xml:space="preserve">
+    <value>Falsches Kennwort</value>
+  </data>
+  <data name="User_FailedPasswordAttemptCount_Failed_password_attempts" xml:space="preserve">
+    <value>Kennwort Fehlversuche</value>
+  </data>
+  <data name="User_LastLockoutDate_Last_Lockout" xml:space="preserve">
+    <value>Letzte Abmeldung</value>
+  </data>
+  <data name="User_LastPasswordChangedDate_Last_Password_Change" xml:space="preserve">
+    <value>Letzte Passwortänderung</value>
+  </data>
+  <data name="User_LastLoginDate_Last_Login_Date" xml:space="preserve">
+    <value>Letzte Anmeldung</value>
+  </data>
+  <data name="User_CreateDate_Create_Date" xml:space="preserve">
+    <value>Datum erstellen</value>
+  </data>
+  <data name="User_IsLockedOut_Is_Locked_Out" xml:space="preserve">
+    <value>Ist abgemeldet</value>
+  </data>
+  <data name="User_IsApproved_Is_Approved" xml:space="preserve">
+    <value>Ist bestätigt</value>
+  </data>
+  <data name="User_PasswordAnswer_Question_answer" xml:space="preserve">
+    <value>Bitte Frage beantworten</value>
+  </data>
+  <data name="User_PasswordQuestion_Password_Question" xml:space="preserve">
+    <value>Passwort Wiederherstellungsfrage</value>
+  </data>
+  <data name="User_PasswordFormat_Password_Format" xml:space="preserve">
+    <value>Passwortformat</value>
+  </data>
+  <data name="User_PasswordSalt_Password_Salt" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="User_MobilePin_Mobile_PIN" xml:space="preserve">
+    <value>Mobile PIN</value>
+  </data>
+  <data name="User_Email_Email" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="Catalog_Published_Published_Work" xml:space="preserve">
+    <value>Veröffentlichte Arbeiten</value>
+  </data>
+  <data name="Catalog_Tenant_Assigned_Tenant" xml:space="preserve">
+    <value>Bearbeiter</value>
+  </data>
+  <data name="Catalog_Application_Assigned_Application" xml:space="preserve">
+    <value>Zugewiesener Katalog</value>
+  </data>
+  <data name="Catalog_Description_Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="MarketingPackage_Name_Package_Name" xml:space="preserve">
+    <value>Paketname</value>
+  </data>
+  <data name="MarketingPackage_ShareContent_Content_Sharing_Permitted" xml:space="preserve">
+    <value>Inhaltsweitergabe gestattet</value>
+  </data>
+  <data name="MarketingPackage_MarketingType_Marketing_Package_Type" xml:space="preserve">
+    <value>Marketingpakettyp</value>
+  </data>
+  <data name="MarketingPackage_PackageBasePrice_Package_Price" xml:space="preserve">
+    <value>Preis des Pakets</value>
+  </data>
+  <data name="MarketingPackage_CreateRssFeed_Create_Feed" xml:space="preserve">
+    <value>RssFeed erstellen</value>
+  </data>
+  <data name="MarketingPackage_CreateSocialPlatformInstances_Create_Platform_Support" xml:space="preserve">
+    <value>Plattfomsupport einrichten</value>
+  </data>
+  <data name="MarketingPackage_RegisterForLibraries_Register_for_Library" xml:space="preserve">
+    <value>Bei Bibliothek anmelden</value>
+  </data>
+  <data name="MarketingPackage_AssignIsbnADOI_Assign_ADOI_ISBN" xml:space="preserve">
+    <value>DOI ISBN zuweisen</value>
+  </data>
+  <data name="MarketingPackage_AssignIsbn_Assign_ISBN" xml:space="preserve">
+    <value>ISBN zuweisen</value>
+  </data>
+  <data name="MarketingPackage_BasePrice_Base_Price" xml:space="preserve">
+    <value>Grundpreis</value>
+  </data>
+  <data name="MarketingPackage_Description_Package_Description" xml:space="preserve">
+    <value>Paketbeschreibung</value>
+  </data>
+  <data name="MarketingPackage_LimitCountries_Limit_Countries" xml:space="preserve">
+    <value>Länderbegrenzung</value>
+  </data>
+  <data name="Milestone_DateDue_Due_Date__Deadline_" xml:space="preserve">
+    <value>Enddatum (Termin)</value>
+  </data>
+  <data name="Milestone_DateAssigned_Date_Assigned" xml:space="preserve">
+    <value>Datum hinzufügen</value>
+  </data>
+  <data name="Milestone_Name_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Milestone_Owner_Responsible_Team_Member" xml:space="preserve">
+    <value>Teammitglied</value>
+  </data>
+  <data name="Milestone_Description_Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="Milestone_Comment_Comments" xml:space="preserve">
+    <value>Kommentare</value>
+  </data>
+  <data name="Milestone_Progress_Progress" xml:space="preserve">
+    <value>Fortschritt</value>
+  </data>
+  <data name="Milestone_NextMilestone_Next_Milestone__for_chain_" xml:space="preserve">
+    <value>Nächster Meilenstein (im Ablauf)</value>
+  </data>
+  <data name="TermSet_Name_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="TermSet_Description_Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="TermSet_Active_Is_active" xml:space="preserve">
+    <value>Ist aktiv</value>
+  </data>
+  <data name="TermSet_Shared_Is_shared_between_projects" xml:space="preserve">
+    <value>In mehreren Projekten verfügbar</value>
+  </data>
+  <data name="TermSet_Terms_Terms" xml:space="preserve">
+    <value>Begriffe</value>
+  </data>
+  <data name="TermSet_Project_Related_Project" xml:space="preserve">
+    <value>Ähnliche Projekte</value>
+  </data>
+  <data name="TermSet_Culture_Assigned_Culture" xml:space="preserve">
+    <value>zugewiesene Kultur</value>
+  </data>
+  <data name="Template_Name_Template_Name" xml:space="preserve">
+    <value>Vorlage</value>
+  </data>
+  <data name="Template_InternalName_Internal_Name" xml:space="preserve">
+    <value>Interner Name</value>
+  </data>
+  <data name="Template_Content_Content" xml:space="preserve">
+    <value>Inhalt</value>
+  </data>
+  <data name="Template_Admin_Responsible_Administrator" xml:space="preserve">
+    <value>Zuständiger Administrator</value>
+  </data>
+  <data name="Template_Owner_Template_Owner" xml:space="preserve">
+    <value>Der Besitzer der Vorlage. Nur dieser darf Änderungen vornehmen.</value>
+  </data>
+  <data name="Template_Group_Template_Group" xml:space="preserve">
+    <value>Vorlagengruppe</value>
+  </data>
+  <data name="Team_Name_Team_s_Name" xml:space="preserve">
+    <value>Teamname</value>
+  </data>
+  <data name="Team_Description_Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="Team_Active_Team_is_active" xml:space="preserve">
+    <value>Team ist aktiv</value>
+  </data>
+  <data name="Team_Image_Image_for_homepage" xml:space="preserve">
+    <value>Bild für Homepage</value>
+  </data>
+  <data name="Team_Members_Team_s_Members" xml:space="preserve">
+    <value>Teammitglieder</value>
+  </data>
+  <data name="Team_Projects_Related_Projects" xml:space="preserve">
+    <value>Ähnliche Projekte</value>
+  </data>
+  <data name="TeamMember_Member_Team_Member" xml:space="preserve">
+    <value>Teammitglieder</value>
+  </data>
+  <data name="TeamMember_Role_Role_in_Team" xml:space="preserve">
+    <value>Aufgabe im Team</value>
+  </data>
+  <data name="TeamMember_Team_Related_Team" xml:space="preserve">
+    <value>Ähnliche Teams</value>
+  </data>
+  <data name="TeamMember_Pending_Membership_pending" xml:space="preserve">
+    <value>Mitgliedschaft noch nicht bestätigt</value>
+  </data>
+  <data name="TeamMember_TeamLead_Team_Lead" xml:space="preserve">
+    <value>Teamleiter</value>
+  </data>
+  <data name="ContentCollection_Public_Collection_is_Public" xml:space="preserve">
+    <value>Sammlung ist öffentlich</value>
+  </data>
+  <data name="ContentCollection_Name_Collection_Name" xml:space="preserve">
+    <value>Sammlungsname</value>
+  </data>
+  <data name="ContentCollection_Note_Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="ContentCollection_Shared_Shared_Collection" xml:space="preserve">
+    <value>Geteilte Sammlungen</value>
+  </data>
+  <data name="Work_Name_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Work_Note_Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="Work_Collection_Content_Collection" xml:space="preserve">
+    <value>Inhaltssammlung</value>
+  </data>
+  <data name="ReaderGroup_Public_Public" xml:space="preserve">
+    <value>Öffentlich</value>
+  </data>
+  <data name="ReaderGroup_Closed_Closed" xml:space="preserve">
+    <value>Geschlossen</value>
+  </data>
+  <data name="ReaderGroup_Description_Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="ReaderGroup_Name_Group_s_Name" xml:space="preserve">
+    <value>Gruppenname</value>
+  </data>
+  <data name="UserFile_Name_File_Name" xml:space="preserve">
+    <value>Dateiname</value>
+  </data>
+  <data name="UserFile_Folder_Folder_Name" xml:space="preserve">
+    <value>Ordnerbezeichnung</value>
+  </data>
+  <data name="UserFile_Deleted_Is_Deleted" xml:space="preserve">
+    <value>Gelöscht</value>
+  </data>
+  <data name="UserFile_Private_Is_Private" xml:space="preserve">
+    <value>Privat</value>
+  </data>
+  <data name="User_UserName_User_Name" xml:space="preserve">
+    <value>Nutzername</value>
+  </data>
+  <data name="User_MobileAlias_Mobile_Alias" xml:space="preserve">
+    <value>Mobile Alias</value>
+  </data>
+  <data name="User_IsAnonymous_Is_Anonymous" xml:space="preserve">
+    <value>Anonym</value>
+  </data>
+  <data name="ContactModel_Name_The_Name_is_mandatory" xml:space="preserve">
+    <value>Der Name muss angegeben werden</value>
+  </data>
+  <data name="ContactModel_EMail_The_e_mail_is_mandatory" xml:space="preserve">
+    <value>E-Mail ist erforderlich</value>
+  </data>
+  <data name="ContactModel_EMail_The_e_mail_is_not_properly_formatted" xml:space="preserve">
+    <value>E-Mail entspricht nicht den Vorgaben (name@domain.com)</value>
+  </data>
+  <data name="ContactModel_Subject_The_Subject_is_mandatory" xml:space="preserve">
+    <value>Der Betreff muss angegeben werden</value>
+  </data>
+  <data name="ContactModel_Message_Consider_writing_us_what_s_the_purpose_of_you_contact_" xml:space="preserve">
+    <value>Betreff</value>
+  </data>
+  <data name="ContactModel_Message_Type_at_least_a_few_characters_here_" xml:space="preserve">
+    <value>Wenigstens ein paar Zeichen sind erforderlich für eine Nachricht</value>
+  </data>
+  <data name="JobAdvertisment_Reference_Reference_Code" xml:space="preserve">
+    <value>Referenzcode</value>
+  </data>
+  <data name="JobAdvertisment_VisibleFrom_Visible_From" xml:space="preserve">
+    <value>Sichtbar ab</value>
+  </data>
+  <data name="JobAdvertisment_VisibleTo_Visible_Until" xml:space="preserve">
+    <value>Sichtbar bis</value>
+  </data>
+  <data name="JobAdvertisment_JobTitle_Job_Title" xml:space="preserve">
+    <value>Jobtitel</value>
+  </data>
+  <data name="JobAdvertisment_JobLongDescription_Verbose_Description" xml:space="preserve">
+    <value>Ausführliche Beschreibung</value>
+  </data>
+  <data name="JobAdvertisment_JobShortDescription_Short_Description" xml:space="preserve">
+    <value>Kurzbeschreibung</value>
+  </data>
+  <data name="JobAdvertisment_Attachment_Attachment" xml:space="preserve">
+    <value>Anhang</value>
+  </data>
+  <data name="JobAdvertisment_Banner_Advertisment_Banner_or_Logo" xml:space="preserve">
+    <value>Werbebanner oder Logo</value>
+  </data>
+  <data name="JobAdvertisment_Regions_Limit_to_regions" xml:space="preserve">
+    <value>Regionslimit</value>
+  </data>
+  <data name="JobAdvertisment_ContractTypes_Contract_Types" xml:space="preserve">
+    <value>Vertragstyp</value>
+  </data>
+  <data name="JobAdvertisment_WorkTypes_Work_Types" xml:space="preserve">
+    <value>Arbeitstyp</value>
+  </data>
+  <data name="JobAdvertisment_Categories_Job_Category" xml:space="preserve">
+    <value>Jobkategorie</value>
+  </data>
+  <data name="JobCategory_Description_Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="JobCategory_Name_Category_Name" xml:space="preserve">
+    <value>Kategoriename</value>
+  </data>
+  <data name="JobStatuteType_FullTime_Full_Time" xml:space="preserve">
+    <value>Vollzeit</value>
+  </data>
+  <data name="JobStatuteType_PartTime_Part_Time" xml:space="preserve">
+    <value>Teilzeit</value>
+  </data>
+  <data name="JobStatuteType_OnRequest_On_Request" xml:space="preserve">
+    <value>Auf Nachfrage</value>
+  </data>
+  <data name="JobContractType_Permanent_Permanent" xml:space="preserve">
+    <value>Festangestellt</value>
+  </data>
+  <data name="JobContractType_Freelancer_Freelancer" xml:space="preserve">
+    <value>Freiberufler</value>
+  </data>
+  <data name="JobContractType_Offsite_Offsite" xml:space="preserve">
+    <value>Außendienst</value>
+  </data>
+  <data name="SearchJob_SearchTerm_Search_Terms" xml:space="preserve">
+    <value>Suchbegriff</value>
+  </data>
+  <data name="SearchJob_ContractTypes_Contract_Type" xml:space="preserve">
+    <value>Vertragstyp</value>
+  </data>
+  <data name="SearchJob_WorkTypes_Work_Type" xml:space="preserve">
+    <value>Arbeitstyp</value>
+  </data>
+  <data name="Account_Amount_Amount" xml:space="preserve">
+    <value>Betrag</value>
+  </data>
+  <data name="Account_Description_Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="Account_Owner_User" xml:space="preserve">
+    <value>Benutzer</value>
+  </data>
+  <data name="Account_TransactionNo_Transaction_Number" xml:space="preserve">
+    <value>Transaktionsnummer</value>
+  </data>
+  <data name="Message_Body_Message" xml:space="preserve">
+    <value>Nachricht</value>
+  </data>
+  <data name="Message_Subject_Subject" xml:space="preserve">
+    <value>Betreff</value>
+  </data>
+  <data name="StageType_Novice_Novice" xml:space="preserve">
+    <value>Novize</value>
+  </data>
+  <data name="StageType_Beginner_Beginner" xml:space="preserve">
+    <value>Anfänger</value>
+  </data>
+  <data name="StageType_Mediocre_Mediocre" xml:space="preserve">
+    <value>Fortgeschrittener</value>
+  </data>
+  <data name="StageType_Advanced_Advanced" xml:space="preserve">
+    <value>Profi</value>
+  </data>
+  <data name="StageType_Expert_Expert" xml:space="preserve">
+    <value>Experte</value>
+  </data>
+  <data name="TargetType_Personal_Personal" xml:space="preserve">
+    <value>Persönlich</value>
+  </data>
+  <data name="TargetType_School_School" xml:space="preserve">
+    <value>Schule</value>
+  </data>
+  <data name="TargetType_Study_Study" xml:space="preserve">
+    <value>Studium</value>
+  </data>
+  <data name="TargetType_Professional_Professional" xml:space="preserve">
+    <value>Professional</value>
+  </data>
+  <data name="TargetType_Qualification_Qualification" xml:space="preserve">
+    <value>Qualifikation</value>
+  </data>
+  <data name="Work_Extern_External" xml:space="preserve">
+    <value>Inhaltsquelle</value>
+  </data>
+  <data name="ContributorRole_Author_Author" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+  <data name="ContributorRole_Designer_Designer" xml:space="preserve">
+    <value>Designer</value>
+  </data>
+  <data name="ContributorRole_Illustrator_Illustrator" xml:space="preserve">
+    <value>Illustrator</value>
+  </data>
+  <data name="ContributorRole_CopyEditor_Copy_Editor" xml:space="preserve">
+    <value>Korrekturleser</value>
+  </data>
+  <data name="ContributorRole_Editor_Editor" xml:space="preserve">
+    <value>Editor</value>
+  </data>
+  <data name="ContributorRole_Reviewer_Reviewer" xml:space="preserve">
+    <value>Bewerter</value>
+  </data>
+  <data name="ContributorRole_Translator_Translator" xml:space="preserve">
+    <value>Übersetzer</value>
+  </data>
+  <data name="ContributorRole_Critic_Critic" xml:space="preserve">
+    <value>Kritiker</value>
+  </data>
+  <data name="ContributorRole_TechnicalReviewer_Technical_Reviewer" xml:space="preserve">
+    <value>Technischer Bewerter</value>
+  </data>
+  <data name="ContributorRole_Other_Other" xml:space="preserve">
+    <value>Andere</value>
+  </data>
+  <data name="VariationType_HeadRevision_HeadRevision" xml:space="preserve">
+    <value>Hauptversion</value>
+  </data>
+  <data name="VariationType_Alternative_Alternative" xml:space="preserve">
+    <value>Alternative</value>
+  </data>
+  <data name="VariationType_Translation_Translation" xml:space="preserve">
+    <value>Übersetzung</value>
+  </data>
+  <data name="VariationType_Continuation_Continuation" xml:space="preserve">
+    <value>Fortsetzung</value>
+  </data>
+  <data name="VariationType_Update_Update" xml:space="preserve">
+    <value>Aktualisierung</value>
+  </data>
+  <data name="VariationType_Correction_Correction" xml:space="preserve">
+    <value>Korrektur</value>
+  </data>
+  <data name="VariationType_Other_Other" xml:space="preserve">
+    <value>Andere</value>
+  </data>
+  <data name="PublishProject_QuickPublish_Quick_Publish_Only" xml:space="preserve">
+    <value>Nur Schnellveröffentlichung</value>
+  </data>
+  <data name="PublishProject_OpusId_Selected_Part" xml:space="preserve">
+    <value>Ausgewählter Teil</value>
+  </data>
+  <data name="PublishProject_PublishableOpus_Publishable_Parts_of_Project" xml:space="preserve">
+    <value>Veröffentlichbare Teile des Projekts</value>
+  </data>
+  <data name="Published_Starred_Simple_star_to_rank_the_work" xml:space="preserve">
+    <value>Einfacher Stern zum Bewerten der Arbeit</value>
+  </data>
+  <data name="Published_Rating_Global_Rating" xml:space="preserve">
+    <value>Globale Bewertung</value>
+  </data>
+  <data name="Published_Catalogs_Catalogs" xml:space="preserve">
+    <value>Kategorien</value>
+  </data>
+  <data name="Published_CoverImage_Cover_Image" xml:space="preserve">
+    <value>Umschlag oder Deckblatt</value>
+  </data>
+  <data name="Published_Title_Work_s_Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="Published_SubTitle_Work_s_Sub_Title" xml:space="preserve">
+    <value>Untertitel</value>
+  </data>
+  <data name="Published_NavLevel_Navigation_Level" xml:space="preserve">
+    <value>Navigation</value>
+  </data>
+  <data name="ExternalPublisher_KindleDescription_Name" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="ExternalPublisher_KindleAuthors_Authors" xml:space="preserve">
+    <value>Autoren</value>
+  </data>
+  <data name="ExternalPublisher_KindleLanguage_Language" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="ExternalPublisher_KindleIsbn_ISBN" xml:space="preserve">
+    <value>ISBN</value>
+  </data>
+  <data name="ExternalPublisher_KindleCreativeCommon_Confirm_Rights" xml:space="preserve">
+    <value>Creative Common</value>
+  </data>
+  <data name="ExternalPublisher_KindleCategories_Categories" xml:space="preserve">
+    <value>Kategorien</value>
+  </data>
+  <data name="ExternalPublisher_KindleKeywords_Search_Keywords" xml:space="preserve">
+    <value>Schlüsselwörter für Suche</value>
+  </data>
+  <data name="ExternalPublisher_KindleTitle_Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="ExternalPublisher_KindleDrmRequired_DRM_Required" xml:space="preserve">
+    <value>DRM benötigt</value>
+  </data>
+  <data name="ExternalPublisher_ConfirmPublish_Confirm_Publishing_Globally" xml:space="preserve">
+    <value>Globale Veröffentlichung bestätigen</value>
+  </data>
+  <data name="ExternalPublisher_ConfirmPublish_You_must_confirm" xml:space="preserve">
+    <value>Bitte bestätigen</value>
+  </data>
+  <data name="QuickCreate_Name_Content_Name" xml:space="preserve">
+    <value>Name des Artikels</value>
+  </data>
+  <data name="QuickCreate_Name_You_must_provide_a_name" xml:space="preserve">
+    <value>Es muss ein Namen angegeben werden</value>
+  </data>
+  <data name="QuickCreate_UseDefaults_Use_default_settings" xml:space="preserve">
+    <value>Standardeinstellungen</value>
+  </data>
+  <data name="QuickForm_Email_Your_email" xml:space="preserve">
+    <value>Die E-Mail-Adresse</value>
+  </data>
+  <data name="QuickForm_Name_Your_name" xml:space="preserve">
+    <value>Vorname Name </value>
+  </data>
+  <data name="QuickForm_Phone_Phone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="QuickForm_ProjectName_Project_proposal_name" xml:space="preserve">
+    <value>Name des Projekts</value>
+  </data>
+  <data name="LanguageLevel_Advanced_Advanced" xml:space="preserve">
+    <value>Fortgeschritten</value>
+  </data>
+  <data name="LanguageLevel_Beginner_Beginner" xml:space="preserve">
+    <value>Anfänger</value>
+  </data>
+  <data name="LanguageLevel_Fluent_Fluent" xml:space="preserve">
+    <value>Flüssig</value>
+  </data>
+  <data name="LanguageLevel_Intermediate_Intermediate" xml:space="preserve">
+    <value>Mittelmäßig</value>
+  </data>
+  <data name="LanguageLevel_Native_Native_Speaker" xml:space="preserve">
+    <value>Muttersprachler</value>
+  </data>
+  <data name="Element_Name_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="LocalizedHierarchyBase_LocaleId_Culture" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="Role_UserRole_Generic_User_Role" xml:space="preserve">
+    <value>Generische Benutzerrolle</value>
+  </data>
+  <data name="UserRole_Admin_Admin" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="UserRole_Author_Author" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+  <data name="UserRole_CmsAdmin_Cms_Admin" xml:space="preserve">
+    <value>Administrator Content Verwaltung</value>
+  </data>
+  <data name="UserRole_Contributor_Contributor" xml:space="preserve">
+    <value>Mitarbeiter</value>
+  </data>
+  <data name="UserRole_Guest_Guest" xml:space="preserve">
+    <value>Gast</value>
+  </data>
+  <data name="UserRole_Reader_Reader" xml:space="preserve">
+    <value>Leser</value>
+  </data>
+  <data name="UserRole_TeamLead_Team_Lead" xml:space="preserve">
+    <value>Teamleiter</value>
+  </data>
+  <data name="UserRole_TenantAdmin_Tenant_s_Admin" xml:space="preserve">
+    <value>Administrator Mandant</value>
+  </data>
+  <data name="UserRole_Unknown_Unknown" xml:space="preserve">
+    <value>Unbekannt</value>
+  </data>
+  <data name="Discussion_Content_Content" xml:space="preserve">
+    <value>Inhalt</value>
+  </data>
+  <data name="Discussion_GroupOnly_For_Group_Only" xml:space="preserve">
+    <value>Nur für eigene Gruppe</value>
+  </data>
+  <data name="Invoice_WithTax_With_Tax" xml:space="preserve">
+    <value>Mit Steuern</value>
+  </data>
+  <data name="Invoice_TaxPercentage_Value_added_Tax" xml:space="preserve">
+    <value>Mehrwertsteuer</value>
+  </data>
+  <data name="Invoice_BillingDate_Billing_Date" xml:space="preserve">
+    <value>Rechnungsdatum</value>
+  </data>
+  <data name="Invoice_DueDays_Due_in__days_" xml:space="preserve">
+    <value>Fällig in (Tage)</value>
+  </data>
+  <data name="Invoice_Text_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="Invoice_Paid_Has_been_paid" xml:space="preserve">
+    <value>Ist bezahlt</value>
+  </data>
+  <data name="Invoice_Deleted_Deleted" xml:space="preserve">
+    <value>Gelöscht</value>
+  </data>
+  <data name="InvoicePosition_Amount_Amount" xml:space="preserve">
+    <value>Betrag</value>
+  </data>
+  <data name="InvoicePosition_Position_Position" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="InvoicePosition_Text_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="Discussion_Mood_Mood" xml:space="preserve">
+    <value>Stimmung</value>
+  </data>
+  <data name="Discussion_Private_Is_Private" xml:space="preserve">
+    <value>Ist privat</value>
+  </data>
+  <data name="Discussion_Subject_Subject" xml:space="preserve">
+    <value>Betreff</value>
+  </data>
+  <data name="RetrievePassword_PasswordAnswer_Provide_Answer_Helptext" xml:space="preserve">
+    <value>Beim Anlegen des Kontos wurde eine Sicherheitsfrage und eine dazu passende Antwort hinterlegt. Hier wird diese Antwort abgefragt, um festzustellen, dass der legitime Inhaber des Kontos das Kennwort zurücksetzt.</value>
+  </data>
+  <data name="RetrievePassword_PasswordQuestion_Password_Question_Helptext" xml:space="preserve">
+    <value>Dies ist die Frage, zu der die passende Antwort bekannt sein sollte.</value>
+  </data>
+  <data name="RetrievePassword_UserName_User_name_or_E_Mail_Helptext" xml:space="preserve">
+    <value>Entweder der Benutzernamen oder die zu diesem Konto benutzte externe E-Mail muss angegeben werden.</value>
+  </data>
+  <data name="LogOn_UserName_User_Name_Helptext" xml:space="preserve">
+    <value>Dein Benutzername, wie er auf den Seiten angezeigt wird.</value>
+  </data>
+  <data name="LogOn_Password_Password_Helptext" xml:space="preserve">
+    <value>Das Kennwort, dass selbst hinterlegt wurde.</value>
+  </data>
+  <data name="LogOn_RememberMe_Remember_Me_Helptext" xml:space="preserve">
+    <value>Wähle diese Option, um ein Cookie zu setzen, das dazu dient, dich künftig schneller anzumelden. Das sollte nicht auf öffentlichen Computern benutzt werden oder auf Tablets, die keine Benutzerverwaltung haben.</value>
+  </data>
+  <data name="ChangePassword_OldPassword_Current_password_Helptext" xml:space="preserve">
+    <value>Das aktuelles Kennwort</value>
+  </data>
+  <data name="ChangePassword_NewPassword_New_password_Helptext" xml:space="preserve">
+    <value>Das neue Kennwort</value>
+  </data>
+  <data name="ChangePassword_ConfirmPassword_Confirm_new_password_Helptext" xml:space="preserve">
+    <value>Wiederhole das neue Kennwort zur Sicherheit</value>
+  </data>
+  <data name="ChangePassword_ConfirmPassword_The_new_password_and_confirmation_password_do_not_match__Helptext" xml:space="preserve">
+    <value>Die Kennwörter stimmen nicht überein</value>
+  </data>
+  <data name="Register_ConfirmPassword_Confirm_password_Helptext" xml:space="preserve">
+    <value>Das Kennwort muss bestätigt werden.</value>
+  </data>
+  <data name="Register_PasswordQuestion_Question_asked_to_retrieve_password_Helptext" xml:space="preserve">
+    <value>Wiederherstellungsfrage Kennwort</value>
+  </data>
+  <data name="Register_PasswordAnswer_Answer_to_get_password_back_Helptext" xml:space="preserve">
+    <value>Bitte beantworte diese Frage, um dein Kennwort zurückzusetzen</value>
+  </data>
+  <data name="Register_Roles_Roles_requested_Helptext" xml:space="preserve">
+    <value>Die Rolle, die auf der Plattform übernehmen werden soll</value>
+  </data>
+  <data name="Register_Email_E_Mail_Helptext" xml:space="preserve">
+    <value>Die E-Mail-Adresse, über die wir mit kommunizieren dürfen.</value>
+  </data>
+  <data name="ContactModel_Name_Your_name_Helptext" xml:space="preserve">
+    <value>Der Name</value>
+  </data>
+  <data name="ContactModel_EMail_Your_e_mail_for_response_Helptext" xml:space="preserve">
+    <value>Die E-Mailadresse</value>
+  </data>
+  <data name="ContactModel_Subject_Subject_Helptext" xml:space="preserve">
+    <value>Der Betreff, der in Übersichten angezeigt wird.</value>
+  </data>
+  <data name="ContactModel_Message_Your_message_Helptext" xml:space="preserve">
+    <value>Die Nachricht</value>
+  </data>
+  <data name="ContactFormRequest_Sender_User_Helptext" xml:space="preserve">
+    <value>Der Benutzername, von dem die Anfrage erstellt wurde.</value>
+  </data>
+  <data name="ContactFormRequest_Name_Your_Name_Helptext" xml:space="preserve">
+    <value>Der Name, den die Plattform in Nachrichten zur Anrede benutzt.</value>
+  </data>
+  <data name="ContactFormRequest_EMail_Your_E_Mail_reply_address_Helptext" xml:space="preserve">
+    <value>Die E-Mailadresse, über die die Plattform Nachrichten versendet.</value>
+  </data>
+  <data name="ContactFormRequest_Subject_Subject_Helptext" xml:space="preserve">
+    <value>Der Betreff, der in Übersichten angezeigt wird.</value>
+  </data>
+  <data name="JobAdvertisment_Reference_Reference_Helptext" xml:space="preserve">
+    <value>Referenzen</value>
+  </data>
+  <data name="JobAdvertisment_VisibleFrom_VisibleFrom_Helptext" xml:space="preserve">
+    <value>Sichtbare Formular</value>
+  </data>
+  <data name="JobAdvertisment_VisibleTo_VisibleTo_Helptext" xml:space="preserve">
+    <value>Sichtbar für</value>
+  </data>
+  <data name="JobAdvertisment_JobTitle_JobTitle_Helptext" xml:space="preserve">
+    <value>Jobbezeichnung</value>
+  </data>
+  <data name="JobAdvertisment_JobShortDescription_JobShortDescription_Helptext" xml:space="preserve">
+    <value>JobShortDescription</value>
+  </data>
+  <data name="JobAdvertisment_JobLongDescription_JobLongDescription_Helptext" xml:space="preserve">
+    <value>Jobkurzbeschreibung</value>
+  </data>
+  <data name="UserProfile_User_User_Helptext" xml:space="preserve">
+    <value>Nutzer</value>
+  </data>
+  <data name="UserProfile_User_User_Description_Helptext" xml:space="preserve">
+    <value>Ähnliche Nutzer</value>
+  </data>
+  <data name="UserProfile_Description_Description_Helptext" xml:space="preserve">
+    <value>Eine Beschreibung zu deiner Person</value>
+  </data>
+  <data name="UserProfile_Walltext_Wall_Text_Helptext" xml:space="preserve">
+    <value>Profiltext</value>
+  </data>
+  <data name="UserProfile_Notes_Public_Notes_Helptext" xml:space="preserve">
+    <value>Dies sind Hinweise an alle anderen, die immer öffentliche einsehbar sind. Kann leer bleiben.</value>
+  </data>
+  <data name="UserProfile_ConsumerMatrix_Consumer_Matrix_Helptext" xml:space="preserve">
+    <value>Nutzermatrix</value>
+  </data>
+  <data name="UserProfile_ContributorMatrix_Contributor_Skill_Matrix_Helptext" xml:space="preserve">
+    <value>Die Mitarbeiterfähigkeitenmatrix sammelt alle Fähigkeiten, die angeboten werden, wenn in Projekten mitgearbeitet wird.</value>
+  </data>
+  <data name="UserProfile_LanguageMatrix_Language_Matrix_Helptext" xml:space="preserve">
+    <value>Welche Sprachen werden gesprochen und werden angeboten?</value>
+  </data>
+  <data name="UserProfile_Application_Application_Helptext" xml:space="preserve">
+    <value>Der Abschnitt, der bei "Über den Autor" in Büchern erscheint. Bei Bewerbungen wird dies eine kompakte Einführung am Anfang einer Bewerbung. Sollte 3-4 Sätze lang sein.</value>
+  </data>
+  <data name="UserProfile_ShowWalltextOnApplication_Show_private_page_Helptext" xml:space="preserve">
+    <value>Die Seite "Über mich" wird im Profil und bei Bewerbungen öffentlich angezeigt.</value>
+  </data>
+  <data name="UserProfile_StartAvailability_Available_from_Helptext" xml:space="preserve">
+    <value>Ab welchem Datum wieder verfügbar?</value>
+  </data>
+  <data name="UserProfile_EndAvailability_Available_until_Helptext" xml:space="preserve">
+    <value>Hiermit wird angezeigt, bis wann das Konto in der Suche verfügbar ist.</value>
+  </data>
+  <data name="UserProfile_Hidden_Hidden_Helptext" xml:space="preserve">
+    <value>Gib an, dass dieses Profil im Moment in Suchen nicht sichtbar ist.</value>
+  </data>
+  <data name="UserProfile_ExternalProfileUrl_External_Profil_Helptext" xml:space="preserve">
+    <value>Die Adresse weiterer Profile im Web.</value>
+  </data>
+  <data name="UserProfile_ContractAccepted_Contract_Helptext" xml:space="preserve">
+    <value>Zeigt an, dass Aufträge auf Vertragsbasis (Zeit und Material) akzeptiert werden.</value>
+  </data>
+  <data name="UserProfile_SharingAccepted_Shared_Revenues_Helptext" xml:space="preserve">
+    <value>Zeigt an, dass die Bezahlung durch Anteile an den Einnahmen des leitenden Autors akzeptiert wird.</value>
+  </data>
+  <data name="UserProfile_MinHourlyRate_Hourly_min_Helptext" xml:space="preserve">
+    <value>Der minimale Stundensatz, der verlangt wird.</value>
+  </data>
+  <data name="UserProfile_MaxHourlyRate_Hourly_max_Helptext" xml:space="preserve">
+    <value>Der höchster Stundensatz, der ggf. verlangt wird.</value>
+  </data>
+  <data name="UserProfile_PayPalUserId_Paypal_User_Id_Helptext" xml:space="preserve">
+    <value>ID des Paypal-Kontos, wird für Zahlungsvorgänge benutzt.</value>
+  </data>
+  <data name="UserProfile_FirstName_FirstName_Helptext" xml:space="preserve">
+    <value>Vorname</value>
+  </data>
+  <data name="UserProfile_LastName_LastName_Helptext" xml:space="preserve">
+    <value>Dein Nachname</value>
+  </data>
+  <data name="UserProfile_MiddleName_MiddleName_Helptext" xml:space="preserve">
+    <value>Mittlerer Name oder Künstlername</value>
+  </data>
+  <data name="UserProfile_StatementOfTaste_StatementOfTaste_Helptext" xml:space="preserve">
+    <value>Beschreibt das eigene Befinden. Dieser Text erscheint neben öffentlichen Kommentaren, in Gruppendiskussionen, Foren und anderen sozialen Funktionen.</value>
+  </data>
+  <data name="UserProfile_Newsletter_Newsletter_Helptext" xml:space="preserve">
+    <value>Der Newsletter ist aktiviert. Dies ist eine Funktion der Plattform.</value>
+  </data>
+  <data name="UserProfile_Gender_Gender_Helptext" xml:space="preserve">
+    <value>Geschlecht</value>
+  </data>
+  <data name="UserProfile_UILanguage_UILanguage_Helptext" xml:space="preserve">
+    <value>Sprache der Benutzeroberfläche der Plattform.</value>
+  </data>
+  <data name="UserProfile_BirthDay_BirthDay_Helptext" xml:space="preserve">
+    <value>Dein Geburtstag</value>
+  </data>
+  <data name="AddressBook_Name_Name_Helptext" xml:space="preserve">
+    <value>Name des Adressaten</value>
+  </data>
+  <data name="AddressBook_StreetNumber_Street_Helptext" xml:space="preserve">
+    <value>Straße oder ähnliche Ortsbezeichnung</value>
+  </data>
+  <data name="AddressBook_Zip_ZipCode_Helptext" xml:space="preserve">
+    <value>Die Postleitzahl</value>
+  </data>
+  <data name="AddressBook_City_City_Helptext" xml:space="preserve">
+    <value>Stadt oder Ortsname</value>
+  </data>
+  <data name="AddressBook_Country_Country_Helptext" xml:space="preserve">
+    <value>Land oder Staat</value>
+  </data>
+  <data name="AddressBook_Default_Default_Address_Helptext" xml:space="preserve">
+    <value>Diese Adresse ist die Standardadresse. Formulare, die eine Adresse benötigen, werden mit dieser Adresse vorausgefüllt.</value>
+  </data>
+  <data name="AddressBook_Invoice_Address_used_for_invoice_Helptext" xml:space="preserve">
+    <value>Die Rechnungsadresse, die automatisch auf Rechnungen benutzt wird.</value>
+  </data>
+  <data name="BaseProduct_Authors_Authors_Helptext" xml:space="preserve">
+    <value>Die Namen der Autoren, die bei der Produktion benutzt werden</value>
+  </data>
+  <data name="BaseProduct_Name_Name_Helptext" xml:space="preserve">
+    <value>Der Name des Produkts</value>
+  </data>
+  <data name="BaseProduct_Colored_Colored_Helptext" xml:space="preserve">
+    <value>Zeigt an, ob die Ausgabe beim Druck farbig erfolgen soll. Dies kann den Herstellungspreis erhöhen. Der finale Preis wird vor dem Kauf angezeigt.</value>
+  </data>
+  <data name="BaseProduct_Title_Title_Helptext" xml:space="preserve">
+    <value>Der Titel der auf dem Umschlag steht.</value>
+  </data>
+  <data name="BaseProduct_SubTitle_Sub_title_Helptext" xml:space="preserve">
+    <value>Der Untertitel oder ein kurzer Erklärtext.</value>
+  </data>
+  <data name="BaseProduct_Proprietor_Proprietor_Helptext" xml:space="preserve">
+    <value>Der Besitzer der Inhalte. Damit lassen sich Inhalte als persönliche Ausgaben markieren.</value>
+  </data>
+  <data name="BaseProduct_Issue_Issue_Helptext" xml:space="preserve">
+    <value>Ein Hinweis zur Ausgabe, z.B. bei Periodika.</value>
+  </data>
+  <data name="BaseProduct_Dedication_Dedication_Helptext" xml:space="preserve">
+    <value>Eine persönliche Widmung, z.B. wenn dieses Werk als Geschenk gedacht ist.</value>
+  </data>
+  <data name="BaseProduct_TableOfContent_Table_of_Content_Helptext" xml:space="preserve">
+    <value>Im gedruckten Werk soll ein Inhaltsverzeichnis erstellt werden.</value>
+  </data>
+  <data name="BaseProduct_Index_Index_Helptext" xml:space="preserve">
+    <value>Ein Index soll im gedruckten Werk erzeugt werden.</value>
+  </data>
+  <data name="User_Password_User_s_password__Helptext" xml:space="preserve">
+    <value>Nutzerpasswort</value>
+  </data>
+  <data name="User_Application_Applications_Helptext" xml:space="preserve">
+    <value>Verwendung</value>
+  </data>
+  <data name="User_Application_Password_Helptext" xml:space="preserve">
+    <value>Das Kennwort, dass zur Anmeldung künftig benutzt werden soll. Es kann jederzeit von dir geändert werden.</value>
+  </data>
+  <data name="Application_ApplicationName_Application_Helptext" xml:space="preserve">
+    <value>Name der Applikation, die diesem Portal zugeordnet ist.</value>
+  </data>
+  <data name="Application_Description_Description_Helptext" xml:space="preserve">
+    <value>Beschreibung der Applikation; dies ist hilfreich in Übersichten.</value>
+  </data>
+  <data name="User_Roles_User_s_Roles_Helptext" xml:space="preserve">
+    <value>Nutzerfunktion</value>
+  </data>
+  <data name="User_ReaderGroupsMember_Reading_groups_Helptext" xml:space="preserve">
+    <value>Lesergruppe</value>
+  </data>
+  <data name="User_ReaderGroupsAdmin_Reading_groups_where_user_is_admin_Helptext" xml:space="preserve">
+    <value>Lesergrupe in der der Nutzer Administrator ist</value>
+  </data>
+  <data name="User_Comment_Comment_Helptext" xml:space="preserve">
+    <value>Kommentar</value>
+  </data>
+  <data name="User_FailedPasswordAnswerAttemptWindowStart_Failed_password_anser_attempt_window_start_Helptext" xml:space="preserve">
+    <value>Falsches Kennwort</value>
+  </data>
+  <data name="User_FailedPasswordAnswerAttemptCount_Failed_password_answer_attempt_counts_Helptext" xml:space="preserve">
+    <value>Fehlversuche Kennwort</value>
+  </data>
+  <data name="User_FailedPasswordAttemptWindowStart_Failed_password_attempt_window_Helptext" xml:space="preserve">
+    <value>Falsches Kennwort</value>
+  </data>
+  <data name="User_FailedPasswordAttemptCount_Failed_password_attempts_Helptext" xml:space="preserve">
+    <value>Kennwort Fehlversuche</value>
+  </data>
+  <data name="User_LastLockoutDate_Last_Lockout_Helptext" xml:space="preserve">
+    <value>Letzte Abmeldung</value>
+  </data>
+  <data name="User_LastPasswordChangedDate_Last_Password_Change_Helptext" xml:space="preserve">
+    <value>Letzte Passwortänderung</value>
+  </data>
+  <data name="User_LastLoginDate_Last_Login_Date_Helptext" xml:space="preserve">
+    <value>Letzte Anmeldung</value>
+  </data>
+  <data name="User_CreateDate_Create_Date_Helptext" xml:space="preserve">
+    <value>Datum erstellen</value>
+  </data>
+  <data name="User_IsLockedOut_Is_Locked_Out_Helptext" xml:space="preserve">
+    <value>Ist abgemeldet</value>
+  </data>
+  <data name="User_IsApproved_Is_Approved_Helptext" xml:space="preserve">
+    <value>Ist bestätigt</value>
+  </data>
+  <data name="User_PasswordAnswer_Question_answer_Helptext" xml:space="preserve">
+    <value>Bitte Frage beantworten</value>
+  </data>
+  <data name="User_PasswordQuestion_Password_Question_Helptext" xml:space="preserve">
+    <value>Passwort Wiederherstellungsfrage</value>
+  </data>
+  <data name="User_PasswordFormat_Password_Format_Helptext" xml:space="preserve">
+    <value>Passwortformat</value>
+  </data>
+  <data name="User_PasswordSalt_Password_Salt_Helptext" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="User_MobilePin_Mobile_PIN_Helptext" xml:space="preserve">
+    <value>Mobile PIN</value>
+  </data>
+  <data name="User_Email_Email_Helptext" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="Catalog_Published_Published_Work_Helptext" xml:space="preserve">
+    <value>Die im Katalog veröffentlichte Arbeiten</value>
+  </data>
+  <data name="Catalog_Tenant_Assigned_Tenant_Helptext" xml:space="preserve">
+    <value>Der Bearbeiter dieses Portals</value>
+  </data>
+  <data name="Catalog_Application_Assigned_Application_Helptext" xml:space="preserve">
+    <value>Der Applikation zugewiesener kundenspezifischer Katalog.</value>
+  </data>
+  <data name="Catalog_Description_Description_Helptext" xml:space="preserve">
+    <value>Beschreibung des Katalogs</value>
+  </data>
+  <data name="MarketingPackage_Name_Package_Name_Helptext" xml:space="preserve">
+    <value>Name des Pakets</value>
+  </data>
+  <data name="MarketingPackage_ShareContent_Content_Sharing_Permitted_Helptext" xml:space="preserve">
+    <value>Hiermit wird die Nutzung der Texte durch andere Autoren ermöglicht. Die Plattform sorgt dafür, dass alle fair beteiligt werden und das der Autor vor jeder Benutzung der Texte explizit sein Einverständnis geben muss. Die Option steigert die Einnahmen, wenn der Verkauf von Inhalten geplant ist.</value>
+  </data>
+  <data name="MarketingPackage_MarketingType_Marketing_Package_Type_Helptext" xml:space="preserve">
+    <value>Typ des Pakets.</value>
+  </data>
+  <data name="MarketingPackage_PackageBasePrice_Package_Price_Helptext" xml:space="preserve">
+    <value>Wenn bestimmte kostenpflichtige Leistungen aktiviert wurden, wird hier der Preis angezeigt. </value>
+  </data>
+  <data name="MarketingPackage_CreateRssFeed_Create_Feed_Helptext" xml:space="preserve">
+    <value>Es soll ein RSS-Feed erstellt werden.</value>
+  </data>
+  <data name="MarketingPackage_CreateSocialPlatformInstances_Create_Platform_Support_Helptext" xml:space="preserve">
+    <value>Es soll der Plattfomsupport eingerichtet werden.</value>
+  </data>
+  <data name="MarketingPackage_RegisterForLibraries_Register_for_Library_Helptext" xml:space="preserve">
+    <value>Diese Option ist wichtig, wenn das Werk kostenpflichtig ist und es mit ISBN veröffentlicht werden soll. Es erfolgt dann die Meldung bei der ZLB und ggf. die Ablieferung von Pflichtexemplaren.</value>
+  </data>
+  <data name="MarketingPackage_AssignIsbnADOI_Assign_ADOI_ISBN_Helptext" xml:space="preserve">
+    <value>DOI ISBN zuweisen, siehe dazu auch &lt;a href="http://www.doi.org/factsheets/ISBN-A.html"&gt;DOI&lt;/a&gt;</value>
+  </data>
+  <data name="MarketingPackage_AssignIsbn_Assign_ISBN_Helptext" xml:space="preserve">
+    <value>Es soll eine ISBN zugewiesen werden. Der ISBN-Pool 'texxtoor' wird benutzt.</value>
+  </data>
+  <data name="MarketingPackage_BasePrice_Base_Price_Helptext" xml:space="preserve">
+    <value>Der Grundpreis des Inhalts. Dies ist der Betrag, den du zu 100% bekommst. Produktions- und Fremdkosten, z.B. von App Stores, werden am Ende des Kaufvorgangs durch den Nutzer aufgeschlagen.</value>
+  </data>
+  <data name="MarketingPackage_Description_Package_Description_Helptext" xml:space="preserve">
+    <value>Beschreibung des Pakets für interne und organisatorische Zwecke. Kann auch frei bleiben.</value>
+  </data>
+  <data name="MarketingPackage_LimitCountries_Limit_Countries_Helptext" xml:space="preserve">
+    <value>Begrenzung des Vertriebs auf bestimmte Länder. Lass dieses Feld leer und der Text wird in allen verfügbaren Ländern angeboten.</value>
+  </data>
+  <data name="Milestone_DateDue_Due_Date__Deadline__Helptext" xml:space="preserve">
+    <value>Termin (Deadline) für diesen Meilenstein.</value>
+  </data>
+  <data name="Milestone_DateAssigned_Date_Assigned_Helptext" xml:space="preserve">
+    <value>Datum, wann der Arbeitsfortschritt hinzugefügt wurde.</value>
+  </data>
+  <data name="Milestone_Name_Name_Helptext" xml:space="preserve">
+    <value>Name des Meilensteins.</value>
+  </data>
+  <data name="Milestone_Owner_Responsible_Team_Member_Helptext" xml:space="preserve">
+    <value>Das Teammitglied, das für diesen Meilenstein verantwortlich ist.</value>
+  </data>
+  <data name="Milestone_Description_Description_Helptext" xml:space="preserve">
+    <value>Beschreibung des Meilensteins.</value>
+  </data>
+  <data name="Milestone_Comment_Comments_Helptext" xml:space="preserve">
+    <value>Der Fortschritt beim Arbeiten an diesem Meilenstein wird hier vermerkt.</value>
+  </data>
+  <data name="Milestone_Progress_Progress_Helptext" xml:space="preserve">
+    <value>Der Fortschritt in %</value>
+  </data>
+  <data name="Milestone_NextMilestone_Next_Milestone__for_chain__Helptext" xml:space="preserve">
+    <value>Der nächste Meilenstein wird angegeben, wenn Meilensteine aufeinander aufbauen. </value>
+  </data>
+  <data name="TermSet_Name_Name_Helptext" xml:space="preserve">
+    <value>Der Name deiner Begriffssammlung</value>
+  </data>
+  <data name="TermSet_Description_Description_Helptext" xml:space="preserve">
+    <value>Beschreibung der Begriffssammlung, sodass sie später leicht wiederzufinden ist.</value>
+  </data>
+  <data name="TermSet_Active_Is_active_Helptext" xml:space="preserve">
+    <value>Mach die Begriffssammlung temporär inaktiv, wenn Autoren keinen Zugriff darauf haben sollen.</value>
+  </data>
+  <data name="TermSet_Shared_Is_shared_between_projects_Helptext" xml:space="preserve">
+    <value>Teile diese Begriffssammlung, sodass sie in allen Projekten verfügbar ist.</value>
+  </data>
+  <data name="TermSet_Terms_Terms_Helptext" xml:space="preserve">
+    <value>Die Begriffe dieser Begriffssammlung</value>
+  </data>
+  <data name="TermSet_Project_Related_Project_Helptext" xml:space="preserve">
+    <value>Ähnliche Projekte</value>
+  </data>
+  <data name="TermSet_Culture_Assigned_Culture_Helptext" xml:space="preserve">
+    <value>Jeder Text wird für eine primäre Sprache erstellt. Nur die Begriffssammlungen der passenden Sprache werden bereitgestellt.</value>
+  </data>
+  <data name="Template_Name_Template_Name_Helptext" xml:space="preserve">
+    <value>Name der Vorlage</value>
+  </data>
+  <data name="Template_InternalName_Internal_Name_Helptext" xml:space="preserve">
+    <value>Interner Name</value>
+  </data>
+  <data name="Template_Content_Content_Helptext" xml:space="preserve">
+    <value>Inhalt</value>
+  </data>
+  <data name="Template_Admin_Responsible_Administrator_Helptext" xml:space="preserve">
+    <value>Zuständiger Administrator</value>
+  </data>
+  <data name="Template_Owner_Template_Owner_Helptext" xml:space="preserve">
+    <value>Besitzer</value>
+  </data>
+  <data name="Template_Group_Template_Group_Helptext" xml:space="preserve">
+    <value>Vorlagengruppe, Bereich für den diese Vorlage zuständig ist</value>
+  </data>
+  <data name="Team_Name_Team_s_Name_Helptext" xml:space="preserve">
+    <value>Teamname</value>
+  </data>
+  <data name="Team_Description_Description_Helptext" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="Team_Active_Team_is_active_Helptext" xml:space="preserve">
+    <value>Team ist aktiv</value>
+  </data>
+  <data name="Team_Image_Image_for_homepage_Helptext" xml:space="preserve">
+    <value>Bild für Homepage</value>
+  </data>
+  <data name="Team_Members_Team_s_Members_Helptext" xml:space="preserve">
+    <value>Teammitglieder</value>
+  </data>
+  <data name="Team_Projects_Related_Projects_Helptext" xml:space="preserve">
+    <value>Ähnliche Projekte</value>
+  </data>
+  <data name="TeamMember_Member_Team_Member_Helptext" xml:space="preserve">
+    <value>Teammitglieder</value>
+  </data>
+  <data name="TeamMember_Role_Role_in_Team_Helptext" xml:space="preserve">
+    <value>Aufgabe im Team</value>
+  </data>
+  <data name="TeamMember_Team_Related_Team_Helptext" xml:space="preserve">
+    <value>Ähnliche Teams</value>
+  </data>
+  <data name="TeamMember_Pending_Membership_pending_Helptext" xml:space="preserve">
+    <value>Mitgliedschaft noch nicht bestätigt</value>
+  </data>
+  <data name="TeamMember_TeamLead_Team_Lead_Helptext" xml:space="preserve">
+    <value>Teamleiter</value>
+  </data>
+  <data name="ContentCollection_Public_Collection_is_Public_Helptext" xml:space="preserve">
+    <value>Wenn gesetzt, ist diese Sammlung öffentlich. Andere Nutzer können die Sammlung und deren Sammlungsinhalte sehen. Stelle aus Inhalten deiner Lieblingsautoren eigene Sammlungen zusammen.</value>
+  </data>
+  <data name="ContentCollection_Name_Collection_Name_Helptext" xml:space="preserve">
+    <value>Name der Inhaltssammlung. Dieser dient nur zur Verwaltung der eigenen Inhalte - falls es mal sehr viele werden.</value>
+  </data>
+  <data name="ContentCollection_Note_Description_Helptext" xml:space="preserve">
+    <value>Beschreibung der Inhaltssammlung</value>
+  </data>
+  <data name="ContentCollection_Shared_Shared_Collection_Helptext" xml:space="preserve">
+    <value>Geteilte Sammlungen werden den Mitgliedern der eigenen Gruppen angezeigt. Das ist hilfreich bei Seminargruppen, Schulklassen, Lerngruppen, Teamkollegen usw.</value>
+  </data>
+  <data name="Work_Name_Name_Helptext" xml:space="preserve">
+    <value>Der Name des Texts, also der Titel bei öffentlichen Werken, oder ein sinnvoller Name, damit sich der Text leicht wiederfindet lässt.</value>
+  </data>
+  <data name="Work_Note_Description_Helptext" xml:space="preserve">
+    <value>Eine nähere Beschreibung dieses Texts. Bei veröffentlichten Werken gibt dies der Autor vor, bei eigenen sollte hier der Zweck angegeben werden.</value>
+  </data>
+  <data name="Work_Collection_Content_Collection_Helptext" xml:space="preserve">
+    <value>Die Sammlung, aus der der erste Inhalt des Texts entstammt. Inhaltssammlungen liefern Inhalte für Texte.</value>
+  </data>
+  <data name="ReaderGroup_Public_Public_Helptext" xml:space="preserve">
+    <value>Diese Gruppe ist öffentlich, jeder kann jederzeit Mitglied werden.</value>
+  </data>
+  <data name="ReaderGroup_Closed_Closed_Helptext" xml:space="preserve">
+    <value>Die Gruppe ist geschlossen und nimmt keine weiteren Mitglieder auf.</value>
+  </data>
+  <data name="ReaderGroup_Description_Description_Helptext" xml:space="preserve">
+    <value>Eine Beschreibung, die hilft bei vielen Gruppen die Übersicht zu behalten.</value>
+  </data>
+  <data name="ReaderGroup_Name_Group_s_Name_Helptext" xml:space="preserve">
+    <value>Der Gruppenname, der vor allem in Listen wichtig ist.</value>
+  </data>
+  <data name="UserFile_Name_File_Name_Helptext" xml:space="preserve">
+    <value>Dateiname</value>
+  </data>
+  <data name="UserFile_Folder_Folder_Name_Helptext" xml:space="preserve">
+    <value>Ordnerbezeichnung</value>
+  </data>
+  <data name="UserFile_Deleted_Is_Deleted_Helptext" xml:space="preserve">
+    <value>Gelöscht</value>
+  </data>
+  <data name="UserFile_Private_Is_Private_Helptext" xml:space="preserve">
+    <value>Privat</value>
+  </data>
+  <data name="User_UserName_User_Name_Helptext" xml:space="preserve">
+    <value>Nutzername</value>
+  </data>
+  <data name="User_MobileAlias_Mobile_Alias_Helptext" xml:space="preserve">
+    <value>Mobile Alias</value>
+  </data>
+  <data name="User_IsAnonymous_Is_Anonymous_Helptext" xml:space="preserve">
+    <value>Anonym</value>
+  </data>
+  <data name="ContactModel_Name_The_Name_is_mandatory_Helptext" xml:space="preserve">
+    <value>Der Name muss angegeben werden</value>
+  </data>
+  <data name="ContactModel_EMail_The_e_mail_is_mandatory_Helptext" xml:space="preserve">
+    <value>Die E-Mail ist erforderlich</value>
+  </data>
+  <data name="ContactModel_EMail_The_e_mail_is_not_properly_formatted_Helptext" xml:space="preserve">
+    <value>E-Mail entspricht nicht den Vorgaben (name@domain.com)</value>
+  </data>
+  <data name="ContactModel_Subject_The_Subject_is_mandatory_Helptext" xml:space="preserve">
+    <value>Der Betreff muss angegeben werden</value>
+  </data>
+  <data name="ContactModel_Message_Consider_writing_us_what_s_the_purpose_of_you_contact__Helptext" xml:space="preserve">
+    <value>Der Betreff der Nachricht</value>
+  </data>
+  <data name="ContactModel_Message_Type_at_least_a_few_characters_here__Helptext" xml:space="preserve">
+    <value>Wenigstens ein paar Zeichen sind erforderlich für eine Nachricht</value>
+  </data>
+  <data name="JobAdvertisment_Reference_Reference_Code_Helptext" xml:space="preserve">
+    <value>Referenzcode</value>
+  </data>
+  <data name="JobAdvertisment_VisibleFrom_Visible_From_Helptext" xml:space="preserve">
+    <value>Ab welchem Datum wird dieser Job öffentlich sichtbar sein?</value>
+  </data>
+  <data name="JobAdvertisment_VisibleTo_Visible_Until_Helptext" xml:space="preserve">
+    <value>Bis zu welchem Datum wird dieser Job sichtbart sein?</value>
+  </data>
+  <data name="JobAdvertisment_JobTitle_Job_Title_Helptext" xml:space="preserve">
+    <value>Ein aussagekräftiger Titel für diesen Job.</value>
+  </data>
+  <data name="JobAdvertisment_JobLongDescription_Verbose_Description_Helptext" xml:space="preserve">
+    <value>Ein ausführliche Beschreibung, die es Interessenten leicht macht, sich um die richtigen Jobs zu bewerben.</value>
+  </data>
+  <data name="JobAdvertisment_JobShortDescription_Short_Description_Helptext" xml:space="preserve">
+    <value>Eine Kurzbeschreibung, wie sie in Übersichten angezeigt wird.</value>
+  </data>
+  <data name="JobAdvertisment_Attachment_Attachment_Helptext" xml:space="preserve">
+    <value>Ein Anhang, z.B. eine umfangreiche PDF mt Details.</value>
+  </data>
+  <data name="JobAdvertisment_Banner_Advertisment_Banner_or_Logo_Helptext" xml:space="preserve">
+    <value>Ein Werbebanner oder Logo, wenn der Auftraggeber eine Firma ist.</value>
+  </data>
+  <data name="JobAdvertisment_Regions_Limit_to_regions_Helptext" xml:space="preserve">
+    <value>Begrenze die Sichtbarkeit auf eine bestimmte Region</value>
+  </data>
+  <data name="JobAdvertisment_ContractTypes_Contract_Types_Helptext" xml:space="preserve">
+    <value>Welche Vertragstypen sind akzeptabel?</value>
+  </data>
+  <data name="JobAdvertisment_WorkTypes_Work_Types_Helptext" xml:space="preserve">
+    <value>Welche Arbeitstypen sind akzeptabel?</value>
+  </data>
+  <data name="JobAdvertisment_Categories_Job_Category_Helptext" xml:space="preserve">
+    <value>Trage den Job in einer Jobkategorie ein.</value>
+  </data>
+  <data name="JobCategory_Description_Description_Helptext" xml:space="preserve">
+    <value>Eine kompakte Beschreibung, die es interessenten einfach macht, schnell das Wesentliche zu lesen.</value>
+  </data>
+  <data name="JobCategory_Name_Category_Name_Helptext" xml:space="preserve">
+    <value>Der Name der Kategorie</value>
+  </data>
+  <data name="JobStatuteType_FullTime_Full_Time_Helptext" xml:space="preserve">
+    <value>Vollzeit</value>
+  </data>
+  <data name="JobStatuteType_PartTime_Part_Time_Helptext" xml:space="preserve">
+    <value>Es werden auch Treffer gezeigt, bei denen Teilzeitangebote vorliegen.</value>
+  </data>
+  <data name="JobStatuteType_OnRequest_On_Request_Helptext" xml:space="preserve">
+    <value>Auf Nachfrage</value>
+  </data>
+  <data name="JobContractType_Permanent_Permanent_Helptext" xml:space="preserve">
+    <value>Permanent</value>
+  </data>
+  <data name="JobContractType_Freelancer_Freelancer_Helptext" xml:space="preserve">
+    <value>Freiberufler</value>
+  </data>
+  <data name="JobContractType_Offsite_Offsite_Helptext" xml:space="preserve">
+    <value>Heimarbeiter</value>
+  </data>
+  <data name="SearchJob_SearchTerm_Search_Terms_Helptext" xml:space="preserve">
+    <value>Suchbegriff</value>
+  </data>
+  <data name="SearchJob_ContractTypes_Contract_Type_Helptext" xml:space="preserve">
+    <value>Vertragstyp</value>
+  </data>
+  <data name="SearchJob_WorkTypes_Work_Type_Helptext" xml:space="preserve">
+    <value>Arbeitstyp</value>
+  </data>
+  <data name="Account_Amount_Amount_Helptext" xml:space="preserve">
+    <value>Der vom Guthaben jetzt abzurufende Betrag. Es kann der gesamte Betrag oder eine Teil davon abgerufen werden. Das verbleibende Guthaben kann für den Erwerb von Leistungen oder Einkäufe auf der Plattform genutzt werden.</value>
+  </data>
+  <data name="Account_Description_Description_Helptext" xml:space="preserve">
+    <value>Eine Beschreibung des Kontos</value>
+  </data>
+  <data name="Account_Owner_User_Helptext" xml:space="preserve">
+    <value>Der zugerordnete Benutzer</value>
+  </data>
+  <data name="Account_TransactionNo_Transaction_Number_Helptext" xml:space="preserve">
+    <value>Die intern benutzte Transaktionsnummer</value>
+  </data>
+  <data name="Message_Body_Message_Helptext" xml:space="preserve">
+    <value>Nachricht an den Empfänger</value>
+  </data>
+  <data name="Message_Subject_Subject_Helptext" xml:space="preserve">
+    <value>Betreff dieser Nachricht</value>
+  </data>
+  <data name="StageType_Novice_Novice_Helptext" xml:space="preserve">
+    <value>Novize</value>
+  </data>
+  <data name="StageType_Beginner_Beginner_Helptext" xml:space="preserve">
+    <value>Anfänger</value>
+  </data>
+  <data name="StageType_Mediocre_Mediocre_Helptext" xml:space="preserve">
+    <value>Fortgeschrittener</value>
+  </data>
+  <data name="StageType_Advanced_Advanced_Helptext" xml:space="preserve">
+    <value>Profi</value>
+  </data>
+  <data name="StageType_Expert_Expert_Helptext" xml:space="preserve">
+    <value>Experte</value>
+  </data>
+  <data name="TargetType_Personal_Personal_Helptext" xml:space="preserve">
+    <value>Persönlich</value>
+  </data>
+  <data name="TargetType_School_School_Helptext" xml:space="preserve">
+    <value>Schule</value>
+  </data>
+  <data name="TargetType_Study_Study_Helptext" xml:space="preserve">
+    <value>Studium</value>
+  </data>
+  <data name="TargetType_Professional_Professional_Helptext" xml:space="preserve">
+    <value>Professional</value>
+  </data>
+  <data name="TargetType_Qualification_Qualification_Helptext" xml:space="preserve">
+    <value>Qualifikation</value>
+  </data>
+  <data name="Work_Extern_External_Helptext" xml:space="preserve">
+    <value>Zeigt an, woher der Inhalt dieses Bibliothekseintrags stammt.</value>
+  </data>
+  <data name="ContributorRole_Author_Author_Helptext" xml:space="preserve">
+    <value>Die Rolle "Autor" eignet sich für alle, die Inhalte erstellen</value>
+  </data>
+  <data name="ContributorRole_Designer_Designer_Helptext" xml:space="preserve">
+    <value>Designer</value>
+  </data>
+  <data name="ContributorRole_Illustrator_Illustrator_Helptext" xml:space="preserve">
+    <value>Illustrator</value>
+  </data>
+  <data name="ContributorRole_CopyEditor_Copy_Editor_Helptext" xml:space="preserve">
+    <value>Korrekturleser</value>
+  </data>
+  <data name="ContributorRole_Editor_Editor_Helptext" xml:space="preserve">
+    <value>Editor</value>
+  </data>
+  <data name="ContributorRole_Reviewer_Reviewer_Helptext" xml:space="preserve">
+    <value>Bewerter</value>
+  </data>
+  <data name="ContributorRole_Translator_Translator_Helptext" xml:space="preserve">
+    <value>Übersetzer</value>
+  </data>
+  <data name="ContributorRole_Critic_Critic_Helptext" xml:space="preserve">
+    <value>Kritiker</value>
+  </data>
+  <data name="ContributorRole_TechnicalReviewer_Technical_Reviewer_Helptext" xml:space="preserve">
+    <value>Technischer Bewerter</value>
+  </data>
+  <data name="ContributorRole_Other_Other_Helptext" xml:space="preserve">
+    <value>Andere</value>
+  </data>
+  <data name="VariationType_HeadRevision_HeadRevision_Helptext" xml:space="preserve">
+    <value>Hiermit wird angezeigt, das dies die Hauptversion ist.</value>
+  </data>
+  <data name="VariationType_Alternative_Alternative_Helptext" xml:space="preserve">
+    <value>Alternative</value>
+  </data>
+  <data name="VariationType_Translation_Translation_Helptext" xml:space="preserve">
+    <value>Hiermit wird angezeigt, das dies eine Übersetzung ist.</value>
+  </data>
+  <data name="VariationType_Continuation_Continuation_Helptext" xml:space="preserve">
+    <value>Hiermit wird angezeigt, das dies eine Fortsetzung ist.</value>
+  </data>
+  <data name="VariationType_Update_Update_Helptext" xml:space="preserve">
+    <value>Hiermit wird angezeigt, das dies eine Aktualisierung ist.</value>
+  </data>
+  <data name="VariationType_Correction_Correction_Helptext" xml:space="preserve">
+    <value>Hiermit wird angezeigt, das dies eine Korrektur ist.</value>
+  </data>
+  <data name="VariationType_Other_Other_Helptext" xml:space="preserve">
+    <value>Hiermit wird angezeigt, das dies aus irgendeinem anderen Grund erfolgte.</value>
+  </data>
+  <data name="PublishProject_QuickPublish_Quick_Publish_Only_Helptext" xml:space="preserve">
+    <value>Die Schnellveröffentlichung erstellt aus dem Text sofort einen RSS-Feed, der z.B. sehr leicht im eigenen Blog angezeigt werden kann. Kaufoptionen für Nutzer sind damit nicht möglich.</value>
+  </data>
+  <data name="PublishProject_OpusId_Selected_Part_Helptext" xml:space="preserve">
+    <value>Ausgewählter Teil</value>
+  </data>
+  <data name="PublishProject_PublishableOpus_Publishable_Parts_of_Project_Helptext" xml:space="preserve">
+    <value>Veröffentlichbare Teile des Projekts</value>
+  </data>
+  <data name="Published_Starred_Simple_star_to_rank_the_work_Helptext" xml:space="preserve">
+    <value>Einfacher Stern zum Bewerten der Arbeit</value>
+  </data>
+  <data name="Published_Rating_Global_Rating_Helptext" xml:space="preserve">
+    <value>Die globale Bewertung des Textes über alle Nutzer und Nutzungsarten hinweg.</value>
+  </data>
+  <data name="Published_Catalogs_Catalogs_Helptext" xml:space="preserve">
+    <value>Kategorien für die Eintragung in unserem Katalog, aber auch für Amazon und ähnliche Shops. Es können mehrere ausgewählt werden, um das Werk optimal zu platzieren. Die Sprache des Katalogs folgt der für das Werk ausgewählten Sprache (siehe 1. Beschreibung). Die Sprache kann gewählt werden, um den passenden Katalog zu nutzen.</value>
+  </data>
+  <data name="Published_CoverImage_Cover_Image_Helptext" xml:space="preserve">
+    <value>Das Coverbild wird als Deckblatt für EPUBs und als Grundlage für den Druck benutzt. In Apps wird ein vergleichbares Icon in den angegebenen Farben und Schriftarten erstellt. Das Hintergrundbild folgt der Standardvorlage, die dem Projekt zugewiesen wurde. Wenn ein Coverbild hochgeladen wird, muss es 148mm breit und 250mm hoch mit 300 dpi sein (1748 x 2452 Pixel). Die Beschriftung (Titel, Autor) muss wie beim generierten Cover bereits im Bild erfolgen.</value>
+  </data>
+  <data name="Published_Title_Work_s_Title_Helptext" xml:space="preserve">
+    <value>Der Titel des Texts.</value>
+  </data>
+  <data name="Published_SubTitle_Work_s_Sub_Title_Helptext" xml:space="preserve">
+    <value>Der Untertitel oder auch ein kurzer Hinweis. Erscheint auf dem Cover bei  Büchern und als Erklärtext in Katalogen oder in EPUB-Dokumenten.</value>
+  </data>
+  <data name="Published_NavLevel_Navigation_Level_Helptext" xml:space="preserve">
+    <value>Stufe der Navigation in elektronischen Zielsystemen, z.B. EPUB. Höhere Stufen führen zu mehr Einträgen im Inhaltsverzeichnis und sind nur sinnvoll, wenn der Text entsprechend streng gegliedert ist. "Dokument" erzeugt ein Gesamtwerk, "Kapitel" teilt es in Kapitel.</value>
+  </data>
+  <data name="ExternalPublisher_KindleDescription_Name_Helptext" xml:space="preserve">
+    <value>Beschreibung der Inhalte, z.B. für externe Shopsysteme, die Beschreibungstexte anzeigen können.</value>
+  </data>
+  <data name="ExternalPublisher_KindleAuthors_Authors_Helptext" xml:space="preserve">
+    <value>Namen aller beteiligten Autoren</value>
+  </data>
+  <data name="ExternalPublisher_KindleLanguage_Language_Helptext" xml:space="preserve">
+    <value>Die Sprache des Textes. Bei mehreren Sprachen die führende (primäre) Sprache.</value>
+  </data>
+  <data name="ExternalPublisher_KindleIsbn_ISBN_Helptext" xml:space="preserve">
+    <value>Die zugewiesene ISBN</value>
+  </data>
+  <data name="ExternalPublisher_KindleCreativeCommon_Confirm_Rights_Helptext" xml:space="preserve">
+    <value>Inhalte werden unter Creative Common bereitgestellt. Dies ist für eine weite Verbreitung sinnvoll. Der Name des Autors bleibt dennoch immer mit den Inhalten verbunden.</value>
+  </data>
+  <data name="ExternalPublisher_KindleCategories_Categories_Helptext" xml:space="preserve">
+    <value>Kategorien des Zielsystems</value>
+  </data>
+  <data name="ExternalPublisher_KindleKeywords_Search_Keywords_Helptext" xml:space="preserve">
+    <value>Schlüsselwörter, die z.B. an Suchmaschinen ausgegeben werden und die Nutzer auf die Inhaltsseiten führen.</value>
+  </data>
+  <data name="ExternalPublisher_KindleTitle_Title_Helptext" xml:space="preserve">
+    <value>Der Titel, wie er in externen Systemen angezeigt werden soll.</value>
+  </data>
+  <data name="ExternalPublisher_KindleDrmRequired_DRM_Required_Helptext" xml:space="preserve">
+    <value>Stellt ein, dass ein Rechteschutzsystem erwünscht ist. Dies ist nicht empfehlenswert, weil einige Nutzer deswegen die Inhalte nicht erwerben werden. Die konkrete Ausgestaltung hängt von der Plattform ab.</value>
+  </data>
+  <data name="ExternalPublisher_ConfirmPublish_Confirm_Publishing_Globally_Helptext" xml:space="preserve">
+    <value>Hiermit wird bestätigt, dass der Inhalt global veröffentlicht wird. Die Reichweite hängt von den Plattformeinstellungen ab.</value>
+  </data>
+  <data name="ExternalPublisher_ConfirmPublish_You_must_confirm_Helptext" xml:space="preserve">
+    <value>Bitte bestätigen</value>
+  </data>
+  <data name="QuickCreate_Name_Content_Name_Helptext" xml:space="preserve">
+    <value>Der Name des Artikels. Kann jederzeit geändert werden.</value>
+  </data>
+  <data name="QuickCreate_Name_You_must_provide_a_name_Helptext" xml:space="preserve">
+    <value>Es muss ein Name angegeben, um das Projekt anlegen zu können</value>
+  </data>
+  <data name="QuickCreate_UseDefaults_Use_default_settings_Helptext" xml:space="preserve">
+    <value>Es werden Standardeinstellungen (einfacher Artikel, ein Kapitel, Sofortveröffentlichung) benutzt. Die Einstellungen können jederzeit geändert werden.</value>
+  </data>
+  <data name="QuickForm_Email_Your_email_Helptext" xml:space="preserve">
+    <value>Über diese E-Mail-Adresse stellt die Plattform den Kontakt her.</value>
+  </data>
+  <data name="QuickForm_Name_Your_name_Helptext" xml:space="preserve">
+    <value>Hier wird der vollständige Name eingetragen.</value>
+  </data>
+  <data name="QuickForm_Phone_Phone_Helptext" xml:space="preserve">
+    <value>Das Telefon ist sinnvoll, damit wir zurückrufen und helfen können.</value>
+  </data>
+  <data name="QuickForm_ProjectName_Project_proposal_name_Helptext" xml:space="preserve">
+    <value>Der Name des Projektvorschlags.</value>
+  </data>
+  <data name="LanguageLevel_Advanced_Advanced_Helptext" xml:space="preserve">
+    <value>Fortgeschritten</value>
+  </data>
+  <data name="LanguageLevel_Beginner_Beginner_Helptext" xml:space="preserve">
+    <value>Anfänger</value>
+  </data>
+  <data name="LanguageLevel_Fluent_Fluent_Helptext" xml:space="preserve">
+    <value>Flüssig</value>
+  </data>
+  <data name="LanguageLevel_Intermediate_Intermediate_Helptext" xml:space="preserve">
+    <value>Mittelmäßig</value>
+  </data>
+  <data name="LanguageLevel_Native_Native_Speaker_Helptext" xml:space="preserve">
+    <value>Muttersprachler</value>
+  </data>
+  <data name="Element_Name_Name_Helptext" xml:space="preserve">
+    <value>Name des Elements</value>
+  </data>
+  <data name="LocalizedHierarchyBase_LocaleId_Culture_Helptext" xml:space="preserve">
+    <value>Die primäre Sprache dieses Textes</value>
+  </data>
+  <data name="Role_UserRole_Generic_User_Role_Helptext" xml:space="preserve">
+    <value>Eine generische Benutzerrolle, steuert allgemein die Rechte auf Werkzeuge.</value>
+  </data>
+  <data name="UserRole_Admin_Admin_Helptext" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="UserRole_Author_Author_Helptext" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+  <data name="Opus_Version_Version_Helptext" xml:space="preserve">
+    <value>Die Version des Textes, z.B. bei mehreren Ausgaben oder Bearbeitungsschritten. Muss nicht benutzt werden.</value>
+  </data>
+  <data name="Opus_Active_Active_Helptext" xml:space="preserve">
+    <value>Zeigt an, ob der Text von Mitarbeitern bearbeitet werden kann.</value>
+  </data>
+  <data name="UserRole_CmsAdmin_Cms_Admin_Helptext" xml:space="preserve">
+    <value>Administrator Content Verwaltung</value>
+  </data>
+  <data name="UserRole_Contributor_Contributor_Helptext" xml:space="preserve">
+    <value>Ein Mitarbeiter oder Beitragender</value>
+  </data>
+  <data name="UserRole_Guest_Guest_Helptext" xml:space="preserve">
+    <value>Ein Gast</value>
+  </data>
+  <data name="UserRole_Reader_Reader_Helptext" xml:space="preserve">
+    <value>Ein Leser</value>
+  </data>
+  <data name="UserRole_TeamLead_Team_Lead_Helptext" xml:space="preserve">
+    <value>Der Teamleiter bzw. der Inhaber des Projekts.</value>
+  </data>
+  <data name="UserRole_TenantAdmin_Tenant_s_Admin_Helptext" xml:space="preserve">
+    <value>Administrator Mandant</value>
+  </data>
+  <data name="UserRole_Unknown_Unknown_Helptext" xml:space="preserve">
+    <value>Unbekannt</value>
+  </data>
+  <data name="Discussion_Content_Content_Helptext" xml:space="preserve">
+    <value>Inhalt</value>
+  </data>
+  <data name="Discussion_GroupOnly_For_Group_Only_Helptext" xml:space="preserve">
+    <value>Nur für eigene Gruppe</value>
+  </data>
+  <data name="Discussion_Mood_Mood_Helptext" xml:space="preserve">
+    <value>Zeigt die eigene Stimmung. Das hilft anderen den Wert deiner Einschätzung besser zu verstehen.</value>
+  </data>
+  <data name="Discussion_Private_Is_Private_Helptext" xml:space="preserve">
+    <value>Diese Diskussion ist privat und kann nur Gruppenmitgliedern, jedoch nicht von Autoren oder anderen Nutzern gesehen werden.</value>
+  </data>
+  <data name="Discussion_Subject_Subject_Helptext" xml:space="preserve">
+    <value>Ein Betreff, der den Beitrag besser auffindbar macht.</value>
+  </data>
+  <data name="Project_Name_Project_Name" xml:space="preserve">
+    <value>Projektname</value>
+  </data>
+  <data name="Project_Name_Project_Name_Helptext" xml:space="preserve">
+    <value>Der Name des Projekts. Dieser wird nur intern benutzt.</value>
+  </data>
+  <data name="Message_Receiver_Receiver" xml:space="preserve">
+    <value>Empfänger</value>
+  </data>
+  <data name="Message_Receiver_Receiver_Helptext" xml:space="preserve">
+    <value>Ein oder mehr Empfänger dieser Nachricht. Durch tippen im Feld werden Vorschläge angezeigt.</value>
+  </data>
+  <data name="TermType_Abbreviation_Abbreviation" xml:space="preserve">
+    <value>Abkürzungen</value>
+  </data>
+  <data name="TermType_Cite_Cite" xml:space="preserve">
+    <value>Zitate</value>
+  </data>
+  <data name="TermType_Definition_Definition" xml:space="preserve">
+    <value>Definitionen</value>
+  </data>
+  <data name="TermType_Idiom_Idiom" xml:space="preserve">
+    <value>Idiome</value>
+  </data>
+  <data name="TermType_Link_Link" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="Term_Active_Is_Active" xml:space="preserve">
+    <value>Ist aktiv</value>
+  </data>
+  <data name="Term_Active_Is_Active_Helptext" xml:space="preserve">
+    <value>Der Begriff ist für Nutzer verfügbar</value>
+  </data>
+  <data name="Term_Content_Content" xml:space="preserve">
+    <value>Inhalt</value>
+  </data>
+  <data name="Term_Content_Content_Helptext" xml:space="preserve">
+    <value>Der Inhalt, wie er in erweiterten Dialogen erscheint</value>
+  </data>
+  <data name="Term_TermType_Term_Type" xml:space="preserve">
+    <value>Der Begriffstyp </value>
+  </data>
+  <data name="Term_TermType_Term_Type_Helptext" xml:space="preserve">
+    <value>Der Typ steuert das Verhalten auf Geräten</value>
+  </data>
+  <data name="Term_Text_Name_or_Text" xml:space="preserve">
+    <value>Name oder Text</value>
+  </data>
+  <data name="Term_Text_Name_or_Text_Helptext" xml:space="preserve">
+    <value>Der Name, wie er in Menüs oder der Vorschau erscheint</value>
+  </data>
+  <data name="Project_ApproveTerms_Must_approve" xml:space="preserve">
+    <value>Zustimmung erforderlich</value>
+  </data>
+  <data name="Project_Description_Verbose_Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="Project_Description_Verbose_Description_Helptext" xml:space="preserve">
+    <value>Eine ausführliche Beschreibung des Inhalts</value>
+  </data>
+  <data name="Project_Short_Short_Description" xml:space="preserve">
+    <value>Kurze Beschreibung</value>
+  </data>
+  <data name="Project_Short_Short_Description_Helptext" xml:space="preserve">
+    <value>Eine kurze Beschreibung, die deinen Mitarbeitern hilft, das Projekt zu verstehen</value>
+  </data>
+  <data name="Project_Terms_Terms_for_Contributors" xml:space="preserve">
+    <value>Bedingungen für Beitragende</value>
+  </data>
+  <data name="Project_Terms_Terms_for_Contributors_Helptext" xml:space="preserve">
+    <value>Bedingungen, mit denen Beitragende einverstanden sein müssen.</value>
+  </data>
+  <data name="Project_ApproveTerms_Must_approve_Helptext" xml:space="preserve">
+    <value>Wenn aktiviert, müssen Beitragende die Bedingungen bestätigen, bevor sie Teil des Teams werden.</value>
+  </data>
+  <data name="Gender_Both_Both" xml:space="preserve">
+    <value>Beides</value>
+  </data>
+  <data name="Gender_Female_Female" xml:space="preserve">
+    <value>Weiblich</value>
+  </data>
+  <data name="Gender_Male_Male" xml:space="preserve">
+    <value>Männlich</value>
+  </data>
+  <data name="Gender_Unknown_Unknown" xml:space="preserve">
+    <value>Unbekannt</value>
+  </data>
+  <data name="Gender_Unsure_Unsure" xml:space="preserve">
+    <value>Unsicher</value>
+  </data>
+  <data name="Element_MatchMatrix_Match_Matrix" xml:space="preserve">
+    <value>Vergleichsmatrix</value>
+  </data>
+  <data name="Element_MatchMatrix_Match_Matrix_Helptext" xml:space="preserve">
+    <value>Die Matrix bestimmt, wie Benutzer den Inhalt finden können. Der Vergleich hilft beim Suchen und Bekommen des richtigen Inhalts. Je mehr Schlüsselwörter vorhanden sind, je besser ist das Dokument sichtbar.</value>
+    <comment>The matrix determines how user can find this particular content. The matching helps searching and getting the right stuff. The more keywords the better the content's visibility.</comment>
+  </data>
+  <data name="UserProfile_FacebookProfile_Facebook__Helptext" xml:space="preserve">
+    <value>Die Adresse (URL) deines Facebook-Profils</value>
+  </data>
+  <data name="UserProfile_FacebookProfile_Profile_Facebook" xml:space="preserve">
+    <value>Facebook-Profil</value>
+  </data>
+  <data name="UserProfile_OtherProfile_Other" xml:space="preserve">
+    <value>Anderes Profil</value>
+  </data>
+  <data name="UserProfile_XingProfile_Xing" xml:space="preserve">
+    <value>Xing-Profil</value>
+  </data>
+  <data name="UserProfile_OtherProfile_Other_Profile_Helptext" xml:space="preserve">
+    <value>Die Adresse (URL) eines anderen Profils im Web</value>
+  </data>
+  <data name="UserProfile_XingProfile_Xing_Profile_Helptext" xml:space="preserve">
+    <value>Die Adresse (URL) deines XING-Profils</value>
+  </data>
+  <data name="TransactionType_Adjust_Adjustment" xml:space="preserve">
+    <value>Abgleich</value>
+  </data>
+  <data name="TransactionType_FromBankAccount_From_Bank_Account" xml:space="preserve">
+    <value>Vom Konto</value>
+  </data>
+  <data name="TransactionType_Other_Other" xml:space="preserve">
+    <value>Andere</value>
+  </data>
+  <data name="TransactionType_Sale_Sale" xml:space="preserve">
+    <value>Verkauf</value>
+  </data>
+  <data name="TransactionType_ToBankAccount_To_Bank_Account" xml:space="preserve">
+    <value>Zum Konto</value>
+  </data>
+  <data name="TransactionType_Transfer_Transfer" xml:space="preserve">
+    <value>Übertrag</value>
+  </data>
+  <data name="TransactionType_All_All" xml:space="preserve">
+    <value>Alle</value>
+  </data>
+  <data name="ElementMatrix_Keyword_Keyword" xml:space="preserve">
+    <value>Suchwort</value>
+  </data>
+  <data name="ElementMatrix_Stage_Level" xml:space="preserve">
+    <value>Niveau</value>
+  </data>
+  <data name="ElementMatrix_Target_Target_Audience" xml:space="preserve">
+    <value>Zielgruppe</value>
+  </data>
+  <data name="ChangePassword_OldPassword_You_must_provide_the_current_password" xml:space="preserve">
+    <value>Das aktuelle Kennwort muss angegeben werden</value>
+  </data>
+  <data name="ChangePassword_NewPassword_You_must_provide_a_new_password" xml:space="preserve">
+    <value>Es muss ein neues Kennwort vergeben werden</value>
+  </data>
+  <data name="RetrievePassword_UserName_Please_provide_your_username_or_email" xml:space="preserve">
+    <value>Gib den Benutzernamen oder die E-Mail-Adresse ein</value>
+  </data>
+  <data name="RetrievePassword_PasswordQuestion_The_passwort_question" xml:space="preserve">
+    <value>Die Kennwort-Sicherheitsfrage</value>
+  </data>
+  <data name="RetrievePassword_PasswordAnswer_The_answer_for_your_password_retrieval_question" xml:space="preserve">
+    <value>Die Antwort auf die Sicherheitsfrage</value>
+  </data>
+  <data name="LogOn_UserName_You_must_provide_your_username_or_email" xml:space="preserve">
+    <value>Gib Benutzername oder E-Mail ein</value>
+  </data>
+  <data name="LogOn_Password_You_must_provide_a_password" xml:space="preserve">
+    <value>Gib ein Kennwort ein</value>
+  </data>
+  <data name="Register_UserName_You_must_provide_a_username" xml:space="preserve">
+    <value>Ein Benutzername muss angegeben werden</value>
+  </data>
+  <data name="Register_Email_You_must_provide_an_email_address" xml:space="preserve">
+    <value>Hier muss eine E-Mail-Adresse eingegeben werden</value>
+  </data>
+  <data name="Register_Password_You_must_provide_a_password" xml:space="preserve">
+    <value>Es muss ein Kennwort eingegeben werden</value>
+  </data>
+  <data name="Register_Roles_The_roles_shall_be_set_properly" xml:space="preserve">
+    <value>Die Rollen sollten passend gewählt werden</value>
+  </data>
+  <data name="Published_Authors_Authors_Helptext" xml:space="preserve">
+    <value>Die Namen der Autoren, wie sie auf Texten und Umschlägen erscheinen.</value>
+  </data>
+  <data name="Published_Publisher_Publisher_Helptext" xml:space="preserve">
+    <value>Der Name des Verlags, wie er in Katalogen und auf Titeln erscheint. Wenn der Eintrag leer bleibt, dann wird hier "texxtoor" angenommen.</value>
+  </data>
+  <data name="Published_Authors_Authors" xml:space="preserve">
+    <value>Autoren</value>
+  </data>
+  <data name="Published_Publisher_Publisher" xml:space="preserve">
+    <value>Verlag</value>
+  </data>
+  <data name="QuickForm_FavoriteRole_Favorite_Role" xml:space="preserve">
+    <value>Funktion</value>
+  </data>
+  <data name="QuickForm_FavoriteRole_Favorite_Role_Helptext" xml:space="preserve">
+    <value>In welcher wichtigsten Funktion soll mit diesem Konto auf der Plattform gearbeitet? Dies kann jederzeit geändert werden.</value>
+  </data>
+  <data name="ContributorRole_Default" xml:space="preserve">
+    <value>Deine bevorzugte Rolle</value>
+  </data>
+  <data name="NavLevel_Chapter_Chapter" xml:space="preserve">
+    <value>Kapitel</value>
+  </data>
+  <data name="NavLevel_Default" xml:space="preserve">
+    <value>Navigationstiefe wählen</value>
+  </data>
+  <data name="NavLevel_Document_Document" xml:space="preserve">
+    <value>Dokument</value>
+  </data>
+  <data name="NavLevel_Section_Section" xml:space="preserve">
+    <value>Abschnitt</value>
+  </data>
+  <data name="NavLevel_SubSection_Sub_Section" xml:space="preserve">
+    <value>Unterabschnitt</value>
+  </data>
+  <data name="Project_Name_Description" xml:space="preserve">
+    <value>Eine ausführliche Beschreibung, die Teammitgliedern hilft, die Ziele des Projekts zu verstehen.</value>
+  </data>
+  <data name="Project_Name_InternalDescription" xml:space="preserve">
+    <value>Eine kurze intern benutzte Beschreibung</value>
+  </data>
+  <data name="Project_Name_MyFirstProject" xml:space="preserve">
+    <value>Der Name des Projekts</value>
+  </data>
+  <data name="TermSet_Watermark_Description" xml:space="preserve">
+    <value>Beschreibe deine Begriffssammlung</value>
+  </data>
+  <data name="TermSet_Watermark_Name" xml:space="preserve">
+    <value>Name der Begriffssammlung</value>
+  </data>
+  <data name="Milestone_Watermark_Description" xml:space="preserve">
+    <value>Zweck des Meilensteins</value>
+  </data>
+  <data name="Milestone_Watermark_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="TypeOfResource_Content_Content" xml:space="preserve">
+    <value>Inhalt</value>
+  </data>
+  <data name="TypeOfResource_Import_Import" xml:space="preserve">
+    <value>Importiert</value>
+  </data>
+  <data name="TypeOfResource_Project_Project" xml:space="preserve">
+    <value>Projekt</value>
+  </data>
+  <data name="TypeOfResource_Trash_Trash" xml:space="preserve">
+    <value>Papierkorb</value>
+  </data>
+  <data name="Team_Watermark_Description" xml:space="preserve">
+    <value>Beschreibe dein Team</value>
+  </data>
+  <data name="Team_Watermark_Name" xml:space="preserve">
+    <value>Der Name des Teams</value>
+  </data>
+  <data name="Work_Watermark_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Work_Watermark_Note" xml:space="preserve">
+    <value>Zu welchem Zweck</value>
+  </data>
+  <data name="ContentCollection_Watermark_Description" xml:space="preserve">
+    <value>Beschreibung der Sammlung</value>
+  </data>
+  <data name="Discussion_Closed_Closed_Audience" xml:space="preserve">
+    <value>Geschlossene Benutzergruppe</value>
+  </data>
+  <data name="Discussion_Closed_Closed_Audience_Helptext" xml:space="preserve">
+    <value>Die Nachricht ist nur für Mitglieder der privaten Gruppe</value>
+  </data>
+  <data name="ShareType_Daily_Daily" xml:space="preserve">
+    <value>€ Tagessatz</value>
+  </data>
+  <data name="ShareType_Fixed_Fixed" xml:space="preserve">
+    <value>€ Festpreis (pauschal)</value>
+  </data>
+  <data name="ShareType_Free_Free" xml:space="preserve">
+    <value>Kostenfrei</value>
+  </data>
+  <data name="ShareType_Hourly_Hourly" xml:space="preserve">
+    <value>€ pro Stunde</value>
+  </data>
+  <data name="ShareType_Monthly_Monthly" xml:space="preserve">
+    <value>€ pro Monat</value>
+  </data>
+  <data name="ShareType_Ratio_Ratio" xml:space="preserve">
+    <value>% Anteile</value>
+  </data>
+  <data name="ShareType_Weekly_Weekly" xml:space="preserve">
+    <value>€ pro Woche</value>
+  </data>
+  <data name="OrderProduct_Media_Media" xml:space="preserve">
+    <value>Medium</value>
+  </data>
+  <data name="OrderProduct_Media_Media_Helptext" xml:space="preserve">
+    <value>Entscheidet, auf welchen Medien der Inhalt benutzt werden soll. Für einige Medien wird eine Gebühr berechnet.</value>
+  </data>
+  <data name="OrderProduct_RealPrice_Real_Price" xml:space="preserve">
+    <value>Finaler Preis</value>
+  </data>
+  <data name="OrderProduct_RealPrice_Real_Price_Helptext" xml:space="preserve">
+    <value>Der finale, bindende Preis. Dieser Preis schließt Versand, Verpackung, Versicherungen und Lieferung mit ein. </value>
+  </data>
+  <data name="OrderProduct_Subscription_Subscription" xml:space="preserve">
+    <value>Abonnement</value>
+  </data>
+  <data name="OrderProduct_Subscription_Subscription_Helptext" xml:space="preserve">
+    <value>Ein Abo gibt ununterbrochenen Zugriff auf alle bestellten Medien. Dies ist eine monatliche Gebühr, die jederzeit gekündigt werden kann. Neue Ausgaben und Aktualisierungen werden automatisch zugestellt.</value>
+  </data>
+  <data name="Message_Watermark_Body" xml:space="preserve">
+    <value>Die Nachricht wird hier geschrieben...</value>
+  </data>
+  <data name="Message_Watermark_Subject" xml:space="preserve">
+    <value>Woum geht es?</value>
+  </data>
+  <data name="Element_Variation_Variation" xml:space="preserve">
+    <value>Variante</value>
+  </data>
+  <data name="Element_Variation_Variation_Helptext" xml:space="preserve">
+    <value>Wenn eine neue Version erstellt wird, kannst bestimmt werden, welcher Typ diese Version verglichen mit der vorherigen ist.</value>
+  </data>
+  <data name="Milestone_NextMilestone_Next_Milestone_Helptext" xml:space="preserve">
+    <value>Hiermit wird der nächste Meilenstein in der Kette bestimmt. Durch verketten von Meilensteinen werden Abläufe (Workflows) erstellt.</value>
+  </data>
+  <data name="Milestone_Name_Validator_Required" xml:space="preserve">
+    <value>Es muss ein Name angegeben werden</value>
+  </data>
+  <data name="Register_ConfirmPassword_The_password_given_does_not_match_the_password_typed_above" xml:space="preserve">
+    <value>Das Kennwort stimmt nicht mit dem vorherigen Feld überein</value>
+  </data>
+  <data name="WorkType_Other" xml:space="preserve">
+    <value>Sonstiges</value>
+  </data>
+  <data name="WorkType_Custom" xml:space="preserve">
+    <value>Nutzerbasiert</value>
+  </data>
+  <data name="WorkType_External" xml:space="preserve">
+    <value>Externes EPUB</value>
+  </data>
+  <data name="WorkType_Published" xml:space="preserve">
+    <value>Veröffentlicht</value>
+  </data>
+  <data name="Discussion_Tags_Tags" xml:space="preserve">
+    <value>Marker</value>
+  </data>
+  <data name="Discussion_Tags_Tags_Helptext" xml:space="preserve">
+    <value>Marker helfen dabei, Fragen zu organisieren. Daraus entstehen Marker-Wolken, die der Übersicht dienen.</value>
+  </data>
+  <data name="QuestionsAnswers_Theme_Theme" xml:space="preserve">
+    <value>Thema</value>
+  </data>
+  <data name="QuestionsAnswers_Theme_Theme_Helptext" xml:space="preserve">
+    <value>Ein Thema hilft dabei, Fragen zu organisieren und die Relevanz für den Autor zu bestimmen.</value>
+  </data>
+  <data name="QuestionsAnswers_Work_Work" xml:space="preserve">
+    <value>Werk</value>
+  </data>
+  <data name="QuestionsAnswers_Work_Work_Helptext" xml:space="preserve">
+    <value>Das Werk, für das diese Frage bestimmt ist. Wird intern benutzt, um den Autor oder sein team zu erreichen.</value>
+  </data>
+  <data name="Published_PreferredTemplateGroup_Preferred_Template_Group" xml:space="preserve">
+    <value>Vorlagengruppe</value>
+  </data>
+  <data name="Published_PreferredTemplateGroup_Preferred_Template_Group_Helptext" xml:space="preserve">
+    <value>Wähle die Vorlage, die bei der Produktion von PDF, im Druck oder als EPUB bevorzugt benutzt werden soll.</value>
+  </data>
+  <data name="RunControl_RunMode_Run_Mode" xml:space="preserve">
+    <value>Laufmode</value>
+  </data>
+  <data name="RunControl_Complexity_Complexity" xml:space="preserve">
+    <value>Komplexität</value>
+  </data>
+  <data name="RunControl_RunMode_Run_Mode_Helptext" xml:space="preserve">
+    <value>Der globale Modus der Applikation, nur durch Admin änderbar.</value>
+  </data>
+  <data name="RunControl_Complexity_Complexity_Helptext" xml:space="preserve">
+    <value>Die Komplexität, wird vorbelegt und kann vom Nutzer geändert werden.</value>
+  </data>
+  <data name="Complexity_Enum_Simple" xml:space="preserve">
+    <value>Einfach</value>
+  </data>
+  <data name="Complexity_Enum_Full" xml:space="preserve">
+    <value>Professionell</value>
+  </data>
+  <data name="RunMode_Enum_Texxtoor" xml:space="preserve">
+    <value>Texxtoor</value>
+  </data>
+  <data name="RunMode_Enum_Business" xml:space="preserve">
+    <value>AC²</value>
+  </data>
+  <data name="AddressBook_Region_Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="AddressBook_Region_Region_Helptext" xml:space="preserve">
+    <value>Die Region oder das Bundesland zu dieser Anschrift.</value>
+  </data>
+  <data name="UserProfile_AwardState_Award" xml:space="preserve">
+    <value>Auszeichnung</value>
+  </data>
+  <data name="CreatorBadge_Beginner_Beginner" xml:space="preserve">
+    <value>Anfänger</value>
+  </data>
+  <data name="CreatorBadge_Author_Author" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+  <data name="CreatorBadge_Maven_Maven" xml:space="preserve">
+    <value>Fachkundiger</value>
+  </data>
+  <data name="CreatorBadge_Specialist_Specialist" xml:space="preserve">
+    <value>Spezialist</value>
+  </data>
+  <data name="CreatorBadge_Expert_Expert" xml:space="preserve">
+    <value>Experte</value>
+  </data>
+  <data name="UserBadge_Rookie_Rookie" xml:space="preserve">
+    <value>Neuling</value>
+  </data>
+  <data name="UserBadge_Member_Member" xml:space="preserve">
+    <value>Mitglied</value>
+  </data>
+  <data name="UserBadge_Silver_Silver" xml:space="preserve">
+    <value>Silber</value>
+  </data>
+  <data name="UserBadge_Gold_Gold" xml:space="preserve">
+    <value>Gold</value>
+  </data>
+  <data name="UserBadge_Platinum_Platinum" xml:space="preserve">
+    <value>Platin</value>
+  </data>
+  <data name="UserProfile_UserScore_UserScore" xml:space="preserve">
+    <value>Benutzerpunkte</value>
+  </data>
+  <data name="UserProfile_CreatorScore_CreatorScore" xml:space="preserve">
+    <value>Erstellerpunkte</value>
+  </data>
+  <data name="UserProfile_UserBadge_UserBadge" xml:space="preserve">
+    <value>Benutzeremblem</value>
+  </data>
+  <data name="UserProfile_CreatorBadge_CreatorBadge" xml:space="preserve">
+    <value>Erstelleremblem</value>
+  </data>
+  <data name="UserProfile_UserScore_UserScore_Helptext" xml:space="preserve">
+    <value>Die Benutzerpunkte sind die Summe aller Aktivitäten und der Auszeichnungen für alle Benutzer.</value>
+  </data>
+  <data name="UserProfile_CreatorScore_CreatorScore_Helptext" xml:space="preserve">
+    <value>Die Erstellerpunkte sind die Summe aller Aktivitäten und der Auszeichnungen für Autoren und Mitarbeiter und zeigen Erfolg und Reputation.</value>
+  </data>
+  <data name="UserProfile_UserBadge_UserBadge_Helptext" xml:space="preserve">
+    <value>Das Benutzeremblem zeigt den Erfolg des Benutzers nach seinen Punkten.</value>
+  </data>
+  <data name="UserProfile_CreatorBadge_CreatorBadge_Helptext" xml:space="preserve">
+    <value>Das Erstelleremblem zeigt den Erfolg des Autors nach seinen Punkten.</value>
+  </data>
+  <data name="UserProfile_AwardState_Award_Helptext" xml:space="preserve">
+    <value>Ein zusätzlicher Wert, der besondere Auszeichnungen zählt und beiden Punktwerten hinzugefügt wird.</value>
+  </data>
+  <data name="EntityBase_CreatedAt_Created_At" xml:space="preserve">
+    <value>Erstellt am</value>
+  </data>
+  <data name="EntityBase_ModifiedAt_Modified_At" xml:space="preserve">
+    <value>Geändert am</value>
+  </data>
+  <data name="TeamOverviewModel_TeamName_Team_Name" xml:space="preserve">
+    <value>Teamname</value>
+  </data>
+  <data name="PeerReview_Approved" xml:space="preserve">
+    <value>Bestätigt</value>
+  </data>
+  <data name="PeerReview_Approved_Is_Approved_Helptext" xml:space="preserve">
+    <value>Wurde durch anderen Gutachter bestätigt</value>
+  </data>
+  <data name="PeerReview_Comment" xml:space="preserve">
+    <value>Kommentar</value>
+  </data>
+  <data name="PeerReview_Comment_Comment_Helptext" xml:space="preserve">
+    <value>Kommentiere deien Entscheidung kurz</value>
+  </data>
+  <data name="PeerReview_Level" xml:space="preserve">
+    <value>Niveau</value>
+  </data>
+  <data name="PeerReview_Level_Level_Helptext" xml:space="preserve">
+    <value>Niveau, höhere Werte sind besser</value>
+  </data>
+  <data name="DropCommand_AssignAuthor" xml:space="preserve">
+    <value>Autor zuweisen</value>
+  </data>
+  <data name="DropCommand_AssignAuthor_Description" xml:space="preserve">
+    <value>Hierhin ziehen</value>
+  </data>
+  <data name="DropCommand_Deactivated" xml:space="preserve">
+    <value>Deaktivieren</value>
+  </data>
+  <data name="DropCommand_Deactivated_Description" xml:space="preserve">
+    <value>Hierhin ziehen zum deaktivieren</value>
+  </data>
+  <data name="DropCommand_FileResources" xml:space="preserve">
+    <value>Dateien</value>
+  </data>
+  <data name="DropCommand_FileResources_Description" xml:space="preserve">
+    <value>Hierhin ziehen für Dateien</value>
+  </data>
+  <data name="DropCommand_Imports" xml:space="preserve">
+    <value>Importieren</value>
+  </data>
+  <data name="DropCommand_Imports_Description" xml:space="preserve">
+    <value>Hierhin ziehen zum Importieren</value>
+  </data>
+  <data name="DropCommand_Marketing" xml:space="preserve">
+    <value>Marketing</value>
+  </data>
+  <data name="DropCommand_Marketing_Description" xml:space="preserve">
+    <value>Hierhin ziehen für Marketingpaket</value>
+  </data>
+  <data name="DropCommand_Publish" xml:space="preserve">
+    <value>Veröffentlichen</value>
+  </data>
+  <data name="DropCommand_Publish_Description" xml:space="preserve">
+    <value>Hierhin ziehen zum Veröffentlichen</value>
+  </data>
+  <data name="DropCommand_SemanticData" xml:space="preserve">
+    <value>Semantische Daten</value>
+  </data>
+  <data name="DropCommand_SemanticData_Description" xml:space="preserve">
+    <value>Hierhin ziehen für semantische Daten</value>
+  </data>
+  <data name="RegisterExternalLogin_Email_Email" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="WorkroomChat_Closed_Thread_Closed" xml:space="preserve">
+    <value>Diskussion beendet</value>
+  </data>
+  <data name="WorkroomChat_Closed_Thread_Closed_Helptext" xml:space="preserve">
+    <value>Diese Diskussion ist beendet und es kann nicht darauf geantwortet werden.</value>
+  </data>
+  <data name="FullFillmentState_Cancelled_Cancelled" xml:space="preserve">
+    <value>Storniert</value>
+  </data>
+  <data name="FullFillmentState_Created_Created" xml:space="preserve">
+    <value>Vorbestellt</value>
+  </data>
+  <data name="FullFillmentState_NoneOrAll_None" xml:space="preserve">
+    <value>Unbekannt</value>
+  </data>
+  <data name="FullFillmentState_Payed_Payed" xml:space="preserve">
+    <value>Bezahlt</value>
+  </data>
+  <data name="FullFillmentState_PreOrder_PreOrder" xml:space="preserve">
+    <value>Im Bestellvorgang</value>
+  </data>
+  <data name="FullFillmentState_Produced_Produced" xml:space="preserve">
+    <value>Wurde produziert</value>
+  </data>
+  <data name="FullFillmentState_Producing_Producing" xml:space="preserve">
+    <value>Wird produziert</value>
+  </data>
+  <data name="FullFillmentState_Received_Received" xml:space="preserve">
+    <value>Empfangen</value>
+  </data>
+  <data name="FullFillmentState_Shipped_Shipped" xml:space="preserve">
+    <value>Versendet</value>
+  </data>
+  <data name="OrderStore_FullFillment_Fullfillment_State" xml:space="preserve">
+    <value>Bestellstatus</value>
+  </data>
+  <data name="OrderStore_FullFillment_Fullfillment_State_Helptext" xml:space="preserve">
+    <value>Der aktuelle Bestellstatus für dieses Produkt</value>
+  </data>
+  <data name="Sale_Day_Purchase_Day" xml:space="preserve">
+    <value>Zeitpunkt</value>
+  </data>
+  <data name="Sale_Day_Purchase_Day_Helptext" xml:space="preserve">
+    <value>Zeitpunkt</value>
+  </data>
+  <data name="Sale_DownloadCount_Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Sale_DownloadCount_Download_Helptext" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Sale_OrderCount_Regular_Order" xml:space="preserve">
+    <value>Normaler Verkauf</value>
+  </data>
+  <data name="Sale_OrderCount_Regular_Order_Helptext" xml:space="preserve">
+    <value>Normaler Verkauf</value>
+  </data>
+  <data name="Sale_OrderProduct_Purchase_Item" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="Sale_OrderProduct_Purchase_Item_Helptext" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="Sale_Owner_Owner" xml:space="preserve">
+    <value>Empfänger</value>
+  </data>
+  <data name="Sale_Owner_Owner_Helptext" xml:space="preserve">
+    <value>Empfänger</value>
+  </data>
+  <data name="Sale_ReaderCount_Item_was_read" xml:space="preserve">
+    <value>Nutzung in einer Lese-App</value>
+  </data>
+  <data name="Sale_ReaderCount_Item_was_read_Helptext" xml:space="preserve">
+    <value>Lese-App</value>
+  </data>
+  <data name="Sale_SourceOpus_Text_Name" xml:space="preserve">
+    <value>Name des Textes</value>
+  </data>
+  <data name="Sale_SourceOpus_Text_Name_Helptext" xml:space="preserve">
+    <value>Name des Textes</value>
+  </data>
+  <data name="Sale_SubscriptionCount_Subscription_delivered" xml:space="preserve">
+    <value>Verkauf erfolgt als Teil einer Abo-Lieferung</value>
+  </data>
+  <data name="Sale_SubscriptionCount_Subscription_delivered_Helptext" xml:space="preserve">
+    <value>Im Abo</value>
+  </data>
+  <data name="Sale_TotalRevenues_Total_Revenues" xml:space="preserve">
+    <value>Gesamteinnahmen dieses Verkaufs für alle Teammitglieder</value>
+  </data>
+  <data name="Sale_TotalRevenues_Total_Revenues_Helptext" xml:space="preserve">
+    <value>Gesamteinnahmen</value>
+  </data>
+  <data name="Sale_UserRevenues_User_Revenues" xml:space="preserve">
+    <value>Die eigenen Einnahmen, Anteile an diesem Verkauf</value>
+  </data>
+  <data name="Sale_UserRevenues_User_Revenues_Helptext" xml:space="preserve">
+    <value>Eigene Einnahmen</value>
+  </data>
+  <data name="MarketingPackageType_AdSupported_Ad_supported" xml:space="preserve">
+    <value>Anzeigenverkauf</value>
+  </data>
+  <data name="MarketingPackageType_Closed_Closed_Inactive" xml:space="preserve">
+    <value>Geschlossen/Nicht aktiv</value>
+  </data>
+  <data name="MarketingPackageType_CreativeCommon_Creative_Common" xml:space="preserve">
+    <value>Creative Common</value>
+  </data>
+  <data name="MarketingPackageType_CustomLevel_Custom_Level" xml:space="preserve">
+    <value>Kundenspezifisch</value>
+  </data>
+  <data name="MarketingPackageType_PublicDomain_Public_Domain" xml:space="preserve">
+    <value>Public Domain</value>
+  </data>
+  <data name="MarketingPackageType_RegularSale_Regular_Sale" xml:space="preserve">
+    <value>Normaler Verkauf</value>
+  </data>
+  <data name="MarketingPackageType_SubscriptionFee_With_Subscription_Fee" xml:space="preserve">
+    <value>Abonnement gegen monatliche Gebühr</value>
+  </data>
+  <data name="Project_Team_Team" xml:space="preserve">
+    <value>Projektteam</value>
+  </data>
+  <data name="Project_Team_Team_Helptext" xml:space="preserve">
+    <value>Das mit dem Projekt verbundene Team. Ein Team kann mehrere Projekte haben, deshalb kann ein vorhandenes Team ausgewählt werden. Oder es wird der Eintrag * Neues Team erstellen * genutzt, um ein neues Team für dieses Projekt zu erstellen.</value>
+  </data>
+  <data name="Imprint_Name_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Imprint_Description_Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="Imprint_AboutUs_About_Us" xml:space="preserve">
+    <value>Über uns</value>
+  </data>
+  <data name="Imprint_Firm_Firm" xml:space="preserve">
+    <value>Firma</value>
+  </data>
+  <data name="Imprint_Url_Website" xml:space="preserve">
+    <value>Webseite</value>
+  </data>
+  <data name="Imprint_CompanyLogo_Logo" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="Imprint_Name_Name_Helptext" xml:space="preserve">
+    <value>Name des Imprints (wird intern benutzt)</value>
+  </data>
+  <data name="Imprint_Description_Description_Helptext" xml:space="preserve">
+    <value>Eine Beschreibung für interna Anzeigen, Teammitglieder usw.</value>
+  </data>
+  <data name="Imprint_AboutUs_About_Us_Helptext" xml:space="preserve">
+    <value>Der Text, der im Bereich "Über den Verlag" öffentliche angezeigt wird, wenn die Ausgabe dies unterstützt.</value>
+  </data>
+  <data name="Imprint_Firm_Firm_Helptext" xml:space="preserve">
+    <value>Die Firma des Verlags, der den Imprint betreibt, z.B. Mein Verlag GmbH &amp; Co. KG</value>
+  </data>
+  <data name="Imprint_Url_Website_Helptext" xml:space="preserve">
+    <value>Die Website-Adresse, komplett mit http:// usw.</value>
+  </data>
+  <data name="Imprint_CompanyLogo_Logo_Helptext" xml:space="preserve">
+    <value>Das Logo, das im Druck, z.B. auf U4-Seiten benutzt werden kann.</value>
+  </data>
+  <data name="Imprint_AboutUs_Watermark" xml:space="preserve">
+    <value>Über uns...</value>
+  </data>
+  <data name="ImprintAddress_Url_If_provided_it_must_match_URL_Format" xml:space="preserve">
+    <value>Wenn angegeben muss dies im URL-Format sein</value>
+  </data>
+  <data name="AddressBook_Zip_Invalid_Zip_Code" xml:space="preserve">
+    <value>Ungültige Postleitzahl</value>
+  </data>
+  <data name="LocalizedEntityBase_Culture_Culture" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="LocalizedEntityBase_Culture_Culture_Helptext" xml:space="preserve">
+    <value>Die Sprache des Elements. Wenn die Ausgabe für eine bestimmte Sprache erfolgt, bestimmt diese Einstellung die Auswahl.</value>
+  </data>
+  <data name="Template_Description_Template_Name" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="Template_Description_Template_Name_Helptext" xml:space="preserve">
+    <value>Eine ausführlich Beschreibung, die Autoren dabei hilft, die richtige Vorlage zu finden.</value>
+  </data>
+  <data name="RegisterExternalLogin_InternalUserName_Internal_User_Name" xml:space="preserve">
+    <value>Interne Benutzername</value>
+  </data>
+  <data name="LinkInternalAccount_UserName_User_name" xml:space="preserve">
+    <value>Benutzername/ E-Mail</value>
+  </data>
+  <data name="ConfirmAssociation_LinkCode_Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="Opus_IsBoilerplate_Is_Boilerplate" xml:space="preserve">
+    <value>Ist Textbaustein</value>
+  </data>
+  <data name="ExternalLoginConfirmationViewModel_UserName_User_name" xml:space="preserve">
+    <value>Benutzername</value>
+  </data>
+  <data name="RegisterViewModel_Phone_FormatError" xml:space="preserve">
+    <value>Die Telefonnummer darf nur Zeichen, Striche und Schrägstriche enthalten.</value>
+  </data>
+  <data name="Opus_IsBoilerplate_Is_Boilerplate_Helptext" xml:space="preserve">
+    <value>Wenn ein Text als Textbaustein markiert wurde, werden alle Kapitel zu Textbausteinen. Es lassen sich einzelne Kapitel jedem anderen Text hinzufügen (als Kopie). Der als Textbaustein markierte Text verhält sich ansonsten wie jeder andere Text.</value>
+  </data>
+  <data name="AccountController_Register_An_account_with_this_email_already_exists_" xml:space="preserve">
+    <value>Ein Konto mit dieser E-Mail existiert bereits.</value>
+  </data>
+  <data name="Project_Image_Image" xml:space="preserve">
+    <value>Projektsymbol</value>
+  </data>
+  <data name="Project_Active_Is_active" xml:space="preserve">
+    <value>Ist aktiv</value>
+  </data>
+  <data name="Project_Image_Image_Helptext" xml:space="preserve">
+    <value>Das Bild illustriert das Projekt für die Mitarbeiter. Es ist außerdem das Standardbild für Umschlag oder Icon beim Veröffentlichen. Es kann während des Veröffentlichungsvorgangs ersetzt werden.</value>
+  </data>
+  <data name="Project_Active_Is_active_Helptext" xml:space="preserve">
+    <value>Das Projekt ist aktiv und erreichbar. Einmal deaktiviert können Mitarbeiter das Projekt nicht mehr erreichen.</value>
+  </data>
+  <data name="Opus_Name_Text_Name_Helptext" xml:space="preserve">
+    <value>Der interne Name des Texts. Dieser hilft bei der Organisation des Texts und bei der Auswahl während des Veröffentlichungsvorgangs.</value>
+  </data>
+  <data name="Opus_Name_Text_Name" xml:space="preserve">
+    <value>Name des Texts</value>
+  </data>
+  <data name="Opus_Watermark_Name" xml:space="preserve">
+    <value>Neuer Text</value>
+  </data>
+  <data name="Opus_Name_The_text_must_have_distinct_name_" xml:space="preserve">
+    <value>Der Name des Texts muss angegeben werden.</value>
+  </data>
+  <data name="Opus_Requirements_Requirements" xml:space="preserve">
+    <value>Anforderungen</value>
+  </data>
+  <data name="Opus_RequirementsResource_Requirements_Image" xml:space="preserve">
+    <value>Abbildung Anforderungen</value>
+  </data>
+  <data name="Opus_ProposedOutcome_Proposed_Outcome" xml:space="preserve">
+    <value>Ziel oder Ergebnisse</value>
+  </data>
+  <data name="Opus_ProposedOutcomeResource_Proposed_Outcome_Image" xml:space="preserve">
+    <value>Abbildung Zielpublikum</value>
+  </data>
+  <data name="Opus_TargetAudience_Target_Audience" xml:space="preserve">
+    <value>Zielpublikum</value>
+  </data>
+  <data name="Opus_Requirements_Requirements_Helptext" xml:space="preserve">
+    <value>Die  Anforderungen und Voraussetzungen, die der Nutzer mitbringen muss, um den Inhalt angemessen bearbeiten zu können.</value>
+  </data>
+  <data name="Opus_RequirementsResource_Requirements_Image_Helptext" xml:space="preserve">
+    <value>Ein unterstützendes Bild, das die Anforderungen beschreibt, z.B. eine Abbildung der Werkzeuge.</value>
+  </data>
+  <data name="Opus_ProposedOutcome_Proposed_Outcome_Helptext" xml:space="preserve">
+    <value>Das zu erwartende Ergebnis oder anderen Informationen, die der Autor zusagt.</value>
+  </data>
+  <data name="Opus_ProposedOutcomeResource_Proposed_Outcome_Image_Helptext" xml:space="preserve">
+    <value>Ein unterstützendes Bild, dass z.B. das final erstellte Produkt zeigt.</value>
+  </data>
+  <data name="Opus_TargetAudience_Target_Audience_Helptext" xml:space="preserve">
+    <value>Eine Beschreibung der Zielgruppe oder des Zielpublikums, an den sich der Autor mit diesem Text richtet.</value>
+  </data>
+  <data name="PeerReview_Approved_Approve_Review_Helptext" xml:space="preserve">
+    <value>Markiere die Bewertung hier als freigegeben. Die Bewertung ist nun sofort öffentlich sichtbar.</value>
+  </data>
+  <data name="PeerReview_Approved_Approve_Review" xml:space="preserve">
+    <value>Bewertung freigeben</value>
+  </data>
+</root>

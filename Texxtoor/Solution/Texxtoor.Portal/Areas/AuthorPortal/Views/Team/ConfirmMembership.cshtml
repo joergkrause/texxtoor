@@ -1,0 +1,71 @@
+﻿@model Texxtoor.ViewModels.Author.ContributionProposal
+@{
+  PageData["Title"] = Loc("title1", "Confirm Membership");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("text1", @"You have been invited to contribute to a project. Within the team the lead author settles the conditions. The data shown below are the proposal for you.
+You can either confirm this to start working immediately. Or you can enter different values and return the proposal to the lead author. If you return the lead
+author will get an email with your suggestions and you'll be reomved from team. The lead author decides to add you with new conditions or not.");
+}
+@section HeadContent{
+  <script>
+    function EditShares(opusId) {
+      $.ajax({
+        url: '@Url.Action("EditShares", "Team")',
+        data: { id: opusId },
+        cache: false,
+        dataType: "html",
+        success: function (data) {
+          $('#editSharesContainer').html(data);
+          $("#editSharesContainer").show();
+          $('#cancelEditSharesButton').click(function () {
+            $("#editSharesContainer").hide();
+            $('#confirmSharesForm').show();
+          });
+          $('#confirmSharesForm').hide();
+        }
+      });
+      return false;
+    }
+  </script>
+  @Script.SetTableBehavior(true)
+}
+<div id="editSharesContainer"></div>
+<div id="confirmSharesForm">
+  @if (!Model.Member.Pending) {
+    <div class="alert alert-warning">
+      @Loc("textNoConf", @"There is nothing to confirm. Your membership has been confirmed or you have been removed.")
+    </div>
+  } else {
+    using (Html.BeginForm()) {
+      using (Html.BtFieldset(Loc("title2", "Pending Contributor Proposals"))) {
+        <div class="well well-sm">
+          @Loc("textExpl", @"Find below all pending proposals for <em><span data-args='0' data-desc='UserName'>{0}</span></em>. There is one proposal for each book the team <em><span data-args='1' data-desc='Team Name'>{1}</span></em> works on.", Model.Member.Member.UserName, Model.Member.Team.Name)
+        </div>
+        if (Model.PendingProposals.Any()) {
+          foreach (var item in Model.PendingProposals) {
+            <label title="@item.Key.Name">
+              @Loc("txtPrj", "Opus <em><span data-args='0' data-desc='Opus Name'>{0}</span></em>.", item.Key.Name.Ellipsis(30))
+            </label>
+            <div class="editor-field">
+              @Loc("txtProposal", "Proposal of type <em><span data-args='0' data-desc='Type'>{0}</span></em> has the ratio <em><span data-args='1' data-desc='Ratio'>{1}</span></em> %",
+                         item.Value.GetLocalizedShareType(),
+                         (item.Value.ValueOrRatio))
+            </div>
+            <div class="formsendButtons">
+              @Create.ActionLink("btnConf", true, Url.Action("ConfirmProposal", "Team", new { id = Model.Member.Id, opusId = item.Key.Id, area = "AuthorPortal" }), ViewResources.Team_Confirm_Proposal, BtStyle.ButtonSuccess)
+              @Create.ActionLink("btnDecl", true, Url.Action("DeclineProposal", "Team", new { id = Model.Member.Id, opusId = item.Key.Id, area = "AuthorPortal" }), ViewResources.Team_Decline_Proposal, BtStyle.ButtonDanger)
+              @Create.ActionClick("btnShow", true, "EditShares(" + item.Key.Id + ")", ViewResources.Action_Team_ShowAndConfirmShares)
+            </div>
+          }
+        } else {
+          <div class="alert alert-danger">
+            @Loc("txtNoProp", "You have been invited to participate, but the leading author has not yet created any shares for you. Please return to this page later to see your shares and conditions. If you can't proceed here contact the leading author <em><span data-args='0' data-desc='Opus Name'>{0}</span></em>", Model.Member.Team.TeamLead.UserName)
+            .
+          </div>
+        }
+      }
+    }
+  }
+</div>
+@Create.ActionTask("", false, Url.Action("Index", "Team", null), ViewResources.LinkButton_ToTeams)
+@Create.ActionTask("", false, Url.Action("Details", "Team", new { id = Model.Member.Team.Id }), ViewResources.LinkButton_ToTeam)

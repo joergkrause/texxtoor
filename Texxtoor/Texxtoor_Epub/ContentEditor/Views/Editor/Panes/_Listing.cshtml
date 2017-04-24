@@ -1,0 +1,34 @@
+﻿<li>
+  <h2>
+    Format</h2>
+  <div class="ribbon-list">
+    <div>
+      <input type="checkbox" id="syntaxhighlight" onclick="author.setListingEditorOption('syntaxhighlight', $(this).is(':checked'));"
+        name="syntaxhighlight" value="true" checked="checked" />
+        <label>Format Code</label>
+    </div>
+    <div>
+      <input type="checkbox" id="linenumbers" onclick="author.setListingEditorOption('linenumbers', $(this).is(':checked'));"
+        name="linenumbers" value="true" checked="checked" />
+        <label>Line Numbers</label>
+    </div>
+  </div>
+</li>
+<li>
+  <h2>
+    Formatting Guide</h2>
+  <div class="ribbon-list">
+    <div>
+      <img src="~/Content/icons/Editor/code_16.png" alt="Language" />
+      <span>Language</span>
+      <ul id="lang">
+        <li data-value="text/x-csharp" onclick="author.setListingEditorOption('language', $(this).data('value'));">C#</li>
+        <li data-value="text/x-java" onclick="author.setListingEditorOption('language', $(this).data('value'));">Java</li>
+        <li data-value="vbscript" onclick="author.setListingEditorOption('language', $(this).data('value'));">VB</li>
+        <li data-value="javascript" onclick="author.setListingEditorOption('language', $(this).data('value'));">JavaScript</li>
+        <li data-value="xml" onclick="author.setListingEditorOption('language', $(this).data('value'));">HTML</li>
+        <li data-value="css" onclick="author.setListingEditorOption('language', $(this).data('value'));">CSS</li>
+      </ul>
+    </div>
+  </div>
+</li>

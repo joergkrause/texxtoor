@@ -1,0 +1,3 @@
+﻿@model Texxtoor.DataModels.Models.Content.Milestone
+@Html.DropDownListFor(m => m.NextMilestone, (SelectList) ViewBag.Milestones, ViewResources.UIHintMilestone_DefaultOption_SetUnset)
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

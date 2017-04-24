@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Cms.CmsMenu>
+@if (Model.Count() == 1) {
+  <div class="col-md-12">
+    @{
+      var mi = Model.First().MenuItems.Where(m => m.Visible).ToList();
+      var last = mi.Last();
+      foreach (var item in mi) {
+        <a href="@Url.BuildMenuLink(item)" title="@item.Title">@Html.Raw(item.Title)</a>
+        if (item != last) {
+          @:&nbsp;|&nbsp;
+        }
+      }
+    }
+  </div>
+}

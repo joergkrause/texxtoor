@@ -1,0 +1,58 @@
+﻿@model Texxtoor.DataModels.Models.Cms.CmsPage
+
+@{
+    PageData["Title"] = "Delete";
+    Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+@using(Html.BtFieldset("CmsPage")) {
+
+    <div class="display-label">SeoTitle</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SeoTitle)
+    </div>
+
+    <div class="display-label">PageTitle</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PageTitle)
+    </div>
+
+    <div class="display-label">Alias</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Alias)
+    </div>
+
+    <div class="display-label">PageContent</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PageContent)
+    </div>
+
+    <div class="display-label">MetaDescription</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MetaDescription)
+    </div>
+
+    <div class="display-label">MetaKeywords</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MetaKeywords)
+    </div>
+
+    <div class="display-label">LocaleId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LocaleId)
+    </div>
+
+    <div class="display-label">IsFallback</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsFallback)
+    </div>
+}
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

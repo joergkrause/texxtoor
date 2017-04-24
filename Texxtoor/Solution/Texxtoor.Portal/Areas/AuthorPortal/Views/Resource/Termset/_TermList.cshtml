@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Author.Term>
+@using(Html.BtFieldset(Loc("legend", @"Change an existing value or remove one"))) {
+  <label>@Html.DisplayNameFor(m => m.Text):</label>
+  <div class="editor-field-accordion">
+    @if (Model != null) {
+      <select id="select" class="grid-2-col" name="termName" data-item="@ViewBag.TermType">
+        <option>[Select a Value]</option>
+        @foreach (var item in Model) {
+          <option value="@item.Id" data-value="@item.Content">@item.Text</option>
+        }
+      </select> @(Model.Count()) <text>Terms</text>
+    }
+  </div>
+  <label>@Html.DisplayNameFor(m => m.Content):</label>
+  <div class="editor-field-accordion">
+    <input type="text" value="" class="changeTermValue" data-item="@ViewBag.TermType" />
+  </div>
+  <label>&nbsp;</label>
+  <div class="editor-field-accordion">
+    <input type="button" value="Change" class="changeTerm @BtStyle.ButtonPrimary" data-item="@ViewBag.TermType"/>
+    &nbsp;
+  <input type="button" value="Remove" class="removeTerm @BtStyle.ButtonPrimary" data-item="@ViewBag.TermType"/>
+  </div>
+}
+@using(Html.BtFieldset(Loc("legendAdd", @"Add a new value"))) {
+  <label>
+    @Html.DisplayNameFor(m => m.Text):</label>
+  <div class="editor-field-accordion">
+    <input type="text" value="" class="addTermName grid-2-col"  data-item="@ViewBag.TermType"/>
+  </div>
+  <label>
+    @Html.DisplayNameFor(m => m.Content):</label>
+  <div class="editor-field-accordion">
+    <input type="text" value="" class="addTermValue"  data-item="@ViewBag.TermType"/>
+  </div>
+  <label>&nbsp;</label>
+  <div class="editor-field-accordion">
+    <input type="button" value="Add" class="addTerm @BtStyle.ButtonPrimary"  data-item="@ViewBag.TermType"/>
+  </div>
+}

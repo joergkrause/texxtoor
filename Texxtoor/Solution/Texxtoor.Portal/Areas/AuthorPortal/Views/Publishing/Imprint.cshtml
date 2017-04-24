@@ -1,0 +1,186 @@
+﻿@using Texxtoor.ViewModels.Content
+@model Texxtoor.ViewModels.Content.ImprintAddress
+@{
+  PageData["Title"] = Loc("title1", "Imprint Manager");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("imprintText", "You can publish under your own label or as texxtoor. Create a label here you can choose later while publishing.");
+}
+@section HeadContent {
+  <script>
+    $(function() {
+      $(document).on('click', '#saveImprintButton', function() {
+        saveImprint('#saveImprintForm');
+      });
+      @if (Model != null) {
+        <text>
+    loadIsbn(@Model.ImprintId);
+    </text>
+      }
+      else {
+        <text>
+    $('#main').hide();
+    </text>
+      }
+    });
+
+    function loadIsbn(id) {
+      $.ajax({
+        url: '@Url.Action("LoadIsbn", "Publishing")',
+        data: {
+          id: id
+        },
+        type: 'GET',
+        dataType: 'html',
+        cache: false,
+      }).done(function(data) {
+        $('#main').html(data);
+        $('#main').show();
+        $(document).off('click', '#saveIsbnButton');
+        $(document).on('click', '#saveIsbnButton', function() {
+          saveIsbn(id);
+        });
+      });
+    }
+
+    function saveIsbn(id) {
+      $.ajax({
+        url: '@Url.Action("SaveIsbn", "Publishing")',
+        data: {
+          isbns: $('[name="isbns"]').val(),
+          id: id
+        },
+        type: 'POST',
+        dataType: 'json',
+      }).done(function(data) {
+        toastr.success(data.msg);
+        loadIsbn(id);
+      });
+    }
+
+    function saveImprint(formId) {
+      $.validator.unobtrusive.parse($(formId));
+      if ($(formId).valid()) {
+        $('#progress').show();
+        $.ajax({
+          url: '@Url.Action("Imprint")',
+          data: $(formId).serialize(),
+          type: 'POST',
+          dataType: 'json',
+          success: function(result) {
+            if (result.imprintId != 0) {
+              toastr.success(result.msg);
+            } else {
+              toastr.error(result.msg);
+            }
+          },
+          error: function(result) {
+            toastr.error(result.msg);
+          }
+        });
+        var files = $(':file').get(0).files;
+        if (files.length > 0) {
+          var data = new FormData();
+          data.append('file', files[0]);
+          data.append('id', $('#ImprintId').val());
+          $.ajax({
+            url: '@Url.Action("ImprintImage")',
+            data: data,
+            xhr: function() { // Custom XMLHttpRequest
+              var myXhr = $.ajaxSettings.xhr();
+              if (myXhr.upload) { // Check if upload property exists
+                myXhr.upload.addEventListener('progress', function(e) {
+                  if (e.lengthComputable) {
+                    $('progress#progress').attr({ value: e.loaded, max: e.total });
+                  }
+                }, false); // For handling the progress of the upload
+              }
+              return myXhr;
+            },
+            type: 'POST',
+            processData: false,
+            contentType: false,
+            success: function(result) {
+              if (result.imprintId != 0) {
+                toastr.success(result.msg);
+                // refresh image
+                var img = $('#imprintLogo > img');
+                var src = img.attr('src');
+                var i = src.indexOf('&t=');
+                src = i != -1 ? src.substring(0, i) : src;
+                var t = new Date();
+                img.attr('src', src + '&t=' + t.getTime());
+                if (result.size) {
+                  $('#sizeInfo').text(result.size.Item1 + " x " + result.size.Item2 + " (" + Number((result.size.Item1 * 100 / result.size.Item2 * 100) / 10000).toFixed(2) + " : 1)");
+                }
+              } else {
+                toastr.error(result.msg);
+              }
+            },
+            error: function(result) {
+              toastr.error(result.msg);
+            }
+          }).done(function() { $('#progress').hide(); });
+        }
+      }
+    }
+
+  </script>
+}
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#imprint" data-toggle="tab">Imprint</a></li>
+  <li><a href="#isbn" data-toggle="tab">ISBN Manager</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="imprint">
+    @Html.Heading(HtmlHeading.H2, Loc("h2Form", "Imprint Label Data"))
+    @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+      @Loc("imprintFormText", "Add your data you want to use for publishing outside of texxtoor. These information will become visible publicly.")
+    }
+    @using (Html.BeginForm("Imprint", "Publishing", FormMethod.Post, new { id = "saveImprintForm" })) {
+      using (Html.BtFieldset(Loc("legendImprint", @"Set Imprint Data"))) {
+        @Html.HiddenFor(m => m.ImprintId)
+        @Html.HiddenFor(m => m.AddressId)
+        @Html.LabelFor(m => m.CompanyLogo)
+        <span class="btn btn-default btn-sm btn-file" style="margin-left: 15px">
+          @Loc("image", "Select an Image")
+          <input type="file" name="file"
+                 data-form="#saveImprintForm"
+                 data-imagesrc="#imprintLogo img"
+                 data-upload="#fileSave"
+                 data-filename="#fileName"
+                 data-progress="#progress">
+        </span>
+        @(Create.FieldHelpIcon<ImprintAddress>(m => m.CompanyLogo))
+        <div style="margin: 10px 0 0 25%">
+          <progress id="progress" class="progress-bar progress-animated progress-bar-info">@ViewResources.Dialog_View_Saving</progress>
+        </div>
+        <div id="imprintLogo" class="pull-right">
+          <span id="fileName" class="badge badge-info"></span><br />
+          <img src="~/Tools/GetImg/@(Model.ImprintId)?c=ImprintLogo&res=300x80&nc=true&t=@DateTime.Now.Ticks" alt="Imprint Logo" />
+        </div>
+        <br />
+        <div class="clearfix formsendButtons">
+          <small>@Loc("imgText", "(For optimal printing image ratio is 3,75 : 1)")</small><br />
+          <span id="sizeInfo" class="badge badge-success"></span>
+        </div>
+        @Html.EditorForModel()
+        <div class="formsendButtons">
+          @Create.FormButtonOnClick("saveImprintButton", "", ViewResources.Action_Imprint_Save)
+        </div>
+      }
+    }
+  </div>
+  <div class="tab-pane" id="isbn">
+    @Html.Heading(HtmlHeading.H2, Loc("h2Isbn", "ISBN Manager"))
+    @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+      @Loc("isbnText", "Upload ISBN if you want to use your own ones and manage already processed numbers here.")
+    }
+    @using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+      @Loc("isbnWarn", "Using custom ISBN may prevent us from tracking your revenues. Please assure that you pay your contributors according the team settings by yourself.")
+    }
+    @Create.MainContentWithLoader()
+  </div>
+</div>
+@Create.ActionTask("", false, Url.Action("Index", "Publishing"), ViewResources.TasksButton_Publish)
+@Create.ActionTask("", false, Url.Action("Index", "Project"), ViewResources.LinkButton_ToProjects)
+]

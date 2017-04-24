@@ -1,0 +1,73 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using System.Globalization
+@using Texxtoor.DataModels.Models.Author
+@model IEnumerable<Texxtoor.ViewModels.Author.TeamMemberModel>
+@if (!Model.Any()) {
+  using (Html.BtDiv(BtStyle.AlertAndError & BtStyle.WellSmall)) {
+    @Loc("txtNone", "No members in this list")
+  }
+}
+<div class="multilist">
+  @foreach (var item in Model) {
+    var tm = item.TeamMember;
+    var active = !tm.Pending;
+    var currentMemberIsCurrentUser = String.Compare(item.Member.UserName, User.Identity.Name, StringComparison.OrdinalIgnoreCase) == 0;
+    var currentMemberIsTeamLead = tm.TeamLead;
+    var currentUserIsTeamLead = ViewBag.Editable;
+    @Html.Partial("Members/_SetMemberRoles", item)
+    <div class="showProfileDialog row" data-item="@tm.Id">
+      @Html.Raw(item.Profile.Walltext)
+    </div>
+    <div class="listitem" style="background-color: @(currentMemberIsCurrentUser ? "beige" : "white"); width: 100%">
+      <div class="firstRow" data-item="@tm.Id" style="min-height: 105px">
+        <img src="/Tools/GetImg/@(item.Member.Profile.Id)?c=MemberThumbnail&res=64x90" class="showProfile ListMembersImg pull-left image" />
+        <br />
+        <ul style="list-style-type:none">
+          <li>@item.Member.Profile.FirstName @item.Member.Profile.LastName (@item.Member.UserName)</li>
+          <li>@Loc("rating", "Rating: <em><span data-args='0' data-desc='Global Rating'>{0}</span></em>", item.Profile.GlobalRating)</li>
+          <li data-target="membersroles" data-id="@tm.Id">@Html.Partial("Members/_MembersRoles", item)</li>
+        </ul>
+      </div>
+      <div class="secondRow">
+      </div>
+      <div class="thirdRow">
+        <div class="optionFields" data-item="@tm.Id">
+          @{
+    var senderId = UserManager.Instance.GetCurrentUser(User.Identity.Name).Id;
+          }
+          @if (tm.Member.Id != senderId) {
+            @Create.ActionLink("", true, Url.Action("SendMail", "Messaging", new { area = "", id = tm.Member.Id, senderId = senderId }), ViewResources.Action_Common_Mail_Send, "btnMail btn-primary")
+          }
+          @if (currentUserIsTeamLead) {
+            if (!active && !currentMemberIsCurrentUser) {
+              @Create.ActionClick("", true, "ui.deleteElement('" + tm.Id + "');", ViewResources.Action_Remove_from_Team, "btn-danger btnRemove")
+            }
+          }
+          @if (!currentMemberIsTeamLead && !currentMemberIsCurrentUser) {
+            if (item.Projects.Any() && !item.TeamMember.Pending) {
+              @:@Create.ActionLink("", true, Url.Action("RateMember", "Team", new { id = item.Member.Id, teamId = (int)ViewBag.TeamId }), ViewResources.Action_Rate_this_Member, "btn-primary btnRate")
+            }
+          } else {
+            if (currentMemberIsTeamLead) {
+              using (Html.BtDiv(BtStyle.AlertAndError)) {
+                @Loc("noRateTL", "Team Lead cannot be rated")
+              }
+            }
+            if (currentMemberIsCurrentUser && !currentMemberIsTeamLead) {
+              using (Html.BtDiv(BtStyle.AlertAndError)) {
+                @Loc("noself", "You cannot rate yourself")
+              }
+            }
+          }
+          @if (currentMemberIsCurrentUser && item.TeamMember.Pending) {
+            @Create.ActionLink("", true, Url.Action("ConfirmMembership", "Team", new { id = item.TeamMember.Id, area = "AuthorPortal" }), ViewResources.Action_Negotiate_Confirm_Membership, "btn-warning btnConfirm")
+            @Create.ActionClick("", true, "ui.deleteElement('" + tm.Id + "');", ViewResources.Action_Negotiate_Deny_Membership, "btn-danger btnRemove")
+          }
+          @if (currentUserIsTeamLead) {
+            @Create.ActionClick("", true, "", ViewResources.Action_Team_Save_Assignment, "btnShowRoles btn-primary")<br />
+          }
+        </div>
+      </div>
+    </div>
+  }
+</div>

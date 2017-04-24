@@ -1,0 +1,40 @@
+﻿@model Texxtoor.BaseLibrary.Core.Utilities.Pagination.IPagedList<Texxtoor.DataModels.Models.Content.UserFile>
+@Html.Partial("_Pagination", Texxtoor.ViewModels.Common.PaginationViewModel<Texxtoor.DataModels.Models.Content.UserFile>.Create(Model,
+"javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});", true, m => m.Name, m => m.MimeType))
+@if (!Model.Any()) {
+  @:<div class="alert alert-warning">@Loc("textNothing", @"There is currently nothing for download.")</div>
+} else {
+  <div class="multilist">
+    @foreach (var fileGroup in Model.GroupBy(f => f.Folder)) {
+      var group = fileGroup.Key;
+      using (Html.BtDiv(BtStyle.AlertAndInfo)) {
+        @Loc("modelGrCount", @"You have <em><span data-args='0' data-desc='File Count'>{0}</span></em> files in folder <em><span data-args='1' data-desc='Folder Name'>{1}</span></em>", fileGroup.Count(), group)
+      }
+      foreach (var elm in Model.Where(f => f.Folder == group)) {
+        <div class="listitem">
+          <div class="firstRow">
+            @Badges.NewItem(elm.Name, elm.CreatedAt, TimeSpan.FromMinutes(60))
+          </div>
+          <div class="secondRow">
+            <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+            <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+              @Loc("expl", @"File <em><span data-args='0' data-desc='Name'>{0}</span></em> created at <em><span data-args='0' data-desc='CreatedAt'>{1}</span></em>",
+                elm.Name,
+                elm.CreatedAt.ToLongDateString())
+              (@elm.CreatedAt.ToShortTimeString())
+            </div>
+          </div>
+          <div class="thirdRow">
+            <div class="optionFields" data-item="@elm.Id">
+              @Create.ActionClick("dwnBtn", true, "DownloadElement(" + elm.Id + ")", ViewResources.Action_Common_Archive_Download)
+              @if ((bool)ViewBag.RecycleBin == true) {
+                @Create.ActionClick("dwnBtn", true, "RecoverElement(" + elm.Id + ")", ViewResources.Action_Common_Archive_Recover)
+              }
+              @Create.ActionClick("delBtn", true, "ui.deleteElement(" + elm.Id + ")", ViewResources.Action_Common_Archive_DeleteFile, BtStyle.ButtonAndWarning)
+            </div>
+          </div>
+        </div>
+      }
+    }
+  </div>
+}

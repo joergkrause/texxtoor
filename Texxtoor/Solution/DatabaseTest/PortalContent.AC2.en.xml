@@ -1,0 +1,946 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<portal lang="de">
+  <menu type="headzone">
+    <menu order="0" title="Data" roles="reader,author,teamlead,contributor" style="icon-user" navigateurl="/Account/UserProfile" alias="profile" description="{0}" dynamicdata="ProfileExists"></menu>
+    <menu order="1" title="Mailbox" roles="reader,author,teamlead,contributor" style="icon-envelope" navigateurl="/Messaging/Index" alias="mail" description="Du hast &lt;em&gt;{0}&lt;/em&gt; e-mails" dynamicdata="MessageCount"></menu>
+    <menu order="2" title="Files" roles="reader,author,teamlead,contributor" style="icon-file" navigateurl="/Account/Private" alias="private" description="&lt;em&gt;{0}&lt;/em&gt; archivierte Inhalte" dynamicdata="ArchiveCount"></menu>
+  </menu>
+  <menu type="topmenu">
+    <menu order="0" alias="author" navigateurl="/Home/Authors" roles="author,teamlead,contributor" title="Erstellen" description="For authors" style="icon-paperclip">
+      <menuitem order="0" title="Projects" navigateurl="/AuthorPortal/Project/" description="you have &lt;em&gt;{0}&lt;/em&gt; projects." dynamicdata="ProjectsCount">
+        <dynamenu title="Project &lt;em&gt;{Name}&lt;/em&gt;" navigateurl="/AuthorPortal/Project/Dashboard/{Id}" description="Show active projects" dynamicdata="ProjectsEditable"></dynamenu>
+      </menuitem>
+      <menuitem order="1" title="Teams" navigateurl="/AuthorPortal/Team/" description="You're leading &lt;em&gt;{0}&lt;/em&gt; teams and you're a member in &lt;em&gt;{1}&lt;/em&gt; teams." dynamicdata="ProjectsAsLeader,TeamMemberCount"></menuitem>
+      <menuitem order="2" title="Content" navigateurl="/AuthorPortal/Opus/Edit" featureset="Beta-Jan12" description="&lt;em&gt;{0}&lt;/em&gt; Texte in Bearbeitung." dynamicdata="EditableCount">
+        <dynamenu title="Edit &lt;em&gt;{Name}&lt;/em&gt;" navigateurl="/AuthorPortal/Opus/Edit/{Id}" description="Edit texts directly" dynamicdata="BooksEditable"></dynamenu>
+      </menuitem>
+      <menuitem order="3" title="Publish" navigateurl="/AuthorPortal/Publishing" featureset="Beta-Jan12" description="&lt;em&gt;{0}&lt;/em&gt; Inhalte stehen bereit" dynamicdata="Publishable"></menuitem>
+      <menuitem order="4" title="Produce" navigateurl="/AuthorPortal/Production/Produce" application="ac2" roles="admin" featureset="" description="Inhalte für Produktion bereitstellen" ></menuitem>
+      <menuitem order="5" title="Payment" navigateurl="/AuthorPortal/Payment/" roles="admin" featureset="" description="Konto und Zahlungen" ></menuitem>
+      <menuitem order="6" title="Services" navigateurl="/AuthorPortal/Service/" application="/" description="Dienste für Autoren" ></menuitem>
+    </menu>
+    <menu order="1" alias="reader" navigateurl="/Home/Readers" roles="reader,author,teamlead,contributor" title="Nutzen" description="Nutzer- bereich" style="icon-cloud">
+      <menuitem order="1" title="Catalog" navigateurl="/ReaderPortal/Home/Index" description="Der komplette Katalog. Es sind derzeit &lt;em&gt;{0}&lt;/em&gt; Inhalte verfügbar." dynamicdata="BooksCount"></menuitem>
+      <menuitem order="2" title="Library" navigateurl="/ReaderPortal/Reader/Library" featureset="Beta-Jan12" description="Du  hast &lt;em&gt;{0}&lt;/em&gt; Texte in der Bibliothek." dynamicdata="WorkCount"></menuitem>
+    </menu>
+    <menu order="4" alias="AdminPortal" navigateurl="/AdminPortal/Tenant/Index" title="AC² Admin" description="Admin" roles="tenantadmin" application="ac2" style="background-color: white;color:black;">
+      <menuitem order="0" title="Tenants" navigateurl="/AdminPortal/Tenant/Index" description="" dynamicdata=""></menuitem>
+      <menuitem order="1" title="Templates" navigateurl="/AdminPortal/Template/Index" description="" dynamicdata=""></menuitem>
+    </menu>
+    <menu order="5" alias="AdminPortal" navigateurl="" title="Admin" description="Administration" roles="admin" application="/" style="background-color: white;color:black;">
+      <menuitem order="1" title="Database" navigateurl="/AdminPortal/Home/Index" description="" dynamicdata=""></menuitem>
+      <menuitem order="2" title="Configuration" navigateurl="/AdminPortal/Home/Config" description="" dynamicdata=""></menuitem>
+      <menuitem order="3" title="Info" navigateurl="/AdminPortal/Home/Info" description="" dynamicdata=""></menuitem>
+      <menuitem order="4" title="Statistics" navigateurl="/AdminPortal/Home/Stat" description="" dynamicdata=""></menuitem>
+      <menuitem order="5" title="Templates" navigateurl="/AdminPortal/Template/Index" description="" dynamicdata=""></menuitem>
+    </menu>
+  </menu>
+  <menu type="static" roles="" title="Landing Page">
+    <!-- dynamicdata is used in static.cshtml to forward to another page with the data taken as alias -->
+    <menu title="Create Content" order="0" style="light" dynamicdata="becomeauthor">
+      <page>
+        Ein Platz, um Inhalte für alle Zielgruppen und Geräte zu erstellen. Online oder in Microsoft Word.
+      </page>
+    </menu>
+    <menu title="Use Content" order="1" style="medium" dynamicdata="usecontent">
+      <page>
+        Leicht Inhalte finden, egal wann und wo. Nutze Inhalte auf allen Geräten.
+      </page>
+    </menu>
+    <menu title="Together" order="2" style="dark" dynamicdata="community">
+      <page>
+        Zusammenarbeit im Team, mit Mitarbeitern, Kunden oder Externen. Es ist so einfach!
+      </page>
+    </menu>
+  </menu>
+  <menu type="sidemenu" roles="" title="Information">
+    <menu title="Neues bei uns" navigateurl="/Home/Latest"></menu>
+    <menu title="Softwarepaket für Autoren" navigateurl="/Home/WelcomePackage"></menu>
+    <menu title="Schreibstil + Didaktik" navigateurl="/Home/AuthorHelp"></menu>
+    <menu title="Nachrichten" navigateurl="/Home/PubNews"></menu>
+  </menu>
+  <menu type="centerpane">
+    <menu title="Kundenfreundliche Dokumente" order="0">
+      <page>
+        <![CDATA[
+        <h1>Kundenfreundliche Dokumente</h1>
+        <p><strong>AC²</strong> ist eine Software zum Erstellen von Dokumenten. Angereichert mit Videos, interaktiven
+        Bildern, Modellen und Applikationen sind Inhalte ist sowohl als gedruckt mit einer
+        direkten Verbindung zu elektronischen Inhalten verfügbar wie auch als App für alle mobilen Plattformen
+        oder als Online-Angebot.
+        Auf <strong>AC²</strong> stellen Autoren &ndash; Mitarbeiter oder externe Texter &ndash; Inhalte zusammen. 
+        nur so.</p>
+      <h2>Medien (Druck, E-Buch, iBook, App)</h2>
+        <p>
+          <strong>AC²</strong>-Dokumente sind immer als gedrucktes Buch, als elektronisches Buch, Online und als App verfügbar. 
+          Gedruckte und elektronische Werke können individuell zusammengestellt werden. Das Medium kann frei gewählt werden.           
+        </p>
+      <h2>AC² als App</h2>
+        <p>
+          <strong>AC²</strong> kommt nicht nur gedruckt. Viele Inhalte wurden von den Autoren multimedial aufbereitet, sind interaktiv oder enthalten Widgets. 
+          Zu gedruckten Inhalten können mit dem Smartphone weitere Daten geholt werden.
+        </p>
+      <h2>Gemeinsam nutzen</h2>
+        <p>
+          Nutzer können bei <strong>AC²</strong> Inhalte kommentieren, mit anderen darüber diskutieren und sich mit eigenem Wissen einbringen.
+          Registrierte Nutzer können Kontakt zum Autor oder Unternehmen aufnehmen, Verbesserungen oder Kritik anbringen und so aktiv an der 
+          Weiterentwicklung von Produkten mitwirken.
+        </p>
+      <h2>Für Unternehmen</h2>
+        <p>
+          <strong>AC²</strong> ist das ideale Werkzeug, um Whitepaper, Handbücher, Anleitungen und vieles, was in Unternehmen benötigt wird zu erstellen. 
+          Gemeinsame Unternehmens-, Team- oder Projektkonten erlauben es, die Dokumente besonders günstig zu beziehen, in jedem Format und jederzeit. 
+          Unternehmen können angepasste, personalisierte Versionen erstellen und exklusiv vorhalten. In geschlossenen Benutzergruppen können Mitarbeiter 
+          gemeinsam Erfahrungen austauschen und weitere Dokumente erstellen.
+        </p>
+        ]]>
+      </page>
+    </menu>
+    <menu title="Im Team Erstellen" order="1">
+      <page>
+        <![CDATA[
+        <h1>Im Team Erstellen</h1>
+        <p>Bei AC² werden Inhalte unabhängig vom Medium erstellt und mit allem, was online und mobile Plattformen heutzutage bieten, ergänzt.
+        AC²-Dokumente entstehen aber nicht allein durch einzelne Autoren. Oft bilden sich Teams, die von einem Lead-Autor geführt werden. 
+        Es ist leicht, Lektoren, Korrketurleser oder Übersetzer einzubringen. Egal ob aus dem eigenen Unternehmen, einer Agentur, oder Freelancer.</p>
+      <h2>Autor werden</h2>
+      <p>
+          Um Autor auf AC² zu werden, sind nur wenige Schritte notwendig:</p>
+          <ol>
+            <li>Registriere ein Konto und stelle Fachgebiet und eine Sprache ein.</li>
+            <li>Starte ein Projekt oder beteilige dich an einem.</li>
+          </ol>
+      <h2>Arbeitsweise</h2>
+      <p>
+          <strong>AC²</strong> -Dokumente entstehen auf dem Weg, den Du am liebsten magst. Sehr gut eignet sich Text in Microsoft ® Word, da sich dieser gut 
+          strukturiert konvertieren lässt. Wenn Du andere Werkzeuge nutzt, exportierst Du die Inhalte einfach in das RTF-Format und lädst Texte mit unserem Word-Add-In.
+          Du kannst Inhalte auch online mit unseren Autorenwerkzeugen erstellen &ndash; ganz ohne zusätzliche Software. Alles, was Du brauchst, ist eine 
+          Verbindung zum AC²-Server.<br/>
+          Wer als Lektor, Editor, Copy Editor oder Übersetzer arbeitet, kann ebenfalls die genannten Online-Werkzeuge nutzen. Wer eigene Werkzeuge benutzt, 
+          muss diese in das interne Format &ndash; bei Text immer HTML 5 &ndash; umwandeln.
+          Wer als Videokünstler, Illustrator oder Softwareentwickler arbeitet, entwickelt seine Inhalte in seinem Lieblingswerkzeug und lädt sie dann auf 
+          die Plattform hoch. Zum Übertragen stehen ein HTML-Upload zur Verfügung.
+      </p>
+      <h2>Freigeben</h2>
+      <p>
+         <strong>AC²</strong>-Dokumente werden mit wenige Schritten veröffentlicht. Danach sind sie auf der Plattform verfügbar.
+      </p>
+      <h2>Nutzer optimal erreichen</h2>
+      <p>
+          Mit <strong>AC²</strong> erstellte Dokumente sind universell, dynamisch, allgemein verfügbar. Egal ob Handbuch, Marketingunterlage oder Betriebsanleitung,
+          alles ist auf die Nutzer zugeschnitten.
+      </p>
+      <h2>Handbücher und Anleitungen</h2>
+      <p>
+          <strong>AC²</strong> ist spezialisiert auf Handbücher für Geräte, Maschinen, Anlagen u.v.a.m.. Es ist leicht hier alle Handbücher für 
+          Produkte aller Art zu veröffentlichen und es dem Leser zu überlassen, dies in seinem Wunschformat zu beziehen.
+      </p>
+      <h2>Artikel</h2>
+      <p>
+          <strong>AC²</strong> ist auch ideal für wissenschaftliche Artikel jeder Art. Andere Autoren können aus diesen Artikeln AC²-Dokumente erstellen oder 
+          sogar Periodika produzieren. Artikelautoren werden auf diese Weise vielfältig und regelmäßig vermarktet und verdienen immer wieder an 
+          der Veröffentlichung, sowohl im freien Online-Bereich als auch in allen anderen Medien.           
+      </p>
+      ]]>
+      </page>
+    </menu>
+  </menu>
+  <menu type="footer">
+    <menu title="Das Portal" order="0">
+      <menuitem title="AC²: Was ist das eigentlich?" order="0" alias="what">
+        <page>
+          <h1>
+            <strong>AC²</strong>&#8482; ... was ist das eigentlich?
+          </h1>
+          <p>
+            AC² = ACC = Augmented Content Creation &#8211; was so sperrig daherkommt ist Programm. Unternehmen investieren viel in Dokumentenverwaltung (DMS),
+            kümmern sich aber wenig darum, wie und arum Dokumente entstehen. In der Informatik gibt es ein geflügeltes Wort: "Shit In - Shit Out", ode weniger drastisch:
+            Wenn man schlechte Datenqualität reingibt, kommt keine bessere raus. "Saubere" Daten sind wichtig für den Erfolg mit DMS. Deshalb haben wir
+            uns dem jungen Feld der Dokumentenerzeugung verschrieben &#8211; eben Content Creation.<br />
+            Darüberhinaus können wir Dokumente vielfältig anreichern (augmentieren), um den Bedürfnissen und Möglichkeiten von elektronischen Anzeigegeräten 
+            zu entsprechen.
+          </p>
+          <div class="item">
+          </div>
+          <div class="item">
+            <h2>
+              <strong>AC²</strong>&#8482; ist der neue Weg, Wissen zu publizieren und zu verwerten.
+            </h2>
+            <p>Unsere Plattform bietet Unternehmen die Chance, schnell und unkompliziert  &#8211; und vor allem kostenfrei &#8211; komplexes Wissen oder Unterlagen 
+            zu publizieren und zu vermarkten &#8211; weltweit und plattformübergreifend. Da der gesamte Erstellungsprozess über unseren innovativen 
+            Online-Editor erfolgt, wird keine zusätzliche Software benötigt.</p>
+          </div>
+          <div class="item">
+          </div>
+          <div class="item">
+            <h2>
+              Was sind die Stärken von <strong>AC²</strong>&#8482; ?
+            </h2>
+            <p>
+              Die Vorzüge von <strong>AC²</strong>&#8482; liegen einmal in der einfachen Bedienbarkeit  des Editors. Die absolute Besonderheit ist aber, 
+              dass der Content intern sauber in HTML 5 strukturiert wird. Nur dadurch ist die umfassende Plattformunabhängigkeit überhaupt erst zu gewährleisten. 
+              Eine weitere Stärke von <strong>AC²</strong>&#8482; liegt in der Augmentierung, d.h. der Steigerung des Nutzwertes eines Werkes durch 
+              zusätzliche Funktionalitäten.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Plattformunabhängigkeit</h2>
+            <p>Die Speicherung der Inhalte in klar strukturiertes HTML 5 ist die Grundvoraussetzung, die Inhalte weitestgehend systemübergreifend zu nutzen. 
+            Erst dadurch ist es möglich, ein und denselben Content ohne Zusatzaufwand auf nahezu allen E-Book-Plattformen, den meisten Endgeräten und sogar 
+            als gedrucktes Buch aus- bzw. wiederzugeben. Der Content wird mit wenigen Klicks umgehend auf allen relevanten Kanälen verbreitet.</p>
+          </div>
+          <div class="item">
+            <h2>Augmentierung: nur ein Modebegriff?</h2>
+            <p>
+              Unter Augmentierung verstehen wir den gesteigerten Nutzwert Deines Werkes. <strong>AC²</strong>&#8482; schöpft  die Möglichkeiten des 
+              jeweiligen Mediums nach Kräften aus. Wo im gedruckten Buch z.B. ein Bild steht, ist in der E-Book-Variante an gleicher Stelle ein Video zu finden. 
+              Oder das Printmedium wird via Bilderkennungstechnologie um digitale Inhalte erweitert. Mehr zu Augmentierung unter <strong>AC²</strong>&#8482; 
+              ist unter <a href="/Home/Page/augment">Augmentierung</a> zu finden.
+            </p>
+          </div>
+          <div class="item">
+            <h2>
+              Warum <strong>AC²</strong>&#8482; ?
+            </h2>
+            <p>Hochwertige Dokumente auf &#171;klassischem&#187; Weg zu veröffentlichen, wird immer schwieriger &#8211; die Rentabilitätsschwelle liegt hoch. 
+            Kunden werden anspruchsvoll, wollen eine Bedienungsanleitung jederzeit auf einen Tablet oder Smartphone bereit haben, mit interaktiven Elementen
+            und auch mit Kontakt zu anderen Kunden.</p>
+          </div>
+        </page>
+      </menuitem>
+      <menuitem title="Der Editor &amp;ndash; das Herzstück" order="10" alias="editor">
+        <page>
+          <h1>Der Editor &#8211; das Herzstück</h1>
+          <p>
+            Der exklusive, webbasierte XHTML-Editor WYMIX ist das Kernelement von <strong>texxtoor</strong>&#8482;.
+          </p>
+          <p>Optimiert für unkomplizierte Bedienung, hilft er dem Autor, sich ausschließlich auf Inhalt und Gliederung seines Werkes zu konzentrieren. 
+          Selbstständig wird der Content in HTML 5 strukturiert und in der Datenbank abgelegt.</p>
+          <div class="item">
+            <h2>HTML 5 &#8211; Basis der Systemunabhängigkeit</h2>
+            <p>HTML 5 stellt die Grundvoraussetzung dar, Dein Werk plattformübergreifend zu publizieren. Erst die klar strukturierte Aufbereitung des Contents 
+            in dieses systemneutrale Datenformat, ermöglicht die Ausgabe auf nahezu allen Endgeräten, Spezialformaten für z.B. Amazon Kindle, iPad etc. und 
+            sogar als gedrucktes Buch.</p>
+          </div>
+          <div class="item">
+            <h2>Kein Mehraufwand für den Autor</h2>
+            <p>
+              So mächtig die Möglichkeiten des Datenformates auch sind &#8211; der Autor hat damit keinen erhöhten Arbeitsaufwand. Im Gegenteil: 
+              Er verfasst einfach seine Inhalte mit dem intuitiv zu bedienenden Online-Editor, den Rest erledigt <strong>AC²</strong>&#8482; für ihn.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Interaktive Funktionen und Apps im Baukasten</h2>
+            <p>Im Editor stehen bereits viele vordefinierte Funktionen zur Verfügung, mit denen ein Werk Baustein für Baustein um reine Text- und Bildinhalte 
+            erweitern kannst. Beispielsweise kann man Umfragen erstellen, interaktive Aufgaben einbinden, Grafiken um weitreichende Detailinformationen 
+            ergänzen etc.</p>
+          </div>
+          <div class="item">
+            <h2>Contenteinheiten: Mehrfachverwendung und Einzelvermarktung</h2>
+            <p>
+              Wie bereits oben beschrieben, strukturiert <strong>AC²</strong>&#8482; ein Werk sauber in HTML 5. Dabei wird der Content klar in einzelne 
+              Kapitel unterteilt.
+            </p>
+          </div>
+          <p>
+            Diese eindeutige Gliederung ermöglicht ein absolutes Novum. Dadurch bietet sich erstmals die Chance, ein Werk nicht nur als Gesamtheit zu verbreiten. 
+            Du hast jetzt auch die zusätzliche Möglichkeit, einzelne Kapitel über <strong>AC²</strong>&#8482; zu vermarkten &#8211; entweder Stück für Stück, 
+            oder als Teil einer Sammlung, die sich jeder Nutzer individuell zusammenstellen und bei Bedarf als komplette Sammlung beziehen kann.
+            Mehr zu Contenteinheiten findest Du <a href="/Home/Page/content">hier</a>.
+          </p>
+        </page>
+      </menuitem>
+      <menuitem title="Highlight Content-Einheiten" order="50" alias="units">
+        <page>
+          <h1>Highlight Content-Einheiten</h1>
+          <p>
+            Die klare Strukturierung von Gesamtwerken ist die Voraussetzung für ein absolutes Highlight von <strong>AC²</strong>&#8482;. 
+            Nur dadurch ist auch die Nutzung und Vermarktung einzelner Contenteinheiten möglich!
+          </p>
+          <div class="item">
+            <h2>Was ist darunter zu verstehen?</h2>
+            <p>
+              Unser selbstentwickelter Editor WYMIX, das Herzstück von <strong>texxtoor</strong>&#8482; (<a href="/Home/Page/editor">Der Editor</a>), 
+              achtet darauf, dass ein Werk klar strukturiert in der Datenbank abgelegt wird. Das ist der Schlüssel dazu, Dein Werk nicht nur als 
+              Gesamtheit zu veröffentlichen. Die eindeutige Gliederung in einzelne Kapitel erlaubt, diese auch als eigenständige Contenteinheiten zu verbreiten.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Und was bringt das?</h2>
+            <p>Der Nutzer bekommt genau, was er braucht. Kein Handbuch mit 12 Sprachen, sondern mit seiner. Keine 7 Abbildungen, was noch alles an
+            Produktvarianten existiert, sondern genau SEINE Variation.</p>
+            <p>Ein weiteres Feature für den nutzer ist die Möglichkeit, mehrere Contenteinheiten, auch aus unterschiedlichen Werken, individuell zu eigenen Sammlungen zusammenzustellen. Bei Bedarf kann er dann seine Sammlung im gewünschten E-Book-Format erwerben.</p>
+            <p>Genauso hat der Autor die Option, eigene Kapitel mehrfach zu verwenden und zu immer wieder neuen Gesamtwerken zu komponieren.</p>
+          </div>
+          <div class="item">
+            <h2>Ist das auf allen Plattformen möglich?</h2>
+            <p>
+              Nein. Die Verwendung einzelner Contenteinheiten setzt unsere selbstentwickelte Technologie voraus. Daher ist das Nutzen und Vermarkten von 
+              Einzelkapiteln derzeit ausschließlich auf <strong>AC²</strong>&#8482; möglich. Das Gleiche gilt für die Erstellung eigener Sammlungen.
+            </p>
+            <p>
+              Diese Exklusivität gewährt auch einen unschätzbaren Vorteil. Speziell die eigenen Sammlungen sind ein Feature, das dem Nutzer einen 
+              einzigartigen Nutzen bietet und eine <strong>starke Kundenbindung</strong> erzielt.               
+            </p>
+          </div>
+        </page>
+      </menuitem>
+      <menuitem title="Augmentierung" order="60" alias="augment">
+        <page>
+          <h1>Augmentierung</h1>
+          <p>
+            Der Onlineeditor WYMIX &#8211; eine exklusive Eigenentwicklung von uns &#8211; ist das Herzstück von <strong>AC²</strong>&#8482; 
+            (siehe auch <a href="/Home/Page/editor">Der Editor</a>). Erst durch ihn sind viele Optionen möglich, die das Publizieren auf <strong>AC²</strong>&#8482; so besonders machen.
+          </p>
+          <div class="item">
+            <h2>Nährwert durch Mehrwert</h2>
+            <p>
+              Mit <strong>AC²</strong>&#8482; können Die Potentiale der unterschiedlichen Medien optimal für ein Werk nutzen. So lässt sich z.B. festlegen, 
+              dass auf dem Tablet dort ein Video abgespielt oder eine Animation gezeigt wird, wo im gedruckten Buch ein Bild dargestellt ist.
+            </p>
+            <p>Die Inhalte lassen sich um viele interaktive Funktionen erweitern. Du kannst innerhalb Deines Werkes unter anderem Umfragen durchführen, 
+            Aufgaben erstellen oder die Webcam des Lesers zur Interaktion nutzen. Grafiken und Bilder lassen sich mit Detailinformationen versehen und 
+            mit weiterführenden, vertiefenden Inhalten verknüpfen. So können beispielsweise durch Klick auf eine Landkarte ausführliche Fakten zur 
+            entsprechenden Region angezeigt werden &#8211; Deiner Kreativität sind hier fast keine Grenzen gesetzt.</p>
+          </div>
+          <div class="item">
+            <h2>Das Beste aus beiden Welten</h2>
+            <p>Jedes Medium hat seine Vorteile, das gedruckte Buch bietet nach wie vor das beste Leseerlebnis. Usability-Forschungen ergaben bis zu 20 
+            Prozent höhere Lesegeschwindigkeit gegenüber Onlinemedien. Dafür sind E-Books unschlagbar bezüglich Aktualisierbarkeit, Interaktivität und 
+            Multimedia-Funktionalität.</p>
+            <p>
+              Mit <strong>AC²</strong>&#8482; besteht die Möglichkeit, alle Stärken in einem Werk zu vereinen. Druckversionen werden zum Beispiel 
+              mit einer Bilderkennungstechnologie gekoppelt. Hat der Nutzer dann eine Smartphone-Kamera oder eine Webcam, kann er sich ergänzende 
+              digitale Inhalte anzeigen lassen.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Baustein für Baustein</h2>
+            <p>Als Autor stehen dazu zahlreiche Werkzeuge zur Verfügung, mit denen er solche Mehrwertinhalte erstellen kannst. 
+            Dabei benötigst er keinerlei Programmierkenntnisse, sondern bedienst sich einfach aus einer großen Bibliothek von Apps und 
+            interaktiven Features. Wie mit einem Baukasten kannst er sein Werk Stück für Stück um Funktionen erweitern, die es zu etwas ganz 
+            Besonderem werden lassen.</p>
+          </div>
+        </page>
+      </menuitem>
+      <menuitem title="Community" order="70" alias="community">
+        <page>
+          <h1>Die Community</h1>
+          <p>
+            <strong>AC²</strong>&#8482; fördert die Zusammenarbeit. Co-Autoren, Lektoren, Illustratoren und Übersetzer arbeiten im Team. 
+            Nutzer nutzen gemeinsame Sammlungen, Lesezeichen und Kommentare ...
+          </p>
+          <div class="item">
+            <h2>Projektmanager stellen sich ein Team zusammen!</h2>
+            <p>
+              <strong>AC²</strong>&#8482; bildet die technologische Basis, damit genau die richtigen Partner für ein Projekt ins Boot geholt werden können.
+              Egal ob eine Agentur, die Inhalte professionell übersetzt &#8211; über <strong>AC²</strong>&#8482; 
+              können Externe leicht eingebunden und abgerechnet werden.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Nutzer-Communities &#8211; über Produkte erreicht</h2>
+            <p>
+              <strong>AC²</strong>&#8482; ermöglicht es Nutzern gemeinsam Contentsammlungen zusammenzutragen und zu nutzen. Diese können Sie 
+              kostenfrei online auf <strong>AC²</strong>&#8482; lesen und bei Bedarf z.B. als E-Book erwerben.
+            </p>
+          </div>
+        </page>
+      </menuitem>
+      <menuitem title="Schreiben im Team" order="71" alias="writeteam" visible="false">
+        <page>
+          <h1>Schreiben im Team</h1>
+          <p>Während einzelne Texte und wenig umfangreiche Werke in der Regel von einem Autor geschrieben werden, ist es bei umfangreichen Werken häufig sinnvoll, die Aufgaben auf mehrere Schultern zu verteilen.</p>
+          <p>Komplexe Fachbücher entstehen heutzutage schon im Team: Neben dem Autor (oder mehreren) sind eine Reihe anderer Spezialisten wie Lektoren, Hersteller, Grafiker, Illustratoren, Übersetzer beteiligt.</p>
+          <div class="item">
+            <h2>
+              <strong>AC²</strong>&#8482; hilft bei der Teambildung
+            </h2>
+            <p>
+              Mit <strong>AC²</strong>&#8482; ist es möglich, den gesamten Workflow eines Projektes je nach Umfang, Bedarf und Fähigkeiten auf mehrere Schultern zu verteilen. Das beginnt bereits bei der Suche nach den richtigen Partnern. Du kannst Dein Projekt auf <strong>texxtoor</strong>&#8482; ausschreiben, damit sich die richtigen Spezialisten bei Dir bewerben können oder aus einem Pool von Fachleuten selbst die richtigen auswählen.
+            </p>
+          </div>
+          <p>Auch das gesamte Projektmanagement kann mithilfe unserer Plattform organisiert werden. Verteilen von Aufgaben, erstellen von Ablaufplänen und 
+          beobachten der Fortschritte aller Teammitglieder sind Standardfunktionen.</p>
+          <p>
+            Und wenn die Arbeit dann Früchte trägt, ist auch die Abrechnung an alle Beteiligten &#8211; nach dem vorher gemeinsam vereinbarten 
+            Schlüssel &#8211; problemlos. Mit <strong>AC²</strong>&#8482; geht das einfach, transparent und gerecht.
+          </p>
+        </page>
+      </menuitem>
+      <menuitem title="Gemeinsam nutzen" order="72" alias="learnteam" visible="false">
+        <page>
+          <h1>Gemeinsam nutzen</h1>
+          <p>
+            <strong>AC²</strong>&#8482; ist mehr als eine Plattform zur Veröffentlichung und Vermarktung von Dokumenten. Wir setzen stark auf die 
+            Dynamik und Produktivität der Community. Arbeitsgruppen finden sich zusammen, um gemeinsame Werke zu erarbeiten. Nutzergruppen erstellen ihre 
+            eigenen Contentsammlungen, die sie zusammen bookmarken und kommentieren.
+          </p>
+          <div class="item">
+            <h2>Gemeinsam stark</h2>
+            <p>
+              <strong>AC²</strong>&#8482; ermöglicht Arbeits- und Projektteams oder Lerngruppen, gemeinsam Contentsammlungen zusammenzutragen und zu 
+              nutzen. Diese können sie kostenfrei online auf <strong>texxtoor</strong>&#8482; lesen und bei Bedarf z.B. als E-Book erwerben.
+            </p>
+          </div>
+        </page>
+      </menuitem>
+      <menuitem title="Reputationssystem" order="110" alias="rating">
+        <page>
+          <h1>Qualitätsfaktor Reputationssystem</h1>
+          <p>
+            Unser Reputationssystem stellt sicher, dass ausschließlich hochwertiger Content bei <strong>AC²</strong>&#8482; veröffentlicht wird.
+          </p>
+          <div class="item">
+            <h2>Die Vorteile für Unternehmen</h2>
+            <p>
+              Unternehmen profitieren von einem positiven Markenimage. Die Reputation der Autoren trägt dazu bei, indem es die Qualität der Dokumente erhöht.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Über die Qualität urteilt der Nutzer</h2>
+            <p>Nutzer können am besten beurteilen, wie gut Content ist. Jedes Werk kann Punkte nach einem einfachen System sammeln, das sich an 
+            Nutzungsintensität, Qualitätsbewertung und Aktualität orientiert. Dabei gilt: je besser, desto mehr Punkte gibt es. Darüber hinaus gibt es noch die Möglichkeit des Gutachtens.</p>
+          </div>
+          <div class="item">
+            <h2>Bewertungssystem</h2>
+            <p>
+              Die Punktevergabe auf <strong>texxtoor</strong>&#8482; erfolgt nach folgendem System:
+            </p>
+            <ul>
+              <li>Ein Leser bewertet die Qualität Deines Werks auf einer Skala von 1–5 Sternen: je Stern gibt es 2 Punkte (z.B. 3 Sterne = +6 Punkte)</li>
+              <li>
+                Ein Leser hat Dein Gesamtwerk in seine persönliche Werkliste aufgenommen: <span style="color:green">+40 Punkte</span>
+              </li>
+              <li>
+                Ein Leser hat eine Contenteinheit in seine Sammlung oder sein privates Werk eingebunden: <span style="color:green">+1 Punkt</span> je Einheit
+              </li>
+              <li>
+                Ein Leser hat eine Contenteinheit kommentiert: <span style="color:green">+1 Punkt</span> je Kommentar
+              </li>
+              <li>
+                Ein Leser hat Dein Werk in den letzten vier Wochen online oder als App gelesen: <span style="color:green">+1 Punkt</span> (der Punkt wird wieder abgezogen, wenn der Leser das Werk danach nicht mehr nutzt)
+              </li>
+              <li>
+                Ein Leser hat Dein Werk gekauft: <span style="color:green">+10 Punkte</span>
+              </li>
+              <li>
+                Ein Leser bewertet Dein Werk negativ: <span style="color:red">-5 Punkte</span>
+              </li>
+              <li>
+                Ein als Gutachter registrierter Benutzer beurteilt Dein Werk positiv: <span style="color:green">+15 Punkte</span>
+              </li>
+              <li>
+                Ein als Gutachter registrierter Benutzer beurteilt Dein Werk negativ: <span style="color:red">-5 Punkte</span>
+              </li>
+            </ul>
+          </div>
+          <div class="item">
+            <h2>Nutzung durch andere Autoren</h2>
+            <p>
+              Auch die Nutzung eines Werkes durch andere Autoren fließt in die Bewertung mit ein.
+            </p>
+            <ul>
+              <li>
+                Wird ein Gesamtwerk oder Teile daraus in einem Werk eines anderen Autors weiterverwendet, bekommt das Quellwerk einmalig <span style="color:green">+250 Punkte</span>.
+              </li>
+              <li>
+                Wurde ein Werk durch Teammitglieder eines anderen Lead-Autors überarbeitet, bekommt es für jeden Teilnehmer <span style="color:green">+50 Punkte</span>
+              </li>
+              <li>
+                Vier Wochen ohne jede nutzeraktion: <span style="color:red">-1 Punkt</span>
+              </li>
+              <li>
+                Acht Wochen ohne Nutzung durch andere Kollegen <span style="color:red">-2 Punkte</span>
+              </li>
+            </ul>
+          </div>
+        </page>
+      </menuitem>
+    </menu>
+    <menu title="Gut zu wissen" order="1">
+      <menuitem title="Für Autoren" order="10" alias="authors">
+        <page>
+          <![CDATA[
+          <menu type="toolbar">
+            <li>
+              <a onlick="return jump('1');">Verfassen</a>
+            </li>
+            <li>
+              <a onlick="return jump('2');">Vermarktung</a>
+            </li>
+            <li>
+              <a onlick="return jump('3');">Honorar</a>
+            </li>
+            <li>
+              <a onlick="return jump('4');">Rechte am Werk</a>
+            </li>
+            <li>
+              <a onlick="return jump('5');">Arbeiten im Team</a>
+            </li>
+            <li>
+              <a onlick="return jump('6');">Qualitätsmanagement</a>
+            </li>
+            <li>
+              <a onlick="return jump('7');">Registrierung</a>
+            </li>
+          </menu>          ]]>
+          <h1>Gut zu wissen &#8230; für Autoren</h1>
+          <h2 id="1">Verfassen</h2>
+          <h3>Kann jeder Autor werden?</h3>
+          <p>Im Prinzip ja, Du solltest natürlich ein interessantes Thema haben und ein Experte auf Deinem Gebiet sein. Um als Autor auf texxtoor zu schreiben, musst Du dich als erstes registrieren.</p>
+          <a href="/Home/Page/becomeauthor">Mehr zum Thema</a>
+          <h3>Benötige ich spezielle Software zum Verfassen meines Werkes?</h3>
+          <p>Nein, Du kannst Dein Werk direkt mit dem komfortablen Online-Editor WYMIX verfassen &#8211; intuitiv, ohne spezielle Programmkenntnisse.</p>
+          <a href="/Home/Page/editor">Mehr zum Editor</a>
+          <h3>Ich habe mein Werk fertig verfasst &#8211; jetzt müsste es nochmal jemand Korrektur lesen.</h3>
+          <p>Kein Problem: Auf texxtoor findest Du genau die Spezialisten (Korrektoren, Lektoren, Übersetzer, Grafiker etc.), die Du brauchst.</p>
+          <a href="/Home/Page/writeteam">Mehr zum Thema</a>
+          <h2 id="2">Vermarktung</h2>
+          <h3>In welchen E-Book-Shops werden die Werke vermarktet?</h3>
+          <p>Weltweit auf nahezu allen relevanten Plattformen.</p>
+          <a href="/Home/Page/marketing">Mehr zum Thema</a>
+          <h3>Was muss ich bei internationaler Vermarktung bzgl. mit eventueller Versandkosten, Steuern und Zöllen beachten?</h3>
+          <p>Gar nichts. Wir kümmern uns um alles.</p>
+          <a href="/Home/Page/marketing">Mehr zum Thema</a>
+          <h2 id="3">Honorar</h2>
+          <h3>Wie funktioniert das, dass ich pro verkauftem Werk immer meine volle Marge bekomme, auch wenn die Konditionen und Provisionen in jedem Store anders sind?</h3>
+          <p>Wir berechnen für jeden einzelnen Vertriebskanal einen individuellen Verkaufspreis, damit Du immer Dein hundertprozentiges Wunschhonorar erhältst.</p>
+          <a href="/Home/Page/revenues">Mehr zum Thema</a>
+          <h3>Wenn mein Werk zu unterschiedlichen Preisen angeboten wird, ist das nicht ein Verstoß gegen die Ladenpreisbindung?</h3>
+          <p>Nein, denn Dein Werk bekommt zu jedem individuellen Preis auch eine eigene ISBN zugewiesen.</p>
+          <a href="/Home/Page/revenues">Mehr zum Thema</a>
+
+          <h2 id="4">Die Rechte am Werk</h2>
+          <h3>Wer verfügt über die Rechte an meinem Werk?</h3>
+          <p>Das Urheberrecht bleibt uneingeschränkt bei Dir, über die Vergabe der Nutzungsrechte entscheidest Du allein.</p>
+          <a href="/Home/Page/rights">Mehr zum Thema</a>
+          <h3>Ich habe mein Werk bereits früher einmal als gedrucktes Buch bei einem Verlag veröffentlicht. Wer hat die Rechte daran?</h3>
+          <p>Diese Frage können wir Dir leider nicht beantworten, das musst Du mit Deinem Vertragspartner &#8211; dem Verlag &#8211; klären.</p>
+          <a href="/Home/Page/rights">Mehr zum Thema</a>
+          <h2 id="5">Arbeiten im Team</h2>
+          <h3>Ich suche noch Ko-Autoren für mein Projekt. Wie finde ich die richtigen?</h3>
+          <p>Du hast einmal die Möglichkeit, Dein Projekt auszuschreiben. Dann können sich geeignete Spezialisten bei Dir bewerben, Zum anderen kannst Du potentielle Mitstreiter auch direkt kontaktieren.</p>
+          <a href="/Home/Page/writeteam">Mehr zum Thema</a>
+          <h3>Wie behalte ich den Überblick, ob das Projekt wie geplant vorankommt?</h3>
+          <p>
+            <strong>texxtoor</strong>&#8482; stellt Dir ein komfortables Tool zum Projektmanagement bereit. Damit kannst Du alle Aufgaben delegieren, Fortschritte im Auge behalten etc.
+          </p>
+          <a href="/Home/Page/writeteam">Mehr zum Thema</a>
+          <h2 id="6">Qualitätsmanagement</h2>
+          <h3>
+            Wodurch ist Die inhaltliche Qualität des gesamten Contents auf <strong>texxtoor</strong>&#8482; gewährleistet?
+          </h3>
+          <p>
+            Auf <strong>texxtoor</strong>&#8482; gibt es ein umfangreiches Reputations- und Bewertungssystem, das ein anhaltend hohes Qualitätsniveau gewährleistet.
+          </p>
+          <a href="/Home/Page/rating">Mehr zum Thema</a>
+          <h2 id="7">Registrierung</h2>
+          <h3>
+            Kann ich <strong>texxtoor</strong>&#8482; auch ohne Registrierung nutzen?
+          </h3>
+          <p>Nein, dass ist nicht möglich. Alle Funktionen, ob als Autor, Leser etc. stehen ausschließlich registrierten Nutzern zur Verfügung.</p>
+          <h3>Muss ich wirklich alle Angaben meines Profils ausfüllen?</h3>
+          <p>Du musst lediglich einige wenige Pflichtfelder ausfüllen. Wir empfehlen Dir aber, auch möglichst umfangreiche freiwillige Angaben zu machen, da sich so andere Community-Mitglieder ein genaueres Bild von Dir machen können. Dein Profil ist quasi Deine Visitenkarte &#8211; nutze es zu Deinem Vorteil.</p>
+
+        </page>
+      </menuitem>
+      <menuitem title="Für Nutzer" order="20" alias="readers">
+        <page>
+          <![CDATA[
+          <menu type="toolbar">
+            <li>
+              <a onlick="return jump('1');">Lesen</a>
+            </li>
+            <li>
+              <a onlick="return jump('2');">E-Books</a>
+            </li>
+            <li>
+              <a onlick="return jump('3');">Kosten</a>
+            </li>
+            <li>
+              <a onlick="return jump('4');">Sammlungen</a>
+            </li>
+            <li>
+              <a onlick="return jump('5');">Lesen im Team</a>
+            </li>
+          </menu>
+          <h1>Gut zu wissen &#8230; für Nutzer</h1>
+          <h2 id="1">Lesen</h2>
+          <h3>
+            Was muss ich tun, um Content auf <strong>AC²</strong>&#8482; zu nutzen?
+          </h3>
+          <p>Du musst dich nur registrieren, anmelden und los geht‘s.</p>
+          <a href="Home/Page/usecontent">Mehr zum Thema</a>
+
+          <h2 id="2">E-Books</h2>
+          <h3>Das Werk gefällt mir, jetzt möchte ich es auf meinem E-Book-Reader lesen. Darf ich’s mir einfach herunterladen?</h3>
+          <p>
+            Nein, aber Du kannst das E-Book sofort über <strong>texxtoor</strong>&#8482; in Deinem Wunschformat erwerben.
+          </p>
+          <a href="Home/Page/usecontent">Mehr zum Thema</a>
+
+          <h2 id="3">Kosten</h2>
+          <h3>
+            Sind alle Werke auf <strong>texxtoor</strong>&#8482; wirklich kostenfrei zu lesen?
+          </h3>
+          <p>
+            Online auf <strong>texxtoor</strong>&#8482; kannst Du alle verfügbaren Werke lesen, nutzen, bookmarken etc.
+          </p>
+          <a href="Home/Page/usecontent">Mehr zum Thema</a>
+          <h3>Was kostet mich meine Registrierung?</h3>
+          <p>
+            Die Registrierung auf <strong>texxtoor</strong>&#8482; ist und bleibt in jedem Fall kostenfrei.
+          </p>
+
+          <h2 id="4">Sammlungen</h2>
+          <h3>Was sind Sammlungen?</h3>
+          <p>In Deinen Sammlungen kannst Du nach Belieben Gesamtwerke und Einzelkapitel zusammenstellen.</p>
+          <a href="Home/Page/usecontent">Mehr zum Thema</a>
+          <h3>Kann ich mir meine individuelle Sammlung auch herunterladen, quasi als &#171;Gesamtwerk&#187;?</h3>
+          <p>
+            Jein &#8211; Du kannst Deine Sammlung als komplettes E-Book, als App und sogar als gedrucktes Buch direkt bei <strong>texxtoor</strong>&#8482; erwerben.
+          </p>
+          <a href="Home/Page/usecontent">Mehr zum Thema</a>
+
+          <h2 id="5">Lesen im Team</h2>
+          <h3>Welche Vorteile hat die Contentnutzung im Team?</h3>
+          <p>Als Team könnt Ihr gemeinsame Sammlungen erstellen und gemeinschaftlich nutzen, bookmarken, kommentieren u. v. m.</p>
+          <a href="Home/Page/learnteam">Mehr zum Thema</a>
+          ]]>
+        </page>
+      </menuitem>
+      <menuitem title="Für Dienstleister" order="30" alias="contributors">
+        <page>
+          <![CDATA[
+          <h1>Gut zu wissen &#8230; für Dienstleister</h1>
+          <p>
+            Du bist neugierig auf <strong>texxtoor</strong>&#8482; geworden und hast jetzt einige Fragen? Nachfolgend haben wir für Dich interessante Infos zusammengetragen. Schau Dich doch ein wenig auf unserer Seite um &#8211; da findest Du noch viele weitere Fakten. Wenn Du keine Antwort auf Deine Frage findest, dann schreib uns doch einfach eine <a href="/Account/Contact/faq">E-Mail</a>.
+          </p>
+          <menu type="toolbar">
+            <li>
+              <a onlick="return jump('editors');">Für Lektoren</a>
+            </li>
+            <li>
+              <a onlick="return jump('texter');">Für Texter</a>
+            </li>
+            <li>
+              <a onlick="return jump('proof');">Für Korrektoren</a>
+            </li>
+            <li>
+              <a onlick="return jump('graphics');">Für Grafiker</a>
+            </li>
+            <li>
+              <a onlick="return jump('illustrators');">Für Illustratoren</a>
+            </li>
+            <li>
+              <a onlick="return jump('developers');">Für Programmierer</a>
+            </li>
+            <li>
+              <a onlick="return jump('producers');">Für Hersteller</a>
+            </li>
+            <li>
+              <a onlick="return jump('translators');">Für Übersetzer</a>
+            </li>
+          </menu>
+          <h2 id="editors">Lektoren</h2>
+          <h3>
+            Wie kann ich bei <strong>texxtoor</strong>&#8482; mitmachen?
+          </h3>
+          <p>
+            Ganz einfach: melde Dich <a href="/Account/Register">
+              auf <strong>texxtoor</strong>&#8482; an
+            </a>. Fülle nach der Registrierung möglichst alle Felder im Profil so ausführlich und aussagekräftig wie möglich aus. Damit hilfst Du dem Autor bei seiner Entscheidung, ob Du in sein Projektteam passt.
+          </p>
+          <h3>Ein Projekt interessiert mich. Wie kann ich mit dem Autor in Kontakt treten?</h3>
+          <p>Als registrierter Nutzer kannst bei jedem Projekt direkt mit dem Autor in Kontakt treten und ihm z.B. Deine Mitarbeit anbieten.</p>
+          <h3>Was ist ein Team?</h3>
+          <p>Bei umfangreichen Werken ist es häufig sinnvoll, die Aufgaben auf mehrere Schultern zu verteilen. Dazu kann der Autor ein Team bilden. Spezialisten wie Du arbeiten dann zusammen an einem Projekt und bringen es auf den Markt. (siehe auch <a href="/Home/Page/writeteam">Schreiben im Team</a>)</p>
+          <h3>Wie läuft die Zusammenarbeit im Team ab?</h3>
+          <p>Beim Lead-Autor laufen alle Fäden für ein Projekt zusammen. Er koordiniert alle Teammitglieder, verteilt die Aufgaben und überwacht die Fortschritte. Du hast aber natürlich auch mit allen anderen Mitstreitern Kontakt, denn es ist Euer gemeinsames Projekt und die kompetente Zusammenarbeit verbessert das Ergebnis in jedem Fall.</p>
+          <h3>Wieviel bekomme ich für meine Arbeit?</h3>
+          <p>Die Vergütung für Deine Arbeit legst Du individuell mit dem Autor zusammen fest &#8211; entweder als einmalige Zahlung, als Fixum mit Umsatzbeteiligung, ausschließlich über Umsatzbeteiligung, oder &#8230;.</p>
+          <h3>In welchem Textprogramm kann/muss ich arbeiten?</h3>
+          <p>
+            Für Dich das Einfachste ist es, unseren exklusiven <a href="/Home/Page/editor">Online-Editor WYMIX</a> zu nutzen. Er ist ganz leicht und intuitiv zu bedienen. Wenn Du eigene Werkzeuge benutzt, müssen diese das interne Format &ndash; bei Text immer HTML 5 &ndash; vollständig unterstützen.
+          </p>
+          <h2 id="texter">Texter</h2>
+          <h3>
+            Wie kann ich bei <strong>texxtoor</strong>&#8482; mitmachen?
+          </h3>
+          <p>
+            Ganz einfach: melde Dich <a href="/Account/Register">
+              auf <strong>texxtoor</strong>&#8482; an
+            </a> Fülle nach der Registrierung möglichst alle Felder im Profil so ausführlich und aussagekräftig wie möglich aus. Damit hilfst Du dem Autor bei seiner Entscheidung, ob Du in sein Projektteam passt.
+          </p>
+          <h3>Ein Projekt interessiert mich. Wie kann ich mit dem Autor in Kontakt treten?</h3>
+          <p>Als registrierter Nutzer kannst bei jedem Projekt direkt mit dem Autor in Kontakt treten und ihm z.B. Deine Mitarbeit anbieten.</p>
+          <h3>Was ist ein Team?</h3>
+          <p>Bei umfangreichen Werken ist es häufig sinnvoll, die Aufgaben auf mehrere Schultern zu verteilen. Dazu kann der Autor ein Team bilden. Spezialisten wie Du arbeiten dann zusammen an einem Projekt und bringen es auf den Markt. (siehe auch <a href="/Home/Page/writeteam">Schreiben im Team</a>)</p>
+          <h3>Wie läuft die Zusammenarbeit im Team ab?</h3>
+          <p>Beim Lead-Autor laufen alle Fäden für ein Projekt zusammen. Er koordiniert alle Teammitglieder, verteilt die Aufgaben und überwacht die Fortschritte. Du hast aber natürlich auch mit allen anderen Mitstreitern Kontakt, denn es ist Euer gemeinsames Projekt und die kompetente Zusammenarbeit verbessert das Ergebnis in jedem Fall.</p>
+          <h3>Wieviel bekomme ich für meine Arbeit?</h3>
+          <p>Die Vergütung für Deine Arbeit legst Du individuell mit dem Autor zusammen fest &#8211; entweder als einmalige Zahlung, als Fixum mit Umsatzbeteiligung, ausschließlich über Umsatzbeteiligung, oder &#8230;</p>
+          <h3>In welchem Textprogramm kann/muss ich arbeiten?</h3>
+          <p>
+            Für Dich das Einfachste ist es, unseren exklusiven <a href="/Home/Page/editor">Online-Editor WYMIX</a> zu nutzen. Er ist ganz leicht und intuitiv zu bedienen. Wenn Du eigene Werkzeuge benutzt, müssen diese das interne Format &ndash; bei Text immer HTML 5 &ndash; vollständig unterstützen.
+          </p>
+          <h2 id="proof">Korrektoren</h2>
+          <h3>
+            Wie kann ich bei <strong>texxtoor</strong>&#8482; mitmachen?
+          </h3>
+          <p>
+            Ganz einfach: melde Dich <a href="/Account/Register">
+              auf <strong>texxtoor</strong>&#8482; an
+            </a>. Fülle nach der Registrierung möglichst alle Felder im Profil so ausführlich und aussagekräftig wie möglich aus. Damit hilfst Du dem Autor bei seiner Entscheidung, ob Du in sein Projektteam passt.
+          </p>
+          <h3>Ein Projekt interessiert mich. Wie kann ich mit dem Autor in Kontakt treten?</h3>
+          <p>Als registrierter Nutzer kannst bei jedem Projekt direkt mit dem Autor in Kontakt treten und ihm z.B. Deine Mitarbeit anbieten.</p>
+          <h3>Was ist ein Team?</h3>
+          <p>Bei umfangreichen Werken ist es häufig sinnvoll, die Aufgaben auf mehrere Schultern zu verteilen. Dazu kann der Autor ein Team bilden. Spezialisten wie Du arbeiten dann zusammen an einem Projekt und bringen es auf den Markt. (siehe auch <a href="/Home/Page/writeteam">Schreiben im Team</a>)</p>
+          <h3>Wie läuft die Zusammenarbeit im Team ab?</h3>
+          <p>Beim Lead-Autor laufen alle Fäden für ein Projekt zusammen. Er koordiniert alle Teammitglieder, verteilt die Aufgaben und überwacht die Fortschritte. Du hast aber natürlich auch mit allen anderen Mitstreitern Kontakt, denn es ist Euer gemeinsames Projekt und die kompetente Zusammenarbeit verbessert das Ergebnis in jedem Fall.</p>
+          <h3>Wieviel bekomme ich für meine Arbeit?</h3>
+          <p>Die Vergütung für Deine Arbeit legst Du individuell mit dem Autor zusammen fest &#8211; entweder als einmalige Zahlung, als Fixum mit Umsatzbeteiligung, ausschließlich über Umsatzbeteiligung, oder &#8230;</p>
+          <h3>In welchem Textprogramm kann/muss ich arbeiten?</h3>
+          <p>
+            Für Dich das Einfachste ist es, unseren exklusiven <a href="/Home/Page/editor">Online-Editor WYMIX</a> zu nutzen. Er ist ganz leicht und intuitiv zu bedienen. Wenn Du eigene Werkzeuge benutzt, müssen diese das interne Format &ndash; bei Text immer HTML 5 &ndash; vollständig unterstützen.
+          </p>
+          <h2 id="graphics">Grafiker</h2>
+          <h3>
+            Wie kann ich bei <strong>texxtoor</strong>&#8482; mitmachen?
+          </h3>
+          <p>
+            Ganz einfach: melde Dich <a href="/Account/Register">
+              auf <strong>texxtoor</strong>&#8482; an
+            </a>. Fülle nach der Registrierung möglichst alle Felder im Profil so ausführlich und aussagekräftig wie möglich aus. Damit hilfst Du dem Autor bei seiner Entscheidung, ob Du in sein Projektteam passt.
+          </p>
+          <h3>Ein Projekt interessiert mich. Wie kann ich mit dem Autor in Kontakt treten?</h3>
+          <p>Als registrierter Nutzer kannst bei jedem Projekt direkt mit dem Autor in Kontakt treten und ihm z.B. Deine Mitarbeit anbieten.</p>
+          <h3>Was ist ein Team?</h3>
+          <p>Bei umfangreichen Werken ist es häufig sinnvoll, die Aufgaben auf mehrere Schultern zu verteilen. Dazu kann der Autor ein Team bilden. Spezialisten wie Du arbeiten dann zusammen an einem Projekt und bringen es auf den Markt. (siehe auch <a href="/Home/Page/writeteam">Schreiben im Team</a>)</p>
+          <h3>Wie läuft die Zusammenarbeit im Team ab?</h3>
+          <p>Beim Lead-Autor laufen alle Fäden für ein Projekt zusammen. Er koordiniert alle Teammitglieder, verteilt die Aufgaben und überwacht die Fortschritte. Du hast aber natürlich auch mit allen anderen Mitstreitern Kontakt, denn es ist Euer gemeinsames Projekt und die kompetente Zusammenarbeit verbessert das Ergebnis in jedem Fall.</p>
+          <h3>Wieviel bekomme ich für meine Arbeit?</h3>
+          <p>Die Vergütung für Deine Arbeit legst Du individuell mit dem Autor zusammen fest &#8211; entweder als einmalige Zahlung, als Fixum mit Umsatzbeteiligung, ausschließlich über Umsatzbeteiligung, oder &#8230;</p>
+          <h3>Werden meine Layouts einfach oder mehrfach genutzt?</h3>
+          <p>In einer individuelle Vereinbarung zwischen Dir und dem Autor wird festgelegt, wie die Nutzung Deiner Layouts erfolgen soll &#8211; einmalig oder mehrfach.</p>
+          <h2 id="illustrators">Illustratoren</h2>
+          <h3>
+            Wie kann ich bei <strong>texxtoor</strong>&#8482; mitmachen?
+          </h3>
+          <p>
+            Ganz einfach: melde Dich auf <a href="/Account/Register">
+              auf <strong>texxtoor</strong>&#8482; an
+            </a>. Fülle nach der Registrierung möglichst alle Felder im Profil so ausführlich und aussagekräftig wie möglich aus. Damit hilfst Du dem Autor bei seiner Entscheidung, ob Du in sein Projektteam passt.
+          </p>
+          <h3>Ein Projekt interessiert mich. Wie kann ich mit dem Autor in Kontakt treten?</h3>
+          Als registrierter Nutzer kannst bei jedem Projekt direkt mit dem Autor in Kontakt treten und ihm z.B. Deine Mitarbeit anbieten.
+          <h3>Was ist ein Team?</h3>
+          <p>Bei umfangreichen Werken ist es häufig sinnvoll, die Aufgaben auf mehrere Schultern zu verteilen. Dazu kann der Autor ein Team bilden. Spezialisten wie Du arbeiten dann zusammen an einem Projekt und bringen es auf den Markt. (siehe auch <a href="/Home/Page/writeteam">Schreiben im Team</a>)</p>
+          <h3>Wie läuft die Zusammenarbeit im Team ab?</h3>
+          <p>Beim Lead-Autor laufen alle Fäden für ein Projekt zusammen. Er koordiniert alle Teammitglieder, verteilt die Aufgaben und überwacht die Fortschritte. Du hast aber natürlich auch mit allen anderen Mitstreitern Kontakt, denn es ist Euer gemeinsames Projekt und die kompetente Zusammenarbeit verbessert das Ergebnis in jedem Fall.</p>
+          <h3>Wieviel bekomme ich für meine Arbeit?</h3>
+          <p>Die Vergütung für Deine Arbeit legst Du individuell mit dem Autor zusammen fest &#8211; entweder als einmalige Zahlung, als Fixum mit Umsatzbeteiligung, ausschließlich über Umsatzbeteiligung, oder &#8230;</p>
+          <h3>Welches Dateiformat müssen meine Arts haben?</h3>
+          <p>Du entwickelst Deine Inhalte in Deinem Lieblingswerkzeug und lädst sie dann auf die Plattform hoch. Zum Übertragen stehen Dir HTML-Upload sowie Plug-Ins für Browser und Dropbox zur Verfügung.</p>
+          <h2 id="developers">Programmierer</h2>
+          <h3>
+            Wie kann ich bei <strong>texxtoor</strong>&#8482; mitmachen?
+          </h3>
+          <p>
+            Ganz einfach: melde Dich <a href="/Account/Register">
+              auf <strong>texxtoor</strong>&#8482; an
+            </a>. Fülle nach der Registrierung möglichst alle Felder im Profil so ausführlich und aussagekräftig wie möglich aus. Damit hilfst Du dem Autor bei seiner Entscheidung, ob Du in sein Projektteam passt.
+          </p>
+          <h3>Ein Projekt interessiert mich. Wie kann ich mit dem Autor in Kontakt treten?</h3>
+          <p>Als registrierter Nutzer kannst bei jedem Projekt direkt mit dem Autor in Kontakt treten und ihm z.B. Deine Mitarbeit anbieten.</p>
+          <h3>Was ist ein Team?</h3>
+          <p>Bei umfangreichen Werken ist es häufig sinnvoll, die Aufgaben auf mehrere Schultern zu verteilen. Dazu kann der Autor ein Team bilden. Spezialisten wie Du arbeiten dann zusammen an einem Projekt und bringen es auf den Markt. (siehe auch <a href="/Home/Page/writeteam">Schreiben im Team</a>)</p>
+          <h3>Wie läuft die Zusammenarbeit im Team ab?</h3>
+          <p>Beim Lead-Autor laufen alle Fäden für ein Projekt zusammen. Er koordiniert alle Teammitglieder, verteilt die Aufgaben und überwacht die Fortschritte. Du hast aber natürlich auch mit allen anderen Mitstreitern Kontakt, denn es ist Euer gemeinsames Projekt und die kompetente Zusammenarbeit verbessert das Ergebnis in jedem Fall.</p>
+          <h3>Wieviel bekomme ich für meine Arbeit?</h3>
+          <p>Die Vergütung für Deine Arbeit legst Du individuell mit dem Autor zusammen fest &#8211; entweder als einmalige Zahlung, als Fixum mit Umsatzbeteiligung, ausschließlich über Umsatzbeteiligung, oder &#8230;</p>
+          <h2 id="producers">Hersteller</h2>
+          <h3>
+            Wie kann ich bei <strong>texxtoor</strong>&#8482; mitmachen?
+          </h3>
+          <p>
+            Ganz einfach: melde Dich <a href="/Account/Register">
+              auf <strong>texxtoor</strong>&#8482; an
+            </a>. Fülle nach der Registrierung möglichst alle Felder im Profil so ausführlich und aussagekräftig wie möglich aus. Damit hilfst Du dem Autor bei seiner Entscheidung, ob Du in sein Projektteam passt.
+          </p>
+          <h3>Ein Projekt interessiert mich. Wie kann ich mit dem Autor in Kontakt treten?</h3>
+          <p>Als registrierter Nutzer kannst bei jedem Projekt direkt mit dem Autor in Kontakt treten und ihm z.B. Deine Mitarbeit anbieten.</p>
+          <h3>Was ist ein Team?</h3>
+          <p>Bei umfangreichen Werken ist es häufig sinnvoll, die Aufgaben auf mehrere Schultern zu verteilen. Dazu kann der Autor ein Team bilden. Spezialisten wie Du arbeiten dann zusammen an einem Projekt und bringen es auf den Markt. (siehe auch <a href="/Home/Page/writeteam">Schreiben im Team</a>)</p>
+          <h3>Wie läuft die Zusammenarbeit im Team ab?</h3>
+          <p>Beim Lead-Autor laufen alle Fäden für ein Projekt zusammen. Er koordiniert alle Teammitglieder, verteilt die Aufgaben und überwacht die Fortschritte. Du hast aber natürlich auch mit allen anderen Mitstreitern Kontakt, denn es ist Euer gemeinsames Projekt und die kompetente Zusammenarbeit verbessert das Ergebnis in jedem Fall.</p>
+          <h3>Wieviel bekomme ich für meine Arbeit?</h3>
+          <p>Die Vergütung für Deine Arbeit legst Du individuell mit dem Autor zusammen fest &#8211; entweder als einmalige Zahlung, als Fixum mit Umsatzbeteiligung, ausschließlich über Umsatzbeteiligung, oder &#8230;</p>
+          <h2 id="translators">Übersetzer</h2>
+          <h3>
+            Wie kann ich bei <strong>texxtoor</strong>&#8482; mitmachen?
+          </h3>
+          <p>
+            Ganz einfach: melde Dich <a href="/Account/Register">
+              auf <strong>texxtoor</strong>&#8482; an
+            </a>. Fülle nach der Registrierung möglichst alle Felder im Profil so ausführlich und aussagekräftig wie möglich aus. Damit hilfst Du dem Autor bei seiner Entscheidung, ob Du in sein Projektteam passt.
+          </p>
+          <h3>Ein Projekt interessiert mich. Wie kann ich mit dem Autor in Kontakt treten?</h3>
+          <p>Als registrierter Nutzer kannst bei jedem Projekt direkt mit dem Autor in Kontakt treten und ihm z.B. Deine Mitarbeit anbieten.</p>
+          <h3>Was ist ein Team?</h3>
+          <p>Bei umfangreichen Werken ist es häufig sinnvoll, die Aufgaben auf mehrere Schultern zu verteilen. Dazu kann der Autor ein Team bilden. Spezialisten wie Du arbeiten dann zusammen an einem Projekt und bringen es auf den Markt. (siehe auch <a href="/Home/Page/writeteam">Schreiben im Team</a>)</p>
+          <h3>Wie läuft die Zusammenarbeit im Team ab?</h3>
+          <p>Beim Lead-Autor laufen alle Fäden für ein Projekt zusammen. Er koordiniert alle Teammitglieder, verteilt die Aufgaben und überwacht die Fortschritte. Du hast aber natürlich auch mit allen anderen Mitstreitern Kontakt, denn es ist Euer gemeinsames Projekt und die kompetente Zusammenarbeit verbessert das Ergebnis in jedem Fall.</p>
+          <h3>Wieviel bekomme ich für meine Arbeit?</h3>
+          <p>Die Vergütung für Deine Arbeit legst Du individuell mit dem Autor zusammen fest &#8211; entweder als einmalige Zahlung, als Fixum mit Umsatzbeteiligung, ausschließlich über Umsatzbeteiligung, oder &#8230;</p>
+          <h3>In welchem Textprogramm kann/muss ich arbeiten?</h3>
+          <p>
+            Für Dich das Einfachste ist es, unseren exklusiven <a href="/Home/Page/editor">Online-Editor WYMIX</a> zu nutzen. Er ist ganz leicht und intuitiv zu bedienen. Alternativ stellen wir eine Vorlage und ein Add-In für Microsoft Word&#8482; zur Verfügung (<a href="/Home/Support">Software</a>).
+          </p>
+          <h3>Kann ich auch kyrillische Schrift oder chinesische Schriftzeichen in den Editor eingeben?</h3>
+          <p></p>
+          <h3>Antwort nicht gefunden?</h3>
+          <p>
+            Nutze unser FAQ-Formular, um eine Frage an unser FAQ-Team zu stellen. <a href="/Account/Contact/faq">Mail an FAQ-Team senden.</a>
+          </p>
+          ]]>
+        </page>
+      </menuitem>
+      <menuitem title="Für Entwickler" order="40" alias="developers">
+        <page>
+          <h1>Gut zu wissen &#8230; für Entwickler</h1>
+          <p>
+            Du bist neugierig auf <strong>AC²</strong>&#8482; geworden und hast jetzt einige Fragen? Nachfolgend haben wir für Dich interessante Infos zusammengetragen. Schau Dich doch ein wenig auf unserer Seite um &#8211; da findest Du noch viele weitere Fakten. Wenn Du keine Antwort auf Deine Frage findest, dann schreib uns doch einfach eine <a href="/Account/Contact/faq">E-Mail</a>
+          </p>
+          <div class="item">
+            <h2>Gibt es eine API?</h2>
+            <p>Ja, wir stellen einige Funktion über Webervices zur Verfügung, darunter für eigene Editoren oder Add-Ins und auch für Lesefunktionen.</p>
+          </div>
+          <div class="item">
+            <h2>Unterstützt Ihr mobile Geräte?</h2>
+            <p>Ja, alle Funktionen sind so optimiert, dass sich damit besonders gut Apps auf Tablets erstellen lassen?</p>
+          </div>
+          <h3>Antwort nicht gefunden?</h3>
+          <p>
+            Nutze unser FAQ-Formular, um eine Frage an unser FAQ-Team zu stellen. <a href="/Account/Contact/faq">Mail an FAQ-Team senden.</a>
+          </p>
+        </page>
+      </menuitem>
+      <menuitem title="Support" order="50" alias="support">
+        <page>
+          <h1>Hilfe wo sie benötigt wird</h1>
+          <p>
+            <strong>AC²</strong>&#8482; lässt Dich nicht im Stich &#8211; ob bei der Bedienung des Editors, bei der Auswahl des richtigen Vermarktungspaketes oder &#8230;
+          </p>
+          <p>Wir bieten für alle registrierte Mitglieder optimale Unterstützung. Für Autoren das Autoren-Forum. Für Leser das Leser-Forum. Für Entwickler gibt es ein spezielles Entwickler-Wiki.</p>
+          <p>
+            Wir sind für Dich jederzeit unter unserer Hotline <strong>0700-texxtoor</strong> erreichbar. Oder schreib uns einfach eine E-Mail
+          </p>
+          <a href="/Account/Contact">Zum Kontaktformular</a>
+          <h3>Hilfe nicht gefunden?</h3>
+          <p>
+            Nutze unser FAQ-Formular, um eine Frage an unser FAQ-Team zu stellen. <a href="/Account/Contact/faq">Mail an FAQ-Team senden.</a>
+          </p>
+        </page>
+      </menuitem>
+    </menu>
+    <menu title="Rechtliches" order="2">
+      <menuitem title="Datenschutz" order="10" alias="privacy">
+        <page>
+          <h1>Datenschutz und Datensicherheit</h1>
+          <p>Hier stehen die Datenschutzhinweise Ihres Unternehmens</p>
+        </page>
+      </menuitem>
+      <menuitem title="AGB" order="20" alias="terms">
+        <page>
+          <h1>Allgemeine Geschäftsbedingungen</h1>
+          <p>Hier stehen die AGB Ihres Unternehmens</p>
+        </page>
+      </menuitem>
+    </menu>
+    <menu title="Über AC²" order="3">
+      <menuitem title="Kontakt" order="40" alias="contact">
+        <h1>Kontakt</h1>
+        <p>Wir sind für Dich da! Mit unserem Kontaktbereich bieten wir Dir die Gelegenheit, den richtigen Ansprechpartner für Dein Anliegen zu finden.</p>
+        <div class="item">
+          <h2>Presse</h2>
+          presse@texxtoor.de
+        </div>
+        <div class="item">
+          <h2>Hilfe und Support</h2>
+          support@texxtoor.de
+        </div>
+        <div class="item">
+          <h2>Entwickler</h2>
+          development@texxtoor.de
+        </div>
+        <div class="item">
+          <h2>Jobs</h2>
+          recruiting@texxtoor.de
+          <p>Wird eine der E-Mail-Adressen angeklickt öffnet sich das Kontaktformular.</p>
+          <ul>
+            <li>Presse: presse@texxtoor.de</li>
+            <li>Hilfe und Support: support@texxtoor.de</li>
+            <li>Entwickler: development@texxtoor.de</li>
+            <li>Jobs: recruiting@texxtoor.de</li>
+          </ul>
+        </div>
+      </menuitem>
+      <menuitem title="Impressum" order="50" alias="impress">
+        <h1>Impressum</h1>
+        Augmented Content GmbH<br />
+        Hafersteig 113<br />
+        12683 Berlin<br /><br />
+        T. +49 (0700) texxtoor<br />
+        F. +49 (30) 55 129 033<br />
+        support@texxtoor.de<br />
+        <br />
+        Sitz der Gesellschaft: Berlin<br />
+        Amtsgericht Charlottenburg, HRB 135318 B<br />
+        USt-IdNr.: DE278131367<br />
+        Geschäftsführung: Jörg Krause<br />
+        <div class="item">
+          <h2>Disclaimer</h2>
+          <p>Mit dem Urteil vom 12. Mai 1998 hat das Landgericht Hamburg entschieden, dass man durch die Anbringung eines Links die Inhalte der gelinkten Seiten ggf. mit zu verantworten hat. Dies kann nur dadurch verhindert werden, dass man sich ausdrücklich von diesem Inhalt distanziert.</p>
+          <p>Für alle Links auf dieser Homepage gilt: Wir distanzieren uns hiermit ausdrücklich von allen Inhalten aller verlinkten Seitenadressen auf dieser Seite und machen uns diese Inhalte nicht zu eigen.</p>
+        </div>
+      </menuitem>
+    </menu>
+  </menu>
+  <menu type="footer-simple">
+    <menu title="Simple">
+      <menuitem title="Home" order="0" navigateurl="/">Start</menuitem>
+      <menuitem title="News" order="0" navigateurl="/Home/News" alias="about" visible="false">Neues</menuitem>
+      <menuitem title="Presse" order="1" navigateurl="/Home/Press" alias="press" visible="false">Presse"</menuitem>
+      <menuitem title="Kontakt" order="2" navigateurl="/Home/Contact">Kontakt</menuitem>
+      <menuitem title="Impressum" order="3" alias="impress">
+        <page>
+          <![CDATA[
+          <strong>Augmented Content GmbH</strong>
+          <br />
+          Hafersteig 113
+          <br />
+          12683 Berlin
+          <br />
+          T. +49 (0700) texxtoor
+          <br />
+          F. +49 (30) 55 129 033
+          <br />
+          support@texxtoor.de
+          <br />
+          Sitz der Gesellschaft: Berlin
+          <br />
+          Amtsgericht Charlottenburg, HRB 135318 B
+          <br />
+          USt-IdNr.: DE278131367
+          <br />
+          Geschäftsführung: Jörg Krause
+          ]]>
+        </page>
+      </menuitem>
+      <menuitem title="AGB" order="4" navigateurl="/Home/Terms">AGB</menuitem>
+    </menu>
+  </menu>
+</portal>

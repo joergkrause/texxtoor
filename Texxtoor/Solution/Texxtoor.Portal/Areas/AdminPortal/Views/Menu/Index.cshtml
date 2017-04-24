@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Cms.CmsMenu>
+
+@{
+    PageData["Title"] = "Menus";
+    Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+
+<div class="well">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-sm btn-primary pull-right" })
+</div>
+<table class="table table-bordered table-condensed">
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Type
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            LocaleId
+        </th>
+        <th>
+            IsFallback
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.OrderBy(m => m.Type)) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocaleId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsFallback)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-xs btn-primary" }) 
+            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-xs btn-default" }) 
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-xs btn-warning" })
+        </td>
+    </tr>
+}
+
+</table>

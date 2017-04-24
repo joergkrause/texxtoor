@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Texxtoor.Portal.ServiceApi.Services.EditorService" CodeBehind="EditorService.svc.cs" %>

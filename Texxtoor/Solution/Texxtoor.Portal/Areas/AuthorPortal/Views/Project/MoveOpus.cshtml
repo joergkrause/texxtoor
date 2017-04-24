@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Content.Project>
+@{
+  PageData["Title"] = Loc("title", "Move Text");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("text1", @"Move the text <em>{0}</em> to another project. This is useful if you start working in another author's team and want to provide your texts there.", ViewBag.OpusName);
+}
+@section HeadContent{
+  <script type="text/javascript">
+    var userSelector;
+    $(function () {
+
+    });
+  </script>
+}
+@if (ViewBag.Error != null) {
+  using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+    @ViewBag.Error
+  }
+}
+@using (Html.BeginForm()) {
+  @Html.Hidden("id", new { id = ViewBag.OpusId })
+  using (Html.BtFieldset(Loc("legend", @"Project Selection"))) {
+    var projects = Model.Where(p => p.Id != (int)ViewBag.ProjectId);
+    if (projects.Any()) {
+      <label class="control-label">@Loc("lblAll", "Target Project")</label>
+      <div class="editor-field">
+        @ViewBag.OpusName
+        <select name="projectId">
+          <option>@ViewResources.Action_MoveOpusToText :</option>
+          @foreach (var project in projects) {
+            <option value="@project.Id" title="@project.Short">@project.Name</option>
+          }
+        </select>
+        @Create.FieldHelpIcon(Loc("chkAllHelp", "Select the project you wish to add the text to. Existing texts will preserved if they have same name.").ToString(), "", "")
+      </div>
+      <div class="formsendButtons">
+        @Button.Send("assignUser", ViewResources.Action_MoveOpusToText, "btn-warning")
+      </div>
+    } else {
+      using (Html.BtDiv(BtStyle.AlertAndError)) {
+        @Loc("noprojects", "There are no projects available to move the text to. Consider joining another team.")
+      }
+    }
+
+  }
+}
+@Create.ActionTask("lnkTeams", false, Url.Action("Index", "Team"), ViewResources.TasksButton_ToTeams)
+@Create.ActionTask("lnkDashboard", false, Url.Action("Index", "Project", new { Id = ViewBag.ProjectId }), ViewResources.Action_Project_ShowDashboard)
+@section HelpSection{
+  <p></p>
+}

@@ -1,0 +1,42 @@
+﻿@model Texxtoor.ViewModels.Author.BillingSummary
+@{
+  PageData["Title"] = Loc("title", "Billing");
+    Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+}
+@section HeadContent {
+  <script type="text/javascript">
+    var ui;
+    $(function () {
+      ui = new Dialog(
+        {
+          formId: '#createInvoiceForm',
+          formDivId: '#createInvoice',
+          formAction: '@Url.Action("CreateInvoice", new { id = Model.Opus.Id })',
+          sendBtnId: '#createInvoiceSendButton',
+          cancelBtnId: '#createInvoiceCancelButton'
+        },
+        {
+        },
+        {
+        },
+        {
+        });
+    });
+  </script>
+}
+@using(Html.BtDiv(BtStyle.Well)) {
+@Loc("text1", @"If you contribute on a hourly base (time and material) or for fixed salery and just finished your milestone, you can now raise an invoice to your team's lead author")
+}
+@Create.FormButtonOnClick("btnAddInvoice", "ui.addElement()", ViewResources.Action_Billing_CreateInvoice)
+@Create.ContentForm("createInvoice", @Html.Action("CreateInvoice"), ViewResources.Action_Billing_CreateInvoice)
+<h2>@Loc("titleBal", "Summary Balance Sheet")</h2>
+<div class="well well-sm">@Loc("textBal1", @"This sheet shows all outstanding payments, both due or not due.")</div>
+@using(Html.BtFieldset(Loc("legendSum", @"Summary"))) {
+  <label>@Loc("lblOut", @"Outgoing Invoices")</label>
+  <div class="editor-field"><em>@Model.IncomingInvoices</em> with a total of <em>@Model.DebitorBalance</em></div>
+  <label>@Loc("lblIn", @"Incoming Invoices")</label>
+  <div class="editor-field"><em>@Model.OutgoingInvoices</em> with a total of <em>@Model.CreditorBalance</em></div>
+}
+@Create.ActionTask("", false, Url.Action("InvoicesOutgoing", "Team", new { area = "AuthorPortal" }), ViewResources.LinkButton_OutgoingInvoices)
+@Create.ActionTask("", false, Url.Action("InvoicesIncoming", "Team", new { area = "AuthorPortal" }), ViewResources.LinkButton_IncomingInvoices)
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = Model.Opus.Project.Id }), ViewResources.LinkButton_ToDashboard)

@@ -1,0 +1,9 @@
+﻿@model Texxtoor.DataModels.Models.Common.Message
+@{
+  PageData["Title"] = "Forward Message";
+  Layout = Url.GetGlobalLayout();
+  PageData["ShortHelp"] = Loc("", "Forward a message to another user");  
+}
+@Create.ActionTask("", false, Url.Action("UserProfile", "Account", new { area = "" }), ViewResources.LinkButton_Community_UserProfile)
+@Create.ActionTask("", false, Url.Action("Private", "Account", new { area = "" }), ViewResources.LinkButton_Common_Archive)
+@Create.ActionTask("", false, Url.Action("Index", "Messaging", new { area = "" }), ViewResources.Action_Messaging_SendMail)

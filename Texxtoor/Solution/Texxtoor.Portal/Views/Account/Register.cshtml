@@ -1,0 +1,27 @@
+﻿@model Texxtoor.ViewModels.Users.RegisterViewModel
+@{
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+  PageData["Title"] = Loc("title1", "Create new account");
+}
+@using (Html.BtDiv(BtStyle.Well)) {
+  @Loc("text1", "Use this form to create a new form.")
+  @Loc("text2", "The password should have at least {0} characters.", (int)ViewBag.PasswordLength)
+  @Loc("text3", "All users can do everything&mdash;Reading, Writing, Contributing, or just using. No obligations, always free!")
+}
+@using (Html.BeginForm("Register", "Account", null)) {
+  if ((bool)ViewBag.HasError) {
+    using (Html.BtDiv(BtStyle.AlertAndError)) { 
+      @Html.ValidationSummary()
+      @ViewBag.Status
+    }
+  }
+  using (Html.BtFieldset(Loc("legend1", "Register Details"))) {
+    @Html.EditorForModel()
+    <div class="formsendButtons">
+      @Button.Submit(ViewResources.Action_Common_Register)
+    </div>
+  }
+}
+<div class="alert alert-info">
+  @Loc("txtBottom", "Once the registration has been sent we send a confirmation to the e-mail address given. You can use the account immediately. However, we recommend that you complete your profile to get everything the platform provides.")
+</div>

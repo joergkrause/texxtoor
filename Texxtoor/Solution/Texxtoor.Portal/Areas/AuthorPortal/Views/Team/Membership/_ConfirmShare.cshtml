@@ -1,0 +1,10 @@
+﻿@using (Html.BtFieldset(Loc("legend", @"Contribution Contract"))) {
+  <label>Share Type</label>
+  <div>
+    @Model.Ratio.ShareType
+  </div>
+  <label>Value or Ratio</label>
+  <div>
+    @Model.Ratio.ValueOrRatio
+  </div>
+}

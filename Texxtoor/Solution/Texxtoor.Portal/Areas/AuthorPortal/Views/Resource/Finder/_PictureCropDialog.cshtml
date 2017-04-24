@@ -1,0 +1,51 @@
+﻿<div class="modal fade hidden-to-show" id="pictureshowCrop" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+        <h4 class="modal-title" id="myModalLabelCrop">Show Picture</h4>
+      </div>
+      <div class="modal-body image-container" id="cropContainer">
+        <img src="" id="fullsizeimageCrop" class="image" style="border: 1px solid silver; padding: 10px" />
+
+        <table style="margin-top: 15px;margin-bottom: -15px;">
+          <tr>
+            <td>
+              X-Position:
+            </td>
+            <td>
+              <input id="txtXpos" type="text" class="txtpos" />
+            </td>
+            <td>
+              Y-Position:
+            </td>
+            <td>
+              <input id="txtYpos" type="text" class="txtpos" />
+            </td>
+
+          </tr>
+          <tr>
+
+            <td>
+              Width:
+            </td>
+            <td>
+              <input id="txtWidth" type="text" class="txtpos" />
+            </td>
+            <td>
+              Height:
+            </td>
+            <td>
+              <input id="txtHeight" type="text" class="txtpos" />
+            </td>
+
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal" type="button" id="cropSave">@ViewResources.Button_OK</button>
+        <button class="btn btn-default" data-dismiss="modal" type="button" >@ViewResources.Button_CancelAndClose</button>
+      </div>
+    </div>
+  </div>
+</div>

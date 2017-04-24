@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<workflows>
+  <workflow name="OpusProcess" lang="de">
+    <step name="Create" required="true" roles="TeamLead">
+      Create Opus
+    </step>
+    <step name="Structure" required="true" roles="Author,Contributor">
+      Work on the structure, TOC
+    </step>
+    <step name="Write" required="true" roles="Author,Contributor">
+      Work on the Opus
+    </step>
+    <step name="Image" required="false" roles="Author,Contributor">
+      Create Images
+    </step>
+    <step name="CopyEditing" required="false" roles="Author,Contributor">
+      Copy Editing
+    </step>
+    <step name="Marketing" required="true" roles="TeamLead">
+      Set Marketing Options
+    </step>
+    <step name="Publish" required="true" roles="TeamLead">
+      Publish and Close
+    </step>
+  </workflow>
+</workflows>

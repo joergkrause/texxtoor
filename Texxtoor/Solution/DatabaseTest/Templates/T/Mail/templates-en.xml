@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mail locale="en" name="texxtoor">
+  <template name="QuickForm">
+    <![CDATA[
+    <subject>Mail Quickform</subject>
+    <body>
+      User {Name}, Phone {Phone}, has following project proposal: {ProjectName}.
+    </body>
+    ]]>
+  </template>
+  <template name="QuickForm-Sender" >
+    <![CDATA[
+    <subject>Thanks for your inquery</subject>
+    <body>
+      Dear Author,
+      
+      thanks for your interest in our platform. We'll contact you shortly.
+      
+      Your texxtoor Team
+      
+      User {Name}, Phone {Phone}, Project Proposal: {ProjectName}.
+    </body>
+    ]]>
+  </template>
+  <template name="WelcomeUser" >
+    <![CDATA[
+    <subject>{UserName} has been registred at texxtoor!</subject>
+    <body>
+      Welcome to texxtoor, {UserName}!
+      
+      texxtoor provides a ubiquitos platform for publishing of non-fiction texts on all devices and for traditional print.
+      
+      For perfect communication with you, your team, your contributors and to the production process we need a reliable communication channel. Hence
+      we check the provided e-mail. Please, confirm by clicking the link below and you can use all functions immediately.
+      
+      <a href="{ConfirmLink}">{ConfirmLink}</a>
+      
+      You has been registered as: {UserName}.
+
+      Kind regards, your texxtoor team
+      
+    </body>
+    ]]>
+  </template>
+  <template name="AddedToTeam" >
+    <![CDATA[
+    <subject>User {UserName} has been added to a texxtoor-team</subject>
+    <body>
+      Congratulation {UserName}!
+      
+      texxtoor provides a ubiquitos platform for publishing of non-fiction texts on all devices and for traditional print.
+      
+      An author has added you to his or her team '{TeamName}' and invited to contribute. Please logon as soon as possible to confirm your membership and shares.
+
+      Kind regards, your texxtoor team
+      
+    </body>
+    ]]>
+  </template>
+  <template name="AddedToTeamLead" >
+    <![CDATA[
+    <subject>User {UserName} has been added to a texxtoor-team</subject>
+    <body>
+      Dear {UserName}!
+              
+      You have, as a lead author added the user {ContributorName} to your team {TeamName}.
+
+      Kind regards, your texxtoor team
+      
+    </body>
+    ]]>
+  </template>
+  <template name="RemovedFromTeam" >
+    <![CDATA[
+    <subject>User {UserName} has been removed from a texxtoor-team</subject>
+    <body>
+      Dear {UserName}!
+      
+      You was removed from team '{TeamName}' either by yourself or your team's leader.
+
+      Kind regards, your texxtoor team
+      
+    </body>
+    ]]>
+  </template>
+  <template name="RemovedFromTeamLead" >
+    <![CDATA[
+    <subject>User {UserName} has been removed from a texxtoor-team</subject>
+    <body>
+      Dear {UserName}!
+              
+      You have, as a lead author, removed the user {ContributorName} from your team {TeamName}.
+
+      Kind regards, your texxtoor team
+      
+    </body>
+    ]]>
+  </template>
+  <template name="RetrievePassword" >
+    <![CDATA[
+    <subject>Your password on texxtoor has been reset</subject>
+    <body>
+      Dear {UserName}!
+              
+      We have reset your password. You can logon with {Password}. Once logged on please change this temporary password.
+
+      Best regards, your texxtoor team
+      
+    </body>
+    ]]>
+  </template>
+</mail>

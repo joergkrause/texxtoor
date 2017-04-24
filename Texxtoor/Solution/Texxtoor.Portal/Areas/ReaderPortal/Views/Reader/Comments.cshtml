@@ -1,0 +1,74 @@
+﻿@model bool
+@{
+  PageData["Title"] = Loc("title1", "Manage My Comments");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+}
+@section HeadContent {
+  <script type="text/javascript">
+    $(function () {
+      UpdateTable();
+      $('#delComments').click(function () { DeleteComments() });
+    });
+
+    function DeleteComments() {
+      var allVals = [];
+      $('input[name=commentId]:checked').each(function () {
+        allVals.push($(this).val());
+      });
+      $.ajax({
+        url: '@Url.Action("DeleteComments")',
+        data: JSON.stringify(allVals),
+        contentType: 'application/json; charset=utf-8',
+        type: 'POST',
+        cache: false,
+        dataType: "html",
+        success: function (data) {
+          UpdateTable();
+          toastr.success(data);
+        }
+      });
+      return false;
+    }
+
+    function DeleteComment(id) {
+      $.ajax({
+        url: '@Url.Action("DeleteComment")',
+        data: {id : id},
+        type: 'POST',
+        success: function (data) {
+          UpdateTable();
+          toastr.success(data.msg);
+        }
+      });
+      return false;
+    }
+
+    function UpdateTable() {
+      $.ajax({
+        url: '@Url.Action("ListComments")',
+        data: { id: '@ViewBag.WorkId' },
+        cache: false,
+        dataType: "html",
+        success: function (data) {
+          $('#main').html(data);
+          SetTableBehavior();
+        }
+      });
+    }
+  </script>
+  @Script.SetTableBehavior()
+}
+@using(Html.BtDiv(BtStyle.Well)) {
+@Loc("text1", @"This page makes all comments, marks, and tags such as PosIts of a specific work accessible. You can view, edit, or remove comments.")
+}
+<h2>@Loc("title2", "Work") '@ViewBag.WorkName'</h2>
+@if (!Model) {
+  using(Html.BtDiv(BtStyle.AlertAndWarning)) {
+@Loc("textNoData", @"There are no comments or tags in this work")
+}
+} else {   
+  @Create.MainContentWithLoader()
+}
+@Create.ActionTask("", false, Url.Action("Matrix", "Home"), ViewResources.LinkButton_Reader_Matrix)
+@Create.ActionTask("", false, Url.Action("Library", "Reader"), ViewResources.TasksButton_Reader_Library)
+@Create.ActionTask("btnPrint", true, Url.Action("PrintComments", new { id = (int)ViewBag.WorkId }), ViewResources.TasksButton_Reader_PrintComments)

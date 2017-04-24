@@ -1,0 +1,66 @@
+﻿@using Texxtoor.DataModels.Models.Users
+
+<div class="col-sm-12" data-item="reader" data-active="true">
+  <div class="box box-collapsed">
+    <div class="box-header green-background">
+      <div class="title">
+        <div class="icon-envelope-alt"></div>
+        @Loc("titleReaderStart", "Now using")
+      </div>
+      <div class="actions">
+        <a class="btn box-collapse btn-xs btn-link" href="#">
+          <i></i>
+        </a>
+      </div>
+    </div>
+    <div class="box-content">
+      @using (Html.BeginForm("QuickFormReader", "Home", FormMethod.Post)) {
+        <fieldset>
+          <legend>@Loc("txtImportant", "Ein paar wichtige Angaben...")</legend>
+          <label class="control-label">@Loc("lblGlobalSearch", "Global Search")</label>
+          <div class="editor-field">
+            <input type="text" name="search" id="search" class="form-control" />
+          </div>
+          <label class="control-label">@Loc("label", @"Keyword")</label>
+          <div class="editor-field">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="input-group">
+                  <input id="keyword" name="keyword" type="text" style="width: 280px"> <span style="font-size: 2.5em;line-height:2.2em"> &raquo; </span>
+                  <a id="btnAdd" class="btn btn-xs btn-primary NoTextDecoration" href="#">@ViewResources.Action_Reader_Search_AddKeyword</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <label class="control-label">@Loc("lblLevel", "Level")</label>
+          <div class="editor-field">
+            @(Html.DropdownForEnum<StageType>("level", StageType.Novice, new Dictionary<string, object>() { { "style", "width:180px" } }))
+          </div>
+          <label class="control-label">@Loc("lblUsage", "Usage")</label>
+          <div class="editor-field">
+            @(Html.DropdownForEnum<TargetType>("target", TargetType.Personal, new Dictionary<string, object>() { { "style", "width:180px" } }))
+          </div>
+          <label class="control-label">
+            @Loc("lblPrivateKey", "Keywords")
+          </label>
+          <input type="hidden" name="keywords" />
+          <input type="hidden" name="targets" />
+          <input type="hidden" name="stages" />
+          <div class="col-sm-6">
+            <div class="alert alert-danger hidden-to-show" id="keywordListEmpty">@Loc("noKeywords", "No keywords! Start with adding one, it's so easy.")</div>
+            <div class="alert alert-info" id="keywordList">
+            </div>
+          </div>
+          <div class="col-sm-9 col-sm-offset-3">
+            <a class="btn btn-primary" href="@Url.Action("MatrixSearch", "Home", new { area = "ReaderPortal" })">@ViewResources.Button_Quick_Go</a>
+          </div>
+          <br />
+          <small class="text-muted">
+            @Loc("textReaderStart", "Using our augmented matrix you'll get the knowledge that fits.")
+          </small>
+
+        </fieldset>
+      }
+    </div>
+  </div>
+</div>

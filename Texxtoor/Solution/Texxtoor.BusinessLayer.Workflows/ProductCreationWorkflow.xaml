@@ -1,0 +1,447 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Texxtoor.BusinessLayer.Workflows.ProductCreationWorkflow" this:ProductCreationWorkflow.lang="en" this:ProductCreationWorkflow.publisher="texxtoor"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:tb="clr-namespace:Texxtoor.BusinessLayer;assembly=Texxtoor.BusinessLayer"
+ xmlns:tbp="clr-namespace:Texxtoor.BaseLibrary.Pdf;assembly=Texxtoor.BaseLibrary.Pdf"
+ xmlns:tdmc="clr-namespace:Texxtoor.DataModels.Models.Content;assembly=Texxtoor.DataModels"
+ xmlns:tdmrc="clr-namespace:Texxtoor.DataModels.Models.Reader.Content;assembly=Texxtoor.DataModels"
+ xmlns:tdmro="clr-namespace:Texxtoor.DataModels.Models.Reader.Orders;assembly=Texxtoor.DataModels"
+ xmlns:this="clr-namespace:Texxtoor.BusinessLayer.Workflows"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="lang" Type="InArgument(x:String)" />
+    <x:Property Name="userName" Type="InArgument(x:String)" />
+    <x:Property Name="orderProduct" Type="InArgument(tdmro:OrderProduct)" />
+    <x:Property Name="publisher" Type="InArgument(x:String)" />
+    <x:Property Name="templateGroupId" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:WorkflowViewState.IdRef>Texxtoor.BusinessLayer.Workflows.ProductCreationWorkflow_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>Texxtoor.BusinessLayer</x:String>
+      <x:String>Texxtoor.DataModels.Models.Reader.Content</x:String>
+      <x:String>Texxtoor.DataModels.Models.Reader.Orders</x:String>
+      <x:String>Texxtoor.BaseLibrary.Core.BaseEntities</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>Texxtoor.BaseLibrary.Pdf</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Net.Http</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Web</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>Texxtoor.BaseLibrary.Core</AssemblyReference>
+      <AssemblyReference>Texxtoor.BaseLibrary.Pdf</AssemblyReference>
+      <AssemblyReference>Texxtoor.BusinessLayer</AssemblyReference>
+      <AssemblyReference>Texxtoor.DataModels</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>Texxtoor.BusinessLayer.Workflows</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Execution Production" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="tb:ProductionManager" Name="ProductionInstance">
+        <Variable.Default>
+          <mca:CSharpValue x:TypeArguments="tb:ProductionManager">ProductionManager.Instance</mca:CSharpValue>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="s:Byte[]" Name="resultStream" />
+      <Variable x:TypeArguments="tdmrc:MediaFiles" Name="mediaFiles" />
+      <Variable x:TypeArguments="tdmrc:MediaFile" Name="mediaFile" />
+      <Variable x:TypeArguments="tb:OrderManager" Name="OrderInstance">
+        <Variable.Default>
+          <mca:CSharpValue x:TypeArguments="tb:OrderManager">OrderManager.Instance</mca:CSharpValue>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="s:String[]" Name="requestedMedia" />
+    </Sequence.Variables>
+    <Assign sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="s:String[]">
+          <mca:CSharpReference x:TypeArguments="s:String[]">requestedMedia</mca:CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="s:String[]">
+          <mca:CSharpValue x:TypeArguments="s:String[]">orderProduct.Media.Select(m =&gt; m.Name.ToLower()).ToArray()</mca:CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Parallel sap2010:WorkflowViewState.IdRef="Parallel_1">
+      <Sequence DisplayName="EPUB Sequence" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="tbp:Printable" Name="printableObject" />
+        </Sequence.Variables>
+        <If DisplayName="If EPUB" sap2010:WorkflowViewState.IdRef="If_1">
+          <If.Condition>
+            <InArgument x:TypeArguments="x:Boolean">
+              <mca:CSharpValue x:TypeArguments="x:Boolean">requestedMedia.Contains("epub")</mca:CSharpValue>
+            </InArgument>
+          </If.Condition>
+          <If.Then>
+            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_10">
+              <InvokeMethod DisplayName="EPUB" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="CreateEpub">
+                <InvokeMethod.Result>
+                  <OutArgument x:TypeArguments="s:Byte[]">[resultStream]</OutArgument>
+                </InvokeMethod.Result>
+                <InvokeMethod.TargetObject>
+                  <InArgument x:TypeArguments="tb:ProductionManager">
+                    <mca:CSharpValue x:TypeArguments="tb:ProductionManager">ProductionInstance</mca:CSharpValue>
+                  </InArgument>
+                </InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="tbp:Printable">
+                  <mca:CSharpValue x:TypeArguments="tbp:Printable">printableObject</mca:CSharpValue>
+                </InArgument>
+              </InvokeMethod>
+              <InvokeMethod DisplayName="Store Data and Get Media File" sap2010:WorkflowViewState.IdRef="InvokeMethod_2" MethodName="StoreMediaFile">
+                <InvokeMethod.Result>
+                  <OutArgument x:TypeArguments="tdmrc:MediaFile">[mediaFile]</OutArgument>
+                </InvokeMethod.Result>
+                <InvokeMethod.TargetObject>
+                  <InArgument x:TypeArguments="tb:ProductionManager">
+                    <mca:CSharpValue x:TypeArguments="tb:ProductionManager">ProductionInstance</mca:CSharpValue>
+                  </InArgument>
+                </InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="x:String">genericMediaFile</InArgument>
+                <InArgument x:TypeArguments="tdmc:GroupKind">
+                  <mca:CSharpValue x:TypeArguments="tdmc:GroupKind">Texxtoor.DataModels.Models.Content.GroupKind.Epub</mca:CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="s:Byte[]">[resultStream]</InArgument>
+                <InArgument x:TypeArguments="x:String">[userName]</InArgument>
+              </InvokeMethod>
+              <AddToCollection x:TypeArguments="tdmrc:MediaFile" Collection="[mediaFiles]" DisplayName="Collect Media File" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[mediaFile]" />
+            </Sequence>
+          </If.Then>
+        </If>
+      </Sequence>
+      <Sequence DisplayName="PDF Sequence" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="tbp:Printable" Name="printableObject" />
+        </Sequence.Variables>
+        <If DisplayName="If PDF" sap2010:WorkflowViewState.IdRef="If_2">
+          <If.Condition>
+            <InArgument x:TypeArguments="x:Boolean">
+              <mca:CSharpValue x:TypeArguments="x:Boolean">requestedMedia.Contains("pdf")</mca:CSharpValue>
+            </InArgument>
+          </If.Condition>
+          <If.Then>
+            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <InvokeMethod DisplayName="PDF" sap2010:WorkflowViewState.IdRef="InvokeMethod_3" MethodName="CreatePdfContent">
+                <InvokeMethod.TargetObject>
+                  <InArgument x:TypeArguments="tb:ProductionManager">
+                    <mca:CSharpValue x:TypeArguments="tb:ProductionManager">ProductionInstance</mca:CSharpValue>
+                  </InArgument>
+                </InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="tbp:Printable">
+                  <mca:CSharpValue x:TypeArguments="tbp:Printable">printableObject</mca:CSharpValue>
+                </InArgument>
+              </InvokeMethod>
+              <InvokeMethod DisplayName="Store Data and Get Media File" sap2010:WorkflowViewState.IdRef="InvokeMethod_4" MethodName="StoreMediaFile">
+                <InvokeMethod.Result>
+                  <OutArgument x:TypeArguments="tdmrc:MediaFile">[mediaFile]</OutArgument>
+                </InvokeMethod.Result>
+                <InvokeMethod.TargetObject>
+                  <InArgument x:TypeArguments="tb:ProductionManager">
+                    <mca:CSharpValue x:TypeArguments="tb:ProductionManager">ProductionInstance</mca:CSharpValue>
+                  </InArgument>
+                </InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="x:String">genericMediaFile</InArgument>
+                <InArgument x:TypeArguments="tdmc:GroupKind">
+                  <mca:CSharpValue x:TypeArguments="tdmc:GroupKind">Texxtoor.DataModels.Models.Content.GroupKind.Pdf</mca:CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="s:Byte[]">[resultStream]</InArgument>
+                <InArgument x:TypeArguments="x:String">[userName]</InArgument>
+              </InvokeMethod>
+              <AddToCollection x:TypeArguments="tdmrc:MediaFile" Collection="[mediaFiles]" DisplayName="Collect Media File" sap2010:WorkflowViewState.IdRef="AddToCollection`1_2" Item="[mediaFile]" />
+            </Sequence>
+          </If.Then>
+        </If>
+      </Sequence>
+      <Sequence DisplayName="Printer Sequence" sap2010:WorkflowViewState.IdRef="Sequence_9">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="tbp:Printable" Name="printableObject" />
+        </Sequence.Variables>
+        <If DisplayName="If Print" sap2010:WorkflowViewState.IdRef="If_4">
+          <If.Condition>
+            <InArgument x:TypeArguments="x:Boolean">
+              <mca:CSharpValue x:TypeArguments="x:Boolean">requestedMedia.Contains("print")</mca:CSharpValue>
+            </InArgument>
+          </If.Condition>
+          <If.Then>
+            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <InvokeMethod DisplayName="Create Printable" sap2010:WorkflowViewState.IdRef="InvokeMethod_14" MethodName="CreatePrintable">
+                <InvokeMethod.Result>
+                  <OutArgument x:TypeArguments="tbp:Printable">
+                    <mca:CSharpReference x:TypeArguments="tbp:Printable">printableObject</mca:CSharpReference>
+                  </OutArgument>
+                </InvokeMethod.Result>
+                <InvokeMethod.TargetObject>
+                  <InArgument x:TypeArguments="tb:ProductionManager">
+                    <mca:CSharpValue x:TypeArguments="tb:ProductionManager">ProductionInstance</mca:CSharpValue>
+                  </InArgument>
+                </InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="tdmro:OrderProduct">
+                  <mca:CSharpValue x:TypeArguments="tdmro:OrderProduct">orderProduct</mca:CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String">publisher</mca:CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:Int32">
+                  <mca:CSharpValue x:TypeArguments="x:Int32">templateGroupId</mca:CSharpValue>
+                </InArgument>
+              </InvokeMethod>
+              <InvokeMethod DisplayName="PRINT COVER" sap2010:WorkflowViewState.IdRef="InvokeMethod_12" MethodName="CreatePdfCover">
+                <InvokeMethod.TargetObject>
+                  <InArgument x:TypeArguments="tb:ProductionManager">
+                    <mca:CSharpValue x:TypeArguments="tb:ProductionManager">ProductionInstance</mca:CSharpValue>
+                  </InArgument>
+                </InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="tbp:Printable">
+                  <mca:CSharpValue x:TypeArguments="tbp:Printable">printableObject</mca:CSharpValue>
+                </InArgument>
+              </InvokeMethod>
+              <InvokeMethod DisplayName="Store Data and Get Media File" sap2010:WorkflowViewState.IdRef="InvokeMethod_13" MethodName="StoreMediaFile">
+                <InvokeMethod.Result>
+                  <OutArgument x:TypeArguments="tdmrc:MediaFile">[mediaFile]</OutArgument>
+                </InvokeMethod.Result>
+                <InvokeMethod.TargetObject>
+                  <InArgument x:TypeArguments="tb:ProductionManager">
+                    <mca:CSharpValue x:TypeArguments="tb:ProductionManager">ProductionInstance</mca:CSharpValue>
+                  </InArgument>
+                </InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="x:String">genericMediaFile</InArgument>
+                <InArgument x:TypeArguments="tdmc:GroupKind">
+                  <mca:CSharpValue x:TypeArguments="tdmc:GroupKind">Texxtoor.DataModels.Models.Content.GroupKind.Pdf</mca:CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="s:Byte[]">[resultStream]</InArgument>
+                <InArgument x:TypeArguments="x:String">[userName]</InArgument>
+              </InvokeMethod>
+              <InvokeMethod DisplayName="PRINT" sap2010:WorkflowViewState.IdRef="InvokeMethod_9" MethodName="CreatePdfContent">
+                <InvokeMethod.TargetObject>
+                  <InArgument x:TypeArguments="tb:ProductionManager">
+                    <mca:CSharpValue x:TypeArguments="tb:ProductionManager">ProductionInstance</mca:CSharpValue>
+                  </InArgument>
+                </InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="tbp:Printable">
+                  <mca:CSharpValue x:TypeArguments="tbp:Printable">printableObject</mca:CSharpValue>
+                </InArgument>
+              </InvokeMethod>
+              <InvokeMethod DisplayName="Store Data and Get Media File" sap2010:WorkflowViewState.IdRef="InvokeMethod_10" MethodName="StoreMediaFile">
+                <InvokeMethod.Result>
+                  <OutArgument x:TypeArguments="tdmrc:MediaFile">[mediaFile]</OutArgument>
+                </InvokeMethod.Result>
+                <InvokeMethod.TargetObject>
+                  <InArgument x:TypeArguments="tb:ProductionManager">
+                    <mca:CSharpValue x:TypeArguments="tb:ProductionManager">ProductionInstance</mca:CSharpValue>
+                  </InArgument>
+                </InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="x:String">genericMediaFile</InArgument>
+                <InArgument x:TypeArguments="tdmc:GroupKind">
+                  <mca:CSharpValue x:TypeArguments="tdmc:GroupKind">Texxtoor.DataModels.Models.Content.GroupKind.Pdf</mca:CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="s:Byte[]">[resultStream]</InArgument>
+                <InArgument x:TypeArguments="x:String">[userName]</InArgument>
+              </InvokeMethod>
+              <AddToCollection x:TypeArguments="tdmrc:MediaFile" Collection="[mediaFiles]" DisplayName="Collect Media File" sap2010:WorkflowViewState.IdRef="AddToCollection`1_3" Item="[mediaFile]" />
+              <InvokeMethod DisplayName="Send Pdf To Printer" sap2010:WorkflowViewState.IdRef="InvokeMethod_11" MethodName="SendPdfToPrinter">
+                <InvokeMethod.TargetObject>
+                  <InArgument x:TypeArguments="tb:ProductionManager">
+                    <mca:CSharpValue x:TypeArguments="tb:ProductionManager">ProductionInstance</mca:CSharpValue>
+                  </InArgument>
+                </InvokeMethod.TargetObject>
+              </InvokeMethod>
+            </Sequence>
+          </If.Then>
+        </If>
+      </Sequence>
+    </Parallel>
+    <If DisplayName="Handle Create Media" sap2010:WorkflowViewState.IdRef="If_3">
+      <If.Condition>
+        <InArgument x:TypeArguments="x:Boolean">
+          <mca:CSharpValue x:TypeArguments="x:Boolean">mediaFiles.Any()</mca:CSharpValue>
+        </InArgument>
+      </If.Condition>
+      <If.Then>
+        <Sequence DisplayName="Save" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <InvokeMethod DisplayName="Store File References " sap2010:WorkflowViewState.IdRef="InvokeMethod_5" MethodName="StoreFileReferences">
+            <InvokeMethod.TargetObject>
+              <InArgument x:TypeArguments="tb:ProductionManager">
+                <mca:CSharpValue x:TypeArguments="tb:ProductionManager">ProductionInstance</mca:CSharpValue>
+              </InArgument>
+            </InvokeMethod.TargetObject>
+            <InArgument x:TypeArguments="tdmrc:MediaFiles">
+              <mca:CSharpValue x:TypeArguments="tdmrc:MediaFiles">mediaFiles</mca:CSharpValue>
+            </InArgument>
+            <InArgument x:TypeArguments="x:Int32">
+              <mca:CSharpValue x:TypeArguments="x:Int32">orderProduct.Id</mca:CSharpValue>
+            </InArgument>
+          </InvokeMethod>
+          <InvokeMethod DisplayName="Set Fullfillment State" sap2010:WorkflowViewState.IdRef="InvokeMethod_8" MethodName="SetFullfillmentState">
+            <InvokeMethod.TargetObject>
+              <InArgument x:TypeArguments="tb:ProductionManager">
+                <mca:CSharpValue x:TypeArguments="tb:ProductionManager">ProductionInstance</mca:CSharpValue>
+              </InArgument>
+            </InvokeMethod.TargetObject>
+            <InArgument x:TypeArguments="x:Int32">
+              <mca:CSharpValue x:TypeArguments="x:Int32">orderProduct.Id</mca:CSharpValue>
+            </InArgument>
+            <InArgument x:TypeArguments="tdmro:FullFillmentState">
+              <mca:CSharpValue x:TypeArguments="tdmro:FullFillmentState">FullFillmentState.Produced</mca:CSharpValue>
+            </InArgument>
+          </InvokeMethod>
+          <InvokeMethod DisplayName="Send Email To User" sap2010:WorkflowViewState.IdRef="InvokeMethod_7" MethodName="SendTransactionMail">
+            <InvokeMethod.TargetObject>
+              <InArgument x:TypeArguments="tb:OrderManager">
+                <mca:CSharpValue x:TypeArguments="tb:OrderManager">OrderInstance</mca:CSharpValue>
+              </InArgument>
+            </InvokeMethod.TargetObject>
+            <InArgument x:TypeArguments="x:String">[userName]</InArgument>
+          </InvokeMethod>
+        </Sequence>
+      </If.Then>
+    </If>
+    <sads:DebugSymbol.Symbol>d3JEOlxBcHBzXEZpcm1hXEFCR1xQcm9qZWN0XFRleHh0b29yXFRleHh0b29yLlNvbHV0aW9uXFRleHh0b29yLkJ1c2luZXNzTGF5ZXIuV29ya2Zsb3dzXFByb2R1Y3RDcmVhdGlvbldvcmtmbG93LnhhbWxdAZABAZMBAQMBvAEBxQEBAkIDyQIOAgEBRgtGbwIBDk4LTmUCAQJTBV4OAwGEBF8FmgIQAwGBAZsCBccCCgIBGlsLW4gBAwGRBFYLVmEDAYUEYAeNARIDAbEDjgEHuAESAwHgArkBB5kCEgMBggGeAgueAloCARuiAgnFAhQCASdkCYwBDgMBsgOSAQm3AQ4DAeECvQEJmAIOAwGDAaMCC68CGgIBXLACC7wCGgIBN70CC8QCGgIBKGcPZ20DAbMDaw2KARgDAcADlQEPlQFsAwHiApkBDbUBGAMB7wLAAQ/AAW4DAYQBxAENlgIYAwGRAa0CD60CWwIBdaoCD6oCXwIBaaYCEaYCbQIBXbcCD7cCWwIBULMCEbMCbQIBRLoCD7oCdgIBOMMCNMMCPgIBNcACEcACYwIBKWwPeB4DAecDeQ+IAR4DAcUDiQEPiQHIAQMBwQOaAQ+jAR4DAZYDpAEPswEeAwH0ArQBD7QByAEDAfACxQEP2QEeAwGeAtoBD+MBHgMBgwLkAQ/zAR4DAeEB9AEP/QEeAwHGAf4BD40CHgMBpAGOAg+OAsgBAwGgAY8CD5UCHgMBkgF2E3ZlAwH3A247bkkDAfUDchVycQMB6AOGATiGAUYDAeUDhAEThAGIAQMB2AN7QntNAwHWA4IBOIIBSAMB1QOHATiHAUIDAdMDfxV/cQMBxgOJAU2JAVsDAcQDiQG4AYkBxQEDAcIDoQEToQFlAwGkA50BFZ0BcQMBlwOxATixAUYDAZQDrwETrwGHAQMBhwOmAUKmAU0DAYUDrQE4rQFIAwGEA7IBOLIBQgMBggOqARWqAXEDAfUCtAFNtAFbAwHzArQBuAG0AcUBAwHxAtEBE9EBZwMB0wLUARPUAVoDAcYC1wET1wFfAwG5AsgBFcgBbwMBrALNARXNAXEDAZ8C4QET4QFlAwGRAt0BFd0BcQMBhALxATjxAUYDAYEC7wET7wGHAQMB9AHmAULmAU0DAfIB7QE47QFIAwHxAfIBOPIBQgMB7wHqARXqAXEDAeIB+wET+wFlAwHUAfcBFfcBcQMBxwGLAjiLAkYDAcQBiQITiQKHAQMBtwGAAkKAAk0DAbUBhwI4hwJIAwG0AYwCOIwCQgMBsgGEAhWEAnEDAaUBjgJNjgJbAwGjAY4CuAGOAsUBAwGhAZICFZICcQMBkwE=</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="794,62" />
+      <sap2010:ViewStateData Id="InvokeMethod_1" sap:VirtualizedContainerService.HintSize="218,134" />
+      <sap2010:ViewStateData Id="InvokeMethod_2" sap:VirtualizedContainerService.HintSize="218,134" />
+      <sap2010:ViewStateData Id="AddToCollection`1_1" sap:VirtualizedContainerService.HintSize="218,22" />
+      <sap2010:ViewStateData Id="Sequence_10" sap:VirtualizedContainerService.HintSize="240,494">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="464,644">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="200,51">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="InvokeMethod_3" sap:VirtualizedContainerService.HintSize="218,134" />
+      <sap2010:ViewStateData Id="InvokeMethod_4" sap:VirtualizedContainerService.HintSize="218,134" />
+      <sap2010:ViewStateData Id="AddToCollection`1_2" sap:VirtualizedContainerService.HintSize="218,22" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="240,494">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_2" sap:VirtualizedContainerService.HintSize="464,644">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="200,51">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="InvokeMethod_14" sap:VirtualizedContainerService.HintSize="218,134" />
+      <sap2010:ViewStateData Id="InvokeMethod_12" sap:VirtualizedContainerService.HintSize="218,134" />
+      <sap2010:ViewStateData Id="InvokeMethod_13" sap:VirtualizedContainerService.HintSize="218,134" />
+      <sap2010:ViewStateData Id="InvokeMethod_9" sap:VirtualizedContainerService.HintSize="218,134" />
+      <sap2010:ViewStateData Id="InvokeMethod_10" sap:VirtualizedContainerService.HintSize="218,134" />
+      <sap2010:ViewStateData Id="AddToCollection`1_3" sap:VirtualizedContainerService.HintSize="218,22" />
+      <sap2010:ViewStateData Id="InvokeMethod_11" sap:VirtualizedContainerService.HintSize="218,134" />
+      <sap2010:ViewStateData Id="Sequence_8" sap:VirtualizedContainerService.HintSize="240,1190">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_4" sap:VirtualizedContainerService.HintSize="464,1340">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_9" sap:VirtualizedContainerService.HintSize="486,1464">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Parallel_1" sap:VirtualizedContainerService.HintSize="794,97" />
+      <sap2010:ViewStateData Id="InvokeMethod_5" sap:VirtualizedContainerService.HintSize="218,136" />
+      <sap2010:ViewStateData Id="InvokeMethod_8" sap:VirtualizedContainerService.HintSize="218,136" />
+      <sap2010:ViewStateData Id="InvokeMethod_7" sap:VirtualizedContainerService.HintSize="218,136" />
+      <sap2010:ViewStateData Id="Sequence_7" sap:VirtualizedContainerService.HintSize="240,612">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_3" sap:VirtualizedContainerService.HintSize="794,51">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_6" sap:VirtualizedContainerService.HintSize="816,414">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Texxtoor.BusinessLayer.Workflows.ProductCreationWorkflow_1" sap:VirtualizedContainerService.HintSize="856,494" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

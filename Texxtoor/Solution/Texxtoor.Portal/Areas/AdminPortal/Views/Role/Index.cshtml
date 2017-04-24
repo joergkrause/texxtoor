@@ -1,0 +1,31 @@
+﻿@model List<Texxtoor.DataModels.Models.Users.Role>
+@{
+  PageData["Title"] = "Index";
+  Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+<div class="well well-sm">
+  &nbsp;
+  @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-sm btn-primary pull-right" })
+  &nbsp;
+</div>
+<table class="table table-condensed">
+  <tr>
+    <th>
+      RoleName
+    </th>
+    <th>
+    </th>
+  </tr>
+  @foreach (var item in Model) {
+    <tr>
+      <td>
+        @Html.DisplayFor(modelItem => item.UserRole)
+      </td>
+      <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-xs btn-default" })
+        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-xs btn-default" })
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-xs btn-danger" })
+      </td>
+    </tr>
+  }
+</table>

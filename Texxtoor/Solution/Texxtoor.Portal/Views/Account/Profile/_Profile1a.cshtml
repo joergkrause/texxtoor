@@ -1,0 +1,35 @@
+﻿@model Texxtoor.DataModels.Models.Users.UserProfile
+@using (Html.BtFieldset(Loc("lgnd1", "UI Settings"))) {
+  @Html.LabelFor(m => m.RunControl.UiLanguage, new { @class = "control-label col-sm-3" })
+  <div class="editor-field-accordion">
+    @Html.CultureSelectionDropDown(Model.RunControl.UiLanguage, "UiLanguage", "UiLanguage", "width20")
+    @Create.FieldHelpIcon(Html, m => m.RunControl.UiLanguage)
+  </div>
+  @Html.LabelFor(m => m.RunControl.Complexity, new { @class = "control-label col-sm-3" })
+  <div class="editor-field-accordion">
+    @(Html.DropdownForEnum<Texxtoor.DataModels.Models.Common.Complexity>("RunControl.Complexity", Model.RunControl.Complexity))
+    @Create.FieldHelpIcon(Html, m => m.RunControl.Complexity)
+  </div>
+  @Loc("lgndtext", "Changes in this block force the application to refresh to apply settings. Login will be preserved.")
+}
+@using (Html.BtFieldset(Loc("lgnd2", "Login Information"))) {
+  <div class="well well-sm">
+    @Loc("lgnd2text", "This informs you how you have been logged on and how the logins are linked.")
+  </div>
+  @Html.LabelFor(m => m.User.Logins, new { @class = "control-label col-sm-3" })
+  if (Model.User.Logins != null && Model.User.Logins.Any()) {
+    foreach (var item in Model.User.Logins) {
+      <div class="editor-field-accordion">
+        &rArr; @Loc("lblLogon", "You can logon to texxtoor using your {0} account", item.LoginProvider)
+      </div>
+    }
+  }
+  <div class="editor-field-accordion">
+    @if (Model.User.Password == null) {
+    <span class="label label-danger">@Loc("lblNoPw", "A local account does not exists. Use the logon methods mentioned above.")</span>
+    } else {
+    <span class="label label-success">@Loc("lblHasPw", "A local account exists. You can logon directly to the platform.")</span>
+    }
+  </div>
+}
+

@@ -1,0 +1,84 @@
+﻿@model Texxtoor.ViewModels.Author.PublishProject
+@{
+  PageData["Title"] = Loc("titlePublMain", "Publish a Book");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("textPubl", @"You're about publishing a book. Once published the book will be made available immediately to the public
+according your marketing settings. Subsequent marketing action start after being published. The publish workflow may take some
+time and you can watch progress and success any time from here");
+}
+@section HeadContent {
+  <script>
+    $(function() {
+      $('#publishButton').attr('disabled', 'disabled');
+      $('.opusSelection').click(function() {
+        var id = $('input[name=opus]:checked').val();
+        if (id != undefined) {
+          $('#publishButton').removeAttr('disabled');
+        }
+      });
+      if ($('#project').length == 1) {
+        $('#project').on('change click', function() {
+          var v = $(this).val();
+          if (v != 0) {
+            Publishables(v, 0);
+          }
+        });
+      }
+      var id = @(Model == null ? 0 : Model.Project.Id);
+      if (id != 0) {
+        Publishables(id, 0);
+      }
+    });
+
+    function Publishables(id, page, order, dir) {
+      if (id) {
+        $.ajax({
+          url: '@Url.Action("Publishables")',
+          traditional: true,
+          data: { id: id, page: page, order: order, dir: dir },
+          cache: false,
+          dataType: "html",
+          success: function(data) {
+            $('#formPublishables .box-content').html(data);
+            $('#formPublishables').show();
+            SetTableBehavior();
+          }
+        });
+      }
+    }
+  </script>
+  @Script.SetTableBehavior(true)
+}
+@if (Model == null) {
+  @Html.Action("PublishableProjects")
+  if ((bool) ViewBag.NoAddressForPublish) {
+    using (Html.BtDiv(BtStyle.AlertAndError)) {
+      @Loc("warnAddress", "You cannot publish any texts because you don't have provided a valid address in your profile (My Data). This is necessary to create a contract and handle your royalties.")
+    }
+  }
+}
+else {
+  <h2>@Loc("titlePublishing", "Publishing Procedure")</h2>
+}
+@Html.ValidationSummary()
+@Create.ContentFormEmpty("formPublishables", Loc("titleForm", "Publishable Texts").ToHtmlString())
+<div class="error hidden">
+  @Loc("titleNoPublishReasons", @"This project does not yet contain any publishable books. A book is publishable, if:<ul><li>All contributors confirmed the shares or payments</li><li>All defined milestones are done</li><li>The book remains active</li></ul>")
+</div>
+@section helpSection {
+  <p>
+    @Loc("textProc", @"On the following page you can collect the content from workrooms, change title, subtitle, cover, and how the authors appear.
+Addtionally, you can modifiy the marketing settings, add a homepage, blog, or wiki to this title. For social network support
+you can adda Facebook or MySpace page, or send messages to some other social network sites. ")
+  </p>
+  <p>
+    @Loc("title", @"The default option creates allows you to create and market your work actively at major stores, such as Kindle, Apple iBook, or in print.
+                         You may charge for this and configure an ISBN for public catalogues. The work will always appear on <strong>texxtoor</strong>.
+                         The 'Quick Publish' option (check box) makes your content publicly available as an RSS feed. You cannot charge for this. It will not appear
+                         in the catalog but is still available through the Matrix search and, if permitted, for other authors.")
+  </p>
+}
+@Create.ActionTask("service", false, Url.Action("Index", "Service", null), ViewResources.TasksButton_ToService)
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", true, Url.Action("RecentlyPublished", "Publishing", null), ViewResources.TasksButton_RecentlyPublished)
+@Create.ActionTask("", true, Url.Action("Imprint", "Publishing", null), ViewResources.TasksButton_Imprint)

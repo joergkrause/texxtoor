@@ -1,0 +1,51 @@
+﻿@using System.Xml
+@model IEnumerable<Texxtoor.DataModels.Models.Cms.CmsMenu>
+@{
+  var name = System.Web.Configuration.WebConfigurationManager.AppSettings["texxtoor:twittername"];
+}
+<script>
+  $(function () {
+    $.ajax({
+      url: '@Url.Action("GetTwitter", "Community")',
+      type: 'get',
+      dataType: 'json',
+      success: function (data) {
+        $.each(data, function (i, item) {
+          $('#twitImage').attr('title', item.user.description);
+          if (item.entities && item.entities.urls.length > 0) {
+            var href = item.entities.urls[0].url;
+            $("#tweetFeed").append("<div class='tweetCloud'><div id='tweetArrow'></div><div id='tweetText'><a target='_blank' href='" + href + "'>" + item.text + "</a></div></div><hr />");
+          } else {
+            $("#tweetFeed").append("<div class='tweetCloud'><div id='tweetArrow'></div><div id='tweetText'>" + item.text + "</div></div><hr />");
+          }
+        })
+      },
+      error: function (data) {
+        $("#tweetFeed").empty().append('<span style="color:red">No tweets</span>'); 
+      }
+    })
+  });
+</script>
+<div class="sidemenu">
+  @if (Model != null && Model.Any()) {
+    <ul class="sidemenu">
+      @foreach (var menu in Model.Take(4)) {
+        <li><a href="@Url.BuildMenuLink(menu)">@menu.Title</a></li>
+      }
+    </ul>
+  }
+
+  <table class="table  table-condensed">
+    <tr>
+      <td >
+        <a href="http://twitter.com/joergisageek">
+          <img src="https://pbs.twimg.com/profile_images/2508585196/8hyidswmqi61k71xqtff_mini.jpeg" id="twitImage" alt="twitImage" />
+        </a>
+      </td>
+      <td>
+        <div style="overflow-y: scroll; max-height: 150px; overflow-x: hidden; font-size:0.6em" id="tweetFeed">
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

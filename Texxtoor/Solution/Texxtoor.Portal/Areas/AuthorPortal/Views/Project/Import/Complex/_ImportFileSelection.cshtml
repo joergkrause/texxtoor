@@ -1,0 +1,5 @@
+﻿@model int
+<p>
+@Loc("text1", @"If everything is fine just create the project now and start publishing").
+</p>
+@Create.ActionTask("btnSave", false, Url.Action("SaveProjectFromImport", new { id = Model }), ViewResources.Action_OpusFileImport)

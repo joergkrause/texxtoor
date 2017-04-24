@@ -1,0 +1,9 @@
+﻿@model Pair
+@{
+  ViewBag.Title = "ShowHtml";
+}
+<h2>Show Html</h2>
+<p>
+  Show generated content for document <em>@Model.First</em>
+</p>
+<iframe id="rawContent" src="@Model.Second" style="width:1000px; height:800px; border: 2px solid silver" scrolling="yes"></iframe>

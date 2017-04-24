@@ -1,0 +1,24 @@
+﻿@{
+  PageData["Title"] = Loc("lblTitle", "Feature Not Available");
+  Layout = "~/Views/Shared/_LayoutCommon.cshtml";
+}
+<div class="wrapper">
+  <div id="headerbar">
+    @Html.Partial("_LogoHead", new { area = "" })
+  </div>
+  <div id="menubar">
+    <h2>@Loc("text1", "OOPS! This Function has not yet been finished...")</h2>
+  </div>
+</div>
+<div id="body">
+  <p>
+    @Loc("text2", @"While the core functions are open for some testing and preview, a lot more sophisticated stuff is on the way. 
+      If you got here accidentially just click {0} or the logo.", Html.ActionLink(Loc("lbllnk", "here").ToString(), "Index", "Home"))
+  </p>
+  <img src="~/Content/images/hammericon-beta.png" alt="Hammer" />
+  <p>
+  </p>
+</div>
+<div id="pagefooter">
+  @Html.Action("Show", "Navigation", new { menuName = "footer", area = "" })
+</div>

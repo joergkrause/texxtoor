@@ -1,0 +1,20 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@model IEnumerable<Texxtoor.DataModels.Models.Content.TemplateGroup>
+@{
+  PageData["Title"] = Loc("title1", "App Production");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("textPrev1", @"Create an app for various platforms and invoke the store deployment process.");
+}
+@section HeadContent{
+  @RenderPage("_Script.cshtml")
+}
+<h2>@Loc("titleApp", "Make an App ")</h2>
+<div class="well well-sm">
+  @Loc("txtApp", @"You have to activate the app module to get a live preview oin your apps. Once activated, the app will provide the 
+    preview feature. .")
+</div>
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects )
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = ViewBag.ProjectId }), ViewResources.LinkButton_ToDashboard )
+@Create.ActionTask("", false, Url.Action("Index", "Publishing", new { id = ViewBag.ProjectId }), ViewResources.LinkButton_Publishing )
+@Create.ActionTask("", true, Url.Action("PdfProduction", "Production", new { id = ViewBag.OpusId }), ViewResources.TasksButton_ProductionPreview + " PDF")
+@Create.ActionTask("", true, Url.Action("EpubProduction", "Production", new { id = ViewBag.OpusId }), ViewResources.TasksButton_ProductionPreview + " EPUB")

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Cms.CmsMedia>
+
+@{
+    PageData["Title"] = "Media";
+    Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+<div class="well">  
+  @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-sm btn-primary pull-right" })
+  This page shows the avilable madia supported on user check out.
+</div>
+<table class="table table-bordered table-condensed">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Culture
+        </th>
+        <th>
+            Is Fallback
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocaleId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsFallback)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-xs btn-primary" })
+            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-xs btn-default" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-xs btn-warning" })
+        </td>
+    </tr>
+}
+
+</table>

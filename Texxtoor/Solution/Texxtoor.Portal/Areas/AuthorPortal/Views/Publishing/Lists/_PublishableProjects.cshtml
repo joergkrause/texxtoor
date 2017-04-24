@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Content.Project>
+@using (Html.BtPanel(Loc("intro", "Please select a project you wish to publish a text from."), "green")){
+<select name="project" id="project">
+  <option value="0">@ViewResources.DropList_Publish_SelectProject</option>
+  @foreach (var project in Model) {
+    <option value="@project.Id">@project.Name (@project.CreatedAt.ToShortDateString())</option>
+  }
+</select>  
+}

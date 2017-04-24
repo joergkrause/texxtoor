@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DD4E4B0B-7B5C-43F8-B47F-6C36D20283A9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Texxtoor.DataModels</RootNamespace>
+    <AssemblyName>Texxtoor.DataModels</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.1.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAnnotations\CommandAttribute.cs" />
+    <Compile Include="DataAnnotations\LinkCommandAttribute.cs" />
+    <Compile Include="DataAnnotations\DropCommandAttribute.cs" />
+    <Compile Include="Context\IUnitOfWork.cs" />
+    <Compile Include="Context\PortalContext.cs" />
+    <Compile Include="Context\ContextFactory.cs" />
+    <Compile Include="DataAnnotations\ValidateZipCode.cs" />
+    <Compile Include="Exceptions\CmsException.cs" />
+    <Compile Include="Exceptions\ItemNotFoundException.cs" />
+    <Compile Include="Exceptions\PageNotFoundException.cs" />
+    <Compile Include="Models\Author\ContributorRatio.cs" />
+    <Compile Include="Models\Author\ContributorMatrix.cs" />
+    <Compile Include="Models\Author\Enum\ContributorRole_Enum.cs" />
+    <Compile Include="Models\Author\Enum\ShareType_Enum.cs" />
+    <Compile Include="Models\Author\Invoice.cs" />
+    <Compile Include="Models\Author\WorkitemChat.cs" />
+    <Compile Include="Models\Author\WorkflowHistory.cs" />
+    <Compile Include="Models\Author\WorkflowStepDefinition.cs" />
+    <Compile Include="Models\Author\Workflow.cs" />
+    <Compile Include="Models\Author\TermSet.cs" />
+    <Compile Include="Models\Author\Term.cs" />
+    <Compile Include="Models\Author\WorkroomChat.cs" />
+    <Compile Include="Models\Cms\StatusCode_Enum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Common\RunControl.cs" />
+    <Compile Include="Models\Common\WizardWorkflow.cs" />
+    <Compile Include="Models\Common\MessageText.cs" />
+    <Compile Include="Models\Common\CountryLanguages.cs" />
+    <Compile Include="Models\Common\City.cs" />
+    <Compile Include="Models\Common\Country.cs" />
+    <Compile Include="Models\Common\Message.cs" />
+    <Compile Include="Models\Content\Attributes\EditorServiceWrapperAttribute.cs" />
+    <Compile Include="Models\Content\Attributes\SnippetElementAttribute.cs" />
+    <Compile Include="Models\Content\Behaviors\CreateImageHandler.cs" />
+    <Compile Include="Models\Content\Behaviors\ImageJsonBehavior.cs" />
+    <Compile Include="Models\Content\Behaviors\JsonBehavior.cs" />
+    <Compile Include="Models\Content\Behaviors\ListingJsonBehavior.cs" />
+    <Compile Include="Models\Content\Behaviors\ResultJsonBehavior.cs" />
+    <Compile Include="Models\Content\Behaviors\SectionJsonBehavior.cs" />
+    <Compile Include="Models\Content\Behaviors\SidebarJsonBehavior.cs" />
+    <Compile Include="Models\Content\Behaviors\TableJsonBehavior.cs" />
+    <Compile Include="Models\Content\Behaviors\TextJsonBehavior.cs" />
+    <Compile Include="Models\Content\Behaviors\TitledJsonBehavior.cs" />
+    <Compile Include="Models\Content\ElementMatrix.cs" />
+    <Compile Include="Models\Content\Enum\SidebarType_Enum.cs" />
+    <Compile Include="Models\Content\NumberedSnippet.cs" />
+    <Compile Include="Models\Content\Properties\DocumentProperties.cs" />
+    <Compile Include="Models\Content\Properties\ListingProperties.cs" />
+    <Compile Include="Models\Content\Properties\SidebarProperties.cs" />
+    <Compile Include="Models\Content\Properties\TableProperties.cs" />
+    <Compile Include="Models\Content\SnippetBuilderAttribute.cs" />
+    <Compile Include="Models\Content\Enum\VariationType_Enum.cs" />
+    <Compile Include="Models\Content\Snippet.cs" />
+    <Compile Include="Models\Content\Element.cs" />
+    <Compile Include="Models\Content\Milestones.cs" />
+    <Compile Include="Models\Content\Opus.cs" />
+    <Compile Include="Models\Content\Resources.cs" />
+    <Compile Include="Models\Content\Enum\ResourceType_Enum.cs" />
+    <Compile Include="Models\Content\Snippets.cs" />
+    <Compile Include="Models\Content\Section.cs" />
+    <Compile Include="Models\Content\State_Enum.cs" />
+    <Compile Include="Models\Content\Tenant\Enum\TemplateGroup.cs" />
+    <Compile Include="Models\Content\Tenant\TemplatesGroup.cs" />
+    <Compile Include="Models\Content\Tenant\Templates.cs" />
+    <Compile Include="Models\JobPortal\JobApplication.cs" />
+    <Compile Include="Models\JobPortal\JobCategories.cs" />
+    <Compile Include="Models\JobPortal\JobContact.cs" />
+    <Compile Include="Models\JobPortal\Enum\JobWorkType_Enum.cs" />
+    <Compile Include="Models\JobPortal\Enum\JobContractType_Enum.cs" />
+    <Compile Include="Models\JobPortal\JobCVs.cs" />
+    <Compile Include="Models\JobPortal\JobAd.cs" />
+    <Compile Include="Models\Cms\Localization\ResourceBase.cs" />
+    <Compile Include="Models\Marketing\ClickCount.cs" />
+    <Compile Include="Models\Marketing\Enum\MarketingPackageType_Enum.cs" />
+    <Compile Include="Models\Marketing\Enum\ClickSourceType_Enum.cs" />
+    <Compile Include="Models\Marketing\Imprint.cs" />
+    <Compile Include="Models\Marketing\Isbn.cs" />
+    <Compile Include="Models\Marketing\IsbnStore.cs" />
+    <Compile Include="Models\Marketing\SalesTracking.cs" />
+    <Compile Include="Models\Cms\CmsMenu.cs" />
+    <Compile Include="Models\Cms\CmsMenuItem.cs" />
+    <Compile Include="Models\Cms\CmsPage.cs" />
+    <Compile Include="Models\Common\ContactFormRequest.cs" />
+    <Compile Include="Models\Reader\Content\CatalogTypeConverter.cs" />
+    <Compile Include="Models\Reader\Content\Cover.cs" />
+    <Compile Include="Models\Reader\Content\Enum\WorkType_Enum.cs" />
+    <Compile Include="Models\Reader\Content\Enum\NavLevel_Enum.cs" />
+    <Compile Include="Models\Reader\Content\ExternalPublishers.cs" />
+    <Compile Include="Models\Reader\Content\PeerReview.cs" />
+    <Compile Include="Models\Reader\Content\Enum\FragmentType_Enum.cs" />
+    <Compile Include="Models\Reader\Content\MediaFiles.cs" />
+    <Compile Include="Models\Reader\Content\WorkingFragment.cs" />
+    <Compile Include="Models\Reader\Content\FrozenFragment.cs" />
+    <Compile Include="Models\Marketing\MarketingPackage.cs" />
+    <Compile Include="Models\Reader\Content\Product.cs" />
+    <Compile Include="Models\Reader\Content\Work.cs" />
+    <Compile Include="Models\Reader\Content\WorkChat.cs" />
+    <Compile Include="Models\Reader\Functions\Enum\CommentType_Enum.cs" />
+    <Compile Include="Models\Reader\Functions\Forum.cs" />
+    <Compile Include="Models\Reader\Functions\Bookmark.cs" />
+    <Compile Include="Models\Reader\Functions\Comment.cs" />
+    <Compile Include="Models\Reader\Functions\ComplexType\ThreadHistory.cs" />
+    <Compile Include="Models\Reader\Functions\QuestionsAnswers.cs" />
+    <Compile Include="Models\Reader\Functions\Enum\QandAType_Enum.cs" />
+    <Compile Include="Models\Reader\Functions\Discussion.cs" />
+    <Compile Include="Models\Reader\Functions\Theme.cs" />
+    <Compile Include="Models\Reader\Functions\ReaderGroup.cs" />
+    <Compile Include="Models\Reader\Orders\FullFillmentState_Enum.cs" />
+    <Compile Include="Models\Services\SessionModel.cs" />
+    <Compile Include="Models\Services\SearchModel.cs" />
+    <Compile Include="Models\Reader\Orders\OrderDeliveryAddress.cs" />
+    <Compile Include="Models\Reader\Orders\OrderInvoiceAddress.cs" />
+    <Compile Include="Models\Reader\Orders\OrderProduct.cs" />
+    <Compile Include="Models\Reader\Orders\OrderStore.cs" />
+    <Compile Include="Models\Author\TeamModel.cs" />
+    <Compile Include="Models\Users\Account.cs" />
+    <Compile Include="Models\Users\Account\TexxtoorLogin.cs" />
+    <Compile Include="Models\Users\Account\TexxtoorUserClaim.cs" />
+    <Compile Include="Models\Users\Account\TexxtoorUserRole.cs" />
+    <Compile Include="Models\Users\Enum\AvailabilityKind_Enum.cs" />
+    <Compile Include="Models\Users\Enum\CreatorBadge_Enum.cs" />
+    <Compile Include="Models\Users\Enum\ManageMessageId_Enum.cs" />
+    <Compile Include="Models\Users\Enum\UserRole_Enum.cs" />
+    <Compile Include="Models\Users\Tenant.cs" />
+    <Compile Include="Models\Users\TenantProperties.cs" />
+    <Compile Include="Models\Users\UserActivity.cs" />
+    <Compile Include="Models\Users\UserFile.cs" />
+    <Compile Include="Models\Users\Enum\UserBadge_Enum.cs" />
+    <Compile Include="Models\Users\LanguageMatrix.cs" />
+    <Compile Include="Models\Users\Enum\LanguageLevel_Enum.cs" />
+    <Compile Include="Models\Users\Enum\TargetType_Enum.cs" />
+    <Compile Include="Models\Users\Enum\StageType_Enum.cs" />
+    <Compile Include="Models\Users\Enum\TransactionType_Enum.cs" />
+    <Compile Include="Models\Users\UserRating.cs" />
+    <Compile Include="Models\Users\Enum\Gender_Enum.cs" />
+    <Compile Include="Models\Users\Enum\AccountStatus_Enum.cs" />
+    <Compile Include="Models\Users\Application.cs" />
+    <Compile Include="Models\Users\ConsumerMatrix.cs" />
+    <Compile Include="Models\Users\UserProfile.cs" />
+    <Compile Include="Models\Users\Account\Role.cs" />
+    <Compile Include="Provider\TexxtoorMembershipService.cs" />
+    <Compile Include="Repository\BaseRepository.cs" />
+    <Compile Include="Repository\TeamRepository.cs" />
+    <Compile Include="Repository\ProjectRepository.cs" />
+    <Compile Include="ServiceModel\BookComment.cs" />
+    <Compile Include="ServiceModel\Bookmark.cs" />
+    <Compile Include="ServiceModel\BookMetadata.cs" />
+    <Compile Include="ServiceModel\NavElement.cs" />
+    <Compile Include="ServiceModel\Reader\SearchResult.cs" />
+    <Compile Include="ServiceModel\SessionData.cs" />
+    <Compile Include="Models\Cms\CmsMedia.cs" />
+    <Compile Include="Models\Content\Project.cs" />
+    <Compile Include="Models\Reader\Content\Catalog.cs" />
+    <Compile Include="Models\Reader\Content\Published.cs" />
+    <Compile Include="Models\Users\AddressBook.cs" />
+    <Compile Include="Models\Users\Account\User.cs" />
+    <Compile Include="Models\Users\MailModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Author\Sale.cs" />
+    <Compile Include="Models\Reader\Orders\OrderMedia.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Migrations\add-migration.ps1" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="Migrations\add-migration-local.ps1" />
+    <None Include="Migrations\update-migration-local.ps1" />
+    <None Include="packages.config" />
+    <None Include="Migrations\update-migration.ps1" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Texxtoor.BaseLibrary.Core\Texxtoor.BaseLibrary.Core.csproj">
+      <Project>{307FEABA-C5A1-47B8-A0B5-0B56D982F570}</Project>
+      <Name>Texxtoor.BaseLibrary.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Texxtoor.BaseLibrary.EBookReader\Texxtoor.BaseLibrary.EPub.csproj">
+      <Project>{9B39F2CE-1D0F-4E23-A179-827DD0F39214}</Project>
+      <Name>Texxtoor.BaseLibrary.EPub</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Texxtoor.BaseLibrary.StaticResources\Texxtoor.BaseLibrary.StaticResources.csproj">
+      <Project>{11ba5334-07fc-4497-9298-98bf7718e15e}</Project>
+      <Name>Texxtoor.BaseLibrary.StaticResources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

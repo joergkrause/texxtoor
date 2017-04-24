@@ -1,0 +1,16 @@
+﻿@model Texxtoor.DataModels.Models.Cms.CmsPage
+
+@{
+    PageData["Title"] = "Page Details";
+    Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+@using (Html.BeginForm()) {
+  using (Html.BtFieldset("Page Details")) {
+    @Html.DisplayForModel()
+  }
+
+  <div class="formsendButtons">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-sm btn-primary" })
+    @Html.ActionLink("Back to List", "Index", null, new {@class = "btn btn-sm btn-default"})
+  </div>
+}

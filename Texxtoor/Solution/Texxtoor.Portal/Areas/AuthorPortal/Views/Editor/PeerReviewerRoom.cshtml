@@ -1,0 +1,108 @@
+﻿@model Texxtoor.DataModels.Models.Content.Opus
+@{
+  PageData["Title"] = Loc("titleEdit", "Review a Book");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("textRevExpl", @"As an invited peer reviewer you can manage your reviews here. Other team members can read reviews and add comments.");
+}
+@section HeadContent {
+  <script src="~/Scripts/jquery/jrating/rating-input.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      ui = new Dialog(
+      {
+        formId: '#addReviewForm',
+        formDivId: '#addReview',
+        formAction: '@Url.Action("AddReview", new {id = Model.Id })',
+        sendBtnId: '#addReviewSendButton',
+        cancelBtnId: '#addReviewCancelButton',
+        onShow: function () {
+          $('input[data-rating][type=number]').rating();
+          $('#main').hide();
+        },
+        onClose: function () {
+          $('#main').show();
+        }
+      },
+    {
+      formId: '#editReviewForm',
+      formDivId: '#editReview',
+      formAction: '@Url.Action("EditReview")',
+      sendBtnId: '#editReviewSendButton',
+      cancelBtnId: '#editReviewCancelButton',
+      onShow: function () {
+        $('input[data-rating][type=number]').rating();
+        $('#main').hide();
+      },
+      onClose: function () {
+        $('#main').show();
+      }
+    },
+        {
+          formId: '#delReview',
+          formDivId: '#delReview',
+          formAction: '@Url.Action("DeleteReview")',
+          sendBtnId: '#delReviewSendButton',
+          cancelBtnId: '#delReviewCancelButton'
+        },
+        {
+          formId: '#main',
+          formDivId: '#main',
+          formAction: '@Url.Action("ListReviews", new { id = Model.Id })',
+          onShow: function () {
+            $('input[data-rating][type=number]').rating();
+          }
+        });
+      ui.approveReview = function (id) {        
+        $.ajax({
+          url: '@Url.Action("ApproveReview")',
+          data: { id: id },
+          type: 'GET',
+          cache: false,
+          success: function (html) {
+            $('#main').hide();
+            $('#editReview').html(html);
+            $('#editReview').show();
+            $('#approveReviewCancelButton').click(function() {
+              $('#editReview').hide();
+              $('#main').show();
+            });
+            $('#approveReviewSendButton').click(function () {
+              var url = $('form#approveReviewForm').attr('action');
+              $.ajax({
+                url: url,
+                data: $('form#approveReviewForm').serialize(),
+                type: 'POST',
+                success: function(data) {
+                  toastr.success(data.msg);
+                  ui.updateTable();
+                },
+                error: function (data) {
+                  toastr.error(data.msg);
+                }
+              });
+              $('#editReview').hide();
+              $('#main').show();
+            });
+          }
+        });
+      }
+      ui.updateTable();
+    });
+  </script>
+}
+@if (Model.IsPublished) {
+  using (Html.BtDeleteTemplate(Loc("txtDel", "You're about to reject a review permanently. Please confirm."))) {
+    @Create.FormButtonOnClick("delReviewSendButton", "", ViewResources.Action_Opus_DeleteReview, BtStyle.ButtonAndDanger)
+    @Create.FormButtonOnClick("delReviewCancelButton", "", ViewResources.Button_Cancel, BtStyle.ButtonAndDefault)
+  }
+  @Create.ContentForm("addReview", @Html.Action("AddReview"), Loc("addPanel", "Add Review").ToString())
+  @Create.ContentFormEmpty("editReview")
+  @Create.MainContentWithLoader()
+} else {
+  using (Html.BtDiv(BtStyle.AlertAndError)) {
+    @Loc("textNoPublished", @"This text was not yet published and hence can not be reviewed.")
+  }
+}
+@Create.ActionTask("", true, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", true, Url.Action("Dashboard", "Project", new { id = Model.Project.Id }), ViewResources.LinkButton_ToDashboard)
+@Create.ActionTask("", true, Url.Action("Details", "Team", new { id = Model.Project.Team.Id }), ViewResources.TasksButton_ToTeam)

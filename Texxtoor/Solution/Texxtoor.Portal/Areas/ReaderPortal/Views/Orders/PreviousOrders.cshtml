@@ -1,0 +1,46 @@
+﻿@{
+  PageData["Title"] = Loc("title", "Recent Orders");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+  PageData["ShortHelp"] = Loc("textOrder", "This is order history. You can finally remove orders or proceed with orders not yet finally fullfilled.");
+}
+@section HeadContent {
+  <script type="text/javascript">
+    $(function () {
+      ui = new Dialog(
+      {},
+      {},
+      {
+        formId: '#delProduct',
+        formDivId:
+      '#delProduct',
+        formAction:
+      '@Url.Action("DeletePreOrder")',
+        sendBtnId:
+      '#delProductSendButton',
+        cancelBtnId:
+      '#delProductCancelButton'
+      },
+    {
+      formId: '#main',
+      formDivId:
+    '#main',
+      formAction:
+    '@Url.Action("PreOrders")'
+    });
+      ui.updateTable();
+    });
+
+  </script>
+  @Script.SetTableBehavior(true)
+}
+<h2>@Loc("titleOrder", "Previous and Saved Orders")</h2>
+@using (Html.BtDeleteTemplate(Loc("textDel", "You're about to delete a product permanently. Please confirm."))) {
+  @Create.FormButtonOnClick("delProductSendButton", "", ViewResources.Action_Assembler_Products_DeleteProduct, "btn-danger")
+  @Create.FormButtonOnClick("delProductCancelButton", "", ViewResources.Button_Cancel)
+}
+@Create.MainContentWithLoader()
+@Create.ActionTask("", true, Url.Action("Archive", "Account", new { area = "" }), ViewResources.TasksButton_Reader_Archive)
+@Create.ActionTask("", true, Url.Action("Library", "Reader"), ViewResources.TasksButton_Reader_Library)
+@Create.ActionTask("", true, Url.Action("Matrix", "Home"), ViewResources.LinkButton_Reader_Matrix)
+@Create.ActionTask("", true, Url.Action("Products", "Products"), ViewResources.LinkButton_Reader_Products)
+@Create.ActionTask("", false, Url.Action("Order", "Orders"), ViewResources.LinkButton_Reader_CurrentOrder)

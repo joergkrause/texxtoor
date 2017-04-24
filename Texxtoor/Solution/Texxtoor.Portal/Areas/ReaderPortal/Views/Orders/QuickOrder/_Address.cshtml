@@ -1,0 +1,25 @@
+﻿@model Texxtoor.DataModels.Models.Users.AddressBook
+@if (ViewBag.Message != null) {
+  <text>
+  <div class="alert alert-danger">
+    @ViewBag.Message
+  </div>
+  </text>
+}
+@using (Html.BeginForm("QuickAddress", "Orders", new { id = Model.Id }, FormMethod.Post, new {
+  @class = "quickForm",
+  data_next_invalid_tab = "formAddress",
+  data_next_error_tab = "formAddress",
+  data_next_success_tab = "formMedia",
+  data_next_form_url = Url.Action("QuickMedia"),
+  data_next_form_target = "formPayment",
+  data_next_form_id = ViewBag.PublishedId
+})) {  
+  @Html.ValidationSummary(true, "Please correct errors.")
+  using (Html.BtFieldset(Loc("legend", @"Shipping and Invoice Address"))) {
+  @Html.EditorForModel(new { readOnly = "Default,Invoice" })  
+    <div class="formsendButtons">
+      <button id="btnAddress" data-next-tab="4" data-form class="btn btn-primary btn-sm">@ViewResources.Action_Product_ConfirmAddress</button>
+    </div>
+  }
+}

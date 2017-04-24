@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="Texxtoor.AzurePortal" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2014-01.2.3">
+  <Role name="Texxtoor.Portal">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=texxtoor;AccountKey=PHe4QoxQ1pSWpDXAj9ArOwptTq1uCQX4Tf5UU9UPyjtJQR9v5/t2J34zF0AXMRQUM0BH4u66HoTGJzpdFNfPnw==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="joerg" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEFmsbazRyBCSR7YWIpN6dM8wDQYJKoZIhvcNAQEBBQAEggEAjkFTPrvjIbyD56PFa63XlsoU0MXc8JMU5fBmGOHW73rfER3DrtLENk4zOzdG7mL0jM3C0HPvEBHp6ol+jONfhGXQ8hIcVwN1GQIV1hg/xMtvezIyRg/uEOzxvO7fWW2njluHn4NAoknPem8SyzBwGaf8p84LTczs5LymreWCgZLsrZ8Ht33P7m/lsSyHxyvXH4esiuUWIZK255HImbS4+2GqhJyslotR37qvE5khCaFoCdq+hzNNoqOLBSGEGWQYUXjC4Z8aT2fNqSzIgm07JXiC3E1NrXk9dIUPevYJaNS4+XNtGio/VbIryJiITvSz4myKJxA8MfUayEODtSFYTDAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECFk3EvRSwNuBgBB+uPJvnANyDQynbAVOtXn9" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2014-12-31T23:59:59.0000000+01:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="87F26C8EB80FBF08FD8DF7769A9E5AA3BCCA2650" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

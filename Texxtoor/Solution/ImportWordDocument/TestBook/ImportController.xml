@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Imports>
+  <Import Name="Wundmanager">
+    <Mapping>Handbuch</Mapping>
+    <Path>TestBook/soleosoft</Path>
+    <Files>
+      <File>Lastenheft_wundmanager_vers  1 4_17-09-12.docx</File>
+    </Files>
+  </Import>
+  <Import Name="ASP.NET Extensibility">
+    <Mapping>Apress</Mapping>
+    <Path>TestBook/JKrause-ASPNET_Ext/</Path>
+    <Files>
+      <File>1.Introduction.docx</File>
+      <File>ASPNETEXT_Chapter_01_V1.0.docx</File>
+      <File>ASPNETEXT_Chapter_02_V1.0.docx</File>
+      <File>ASPNETEXT_Chapter_03_V1.0.docx</File>
+      <File>ASPNETEXT_Chapter_04_V1.0.docx</File>
+      <File>ASPNETEXT_Chapter_05_V1.0.docx</File>
+      <File>ASPNETEXT_Chapter_06_V1.0.docx</File>
+      <File>ASPNETEXT_Chapter_07_V1.0.docx</File>
+      <File>ASPNETEXT_Chapter_08_V1.0.docx</File>
+      <File>ASPNETEXT_Chapter_09_V1.0.docx</File>
+    </Files>
+  </Import>
+  <Import Name="RIA Services">
+    <Mapping>MSPress</Mapping>
+    <Path>TestBook/BrianNoyes-WCF_RIA_Services</Path>
+    <Files>
+      <File>WCF RIA Services - Brian Noyes.docx</File>
+    </Files>
+  </Import>
+  <Import Name="WP 7.5">
+    <Mapping>MSPress</Mapping>
+    <Path>TestBook/AndreaBoschin-WP7.5_Fundamentals</Path>
+    <Files>
+      <File>WP7.5_Fundamentals Andrea Boschin.docx</File>
+    </Files>
+  </Import>
+</Imports>

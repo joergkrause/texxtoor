@@ -1,0 +1,141 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@model IPagedList<Texxtoor.DataModels.Models.Content.Milestone>
+@if (!Model.Any()) {
+  <span class="ColorRed">
+    @Loc("textNoMs", @"There are no milestones assigned to this workroom")
+  </span>
+} else {
+  @Html.Partial("_Pagination", PaginationViewModel<Milestone>.Create(Model,
+  "javascript:UpdateTable({page}, '{order}', '{dir}', {pagesize});",
+   new List<IDictionary<string, string>> {
+   new Dictionary<string, string> {
+    {"id", "showAllComments"},
+    {"text", Loc("all", "Show All Comments").ToString() },
+    {"cssclass", BtStyle.ButtonInfo} },
+    new Dictionary<string, string> {
+    {"id", "hideAllComments"},
+    {"text", Loc("hide", "Hide All Comments").ToString() },
+    {"cssclass", BtStyle.ButtonInfo} }
+  },
+  true, m => m.Name))
+  <div class="multilist">
+    @foreach (var item in Model) {
+      <div class="listitem">
+        <div class="firstRow pull-left">
+          @switch (item.Progress) {
+            case 0:
+              <img src="~/Content/icons/Project/trafficlight_off_32.png" alt="@item.Description" class="TopVertical" />
+              <strong>@item.Name</strong> <span class="badge badge-warning">@item.Progress %</span>
+              break;
+            case 100:
+              <img src="~/Content/icons/Project/trafficlight_green_32.png" alt="@item.Description" class="TopVertical" />
+              <strong>@item.Name</strong> <span class="badge badge-success">@item.Progress %</span>
+              break;
+            default:
+              <img src="~/Content/icons/Project/trafficlight_yellow_32.png" alt="@item.Description" class="TopVertical" />
+              <strong>@item.Name</strong> <span class="badge badge-inverse">@item.Progress %</span>
+              break;
+          }
+        </div>
+        <div class="firstRow MileStonesFinishTd">
+          @if (item.Overdue) {
+            <span class="ShowMilestoneSpan1">!</span>
+          }
+
+        </div>
+        <div class="secondRow">
+          <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+          <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+
+            @Loc("textMsTable", @"The milestone <em><span data-args='0' data-desc='Name'>{0}</span></em>,
+                  assigned to user <em><span data-args='1' data-desc='User'>{1}</span></em>
+                  at <em><span data-args='2' data-desc='Assigned'>{2}</span></em>
+                  is due at <em style='color:red'><span data-args='3' data-desc='Due'>{3}</span></em>.
+                  The current progress <em><span data-args='4' data-desc='Progress'>{4}</span>%</em>.
+                  The milestone is <em><span data-args='5' data-desc='Done'>{5}</span></em>.",
+              item.Name,
+              item.Owner.Member.UserName,
+              
+              item.DateAssigned.ToShortDateString(),
+              item.DateDue.ToShortDateString(),
+              item.Progress,
+              (item.Done ? Loc("txtDone", "done").ToString() : Loc("txtNotDone", "not yet done").ToString()))
+            @if (item.NextMilestone != null) {
+              <div class="alert alert-warning">@Loc("textTo", @"This milestone connects to <em><span data-args='0' data-desc='Name'>{0}</span></em>.", item.NextMilestone.Name)</div>
+            }
+            @{
+            var prev = Model.FirstOrDefault(m => m.NextMilestone != null && m.NextMilestone.Id == item.Id);
+            if (prev != null) {
+              @: <div class="alert alert-warning">@Loc("textBefoere", @"Milestone <em><span data-args='0' data-desc='Name'>{0}</span></em> must be finished first.", prev.Name)</div>
+              } else {
+              @: @Loc("textIsolated", @"This milestone is isolated and can be finished any time").
+              }
+            }
+            @if (String.IsNullOrEmpty(item.Comment)) {
+              <div class="alert alert-warning">@Loc("textNoComments", @"No comments")</div>
+            }
+          </div>
+        </div>
+        <div class="thirdRow">
+          <div class="optionFields" data-item="@item.Id">
+            <small>@Loc("textOptions", @"Choose an option for this milestone"):</small><br />
+            @if (item.Owner.Member.Id == ViewBag.UserId) {
+              <a href="#" class="btn btn-sm btn-default" onclick="ChangeMilestone(@item.Id, $('#valComment-@item.Id').val(), 1)">
+                @Loc("lnkStarted", @"I've started") (1%)
+              </a>
+              @:<input id="valProgress-@item.Id" type="text" value="@item.Progress" maxlength="3" style="width: 40px; border: none; text-align: right; padding: 0px 3px;" class="MileStonesFinishAnchor" pattern="\d+" />%
+              <a href="#" class="btn btn-sm btn-default" onclick="ChangeMilestone(@item.Id, $('#valComment-@item.Id').val(), $('#valProgress-@item.Id').val())">
+                @Loc("lnkWorking", @"I'm working") (x%)
+              </a>
+              <a href="#" class="btn btn-sm btn-warning" onclick="ChangeMilestone(@item.Id, $('#valComment-@item.Id').val(), 100)">
+                @Loc("lnkDone", @"I'm done") (100%)
+              </a>
+              if (!String.IsNullOrEmpty(item.Comment)) {
+                <a href="#" class="btn btn-sm btn-info" data-action="showMore">@ViewResources.Action_Milestone_ShowHide</a>
+              }
+            } else {
+              if (ViewBag.TeamLeadId == ViewBag.UserId) {
+                <a href="#" class="btn btn-sm btn-danger" onclick="ChangeMilestone(@item.Id, $('#valcomment-@item.Id').val(), 100) ">
+                  @Loc("lnkLeadDone", @"Set as done")
+                </a>
+                if (!String.IsNullOrEmpty(item.Comment)) {
+                  <a href="#" class="btn btn-sm btn-info" data-action="showMore">@ViewResources.Action_Milestone_ShowHide</a>
+                }
+                <br />
+                <small>@Loc("textNoOptionsLead", @"There are no other options because you're not responsible for this milestone. As a team lead you can forcefully end the step.")</small>
+              } else {
+                <br />
+                <small>@Loc("textNoOptions", @"There are no options because you're not responsible for this milestone. Contact your team lead.")</small>
+              }
+            }
+            <br /><small>@Loc("commentText", "Comment your decision briefly:")</small>
+            <input id="valComment-@item.Id" type="text" value="" class="MileStonesFinishInput" maxlength="100" />
+          </div>
+          <div class="hidden-to-show" data-target-item="@item.Id">
+            <div class="pull-right" style="position:relative; top: -60px;">
+              <img src="@Url.Action("ProgressChart", "Opus", new { id = @item.Id, nc = DateTime.Now.Ticks })" />
+            </div>
+            @if (item.Comment != null) {
+              <ul>
+                @foreach (var comment in item.Comment.Split('|').Where(comment => !String.IsNullOrEmpty(comment))) {
+                  var fields = comment.Split('^');
+                  if (fields.Length != 4) {
+                    continue;
+                  }
+                  <li>
+                    @Loc("textCommentFields", @"<span data-args='0' data-desc='Field 1'>{0}</span>
+                       (by <em><span data-args='1' data-desc='Field 2'>{1}</span></em>
+                        at <em><span data-args='2' data-desc='Field 3'>{2}</span></em>
+                        at progress <em><span data-args='3' data-desc='Field 4'>{3}</span></em>%)",
+                         fields[0], fields[1], fields[2], fields[3]
+                       )
+                  </li>
+                }
+              </ul>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

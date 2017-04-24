@@ -1,0 +1,44 @@
+﻿@model Texxtoor.ViewModels.Author.Premium
+@{
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+  PageData["Title"] = Loc("", "Portal");
+}
+@section HeadContent
+{
+  <meta name="keywords" content="Static Keywords" />
+  <meta name="description" content="Static Description" />
+}
+  @using(Html.BtDiv(BtStyle.Well)) {
+@Loc("text", "This is the exclusive register page for premium authors.")
+}
+  <h2>Credentials</h2>
+  <div class="well well-sm">
+    Premium authors can participate on invitation only. If you got a card with an unique
+    ID code please enter this code here,
+    along with your name and e-mail address. You will get instant access to your free
+    account.
+  </div>
+  @using (Html.BeginForm("Premium", "Home", new { area = "" }, FormMethod.Post)) {
+    using (Html.BtFieldset("Premium Credentials")) {
+      @Html.LabelFor(m => m.Code)
+      <div class="editor-field">
+        @Html.EditorFor(m => m.Code)
+        @Html.ValidationMessageFor(m => m.Code)
+      </div>
+      @Html.LabelFor(m => m.Name)
+      <div class="editor-field">
+        @Html.EditorFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+      </div>
+      @Html.LabelFor(m => m.Email)
+      <div class="editor-field">
+        @Html.EditorFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email)
+      </div>
+      <br />
+  <input type="submit" class="btn btn-primary" value="Enter" />
+    }
+  }
+  @using(Html.BtDiv(BtStyle.AlertAndWarning)) {
+@:@ViewBag.Message
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="EPB-UUID" version="2.0">
+   <metadata xmlns:opf="http://www.idpf.org/2007/opf"
+             xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <dc:title>##Title##</dc:title>
+      <dc:creator opf:role="aut" opf:file-as="##Author##">##Author##</dc:creator>
+      <dc:date opf:event="original-publication"/>
+      <dc:date opf:event="epub-publication">##Date##</dc:date>
+      <dc:subject/>
+      <dc:identifier id="EPB-UUID">urn:uuid:##UUID##</dc:identifier>
+   </metadata>
+##files## 
+  <guide>
+    <reference href="titlepage.html" type="cover" title="Cover"/>
+  </guide> 
+</package>

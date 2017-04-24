@@ -1,0 +1,26 @@
+﻿@model Texxtoor.ViewModels.Author.MarketingSummary
+@using Texxtoor.BaseLibrary.Core.Extensions
+@{
+  PageData["Title"] = Loc("title", "Marketing");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("text1", @"Manage all your marketing activity here and monitor the success of your activities");
+}
+<h2>@Loc("titleSummary", "Summary of your activity")</h2>
+@using (Html.BtDiv(BtStyle.WellAndSmall)) {
+  @Loc("textSumm", @"You're the lead author for <em><span data-args='0' data-desc='Project Count'>{0}</span></em>. You're a
+contributor for <em><span data-args='1' data-desc='Contrib Count'>{1}</span></em>.",
+            Html.Pluralize(Model.ProjectsAsLeader, "{0} project", "{0} projects", "no"),
+            Html.Pluralize(Model.ProjectsAsMember, "{0} project", "{0} projects", "no"))
+}
+<h2>@Loc("titleSale", "Sales Success")</h2>
+@using (Html.BtDiv(BtStyle.WellAndSmall)) {
+  @Loc("textSale", @"Find all your sales and income of the past time in this summary.")
+}
+@Create.ActionTask("btnRev", true, Url.Action("Revenues", "Marketing"), ViewResources.LinkButton_Common_Revenues)
+<h2>@Loc("titleAna", "Analysis")</h2>
+@using (Html.BtDiv(BtStyle.WellAndSmall)) {
+  @Loc("textAna", @"Optimize your sales and revenues by using our sophisticate analysis tools.")
+}
+@Create.ActionTask("tskStat", true, Url.Action("Stats", "Marketing"), ViewResources.LinkButton_Common_Stats)
+@Create.ActionTask("tskPckg", true, Url.Action("MarketingPackage", "Marketing"), ViewResources.Action_Marketing_AssignPackage)
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)

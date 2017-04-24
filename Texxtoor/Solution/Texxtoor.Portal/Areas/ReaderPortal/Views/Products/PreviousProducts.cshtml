@@ -1,0 +1,39 @@
+﻿@{
+  PageData["Title"] = Loc("titlePrev", "Products from previous orders");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+}
+@section HeadContent {
+  <script type="text/javascript">
+    $(function () {
+      ui = new Dialog(
+        { },
+        {
+          formId: '#editProductForm',
+          formDivId: '#editProduct',
+          formAction: '@Url.Action("EditProduct")',
+          sendBtnId: '#editProductSendButton',
+          cancelBtnId: '#editProductCancelButton'
+        },
+        { },
+        {
+          formId: '#main',
+          formDivId: '#main',
+          formAction: '@Url.Action("PreOrders")'
+        });
+      ui.updateTable();
+      $(document).on('click', 'a.dynProperties', function () {
+        $('ul.dynProperties:visible').hide();
+        $(this).next('ul.dynProperties').toggle();        
+      });
+    });
+
+  </script>
+}
+@using(Html.BtDiv(BtStyle.Well)) {
+@Loc("textPrev", "These products are already prepared for order, but have not been processed so far.")
+}
+@Create.MainContentWithLoader()
+@Create.ActionTask("", false, Url.Action("Products", "Products"), ViewResources.LinkButton_Reader_Products)
+@Create.ActionTask("", false, Url.Action("Library", "Reader"), ViewResources.TasksButton_Reader_Library)
+@Create.ActionTask("", false, Url.Action("Matrix", "Home"), ViewResources.LinkButton_Reader_Matrix)
+@Create.ActionTask("", false, Url.Action("Index", "Home"), ViewResources.TasksButton_Reader_Catalog)

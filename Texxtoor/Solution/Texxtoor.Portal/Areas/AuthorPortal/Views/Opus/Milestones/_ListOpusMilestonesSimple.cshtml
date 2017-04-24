@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Content.Milestone>
+@if (!Model.Any()) {
+  using (Html.BtDiv(BtStyle.AlertAndWarning & BtStyle.WellSmall)){
+    @Loc("textNoMs", @"There are no milestones assigned to this book project.")
+  }
+}
+else {
+  Loc("textToggleBar", @"Click icon bar to see more details");
+  <div onclick="javascript: $('#verbose-@ViewBag.OpusId').toggle();"  >
+    @foreach (var item in Model) {
+      switch (item.Progress) {
+        case 0:
+          if (item.Overdue) {
+            <img src="~/Content/icons/Project/bullet_square_glass_red_16.png" alt="@item.Description" />
+          }
+          else {
+            <img src="~/Content/icons/Project/bullet_square_glass_grey_16.png" alt="@item.Description" />
+          }
+          break;
+        case 100:
+          <img src="~/Content/icons/Project/bullet_square_glass_green_16.png" alt="@item.Description" />
+          break;
+        default:
+          var borderStyle = item.Overdue ? "border: 2px solid darkred; margin:0; padding:0;" : "";
+          <img src="~/Content/icons/Project/bullet_square_glass_yellow_16.png" style="@borderStyle" alt="@item.Description" />
+          break;
+      }
+    }
+  </div>
+}

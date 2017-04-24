@@ -1,0 +1,24 @@
+﻿@using Texxtoor.DataModels.Models.Marketing
+@model IEnumerable<Texxtoor.DataModels.Models.Marketing.IsbnStore>
+@using (Html.BeginForm("SaveIsbn", "Publishing", FormMethod.Post, new { id = "saveIsbnForm" })) {
+  using (Html.BtFieldset(Loc("legendIsbn", @"Upload and Validate ISBN 13 Numbers"))) {
+    <label>@Loc("open", "Available ISBNs")</label>
+    <div class="editor-field">
+      <textarea style="width: 450px; height: 5em" name="isbns">@if (Model != null) {
+          foreach (IsbnStore isbn in Model.Where(i => !i.Isbn.Claimed)) { @(isbn.Isbn.Isbn13 + Environment.NewLine) }
+        }</textarea>
+      <div class="clearfix">
+        <small>@Loc("uploadIsbn", "Paste all your ISBNs in here, line by line. Format is ISBN 13 (13 digits per line)")</small>
+      </div>
+    </div>
+    <label>@Loc("claimed", "Claimed ISBNs")</label>
+    <div class="editor-field">
+      <textarea style="width: 450px; height: 3em" disabled="disabled">@if (Model != null) {
+          foreach (IsbnStore isbn in Model.Where(i => i.Isbn.Claimed)) { @(isbn.Isbn.Isbn13 + "(" + isbn.AssignedTo.Title + ")" + Environment.NewLine) }
+        }</textarea>
+    </div>
+    <div class="formsendButtons">
+      @Create.FormButtonOnClick("saveIsbnButton", "", ViewResources.Action_Isbn_Save)
+    </div>
+  }
+}

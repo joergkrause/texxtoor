@@ -1,0 +1,14 @@
+﻿@model Texxtoor.Models.ImageSnippet
+@using Texxtoor.Editor.ViewModels
+<div class="editableByTexxtoor clearfix editableImage saveableByTexxtoor" data-item='@Model.Id' data-editor="ImageEditor">  
+    @Html.Raw(String.Format(@"<div class='img' style='width:{1}; max-width:600px;'><img src='{0}'style='width:100%; height:100%' /></div>", Url.Action("GetImage", new { id = Model.Id }), 
+      (String.IsNullOrEmpty(Model.Properties) ? 300 : Json.Decode<ImageProperties>(Model.Properties).ImageWidth), 
+      (String.IsNullOrEmpty(Model.Properties) ? 300 : Json.Decode<ImageProperties>(Model.Properties).ImageHeight)))
+  <div class="snippetTitle imageEditor">
+    <span>Figure @ViewData["ChapterNumber"].@ViewData["FigureCount"]</span>
+    <input type="text" name="caption-@Model.Id" value="@Model.Name" data-item='@Model.Id' />
+    <input type="hidden" name="width-@Model.Id" value="@(Json.Decode<ImageProperties>(Model.Properties).OriginalWidth)" data-item='@Model.Id' />
+    <input type="hidden" name="height-@Model.Id" value="@(Json.Decode<ImageProperties>(Model.Properties).OriginalHeight)" data-item='@Model.Id' />
+    <input type="hidden" name="properties-@Model.Id" value="@Model.Properties" data-item='@Model.Id' />
+  </div>
+</div>

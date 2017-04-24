@@ -1,0 +1,7 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Reader.Content.Work>
+<select name="collectionSelection" id="collectionSelection" data-target="@ViewBag.TargetCollection">
+  <option value="0">@ViewResources.Action_Collection_SelectCollection_Option</option>
+  @foreach (var item in Model) {
+    <option value="@item.Id">@item.Name</option>
+  }
+</select>

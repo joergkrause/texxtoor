@@ -1,0 +1,14 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.ReaderReview
+@if (Model.PublishedWork != null) {
+  using (Html.BeginForm("AddReview", "Reader", new { area = "ReaderPortal" }, FormMethod.Post, new { id = "addReviewForm" })) {
+    using (Html.BtFieldset(Loc("legendGrp", @"Create New Review"))) {
+      <input type="hidden" value="@Model.PublishedWork.Id" name="id" />
+      @Html.EditorForModel()
+      @Button.FormSendButtons("addReviewSendButton", ViewResources.Action_Opus_CreateNewReview, "addReviewCancelButton", ViewResources.Button_CancelAndClose)
+    }
+  }
+} else {
+  using (Html.BtDiv(BtStyle.AlertAndError)) {
+    @Loc("textNoPublished", @"You cannot add a review to an unpublished text.")
+  }
+}

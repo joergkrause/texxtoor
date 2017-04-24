@@ -1,0 +1,41 @@
+﻿@model Texxtoor.DataModels.Models.Author.Invoice
+@using (Html.BeginForm("ShowInvoice", "Team", new { area = "AuthorPortal" }, FormMethod.Post, new { id = "showInvoiceForm" })) {
+  using(Html.BtFieldset(Loc("legendGrp", @"Invoice Details"))) {
+    @Html.LabelFor(m => m.Text)
+    <div class="editor-field">
+      @Model.Text
+    </div>
+    @Html.LabelFor(m => m.DueDays)
+    <div class="editor-field">
+      @Model.BillingDate.AddDays(Model.DueDays)
+    </div>
+    @Html.LabelFor(m => m.Creditor)
+    <div class="editor-field">
+      @Model.Creditor.UserName
+    </div>
+    @Html.LabelFor(m => m.Debitor)
+    <div class="editor-field">
+      @Model.Debitor.UserName
+    </div>
+    @Html.LabelFor(m => m.Paid)
+    <div class="editor-field">
+      @Model.Paid
+    </div>
+    @Html.LabelFor(m => m.TaxPercentage)
+    <div class="editor-field">
+      @Model.TaxPercentage
+    </div>
+    @Html.LabelFor(m => m.WithTax)
+    <div class="editor-field">
+      @Model.WithTax
+    </div>
+    @Html.LabelFor(m => m.Positions)
+    <div class="editor-field">
+      @foreach (var pos in @Model.Positions) {
+        @pos.Position @pos.Amount<text>&euro;</text> @pos.Text
+      }
+    </div>
+    <br /><br />
+    @Create.FormButtonOnClick("showInvoiceCancelButton", "", "Close")
+  }
+}

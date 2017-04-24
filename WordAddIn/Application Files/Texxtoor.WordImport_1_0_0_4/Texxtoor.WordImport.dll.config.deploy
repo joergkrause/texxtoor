@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<configuration>
+  <configSections>
+    <sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+      <section name="TEXXTOOR.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+    </sectionGroup>
+  </configSections>
+  <startup />
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+        <binding name="BasicHttpBinding_IUploadService" />
+      </basicHttpBinding>
+    </bindings>
+    <client>
+      <endpoint address="http://www.texxtoor.de/ServiceApi/Services/UploadService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IUploadService"
+        contract="TexxtoorAddInService.IUploadService" name="BasicHttpBinding_IUploadService" />
+    </client>
+  </system.serviceModel>
+  <applicationSettings>
+    <TEXXTOOR.Properties.Settings>
+      <setting name="TemplateName" serializeAs="String">
+        <value>TexxtoorTemplate.dotx</value>
+      </setting>
+      <setting name="AddOnName" serializeAs="String">
+        <value>\TexxtoorAddOn\</value>
+      </setting>
+      <setting name="TemplateNameDotx" serializeAs="String">
+        <value>TexxtoorTemplate.docx</value>
+      </setting>
+    </TEXXTOOR.Properties.Settings>
+  </applicationSettings>
+</configuration>

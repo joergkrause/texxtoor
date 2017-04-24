@@ -1,0 +1,102 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Orders.OrderProduct
+@{
+  PageData["Title"] = Loc("title", "Order Your Book");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+  PageData["ShortHelp"] = Loc("orderTxt", "This is your order manager. Review an order, change details, and finally check-out.");
+}
+@section HeadContent {
+  <script type="text/javascript">
+    $(function() {
+      // drop down for media stores immediately
+      $('input[name="mediaSelector"], input[name=subscription]').change(function() {
+        getPricing();
+      });
+      getPricing();
+    });
+
+    function getPricing() {
+      var ids = new Array();
+      $('input[name="mediaSelector"]:checked').each(function(idx, e) {
+        ids[idx] = $(e).val();
+      });
+      if (ids.length == 0) {
+        $('#btnPay').attr('disabled', 'disabled').css('opacity', '0.5');
+      } else {
+        $('#btnPay').removeAttr('disabled').css('opacity', '1.0');
+      }
+      $('input[type="checkbox"]').attr('disabled', 'disabled');
+      $.ajax({
+        url: '@Url.Action("OrderMedia")',
+        traditional: true,
+        data: {
+          ids: ids,
+          orderProductId: '@Model.Id',
+          subscription: $('input[name="subscription"]:checked').val()
+        },
+        type: 'POST',
+        cache: false,
+        dataType: "json",
+        success: function(data) {
+          toastr.success(data.data);
+          $('#lblFinalPriceSale').html(data.price);
+          $('#lblFinalPriceSubsc').html(data.subscription);
+          $('input[type="checkbox"]').removeAttr('disabled');
+        },
+        error: function() {
+          $('input[type="checkbox"]').removeAttr('disabled');
+        }
+      });
+    }
+
+    // Store address selection
+
+    function AddressFormSubmit(id, btn) {
+      var form = $(btn).parents('form');
+      form.validate();
+      if (form.valid()) {
+        var address = {
+          id: id,
+          country: $('select[name="Country"] option:selected').val(),
+          region: $('select[name="Region"] option:selected').val(),
+          'Name': $('[name=Name]').val(),
+          'StreetNumber': $('[name=StreetNumber]').val(),
+          'City': $('[name=City]').val(),
+          'Zip': $('[name=Zip]').val()
+        };
+        $.ajax({
+          url: '@Url.Action("OrderAddress")',
+          data: $.toJSON(address),
+          type: 'POST',
+          cache: false,
+          dataType: "json",
+          contentType: "application/json; charset=utf-8",
+          success: function(data) {
+            toastr.success(data.msg);
+          },
+          error: function(data) {
+            toastr.error(data.responseText);
+          }
+        });
+      }
+    }
+  </script>
+}
+<div class="row">
+  @Html.Action("OrderAddress", "Orders", new { id = Model.Id })
+</div>
+<div class="row">
+  @Html.Action("OrderProduct", "Orders", new { id = Model.Id })
+  @Html.Action("OrderMedia", "Orders", new { id = Model.Id })
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="well well-sm" style="height: 80px;">
+      <button id="btnPay" class="btn btn-primary btn-lg pull-right" onclick="javascript: window.location.href='@Url.Action("ExpressCheckout", "Orders", new { id = Model.Id })';">@ViewResources.TasksButton_Reader_OrderNow</button>
+      @Loc("moresteps", "Two more steps ahead: you first confirm Paypal access and checkout through Paypal in the last step.")
+    </div>
+  </div>
+</div>
+@Create.ActionTask("btnPayment", false, Url.Action("ExpressCheckout", "Orders", new { Model.Id }), ViewResources.TasksButton_Reader_PayNow)
+@Create.ActionTask("", false, Url.Action("Library", "Reader"), ViewResources.TasksButton_Reader_Library)
+@Create.ActionTask("", false, Url.Action("Matrix", "Home"), ViewResources.LinkButton_Reader_Matrix)
+@Create.ActionTask("", false, Url.Action("Products", "Products"), ViewResources.LinkButton_Reader_Products)

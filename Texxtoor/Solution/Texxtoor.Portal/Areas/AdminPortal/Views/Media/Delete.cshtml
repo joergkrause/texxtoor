@@ -1,0 +1,15 @@
+﻿@model Texxtoor.DataModels.Models.Cms.CmsMedia
+
+@{
+  PageData["Title"] = "Delete Media";
+  Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+<div class="alert  alert-warning">Are you sure you want to delete this?</div>
+@using (Html.BtFieldset("Media")) {
+  @Html.DisplayForModel()
+}
+@using (Html.BeginForm()) {
+  <p>
+    <input type="submit" value="Delete" /> @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-sm btn-primary" })
+  </p>
+}

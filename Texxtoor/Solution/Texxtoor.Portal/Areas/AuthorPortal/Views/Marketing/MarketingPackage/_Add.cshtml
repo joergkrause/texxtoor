@@ -1,0 +1,7 @@
+﻿@model Texxtoor.DataModels.Models.Marketing.MarketingPackage
+@using (Html.BeginForm("AddMarketingPackage", "Marketing", new { area = "AuthorPortal" }, FormMethod.Post, new { id = "addMarketingPackageForm" })) {
+  using (Html.BtFieldset(Loc("legend", @"Create New Package"))){
+    @Html.EditorForModel()
+    @Button.FormSendButtons("addMarketingPackageSendButton", ViewResources.Action_Marketing_CreatePackage, "addMarketingPackageCancelButton", ViewResources.Button_CancelAndClose)
+  }
+}

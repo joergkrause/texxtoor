@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:t="http://www.texxtoor.de/2014/templating">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>
+      <t:title></t:title>
+    </title>
+    <meta name="author" content="Jörg Krause, Berlin" />
+    <meta name="creator" content="texxtoor - augmented publishing platform" />
+    <meta name="description" content="Diese Vorlage erzeugt einen Buchumschlag, bestehend aus Vorder- und Rückseite (U1 und U4) auf einem Blatt." />
+    <t:configuration toc="true" imprint="false" index="false" about="false" frontcover="true" cover="false" backcover="false" />
+    <t:style src="print.css" />
+  </head>
+  <body>
+    <div class="cover">
+      <!-- back side -->
+      <div class="u4">
+        <!-- abstract, back text -->
+        <div class="back-author">
+          <t:authorname></t:authorname>
+        </div>
+        <div class="back-title">
+          <t:title></t:title>
+        </div>
+        <div class="back-subtitle">
+          <t:subtitle></t:subtitle>
+        </div>
+        <p class="abstract">
+          <t:covertext maxlength="500" ellipsis="false" breakrule="dot" />
+        </p>
+        <div class="back-about-name">Der Autor:</div>
+        <div class="back-about-author">
+          <t:img src="author" />
+          <div class="back-about-author-text">
+            <t:biography type="lead" />
+          </div>
+        </div>
+        <!-- ISBN, link, qr, pricing -->
+        <div class="back-update">
+          <p class="back-update-text">
+            Infos und Updates zu diesem Buch finden Sie unter:
+          </p>
+          <p class="back-update-link">
+            <t:updatelink></t:updatelink>
+          </p>
+        </div>
+        <div class="back-data">
+          <div class="back-fixprice">
+            <t:pricetable item="0"></t:pricetable>
+            <br/>
+            <t:pricetable item="1"></t:pricetable>
+          </div>
+          <div class="back-isbn-keywords">
+            <t:keywords></t:keywords>
+          </div>
+          <t:img src="qr" />
+          <t:img src="barcode" />
+        </div>
+      </div>
+      <div class="spine">
+        <!-- title -->
+        <p></p>
+      </div>
+      <div class="u1">
+        <!-- This is for production (product and customer request) -->
+        <!-- front cover image, full page -->
+        <t:img src="cover"></t:img>
+        <!-- title -->
+        <div class="cover-title">
+          <t:title></t:title>
+        </div>
+        <!-- sub title -->
+        <div class="cover-subtitle">
+          <t:subtitle></t:subtitle>
+        </div>
+        <!-- author -->
+        <div class="cover-author">
+          <t:authorname></t:authorname>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

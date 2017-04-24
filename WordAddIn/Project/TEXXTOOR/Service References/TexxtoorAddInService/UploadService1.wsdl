@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UploadService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://www.texxtoor.de/ServiceApi/Services/UploadService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://www.texxtoor.de/ServiceApi/Services/UploadService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://www.texxtoor.de/ServiceApi/Services/UploadService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Texxtoor.Portal.ServiceApi.Services.ServiceDtos" />
+      <xsd:import schemaLocation="http://www.texxtoor.de/ServiceApi/Services/UploadService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Texxtoor.DataModels.Models.Author" />
+      <xsd:import schemaLocation="http://www.texxtoor.de/ServiceApi/Services/UploadService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+      <xsd:import schemaLocation="http://www.texxtoor.de/ServiceApi/Services/UploadService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUploadService_UploadImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadImage" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_UploadImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_PublishDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:PublishDocument" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_PublishDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PublishDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_PublishNewDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:PublishNewDocument" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_PublishNewDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PublishNewDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetAllProjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProjects" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetAllProjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_SignOut_InputMessage">
+    <wsdl:part name="parameters" element="tns:SignOut" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_SignOut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SignOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_SignIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:SignIn" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_SignIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SignInResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetDocumentSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentSettings" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetDocumentSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_SaveComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveComment" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_SaveComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_LoadComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadComments" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_LoadComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_SemanticLists_InputMessage">
+    <wsdl:part name="parameters" element="tns:SemanticLists" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_SemanticLists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SemanticListsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetServerImages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerImages" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetServerImages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerImagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetServerImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerImage" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetServerImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetServerImageName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerImageName" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetServerImageName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServerImageNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUploadService">
+    <wsdl:operation name="UploadImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/UploadImage" message="tns:IUploadService_UploadImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/UploadImageResponse" message="tns:IUploadService_UploadImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PublishDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/PublishDocument" message="tns:IUploadService_PublishDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/PublishDocumentResponse" message="tns:IUploadService_PublishDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PublishNewDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/PublishNewDocument" message="tns:IUploadService_PublishNewDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/PublishNewDocumentResponse" message="tns:IUploadService_PublishNewDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/GetAllProjects" message="tns:IUploadService_GetAllProjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/GetAllProjectsResponse" message="tns:IUploadService_GetAllProjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SignOut">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/SignOut" message="tns:IUploadService_SignOut_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/SignOutResponse" message="tns:IUploadService_SignOut_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SignIn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/SignIn" message="tns:IUploadService_SignIn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/SignInResponse" message="tns:IUploadService_SignIn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/GetDocumentSettings" message="tns:IUploadService_GetDocumentSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/GetDocumentSettingsResponse" message="tns:IUploadService_GetDocumentSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/SaveComment" message="tns:IUploadService_SaveComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/SaveCommentResponse" message="tns:IUploadService_SaveComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/LoadComments" message="tns:IUploadService_LoadComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/LoadCommentsResponse" message="tns:IUploadService_LoadComments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SemanticLists">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/SemanticLists" message="tns:IUploadService_SemanticLists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/SemanticListsResponse" message="tns:IUploadService_SemanticLists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerImages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/GetServerImages" message="tns:IUploadService_GetServerImages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/GetServerImagesResponse" message="tns:IUploadService_GetServerImages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/GetServerImage" message="tns:IUploadService_GetServerImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/GetServerImageResponse" message="tns:IUploadService_GetServerImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerImageName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/GetServerImageName" message="tns:IUploadService_GetServerImageName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/GetServerImageNameResponse" message="tns:IUploadService_GetServerImageName_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IUploadService" type="tns:IUploadService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UploadImage">
+      <soap:operation soapAction="http://tempuri.org/IUploadService/UploadImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishDocument">
+      <soap:operation soapAction="http://tempuri.org/IUploadService/PublishDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishNewDocument">
+      <soap:operation soapAction="http://tempuri.org/IUploadService/PublishNewDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProjects">
+      <soap:operation soapAction="http://tempuri.org/IUploadService/GetAllProjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignOut">
+      <soap:operation soapAction="http://tempuri.org/IUploadService/SignOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignIn">
+      <soap:operation soapAction="http://tempuri.org/IUploadService/SignIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentSettings">
+      <soap:operation soapAction="http://tempuri.org/IUploadService/GetDocumentSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveComment">
+      <soap:operation soapAction="http://tempuri.org/IUploadService/SaveComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadComments">
+      <soap:operation soapAction="http://tempuri.org/IUploadService/LoadComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SemanticLists">
+      <soap:operation soapAction="http://tempuri.org/IUploadService/SemanticLists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerImages">
+      <soap:operation soapAction="http://tempuri.org/IUploadService/GetServerImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerImage">
+      <soap:operation soapAction="http://tempuri.org/IUploadService/GetServerImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerImageName">
+      <soap:operation soapAction="http://tempuri.org/IUploadService/GetServerImageName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UploadService">
+    <wsdl:port name="BasicHttpBinding_IUploadService" binding="tns:BasicHttpBinding_IUploadService">
+      <soap:address location="http://www.texxtoor.de/ServiceApi/Services/UploadService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

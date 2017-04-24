@@ -1,0 +1,23 @@
+﻿@model Texxtoor.DataModels.Models.Users.User
+
+@{
+  PageData["Title"] = "Edit";
+  Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+
+@using (Html.BeginForm()) {
+  @Html.ValidationSummary(true)
+  using(Html.BtFieldset("User")) {
+    @Html.EditorForModel()
+    @Html.LabelFor(m => m.Password)
+    @Html.EditorFor(m => m.Password)
+    @Html.HiddenFor(model => model.Id)
+    <p>
+      <input type="submit" value="Save" />
+    </p>
+  }
+}
+
+<div>
+  @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-sm btn-primary" })
+</div>

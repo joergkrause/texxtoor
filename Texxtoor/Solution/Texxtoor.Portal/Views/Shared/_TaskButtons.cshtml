@@ -1,0 +1,54 @@
+﻿<div class="btn-group ">
+  @{
+    var q = Session["NavigationPath"] as Queue<KeyValuePair<string, string>>;
+    if (q != null) {
+      <div class="btn-group dropdown">
+        <button class="btn dropdown-toggle" data-toggle="dropdown" data-target="history">
+          @ViewResources.Navigation_History
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropNavigation" data-target="history">
+          @foreach (var kvp in q.ToList()) {
+            <li>
+              @if (String.IsNullOrEmpty(kvp.Value)) {
+                <a href="#">
+                  <span>
+                    @kvp.Key
+                    <br />
+                    <small>@ViewResources.HeadZone_Info</small>
+                  </span>
+
+                </a>
+              } else {
+                <a href="@kvp.Value">
+                  <span>
+                    @kvp.Key
+                    <br />
+                    <small>@ViewResources.HeadZone_Action</small>
+                  </span>
+                </a>
+              }
+            </li>
+          }
+        </ul>
+
+      </div>
+    }
+  }
+  @Create.HeaderButtonBack()
+  <div class="btn-group dropdown" data-taskdropdown>
+    <button class="btn dropdown-toggle" data-toggle="dropdown" data-target="tasks">
+      @ViewResources.Tasks
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropTasks" data-target="tasks">
+      <li data-template="topmenu-task-container">
+        <a href="{{NavigateUrl}}" title="{{Description}}">
+          <span>
+            {{Title}}
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

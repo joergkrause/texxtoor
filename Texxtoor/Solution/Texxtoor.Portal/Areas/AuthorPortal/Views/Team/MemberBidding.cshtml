@@ -1,0 +1,24 @@
+﻿@model Texxtoor.DataModels.Models.JobPortal.JobAdvertisment
+@{
+  PageData["Title"] = Loc("title", "Public Call for Bids");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("text", @"You can publish the project on the job portal to getbids from freelancers. You're free to accept or reject any bid at any time.");
+}
+@section HeadContent{
+  <script>
+    $(function() {
+      $('postJobForm').show();
+    })
+  </script>
+}
+@using (Html.BtFormPanel(Loc("legend", @"Post a Job"), "postJobForm", "green")) {
+  using (Html.BeginForm("MemberBidding", "Team", FormMethod.Post, new Dictionary<string, object> { { "teamId", ViewBag.TeamId } })) {
+  @Html.EditorForModel()
+  <div class="formsendButtons">
+    @Create.FormButtonOnClick("postJobButton", "", ViewResources.Action_Team_PostAJob)
+  </div>
+  }
+}
+@Create.ActionTask("btnPrj", false, Url.Action("Index", "Project"), ViewResources.TasksButton_ToProjects)
+@Create.ActionTask("btnTeam", false, Url.Action("Index", "Team"), ViewResources.LinkButton_ToTeams)
+@Create.ActionTask("", false, Url.Action("Details", "Team", new { id = Model.Id }), ViewResources.LinkButton_ToTeam)

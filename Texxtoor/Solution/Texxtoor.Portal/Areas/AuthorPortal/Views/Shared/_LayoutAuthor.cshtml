@@ -1,0 +1,27 @@
+﻿@{
+  Layout = Url.GetGlobalLayout();
+}
+@section helpSection{
+  <div class="helpsection">
+    @RenderSection("helpSection", false)
+  </div>
+}
+@section HeadContent
+{
+  @if (IsSectionDefined("HeadContent")) {
+    @RenderSection("HeadContent")
+  }
+  @if (User.Identity.IsAuthenticated) {
+@*<script src="~/signalr/hubs"></script>*@
+  }
+
+}
+@RenderSection("DropZone", false)
+@RenderBody()
+@section FooterContent {
+  @if (!IsSectionDefined("FooterContent")) {
+    @Html.Action("Show", "Navigation", new { menuName = "footer-simple", area = "" })
+  } else {
+    @RenderSection("FooterContent", false)
+  }
+}

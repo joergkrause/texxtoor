@@ -1,0 +1,33 @@
+﻿@model IList<Texxtoor.DataModels.Models.Users.UserProfile.AvailabilityFrame>
+<style>
+  /* Bootstrap 3.x re-reset */
+  .fn-gantt *,
+  .fn-gantt *:after,
+  .fn-gantt *:before {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+
+  .gantt {
+    border: 1px solid gray;
+    -ms-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+  }
+
+    .gantt button {
+      min-width: 0;
+    }
+
+  .gantt-container {
+    margin-left: 25%;
+    max-width: 800px;
+  }
+</style>
+<div class="gantt-container">
+  <div class="gantt"></div>
+  @Create.FormButtonOnClick("addTimeslotButton", "", "Add Timeslot")
+  <small>Add time slots by clicking in empty space.</small>
+  @Create.FieldHelpIcon("You can add free time (available) or spare time (not available) or both. Time slotes calculated as available will be accounted for profile search.", "Availability", "")
+</div>

@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5D3B2C98-5841-4264-8EA4-3E44054EEC1B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Texxtoor.ViewModels</RootNamespace>
+    <AssemblyName>Texxtoor.ViewModels</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.1.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helper\TreeService.cs" />
+    <Compile Include="Portal\Author\AverageRating.cs" />
+    <Compile Include="Portal\Author\BillingSummary.cs" />
+    <Compile Include="Portal\Author\ContributionProposal.cs" />
+    <Compile Include="Portal\Author\ContributorMatrixHelper.cs" />
+    <Compile Include="Portal\Author\ContributorShares.cs" />
+    <Compile Include="Portal\Author\ImportResult.cs" />
+    <Compile Include="Portal\Author\MarketingSummary.cs" />
+    <Compile Include="Portal\Author\PackageCountryHelper.cs" />
+    <Compile Include="Portal\Author\Premium.cs" />
+    <Compile Include="Portal\Author\ProjectDefault.cs" />
+    <Compile Include="Portal\Author\PublishingPreset.cs" />
+    <Compile Include="Portal\Author\PublishProject.cs" />
+    <Compile Include="Portal\Author\QuickForm.cs" />
+    <Compile Include="Portal\Author\Revenues.cs" />
+    <Compile Include="Portal\Author\Sales.cs" />
+    <Compile Include="Portal\Author\TeamOverviewModel.cs" />
+    <Compile Include="Portal\Author\UploadFileInfo.cs" />
+    <Compile Include="Shared\Common\DropCommand.cs" />
+    <Compile Include="Shared\Common\IPaginationViewModel.cs" />
+    <Compile Include="Shared\Common\JsTreeModel.cs" />
+    <Compile Include="Shared\Common\MultilistViewModel.cs" />
+    <Compile Include="Shared\Common\OptionField.cs" />
+    <Compile Include="Shared\Common\PaginationViewModel.cs" />
+    <Compile Include="Shared\Content\FeedPreview.cs" />
+    <Compile Include="Shared\Content\ImprintAddress.cs" />
+    <Compile Include="Shared\Content\QuickCreate.cs" />
+    <Compile Include="Shared\Editor\ChapterDataModel.cs" />
+    <Compile Include="Shared\Editor\RibbonImages.cs" />
+    <Compile Include="Shared\Editor\SnippetDataModel.cs" />
+    <Compile Include="Shared\Editor\ToolSetModel.cs" />
+    <Compile Include="Portal\Jobs\SearchJob.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Portal\Reader\BookContent.cs" />
+    <Compile Include="Portal\Reader\PayPalConfirm.cs" />
+    <Compile Include="Shared\Users\Account\ChangePassword.cs" />
+    <Compile Include="Shared\Users\Account\ConfirmAssociation.cs" />
+    <Compile Include="Shared\Users\Account\ExternalLogin.cs" />
+    <Compile Include="Shared\Users\Account\LinkExistingAccount.cs" />
+    <Compile Include="Shared\Users\Account\LinkInternalAccount.cs" />
+    <Compile Include="Shared\Users\Account\LogOn.cs" />
+    <Compile Include="Shared\Users\Account\RegisterExternalLogin.cs" />
+    <Compile Include="Shared\Users\Account\RegisterViewModel.cs" />
+    <Compile Include="Shared\Users\Account\ResendMail.cs" />
+    <Compile Include="Shared\Users\Account\RetrievePassword.cs" />
+    <Compile Include="Shared\Users\Account\SetPassword.cs" />
+    <Compile Include="Shared\Users\Account\Tasks.cs" />
+    <Compile Include="Shared\Users\AverageUserRating.cs" />
+    <Compile Include="Shared\Users\ContactModel.cs" />
+    <Compile Include="Shared\Users\Demo\DemoWizard.cs" />
+    <Compile Include="Shared\Users\EditUserModel.cs" />
+    <Compile Include="Shared\Users\HomeScreenInfo.cs" />
+    <Compile Include="Shared\Users\TenantProperties.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EasyAuthor\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Texxtoor.BaseLibrary.Core\Texxtoor.BaseLibrary.Core.csproj">
+      <Project>{307feaba-c5a1-47b8-a0b5-0b56d982f570}</Project>
+      <Name>Texxtoor.BaseLibrary.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Texxtoor.BaseLibrary.StaticResources\Texxtoor.BaseLibrary.StaticResources.csproj">
+      <Project>{11ba5334-07fc-4497-9298-98bf7718e15e}</Project>
+      <Name>Texxtoor.BaseLibrary.StaticResources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Texxtoor.DataLayer\Texxtoor.DataLayer.csproj">
+      <Project>{dd4e4b0b-7b5c-43f8-b47f-6c36d20283a9}</Project>
+      <Name>Texxtoor.DataLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

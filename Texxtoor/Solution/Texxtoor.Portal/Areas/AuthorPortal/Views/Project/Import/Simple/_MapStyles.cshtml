@@ -1,0 +1,57 @@
+﻿@using System.Collections.Specialized
+@model IEnumerable<SelectListItem>
+@{
+  var mapping = ((ViewBag.FormData as NameValueCollection) ?? new NameValueCollection());
+  var error = (string) ViewBag.Error;
+}
+@if (!String.IsNullOrEmpty(error) || Model == null) {
+  <div class="alert alert-danger fade in mapalert" >
+    <button type="button" class="close" data-dismiss="alert">&times;</button>    
+    <h4>@Loc("errTitle", "Error converting document")</h4>
+    <p>@error</p>
+    <p><button type="button" class="btn btn-danger" onclick="$('.mapalert').alert('close')" data-dismiss="alert">@ViewResources.Button_CancelAndClose</button></p>
+  </div>
+} else {
+  using (Html.BeginForm("MapStyles", "Project", FormMethod.Post)) {
+    @Html.Hidden("id", (int) ViewBag.FileId)
+    using (Html.BtFieldset("Word Style Mapper")) {
+      <div class="well well-sm">
+        @Loc("txtHelp", @"The dropdown shows all styles pulled from Word document. The left boxes show the target element types. Assign at least one
+        style from your Word document to the appropriate element type.
+        <br />
+        For regular text you can assign multiple styles that all convert to same type of text. This is usually necessary to condense extensively used formatting styles.")
+      </div>
+      <label>@Loc("lblText", @"Regular Text")</label>
+      <div class="editor-field">
+        @Html.DropDownList("textPara1", Model.ForEach(e => e.Selected = mapping.AllKeys.Any(t => t == "textPara1") && mapping["textPara1"] == e.Value).ToList(), Loc("ddChooseStyle", @"Choose Style"))
+        @Html.DropDownList("textPara2", Model.ForEach(e => e.Selected = mapping.AllKeys.Any(t => t == "textPara2") && mapping["textPara2"] == e.Value).ToList(), Loc("ddChooseMore", @"More styles..."))
+        @Html.DropDownList("textPara3", Model.ForEach(e => e.Selected = mapping.AllKeys.Any(t => t == "textPara3") && mapping["textPara3"] == e.Value).ToList(), Loc("ddChooseEvenMore", @"Even more..."))
+      </div>
+      <label>@Loc("lblSidebar", @"Sidebar (Hint)")</label>
+      <div class="editor-field">
+        @Html.DropDownList("sidebarHint", Model.ForEach(e => e.Selected = mapping.AllKeys.Any(t => t == "sidebarHint") && mapping["sidebarHint"] == e.Value).ToList(), Loc("ddChooseStyle", @"Choose Style"))
+      </div>
+      <label>@Loc("lblTable", @"Caption for Tables")</label>
+      <div class="editor-field">
+        @Html.DropDownList("tableCaption", Model.ForEach(e => e.Selected = mapping.AllKeys.Any(t => t == "tableCaption") && mapping["tableCaption"] == e.Value).ToList(), Loc("ddChooseStyle", @"Choose Style"))
+      </div>
+      <label>@Loc("lblListing", @"Caption for Listings")</label>
+      <div class="editor-field">
+        @Html.DropDownList("listingCaption", Model.ForEach(e => e.Selected = mapping.AllKeys.Any(t => t == "listingCaption") && mapping["listingCaption"] == e.Value).ToList(), Loc("ddChooseStyle", @"Choose Style"))
+      </div>
+      <label>@Loc("lblImg", @"Caption for Images")</label>
+      <div class="editor-field">
+        @Html.DropDownList("imageCaption", Model.ForEach(e => e.Selected = mapping.AllKeys.Any(t => t == "imageCaption") && mapping["imageCaption"] == e.Value).ToList(), Loc("ddChooseStyle", @"Choose Style"))
+      </div>
+      <label>@Loc("lblCodeP", @"Code Listings (Paragraph)")</label>
+      <div class="editor-field">
+        @Html.DropDownList("codePara", Model.ForEach(e => e.Selected = mapping.AllKeys.Any(t => t == "codePara") && mapping["codePara"] == e.Value).ToList(), Loc("ddChooseStyle", @"Choose Style"))
+      </div>
+      <label>@Loc("lblCodeC", @"Code blocks (character)")</label>
+      <div class="editor-field">
+        @Html.DropDownList("codeCharacter", Model.ForEach(e => e.Selected = mapping.AllKeys.Any(t => t == "codeCharacter") && mapping["codeCharacter"] == e.Value).ToList(), Loc("ddChooseStyle", @"Choose Style"))
+      </div>
+      @Button.FormSendButtons("mapStylesSendButton", "Map", "mapStylesCancelButton", ViewResources.Button_CancelAndClose)
+    }
+  }
+}

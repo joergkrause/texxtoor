@@ -1,0 +1,43 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.Work
+@if (Model == null) {
+  <div class="alert alert-warning">
+    @Loc("titleSrcErr", @"Select a content source first.")
+  </div>
+} else {
+  <h3>@Loc("titleSrc", @"This is the current source for themes")</h3>                    
+              
+  if (Model.Extern == Texxtoor.DataModels.Models.Reader.Content.WorkType.Published) {
+    if (Model.Published.FrozenFragments.Any()) {
+  <ul class="chapterList" id="chapterListSource">
+    @foreach (var frozenFragment in Model.Published.FrozenFragments.Where(f => f.Parent == null).OrderBy(f => f.OrderNr)) {
+      <li data-item="@frozenFragment.Id"><b>@(frozenFragment.OrderNr)</b> @frozenFragment.Name [@Model.Name.Ellipsis(15)]
+        <a style="display: inline-block; float: right" href="#" data-item="@frozenFragment.Id" class="miniReader">Read</a>
+        <br />
+        <small style="margin-left: 15px">[currently in:  @(frozenFragment.Published != null ? frozenFragment.Published.Title.Ellipsis(50).ToString() : "unknown source")]</small>
+      </li>
+    }
+  </ul>
+    } else {
+  <div class="alert alert-warning">
+    @Loc("textNoCnt", "This collection appears to be empty.")
+  </div>
+    }
+  }
+  if (Model.Extern == Texxtoor.DataModels.Models.Reader.Content.WorkType.Custom) {
+    if (Model.Fragments.Any()) {
+  <ul class="chapterList" id="chapterListSource">
+    @foreach (var frozenFragment in Model.Fragments.Where(f => f.Parent == null).OrderBy(f => f.OrderNr).Select(f => f.FrozenFragment)) {
+      <li data-item="@frozenFragment.Id"><b>@(frozenFragment.OrderNr)</b> @frozenFragment.Name
+        <a style="display: inline-block; float: right" href="#" data-item="@frozenFragment.Id" class="miniReader">Read</a>
+        <br />
+        <small style="margin-left: 15px">[from:  @(frozenFragment.Published != null ? frozenFragment.Published.Title.Ellipsis(50).ToString() : "unknown source")]</small>
+      </li>
+    }
+  </ul>    
+    } else {
+  <div class="alert alert-warning">
+    @Loc("textNoCnt", "This collection appears to be empty.")
+  </div>
+    }
+  }
+}

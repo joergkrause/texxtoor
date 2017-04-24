@@ -1,0 +1,167 @@
+﻿@{
+  PageData["Title"] = Loc("title", "Catalogue");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+  PageData["ShortHelp"] = Loc("text", "The catalog provides access to complete works, which express a single author's or his team's work in a distinct way. To get " +
+               "results appropriate for your particular needs try using the Matrix.");
+}
+@section HeadContent {
+  <script type="text/javascript">
+    function retrieveCatalog(id, order, dir) {
+
+      function closePricing(div) {
+        return $(div).css({
+          height: "22px",
+          left: '0px',
+          position: "relative",
+          'z-index': '10'
+        }).data('open', false);
+      }
+
+      function openPricing(div) {
+        return $(div).css({
+          height: "225px",
+          left: $(div).offset().left + "px",
+          position: "absolute",
+          'z-index': "20"
+        }).data('open', true);
+      }
+
+      $.ajax({
+        url: '@Url.Action("BrowseCatalog", "Home", new {area = "ReaderPortal"})',
+        data: { id: id, order: order, dir: dir },
+        type: 'GET',
+        cache: false,
+        success: function (result) {
+          $('#responseMessage').hide();
+          $('#catalog-content-search').html(result);
+          $('.reader-catalog-pricing').each(function () {
+            closePricing(this);
+          });
+          $('.reader-catalog-pricing').click(function () {
+            if ($(this).data('open')) {
+              closePricing(this);
+            } else {
+              openPricing(this);
+            }
+          });
+          $('.reader-catalog-pricing').on('mouseout', function () {
+            closePricing(this);
+          });
+          $('[data-toggle="popover"]').popover({
+            html: true,
+            content: function () {
+              var itemId = $(this).data('item');
+              return $('[data-popover-item=' + itemId + ']').html();
+            }
+          });
+          SetTableBehavior();
+        },
+        failure: function (result) {
+          $('#responseMessage').html(result.responseText);
+          $('#responseMessage').show();
+        }
+      });
+    }
+  </script>
+  <script type="text/javascript">
+    $(function () {
+      CreateCatTree('');
+      $('#cat_filter').keyup(function (evt) {
+        //debugger;
+        FilterCatTree();
+      });
+      var out = function () {
+        $('.singleworkDiv').hide();
+      }
+      $(document).on('mouseover', 'td.showSingleworkDiv', function () {
+        out();
+        var id = $(this).data('item');
+        $('.singleworkDiv[data-item=' + id + ']').show();
+      });
+      $(document).on('mouseout', '.showSingleworkDiv', function () {
+        out();
+      });
+      $(document).on('mouseleave', '.show-price', function () {
+        $('[data-price-target]').hide();
+      });
+      $(document).on('mouseover', '.show-price', function () {
+        $('[data-price-target]').hide();
+        var id = $(this).data('target');
+        var target = $(this).next('[data-price-target=' + id + ']').show();
+        $(target).off('mouseleave');
+        $(target).on('mouseleave', function () {
+          $(this).hide();
+        });
+      });
+      $(document).on('change', '#language', function () {
+        FilterCatTree();
+      });
+    });
+
+    // ready
+
+    function FilterCatTree() {
+      //not implemented
+      var vtree = $("#res_catBar").dynatree("destroy");
+      //vtree.reload()
+      $("#res_catBar").empty();
+      CreateCatTree($('#cat_filter').val());
+
+    }
+
+    function CreateCatTree(filter) {
+      debugger;
+      $("#res_catBar").dynatree({
+        autoFocus: false,
+        initAjax:
+        {
+          type: "GET",
+          cache: false,
+          url: '@Url.Action("Catalog")',
+          data: {
+            filter: filter,
+            language: $('#language').val(),
+            id: 0
+          },
+        },
+        onActivate: function (node) {
+          var id = node.data.attr.id;
+          event.preventDefault();
+          retrieveCatalog(id);
+          return false;
+        }
+      });
+
+    }
+
+  </script>
+  @Script.SetTableBehavior()
+}
+<div class="col-md-3">
+  <h2>@Loc("title2", "Catalogue")</h2>
+  <table class="table">
+    <tr>
+      <td>
+        <input type="text" value="" id="cat_filter" style="width: 150px; float:left" />
+      </td>
+      <td>
+        @Create.CultureSelection(Url, "language", "de")
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        @Html.Partial("_Catalog")
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="col-md-1"></div>
+<div class="col-md-8">
+  <h2>@Loc("titleContent", @"Content")</h2>
+  <div id="catalog-content-search">
+  </div>
+</div>
+@Create.ActionTask("", false, Url.Action("Matrix", "Home", null), ViewResources.LinkButton_Reader_Matrix)
+@Create.ActionTask("", false, Url.Action("Library", "Reader"), ViewResources.TasksButton_Reader_Library)
+@Create.ActionTask("", false, Url.Action("Products", "Products"), ViewResources.TasksButton_Reader_Products)
+

@@ -1,0 +1,22 @@
+﻿@model Texxtoor.DataModels.Models.Users.User
+@{
+  Layout = Url.GetGlobalLayout();
+  PageData["Title"] = Loc("title1", "Account Confirmation");
+  if (Model != null)  {
+    PageData["ShortHelp"] = 
+      @Loc("text1", "This confirms your account activation. Welcome to texxtoor.").ToString() +
+      @Loc("text3", "You have been registered successfully as user {0}.", Model.UserName).ToString();
+  } else {
+    PageData["ShortHelp"] = Loc("text2", "Your confirmation could not be accepted. Please retry.");
+  }
+}
+@if (Model != null) {
+  @Html.Heading(HtmlHeading.H2, Loc("confirmStart", "How to begin?"))
+  <div class="well well-sm">
+    @Loc("confirmText", "Looks empty here? Start creating your profile to have a solid foundation for your work. " +
+                        "Create first project, then. Choose from the Action menu in the upper right corner! This is always a good location to get the desired options."))
+  </div>
+
+  @:@Create.ActionTask("lnkConf1", true, Url.Action("UserProfile", "Account", new { Id = Model.Profile.Id }), ViewResources.TasksButton_Common_EditProfile)
+  @:@Create.ActionTask("lnkConf2", true, Url.Action("Index", "Project", new { area = "AuthorPortal" }), ViewResources.Action_Project_ShowDashboard)
+}

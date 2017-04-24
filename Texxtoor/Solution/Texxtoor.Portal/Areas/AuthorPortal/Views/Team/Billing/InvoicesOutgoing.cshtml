@@ -1,0 +1,43 @@
+﻿@{
+  PageData["Title"] = Loc("title", "Outgoing Invoices");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("text1", @"In this dialog you can manage your invoices and send new one to your lead author.");
+}
+
+@section HeadContent {
+  <script type="text/javascript">
+    $(function () {
+      ui = new Dialog(
+        {
+        },
+        {
+          formId: '#showInvoiceForm',
+          formDivId: '#showInvoice',
+          formAction: '@Url.Action("ShowInvoice")',
+          sendBtnId: '#showInvoiceSendButton',
+          cancelBtnId: '#showInvoiceCancelButton'
+        },
+        {
+          formId: '#delInvoice',
+          formDivId: '#delInvoice',
+          formAction: '@Url.Action("DeleteInvoice")',
+          sendBtnId: '#delInvoiceSendButton',
+          cancelBtnId: '#delInvoiceCancelButton'
+        },
+        {
+          formId: '#main',
+          formDivId: '#main',
+          formAction: '@Url.Action("ListInvoices", new { outgoing = true })'
+        });
+      ui.updateTable();
+    });
+  </script>
+}
+@using (Html.BtDeleteTemplate(Loc("txtDel", "You're about to delete an invoice permanently. Please confirm."))){
+  @Create.FormButtonOnClick("delGroupSendButton", "", ViewResources.Action_Opus_DeleteInvoice)
+  @Create.FormButtonOnClick("delGroupCancelButton", "", ViewResources.Button_Cancel)
+}
+@Create.ContentFormEmpty("showInvoice")
+@Create.MainContentWithLoader()
+@Create.ActionTask("", false, Url.Action("InvoicesIncoming", "Team", new { area = "AuthorPortal" }), ViewResources.LinkButton_IncomingInvoices)
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)

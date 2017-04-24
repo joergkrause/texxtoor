@@ -1,0 +1,36 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Orders.OrderProduct
+@{
+  PageData["Title"] = @Loc("title", "Error Occured !!!");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+  PageData["ShortHelp"] = Loc("paypalError", "Generated a Error During the Express Checkout.");
+}
+@section HeadContent {
+  <script type="text/javascript">
+  </script>
+}
+@if (Request.QueryString != null && Request.QueryString["error"] != null) {
+  foreach (var err in Request.QueryString["error"].Split('&')) {
+    if (err.Split('=').Length < 2) {
+      using (Html.BtDiv(BtStyle.AlertAndError)) {
+        @err
+      }
+    }
+    else {
+      var key = err.Split('=')[0];
+      var val = err.Split('=')[1];
+      <label>@key</label>
+      using (Html.BtDiv(BtStyle.AlertAndError)) {
+        @val
+      }
+    }
+  }
+}
+else {
+  using (Html.BtDiv(BtStyle.AlertAndError)) {
+    @ViewBag.Error
+  }
+}
+
+@Create.ActionTask("", false, Url.Action("Index", "Home", null), ViewResources.LinkButton_Reader_Catalog)
+@Create.ActionTask("", false, Url.Action("Library", "Reader", null), ViewResources.LinkButton_Reader_Library)
+@Create.ActionTask("", false, Url.Action("Products", "Products"), ViewResources.TasksButton_Reader_Products)

@@ -1,0 +1,125 @@
+﻿@{
+  PageData["Title"] = "QuickForm";
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+}
+<h1 class="QuickFormatInfoHead">@Loc("title", "Closed Beta Access")</h1>
+@if ((bool)ViewBag.QuickConfirm) {
+  <h2>Vielen Dank!</h2>
+  <p>
+    Wir haben Ihre Anfrage erhalten. Wir setzen uns kurzfristig persönlich mit Ihnen in Verbindung, um über die 
+    Aufnahme Ihrer Inhalte zu sprechen. Wir freuen uns darauf, mit Ihnen gemeinsam die Zukunft des Fachwissens zu gestalten.
+  </p>
+  <p>
+    Ihr <strong>texxtoor</strong>-Team
+  </p>
+  <p>
+    Jörg, Fernando, Uwe, Matthias und Holger
+  </p>
+  <h3>Ihre Nachricht</h3>
+  @Html.DisplayForModel()
+} else {  
+  <text>
+    Lieber Autor!<br />
+  <p>
+    Die Nachricht war bemerkenswert: "Pearson streicht IT-Fachliteratur aus dem Programm" (Heise Online, <a href="http://www.heise.de/developer/meldung/Pearson-streicht-IT-Fachliteratur-aus-dem-Programm-1807126.html"
+      target="_blank">http://www.heise.de/developer/meldung/Pearson-streicht-IT-Fachliteratur-aus-dem-Programm-1807126.html</a>, Abruf am 21.02.2013, 10:08 Uhr).
+    <br />
+    Erstmals ist ein Fachbuchverlag vom Verlagssterben betroffen, und mit Addison-Wesley und Markt &amp; Technik verschwinden zwei Marken, die das Gesicht des IT-Fachbuchs
+    in Deutschland seit den 80er Jahren maßgeblich geprägt haben.
+    <br />
+    <br />
+    Diese Entwicklung war seit langem vorhersehbar, und doch haben viele Verlage unbeirrt am Medium Buch festgehalten (und tun es noch heute), obwohl es in vielen Fällen
+    nur die zweite Wahl ist &ndash; nämlich immer dann, wenn Leser aktuelles Fachwissen benötigen.
+    <br />
+    <br />
+    Parallel dazu stellte sich das Geschäftsmodell selbst in Frage. Angesichts dramatisch sinkender Auflagen und Einnahmen und zugleich kaum mehr reduzierbarer Herstellkosten
+    wurde nur noch gedruckt, was sich verkaufen ließ. Die Programmvielfalt früherer Jahre verschwand zugunsten von Mainstream, den weniger der Leser als vielmehr die
+    Händler vorgaben.
+    <br />
+    <br />
+    Leidtragende waren Leser und Autoren. Erstere müssen heute Informationen vor allem zu spezielleren Themen zeitraubend im Internet recherchieren. Und Autoren opfern
+    immer seltener ihre Zeit, um ein Buch zu schreiben, bei dem Aufwand und Ertrag schon lange in keinem akzeptablen Verhältnis zueinander stehen.
+    <br />
+    <br />
+    Die Erfahrung, die Sie als Autor von Pearson jetzt machen, machten wir in anderer und zugegeben weit milderer Form bereits vor Jahren und zogen daraus die Konsequenzen.
+    Doch statt den nächsten Verlag zu suchen, kehrten wir dem gesamten System den Rücken, um uns zu fragen: Wie könnte die Zukunft der Vermittlung von Fachwissen aussehen?
+    <br />
+    <br />
+    Es hat einige Jahre an Entwicklung, viele kontroverse Gespräche, einige blutige Nasen und nicht gerade wenig Kraft gekostet, bis wir die für uns richtige Antwort
+    fanden:
+  </p>
+  <h2>texxtoor</h2>
+  <p>
+    <strong>texxtoor</strong> ist eine Online-Plattform, in der alle, die Content schaffen und veredeln, zusammenarbeiten, um ihren Lesern das bestmögliche Ergebnis
+    ihrer Bemühungen
+    in die Hand zu legen. Grundlegendes Ziel ist, technische Hürden so weit es geht zu beseitigen und den gesamten Prozess von der Idee bis zu deren "Release" in einem
+    Tool abzubilden.
+    <br />
+    <br />
+    Was ist nun aber so anders an <strong>texxtoor</strong>? Nun, einiges, wie wir finden:
+  </p>
+  <ul>
+    <li><strong>texxtoor</strong> ist digital. texxtoorianer eint eines: Dass das Medium Buch zwar nicht tot ist, seine Bedeutung nimmt jedoch weiter ab und die Zukunft
+      der Vermittlung
+      von Fachwissen digital sein wird.</li>
+    <li><strong>texxtoor</strong> ist kollaborativ. Bücher wurden und werden oft von einem Autor allein verfasst. Bei <strong>texxtoor</strong> steht jedoch das Team
+      im Mittelpunkt. Der Autor findet dort
+      Co-Autoren, tauscht sich mit Lesern.</li>
+    <li><strong>texxtoor</strong> ist individuell. So wir nicht einander gleichen, gleicht auch bei <strong>texxtoor</strong> ein Werk nicht dem anderen. Ob Print oder
+      Digital, Online oder Offline, PDF,
+      E-Pub oder App &ndash; alle diese und weitere Formate sind bereits oder werden bald Realität und können Autoren wie Leser nach Be-lieben als Zielformat wählen.
+    </li>
+    <li><strong>texxtoor</strong> ist online. Wir alle konsumieren Content dank Smartphones, Tablets und U/N-Books überall dort, wo wir sind. texxtoor unterstützt diese
+      Mobilität, ohne
+      den "Offline-Modus" auszublenden. Auch wireless können Sie Content schaffen und bearbeiten.</li>
+  </ul>
+  <p>
+    <strong>texxtoor</strong> ist aber nicht nur das, sondern viel mehr. <strong>texxtoor</strong> hat noch vier besonders wichtige Merkmale:
+  </p>
+  <ul>
+    <li><strong>texxtoor</strong> ist fair. Der Autor bestimmt, was er veröffentlichen will, ob kostenfrei oder kostenpflichtig ist, welches Zielformat es haben soll
+      usw. Der Leser wählt
+      nicht nur die Form, sondern schlägt dem Autor Änderung vor und bietet ihm seine Hilfe im Laufe des Schreibprozesses an.</li>
+    <li><strong>texxtoor</strong> ist augmentiert. Stellen Sie sich vor, Sie suchen einen bestimmten Sachverhalt, finden in einer Datenbank oder Suchmaschine nicht die
+      passende Information
+      &ndash; obwohl sie vorhanden ist. Wie so oft findet man den Fehler nicht im, sondern vor dem PC: Der Autor hat dem Suchbegriff keine semantische Begriffe mit
+      auf den
+      Weg gegeben. Musste er ja auch nicht, denn wie hätte das im Buch auch dargestellt werden können?!</li>
+    <li><strong>texxtoor</strong> ist fair. Das Geschäftsmodell der Verlage, wonach der Autor an den Einnahmen mit x % beteiligt wird, stellt <strong>texxtoor</strong>
+      auf den Kopf: der Autor legt, wenn
+      er es möchte, den Preis fest. Dieses Geld nimmt allein er ein, zu 100 Prozent, ohne einen Cent abzugeben. Wenn er jedoch Services wie Lektorat, Grafik, Übersetzung
+      usw. in Anspruch nehmen möchte, zahlt er den dafür aufgerufenen Preis. Welchen Weg er aber auch immer geht, die Einnahmen gehören ihm.</li>
+    <li><strong>texxtoor</strong> ist frei. Wir nehmen keine Rechte in Anspruch, der Autor kann denselben Inhalt jederzeit und immer und überall woanders weiter verwerten.
+      Der Autor bleibt zu 100 Prozent Besitzer seiner Inhalte. Lediglich bereits weiterverbreitete Inhalte sind nicht rückholbar, solange Anteile vergütet werden.
+    </li>
+  </ul>
+  <p>
+    Das sind nur einige der Merkmale von <strong>texxtoor</strong>. Es gibt noch einige mehr wie die Teamfunktion, das integrierte Projektmanagement oder die Abrechnungskomponente.
+    Und es werden sicher noch Komponenten fehlen, damit <strong>texxtoor</strong> alle Beteiligten restlos begeistert.
+    <br />
+    <br />
+    Und weil das so ist, haben wir uns entschlossen, mit der Veröffentlichung von <strong>texxtoor</strong> nicht länger zu warten. Denn <strong>texxtoor</strong> ist
+    zwar weit gediehen, aber noch „beta“ und noch nicht fertig. Damit es sich aber weiterentwickeln kann, braucht es Autoren wie Sie und Sie und Sie und auch Sie.
+    <br />
+    <br />
+    Neugierig geworden? Dann laden wir Sie herzlich dazu ein, <strong>texxtoor</strong> kennenzulernen und mit uns daran mitzuwirken, aus dieser Plattform eine neue
+    Form der Wissensvermittlung
+    zu schaffen. 
+    <br />
+    <br />
+    In diesem Sinne freuen wir uns auf Sie auf texxtoor.com. Nutzen Sie das kleine Kontaktformular und wir werden uns mit Ihnen in Verbindung setzen.
+    <br />
+    <br />
+    Mit besten Grüßen aus Berlin
+    <br />
+    <br />
+    Ihr texxtoor-Team
+    <br />
+    <br />
+    Jörg Krause, Fernando Schneider, Uwe Bünning, Matthias Fischer, Dr. Holger Schwichtenberg
+  </p>
+  </text>
+}
+  @Create.ActionTask("", true, Url.Action("Index", "Home", new { area = "" }), ViewResources.LinkButton_Common_Home)
+  @Create.ActionTask("", true, Url.Action("Register", "Account", new { area = "" }), ViewResources.LinkButton_Common_Register)
+  @Create.ActionTask("", true, Url.Action("LogOn", "Account", new { area = "" }), ViewResources.TasksButton_Common_Logon)

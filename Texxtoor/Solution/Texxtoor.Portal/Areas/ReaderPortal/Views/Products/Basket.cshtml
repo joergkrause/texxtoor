@@ -1,0 +1,56 @@
+﻿@{
+  PageData["Title"] = Loc("title", "Products");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+  PageData["ShortHelp"] = Loc("text1", @"Products are specific physical copies of a work. The are designed to appear on a distinct media.");
+}
+@section HeadContent {
+  <script type="text/javascript">
+    $(function () {
+      ui = new Dialog(
+        {
+        },
+        {
+          formId: '#editProductForm',
+          formDivId: '#editProduct',
+          formAction: '@Url.Action("EditProduct")',
+          sendBtnId: '#editProductSendButton',
+          cancelBtnId: '#editProductCancelButton',
+          onShow: function() {
+            $('#main').hide();
+          },
+          onClose: function() {
+            $('#main').show();
+          }
+        },
+        {
+          formId: '#delProduct',
+          formDivId: '#delProduct',
+          formAction: '@Url.Action("DeleteProduct")',
+          sendBtnId: '#delProductSendButton',
+          cancelBtnId: '#delProductCancelButton'
+        },
+        {
+          formId: '#main',
+          formDivId: '#main',
+          formAction: '@Url.Action("ListProducts")'
+        });
+      ui.updateTable();
+      $(document).on('click', 'a.dynProperties', function () {
+        $('[data-toggle="dynProperties"]').hide();
+        $(this).next('[data-toggle="dynProperties"]').toggle();
+      });
+    });
+
+  </script>
+}
+<h2>@Loc("title2", "Your Products")</h2>
+@using (Html.BtDeleteTemplate(Loc("textDel", "You're about to delete a product permanently. Please confirm."))){
+  @Create.FormButtonOnClick("delProductSendButton", "", ViewResources.Action_Assembler_Products_DeleteProduct, "btn-danger")
+  @Create.FormButtonOnClick("delProductCancelButton", "", ViewResources.Button_Cancel)
+}
+@Create.ContentFormEmpty("editProduct", @Loc("editForm", "Edit Product Properties").ToHtmlString())
+@Create.MainContentWithLoader()
+@Create.ActionTask("", false, Url.Action("PreviousProducts", "Products"), ViewResources.LinkButton_Reader_Products)
+@Create.ActionTask("", true, Url.Action("Library", "Reader"), ViewResources.TasksButton_Reader_Library)
+@Create.ActionTask("", true, Url.Action("Matrix", "Home"), ViewResources.LinkButton_Reader_Matrix)
+@Create.ActionTask("", true, Url.Action("Index", "Home"), ViewResources.TasksButton_Reader_Catalog)

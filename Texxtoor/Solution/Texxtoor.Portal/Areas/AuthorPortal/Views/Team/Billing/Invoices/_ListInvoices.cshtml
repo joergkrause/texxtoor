@@ -1,0 +1,42 @@
+﻿@using Texxtoor.DataModels.Models.Author
+@model IPagedList<Texxtoor.DataModels.Models.Author.Invoice>
+@if (Model == null || !Model.Any()) {
+  <div class="alert alert-warning">
+    @Loc("warnEmpty", "Currently there are no invoices in this list.")
+  </div>
+}
+else {
+  @Html.Partial("_Pagination", PaginationViewModel<Invoice>.Create(Model, "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});", true, m => m.BillingDate, m => m.DueDays))
+  <div class="multilist">
+    @foreach (var item in Model) {
+      <div class="listitem">
+        <div class="firstRow">
+          @Badges.NewItem(item.Text, item.CreatedAt, TimeSpan.FromDays(10))
+        </div>
+        <div class="secondRow">
+          Invoice <em>@item.Text</em>, created at <em>@item.BillingDate.ToLongDateString()</em>, is due at <em>@item.BillingDate.AddDays(item.DueDays).ToLongDateString()</em>.<br />
+          @if (item.Paid) {
+            @Loc("textPaid", @"Invoice paid. No action required.")
+          }
+          else {
+            @Loc("textNotPaid", @"Invoice is not yet paid.")
+          }
+        </div>
+        <div class="thirdRow">
+          <div class="optionFields" data-item="@item.Id">
+            @if (item.IsIncomingFor(User.Identity.Name)) {
+              @Create.ActionLink("members", false, Url.Action("PayInvoice", "Team", new {id = item.Id}), "Pay Invoice")
+            }
+            @Create.FormButtonOnClick("showInvoice", "ui.editElement(" + item.Id + ")", "Show Invoice")
+            @if (item.Paid) {
+              @Create.FormButtonOnClick("delInvoice", "ui.deleteElement(" + item.Id + ")", "Remove Invoice from View")
+            }
+            else {
+              @Loc("textRemPaid", @"Can't remove from view if invoice is due.")
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

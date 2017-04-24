@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Texxtoor.ViewModels.Author.Sales>
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        @Html.DisplayNameFor(m => m.ProjectName)
+      </th>
+      <th class="RevenueTh">
+        @Html.DisplayNameFor(m => m.ReaderCount)
+      </th>
+      <th class="RevenueTh">
+        @Html.DisplayNameFor(m => m.SubscriptionCount)
+      </th>
+      <th class="RevenueTh">
+        @Html.DisplayNameFor(m => m.DownloadCount) &sum;
+      </th>
+      <th class="RevenueTh">
+        @Html.DisplayNameFor(m => m.PrintCount) &sum;
+      </th>
+      <th class="RevenueTh">
+        @Html.DisplayNameFor(m => m.ProjectRevenues)
+      </th>
+      <th class="RevenueTh">
+        @Html.DisplayNameFor(m => m.AuthorRevenues)
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model) {
+      <tr>
+        <td>
+          @item.ProjectName
+        </td>
+        <td>
+          @item.ReaderCount.ToString("n0")
+        </td>
+        <td>
+          @item.SubscriptionCount.ToString("n0")
+        </td>
+        <td>
+          @item.DownloadCount.ToString("n0")
+        </td>
+        <td>
+          @item.PrintCount.ToString("n0")
+        </td>
+        <td>&euro; @item.ProjectRevenues.ToString("N2")
+        </td>
+        <td>&euro; @item.AuthorRevenues.ToString("N2")
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

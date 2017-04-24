@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Reader.Content.Catalog>
+
+@{
+  PageData["Title"] = "Catalog Items";
+  Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+
+<div class="well">
+  Create a catalog item and set language and parent properly to form hierarchies.
+  @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-sm btn-primary pull-right" })
+</div>
+<table class="table table-bordered table-condensed">
+  <tr>
+    <th>Description
+    </th>
+    <th>Locale
+    </th>
+    <th>Is Fallback
+    </th>
+    <th>Name</th>
+    <th>Parent</th>
+    <th>Order
+    </th>
+    <th>Level
+    </th>
+    <th></th>
+  </tr>
+
+  @foreach (var item in Model) {
+    <tr>
+      <td>
+        @Html.DisplayFor(modelItem => item.Description)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.LocaleId)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.IsFallback)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Name)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Parent.Name)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.OrderNr)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Level)
+      </td>
+      <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-xs btn-primary" })
+            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-xs btn-default" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-xs btn-warning" })
+      </td>
+    </tr>
+  }
+
+</table>

@@ -1,0 +1,224 @@
+﻿@using Texxtoor.DataModels.Models.Common
+@using Texxtoor.DataModels.ViewModels.Content
+@using Texxtoor.ViewModels.Content
+@model Texxtoor.ViewModels.Users.HomeScreenInfo
+@{
+  Layout = Url.GetGlobalLayout();
+  PageData["Title"] = Loc("dashTitle", "Portal");  
+}
+@section HeadContent {
+  <script src="~/Scripts/views/dashboard.js"></script>
+  <script>
+    $(function() {
+      var d = new Dashboard({
+        getUrl: '@Url.Action("GetMatrixValues", "Home", new {area = "ReaderPortal"})',
+        removeUrl: '@Url.Action("RemoveMatrixValue", "Home", new {area = "ReaderPortal"})',
+        addUrl: '@Url.Action("AddMatrixValue", "Home", new {area = "ReaderPortal"})'
+      });
+      d.getKeywords();
+      d.assignJumpTargets();
+      $('#btnAdd').on('click', function() {
+        d.addKeyword();
+      });
+      $('#keyword').on('keypress', function(e) {
+        if (e.which == 13) {
+          d.addKeyword();
+        }
+      });
+    });
+  </script>
+}
+@* ReSharper disable Html.TagNotResolved *@
+<div class="row box box-transparent" style="margin:75px 0 -30px 0">
+  <div class="col-xs-4 col-sm-2">
+    <div class="box-quick-link blue-background">
+      <a href="@Url.Action("Index", "Project", new { area = "AuthorPortal" })">
+        <div class="header">
+          <div class="icon-briefcase"></div>
+        </div>
+        <div class="content">@ViewResources.LinkButton_ToProjects</div>
+      </a>
+    </div>
+  </div>
+  <div class="col-xs-4 col-sm-2">
+    <div class="box-quick-link green-background">
+      <a href="@Url.Action("Edit", "Opus", new { area = "AuthorPortal" })">
+        <div class="header">
+          <div class="icon-star"></div>
+        </div>
+        <div class="content">@ViewResources.LinkButton_AllTexts</div>
+      </a>
+    </div>
+  </div>
+  <div class="col-xs-4 col-sm-2">
+    <div class="box-quick-link muted-background">
+      <a href="@Url.Action("Index", "Marketing", new { area = "AuthorPortal" })">
+        <div class="header">
+          <div class="icon-refresh"></div>
+        </div>
+        <div class="content">@ViewResources.Action_Marketing_AssignPackage</div>
+      </a>
+    </div>
+  </div>
+  <div class="col-xs-4 col-sm-2">
+    <div class="box-quick-link orange-background">
+      <a href="@Url.Action("Index", "Publishing", new { area = "AuthorPortal" })">
+        <div class="header">
+          <div class="icon-magic"></div>
+        </div>
+        <div class="content">@ViewResources.Action_Project_Publish</div>
+      </a>
+    </div>
+  </div>
+  <div class="col-xs-4 col-sm-2">
+    <div class="box-quick-link purple-background">
+      <a href="@Url.Action("Index", "Team", new { area = "AuthorPortal" })">
+        <div class="header">
+          <div class="icon-eye-open"></div>
+        </div>
+        <div class="content">@ViewResources.Action_Team_TeamsRoom</div>
+      </a>
+    </div>
+  </div>
+  <div class="col-xs-4 col-sm-2">
+    <div class="box-quick-link red-background">
+      <a href="@Url.Action("Revenues", "Marketing", new { area = "AuthorPortal" })">
+        <div class="header">
+          <div class="icon-inbox"></div>
+        </div>
+        <div class="content">@ViewResources.LinkButton_Common_Revenues</div>
+      </a>
+    </div>
+  </div>
+</div>
+<hr class="hr-double" />
+<div class="row" style="margin:-30px 0 0 0">
+  <div class="col-sm-6 col-md-3">
+    <div class="box">
+      <div class="box-header">
+        <div class="title">
+          <i class="@BtIcon.Tablet"></i>
+          @Loc("txtAvailable", "Available")
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="box-content box-statistic" data-jump="@Url.Action("Library", "Reader", new { area = "ReaderPortal"})">
+            <h3 class="title text-error">@Model.Works</h3>
+            <small>@Loc("txtWorks", "works")</small>
+            <div class="text-error @BtIcon.Bookmark align-right"></div>
+          </div>
+          <div class="box-content box-statistic" data-jump="@Url.Action("Products", "Products", new { area = "ReaderPortal"})">
+            <h3 class="title text-warning">@Model.OrderCount</h3>
+            <small>@Loc("txtOrders", "orders")</small>
+            <div class="text-warning @BtIcon.Money align-right"></div>
+          </div>
+          <div class="box-content box-statistic" data-jump="@Url.Action("Archive", "Account", new { area = ""})">
+            <h3 class="title text-primary">@Model.ArchiveCount</h3>
+            <small>@Loc("txtDownloads", "downloads")</small>
+            <div class="text-primary @BtIcon.Download align-right"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-3">
+    <div class="box">
+      <div class="box-header">
+        <div class="title">
+          <i class="@BtIcon.Cloud"></i>
+          @Loc("txtMembers", "Members")
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="box-content box-statistic" data-jump="@Url.Action("Tasks", "Account", new { area = ""})?t=author">
+            <h3 class="title text-error">@Model.Authors</h3>
+            <small>@Loc("txtAuthors", "authors")</small>
+            <div class="text-error @BtIcon.Book align-right"></div>
+          </div>
+          <div class="box-content box-statistic" data-jump="@Url.Action("Tasks", "Account", new { area = ""})?t=members">
+            <h3 class="title text-warning">@Model.Memberships</h3>
+            <small>@Loc("txtMemberships", "memberships")</small>
+            <div class="text-warning @BtIcon.EditSign align-right"></div>
+          </div>
+          <div class="box-content box-statistic" data-jump="@Url.Action("Tasks", "Account", new { area = ""})?t=texts">
+            <h3 class="title text-primary">@Model.Editables</h3>
+            <small>@Loc("txtEditables", "editables")</small>
+            <div class="text-primary @BtIcon.Edit align-right"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-3">
+    <div class="box">
+      <div class="box-header">
+        <div class="title">
+          <i class="@BtIcon.Group"></i>
+          @Loc("txtContributing", "Contributing")
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="box-content box-statistic" data-jump="@Url.Action("Tasks", "Account", new { area = ""})?t=teamlead">
+            <h3 class="title text-error">@Model.TeamsLeading</h3>
+            <small>@Loc("txtLeading", "teams' leading")</small>
+            <div class="text-error @BtIcon.UserMd align-right"></div>
+          </div>
+          <div class="box-content box-statistic" data-jump="@Url.Action("Tasks", "Account", new { area = ""})?t=contribute">
+            <h3 class="title text-warning">@Model.TeamsContributing</h3>
+            <small>@Loc("txtcontrbTeams", "contributing teams")</small>
+            <div class="text-warning @BtIcon.User align-right"></div>
+          </div>
+          <div class="box-content box-statistic" data-jump="@Url.Action("Tasks", "Account", new { area = ""})?t=leader">
+            <h3 class="title text-primary">@Model.ProjectsAsLeader</h3>
+            <small>@Loc("txtleadingProjects", "leading projects")</small>
+            <div class="text-primary @BtIcon.Bullseye align-right"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-3">
+    <div class="box">
+      <div class="box-header">
+        <div class="title">
+          <i class="@BtIcon.FolderOpenAlt"></i>
+          @Loc("txtContent", "Content")
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="box-content box-statistic" data-jump="@Url.Action("Tasks", "Account", new { area = ""})?t=project">
+            <h3 class="title text-error">@Model.ProjectsCount</h3>
+            <small>@Loc("txtProjects", "projects")</small>
+            <div class="text-error @BtIcon.Rocket align-right"></div>
+          </div>
+          <div class="box-content box-statistic" data-jump="@Url.Action("Tasks", "Account", new { area = ""})?t=published">
+            <h3 class="title text-success">@Model.ProjectPublished</h3>
+            <small>@Loc("txtProjectDone", "projects done")</small>
+            <div class="text-success @BtIcon.Ok align-right"></div>
+          </div>
+          <div class="box-content box-statistic" data-jump="@Url.Action("Tasks", "Account", new { area = ""})?t=publish">
+            <h3 class="title text-info">@Model.TextsPublishable</h3>
+            <small>@Loc("txtProjectsPubl", "publishable")</small>
+            <div class="text-info @BtIcon.Bullhorn align-right"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    @Html.Partial("QuickLink/Start/_Intro")
+  </div>
+  <div class="row">
+    @Html.Partial("QuickLink/Start/_AuthorStart", new QuickProject())
+  </div>
+  <div class="row">
+    @Html.Partial("QuickLink/Start/_ReaderStart")
+  </div>
+</div>
+@* ReSharper restore Html.TagNotResolved *@

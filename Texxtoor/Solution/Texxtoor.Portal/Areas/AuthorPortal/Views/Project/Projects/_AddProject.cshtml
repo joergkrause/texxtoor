@@ -1,0 +1,71 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@model Project
+
+@using (Html.BeginForm("AddProject", "Project", FormMethod.Post, new { id = "addProjectForm" })) {
+  using (Html.BtFieldset(Loc("legend", @"New Project"))) {
+    @Html.LabelFor(m => m.Name)
+    <div class="editor-field">
+      @Html.EditorFor(m => m.Name)
+      @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    @Html.LabelFor(m => m.Image)
+    <div class="editor-field">
+      <div class="btn btn-default btn-sm btn-file">
+        @Loc("image", "Select an Image")
+        <input type="file" name="addProjectImage"
+               data-form="#addProjectForm"
+               data-filename="#addProjectImageName"
+               data-progress="#addProjectSaveProgress">
+      </div>
+      <br />
+      <span id="addProjectImageName" class="badge badge-info"></span>
+    </div>
+    @Html.LabelFor(m => m.Short)
+    <div class="editor-field">
+      @Html.EditorFor(m => m.Short)
+      @Html.ValidationMessageFor(m => m.Short)
+    </div>
+    @Html.LabelFor(m => m.Description)
+    <div class="editor-field">
+      @Html.EditorFor(m => m.Description)
+      @Html.ValidationMessageFor(m => m.Description)
+    </div>
+    if ((bool)ViewBag.Advanced) {
+      @Html.LabelFor(m => m.TermsAndConditions)
+      <div class="editor-field">
+        @Html.EditorFor(m => m.TermsAndConditions)
+      </div>
+      @Html.LabelFor(m => m.ApproveTerms)
+      <div class="editor-field">
+        @Html.EditorFor(m => m.ApproveTerms)
+        @Html.ValidationMessageFor(m => m.ApproveTerms)
+      </div>
+      @Html.LabelFor(m => m.Team)
+      <div class="editor-field">
+        @Html.DropDownList("teamId", ((Texxtoor.ViewModel.Project.ProjectDefaultViewModel)ViewBag.TeamModel).MyTeams)
+        @(Create.FieldHelpIcon<Project>(m => m.Team))
+      </div>
+    }
+  }
+  if ((bool)ViewBag.Advanced) {
+    using (Html.BtFieldset(Loc("legendTemplates", "Options for your first text"))) {
+      using (Html.BtDiv(BtStyle.WellAndSmall)) {
+        @Loc("txtFirstText", "When you create a new project, the first text within will be created automatically. Please set the options for this very first text below.")
+      }
+      <label>@Loc("lblTemplates", @"Template for first work")</label>
+      <div class="editor-field container">
+        @Html.Partial("../Opus/Create/_Templates")
+      </div>
+      <label>@Loc("lblUseMilestones", @"Use Milestones")</label>
+      <div class="editor-field">
+        @Html.CheckBox("useMilestones", false)
+      </div>
+      <div class="editor-field container" id="showMilestones">
+        @Html.Partial("../Opus/Create/_AssignOpusMilestones", (Opus)ViewBag.DefaultOpusWithMilestones)
+      </div>
+      @Button.FormSendButtons("addProjectSendButton", ViewResources.Action_Project_CreateProject, "addProjectCancelButton", ViewResources.Button_CancelAndClose)
+      <span id="addProjectSaveProgress" class="badge badge-important hidden-to-show">@ViewResources.Dialog_View_Saving</span>
+    }
+  }
+
+}

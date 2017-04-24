@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEXXTOOR.2013", "TEXXTOOR\TEXXTOOR.2013.csproj", "{FD9A51EF-3716-418C-AD7C-0A169C7C9754}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTextFunctions", "TestTextFunctions\TestTextFunctions.csproj", "{8CB80ECA-CAF2-47FC-BB03-7140BF34FCDF}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://augmentedbooks.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TEXXTOOR\\TEXXTOOR.2013.csproj
+		SccProjectName1 = TEXXTOOR
+		SccLocalPath1 = TEXXTOOR
+		SccProjectUniqueName2 = TestTextFunctions\\TestTextFunctions.csproj
+		SccProjectName2 = TestTextFunctions
+		SccLocalPath2 = TestTextFunctions
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD9A51EF-3716-418C-AD7C-0A169C7C9754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD9A51EF-3716-418C-AD7C-0A169C7C9754}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD9A51EF-3716-418C-AD7C-0A169C7C9754}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD9A51EF-3716-418C-AD7C-0A169C7C9754}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CB80ECA-CAF2-47FC-BB03-7140BF34FCDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CB80ECA-CAF2-47FC-BB03-7140BF34FCDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CB80ECA-CAF2-47FC-BB03-7140BF34FCDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CB80ECA-CAF2-47FC-BB03-7140BF34FCDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+EndGlobal

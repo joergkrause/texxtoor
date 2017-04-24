@@ -1,0 +1,7 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.Product
+@using (Html.BeginForm("AddProduct", "Products", new { id = Model.Id, workId = Model.Work.Id, area = "ReaderPortal" }, FormMethod.Post, new { id = "editProductForm" })) {
+  using(Html.BtFieldset(Loc("tblHeadName", "Add '<span data-args='0' data-desc='Model Name'>{0}</span>'", Model.Name))) {
+    @Html.EditorForModel()
+    @Button.FormSendButtons("addProductSendButton", ViewResources.Action_Assembler_AddProduct, "addProductCancelButton", ViewResources.Button_CancelAndClose)
+  }
+}

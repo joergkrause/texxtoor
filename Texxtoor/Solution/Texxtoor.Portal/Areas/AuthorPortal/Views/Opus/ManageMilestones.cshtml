@@ -1,0 +1,105 @@
+﻿@model Texxtoor.DataModels.Models.Content.Opus
+@{
+  PageData["Title"] = Loc("title", "Manage Your Milestones");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+}
+@section HeadContent {
+  <script type="text/javascript">
+    $(function () {
+      ui = new Dialog(
+          {
+            formId: '#addMilestoneForm',
+            formDivId: '#addMilestone',
+            formAction: '@Url.Action("AddMilestone", new { id = @Model.Id })',
+            sendBtnId: '#addMilestoneSendButton',
+            cancelBtnId: '#addMilestoneCancelButton'
+          },
+        {
+          formId: '#editMilestoneForm',
+          formDivId: '#editMilestone',
+          formAction: '@Url.Action("EditMilestone")',
+          sendBtnId: '#editMilestoneSendButton',
+          cancelBtnId: '#editMilestoneCancelButton',
+        },
+        {
+          formId: '#delMilestone',
+          formDivId: '#delMilestone',
+          formAction: '@Url.Action("DeleteMilestone")',
+          sendBtnId: '#delMilestoneSendButton',
+          cancelBtnId: '#delMilestoneCancelButton'
+        },
+        {
+          formId: '',
+          formDivId: '#main',
+          formAction: '@Url.Action("ListMilestonesForManager", new { id = @Model.Id })',
+          onShow: function () {
+            listChanged();
+          }
+        });
+      ui.updateTable();
+    });
+
+      function listChanged() {
+        $.ajax({
+          url: '@Url.Action("ListMilestonesForManagerChained", new { id = Model.Id })',
+          type: 'GET',
+          cache: false,
+          dataType: 'html'
+        }).done(function (data) {
+          $('#chained').html(data);
+        });
+      }
+
+      function ChangeMilestone(id, comment, progress) {
+        $('#main').attr('disabled', 'disabled');
+        $.ajax({
+          url: '@Url.Action("ChangeMilestone")',
+          type: "POST",
+          cache: false,
+          data: {
+            id: id,
+            comment: comment,
+            progress: progress
+          },
+          success: function (data) {
+            ui.updateTable();
+            toastr.success(data.msg);
+          }
+        });
+      }
+
+      function MoveMilestone(id, dir) {
+        $('#main').attr('disabled', 'disabled');
+        $.ajax({
+          url: '@Url.Action("MoveMilestone")',
+          data: { id: id, dir: dir },
+          type: "POST",
+          cache: false,
+          success: function (data) {
+            ui.updateTable();
+            toastr.success(data.msg);
+          }
+        });
+      }
+
+  </script>
+}
+@using (Html.BtDiv(BtStyle.Well)){
+  @Loc("text1", @"You're currently working with Workroom <em><span data-args='0' data-desc='Work Name'>{0}</span></em>. 
+The list below shows all milestones. You can change the state for those milestones you're currently responsible for. As a team lead you can 
+delegate the responsibilty to somebody else from your team.", Model.Name)
+}
+<h2>@Loc("titelIndependent", @"Independent Milestones")</h2>
+@using (Html.BtDeleteTemplate(Loc("textDelete", @"You're about to remove a milestone permanently. Please confirm."))) {
+  @Create.FormButtonOnClick("delMilestoneSendButton", "", ViewResources.Action_Opus_DeleteMilestone, "btn-warning")
+  @Create.FormButtonOnClick("delMilestoneCancelButton", "", ViewResources.Button_Cancel)
+}
+@Create.ContentFormEmpty("addMilestone", "Add Milestone")
+@Create.ContentFormEmpty("editMilestone")
+@Create.ContentFormEmpty("assignMember")
+@Create.MainContentWithLoader()
+<h2>@Loc("titleConn", @"Connected Milestones")</h2>
+@Create.MainContentWithLoader("chained")
+@Create.ActionTask("", false, Url.Action("Billing", "Team", new { id = Model.Id }), ViewResources.LinkButton_Billing)
+@Create.ActionTask("", false, Url.Action("Details", "Team", new { id = Model.Project.Team.Id }), ViewResources.TasksButton_ToTeam)
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = Model.Project.Id }), ViewResources.LinkButton_ToDashboard)

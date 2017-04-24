@@ -1,0 +1,92 @@
+﻿@model Texxtoor.DataModels.Models.Content.Project
+@using Texxtoor.DataModels.Models.Content
+@using Texxtoor.DataModels.Models.Users
+
+<table class="table table-condensed">
+  <tr>
+    <td>
+      <h4 style="margin-top: 0">@Loc("h1", "Project Properties and Warnings")</h4>
+    </td>
+    <td>
+      <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="$(this).next('div[data-type=infobox]').hide();"></i>
+      <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:40%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+        <ul class="list-unstyled">
+          <li class="">@BtIcon.IconHtml(BtIcon.Book) @Loc("isp", "Has been Published")</li>
+          <li class="">@BtIcon.IconHtml(BtIcon.Qrcode) @Loc("act", "Is currently active")</li>
+          <li class="">@BtIcon.IconHtml(BtIcon.CodeFork) @Loc("chp", "Has content")</li>
+        </ul>
+      </div>
+      <h4 style="margin-top: 0">@Loc("struct", "Project Elements and Structure")</h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div id="projectLogo" class="pull-right" style="width:114px; height: 164px; border: 1px solid gray; box-shadow: 2px 2px 4px gray; padding: 5px; border-radius: 3px;">
+        <img src="~/Tools/GetImg/@(Model.Id)?c=Project&res=100x150&t=@DateTime.Now.Ticks&nc=true" alt="Project Logo" class="img-rounded" />
+      </div>
+      <div style="min-height: 150px;">
+        <h2>@Model.Name</h2>
+        <h3>@Html.Raw(Model.Short)</h3>
+      </div>
+      @if (!String.IsNullOrEmpty(Model.Description)) {
+        <div class="well well-sm">@Html.Raw(Model.Description)</div>
+      }
+    </td>
+    <td style="width: 50%" rowspan="2">      
+      <ul class="list-group">
+        @foreach (var opus in Model.Opuses) {
+          <li class="list-group-item">
+            @opus.Name (@opus.LocaleId) @(opus.IsPublished ? BtIcon.IconHtml(BtIcon.Book) : null) @(opus.Active ? BtIcon.IconHtml(BtIcon.Qrcode) : null) @(opus.HasChildren() ? BtIcon.IconHtml(BtIcon.CodeFork) : null)
+            @if (opus.HasChildren()) {
+              <ul>
+                @foreach (var chapter in opus.Children) {
+                  <li>@chapter.Name</li>
+                }
+              </ul>
+            }
+          </li>
+        }
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td style="width: 50%">
+      @using (Html.BtDiv(BtStyle.AlertAndInfo)) {
+        if (((User)ViewData["TeamLead"]).Id == ((User)ViewData["CurrentUser"]).Id) {
+          @Loc("titleIsLead", @"You're the project's lead author.")
+        } else {
+          @Loc("titleNoLead", @"You're a contributing member of this project.")
+        }
+      }
+      @if (Model.CanPublish()) {
+        using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+          var misses = new List<KeyValuePair<Opus, string>>();
+          var publishables = Model.GetPublishableOpuses(ref misses);
+          if (publishables.Count() == 1) {
+            @:@Loc("titlePublishSingular", @"This project has <em><span data-args='0' data-desc='Work Count'>{0}</span></em> publishable work.", 1)
+          }
+          else {
+            @:@Loc("titlePublish", @"This project has <em><span data-args='0' data-desc='Work Count'>{0}</span></em> publishable works.", publishables.Count())
+          }
+          if (misses.Any()) {
+            @Loc("misses", "Some texts cannot be published. We found these actual issues:")
+            <ul>
+              @foreach (var miss in misses) {
+                <li><em>@miss.Key.Name</em>: @miss.Value</li>
+              }
+            </ul>
+          }
+        }
+        @:@Create.ActionTask("lnkPublish", false, Url.Action("Index", "Publishing", new { Id = Model.Id }), ViewResources.TasksButton_Publish)
+      } else {
+        using (Html.BtDiv(BtStyle.AlertAndError)) {
+          @Loc("titleNoPublish", @"This project does not yet contain any publishable books. Check milestones, marketing packages, and contributor confirmations.")
+          @:&nbsp;
+          if (!Model.Opuses.Any(o => o.Milestones.All(m => m.Done))) {
+            @Loc("titleNoMs", @"There is no workroom with all milestones done. Hence, the project is not yet publishable.")
+          }
+        }
+      }
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,139 @@
+﻿@using Gma.QrCodeNet.Encoding.DataEncodation
+@model Texxtoor.DataModels.Models.Reader.Content.Published
+@{
+  PageData["Title"] = Loc("title", "Additional Settings for Published Content");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+}
+@section HeadContent{
+  <script>
+    $(function() {
+      $('#btnUnShare').click(function() {
+        $.ajax({
+          url: '@Url.Action("UnShare")',
+          data: {id: @Model.Id,
+            isSingular: $('[name=isSingular]').serialize()
+          },
+          type: 'POST',
+          success: function(data) {
+            toastr.success(data.msg);
+          }
+        });
+      });
+      $('#productionProgress').progressbar({
+        max: 100,
+        value: 0
+      });
+    });
+  </script>
+}
+@if (ViewBag.Error != null) {
+  <div class="alert alert-warning">
+    @ViewBag.Error
+  </div>
+} else {
+  <div class="well">
+    @Loc("textPubl1", @"Thanks for publishing your work. Our mutual success to market, sell, and distribute depends the information given below to further support
+this work. The key is to understand what the reader community needs to adopt the work, using the ""word of mouse"" to let others know that a
+new sophisticated piece of knowledge has been born.")
+  </div>
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#core" data-toggle="tab">@Loc("title1", "Core Function Hint")</a></li>
+    <li><a href="#preview" data-toggle="tab">@Loc("titleSub2", "Production Preview")</a></li>
+    <li><a href="#social" data-toggle="tab">@Loc("titleSub1", "Platform Marketing")</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="core">
+      <div class="well">
+        @Loc("textPublCore", @"The core function of our platform is the distribution of content. We strongly recommend to enhance your audience and find new markets by
+giving other authors access to your content. Be proud of being copied! Copy is not a bad word&mdash;it's the best and fastest way to make
+money. As the lead author you can easily increase your revenues by just opening this work.")
+      </div>
+      @if (Model.Marketing.ShareContent) {
+        <div class="alert alert-warning">@Loc("txtShared", "Content shared")</div>
+        <div class="ConfirmPublishedDiv1">
+          <table>
+            @foreach (var shareable in Model.FrozenFragments.Where(f => f.Parent == null /* Top level only */).OrderBy(f => f.OrderNr)) {
+              <tr>
+                <td>
+                  <label for="isSingular-@shareable.Id">@(shareable.OrderNr). @shareable.Title</label>
+                </td>
+                <td>
+                  <input type="checkbox" name="isSingular" value="@shareable.Id" id="isSingular-@shareable.Id" @(shareable.SingularEntity ? "checked='checked'" : "") />
+                </td>
+              </tr>
+            }
+          </table>
+        </div>
+        @Create.FormButtonOnClick("btnUnShare", "", ViewResources.Action_Publish_UnShare)
+      } else {
+        <div class="alert alert-warning">@Loc("txtNoShare", "Content not shared")</div>
+      }
+    </div>
+    <div class="tab-pane" id="preview">
+      <div class="well">
+        @Loc("textProdPreview", "While the final production takes place once the reader requests a document, you have the ability to check the final appearance.")
+        @Loc("textProdDwnld", "Click on a button to download the document.")
+      </div>
+      @{
+  var epub = Model.PreferredTemplateGroup.SingleOrDefault(t => t.Group == Texxtoor.DataModels.Models.Content.GroupKind.Epub);
+      }
+      @if (epub != null) {
+        <h3>@Loc("titleSub3E", "Electronically / EPUB")</h3>
+        <div class="well well-sm">@Loc("txtUsing", "Using") <strong>@epub.Name</strong>:</div>
+        @Create.ImageButtonOnAction("epubPreview", Url.Action("CreateEpubPreview", new { id = Model.Id, opusId = Model.SourceOpus.Id, templateGroupId = Model.PreferredTemplateGroup.Single(t => t.Group == Texxtoor.DataModels.Models.Content.GroupKind.Epub).Id }), ViewResources.Action_Publish_CreateEpubPreview)
+      }
+      @{
+  var pdf = Model.PreferredTemplateGroup.SingleOrDefault(t => t.Group == Texxtoor.DataModels.Models.Content.GroupKind.Pdf);
+      }
+      @if (pdf != null) {
+        <h3>@Loc("titleSub3P", "Print / PDF")</h3>
+        <div class="well well-sm">@Loc("txtUsing", "Using") <strong>@pdf.Name</strong>:</div>
+        @Create.ImageButtonOnAction("covPreview", Url.Action("CreateCoverPreview", new { id = Model.Id, opusId = Model.SourceOpus.Id, templateGroupId = Model.PreferredTemplateGroup.Single(t => t.Group == Texxtoor.DataModels.Models.Content.GroupKind.Pdf).Id }), ViewResources.Action_Publish_CreateCoverPreview)
+        @Create.ImageButtonOnAction("cntPreview", Url.Action("CreateContentPreview", new { id = Model.Id, opusId = Model.SourceOpus.Id, templateGroupId = Model.PreferredTemplateGroup.Single(t => t.Group == Texxtoor.DataModels.Models.Content.GroupKind.Pdf).Id }), ViewResources.Action_Publish_CreateContentPreview)
+      }
+    </div>
+    <div class="tab-pane" id="social">
+      <div class="well well-sm">
+        @Loc("text1", @"Settings to see your work in Google Currents, on Facebook, on MySpace, and several other free promotion features.")
+      </div>
+      @if (Model.Marketing.CreateSocialPlatformInstances) {
+        <table>
+          <tr>
+            <td>@Loc("txtEmbed", "Use this HTML code to embed a quick order ad into your website or blog.")</td>
+            <td>@Loc("txtEmbedPrev", "Preview.")</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="ConfirmPublishedDiv2">
+                <pre>
+&lt;a href="@Request.Url.Scheme://@Request.Url.Authority/qo/@Model.Id"&gt;Order
+ &lt;img src="@Request.Url.Scheme://@Request.Url.Authority/qoi/@Model.Id" /&gt;
+&lt;/a&gt;
+</pre>
+              </div>
+            </td>
+            <td>
+              <div class="ConfirmPublishedDiv3">
+                <a href="@Request.Url.Scheme://@Request.Url.Authority/qo/@Model.Id">
+                  Order
+                  <img src="@Request.Url.Scheme://@Request.Url.Authority/qoi/@Model.Id" />
+                </a>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <div class="alert alert-warning">@Loc("txtSocialSupport", "Social Platform Support")</div>
+        @Loc("txtMore", "For more information about how to create support pages visit these links:")
+        <ul>
+          <li><a href="https://www.facebook.com/business/build">Facebook Business Pages</a></li>
+          <li><a href="https://www.tumblr.com/">Tumblr</a></li>
+        </ul>
+      } else {
+        <div class="alert alert-warning">@Loc("txtNoSupport", "Social Platforms Not Supported")</div>
+      }
+    </div>
+  </div>
+}
+@Create.ActionTask("cockpit", false, Url.Action("Dashboard", "Project", new { id = Model.SourceOpus.Id }), ViewResources.Action_Project_ShowDashboard)
+@Create.ActionTask("catalog", true, Url.Action("Published", "Reader", new { id = Model.Id, area = "ReaderPortal" }), ViewResources.Action_Reader_ReadAndWork)
+

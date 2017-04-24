@@ -1,0 +1,45 @@
+﻿@model Texxtoor.DataModels.Models.Users.UserProfile
+@using (Html.BtFieldset(Loc("legend", @"Common Profile Information"))) {
+  @Html.LabelFor(m => m.FirstName, new { @class = "control-label col-sm-3" })
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.FirstName)
+    @Html.ValidationMessageFor(m => m.FirstName)
+  </div>
+  @Html.LabelFor(m => m.MiddleName, new { @class = "control-label col-sm-3" })
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.MiddleName)
+    @Html.ValidationMessageFor(m => m.MiddleName)
+  </div>
+  @Html.LabelFor(m => m.LastName, new { @class = "control-label col-sm-3" })
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.LastName)
+    @Html.ValidationMessageFor(m => m.LastName)
+  </div>
+    @Html.LabelFor(m => m.BirthDay, new { @class = "control-label col-sm-3" })
+    <div class="editor-field-accordion">
+        @Html.EditorFor(m => m.BirthDay)
+        @Html.ValidationMessageFor(m => m.BirthDay)
+    </div>
+  @Html.LabelFor(m => m.Gender, new { @class = "control-label col-sm-3" })
+  <div class="editor-field-accordion">
+    @Html.DropDownListFor(m => m.Gender, (SelectList)ViewBag.Genders, new { id = "Gender" })
+    @Create.FieldHelpIcon(Html, m => m.Gender)
+    @Html.ValidationMessageFor(m => m.Gender)
+  </div>
+  @Html.LabelFor(m => m.Description, new { @class = "control-label col-sm-3" })
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.Description)
+    @Html.ValidationMessageFor(m => m.Description)
+  </div>
+  @Html.LabelFor(m => m.Walltext, new { @class = "control-label col-sm-3" })
+  <div class="editor-field-accordion">
+    @if (String.IsNullOrEmpty(Model.Walltext)) {
+      @:@Loc("textWallNo", @"There is no public profile text defined.")
+      @Create.ActionTask("goEdit", true, Url.Action("EditProfile", "Community", new { id = Model.Id, area = "" }), ViewResources.TasksButton_Common_EditProfile)
+    } else {
+      @:@Loc("textWallYes", @"A public profile is already available.")
+      @Create.ActionTask("goPreview", true, Url.Action("ShowProfile", "Community", new { id = Model.Id, area = "" }), ViewResources.TasksButton_Common_ShowProfile)
+      @Create.ActionTask("goEdit", true, Url.Action("EditProfile", "Community", new { id = Model.Id, area = "" }), ViewResources.TasksButton_Common_EditProfile)
+    }
+  </div>
+}

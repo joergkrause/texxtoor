@@ -1,0 +1,1865 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<portal lang="en">
+  <menu type="headzone">
+    <menu order="0" title="My Data" style="icon-user" navigateurl="/Account/UserProfile" alias="profile" description="{0}" dynamicdata="ProfileExists"></menu>
+    <menu order="1" title="My Tasks" roles="author,teamlead,contributor" style="icon-tasks" navigateurl="/Account/Tasks" alias="tasks" description="Current tasks I'm responsible to" ></menu>
+    <menu order="2" title="My Mailbox" style="icon-envelope" navigateurl="/Messaging/Index" alias="mail" description="You have {0} mails" dynamicdata="MessageCount"></menu>
+    <menu order="3" title="My Archive" style="icon-file" navigateurl="/Account/Private" alias="private" description="{0} archive items" dynamicdata="ArchiveCount"></menu>
+    <menu order="4" title="My Products" roles="reader" style="icon-book" navigateurl="/ReaderPortal/Products/Products" alias="products" description="{0} products ready to order" dynamicdata="OrderCount"></menu>
+  </menu>
+  <menu type="topmenu">
+    <menu order="0" navigateurl="/Home/Authors" title="Create" description="Tools for Authors" style="icon-paperclip">
+      <menuitem order="0" title="Dashboard" navigateurl="/" description="Summary of all activities" ></menuitem>
+      <menuitem order="1" title="Projects" navigateurl="/AuthorPortal/Project/" description="You have {0} projects." dynamicdata="ProjectsCount"></menuitem>
+      <!--<dynamenu title="Project {Name}" navigateurl="/AuthorPortal/Project/Dashboard/{Id}" description="Show active projects" dynamicdata="ProjectsEditable"></dynamenu>-->
+      <menuitem order="2" title="Teams" navigateurl="/AuthorPortal/Team/" description="You lead {0} teams and a member in {1} teams." dynamicdata="ProjectsAsLeader,TeamMemberCount"></menuitem>
+      <menuitem order="3" title="Content" navigateurl="/AuthorPortal/Opus/Edit" featureset="Beta-Jan12" description="{0} editable texts." dynamicdata="EditableCount"></menuitem>
+      <!--<dynamenu title="Edit {Name}" navigateurl="/AuthorPortal/Opus/Edit/{Id}" description="Edit texts directly" dynamicdata="BooksEditable"></dynamenu>-->
+      <menuitem order="4" title="Marketing" navigateurl="/AuthorPortal/Marketing" featureset="Beta-Jan12" description="Marketing Activities" ></menuitem>
+      <menuitem order="5" title="Publish" navigateurl="/AuthorPortal/Publishing" featureset="Beta-Jan12" description="{0} texts ready to go" dynamicdata="Publishable"></menuitem>
+      <menuitem order="6" title="Produce" navigateurl="/AuthorPortal/Production/Produce" application="ac2" roles="admin" featureset="" description="Make content ready for production." ></menuitem>
+      <menuitem order="7" title="Payment" navigateurl="/AuthorPortal/Payment/" roles="admin" featureset="" description="Accounting and Payment" ></menuitem>
+      <menuitem order="8" title="Services" navigateurl="/AuthorPortal/Service/" application="/" description="Services for Authors" ></menuitem>
+    </menu>
+    <menu order="1" navigateurl="/Home/Readers"  title="Learn" description="Reader Area" style="icon-cloud">
+      <menuitem order="0" title="Get Content" navigateurl="/ReaderPortal/Home/Matrix" description="Click to get recommendations and create a custom book."></menuitem>
+      <menuitem order="1" title="Catalog" navigateurl="/ReaderPortal/Home/Index" description="Click to see complete catalogue. There are {0} books total." dynamicdata="BooksCount"></menuitem>
+      <menuitem order="2" title="My Library" navigateurl="/ReaderPortal/Reader/Library" featureset="Beta-Jan12" description="You have {0} custom text in the library." dynamicdata="WorkCount"></menuitem>
+      <menuitem order="3" title="My Products" navigateurl="/ReaderPortal/Products/Products" description="You have {0} products to order." dynamicdata="ProductCount"></menuitem>
+      <menuitem order="4" title="My Groups" navigateurl="/ReaderPortal/Groups/Groups" description="My groups" dynamicdata=""></menuitem>
+      <menuitem order="5" title="User &amp; Author" navigateurl="/ReaderPortal/Groups/Questions" featureset="Beta-Jan12" description="Contact between user and author" dynamicdata=""></menuitem>
+    </menu>
+    <menu order="5" alias="adminportal" navigateurl="" title="Admin" description="Administration" roles="admin" application="/" style="icon-wrench">
+      <menuitem order="1" title="Database" navigateurl="/AdminPortal/Home/Index" description="" dynamicdata=""></menuitem>
+      <menuitem order="2" title="Configuration" navigateurl="/AdminPortal/Home/Config" description="" dynamicdata=""></menuitem>
+      <menuitem order="3" title="Info" navigateurl="/AdminPortal/Home/Info" description="" dynamicdata=""></menuitem>
+      <menuitem order="4" title="Stats" navigateurl="/AdminPortal/Home/Stat" description="" dynamicdata=""></menuitem>
+      <menuitem order="5" title="Templates" navigateurl="/AdminPortal/Template/Index" description="" dynamicdata=""></menuitem>
+    </menu>
+  </menu>
+  <menu type="static" roles="" title="Landing Page">
+    <!-- dynamicdata is used in static.cshtml to forward to another page with the data taken as alias -->
+    <menu title="Autor werden" order="0" style="light" dynamicdata="becomeauthor">
+      <page>
+        Create, publish, market &#8211; Your advantage as author at texxtoor. 100% royalties and 0% fees for you.
+      </page>
+    </menu>
+    <menu title="Content nutzen" order="1" style="medium" dynamicdata="usecontent">
+      <page>
+        Get the content you're looking for &#8211; without the baggage. Collect content chapter by chapter.
+      </page>
+    </menu>
+    <menu title="Community" order="2" style="dark" dynamicdata="community">
+      <page>
+        Work in teams. Author find co-authors. Copy-editors, illustrators, and translators work in team. User share collections, bookmarks, and comments.
+      </page>
+    </menu>
+  </menu>
+  <menu type="sidemenu" roles="" title="Information">
+    <menu title="Latest Issues" navigateurl="/Home/Latest"></menu>
+    <menu title="Welcome Package for Authors" navigateurl="/Home/WelcomePackage"></menu>
+    <menu title="Style + Didactic" navigateurl="/Home/AuthorHelp"></menu>
+    <menu title="Publishing News" navigateurl="/Home/PubNews"></menu>
+  </menu>
+  <menu type="centerpane">
+    <menu title="Gemeinsam Lesen + Lernen" order="0">
+      <page>
+        <![CDATA[
+        <h1>Gemeinsam Lesen + Lernen</h1>
+        <div class="item"><strong>texxtoor</strong> liefert Fachwissen genau so, wie Du es brauchst. Angereichert mit Videos, interaktiven
+        Bildern, Modellen und Applikationen. texxtoor Wissen ist sowohl als gedrucktes Buch mit einer
+        direkten Verbindung zu elektronischen Inhalten verfügbar wie auch als App für alle mobilen Plattformen
+        oder als Online-Angebot.
+        Auf <strong>texxtoor</strong> kannst Du allein oder im Team lesen und lernen. Egal ob für die Weiterbildung,
+        spannende Projekte zu Hause, im Studium oder an der Schule, im Unternehmen oder einfach
+        nur so.</div>
+      <h2>Medien (Druck, E-Buch, iBook, App)</h2>
+        <p>
+          <strong>texxtoor</strong> Wissen ist immer als gedrucktes Buch, als elektronisches Buch, Online und als App verfügbar. In der Regel ist die Online-Version kostenfrei. So kannst Du ohne Risiko einfach jeden Inhalt lesen und nutzen. Gedruckte und elektronische Werke werden indiviDuell für dich zusammengestellt &ndash; nach Deinen Wünschen und Vorlieben. Du kannst dann Dein Medium wählen. 
+          Egal ob Amazon&trade; Kindle, Apple&trade; iPad oder Android&trade; Tablets &ndash; wir liefern Inhalte für jede Plattform. Und wenn Du stattdessen eine gedruckte Version benötigst, reicht ein Mausklick, und zeitnah liegt Dein persönliches Buch im Briefkasten.
+        </p>
+      <h2>texxtoor Wissen als App</h2>
+        <p>
+          <strong>texxtoor</strong> Wissen kommt nicht nur als Buch zu Dir. Viele Inhalte wurden von unseren Autoren multimedial aufbereitet, sind interaktiv oder enthalten Widgets. Wenn Du das gedruckte texxtoor Wissen liest, kannst Du mit Deinem Smartphone einfach interaktive Inhalte abrufen.
+        </p>
+      <h2>Kollaborativ Lesen und Lernen</h2>
+        <p>
+          Leser können bei <strong>texxtoor</strong> Inhalte kommentieren, mit anderen Lesern darüber diskutieren und sich mit eigenem Wissen einbringen.
+          Als registrierter Leser kannst Kontakt zum Autor aufnehmen, Verbesserungen oder Kritik anbringen und so aktiv an der Weiterentwicklung von Projekten mitwirken.
+        </p>
+      <h2>Lernen im Team</h2>
+        <p>
+          <strong>texxtoor</strong> ist ideal für Schüler, Studenten, Wissensarbeiter und Ingenieure. Gemeinsam lernen macht Spaß, egal ob mit Freunden, Mitschülern, Kommilitonen oder Kollegen. Die Plattform bietet dir vielfältige Möglichkeiten. Teams können texxtoor Wissen gemeinsam erwerben, verwalten und nutzen. Sie können Anmerkungen und Notizen zu jedem Abschnitt speichern, teilen und gegenseitig online diskutieren. Teams können Inhalte sogar anpassen und erweitern und sich dann personalisierte Kopien davon drucken oder als E-Buch erstellen lassen.
+        </p>
+      <h2>Für Schüler und Studenten</h2>
+        <p>
+          <strong>texxtoor</strong> Wissen wird von vielen Hochschulen und Universitäten angeboten. Viele Dozenten und Professoren sind Teil unseres Netzwerks und schreiben als Autoren für uns. Wenn Du an Deiner (Hoch-)Schule auf texxtoor aufmerksam geworden bist, melde dich mit Deinen Seminardaten an. Wir haben für Klassen und Seminare spezielle Räume, in denen ihr &#187;unter Euch” seit. Ihr habt dort Zugriff auf Kurspläne und Informationen aus der Seminargruppe und könnt auf texxtoor selbstverständlich auch chatten und bloggen.
+        </p>
+      <h2>Für Schulen und Hochschulen</h2>
+        <p>
+          <strong>texxtoor</strong> Wissen erreicht ein breites Publikum. Schulen und Hochschulen können Werke auf texxtoor veröffentlichen. Wir veröffentlichen jedes Werk und stellen es allgemein und global oder auf Wunsch auch für geschlossene Benutzergruppen zur Verfügung. Schüler und Studenten haben so stets aktuell Zugriff auf Skripte, Präsentationen, Fachbücher und jede andere Information &ndash; interaktiv, angereichert mit multimedialen Daten und in jedem beliebigen Format. Schüler und Studenten können gedrucktes texxtoor Wissen jederzeit besonders günstig erstellen lassen. texxtoor Wissen ist dabei jederzeit für jeden in jedem Format verfügbar.
+        </p>
+      <h2>Für Unternehmen</h2>
+        <p>
+          <strong>texxtoor</strong> Wissen umfasst (populär-)wissenschaftliche Werke, aber auch Whitepaper, Handbücher, Anleitungen und vieles, was in Unternehmen benötigt wird. Gemeinsame Unternehmens-, Team- oder Projektkonten erlauben es, texxtoor Wissen besonders günstig zu beziehen, in jedem Format und jederzeit. Unternehmen können angepasste, personalisierte Versionen erstellen und exklusiv vorhalten. In geschlossenen Benutzergruppen können Mitarbeiter gemeinsam Erfahrungen austauschen und weitere Dokumente erstellen.
+        </p>
+        ]]>
+      </page>
+    </menu>
+    <menu title="Gemeinsam Schreiben + Veröffentlichen" order="1">
+      <page>
+        <![CDATA[
+        <h1>Gemeinsam Schreiben + Veröffentlichen</h1>
+        <div class="item">Bei texxtoor kann jeder Autor werden und sofort ein breites Publikum erreichen und sein Werk in den Händen halten. Aber texxtoor bietet viel mehr.
+        Wir sind unabhängig von Verlagen &ndash; jeder kann auf unserer Plattform veröffentlichen. Schreibe unabhängig vom Medium und mit allem, was online und mobile Plattformen heutzutage bieten.
+        texxtoor Wissen entsteht aber nicht allein durch einzelne Autoren. Oft bilden sich Teams, die von einem Lead-Autor geführt werden. Du bist Lektor, beschäftigst dich mit Copy-Editing, arbeitest als Übersetzer oder kümmerst Dich um die Didaktik? Herzlich willkommen als Ko-Autor auf texxtoor.</div>
+      <h2>Autor werden</h2>
+      <p>
+          Um Autor bei texxtoor Wissen zu werden, musst Du in einem oder mehreren Gebieten Experte sein. texxtoor Wissen garantiert einen hohen Qualitätsstandard und sichert permanent das hohe Niveau der erstellten Werke.
+          Um bei texxtoor veröffentliche zu können, musst Du:</p>
+          <ol>
+            <li>Dich registriert und mindestens ein Fachgebiet und eine Sprache angegeben haben.</li>
+            <li>Zum Nachweis Deiner Kompetenz solltest Du entweder:</li>
+            <ol>
+              <li>auf ein bereits woanders veröffentlichtes Werk verweisen können (z.B. per ISBN), wo Du als Herausgeber, Autor oder Ko-Autor beteiligt warst, oder</li>
+              <li>eine Empfehlung von einem bereits bei texxtoor aktiven Kollegen vorweisen (der Kollege kann Dich dazu einladen, und Du bist dann automatisch freigeschaltet), oder</li>
+              <li>einen 2-10 Seiten langen Probetext schreiben und von unserer Redaktion freigeben lassen.</li>
+            </ol>
+            <li>Alternativ kannst Du als Neuautor einen Projektvorschlag machen und das &#187;Starter Projekt”-Formular ausfüllen. Wichtig → Wir beurteilen nicht die Verkaufschancen. Natürlich kannst Du bei texxtoor veröffentlichen, auch wenn Du nur eine Nische adressierst. Es geht lediglich um die Sicherung der Qualität. Das Formular hilft Dir, Dich auf die Arbeit vorzubereiten und Zeitaufwand und Rahmenbedingungen richtig einschätzen zu können.</li>
+          </ol>
+      <h2>Arbeitsweise</h2>
+      <p>
+          <strong>texxtoor</strong> Wissen entsteht auf dem Weg, den Du am liebsten magst. Sehr gut eignet sich Text in Microsoft ® Word, da sich dieser gut strukturiert konvertieren lässt. Wenn Du andere Werkzeuge nutzt, exportierst Du die Inhalte einfach in das RTF-Format.
+          Du kannst Inhalte auch online mit unseren Autorenwerkzeugen erstellen &ndash; ganz ohne zusätzliche Software. Alles, was Du brauchst, ist eine Internet-Verbindung.
+          Wenn Du als Lektor, Editor, Copy Editor oder Übersetzer arbeitest, solltest Du ebenfalls die genannten Online-Werkzeuge nutzen. Wenn Du eigene Werkzeuge benutzt, müssen diese das interne Format &ndash; bei Text immer HTML 5 &ndash; vollständig unterstützen.
+          Wenn Du als Videokünstler, Illustrator oder Softwareentwickler arbeitest, entwickelst Du Deine Inhalte in Deinem Lieblingswerkzeug und lädst sie dann auf die Plattform hoch. Zum Übertragen stehen Dir HTML-Upload sowie Plug-Ins für Browser und Dropbox zur Verfügung.
+      </p>
+      <h2>Veröffentlichen</h2>
+      <p>
+         <strong>texxtoor</strong> veröffentlicht Werke auf vielen Wegen, um Lesern einen einfachen und variablen Zugang zu ebnen. So erreichen wir ein breites Publikum und sichern unseren Autoren optimale Verdienstmöglichkeiten.
+          Autoren können bei der Veröffentlichung vielfältigen Einfluss auf den Prozess nehmen. Unser Standardweg &ndash; One-Click-Publishing &ndash; ist für die meisten Autoren am besten geeignet und sichert eine Verfügbarkeit auf allen modernen Vertriebskanälen und in allen Formen (Druck, E-Buch und die wichtigsten eBook-Stores wie Amazon Kindle, Apple iBook, Samsung Omnia u.v.a.m.).
+          Optional kann jedes Werk auch über den klassischen Buchhandel vermarktet werden. Dazu wird eine ISBN vergeben und der passende Barcode für die Distribution erzeugt. texxtoor Wissen im klassischen Vertriebskanal lässt sich allerdings nur beschränkt personalisieren und augmentieren. Leser können texxtoor Wissen jederzeit als gedrucktes Buch auch direkt bei texxtoor erwerben &ndash; der Umweg über die Bestellung im Buchhandel ist hierfür nicht nötig.
+          Vielfältige Marketinginstrumente helfen dem Autor bei der Vermarktung seiner Werke.
+      </p>
+      <h2>Leser optimal erreichen</h2>
+      <p>
+          Die meisten Inhalte von texxtoor Wissen werden von unseren Autoren in mehreren Varianten erstellt. Leser erhalten automatisch auf sie optimiertes und personalisiertes texxtoor Wissen.
+          <strong>texxtoor</strong> Wissen produziert vorrangig wissenschaftliche Werke für Lernen und Lehre, für Forschung und Wissenschaft. Aber auch der private Bereich wird umfassend mit Sachwerken unterstützt.
+          <strong>texxtoor</strong> Wissen für Universäten und Hochschulen unterliegt besonderen Qualitätsmerkmalen. So ist texxtoor Wissen in diesem Bereich grundsätzlich zitierfähig und in allen Bibliotheken gelistet.
+          <strong>texxtoor</strong> Wissen im wissenschaftlichen Bereich umfasst auch Diplomarbeiten und Promotionen. Es wird ein Plagiatsdienst angeboten, um die Qualität zu sichern, und Gutachter können auf der Plattform interaktiv an den Werken arbeiten.
+      </p>
+      <h2>Für Professoren, Dozenten und Lehrer</h2>
+      <p>
+          <strong>texxtoor</strong> adressiert Studenten und Schüler. Bei uns veröffentlichen zahlreiche Professoren, Dozenten und Lehrer &ndash; im Team oder mit Studenten &ndash; ihre Werke. Egal ob für den eigenen Bedarf, das aktuelle Seminar oder international &ndash; texxtoor Wissen ist optimal auf den Bereich Lehre und Lernen abgestimmt. Vielfältige Angebote für Schüler und Studenten wie z.B. private Kursräume bieten eine völlig neue Lernqualität. Komplette Klassensätze lassen sich preisgünstig bestellen und geben damit Studenten optimale Werkzeuge.
+      </p>
+      <h2>Handbücher und Anleitungen</h2>
+      <p>
+          <strong>texxtoor</strong> Wissen umfasst auch Handbücher für Geräte, Maschinen, Anlagen u.v.a.m.. Veröffentliche hier alle Handbücher für Produkte aller Art und überlasse es dem Leser, dies in seinem Wunschformat zu beziehen.
+      </p>
+      <h2>Artikel</h2>
+      <p>
+          <strong>texxtoor</strong> Wissen umfasst auch wissenschaftliche Artikel jeder Art. Andere Autoren können aus diesen Artikeln texxtoor Wissen erstellen oder sogar Periodika produzieren. Artikelautoren werden auf diese Weise vielfältig und regelmäßig vermarktet und verdienen immer wieder an der Veröffentlichung, sowohl im freien Online-Bereich als auch in allen anderen Medien. Wenn Du nicht gleich als Autor mit einem ganzen Werk starten willst, bietet sich ein Start mit einem Artikel geradezu an.
+      </p>
+      ]]>
+      </page>
+    </menu>
+    <menu title="Grundsätze unserer Plattform" order="2">
+      <page>
+        <![CDATA[
+        <h1>Grundsätze unserer Plattform</h1>
+        <div class="item">texxtoor ist von und für Autoren &ndash; auch im Hinblick auf die Auslegung und Anwendung des Urheberrechts sind wir hier klar "Pro Autor" positioniert.
+        Wir sind jedoch gegen jede Form der Bevormundung von Nutzern, denn für unsere Nutzer schreiben und arbeiten wir. Wir lehnen deshalb elektronische
+        Kopierschutzmaßnahmen strikt ab und Ermutigen unsere Autoren, ihre Inhalte zu teilen.
+        </div>
+      <h2>Urheberrecht, Copyright und DCMA</h2>
+      <p>
+        texxtoor hilft Autoren und anderen Kreativen bei der erfolgreichen Vermarktung ihrer Werke. Aus der vielfältigen Verfügbarkeit auf vielen Geräte und Medien ergeben sich freilich Probleme, die vor allem das Urheberrecht betreffen.
+        Grundsatz unsere Arbeit sind zwei Dinge. Zum einen erhält die Plattform texxtoor keine Urheberrechte, die Rechte verbleiben immer beim Autor. Die Benutzung auf der Plattform, durch die Plattform und damit durch andere Teilnehmer ist in Übereinstimmung mit dem Urheberrechtsgesetz UrG immer durch eine adäquate Vergütung gedeckt.
+        Allerdings ist im Internet eine Kultur gereift, die den Zugriff auf Informationen durch möglichst wenige Grenzen beschränkt sehen will. Der enorme Erfolg von Open Source und vergleichbaren Lizenzformen zeigt, dass mit dieser Art Kultur durchaus ein erfolgreiches Geschäftsmodell aufgebaut werden kann. Im Hinblick auf geschriebene Worte ist die Creative Commons Lizenz hier führend. Bei texxtoor sind wir der Meinung, dass alle bei uns veröffentlichten Werke unter der CC laufen sollten. Das ist standardmäßig der Fall, wenn Autoren keine andere Lizenzform wählen. Der Vorteil der Verbreitung des Werkes zusammen mit dem Namen der Autoren und die mit dem Modell verknüpften Verdienstmöglichkeiten überwiegend deutlich die Chancen, die eine starke Beschränkung mit sich bringt. Autoren, die ihr Werk mit Digital Rights Management (DRM) versehen und die Benutzung damit drastisch einschränken, minimieren ihren Markt. Daraus resultiert nicht nur ein Verlust der Verbreitung der freien Kopien, sondern auch ein Einkommensverlust.
+        Kopieren von Inhalten schafft Vielfalt
+        Die Verfügbarkeit einer einfachen Möglichkeit, Inhalte zu kopieren und zu verwenden, schafft eine enorme Vielfalt. Vielfalt kombiniert mit fortschrittlichen Maßnahmen zur Verwaltung schafft Lesern Zugang zu optimiertem Wissen. Die digitale Kopie ist dabei bei texxtoor nicht nur eine simple Kopie, sondern bleibt als Link erhalten. So kann jede Verwendung protokolliert und ggf. vergütet werden.
+        Im Web sind seit geraumer Zeit sogenannte Mashup-Sites entstanden. Dabei werden Inhalte von einer Plattform und vielen anderen wiederverwendet und kombiniert mit kreativen Anpassungen zu einer neuen Darstellung vereinigt. texxtoor Werke sind oft solche Mashups, bei denen Kreative aus vorhandenen Inhalten etwas Neues schaffen.
+        Die Revolution ist die Herauslösung des Begriffs &#171;Kopie&#187; aus einem moralisch verwerflichen Kontext. Es ist eine revolutionäre Neuerung, wenn wir akzeptieren, mit der Kopie umzugehen, sie für uns nutzbar zu machen. Wenn wir verstehen, warum kopieren für viele Menschen reizvoll ist, verstehen wir die Modell dahinter und verschaffen Kreativen und Wissenschaftlern ein Umfeld, indem sie arbeiten und verdienen können, ohne ständig mit dem Kampf gegen illegale Kopien verschlissen zu werden.
+      </p>
+      <h2>Fluss statt Einheit</h2>
+      <p>
+        Betrachte das fertige Werk nicht als abgeschlossene Einheit. Der klassische Buchmarkt verkauft solche Einheiten. Der Autor schreibt, der Verlag produziert, der Handel vertreibt, der Leser liest. Das Objekt &#171;Werk&#187; durchläuft einen simplen, festen Zyklus. Der Weg zeigt immer in einer Richtung und zwischen den beiden entscheidend beteiligten &#8211; dem Autor und dem Leser &#8211; liegen Welten.
+        Versuche die Grundform des texxtoor Werkes als Fluss zu verstehen. Das Werk entsteht, wird verändert, wandelt sich und passt sich an, produziert Varianten und Versionen.
+        Die Grundform des texxtoor Werkes entspricht in etwa dieser Versionsform. Das Werk entsteht, ein Teil wird extrahiert, entwickelt sich weiter indem er illustriert, übersetzt oder für eine bestimmte Zielgruppe angepasst wird. Vielleicht entwickeln sich dabei neue Inhalte, die ihren Weg zurück ins Original finden.
+        Das Urheberrecht baut auf einem singulären Schöpfer auf. Der &#171;Kreative&#187; erschafft ein Werk und bevor es von anderen illegal kopiert und missbraucht wird, muss es geschützt werden. Dahinter steckt die Idee, dass ein &#171;Genie&#187; etwas erschafft, was sich nicht ohne weiteres durch irgendjemand sonst schaffen lässt.
+        Das ist im Fach- und Sachbuchmarkt heute keineswegs mehr der Fall. Die Übergänge zwischen in schnöder Alltagsarbeit entstandener Erfahrung, mäßig aufbereitet in Schriftform gebracht und genialer Kreativität fließend. Der Wert eines Praxisreports, reichlich bebildert und mit sorgfältig recherchierten Links versehen, kann für einen Leser enorm sein.
+        Betrachten Sie diese Arbeitsweise als das, was es ist: als ein ständiges Neu-Zusammensetzen von Bestehendem. Andere Werke beeinflussen uns in unserer Arbeit als Autoren ohnehin. Ich lese, verstehe, und bereit auf. Ich kopiere im Kopf, ändere mit der Kraft meiner eigenen Gedanken und schon entsteht etwas Neues.
+        An dieser Stelle sollte man beginnen, die Zielsetzung der Erschaffung neuer Werke nicht aus den Augen zu verlieren &#8211; den Leser. Wenn Leser und Autoren eine Gemeinschaft eingehen (Read-Write-Society, siehe Lawrence Lessig) werden Nutzung und Verwendung sich sehr ähnlich. Das heißt, das Lesen von Inhalten ist letztlich nur eine bestimmte Form der Verwendung, die fließend in die Erschaffung neuer kreativer Inhalte übergeht. Und hier liegt der Vorteil für den Autor. Wenn er mit dem Leser eine kreative Gemeinschaft eingeht, vervielfältigt sich sein Inhalt und kann so eine ganz andere Wirkung entfalten.
+        Texxtoor schafft für Autoren Vergütungsmodelle, in denen die Kopie nicht bekämpft wird, sondern genutzt wird.
+      </p>
+      <h2>Sekundäres monetäres Modell</h2>
+      <p>
+        Solche sekundären Modelle sind nicht neu. Paradebeispiel ist Google &#8211; primär eine Suchmaschine, deren Leistung komplett frei ist. Sekundär werden Einnahmen über Werbung generiert. Viele Unternehmen nutzen vergleichbare Modelle.
+        texxtoor verfolgt einen ähnlichen Ansatz, mit der unsere Autoren hervorragende Einnahmen erzielen können.
+        Das Modell Werbung ist dabei nur eine Quelle. Autoren verdienen am Verkauf von Medien, also die Darstellung der Inhalte in anderer Form als rein elektronischer &#171;Rohform&#187;. Der Leser bezahlt für den Druck, die App, die Konvertierung in ein Format. Er kann dies auch alles selbst tun. In beiden Fällen ist es der Kontakt zum Leser, den die Plattform sichert und die die Einnahmen sichern. Denn die Kenntnis des Lesers ist der Schlüssel ihm Angebote zu unterbreiten, Leistungen der Autoren anzubieten, oder direkt Aufträge zu vermitteln.
+      </p>
+      ]]>
+      </page>
+    </menu>
+  </menu>
+  <menu type="footer">
+    <menu title="Das Portal" order="0">
+      <menuitem title="texxtoor: Was ist das eigentlich?" order="0" alias="what">
+        <page>
+          <h1>
+            <strong>texxtoor</strong>&#8482; ... was ist das eigentlich?
+          </h1>
+          <div class="item">
+            Zuerst einmal &#8211; was <strong>texxtoor</strong>&#8482; nicht ist: <strong>texxtoor</strong>&#8482; ist weder eine Selfpublishing-Plattform noch ein Fachverlag.
+          </div>
+          <div class="item">
+          </div>
+          <div class="item">
+            <h2>
+              <strong>texxtoor</strong>&#8482; ist der neue Weg, Expertenwissen zu publizieren und zu verwerten.
+            </h2>
+            <p>Unsere Plattform bietet Autoren und Verlagen die Chance, schnell und unkompliziert  &#8211; und vor allem kostenfrei &#8211; komplexes Fachwissen zu publizieren und zu vermarkten &#8211; weltweit und plattformübergreifend. Da der gesamte Erstellungsprozess über unseren innovativen Online-Editor erfolgt, benötigst Du dazu keine zusätzliche Software.</p>
+          </div>
+          <div class="item">
+          </div>
+          <div class="item">
+            <h2>
+              Was sind die Stärken von <strong>texxtoor</strong>&#8482; ?
+            </h2>
+            <p>
+              Die Vorzüge von <strong>texxtoor</strong>&#8482; liegen einmal in der einfachen Bedienbarkeit  des Editors. Die absolute Besonderheit ist aber, dass der Content intern sauber in HTML 5 strukturiert wird. Nur dadurch ist die umfassende Plattformunabhängigkeit überhaupt erst zu gewährleisten. Eine weitere Stärke von <strong>texxtoor</strong>&#8482; liegt in der Augmentierung, d. h. der Steigerung des Nutzwertes eines Werkes durch zusätzliche Funktionalitäten.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Plattformunabhängigkeit &#8211; was Du davon hast</h2>
+            <p>Die Speicherung der Inhalte in klar strukturiertes HTML 5 ist die Grundvoraussetzung, Dein Werk weitestgehend systemübergreifend zu nutzen. Erst dadurch ist es möglich, ein und denselben Content ohne Zusatzaufwand auf nahezu allen E-Book-Plattformen, den meisten Endgeräten und sogar als gedrucktes Buch aus- bzw. wiederzugeben. Du kannst dadurch Dein Werk also mit wenigen Klicks umgehend weltweit auf allen relevanten Absatzkanälen verbreiten und vermarkten.</p>
+          </div>
+          <div class="item">
+            <h2>Augmentierung: nur ein Modebegriff?</h2>
+            <p>
+              Unter Augmentierung verstehen wir den gesteigerten Nutzwert Deines Werkes. <strong>texxtoor</strong>&#8482; schöpft  die Möglichkeiten des jeweiligen Mediums nach Kräften aus. Wo im gedruckten Buch z.B. ein Bild steht, ist in der E-Book-Variante an gleicher Stelle ein Video zu finden. Oder das Printmedium wird via Bilderkennungstechnologie um digitale Inhalte erweitert. Mehr zu Augmentierung unter <strong>texxtoor</strong>&#8482; erfährst Du unter <a href="/Home/Page/augment">Augmentierung</a>.
+            </p>
+          </div>
+          <div class="item">
+            <h2>
+              Warum <strong>texxtoor</strong>&#8482; ?
+            </h2>
+            <p>Hochwertige Fachliteratur auf &#171;klassischem&#187; Weg zu veröffentlichen, wird immer schwieriger &#8211; die Absatzzahlen schrumpfen, Auflagenhöhen sinken unter die Rentabilitätsschwelle. Immer häufiger scheuen Verlage das unternehmerische Risiko, Expertenthemen anzufassen. Teilweise werden komplette Programmsparten eingestellt oder Verlage ganz geschlossen. Die geringe Attraktivität schwindender Margen für Dich als Autor muss hier nicht noch extra betont werden.</p>
+          </div>
+          <div class="item">
+            <h2>Doch was sind die Alternativen?</h2>
+            <p>Möglichkeit Eigenverlag: Das bedeutet, Du musst Dich um alles selbst kümmern: professionelle Produktion, Lektorat und Korrektorat, ISBN, Cover, weltweite Distribution, Werbung ... wirklich um ALLES! Wer will sich das antun?</p>
+          </div>
+          <p>Wundermittel Selfpublishing-Plattform? Manches Dilemma des Eigenverlages, scheint hier gelöst. Doch auch hier musst Du Dich immer noch um viele Dinge selbst kümmern. Bei der Veröffentlichung bist Du an eine Plattform gebunden, sobald Du die umfassende Distribution über viele E-Book-Shops anstrebst, ist das mit weiteren Kosten für Dich verbunden und so weiter, und so weiter.</p>
+          <p>
+            Einen ausführlichen Systemvergleich "<strong>texxtoor</strong>&#8482; vs. Eigenverlag, Selfpublishing etc." findest Du <a href="/Home/Page/compare">hier</a>.
+          </p>
+        </page>
+      </menuitem>
+      <menuitem title="Der Editor &amp;ndash; das Herzstück" order="10" alias="editor">
+        <page>
+          <h1>Der Editor &#8211; das Herzstück</h1>
+          <div class="item">
+            Der exklusive, webbasierte XHTML-Editor WYMIX ist das Kernelement von <strong>texxtoor</strong>&#8482;.
+          </div>
+          <p>Optimiert für unkomplizierte Bedienung, hilft er Dir als Autor, Dich ausschließlich auf Inhalt und Gliederung Deines Werkes zu konzentrieren. Selbstständig wird der Content in HTML 5 strukturiert und in der Datenbank abgelegt.</p>
+          <div class="item">
+            <h2>HTML 5 &#8211; Basis der Systemunabhängigkeit</h2>
+            <p>HTML 5 stellt die Grundvoraussetzung dar, Dein Werk plattformübergreifend zu publizieren. Erst die klar strukturierte Aufbereitung des Contents in dieses systemneutrale Datenformat, ermöglicht die Ausgabe auf nahezu allen Endgeräten, Spezialformaten für z. B. Amazon Kindle, iPad etc. und sogar als geducktes Buch.</p>
+          </div>
+          <div class="item">
+            <h2>Kein Mehraufwand für den Autor</h2>
+            <p>
+              So mächtig die Möglichkeiten des Datenformates auch sind &#8211; Du hast damit keinen erhöhten Arbeitsaufwand. Im Gegenteil: Du verfasst einfach Dein Werk mit dem intuitiv zu bedienenden Online-Editor, den Rest erledigt <strong>texxtoor</strong>&#8482; für Dich.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Interaktive Funktionen und Apps im Baukasten</h2>
+            <p>Dir stehen im Editor bereits viele vordefinierte Funktionen zur Verfügung, mit denen Du Dein Werk Baustein für Baustein um reine Text- und Bildinhalte erweitern kannst. Beispielsweise kannst Du Umfragen erstellen, interaktive Aufgaben einbinden, Grafiken um weitreichende Detailinformationen ergänzen etc.</p>
+          </div>
+          <div class="item">
+            <h2>Contenteinheiten: Mehrfachverwendung und Einzelvermarktung</h2>
+            <p>
+              Wie bereits oben beschrieben, strukturiert <strong>texxtoor</strong>&#8482; Dein Werk sauber in HTML 5. Dabei wird der Content klar in einzelne Kapitel unterteilt.
+            </p>
+          </div>
+          <p>
+            Diese eindeutige Gliederung ermöglicht ein absolutes Novum. Dadurch bietet sich Dir erstmals die Chance, Dein Werk nicht nur als Gesamtheit zu verbreiten. Du hast jetzt auch die zusätzliche Möglichkeit, einzelne Kapitel über <strong>texxtoor</strong>&#8482; zu vermarkten &#8211; entweder Stück für Stück, oder als Teil einer Sammlung, die sich jeder Leser individuell zusammenstellen und bei Bedarf als komplette Sammlung beziehen kann.
+            Mehr zu Contenteinheiten findest Du <a href="/Home/Page/content">hier</a>.
+          </p>
+        </page>
+      </menuitem>
+      <menuitem title="Vermarktung" order="20" alias="marketing">
+        <page>
+          <h1>Die Vermarktung</h1>
+          <div class="item">
+            Eine elementare Stärke von <strong>texxtoor</strong>&#8482; ist die Veröffentlichung  Deines Werkes über möglichst viele Kanäle. Die Distribution erfolgt weltweit über alle wichtigen E-Book-Shops. Ebenso ist es als Printversion, gelistet mit eigener ISBN, erhältlich.
+          </div>
+          <div class="item">
+            <h2>Plattformübergreifende Vermarktung</h2>
+            <p>
+              Aufgrund der systemneutralen Datenaufbereitung ermöglicht Dir <strong>texxtoor</strong>&#8482;, Dein Werk &#8211; einmal erfasst &#8211; quasi auf Knopfdruck in nahezu allen gängigen E-Book-Formaten auszugeben. Optional kannst Du es zudem natürlich auch als gedrucktes Buch, gelistet und mit eigener ISBN, veröffentlichen.
+            </p>
+            <p>Der Vorteil für Dich liegt in der enormen Verbreitung. Vergleichbare Auflagenhöhen sind über eine Selfpublishing-Plattform oder gar einen klassischen Verlag nicht zu erreichen.</p>
+          </div>
+          <div class="item">
+            <h2>Weltweite Distribution &#8211; wir erledigen das</h2>
+            <p>
+              So mächtig die Verbreitungsmöglichkeiten für Dich sind, so wenig musst Du Dich darum kümmern. Du gibst nur an, wo und wie Du Dein Werk verbreitet sehen willst, den Rest regeln wir für Dich. Datenaufbereitung, globale Veröffentlichung, Listung, Versand, Rechnungswesen, Zölle, Steuern &#8230; all das erledigt <strong>texxtoor</strong>&#8482; für Dich mithilfe seiner Distributionspartner.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Toller Service &#8230; doch was kostet mich das?</h2>
+            <p>Nichts. Wie alle anderen Leistungen ist die gesamte Distribution für Dich als Autor kostenfrei.</p>
+          </div>
+          <div class="item">
+            <h2>Mehrstufige Distributionsstrategie</h2>
+            <p>
+              Dahinter steckt mehr als ein "hochtrabender" Begriff. Um das maximale Potential Deines Werkes auszuschöpfen, empfiehlt sich die Nutzung möglichst aller Distributionsoptionen. D. h., Du veröffentlichst es mithilfe von <strong>texxtoor</strong>&#8482; als Gesamtwerk weltweit über alle relevanten E-Book-Plattformen. Zusätzlich bietest Du es via <strong>texxtoor</strong>&#8482; als gedruckte Fassung mit eigener ISBN über den gesamten Buchhandel an. Schließlich hast Du außerdem die Option, Dein Werk "portionsweise", also in einzelnen Kapiteln direkt über <strong>texxtoor</strong>&#8482; zu vermarkten. (Mehr dazu unter <a href="/Home/Page/units">Highlight Contenteinheiten</a>)
+            </p>
+          </div>
+          <div class="item">
+            <h2>Du bestimmst Dein Honorar selbst</h2>
+            <p>
+              Was Du für Deine Arbeit bekommst, legst Du selbst fest. Auf Wunsch beraten wir Dich natürlich dabei, Deinen Marktwert festzulegen. Jedenfalls bestimmst Du Dein Autorenhonorar &#8211; und das erhältst Du auch zu 100%. Das funktioniert! Wie, ist unter <a href="/Home/Page/revenues">100% Autorenhonorar</a> beschrieben.
+            </p>
+          </div>
+          <div class="item">
+            <h2>
+              Ist <strong>texxtoor</strong>&#8482; ausschließlich für kommerzielle Veröffentlichung geeignet?
+            </h2>
+            <p>
+              Natürlich ist <strong>texxtoor</strong>&#8482; aus der Idee heraus entstanden, das Publizieren von Fachwissen für Autoren wieder attraktiv &#8211; und das bedeutet auch "lukrativ" &#8211; zu machen. Dennoch bietet <strong>texxtoor</strong>&#8482; Einzelpersonen, Unternehmen und sonstigen Institutionen ebenfalls die Möglichkeit, Non-Profit-Content zu verbreiten. Das können kostenfreie Fachbücher oder Aufsätze ebenso sein wie Supportunterlagen, Whitepapers und vieles mehr.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Social-Marketing</h2>
+            <p>Auf Wunsch präsentieren wir Dein Werk auch über die bekannten Sozialen Netzwerke. Betreibst Du beispielsweise einen eigenen Blog, lässt auch dieser sich in die Marketingkommunikation einbinden.</p>
+          </div>
+        </page>
+      </menuitem>
+      <menuitem title="Die Rechte am Werk" order="30" alias="rights">
+        <page>
+          <h1>Was ist eigentlich mit den Rechten am eigenen Werk?</h1>
+          <div class="item">
+            Das Wichtigste vorweg: Die Rechte an Deinem Werk bleiben vollständig bei Dir &#8211; Du kannst jederzeit frei über Deinen Content verfügen. <strong>texxtoor</strong>&#8482; erlangt niemals die Urheberrechte an Deiner Arbeit. In der Vergabe der Nutzungsrechte bist Du bezüglich Art und Umfang vollkommen ungebunden.
+          </div>
+          <div class="item">
+            <h2>Creative Commons Lizenz</h2>
+            <p>Durch das Web ist eine Kultur gereift, der Verfügbarkeit von Informationen möglichst wenige Beschränkungen aufzuerlegen. Der enorme Erfolg von Open Source und vergleichbarer Lizenzformen zeigt, dass diese Entwicklung erfolgreichen Geschäftsmodellen nicht nur nicht im Weg steht &#8211; im Gegenteil.</p>
+            <p>Für das geschriebene Wort hat sich die Creative Commons (CC) Lizenz durchgesetzt, die wir Dir als Autor auch ausdrücklich empfehlen &#8230; sofern Du keine andere Lizenzform wählst.</p>
+          </div>
+          <div class="item">
+            <h2>Freie Verbreitung statt eingeschränkter Nutzung</h2>
+            <p>Die Vorteile einer möglichst uneingeschränkten Verbreitung Deines Werkes und Deines Namens &#8211; und auch die damit verbundenen Verdienstmöglichkeiten &#8211; überwiegen deutlich vor dem Nutzen von z.B. Digital Rights Management (DRM).</p>
+            <p>Der Einsatz von Digital Rights Management geht mit einer drastischen Nutzungseinschränkung einher. Nutzungseinschränkung ist gleichbedeutend mit Marktminimierung. Du reduzierst zwar die Verbreitung freier Kopien, drosselst aber auch Deinen Absatz. Und zwar drastisch!</p>
+          </div>
+          <div class="item">
+            <h2>Kopieren schafft Vielfalt</h2>
+            <p>Die einfache Möglichkeit, Inhalte zu kopieren und zu verwenden, schafft eine enorme Vielfalt. Vielfalt kombiniert mit fortschrittlichen Maßnahmen zur Verwaltung schafft Lesern Zugang zu optimiertem Wissen.</p>
+            <p>
+              Das digitale Duplikat ist dabei bei <strong>texxtoor</strong>&#8482; nicht nur eine simple Kopie, sondern bleibt als Link erhalten. So kann jede Verwendung protokolliert und bei Bedarf vergütet werden.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Mashup statt Kopie</h2>
+            <p>
+              Mashup-Sites verwenden fremde und eigene Inhalte, die sie durch kreative Anpassungen zu einer neuen Darstellung kombinieren. Werke auf <strong>texxtoor</strong>&#8482; sind oft solche Mashups, bei denen Kreative aus vorhandenen Inhalten etwas Neues schaffen.
+            </p>
+            <p>Die Revolution ist die Herauslösung des Begriffs &#171;Kopie&#187; aus einem moralisch fragwürdigen Kontext. Es ist eine Chance, wenn wir alle lernen, mit der Kopie verantwortungsvoll umzugehen, sie für uns nutzbar zu machen. Wenn wir verstehen, warum Kopieren so  reizvoll ist, verstehen wir die Psychologie dahinter und verschaffen Kreativen und Wissenschaftlern ein Umfeld, in dem sie arbeiten und verdienen können, ohne im ständigen Kampf gegen illegale Kopien verschlissen zu werden.</p>
+          </div>
+          <div class="item">
+            <h2>Achtung: Rechte Dritter!</h2>
+            <p>
+              Sollte Dein Text früher schon mal &#8211; z.B. als Buch in einem Verlag &#8211; veröffentlicht worden sein, achte bitte darauf, dass die Rechte dafür nun wieder bei Dir liegen. Ebenso verhält es sich möglicherweise mit Werken, die Du im Auftrag Dritter verfasst hast. Kurz gesagt: Die möglichen Rechte Dritter an Deinem Werk zu klären &#8230; das ist eines der wenigen Dinge, die Dir <strong>texxtoor</strong>&#8482; nicht abnehmen kann.
+            </p>
+          </div>
+        </page>
+      </menuitem>
+      <menuitem title="100% Autorenhonorar" order="40" alias="revenues">
+        <page>
+          <h1>100 % Autorenhonorar für Dich &#8211; Du bestimmst Deinen Preis</h1>
+          <div class="item">Du selbst legst fest, was Du pro verkauftem Exemplar Deines Werkes bekommen möchtest ... und das erhältst Du auch zu hundert Prozent.</div>
+          <div class="item">Dass jeder Shop ein eigenes Vergütungsmodell und eine unterschiedliche Provisionierung hat, international verschiedene Steuern, Versandkosten  &#8211; darum musst Du Dich nicht kümmern. Unser System errechnet für jeden einzelnen Anbieter den individuellen Verkaufspreis, der Deine volle Marge garantiert.</div>
+          <div class="item">
+            <h2>Wie ist das mit der Ladenpreisbindung?</h2>
+            <p>
+              Damit Du Deine hundertprozentige Marge erzielst, muss der Verkaufspreis &#8211; wie oben beschrieben &#8211; für jeden einzelnen Absatzkanal anders definiert werden. Da E-Books in Deutschland ebenso wie gedruckte Bücher der Ladenpreisbindung unterliegen, erhält Dein Werk mit jedem neuen Preis eine eigenständige ISBN. Auch das erledigt <strong>texxtoor</strong>&#8482; für Dich &#8211; wie alles andere, vollkommen kostenfrei.
+            </p>
+          </div>
+        </page>
+      </menuitem>
+      <menuitem title="Highlight Content-Einheiten" order="50" alias="units">
+        <page>
+          <h1>Highlight Content-Einheiten</h1>
+          <div class="item">
+            Die klare Strukturierung von Gesamtwerken ist die Voraussetzung für ein absolutes Highlight von <strong>texxtoor</strong>&#8482;. Nur dadurch ist auch die Nutzung und Vermarktung einzelner Contenteinheiten möglich!
+          </div>
+          <div class="item">
+            <h2>Was ist darunter zu verstehen?</h2>
+            <p>
+              Unser selbstentwickelter Editor WYMIX, das Herzstück von <strong>texxtoor</strong>&#8482; (<a href="/Home/Page/editor">Der Editor</a>), achtet darauf, dass Dein Werk klar strukturiert in der Datenbank abgelegt wird. Das ist der Schlüssel dazu, Dein Werk nicht nur als Gesamtheit zu veröffentlichen. Die eindeutige Gliederung in einzelne Kapitel erlaubt, diese auch als eigenständige Contenteinheiten zu verbreiten.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Und was bringt das?</h2>
+            <p>Der Nutzen für Dich ist vielfältig. Da einzelne Kapitel natürlich günstiger sind als das Gesamtwerk, liegt hier ein starker Kaufanreiz. Wer nicht das vollständige Werk kaufen möchte, greift dennoch zu Einzelkapiteln: zusätzlicher Umsatz für Dich.</p>
+            <p>Ein weiteres Feature für den Leser ist die Möglichkeit, mehrere Contenteinheiten, auch aus unterschiedlichen Werken, individuell zu eigenen Sammlungen zusammenzustellen. Bei Bedarf kann er dann seine Sammlung im gewünschten E-Book-Format erwerben.</p>
+            <p>Genauso hast Du als Autor die Option, eigene Kapitel mehrfach zu verwenden und zu immer wieder neuen Gesamtwerken zu komponieren.</p>
+          </div>
+          <div class="item">
+            <h2>Ist das auf allen Plattformen möglich?</h2>
+            <p>
+              Nein. Die Verwendung einzelner Contenteinheiten setzt unsere selbstentwickelte Technologie voraus. Daher ist das Nutzen und Vermarkten von Einzelkapiteln derzeit ausschließlich auf <strong>texxtoor</strong>&#8482; möglich. Das Gleiche gilt für die Erstellung eigener Sammlungen.
+            </p>
+            <p>
+              Diese Exklusivität gewährt auch einen unschätzbaren Vorteil. Speziell die eigenen Sammlungen sind ein Feature, das dem Leser einen einzigartigen Nutzen bietet und  eine starke Kundenbindung erzielt. Gut für Dich, wenn Du als Autor auf <strong>texxtoor</strong>&#8482; präsent bist.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Die Vermarktung des Gesamtwerkes bleibt davon unberührt</h2>
+            <p>
+              Die Möglichkeiten, Dein Werk kapitelweise zu verwerten hat keinen Einfluss auf die Vermarktung des Gesamtwerkes. Da stehen Dir nach wie vor alle Optionen, wie unter <a href="/Home/Page/marketing">Vermarktung</a> beschrieben, uneingeschränkt zur Verfügung.
+            </p>
+          </div>
+        </page>
+      </menuitem>
+      <menuitem title="Augmentierung" order="60" alias="augment">
+        <page>
+          <h1>Augmentierung</h1>
+          <div class="item">
+            Der Onlineeditor WYMIX &#8211; eine exklusive Eigenentwicklung von uns &#8211; ist das Herzstück von <strong>texxtoor</strong>&#8482; (siehe auch <a href="/Home/Page/editor">Der Editor</a>). Erst durch ihn sind viele Optionen möglich, die das Publizieren auf <strong>texxtoor</strong>&#8482; so besonders machen.
+          </div>
+          <div class="item">
+            <h2>Nährwert durch Mehrwert</h2>
+            <p>
+              Mit <strong>texxtoor</strong>&#8482; kannst Du die Potentiale der unterschiedlichen Medien optimal für Dein Werk nutzen. So lässt sich z. B. festlegen, dass auf dem Tablet dort ein Video abgespielt oder eine Animation gezeigt wird, wo im gedruckten Buch ein Bild dargestellt ist.
+            </p>
+            <p>Die Inhalte lassen sich um viele interaktive Funktionen erweitern. Du kannst innerhalb Deines Werkes unter anderem Umfragen durchführen, Aufgaben erstellen oder die Webcam des Lesers zur Interaktion nutzen. Grafiken und Bilder lassen sich mit Detailinformationen versehen und mit weiterführenden, vertiefenden Inhalten verknüpfen. So können beispielsweise durch Klick auf eine Landkarte ausführliche Fakten zur entsprechenden Region angezeigt werden &#8211; Deiner Kreativität sind hier fast keine Grenzen gesetzt.</p>
+          </div>
+          <div class="item">
+            <h2>Das Beste aus beiden Welten</h2>
+            <p>Jedes Medium hat seine Vorteile, das gedruckte Buch bietet nach wie vor das beste Leseerlebnis. Usability-Forschungen ergaben bis zu 20 Prozent höhere Lesegeschwindigkeit gegenüber Onlinemedien. Dafür sind E-Books unschlagbar bezüglich Aktualisierbarkeit, Interaktivität und Multimedia-Funktionalität.</p>
+            <p>
+              Mit <strong>texxtoor</strong>&#8482; hast Du die Möglichkeit, alle Stärken in einem Werk zu vereinen. Druckversionen werden zum Beispiel mit einer Bilderkennungstechnologie gekoppelt. Nutzt der Leser dann eine Smartphone-Kamera oder eine Webcam, kann er sich ergänzende digitale Inhalte anzeigen lassen.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Baustein für Baustein</h2>
+            <p>Dir als Autor werden dazu zahlreiche Werkzeuge zur Verfügung gestellt, mit denen Du solche Mehrwertinhalte erstellen kannst. Dabei benötigst Du keinerlei Programmierkenntnisse, sondern bedienst Dich einfach aus einer großen Bibliothek von Apps und interaktiven Features. Wie mit einem Baukasten kannst Du Dein Werk Stück für Stück um Funktionen erweitern, die es zu etwas ganz Besonderem werden lassen.</p>
+          </div>
+        </page>
+      </menuitem>
+      <menuitem title="Community" order="70" alias="community">
+        <page>
+          <h1>Die Community</h1>
+          <div class="item">
+            <strong>texxtoor</strong>&#8482; fördert die Zusammenarbeit. Lead-Autoren finden Co-Autoren oder Lektoren. Illustratoren und Übersetzer arbeiten im Team. Leser nutzen gemeinsame Sammlungen, Lesezeichen und Kommentare ...
+          </div>
+          <div class="item">
+            <h2>Stelle Dir als Autor Dein Team zusammen!</h2>
+            <p>
+              <strong>texxtoor</strong>&#8482; bildet die technologische Basis, damit Du Dir genau die Partner für Dein Projekt ins Boot holen kannst, die Du brauchst. Angenommen, Du suchst einen Korrektor oder jemanden, der Dein Werk professionell übersetzt &#8211; finde über <strong>texxtoor</strong>&#8482; den richtigen Spezialisten und beteilige ihn am Ertrag.
+            </p>
+            <p>Du hast das Know-how und möchtest es gerne veröffentlichen. Dein Job lässt Dir dafür aber nicht genügend Zeit &#8211; werde Lead-Autor und suche Dir die richtigen Co-Autoren.</p>
+            <p>Oder aber, Du hast noch keine Erfahrung als Fachautor, bist aber Spezialist auf Deinem Gebiet &#8211; bewirb Dich doch als Co-Autor und lerne das Handwerk von einem alten Hasen.</p>
+            <a href="/Home/Page/writeteam">Schreiben im Team</a>
+          </div>
+          <div class="item">
+            <h2>Warum die Community für Leser interessant ist</h2>
+            <p>
+              <strong>texxtoor</strong>&#8482; ermöglicht Arbeits- und Projektteams oder Lerngruppen, gemeinsam Contentsammlungen zusammenzutragen und zu nutzen. Diese können  Sie kostenfrei online auf <strong>texxtoor</strong>&#8482; lesen und bei Bedarf z. B. als E-Book erwerben.
+            </p>
+            <a href="/Home/Page/learnteam">Gemeinsam lernen</a>
+          </div>
+          <div class="item">
+            <h2>Werde Teil der Community</h2>
+            <p>
+              Melde Dich gleich an oder registriere Dich als Mitglied der <strong>texxtoor</strong>&#8482; -Community und nutze alle Vorteile &#8211; ob als Autor, als Nutzer oder als Beides.
+            </p>
+            <a href="/Account/Register">Registrieren</a> oder <a href="/Account/Logon">Anmelden</a>
+          </div>
+        </page>
+      </menuitem>
+      <menuitem title="Schreiben im Team" order="71" alias="writeteam" visible="false">
+        <page>
+          <h1>Schreiben im Team</h1>
+          <div class="item">Während einzelne Texte und wenig umfangreiche Werke in der Regel von einem Autor geschrieben werden, ist es bei umfangreichen Werken häufig sinnvoll, die Aufgaben auf mehrere Schultern zu verteilen.</div>
+          <div class="item">Komplexe Fachbücher entstehen heutzutage schon im Team: Neben dem Autor (oder mehreren) sind eine Reihe anderer Spezialisten wie Lektoren, Hersteller, Grafiker, Illustratoren, Übersetzer beteiligt.</div>
+          <div class="item">
+            <h2>
+              <strong>texxtoor</strong>&#8482; hilft bei der Teambildung
+            </h2>
+            <p>
+              Mit <strong>texxtoor</strong>&#8482; ist es möglich, den gesamten Workflow eines Projektes je nach Umfang, Bedarf und Fähigkeiten auf mehrere Schultern zu verteilen. Das beginnt bereits bei der Suche nach den richtigen Partnern. Du kannst Dein Projekt auf <strong>texxtoor</strong>&#8482; ausschreiben, damit sich die richtigen Spezialisten bei Dir bewerben können oder aus einem Pool von Fachleuten selbst die richtigen auswählen.
+            </p>
+          </div>
+          <p>Auch das gesamte Projektmanagement kannst Du mithilfe unserer Plattform organisieren. Verteile die Aufgaben, erstelle Ablaufpläne und beobachte die Fortschritte aller Teammitglieder.</p>
+          <p>
+            Und wenn die Arbeit dann Früchte trägt, ist auch die Verteilung des Ertrages an alle Beteiligten &#8211; nach dem vorher gemeinsam vereinbarten Schlüssel &#8211; problemlos. Mit <strong>texxtoor</strong>&#8482; geht das einfach, transparent und gerecht.
+          </p>
+          <div class="item">
+            <h2>Lead-Autor werden</h2>
+            <p>
+              Jedes Projekt bei <strong>texxtoor</strong>&#8482; hat immer einen  Lead-Autor. Er ist der Ideenträger und der Projektverantwortliche. Einzelautoren, die auch sonst kein Hilfe Dritter in Anspruch nehmen, sind Lead-Autoren im eigenen Ein-Mann-Team. In größeren Teams bist Du als Lead-Autor der, der das Team zusammenstellt und auch für die Herstellungs - und Vermarktungsvorgaben verantwortlich ist.
+            </p>
+            <p>Lead-Autor eines größeren Projektteams zu werden, bietet sich für Dich beispielsweise auch dann an, wenn Du zwar über das gesamte inhaltliche Fachwissen verfügst und ebenso die sprachlichen und didaktischen Voraussetzungen erfüllst, ein komplettes Buch zu schreiben. Du bist aber mit Deiner Haupttätigkeit so gut ausgelastet, dass Dir für das gesamte Projekt schlicht die Ressourcen fehlen.</p>
+          </div>
+          <div class="item">
+            <h2>Ko-Autor werden</h2>
+            <p>
+              Wenn Du als Autor noch Erfahrung sammeln möchtest und nicht gleich als Lead-Autor einsteigen willst, bietet sich ein Start als Ko-Autor an. Registriere Dich bei <strong>texxtoor</strong>&#8482; und erstelle Dein möglichst aussagekräftiges Nutzerprofil. Schreibe einzelne Artikel, um Deine Reputation (siehe auch <a href="/Home/Page/rating">Das Reputationssystem</a>) zu steigern und bewirb Dich um die Mitarbeit bei interessanten Projekten.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Lektor, Illustrator, Übersetzer &#8230;</h2>
+            <p>
+              Auf <strong>texxtoor</strong>&#8482; arbeiten eine Vielzahl Spezialisten rund ums Publizieren:  Illustratoren, Grafiker, Fachlektoren, Korrektoren und viele weitere.
+            </p>
+            <p>
+              Du als Spezialist bewirbst Dich oder wirst aufgrund Deiner <a href="/Home/Page/rating">Reputation</a> vom Lead-Autor zu einem Projekt eingeladen.
+            </p>
+            <p>
+              Daneben hast Du aber auch vielfältige Möglichkeiten, selbst aktiv zu werden und bereits existierende Inhalte weiter zu be- bzw. verarbeiten. Beispielsweise kannst Du als Fachübersetzer die internationale Ausrichtung der Plattform nutzen und Deine Übersetzung eines auf <strong>texxtoor</strong>&#8482; bereits veröffentlichten Werkes bereitstellen.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Übersetzer</h2>
+            <p>Als Übersetzer kannst du jeden offenen Inhalt nehmen und in eine Sprache Deiner Wahl übertragen. Für Autoren ist die Freigabe der Inhalt attraktiv, da sie sich ohne weiteren Aufwand einen zusätzlichen Markt erschließen. Übersetzer können sich auch als Team engagieren und gemeinsam für einen oder mehrere Autoren Aufträge übernehmen.</p>
+          </div>
+          <div class="item">
+            <h2>Der gemeinsame Ertrag</h2>
+            <p>Als Lead-Autor vereinbarst Du zu Projektbeginn mit Deinen Teammitgliedern einen verbindlichen Aufteilungsschlüssel für alle Erträge aus der Zusammenarbeit. Dabei seid Ihr vollkommen frei, wie diese Verteilung ausfällt. Einmal festgelegt, garantiert der Schlüssel eine gerechte und nachvollziehbare Abrechnung.</p>
+            <p>
+              Melde Dich gleich an oder registriere Dich als Mitglied der <strong>texxtoor</strong>&#8482;-Community und arbeite gemeinsam mit anderen an (D)einen Werk.
+            </p>
+          </div>
+          <a href="/Account/Register">Registrieren</a> oder <a href="/Account/Logon">Anmelden</a>
+        </page>
+      </menuitem>
+      <menuitem title="Gemeinsam lernen" order="72" alias="learnteam" visible="false">
+        <page>
+          <h1>Gemeinsam lernen</h1>
+          <div class="item">
+            <strong>texxtoor</strong>&#8482; ist mehr als eine Plattform zur Veröffentlichung und Vermarktung von Fachwissen. Wir setzen stark auf die Dynamik und Produktivität der Community. Arbeitsgruppen finden sich zusammen, um gemeinsame Werke zu erarbeiten. Lesergruppen erstellen ihre eigenen Contentsammlungen, die sie zusammen bookmarken und kommentieren.
+          </div>
+          <div class="item">
+            <h2>Gemeinsam stark</h2>
+            <p>
+              <strong>texxtoor</strong>&#8482; ermöglicht Arbeits- und Projektteams oder Lerngruppen, gemeinsam Contentsammlungen zusammenzutragen und zu nutzen. Diese können sie kostenfrei online auf <strong>texxtoor</strong>&#8482; lesen und bei Bedarf z.B. als E-Book erwerben.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Teile Wissen und Inhalte mit anderen</h2>
+            <p>Ob Inhalte, eigene Kommentare oder Lesezeichen &#8211; alles könnt Ihr auch im Team nutzen.</p>
+            <p>Gemeinschaftlich erworbene Inhalte sparen Geld. Tausche Informationen mit Deinen Kollegen, Kommilitonen oder Mitschülern und erlebe die Vorteile, im Team zu lernen.</p>
+          </div>
+          <div class="item">
+            <h2>Arbeitet online zusammen</h2>
+            <p>
+              Ihr könnt Euch einzelne Inhalte teilen, zusammen bearbeiten und darüber diskutieren. Nutzt gemeinschaftlich Eure Kommentare und Lesezeichen. Profitiert von den Synergieeffekten Eurer Zusammenarbeit &#8211; <strong>texxtoor</strong>&#8482; stellt Euch die Plattform dazu kostenfrei zur Verfügung. Macht das Beste daraus!
+            </p>
+            <p>
+              Melde Dich gleich an oder registriere Dich als Mitglied der <strong>texxtoor</strong>&#8482;-Community und nutzt Inhalte im Team.
+            </p>
+          </div>
+          <a href="/Account/Register">Registrieren</a> oder <a href="/Account/Logon">Anmelden</a>
+        </page>
+      </menuitem>
+      <menuitem title="Jetzt Autor werden" order="80" alias="becomeauthor">
+        <page>
+          <h1>Jetzt Autor werden</h1>
+          <div class="item">
+            <h2>Wie wird man Autor?</h2>
+            <p>
+              Ganz einfach: melde Dich auf <strong>texxtoor</strong>&#8482; <a href="/Account/Logon">an</a> und starte Dein Projekt. Verfasse Dein Werk mit unserem exklusiven <a href="/Home/Page/editor">Online-Editor WYMIX</a> &#8211; leicht und intuitiv.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Experten gesucht</h2>
+            <p>Dein Know-how ist gefragt, der Bedarf an Experten ungebrochen. Du möchtest Dein Wissen weitergeben und bist auch bereit, dafür Arbeit und Zeit zu investieren. Aber: Das muss sich für Dich auch lohnen! Deine Mühe muss sich auf Deinem Konto, in Deinem fachlichen, beruflichen Renommee  niederschlagen &#8211; wo bleibt denn sonst die Motivation?</p>
+          </div>
+          <div class="item">
+            <h2>Was musst Du tun, um zu veröffentlichen?</h2>
+            <p>
+              Zuerst musst Du natürlich interessante Inhalte verfassen. Wenn Du unsicher bist, was Didaktik, Rechtschreibung oder Illustrationen betrifft, dann erweitere dein Team um <a href="/Home/Page/writeteam">kompetente Mitstreiter</a>. Lege fest, wie ihr zusammen abrechnet und in welcher Aufteilung Einnahmen verteilt werden. Wenn alles perfekt ist, veröffentlichst Du mit wenigen Klicks Dein Werk.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Die Vermarktung</h2>
+            <p>
+              <strong>texxtoor</strong>&#8482; ermöglicht Dir eine mehrstufige <a href="/Home/Page/marketing">Vermarktungssstrategie</a>. Das bedeutet, Du kannst Dein Werk ohne besonderen Aufwand weltweit plattform- und medienübergreifend, auf nahezu allen Distributionskanälen, als E-Book, App oder gedrucktes Buch publizieren. Darüber hinaus bieten wir Dir die einzigartige Möglichkeit, Dein Werk über <strong>texxtoor</strong>&#8482; auch „stückweise“, das heißt in einzelnen Kapiteln zu verwerten (<a href="/Home/Page/marketing">Higlight Contenteinheiten)</a>.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Dein Honorar</h2>
+            <p>
+              Als Autor bestimmst Du Deine Marge (zum Thema <a href="/Home/Page/revenues">Autorenhonorar</a>) selbst nicht prozentual zum Umsatz, sondern absolut. Du legst also fest, welchen genauen Betrag Du pro verkauftem Werk erhalten möchtest. Den bekommst Du dann auch zu 100 %, ganz gleich, über welchen Distributionskanal, in welchem Land Dein Werk verkauft wird.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Was kostet Dich das alles</h2>
+            <p>
+              Mit einem Wort: nichts! <strong>texxtoor</strong>&#8482; ist für Dich als Autor vollkommen kostenlos.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Qualitätsmanagement</h2>
+            <p>
+              Bei <strong>texxtoor</strong>&#8482; wacht unser <a href="/Home/Page/rating">Reputationssystem</a> über ein anhaltend hohes Qualitätsniveau. Als Autor benötigst Du ein gewisses Reputationslevel, um eigenständig veröffentlichen zu können. Die Leser beurteilen jedes Werk, das Punktesystem belohnt häufig genutzte, aktuelle Inhalte.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Vorteile für Dich als Autor</h2>
+            <ul>
+              <li>Vollkommen kostenfrei für Dich.</li>
+              <li>Du bestimmst Dein Honorar, und das bekommst Du zu 100 %.</li>
+              <li>Die vollständigen Rechte an Deinem Werk bleiben bei Dir.</li>
+              <li>Weltweite Distribution als E-Book und als gedrucktes Buch (mit eigener ISBN)</li>
+              <li>Du kannst Kapitel und Abschnitte einzeln vermarkten und mehrfach nutzen.</li>
+              <li>Qualitätssicherung durch umfassendes Reputationssystem</li>
+              <li>Auch Special-Interest-Themen für eng gefasste Zielgruppen lassen sich lukrativ vermarkten.</li>
+              <li>
+                Du hast die Möglichkeit, Dein Werk sofort zu aktualisieren, zu verbessern und kontinuierlich zu erweitern. Selbstverständlich kostenfrei für Dich &#8211; wie alles auf <strong>texxtoor</strong>&#8482;.
+              </li>
+            </ul>
+          </div>
+          <p>
+            Melde Dich gleich an oder registriere Dich, um Autor bei <strong>texxtoor</strong>&#8482; zu werden.
+          </p>
+          <a href="/Account/Register">Registrieren</a> oder <a href="/Account/Logon">Anmelden</a>
+
+        </page>
+      </menuitem>
+      <menuitem title="Content nutzen" order="90" alias="usecontent">
+        <page>
+          <h1>Content nutzen</h1>
+          <div class="item">
+            Als registrierter Nutzer kannst Du auf <strong>texxtoor</strong>&#8482; den gesamten verfügbaren Content kostenfrei lesen, bookmarken und kommentieren. Du kannst einzelne Kapitel oder komplette Werke nutzen.
+          </div>
+          <div class="item">
+            <h2>E-Books erwerben</h2>
+            <p>
+              Wenn Dir nach ausführlicher Prüfung ein Werk besonders zusagt und Du möchtest es jetzt gerne mobil auf z.B. Deinem Kindle nutzen, kannst Du es problemlos als E-Book in Deinem Wunschformat über <strong>texxtoor</strong>&#8482; beziehen. Du kaufst also nicht die sprichwörtliche Katze im Sack, sondern weißt genau, was Du bekommst. (Natürlich kannst Du das Werk alternativ auch als gedrucktes Buch beziehen)
+            </p>
+          </div>
+          <div class="item">
+            <h2>Persönliche Sammlungen</h2>
+            <p>
+              Ganz nach Belieben kannst Du auf <strong>texxtoor</strong>&#8482; eigene Sammlungen erstellen. Dort speicherst Du ganze Werke oder einzelne Kapitel, die Dich interessieren. Als besonderen Clou kannst Du auch Deine individuellen Sammlungen &#8211; genauso wie oben bei den Einzelwerken beschrieben &#8211; als E-Book, App oder als gedrucktes Buch erwerben. So kannst Du Dir z.B. Dein eigenes Werk &#171;konfigurieren&#187;, indem Du verschiedene Einzelkapitel, aus unterschiedlichen Quellen, von unterschiedlichen Autoren, zu Deiner persönlichen Sammlung zusammenstellst und dann als zusammenhängendes E-Book über <strong>texxtoor</strong>&#8482; beziehst und herunterlädst.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Gemeinsam lernen</h2>
+            <p>
+              Alle oben genannten Funktionen stehen nicht nur dem einzelnen Leser offen. Sie lassen sich auch von Teams gemeinsam nutzen (<a href="/Home/Page/learnteam">Gemeinsam lernen</a>) &#8211; <strong>texxtoor</strong>&#8482; stellt die Infrastruktur dazu bereit. So können Arbeitsgruppen aus Kollegen, Schülern oder Kommilitonen im Team von den Vorteilen der Plattform profitieren.
+            </p>
+          </div>
+          <p>
+            Melde Dich gleich an oder registriere Dich als Mitglied, um als Leser uneingeschränkt Content bei <strong>texxtoor</strong>&#8482; zu nutzen.
+          </p>
+          <a href="/Account/Register">Registrieren</a> oder <a href="/Account/Logon">Anmelden</a>
+        </page>
+      </menuitem>
+      <menuitem title="texxtoor im Vergleich" order="100" alias="compare">
+        <page>
+          <h1>
+            <strong>texxtoor</strong>&#8482; im Vergleich
+          </h1>
+          <table class="indextable" style="column-span:all;-webkit-column-span:all;">
+            <colgroup>
+              <col style="width:180px"></col>
+              <col class="light" style="width:100px"></col>
+              <col class="light" style="width:100px"></col>
+              <col class="light" style="width:100px"></col>
+              <col class="light" style="width:100px"></col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="medium"></th>
+                <th class="dark">texxtoor &#8482;</th>
+                <th class="dark">Self-Publisher</th>
+                <th class="dark">Eigenverlag</th>
+                <th class="dark">Fachverlag</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Rechte bleibem beim Autor</td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+              </tr>
+              <tr class="medium">
+                <td>Keine Kosten für den Autor</td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+              </tr>
+              <tr>
+                <td>Autor entscheidet über den Inhalt</td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+              </tr>
+              <tr class="medium">
+                <td>Professionelle Produktion</td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_null.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+              </tr>
+              <tr>
+                <td>Lektorat, Korrektorat</td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+              </tr>
+              <tr class="medium">
+                <td>Alle Medien, Geräte* und Stores**</td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+              </tr>
+              <tr>
+                <td>ISBN möglich***</td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>***
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>***
+                </td>
+              </tr>
+              <tr class="medium">
+                <td>Weltweite Distribution</td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+              </tr>
+              <tr>
+                <td>Inhalt wird sofort veröffentlicht</td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+              </tr>
+              <tr class="medium">
+                <td>Ständige Aktualisierung möglich</td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_null.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_null.png"></img>
+                </td>
+              </tr>
+              <tr>
+                <td>Inhalte dauerhaft zitierfähig</td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_null.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+              </tr>
+              <tr class="medium">
+                <td>Autor legt den Verkaufspreis fest</td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+              </tr>
+              <tr>
+                <td>Autor legt seine Marge fest</td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_no.png"></img>
+                </td>
+                <td>
+                  <img src="/Content/icons/bool_yes.png"></img>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr class="medium">
+                <td></td>
+                <td colspan="4">
+                  * &#160;&#160;&#160;iPad, Windows 8, Android, Web/RSS, Kindle Fire, Buchdruck Softcover<br />
+                  ** &#160;&#160;unter anderem Amazon, Apple iBookStore, Thalia, Hugendubel u.v.m<br />
+                  *** &#160;ggf. zusätzliche Kosten<br />
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+          <p>Hochwertige Fachliteratur auf &#171;klassischem&#187; Weg zu veröffentlichen, wird immer schwieriger, Verlage scheuen zunehmend das unternehmerische Risiko, Expertenthemen anzufassen. Doch was sind die Alternativen?</p>
+          <div class="item">
+            <h2>Alternative Eigenverlag: Wer will sich das antun?</h2>
+            <p>Beim Eigenverlag bleibt ausnahmslos alles rund um ein Buchprojekt an Dir hängen. Es reicht nicht mehr, ein Werk zu konzipieren und zu verfassen. Produktion, Lektorat, Korrektorat, ISBN, Cover, Distribution, Werbung, Presse liegen jetzt allein in Deiner Verantwortung. Das volle Kostenrisiko trägst Du selbstverständlich auch.</p>
+          </div>
+          <p>
+            <strong>Fazit</strong>: keine gute Idee! Du willst Fachliteratur veröffentlichen, nicht Verleger werden.
+          </p>
+        </page>
+      </menuitem>
+      <menuitem title="Reputationssystem" order="110" alias="rating">
+        <page>
+          <h1>Qualitätsfaktor Reputationssystem</h1>
+          <div class="item">
+            Unser Reputationssystem stellt sicher, dass ausschließlich hochwertiger Content bei <strong>texxtoor</strong>&#8482; veröffentlicht wird.
+          </div>
+          <div class="item">
+            <h2>Die Vorteile für Dich als Autor</h2>
+            <p>
+              Du als Autor profitierst mit Deinem Werk von diesem positiven Markenimage. Erst ab einem gewissen Reputationslevel darfst  Du selbstständig veröffentlichen. Dieses Niveau kannst Du Dir sukzessive, beispielsweise als Co-Autor, erarbeiten. Ebenso besteht die Möglichkeit, Deine persönliche Reputation &#8211; z.B. anhand früherer Publikationen &#8211; direkt von <strong>texxtoor</strong>&#8482; ermitteln zu lassen.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Über die Qualität urteilt der Leser</h2>
+            <p>Als Leser kannst Du am besten beurteilen, wie gut ein Content ist. Jedes Werk kann Punkte nach einem einfachen System sammeln, das sich an Nutzungsintensität, Qualitätsbewertung und Aktualität orientiert. Dabei gilt: je besser, desto mehr Punkte gibt es. Darüber hinaus gibt es noch die Möglichkeit des Gutachtens.</p>
+          </div>
+          <div class="item">
+            <h2>Bewertungssystem</h2>
+            <p>
+              Die Punktevergabe auf <strong>texxtoor</strong>&#8482; erfolgt nach folgendem System:
+            </p>
+            <ul>
+              <li>Ein Leser bewertet die Qualität Deines Werks auf einer Skala von 1–5 Sternen: je Stern gibt es 2 Punkte (z.B. 3 Sterne = +6 Punkte)</li>
+              <li>
+                Ein Leser hat Dein Gesamtwerk in seine persönliche Werkliste aufgenommen: <span style="color:green">+40 Punkte</span>
+              </li>
+              <li>
+                Ein Leser hat eine Contenteinheit in seine Sammlung oder sein privates Werk eingebunden: <span style="color:green">+1 Punkt</span> je Einheit
+              </li>
+              <li>
+                Ein Leser hat eine Contenteinheit kommentiert: <span style="color:green">+1 Punkt</span> je Kommentar
+              </li>
+              <li>
+                Ein Leser hat Dein Werk in den letzten vier Wochen online oder als App gelesen: <span style="color:green">+1 Punkt</span> (der Punkt wird wieder abgezogen, wenn der Leser das Werk danach nicht mehr nutzt)
+              </li>
+              <li>
+                Ein Leser hat Dein Werk gekauft: <span style="color:green">+10 Punkte</span>
+              </li>
+              <li>
+                Ein Leser bewertet Dein Werk negativ: <span style="color:red">-5 Punkte</span>
+              </li>
+              <li>
+                Ein als Gutachter registrierter Benutzer beurteilt Dein Werk positiv: <span style="color:green">+15 Punkte</span>
+              </li>
+              <li>
+                Ein als Gutachter registrierter Benutzer beurteilt Dein Werk negativ: <span style="color:red">-5 Punkte</span>
+              </li>
+            </ul>
+          </div>
+          <div class="item">
+            <h2>Nutzung durch andere Autoren</h2>
+            <p>
+              Auch die Nutzung Deines Werkes durch andere Autoren fließt in die Bewertung mit ein.
+            </p>
+            <ul>
+              <li>
+                Wird Dein Gesamtwerk oder Teile daraus in einem Werk eines anderen Autors weiterverwendet,  bekommt Dein Werk einmalig <span style="color:green">+250 Punkte</span>.
+              </li>
+              <li>
+                Wurde Dein Werk durch Teammitglieder eines anderen Lead- Autors überarbeitet, bekommt es für jeden Teilnehmer <span style="color:green">+50 Punkte</span>
+              </li>
+              <li>
+                Vier Wochen ohne jede Leseraktion: <span style="color:red">-1 Punkt</span>
+              </li>
+              <li>
+                Acht Wochen ohne Nutzung durch andere Autoren <span style="color:red">-2 Punkte</span>
+              </li>
+            </ul>
+          </div>
+          <div class="item">
+            <h2>Aktualität und Qualität werden belohnt</h2>
+            <p>Als Autor solltest Du Dich nicht auf Deinen Lorbeeren ausruhen &#8211; Punkte können auch verfallen. Ziel unseres Reputationssystems ist es, Qualität und hohes Leserinteresse zu belohnen. Auch bekommen aktive Werke im Laufe der Zeit immer mehr Punkte. Inaktive Projekte und qualitativ niedrigwertige Inhalte können dagegen auch Punkte verlieren.</p>
+          </div>
+        </page>
+      </menuitem>
+    </menu>
+    <menu title="Gut zu wissen" order="1">
+      <menuitem title="Für Autoren" order="10" alias="authors">
+        <page>
+          <![CDATA[
+          <menu type="toolbar">
+            <li>
+              <a onlick="return jump('1');">Verfassen</a>
+            </li>
+            <li>
+              <a onlick="return jump('2');">Vermarktung</a>
+            </li>
+            <li>
+              <a onlick="return jump('3');">Honorar</a>
+            </li>
+            <li>
+              <a onlick="return jump('4');">Rechte am Werk</a>
+            </li>
+            <li>
+              <a onlick="return jump('5');">Arbeiten im Team</a>
+            </li>
+            <li>
+              <a onlick="return jump('6');">Qualitätsmanagement</a>
+            </li>
+            <li>
+              <a onlick="return jump('7');">Registrierung</a>
+            </li>
+          </menu>          ]]>
+          <h1>Gut zu wissen &#8230; für Autoren</h1>
+          <h2 id="1">Verfassen</h2>
+          <h3>Kann jeder Autor werden?</h3>
+          <p>Im Prinzip ja, Du solltest natürlich ein interessantes Thema haben und ein Experte auf Deinem Gebiet sein. Um als Autor auf texxtoor zu schreiben, musst Du dich als erstes registrieren.</p>
+          <a href="/Home/Page/becomeauthor">Mehr zum Thema</a>
+          <h3>Benötige ich spezielle Software zum Verfassen meines Werkes?</h3>
+          <p>Nein, Du kannst Dein Werk direkt mit dem komfortablen Online-Editor WYMIX verfassen &#8211; intuitiv, ohne spezielle Programmkenntnisse.</p>
+          <a href="/Home/Page/editor">Mehr zum Editor</a>
+          <h3>Ich habe mein Werk fertig verfasst &#8211; jetzt müsste es nochmal jemand Korrektur lesen.</h3>
+          <p>Kein Problem: Auf texxtoor findest Du genau die Spezialisten (Korrektoren, Lektoren, Übersetzer, Grafiker etc.), die Du brauchst.</p>
+          <a href="/Home/Page/writeteam">Mehr zum Thema</a>
+          <h2 id="2">Vermarktung</h2>
+          <h3>In welchen E-Book-Shops werden die Werke vermarktet?</h3>
+          <p>Weltweit auf nahezu allen relevanten Plattformen.</p>
+          <a href="/Home/Page/marketing">Mehr zum Thema</a>
+          <h3>Was muss ich bei internationaler Vermarktung bzgl. mit eventueller Versandkosten, Steuern und Zöllen beachten?</h3>
+          <p>Gar nichts. Wir kümmern uns um alles.</p>
+          <a href="/Home/Page/marketing">Mehr zum Thema</a>
+          <h2 id="3">Honorar</h2>
+          <h3>Wie funktioniert das, dass ich pro verkauftem Werk immer meine volle Marge bekomme, auch wenn die Konditionen und Provisionen in jedem Store anders sind?</h3>
+          <p>Wir berechnen für jeden einzelnen Vertriebskanal einen individuellen Verkaufspreis, damit Du immer Dein hundertprozentiges Wunschhonorar erhältst.</p>
+          <a href="/Home/Page/revenues">Mehr zum Thema</a>
+          <h3>Wenn mein Werk zu unterschiedlichen Preisen angeboten wird, ist das nicht ein Verstoß gegen die Ladenpreisbindung?</h3>
+          <p>Nein, denn Dein Werk bekommt zu jedem individuellen Preis auch eine eigene ISBN zugewiesen.</p>
+          <a href="/Home/Page/revenues">Mehr zum Thema</a>
+
+          <h2 id="4">Die Rechte am Werk</h2>
+          <h3>Wer verfügt über die Rechte an meinem Werk?</h3>
+          <p>Das Urheberrecht bleibt uneingeschränkt bei Dir, über die Vergabe der Nutzungsrechte entscheidest Du allein.</p>
+          <a href="/Home/Page/rights">Mehr zum Thema</a>
+          <h3>Ich habe mein Werk bereits früher einmal als gedrucktes Buch bei einem Verlag veröffentlicht. Wer hat die Rechte daran?</h3>
+          <p>Diese Frage können wir Dir leider nicht beantworten, das musst Du mit Deinem Vertragspartner &#8211; dem Verlag &#8211; klären.</p>
+          <a href="/Home/Page/rights">Mehr zum Thema</a>
+          <h2 id="5">Arbeiten im Team</h2>
+          <h3>Ich suche noch Ko-Autoren für mein Projekt. Wie finde ich die richtigen?</h3>
+          <p>Du hast einmal die Möglichkeit, Dein Projekt auszuschreiben. Dann können sich geeignete Spezialisten bei Dir bewerben, Zum anderen kannst Du potentielle Mitstreiter auch direkt kontaktieren.</p>
+          <a href="/Home/Page/writeteam">Mehr zum Thema</a>
+          <h3>Wie behalte ich den Überblick, ob das Projekt wie geplant vorankommt?</h3>
+          <p>
+            <strong>texxtoor</strong>&#8482; stellt Dir ein komfortables Tool zum Projektmanagement bereit. Damit kannst Du alle Aufgaben delegieren, Fortschritte im Auge behalten etc.
+          </p>
+          <a href="/Home/Page/writeteam">Mehr zum Thema</a>
+          <h2 id="6">Qualitätsmanagement</h2>
+          <h3>
+            Wodurch ist Die inhaltliche Qualität des gesamten Contents auf <strong>texxtoor</strong>&#8482; gewährleistet?
+          </h3>
+          <p>
+            Auf <strong>texxtoor</strong>&#8482; gibt es ein umfangreiches Reputations- und Bewertungssystem, das ein anhaltend hohes Qualitätsniveau gewährleistet.
+          </p>
+          <a href="/Home/Page/rating">Mehr zum Thema</a>
+          <h2 id="7">Registrierung</h2>
+          <h3>
+            Kann ich <strong>texxtoor</strong>&#8482; auch ohne Registrierung nutzen?
+          </h3>
+          <p>Nein, dass ist nicht möglich. Alle Funktionen, ob als Autor, Leser etc. stehen ausschließlich registrierten Nutzern zur Verfügung.</p>
+          <h3>Muss ich wirklich alle Angaben meines Profils ausfüllen?</h3>
+          <p>Du musst lediglich einige wenige Pflichtfelder ausfüllen. Wir empfehlen Dir aber, auch möglichst umfangreiche freiwillige Angaben zu machen, da sich so andere Community-Mitglieder ein genaueres Bild von Dir machen können. Dein Profil ist quasi Deine Visitenkarte &#8211; nutze es zu Deinem Vorteil.</p>
+
+        </page>
+      </menuitem>
+      <menuitem title="Für Leser" order="20" alias="readers">
+        <page>
+          <![CDATA[
+          <menu type="toolbar">
+            <li>
+              <a onlick="return jump('1');">Lesen</a>
+            </li>
+            <li>
+              <a onlick="return jump('2');">E-Books</a>
+            </li>
+            <li>
+              <a onlick="return jump('3');">Kosten</a>
+            </li>
+            <li>
+              <a onlick="return jump('4');">Sammlungen</a>
+            </li>
+            <li>
+              <a onlick="return jump('5');">Lesen im Team</a>
+            </li>
+          </menu>
+          <h1>Gut zu wissen &#8230; für Leser</h1>
+          <h2 id="1">Lesen</h2>
+          <h3>
+            Was muss ich tun, um Content auf <strong>texxtoor</strong>&#8482; zu nutzen?
+          </h3>
+          <p>Du musst dich nur registrieren, anmelden und los geht‘s.</p>
+          <a href="Home/Page/usecontent">Mehr zum Thema</a>
+
+          <h2 id="2">E-Books</h2>
+          <h3>Das Werk gefällt mir, jetzt möchte ich es auf meinem E-Book-Reader lesen. Darf ich’s mir einfach herunterladen?</h3>
+          <p>
+            Nein, aber Du kannst das E-Book sofort über <strong>texxtoor</strong>&#8482; in Deinem Wunschformat erwerben.
+          </p>
+          <a href="Home/Page/usecontent">Mehr zum Thema</a>
+
+          <h2 id="3">Kosten</h2>
+          <h3>
+            Sind alle Werke auf <strong>texxtoor</strong>&#8482; wirklich kostenfrei zu lesen?
+          </h3>
+          <p>
+            Online auf <strong>texxtoor</strong>&#8482; kannst Du alle verfügbaren Werke lesen, nutzen, bookmarken etc.
+          </p>
+          <a href="Home/Page/usecontent">Mehr zum Thema</a>
+          <h3>Was kostet mich meine Registrierung?</h3>
+          <p>
+            Die Registrierung auf <strong>texxtoor</strong>&#8482; ist und bleibt in jedem Fall kostenfrei.
+          </p>
+
+          <h2 id="4">Sammlungen</h2>
+          <h3>Was sind Sammlungen?</h3>
+          <p>In Deinen Sammlungen kannst Du nach Belieben Gesamtwerke und Einzelkapitel zusammenstellen.</p>
+          <a href="Home/Page/usecontent">Mehr zum Thema</a>
+          <h3>Kann ich mir meine individuelle Sammlung auch herunterladen, quasi als &#171;Gesamtwerk&#187;?</h3>
+          <p>
+            Jein &#8211; Du kannst Deine Sammlung als komplettes E-Book, als App und sogar als gedrucktes Buch direkt bei <strong>texxtoor</strong>&#8482; erwerben.
+          </p>
+          <a href="Home/Page/usecontent">Mehr zum Thema</a>
+
+          <h2 id="5">Lesen im Team</h2>
+          <h3>Welche Vorteile hat die Contentnutzung im Team?</h3>
+          <p>Als Team könnt Ihr gemeinsame Sammlungen erstellen und gemeinschaftlich nutzen, bookmarken, kommentieren u. v. m.</p>
+          <a href="Home/Page/learnteam">Mehr zum Thema</a>
+          ]]>
+        </page>
+      </menuitem>
+      <menuitem title="Für Dienstleister" order="30" alias="contributors">
+        <page>
+          <![CDATA[
+          <h1>Gut zu wissen &#8230; für Dienstleister</h1>
+          <div class="item">
+            Du bist neugierig auf <strong>texxtoor</strong>&#8482; geworden und hast jetzt einige Fragen? Nachfolgend haben wir für Dich interessante Infos zusammengetragen. Schau Dich doch ein wenig auf unserer Seite um &#8211; da findest Du noch viele weitere Fakten. Wenn Du keine Antwort auf Deine Frage findest, dann schreib uns doch einfach eine <a href="/Account/Contact/faq">E-Mail</a>.
+          </div>
+          <menu type="toolbar">
+            <li>
+              <a onlick="return jump('editors');">Für Lektoren</a>
+            </li>
+            <li>
+              <a onlick="return jump('texter');">Für Texter</a>
+            </li>
+            <li>
+              <a onlick="return jump('proof');">Für Korrektoren</a>
+            </li>
+            <li>
+              <a onlick="return jump('graphics');">Für Grafiker</a>
+            </li>
+            <li>
+              <a onlick="return jump('illustrators');">Für Illustratoren</a>
+            </li>
+            <li>
+              <a onlick="return jump('developers');">Für Programmierer</a>
+            </li>
+            <li>
+              <a onlick="return jump('producers');">Für Hersteller</a>
+            </li>
+            <li>
+              <a onlick="return jump('translators');">Für Übersetzer</a>
+            </li>
+          </menu>
+          <h2 id="editors">Lektoren</h2>
+          <h3>
+            Wie kann ich bei <strong>texxtoor</strong>&#8482; mitmachen?
+          </h3>
+          <p>
+            Ganz einfach: melde Dich <a href="/Account/Register">
+              auf <strong>texxtoor</strong>&#8482; an
+            </a>. Fülle nach der Registrierung möglichst alle Felder im Profil so ausführlich und aussagekräftig wie möglich aus. Damit hilfst Du dem Autor bei seiner Entscheidung, ob Du in sein Projektteam passt.
+          </p>
+          <h3>Ein Projekt interessiert mich. Wie kann ich mit dem Autor in Kontakt treten?</h3>
+          <p>Als registrierter Nutzer kannst bei jedem Projekt direkt mit dem Autor in Kontakt treten und ihm z.B. Deine Mitarbeit anbieten.</p>
+          <h3>Was ist ein Team?</h3>
+          <p>Bei umfangreichen Werken ist es häufig sinnvoll, die Aufgaben auf mehrere Schultern zu verteilen. Dazu kann der Autor ein Team bilden. Spezialisten wie Du arbeiten dann zusammen an einem Projekt und bringen es auf den Markt. (siehe auch <a href="/Home/Page/writeteam">Schreiben im Team</a>)</p>
+          <h3>Wie läuft die Zusammenarbeit im Team ab?</h3>
+          <p>Beim Lead-Autor laufen alle Fäden für ein Projekt zusammen. Er koordiniert alle Teammitglieder, verteilt die Aufgaben und überwacht die Fortschritte. Du hast aber natürlich auch mit allen anderen Mitstreitern Kontakt, denn es ist Euer gemeinsames Projekt und die kompetente Zusammenarbeit verbessert das Ergebnis in jedem Fall.</p>
+          <h3>Wieviel bekomme ich für meine Arbeit?</h3>
+          <p>Die Vergütung für Deine Arbeit legst Du individuell mit dem Autor zusammen fest &#8211; entweder als einmalige Zahlung, als Fixum mit Umsatzbeteiligung, ausschließlich über Umsatzbeteiligung, oder &#8230;.</p>
+          <h3>In welchem Textprogramm kann/muss ich arbeiten?</h3>
+          <p>
+            Für Dich das Einfachste ist es, unseren exklusiven <a href="/Home/Page/editor">Online-Editor WYMIX</a> zu nutzen. Er ist ganz leicht und intuitiv zu bedienen. Wenn Du eigene Werkzeuge benutzt, müssen diese das interne Format &ndash; bei Text immer HTML 5 &ndash; vollständig unterstützen.
+          </p>
+          <h2 id="texter">Texter</h2>
+          <h3>
+            Wie kann ich bei <strong>texxtoor</strong>&#8482; mitmachen?
+          </h3>
+          <p>
+            Ganz einfach: melde Dich <a href="/Account/Register">
+              auf <strong>texxtoor</strong>&#8482; an
+            </a> Fülle nach der Registrierung möglichst alle Felder im Profil so ausführlich und aussagekräftig wie möglich aus. Damit hilfst Du dem Autor bei seiner Entscheidung, ob Du in sein Projektteam passt.
+          </p>
+          <h3>Ein Projekt interessiert mich. Wie kann ich mit dem Autor in Kontakt treten?</h3>
+          <p>Als registrierter Nutzer kannst bei jedem Projekt direkt mit dem Autor in Kontakt treten und ihm z.B. Deine Mitarbeit anbieten.</p>
+          <h3>Was ist ein Team?</h3>
+          <p>Bei umfangreichen Werken ist es häufig sinnvoll, die Aufgaben auf mehrere Schultern zu verteilen. Dazu kann der Autor ein Team bilden. Spezialisten wie Du arbeiten dann zusammen an einem Projekt und bringen es auf den Markt. (siehe auch <a href="/Home/Page/writeteam">Schreiben im Team</a>)</p>
+          <h3>Wie läuft die Zusammenarbeit im Team ab?</h3>
+          <p>Beim Lead-Autor laufen alle Fäden für ein Projekt zusammen. Er koordiniert alle Teammitglieder, verteilt die Aufgaben und überwacht die Fortschritte. Du hast aber natürlich auch mit allen anderen Mitstreitern Kontakt, denn es ist Euer gemeinsames Projekt und die kompetente Zusammenarbeit verbessert das Ergebnis in jedem Fall.</p>
+          <h3>Wieviel bekomme ich für meine Arbeit?</h3>
+          <p>Die Vergütung für Deine Arbeit legst Du individuell mit dem Autor zusammen fest &#8211; entweder als einmalige Zahlung, als Fixum mit Umsatzbeteiligung, ausschließlich über Umsatzbeteiligung, oder &#8230;</p>
+          <h3>In welchem Textprogramm kann/muss ich arbeiten?</h3>
+          <p>
+            Für Dich das Einfachste ist es, unseren exklusiven <a href="/Home/Page/editor">Online-Editor WYMIX</a> zu nutzen. Er ist ganz leicht und intuitiv zu bedienen. Wenn Du eigene Werkzeuge benutzt, müssen diese das interne Format &ndash; bei Text immer HTML 5 &ndash; vollständig unterstützen.
+          </p>
+          <h2 id="proof">Korrektoren</h2>
+          <h3>
+            Wie kann ich bei <strong>texxtoor</strong>&#8482; mitmachen?
+          </h3>
+          <p>
+            Ganz einfach: melde Dich <a href="/Account/Register">
+              auf <strong>texxtoor</strong>&#8482; an
+            </a>. Fülle nach der Registrierung möglichst alle Felder im Profil so ausführlich und aussagekräftig wie möglich aus. Damit hilfst Du dem Autor bei seiner Entscheidung, ob Du in sein Projektteam passt.
+          </p>
+          <h3>Ein Projekt interessiert mich. Wie kann ich mit dem Autor in Kontakt treten?</h3>
+          <p>Als registrierter Nutzer kannst bei jedem Projekt direkt mit dem Autor in Kontakt treten und ihm z.B. Deine Mitarbeit anbieten.</p>
+          <h3>Was ist ein Team?</h3>
+          <p>Bei umfangreichen Werken ist es häufig sinnvoll, die Aufgaben auf mehrere Schultern zu verteilen. Dazu kann der Autor ein Team bilden. Spezialisten wie Du arbeiten dann zusammen an einem Projekt und bringen es auf den Markt. (siehe auch <a href="/Home/Page/writeteam">Schreiben im Team</a>)</p>
+          <h3>Wie läuft die Zusammenarbeit im Team ab?</h3>
+          <p>Beim Lead-Autor laufen alle Fäden für ein Projekt zusammen. Er koordiniert alle Teammitglieder, verteilt die Aufgaben und überwacht die Fortschritte. Du hast aber natürlich auch mit allen anderen Mitstreitern Kontakt, denn es ist Euer gemeinsames Projekt und die kompetente Zusammenarbeit verbessert das Ergebnis in jedem Fall.</p>
+          <h3>Wieviel bekomme ich für meine Arbeit?</h3>
+          <p>Die Vergütung für Deine Arbeit legst Du individuell mit dem Autor zusammen fest &#8211; entweder als einmalige Zahlung, als Fixum mit Umsatzbeteiligung, ausschließlich über Umsatzbeteiligung, oder &#8230;</p>
+          <h3>In welchem Textprogramm kann/muss ich arbeiten?</h3>
+          <p>
+            Für Dich das Einfachste ist es, unseren exklusiven <a href="/Home/Page/editor">Online-Editor WYMIX</a> zu nutzen. Er ist ganz leicht und intuitiv zu bedienen. Wenn Du eigene Werkzeuge benutzt, müssen diese das interne Format &ndash; bei Text immer HTML 5 &ndash; vollständig unterstützen.
+          </p>
+          <h2 id="graphics">Grafiker</h2>
+          <h3>
+            Wie kann ich bei <strong>texxtoor</strong>&#8482; mitmachen?
+          </h3>
+          <p>
+            Ganz einfach: melde Dich <a href="/Account/Register">
+              auf <strong>texxtoor</strong>&#8482; an
+            </a>. Fülle nach der Registrierung möglichst alle Felder im Profil so ausführlich und aussagekräftig wie möglich aus. Damit hilfst Du dem Autor bei seiner Entscheidung, ob Du in sein Projektteam passt.
+          </p>
+          <h3>Ein Projekt interessiert mich. Wie kann ich mit dem Autor in Kontakt treten?</h3>
+          <p>Als registrierter Nutzer kannst bei jedem Projekt direkt mit dem Autor in Kontakt treten und ihm z.B. Deine Mitarbeit anbieten.</p>
+          <h3>Was ist ein Team?</h3>
+          <p>Bei umfangreichen Werken ist es häufig sinnvoll, die Aufgaben auf mehrere Schultern zu verteilen. Dazu kann der Autor ein Team bilden. Spezialisten wie Du arbeiten dann zusammen an einem Projekt und bringen es auf den Markt. (siehe auch <a href="/Home/Page/writeteam">Schreiben im Team</a>)</p>
+          <h3>Wie läuft die Zusammenarbeit im Team ab?</h3>
+          <p>Beim Lead-Autor laufen alle Fäden für ein Projekt zusammen. Er koordiniert alle Teammitglieder, verteilt die Aufgaben und überwacht die Fortschritte. Du hast aber natürlich auch mit allen anderen Mitstreitern Kontakt, denn es ist Euer gemeinsames Projekt und die kompetente Zusammenarbeit verbessert das Ergebnis in jedem Fall.</p>
+          <h3>Wieviel bekomme ich für meine Arbeit?</h3>
+          <p>Die Vergütung für Deine Arbeit legst Du individuell mit dem Autor zusammen fest &#8211; entweder als einmalige Zahlung, als Fixum mit Umsatzbeteiligung, ausschließlich über Umsatzbeteiligung, oder &#8230;</p>
+          <h3>Werden meine Layouts einfach oder mehrfach genutzt?</h3>
+          <p>In einer individuelle Vereinbarung zwischen Dir und dem Autor wird festgelegt, wie die Nutzung Deiner Layouts erfolgen soll &#8211; einmalig oder mehrfach.</p>
+          <h2 id="illustrators">Illustratoren</h2>
+          <h3>
+            Wie kann ich bei <strong>texxtoor</strong>&#8482; mitmachen?
+          </h3>
+          <p>
+            Ganz einfach: melde Dich auf <a href="/Account/Register">
+              auf <strong>texxtoor</strong>&#8482; an
+            </a>. Fülle nach der Registrierung möglichst alle Felder im Profil so ausführlich und aussagekräftig wie möglich aus. Damit hilfst Du dem Autor bei seiner Entscheidung, ob Du in sein Projektteam passt.
+          </p>
+          <h3>Ein Projekt interessiert mich. Wie kann ich mit dem Autor in Kontakt treten?</h3>
+          Als registrierter Nutzer kannst bei jedem Projekt direkt mit dem Autor in Kontakt treten und ihm z.B. Deine Mitarbeit anbieten.
+          <h3>Was ist ein Team?</h3>
+          <p>Bei umfangreichen Werken ist es häufig sinnvoll, die Aufgaben auf mehrere Schultern zu verteilen. Dazu kann der Autor ein Team bilden. Spezialisten wie Du arbeiten dann zusammen an einem Projekt und bringen es auf den Markt. (siehe auch <a href="/Home/Page/writeteam">Schreiben im Team</a>)</p>
+          <h3>Wie läuft die Zusammenarbeit im Team ab?</h3>
+          <p>Beim Lead-Autor laufen alle Fäden für ein Projekt zusammen. Er koordiniert alle Teammitglieder, verteilt die Aufgaben und überwacht die Fortschritte. Du hast aber natürlich auch mit allen anderen Mitstreitern Kontakt, denn es ist Euer gemeinsames Projekt und die kompetente Zusammenarbeit verbessert das Ergebnis in jedem Fall.</p>
+          <h3>Wieviel bekomme ich für meine Arbeit?</h3>
+          <p>Die Vergütung für Deine Arbeit legst Du individuell mit dem Autor zusammen fest &#8211; entweder als einmalige Zahlung, als Fixum mit Umsatzbeteiligung, ausschließlich über Umsatzbeteiligung, oder &#8230;</p>
+          <h3>Welches Dateiformat müssen meine Arts haben?</h3>
+          <p>Du entwickelst Deine Inhalte in Deinem Lieblingswerkzeug und lädst sie dann auf die Plattform hoch. Zum Übertragen stehen Dir HTML-Upload sowie Plug-Ins für Browser und Dropbox zur Verfügung.</p>
+          <h2 id="developers">Programmierer</h2>
+          <h3>
+            Wie kann ich bei <strong>texxtoor</strong>&#8482; mitmachen?
+          </h3>
+          <p>
+            Ganz einfach: melde Dich <a href="/Account/Register">
+              auf <strong>texxtoor</strong>&#8482; an
+            </a>. Fülle nach der Registrierung möglichst alle Felder im Profil so ausführlich und aussagekräftig wie möglich aus. Damit hilfst Du dem Autor bei seiner Entscheidung, ob Du in sein Projektteam passt.
+          </p>
+          <h3>Ein Projekt interessiert mich. Wie kann ich mit dem Autor in Kontakt treten?</h3>
+          <p>Als registrierter Nutzer kannst bei jedem Projekt direkt mit dem Autor in Kontakt treten und ihm z.B. Deine Mitarbeit anbieten.</p>
+          <h3>Was ist ein Team?</h3>
+          <p>Bei umfangreichen Werken ist es häufig sinnvoll, die Aufgaben auf mehrere Schultern zu verteilen. Dazu kann der Autor ein Team bilden. Spezialisten wie Du arbeiten dann zusammen an einem Projekt und bringen es auf den Markt. (siehe auch <a href="/Home/Page/writeteam">Schreiben im Team</a>)</p>
+          <h3>Wie läuft die Zusammenarbeit im Team ab?</h3>
+          <p>Beim Lead-Autor laufen alle Fäden für ein Projekt zusammen. Er koordiniert alle Teammitglieder, verteilt die Aufgaben und überwacht die Fortschritte. Du hast aber natürlich auch mit allen anderen Mitstreitern Kontakt, denn es ist Euer gemeinsames Projekt und die kompetente Zusammenarbeit verbessert das Ergebnis in jedem Fall.</p>
+          <h3>Wieviel bekomme ich für meine Arbeit?</h3>
+          <p>Die Vergütung für Deine Arbeit legst Du individuell mit dem Autor zusammen fest &#8211; entweder als einmalige Zahlung, als Fixum mit Umsatzbeteiligung, ausschließlich über Umsatzbeteiligung, oder &#8230;</p>
+          <h2 id="producers">Hersteller</h2>
+          <h3>
+            Wie kann ich bei <strong>texxtoor</strong>&#8482; mitmachen?
+          </h3>
+          <p>
+            Ganz einfach: melde Dich <a href="/Account/Register">
+              auf <strong>texxtoor</strong>&#8482; an
+            </a>. Fülle nach der Registrierung möglichst alle Felder im Profil so ausführlich und aussagekräftig wie möglich aus. Damit hilfst Du dem Autor bei seiner Entscheidung, ob Du in sein Projektteam passt.
+          </p>
+          <h3>Ein Projekt interessiert mich. Wie kann ich mit dem Autor in Kontakt treten?</h3>
+          <p>Als registrierter Nutzer kannst bei jedem Projekt direkt mit dem Autor in Kontakt treten und ihm z.B. Deine Mitarbeit anbieten.</p>
+          <h3>Was ist ein Team?</h3>
+          <p>Bei umfangreichen Werken ist es häufig sinnvoll, die Aufgaben auf mehrere Schultern zu verteilen. Dazu kann der Autor ein Team bilden. Spezialisten wie Du arbeiten dann zusammen an einem Projekt und bringen es auf den Markt. (siehe auch <a href="/Home/Page/writeteam">Schreiben im Team</a>)</p>
+          <h3>Wie läuft die Zusammenarbeit im Team ab?</h3>
+          <p>Beim Lead-Autor laufen alle Fäden für ein Projekt zusammen. Er koordiniert alle Teammitglieder, verteilt die Aufgaben und überwacht die Fortschritte. Du hast aber natürlich auch mit allen anderen Mitstreitern Kontakt, denn es ist Euer gemeinsames Projekt und die kompetente Zusammenarbeit verbessert das Ergebnis in jedem Fall.</p>
+          <h3>Wieviel bekomme ich für meine Arbeit?</h3>
+          <p>Die Vergütung für Deine Arbeit legst Du individuell mit dem Autor zusammen fest &#8211; entweder als einmalige Zahlung, als Fixum mit Umsatzbeteiligung, ausschließlich über Umsatzbeteiligung, oder &#8230;</p>
+          <h2 id="translators">Übersetzer</h2>
+          <h3>
+            Wie kann ich bei <strong>texxtoor</strong>&#8482; mitmachen?
+          </h3>
+          <p>
+            Ganz einfach: melde Dich <a href="/Account/Register">
+              auf <strong>texxtoor</strong>&#8482; an
+            </a>. Fülle nach der Registrierung möglichst alle Felder im Profil so ausführlich und aussagekräftig wie möglich aus. Damit hilfst Du dem Autor bei seiner Entscheidung, ob Du in sein Projektteam passt.
+          </p>
+          <h3>Ein Projekt interessiert mich. Wie kann ich mit dem Autor in Kontakt treten?</h3>
+          <p>Als registrierter Nutzer kannst bei jedem Projekt direkt mit dem Autor in Kontakt treten und ihm z.B. Deine Mitarbeit anbieten.</p>
+          <h3>Was ist ein Team?</h3>
+          <p>Bei umfangreichen Werken ist es häufig sinnvoll, die Aufgaben auf mehrere Schultern zu verteilen. Dazu kann der Autor ein Team bilden. Spezialisten wie Du arbeiten dann zusammen an einem Projekt und bringen es auf den Markt. (siehe auch <a href="/Home/Page/writeteam">Schreiben im Team</a>)</p>
+          <h3>Wie läuft die Zusammenarbeit im Team ab?</h3>
+          <p>Beim Lead-Autor laufen alle Fäden für ein Projekt zusammen. Er koordiniert alle Teammitglieder, verteilt die Aufgaben und überwacht die Fortschritte. Du hast aber natürlich auch mit allen anderen Mitstreitern Kontakt, denn es ist Euer gemeinsames Projekt und die kompetente Zusammenarbeit verbessert das Ergebnis in jedem Fall.</p>
+          <h3>Wieviel bekomme ich für meine Arbeit?</h3>
+          <p>Die Vergütung für Deine Arbeit legst Du individuell mit dem Autor zusammen fest &#8211; entweder als einmalige Zahlung, als Fixum mit Umsatzbeteiligung, ausschließlich über Umsatzbeteiligung, oder &#8230;</p>
+          <h3>In welchem Textprogramm kann/muss ich arbeiten?</h3>
+          <p>
+            Für Dich das Einfachste ist es, unseren exklusiven <a href="/Home/Page/editor">Online-Editor WYMIX</a> zu nutzen. Er ist ganz leicht und intuitiv zu bedienen. Alternativ stellen wir eine Vorlage und ein Add-In für Microsoft Word&#8482; zur Verfügung (<a href="/Home/Support">Software</a>).
+          </p>
+          <h3>Kann ich auch kyrillische Schrift oder chinesische Schriftzeichen in den Editor eingeben?</h3>
+          <p></p>
+          <h3>Antwort nicht gefunden?</h3>
+          <p>
+            Nutze unser FAQ-Formular, um eine Frage an unser FAQ-Team zu stellen. <a href="/Account/Contact/faq">Mail an FAQ-Team senden.</a>
+          </p>
+          ]]>
+        </page>
+      </menuitem>
+      <menuitem title="Für Entwickler" order="40" alias="developers">
+        <page>
+          <h1>Gut zu wissen &#8230; für Entwickler</h1>
+          <div class="item">
+            Du bist neugierig auf <strong>texxtoor</strong>&#8482; geworden und hast jetzt einige Fragen? Nachfolgend haben wir für Dich interessante Infos zusammengetragen. Schau Dich doch ein wenig auf unserer Seite um &#8211; da findest Du noch viele weitere Fakten. Wenn Du keine Antwort auf Deine Frage findest, dann schreib uns doch einfach eine <a href="/Account/Contact/faq">E-Mail</a>
+          </div>
+          <div class="item">
+            <h2>Gibt es eine API?</h2>
+            <p>Ja, wir stellen einige Funktion über Webervices zur Verfügung, darunter für eigene Editoren oder Add-Ins und auch für Lesefunktionen.</p>
+          </div>
+          <div class="item">
+            <h2>Unterstützt Ihr mobile Geräte?</h2>
+            <p>Ja, alle Funktionen sind so optimiert, dass sich damit besonders gut Apps auf Tablets erstellen lassen?</p>
+          </div>
+          <h3>Antwort nicht gefunden?</h3>
+          <p>
+            Nutze unser FAQ-Formular, um eine Frage an unser FAQ-Team zu stellen. <a href="/Account/Contact/faq">Mail an FAQ-Team senden.</a>
+          </p>
+        </page>
+      </menuitem>
+      <menuitem title="Support" order="50" alias="support">
+        <page>
+          <h1>Hilfe wo sie benötigt wird</h1>
+          <div class="item">
+            <strong>texxtoor</strong>&#8482; lässt Dich nicht im Stich &#8211; ob bei der Bedienung des Editors, bei der Auswahl des richtigen Vermarktungspaketes oder &#8230;
+          </div>
+          <p>Wir bieten für alle registrierte Mitglieder optimale Unterstützung. Für Autoren das Autoren-Forum. Für Leser das Leser-Forum. Für Entwickler gibt es ein spezielles Entwickler-Wiki.</p>
+          <p>
+            Wir sind für Dich jederzeit unter unserer Hotline <strong>0700-texxtoor</strong> erreichbar. Oder schreib uns einfach eine E-Mail
+          </p>
+          <a href="/Account/Contact">Zum Kontaktformular</a>
+          <h3>Hilfe nicht gefunden?</h3>
+          <p>
+            Nutze unser FAQ-Formular, um eine Frage an unser FAQ-Team zu stellen. <a href="/Account/Contact/faq">Mail an FAQ-Team senden.</a>
+          </p>
+        </page>
+      </menuitem>
+    </menu>
+    <menu title="Rechtliches" order="2">
+      <menuitem title="Datenschutz" order="10" alias="privacy">
+        <page>
+          <h1>Datenschutz und Datensicherheit</h1>
+          <div class="item">Die Augmented Content GmbH, Hafersteig 113, 12683 Berlin (&#171;texxtoor&#187;), vertreten durch die Geschäftsführer Jörg Krause, Amtsgericht Charlottenburg, HRB 135318B, bietet über die unter der Domain &#187;texxtoor.de&#187; abrufbaren Webseiten (nachfolgend zusammenfassend &#187;texxtoor-Website&#187;) und über die Augmented Content Applikation (nachfolgend zusammenfassend &#187;texxtoor-App&#187;) kostenlose und kostenpflichtige Dienste an. Augmented Content GmbH misst der Sicherheit und vertraulichen Behandlung Ihrer Daten hohe Bedeutung zu. Zum Schutz Ihrer Daten nutzen wir aus diesem Grund ausschließlich modernste Sicherheitsstandards. Im Folgenden möchten wir Ihnen erklären, was wir für die Sicherheit Ihrer Daten tun:</div>
+          <div class="item">
+            <h2>Die Nutzung Ihrer Daten</h2>
+            <p>Augmented Content erhebt, speichert oder verarbeitet Daten nur für die Ausübung der Geschäftszwecke von texxtoor, insbesondere um Ihnen den Zugang zu unseren registrierungs- und/oder kostenpflichtigen Diensten zu ermöglichen oder Dienstleistungen zu erbringen und abzurechnen. Grundsätzlich stehen unsere Dienste allen Nutzern zur Verfügung, ohne dass persönliche Daten erhoben werden. Sie müssen sich nicht registrieren, um die texxtoor-Webseite oder Augmented Content App zu nutzen. Augmented Content fragt jedoch dann nach Ihren persönlichen Daten, wenn Sie sich registrieren, ein Augmented Content Nutzerkonto anlegen um bestimmte Funktionen nutzen zu können oder über das Nutzerkonto Inhalte erwerben.</p>
+          </div>
+          <div class="item">
+            <h2>Erfassung allgemeiner Informationen</h2>
+            <p>Wenn Sie auf unsere Dienste zugreifen, werden automatisch Informationen allgemeiner Natur erfasst. Diese Informationen beinhalten etwa die Art des Webbrowsers oder des Endgeräts, das verwendete Betriebssystem und ähnliches. Hierbei handelt es sich ausschließlich um Informationen, welche keine Rückschlüsse auf Ihre Person zulassen. Zudem werden diese Daten ebenso beim Zugriff auf jede andere Webseite im Internet etc. generiert. Es handelt sich hierbei also nicht um eine spezifische Funktion unserer Dienste. Informationen dieser Art werden ausschließlich anonymisiert erhoben und von uns statistisch ausgewertet.</p>
+          </div>
+          <div class="item">
+            <h2>Erfasste Daten</h2>
+            <p>Bei der Registrierung für ein Augmented Content Nutzerkonto, bei der Aufgabe von Bestellungen sowie diesbezügliche Abrechnungen werden personenbezogene Daten erfasst, wie Name, Anschrift, Kontakt- und Kommunikationsdaten wie Telefonnummer und E-Mail-Adresse und ggf. Zahlungs- und Kontoangaben. Abhängig von dem jeweiligen Dienst werden zusätzliche Daten erfragt. Bei kostenpflichtigen Diensten erfassen wir zudem Vertrags- und Abrechnungsdaten. Zudem können Sie uns weitere Angaben überlassen, z.B. zu Ihrem Interessengebiet oder Angaben darüber, welche Informationen Sie per E-Mail von uns erhalten möchten, einschließlich Newsletter.</p>
+          </div>
+          <div class="item">
+            <h2>Umgang mit Ihren persönlichen Daten</h2>
+            <p>Ihre personenbezogenen Daten werden von Augmented Content auf einem besonders geschützten Server in Deutschland gespeichert. Wir sind um alle notwendigen, technischen und organisatorischen Sicherheitsmaßnahmen bemüht, um Ihre personenbezogenen Daten so zu speichern, dass sie vor unberechtigtem Zugang und Missbrauch geschützt sind. Unsere Mitarbeiter sind verpflichtet, beim Umgang mit Daten die Regelungen des TMG und des BDSG zu beachten. Um die Sicherheit Ihrer Daten bei der Übertragung zu schützen, verwenden wir häufig Verschlüsselungsverfahren (z.B. SSL). Unsere Server sind mittels Firewalls und Virenschutz gesichert. Back-up und Recovery sowie Rollen- und Berechtigungskonzepte sind für uns selbstverständlich. Augmented Content erhebt, speichert und nutzt die Daten des Nutzers insbesondere zur Vertragsdurchführung und -abwicklung, z.B. zur Abrechnung einer Leistung oder Kontaktaufnahme im Rahmen des Vertragsverhältnisses. Ihre E-Mail-Adresse nutzen wir, um Ihnen unseren Newsletter zuzusenden &#8211; sollten Sie diesen abonniert haben &#8211; und für Informationsschreiben, welche aktuelle Informationen rund um unsere Angebote und Aktionen enthalten. Wenn Sie diese Informationsschreiben oder den Newsletter nicht (mehr) erhalten möchten, können Sie diese direkt &#8211; über einen in der entsprechenden Mail integrierten Link &#8211; kostenlos und jederzeit abbestellen. Bei der Zahlungsabwicklung setzt Augmented Content teilweise Drittanbieter als Dienstleister ein, die in unserem Auftrag eine Auftragsdatenverarbeitung gemäß § 11 BDSG ausführen. Die Übertragung von Daten erfolgt ausschließlich verschlüsselt. Zum Zwecke der Adress- bzw. Kreditprüfung wird uns ein Zahlungsanbieter, der in seiner Datenbank zur Person des Bestellers gespeicherten Adress- und Bonitätsdaten besitzt, einschließlich solcher, die auf der Basis mathematisch-statischer Verfahren ermittelt werden, zur Verfügung stellen, sofern ein berechtigtes Interesse glaubhaft dargelegt wird. Eine sonstige Weitergabe der Daten an Dritte ohne Ihr ausdrückliches Einverständnis erfolgt nur, soweit dies gesetzlich vorgesehen bzw. zulässig ist, wie insbesondere bei Anfragen von Ermittlungsbehörden. Um unsere Nutzer zu informieren und Empfehlungen auszusprechen, stellen wir anonymisierte Nutzungs- und Kaufdaten auch anderen Kunden zur Verfügung (z.B. &#171;wer X kaufte, kaufte auch Y&#187;, &#171;Bestsellerlisten&#187;, &#171;Aus diesem Buch wurde XY zitiert&#187; ...). Ihre Personenbezogenen Daten werden dabei jedoch nicht genutzt oder veröffentlicht. Im Rahmen von Social Media Funktionen bzw. sofern sie Empfehlungen in den Diensten aussprechen, werden Nutzungs- und Kaufdaten teilweise auch nicht anonymisiert &#8211; allerdings ausschließlich unter Verwendung Ihres Vornamens &#8211; veröffentlicht (z.B. &#171;Johannes hat vor 5 Minuten Buch XY heruntergeladen&#187;). Einer solchen Nutzung ihrer Daten können Sie jederzeit mit Wirkung für die Zukunft widersprechen. Sie können dazu die Datenübermittlung an andere Nutzer in ihren Privatssphäre-Einstellungen ausschließen.</p>
+          </div>
+          <div class="item">
+            <h2>Verwendung von Cookies und vergleichbaren technischen Verfahren</h2>
+            <p>Augmented Content verwendet, wie viele andere Internet-Angebote auch, sogenannte &#171;Cookies&#187; und vergleichbare technische Verfahren, bei denen ein Identifizierungszeichen auf Ihren Computer übermittelt wird. Hierdurch erhält Augmented Content automatisch bestimmte Daten über Ihren Computer und Ihre Verbindung zum Internet wie z.B. IP-Adresse, verwendeter Browser, Betriebssystem. Außerdem erfassen wir Ihre Nutzungshistorie, d. h. die Dienste unseres Angebots, die Sie nutzen, einschließlich Reihenfolge, Datum und Zeit. Die so erhobenen Daten werden grundsätzlich nicht dazu benutzt die Nutzer persönlich zu identifizieren. Mit Hilfe dieser Verfahren kann Augmented Content analysieren, wie unsere Dienste genutzt werden, um unsere Angebote insgesamt zu optimieren und die Inhalte konkret für Sie persönlicher zu gestalten, z.B. Sie bei erneuter Inanspruchnahme unseres Angebots zu erkennen. Außerdem bieten diese Verfahren die Möglichkeit, dass Sie sich als Nutzer personalisierter Dienste nicht jedes Mal neu registrieren lassen müssen. Die so von uns erfassten personenbezogenen Daten werden ohne Ihre Einwilligung jedoch nicht an Dritte weitergegeben oder eine Verknüpfung mit personenbezogenen Daten hergestellt. Natürlich können Sie unsere Dienste grundsätzlich auch ohne Cookies nutzen. Internet-Browser sind regelmäßig so eingestellt, dass sie Cookies akzeptieren. Wenn Sie es wünschen, können Sie die Verwendung von Cookies jederzeit über die Einstellungen Ihres Browsers deaktivieren. Bitte verwenden Sie die Hilfefunktionen Ihres Internetbrowsers, um zu erfahren, wie Sie diese Einstellungen ändern können. Bitte beachten Sie, dass einzelne Funktionen unserer Website möglicherweise nicht funktionieren, wenn Sie die Verwendung von Cookies deaktiviert haben.</p>
+          </div>
+          <div class="item">
+            <h2>Datenschutzbestimmungen unserer Partner</h2>
+            <p>Einzelne Inhalte, Informationen und Dienste, die über die texxtoor-Website oder die texxtoor-APP erreichbar sind, werden durch Partner von Augmented Content oder Dritte bereitgestellt. Augmented Content weist ausdrücklich daraufhin, dass unsere Partner in der Regel eigene Datenschutzbestimmungen haben, auf die Augmented Content keinen Einfluss hat. Jegliche Haftung und Verantwortung für die Datenschutzbestimmungen unserer Partner ist somit ausgeschlossen.</p>
+          </div>
+          <div class="item">
+            <h2>Dauer der Datenspeicherung</h2>
+            <p>Wir halten uns an die Grundsätze der Datenvermeidung und Datensparsamkeit. Wir speichern Ihre personenbezogenen Daten daher nur so lange, wie dies zur Erreichung der hierin genannten Zwecke erforderlich ist oder wie es die vom Gesetzgeber vorgesehenen vielfältigen Speicherfristen vorsehen. Nach Fortfall des jeweiligen Zweckes bzw. Ablauf dieser Fristen werden die entsprechenden Daten routinemäßig und entsprechend den gesetzlichen Vorschriften gesperrt oder gelöscht. Rechte auf Auskunft, Berichtigung, Sperre, Löschung und Widerspruch Sie haben das Recht, jederzeit Auskunft über Ihre bei Augmented Content gespeicherten personenbezogenen Daten zu erhalten. Ebenso haben Sie das Recht auf Berichtigung, Sperrung oder, abgesehen von der vorgeschriebenen Datenspeicherung zur Geschäftsabwicklung, Löschung Ihrer personenbezogenen Daten. Bitte wenden Sie sich dazu an unseren Kundenservice: 030 &#8211; 66 77 30 20 / per Email unter support@texxtoor.de oder postalisch unter Augmented Content GmbH, Mehringdamm 57, 10967 Berlin. Soweit Augmented Content gesetzlich zur Aufbewahrung der Daten verpflichtet sein sollte, werden die Daten nicht gelöscht, aber gesperrt. Damit eine Sperre von Daten jederzeit berücksichtigt werden kann, müssen diese Daten zu Kontrollzwecken insbesondere in einer Sperrdatei vorgehalten werden. Sie können insoweit aber auch die Löschung der Daten verlangen.</p>
+          </div>
+          <div class="item">
+            <h2>Änderung unserer Datenschutzbestimmungen</h2>
+            <p>Wir behalten uns vor, diese Datenschutzerklärung gelegentlich anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen, z.B. bei der Einführung neuer Services. Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung. Sofern Sie sich bei uns registriert oder entgeltliche Leistungen in Anspruch genommen haben, werden Sie über eine solche Änderung mindestens dreißig (30) Tage vorher in Textform informiert, in der Regel per E-Mail. Dabei werden wir Ihnen den Inhalt und den Grund der Änderung erläutern. Widersprechen Sie der Änderung nicht innerhalb der Ankündigungsfrist, wird sie wirksam. Widersprechen Sie der Änderung, bleibt es zunächst bei der bisherigen Regelung. Sie oder Augmented Content können dann den Ihrer Registrierung zugrunde liegenden Vertrag außerordentlich kündigen. Kündigen Sie nicht, oder war eine Zustellung der Änderungsmitteilung nicht möglich, kann Augmented Content Ihre Daten ganz oder teilweise sperren, bis Sie die neue Datenschutzerklärung zur Kenntnis nehmen und Ihre Einwilligung erklären konnten. Die Sperre kann dazu führen, dass Sie unsere Leistungen nur noch eingeschränkt nutzen können, insbesondere neue Dienste. Erfolgt kein weiterer Kontakt, können gesperrte Daten von uns nach angemessener Frist gelöscht werden. Besteht die Änderung aus einer Umsetzung zwingender gesetzlicher Vorgaben, werden Ihre Daten stets gesperrt, wenn Sie der Änderung widersprechen oder die Änderungsmitteilung nicht zugestellt werden konnte. Augmented Content kann in diesem Fall die Daten unverzüglich nach der Sperre löschen. Ihre Rechte auf Auskunft, Berichtigung, Sperre, Löschung und Widerspruch bleiben von einer solchen Änderung unberührt.</p>
+          </div>
+          <p>
+            <strong>Stand</strong>: Dezember 2013
+          </p>
+        </page>
+      </menuitem>
+      <menuitem title="AGB" order="20" alias="terms">
+        <page>
+          <h1>Allgemeine Geschäftsbedingungen</h1>
+          <div class="item">
+            <strong>Stand</strong>: Dezember, 2013
+          </div>
+          <p>Die nachfolgenden Allgemeinen Geschäftsbedingungen (&#171;AGB&#187;) gelten zwischen der Augmented Content GmbH, Hafersteig 113, 12683 Berlin, Amtsgericht Charlottenburg, HRB 119902, USt-IdNr.: DE265139086 (&#171;Augmented Content&#187;) und den Kunden (&#171;Nutzer&#187;) für die kostenlosen und kostenpflichtigen Dienste und Angebote, die über die unter der Domain &#171;Augmented Content.de&#187; abrufbaren Webseiten (nachfolgend zusammenfassend "Augmented Content-Website") und über die Augmented Content Applikation (nachfolgend zusammenfassend "Augmented Content-APP") angeboten werden. Auf der Augmented Content-Website und über die Augmented Content-APP kann eine Registrierung erfolgen (siehe Teil I.), können eBooks und andere Medieninhalte (Text-, Bild-, Audio- und interaktive Inhalte &#8211; nachfolgend zusammenfassend &#171;Inhalte&#187;) im Wege des Downloads bezogen (siehe Teil II.) und in Augmented Content Nutzerkonten hinterlegt und verwaltet werden (siehe Teil I.).</p>
+          <p>Soweit auf mobilen Endgeräten über die Augmented Content-APP Inhalte auf dem Weg des Downloads bezogen werden, und der Kauf und die Zahlung über Augmented Content Nutzerkonten stattfindet, kommt ein Vertrag mit dem jeweiligen Autor des von Augmented Content vermittelten Inhalts zustande. Es gelten dafür diese AGB, insbesondere Teil II.</p>
+          <p>Augmented Content vermittelt auch Inhalte über dritte Plattformbetreiber (z.B. Apple iTunes, Google Android Market) . In diesem Fall findet der Kauf und die Zahlung über die Benutzerkonten der jeweiligen Plattformbetreiber statt und es kommt ausschließlich ein Vertrag mit dem jeweiligen Anbieter (z.B. iTunes S.à.r.l., 8 rue Heinrich Heine, L- 1720 Luxemburg; Drittanbieter, der über die Plattform Inhalte anbietet etc.) als Verkäufer zustande. Es gelten die Nutzungsbedingungen des jeweiligen Anbieters und/oder des Plattformbetreibers, die bei diesem einsehbar sind (z.B. http:// www.apple.com/legal/itunes/de/terms.html).</p>
+          <p>Inhalte, die über Plattformbetreiber erworben wurden, können darüber hinaus unter bestimmten Voraussetzungen in Form einer persönlichen Sicherheitskopie in Augmented Content Nutzerkonten hinterlegt werden. Für diese Hinterlegung in Augmented Content Nutzerkonten gelten die nachfolgenden AGB (siehe Teil I.). Das Vertragsverhältnis des Nutzers mit dem Plattformbetreiber und/oder Anbieter der Inhalte bleibt davon unberührt.</p>
+          <p>Entgegenstehende oder von diesen AGB abweichende Allgemeine Geschäftsbedingungen des Nutzers finden keine Anwendung, es sei denn, Augmented Content stimmt diesen ausdrücklich zu.</p>
+          <h2>Teil I. &#8211; Allgemeine Nutzungsbedingungen</h2>
+          <h3>1. Dienste, Nutzerkreis</h3>
+          <h4>1.1</h4>
+          <p>
+            Um die Dienstleistungen von <strong>Augmented Content</strong> nutzen zu können, benötigt der Nutzer bestimmte Systemvoraussetzungen. Zum Download und Verwaltung der Inhalte benötigt der Nutzer die <strong>Augmented Content</strong>-App, die für verschiedene mobile Endgeräte verfügbar ist, und in bestimmten Fällen einen internetfähigen Computer mit Web-Browser. Das Angebot sämtlicher Dienste durch <strong>Augmented Content</strong> erfolgt freibleibend und unverbindlich.
+          </p>
+          <h4>1.2</h4>
+          <p>
+            <strong>Augmented Content</strong> bemüht sich um sorgfältige Pflege und Wartung der <strong>Augmented Content</strong>-Website und der <strong>Augmented Content</strong>-APP. Ein Anspruch auf jederzeitige Erreichbarkeit der <strong>Augmented Content</strong>-Website und der <strong>Augmented Content</strong>-APP besteht jedoch nicht. <strong>Augmented Content</strong> übernimmt keine Gewähr dafür, dass die Inhalte jederzeit abrufbar sind, insbesondere nicht für Verzögerungen technischer Art, die nicht in der Verantwortung von <strong>Augmented Content</strong> liegen. <strong>Augmented Content</strong> steht ferner nicht dafür ein, dass die <strong>Augmented Content</strong>-Website und die <strong>Augmented Content</strong>-APP stets auf dem neuesten Stand und fehlerfrei sind. Es können Verzögerungen, Schreibfehler, aber auch Fehlinformationen auftreten. <strong>Augmented Content</strong> behält sich das Recht vor, den Zugang zu Inhalten oder der <strong>Augmented Content</strong>-Website bzw. der <strong>Augmented Content</strong>-APP insgesamt zur Ausführung von Wartungsarbeiten vorübergehend zu unterbrechen.
+          </p>
+          <h4>1.3</h4>
+          <p>
+            Zur Wiedergabe der Inhalte benötigt der <strong>Augmented Content</strong>-Nutzer eine Wiedergabe-Software. Die erforderliche <strong>Augmented Content</strong>-APP für iPhone, iPod touch, iPad etc. ist ausschließlich über iTunes und unter den Bedingungen von iTunes S.à.r.l. verfügbar. Die <strong>Augmented Content</strong>-APP für weitere Plattformen und Betriebssysteme, z.B. Android, steht über verschiedene andere Dienste zu den dort abrufbaren Bedingungen zum Download zur Verfügung. Ggf. anfallende Verbindungskosten sind vom Nutzer selbstständig zu tragen.
+          </p>
+          <h4>1.4</h4>
+          <p>
+            Voraussetzung für die Nutzung der Dienste von <strong>Augmented Content</strong> und insbesondere den Bezug und die Nutzung von Inhalten ist die Vollendung des 18. Lebensjahres. Die Nutzung durch Minderjährige ist nur unter der Aufsicht eines Erziehungsberechtigten gestattet. Dieser hat den Vertragsabschluss vorzunehmen und muss die Aufsicht bei der Nutzung der Inhalte führen.
+          </p>
+          <h3>2. Registrierung</h3>
+          <h4>2.1</h4>
+          <p>
+            Voraussetzung für Bezug und die Nutzung der von <strong>Augmented Content</strong> vermittelten Inhalten kann sein, dass der Nutzer sich durch die Übermittlung der erforderlichen Anmeldedaten (persönliche Daten einschließlich E-Mail-Adresse) und, falls Zahlungen erfolgen sollen, Abrechnungsdaten (Kreditkartendaten oder Online-Ermächtigung zum Lastschriftverfahren) anmeldet und ein <strong>Augmented Content</strong> Nutzerkonto erstellt. Hierzu ist es erforderlich, dass ein Benutzername sowie ein Passwort (&#171;Zugangsdaten&#187;) gewählt werden.
+          </p>
+          <h4>2.2</h4>
+          <p>
+            Ein Vertrag kommt nach Absendung des Registrierungsformulars durch den Nutzer mit der anschließenden Bestätigung der E-Mail-Adresse bzw. Aktivierung des Nutzerkontos durch den Nutzer sowie Freischaltung des Nutzerkontos durch <strong>Augmented Content</strong> nach Überprüfung der Registrierungsdaten zustande.
+          </p>
+          <h4>2.3</h4>
+          <p>
+            Der Nutzer ist verpflichtet, im Rahmen der Registrierung richtige und vollständige Angaben zu machen und bei Änderungen der persönlichen Daten diese unmittelbar im Bereich &#171;Einstellungen&#187; anzupassen oder <strong>Augmented Content</strong> in anderer Weise darüber zu informieren. Bei Falschangabe von Zahlungsinformationen bzw. rechtswidriger Angabe von falschen Daten oder Daten Dritter behält sich <strong>Augmented Content</strong> die strafrechtliche und zivilrechtliche Verfolgung vor.
+          </p>
+          <h4>2.4</h4>
+          <p>
+            Die Weitergabe von Zugangsdaten an Dritte ist untersagt. Der Nutzer trägt die Verantwortung für jeglichen nicht sorgfältigen Umgang mit diesen Daten und sämtliche Aktivitäten über sein Nutzerkonto und haftet für Schäden, die aus unbefugtem Zugang entstehen. Sofern <strong>Augmented Content</strong> Kenntnis von der unbefugten Nutzung des Zugangs durch Dritte erlangt, ist <strong>Augmented Content</strong> berechtigt, das <strong>Augmented Content</strong> Nutzerkonto und damit ggf. den Zugang zu Inhalten auch ohne Einhaltung einer Frist zu sperren.
+          </p>
+          <h3>3. Widerrufsrecht für Verbraucher</h3>
+          <p>Ist der Nutzer Verbraucher, so steht ihm in Bezug auf die Vertragserklärung zur Registrierung nach den gesetzlichen Regelungen ein Widerrufsrecht zu. Den Text der gesetzlich vorgeschriebenen Widerrufsbelehrung finden Sie in Teil III.</p>
+          <h3>
+            4. Sicherung von Inhalten über <strong>Augmented Content</strong>-Nutzerkonten
+          </h3>
+          <h4>4.1</h4>
+          <p>
+            Durch die Registrierung erhält der Nutzer mittels der Zugangsdaten unter anderem Zugriff auf eine personalisierte Online-Bibliothek (&#171;Book-Shelf&#187;), in der <strong>Augmented Content</strong> die vom Nutzer über <strong>Augmented Content</strong> bezogenen Inhalte dauerhaft speichert.
+          </p>
+          <h4>4.2</h4>
+          <p>
+            Darüber hinaus hat der Nutzer die Möglichkeit, über dritte Plattformbetreiber, z.B. iTunes erworbene Inhalte unter bestimmten Voraussetzungen zusätzlich mit dem <strong>Augmented Content</strong> Nutzerkonto zu verbinden und im persönlichen Book-Shelf zu sichern. Dies ermöglicht es dem Nutzer, persönliche Sicherungskopien der Inhalte zu erstellen, die über iTunes erworben wurden. Vertragspartner für über dritte Plattformbetreiber (z.B. iTunes) erworbene Applikationen und über diese getätigte Verkäufe innerhalb von Applikationen (&#171;In-APP Verkäufe&#187;) bleibt –unabhängig von der Sicherung über <strong>Augmented Content</strong> Nutzerkonten &#8211; der jeweilige Anbieter (z.B. iTunes S.à.r.l.).
+          </p>
+          <h4>4.3</h4>
+          <p>
+            <strong>Augmented Content</strong> übernimmt keine Gewähr dafür, dass die Inhalte über <strong>Augmented Content</strong> Nutzerkonten jederzeit abrufbar oder gesichert sind. Insbesondere besteht kein Anspruch auf die Sicherung von Inhalten, die über dritte Plattformbetreiber erworben wurden.
+          </p>
+          <h4>4.4</h4>
+          <p>Das Book-Shelf wird innerhalb einer bestehenden Registrierung nur aufgrund ausdrücklicher und schriftlicher Aufforderung durch den Nutzer ansonsten nach Kündigung der Registrierung gelöscht.</p>
+          <h3>5. Pflichten der Nutzer</h3>
+          <h4>5.1</h4>
+          <p>
+            Nutzer sind nicht berechtigt, die Funktionsfähigkeit und Sicherheit der Leistungen und Dienste von <strong>Augmented Content</strong> in irgendeiner Form zu beinträchtigen. Dies schließt u.a. ein: (a) Zugang zu Daten, die nicht für den Nutzer bestimmt sind, (b) Zugang zu einem Nutzerkonto, für das keine Autorisierung vorliegt, (c) Versuch, die Funktionsfähigkeit und Sicherheit der <strong>Augmented Content</strong>-Website, -Technologie, -Software oder von sonstigen Komponenten zu umgehen bzw. zu beinträchtigen, (d) den <strong>Augmented Content</strong>-Kopierschutz zu umgehen und/oder zu entfernen. <strong>Augmented Content</strong> behält sich vor, jeglichen Verstoß dieser Art zivilrechtlich und/oder strafrechtlich zu verfolgen.
+          </p>
+          <h4>5.2</h4>
+          <p>
+            Die von <strong>Augmented Content</strong> vermittelten Inhalte und angebotetenen Dienste  dürfen nicht für rechtswidrige Zwecke verwendet werden. Jeder Nutzer verpflichtet sich, das Recht der Bundesrepublik Deutschland einzuhalten.
+          </p>
+          <h4>5.3</h4>
+          <p>
+            Die Inhalte der von <strong>Augmented Content</strong> vermittelten Inhalte und angebotenen Dienste  sind unter urheber-, marken-, namens- und gegebenenfalls weiteren rechtlichen Gesichtspunkten geschützt. Der Nutzer ist ohne Einwilligung von <strong>Augmented Content</strong> außerhalb der gesetzlichen Ausnahmetatbestände nicht berechtigt, fremde Inhalte in irgendeiner Form zu verwerten, insbesondere zu vervielfältigen, zu verbreiten, öffentlich zugänglich zu machen, wiederzugeben oder zu bearbeiten.
+          </p>
+          <h4>5.4</h4>
+          <p>
+            Die Nutzer sind verpflichtet, <strong>Augmented Content</strong> von jedem Schaden, einschließlich der Kosten der Rechtsverteidigung in Höhe der gesetzlich anfallenden Gebühren, freizustellen, der daraus entsteht, dass diese AGB, insbesondere die Bestimmungen zur Nutzungseinräumung oder anderes geltendes Recht im Rahmen des Bezugs und der Nutzung der Inhalte und der Dienste von <strong>Augmented Content</strong> verletzt wird.
+          </p>
+          <h3>6. Haftung</h3>
+          <h4>6.1</h4>
+          <p>
+            <strong>Augmented Content</strong> haftet unbeschränkt für Vorsatz und grobe Fahrlässigkeit.
+          </p>
+          <h4>6.2</h4>
+          <p>
+            Für einfache Fahrlässigkeit haftet <strong>Augmented Content</strong> nur, sofern wesentliche Vertragspflichten (Kardinalpflichten) verletzt werden und begrenzt auf den vertragstypischen und vorhersehbaren Schaden. In diesem Fall ist die Haftung auf den Betrag in der Höhe der Vergütung, die <strong>Augmented Content</strong> gemäß dem Vertragsverhältnis zusteht, begrenzt; eine Haftung für mittelbare und unvorhersehbare Schäden, entgangenen Gewinn, ausgebliebene Einsparungen und Vermögensschäden sowie für Ansprüche Dritter ist ausgeschlossen.
+          </p>
+          <h4>6.3</h4>
+          <p>
+            Die Haftungsbeschränkungen bzw. -ausschlüsse gemäß Ziffer 6.2 gelten insbesondere auch für die von <strong>Augmented Content</strong> kostenlos zur Verfügung gestellten Softwareprogramme zur Wiedergabe, Verwaltung und Download der Inhalte (<strong>Augmented Content</strong>-App).
+          </p>
+          <h4>6.4</h4>
+          <p>
+            Soweit <strong>Augmented Content</strong> per Hyperlink auf fremde Webseiten verweist, übernimmt <strong>Augmented Content</strong> keinerlei Haftung für Inhalt und Gestaltung. Diese Hyperlinks sind lediglich eine Zugangsvermittlung zu fremden Inhalten oder Produkten. Sofern <strong>Augmented Content</strong> Kenntnis davon erhält, dass Inhalte, auf die verwiesen wird, dem geltenden Recht widersprechen, wird <strong>Augmented Content</strong> nach Prüfung der Sachlage den entsprechenden Hyperlink entfernen.
+          </p>
+          <h4>6.5</h4>
+          <p>
+            Für die von <strong>Augmented Content</strong> dem Nutzer zur Verfügung gestellten Inhalte übernimmt <strong>Augmented Content</strong> keinerlei Haftung im Hinblick auf Inhalt und Gestaltung. <strong>Augmented Content</strong> vermittelt dem Nutzer im Rahmen seines Online-Angebotes nur den  Zugang zu fremden d.h. von Autoren erstellten und entwickelten Inhalten oder Produkten. Sofern <strong>Augmented Content</strong> Kenntnis davon erhält, dass Inhalte, auf die verwiesen wird, dem geltenden Recht widersprechen, wird <strong>Augmented Content</strong> nach Prüfung der Sachlage die entsprechenden Inhalte oder Produkte entfernen.
+          </p>
+          <h4>6.6</h4>
+          <p>
+            Soweit die Haftung von <strong>Augmented Content</strong> ausgeschlossen oder beschränkt ist, gilt dies auch für die persönliche Haftung ihrer Arbeitnehmer, Vertreter und Erfüllungsgehilfen und ohne Rücksicht auf die Rechtsnatur des geltend gemachten Anspruchs.
+          </p>
+          <h4>6.7</h4>
+          <p>Die Haftungsbeschränkungen bzw. -ausschlüsse gemäß dieser Ziffer 6 gelten nicht für eine gesetzlich vorgeschriebene, verschuldensunabhängige Haftung, insbesondere aus Garantie oder nach dem Produkthaftungsgesetz, oder im Falle der Verletzung des Lebens, des Körpers oder der Gesundheit.</p>
+          <h3>7. Datenschutz</h3>
+          <h4>7.1</h4>
+          <p>
+            Soweit keine zusätzliche Einwilligung zur weiteren Verarbeitung und Nutzung der Nutzerdaten erteilen wurde, werden diese ausschließlich zum Zwecke der Ermöglichung des reinen Bezugs und der Nutzung der von <strong>Augmented Content</strong> vermittelten Inhalte  sowie der Abrechnung durch <strong>Augmented Content</strong> sowie im Rahmen der geltenden gesetzlichen Vorgaben des Bundesdatenschutzgesetzes (BDSG) sowie des Telemediengesetzes (TMG) gespeichert, verarbeitet und genutzt.
+          </p>
+          <h4>7.2</h4>
+          <p>
+            Für eine darüber hinausgehende Nutzung der persönlichen Daten von Nutzern &#8211; wie etwa für den Versand von Newslettern &#8211; wird eine separate Einwilligung von den Nutzern erbeten. Insbesondere wird <strong>Augmented Content</strong> keine Daten an Dritte verkaufen oder anderweitig abgeben, sofern dies nicht zur Vertragsabwicklung notwendig oder im Rahmen der geltenden gesetzlichen Vorgaben zulässig ist.
+          </p>
+          <h4>7.3</h4>
+          <p>Einzelheiten sind der separaten Datenschutzerklärung zu entnehmen, welche der Nutzer hiermit zur Kenntnis nimmt.</p>
+          <h3>8. Aufhebung der Registrierung und Änderungen der Dienste</h3>
+          <h4>8.1</h4>
+          <p>
+            Sowohl der Nutzer wie auch <strong>Augmented Content</strong> sind jederzeit berechtigt, die Registrierung mit einer Frist von einer Woche zu kündigen.
+          </p>
+          <h4>8.2</h4>
+          <p>
+            <strong>Augmented Content</strong> ist ferner berechtigt, die Registrierung des Nutzers mit sofortiger Wirkung zu kündigen, wenn der Nutzer gegen diese Nutzungsbedingungen verstößt. <strong>Augmented Content</strong> wird in aller Regel vor der Kündigung eine Mahnung mit Fristsetzung an den Nutzer versenden und die Registrierung erst kündigen, wenn der Verstoß nicht beseitigt bzw. wiederholt wird.
+          </p>
+          <h4>8.3</h4>
+          <p>
+            <strong>Augmented Content</strong> behält sich das Recht vor, diese Nutzungsbedingungen sowie die Inhalte und Struktur der Dienste von <strong>Augmented Content</strong> jederzeit zu ändern. Hierzu gehört auch, bestimmte Angebote und Dienste kostenpflichtig zu gestalten oder einzustellen.
+          </p>
+          <h3>9. Schlussbestimmungen</h3>
+          <h4>9.1</h4>
+          <p>
+            <strong>Augmented Content</strong> ist berechtigt, Nutzer-Registrierungen sowie mit <strong>Augmented Content</strong> abgeschlossene Verträge auf Dritte zu übertragen. Dadurch entstehen Nutzern keine Nachteile, und es stehen im Übrigen dieselben vertragsgemäßen Leistungen zu. <strong>Augmented Content</strong> wird den Nutzer in diesem Fall von der Übertragung des Vertragsverhältnisses in Kenntnis setzen. Die Übertragung wird wirksam, sofern nicht binnen eines Monats ab Inkenntnissetzung durch <strong>Augmented Content</strong> widersprochen wird.
+          </p>
+          <h4>9.2</h4>
+          <p>
+            Für alle Rechtsbeziehungen zwischen <strong>Augmented Content</strong> und den Nutzern gilt ergänzend ausschließlich das Recht der Bundesrepublik Deutschland unter Ausschluss der Bestimmungen des Einheitlichen Internationalen Kaufrechts (CISG).
+          </p>
+          <h4>9.3</h4>
+          <p>
+            Ausschließlicher Erfüllungsort für vertragliche Verpflichtungen und ausschließlicher Gerichtsstand, soweit der Nutzer Kaufmann ist oder nicht über einen Wohnsitz in Deutschland verfügt, ist der Geschäftssitz von <strong>Augmented Content</strong>, zur Zeit Berlin.
+          </p>
+          <h4>9.4</h4>
+          <p>
+            Für die Geschäftsbeziehung zwischen <strong>Augmented Content</strong> und den Nutzern gelten die jeweils zum Zeitpunkt des Vertragsschlusses gültigen AGB. Im Falle der Anpassung der AGBs setzt <strong>Augmented Content</strong> die Nutzer durch deren Zusendung per E-Mail oder in sonstiger geeigneter Form in Kenntnis.
+          </p>
+          <h4>9.5</h4>
+          <p>Gegen die Einbeziehung der neuen AGB in den Vertrag kann innerhalb von einem (1) Monat schriftlich Widerspruch erhoben werden. Setzt der Nutzer das Vertragsverhältnis nach Ablauf der Monatsfrist ohne Widerspruch fort, gilt dies als Einverständniserklärung über die Geltung der neuen AGB.</p>
+          <h4>9.6</h4>
+          <p>Sollten einzelne Bestimmungen dieser AGB oder Teile hiervon ganz oder teilweise unwirksam sein oder werden, berührt dies nicht die Wirksamkeit der AGB im Übrigen. An die Stelle der unwirksamen Bedingungen treten wirksame Regelungen, die den AGB im Ganzen sowie den sonstigen vertraglichen Absprachen in tatsächlicher, rechtlicher und wirtschaftlicher Hinsicht möglichst nahe kommen. Ebenso ist zu verfahren, wenn die AGB eine Lücke aufweisen sollten.</p>
+          <h4>9.7</h4>
+          <p>
+            Diese AGB sowie die weiteren Daten des Nutzungsverhältnisses werden von <strong>Augmented Content</strong> nach Vertragsschluss gespeichert. Die Geschäftsbedingungen stehen nur in deutscher Sprache zur Verfügung.
+          </p>
+          <h2>Teil II. &#8211; Allgemeine Geschäftsbedingungen für den Bezug von Inhalten</h2>
+          <p>
+            Nach erfolgreicher Registrierung ist der Nutzer berechtigt, Informationen und Inhalte, die durch <strong>Augmented Content</strong> über die <strong>Augmented Content</strong>-APP vermittelt werden, zu beziehen. Für sämtliche zwischen <strong>Augmented Content</strong> und dem Nutzer geschlossene Verträge gelten die nachfolgenden Bestimmungen in Ergänzung der vorstehenden Allgemeinen Nutzungsbedingungen des Teil I.
+            Sofern der Nutzer Inhalte über einen dritten Plattformbetreiber (z.B. iTunes) bezieht kommt ein Vertrag ausschließlich mit dem jeweiligen Anbieter (z.B. iTunes S.à.r.l., 8 rue Heinrich Heine, L- 1720 Luxemburg, Drittanbieter, der über die Plattform Inhalte anbietet etc) zustande und es gelten die Nutzungsbedingungen des jeweiligen Anbieters und/oder des Plattformbetreibers, die bei diesen einsehbar sind (z.B. http:// www.apple.com/legal/itunes/de/terms.html).
+            Die Abgabe der Inhalte erfolgt nur an Endverbraucher. Eine Rechnungslegung für gewerbliche Zwecke erfolgt nicht.
+          </p>
+          <h3>1. Bezugsmöglichkeiten und Vertragsschluss bzw. Kündigung</h3>
+          <p>
+            <strong>Augmented Content</strong> bietet als Vermittler seinen Nutzern über die <strong>Augmented Content</strong>-App verschiedene Möglichkeiten zum Bezug von Inhalten:
+          </p>
+          <h4>1.1 Einzelkauf</h4>
+          <ol type="a">
+            <li>
+              Aus dem Gesamtprogramm der von <strong>Augmented Content</strong> für die Autoren bereitgestellten Inhalten können Inhalte einzeln bezogen werden.
+            </li>
+            <li>
+              Der Vertrag zwischen Nutzer und dem durch <strong>Augmented Content</strong> vermittelten Inhalt des jeweilig bezogenen Inhaltes kommt mit der verbindlichen Bestellung des ausgewählten Inhalts und Bestätigung des Kaufs durch <strong>Augmented Content</strong> zustande.
+            </li>
+          </ol>
+          <h4>1.2 Abonnement</h4>
+          <ol type="a">
+            <li>Weiterhin können Inhalte über eine Mitgliedschaft in Form eines Abonnements erworben werden. Für einen Abonnement-Beitrag erhalten Nutzer die Möglichkeit, bestimmte Inhalte aus dem Angebot über einen bestimmten Zeitraum hinweg von den jeweiligen Autoren zu beziehen. Einzelheiten sind dem jeweiligen Abonnement-Angebot zu entnehmen.</li>
+            <li>
+              Abonnements kommen mit der verbindlichen Bestellung durch Auswahl und aktives Bestätigen auf der <strong>Augmented Content</strong>-Website oder in der <strong>Augmented Content</strong>-APP und Bestätigung des Kaufs vom jeweiligen Autor durch <strong>Augmented Content</strong> zustande. Ziffer 1.1 b) gilt entsprechend.
+            </li>
+            <li>Das Abonnement wird für die gewählte Dauer abgeschlossen und verlängert sich ohne fristgemäße Kündigung jeweils um den gleichen Zeitraum.</li>
+            <li>
+              Die Kündigung eines Abonnements kann jederzeit in Textform (per E-Mail, Fax, Brief) gegenüber <strong>Augmented Content</strong> unter Einhaltung einer Bearbeitungsfrist von mindestens 10 Werktagen zum Ende der jeweiligen Vertragslaufzeit erklärt werden. Es erfolgt eine Bestätigung der Kündigung per E-Mail, in welcher <strong>Augmented Content</strong> das genaue Datum des Endes des Abos nennt.
+            </li>
+            <li>Vorbehaltlich der vertraglichen Regelungen mit den Inhalte-Lieferanten, z.B. Verlagen, bleiben Registrierung und Zugang zu dem persönlichen Book-Shelf des Nutzers sowie die bisherigen Nutzungsrechte an den bereits erworbenen Inhalten auch nach einer Beendigung des Vertragsverhältnisses über das Abonnement weiterhin bestehen.</li>
+            <li>
+              Das Recht zur außerordentlichen Kündigung des Abonnement-Verhältnisses aus wichtigem Grund steht dem Nutzer und bzw. den jeweiligen Autoren, vertreten durch <strong>Augmented Content</strong> zu. Wichtige Gründe in diesem Sinne sind z.B. dauerhafter Zahlungsverzug und vergleichbare Pflichtverletzungen durch die Vertragspartner.
+            </li>
+          </ol>
+          <h4>1.3 Testangebote (&#171;Promotion-Codes&#187;)</h4>
+          <ol type="a">
+            <li>
+              Im Rahmen besonderer Aktionen bietet <strong>Augmented Content</strong> eine kostenlose oder vergünstigte Möglichkeit an, die Vermittlungsdienste von <strong>Augmented Content</strong> zu testen. Diese Testangebote gelten nur innerhalb des beschriebenen Aktionszeitraums. Es gibt keinen Rechtsanspruch auf den Erhalt dieser Angebote, und diese stehen grundsätzlich nur Neukunden einmalig zur Verfügung. Zur Nutzung ist es erforderlich, dass der Nutzer sich als <strong>Augmented Content</strong>-Nutzer registriert und den AGBs zustimmt. <strong>Augmented Content</strong> behält sich vor, bei widerrechtlicher Mehrfachnutzung die beanspruchten Leistungen als Schadensersatz in Rechnung zu stellen. Mit Auflösung des Benutzerkontos endet das Bezugsrecht von Testangeboten für die Zukunft.
+            </li>
+            <li>Für den Vertragsschluss gelten &#8211; je nach Art des Testangebots &#8211; Ziffer 1.1 b) oder Ziffer 1.2 b) entsprechend.</li>
+          </ol>
+          <h3>2. Widerrufsrecht für Verbraucher</h3>
+          Ist der Nutzer Verbraucher, so steht ihm in Bezug auf die Vertragserklärung zu Einzelkauf, Abonnement und/oder Testangeboten nach den gesetzlichen Regelungen ein Widerrufsrecht zu. Den Text der gesetzlich vorgeschriebenen Widerrufsbelehrung finden Sie in Teil III.
+          <h3>3. Bereitstellung zum Download</h3>
+          <h4>3.1</h4>
+          Nach Abschluss des Vertrages zweischen Nutzer und Vertrag wird der Inhalt in das persönliche Book-Shelf des Nutzers übertragen und steht zum Download in die <strong>Augmented Content</strong>-APP zur Verfügung. Wird ein Abonnement über einen periodisch erscheinenden Inhalt (z.B. Serien) gewählt, so erscheinen Inhalte sukzessive und werden in dem persönlichen Book-Shelf des Nutzers zum Download bereitgestellt, sobald diese verfügbar sind.
+          <h4>3.2</h4>
+          Der Nutzer hat nach dem Download die Möglichkeit einen Reload von einzelnen Inhalten in die <strong>Augmented Content</strong>-App durchzuführen und heruntergeladene Kopien der Inhalte, etwa für den Fall der Beschädigung, zu ersetzen. Diese Möglichkeit besteht jedoch nur vorbehaltlich der vertraglichen Regelungen mit den Inhalte-Lieferanten, z.B. Verlagen, d.h. solange <strong>Augmented Content</strong> selbst durch die Vermittlung der Rechtseinräumung der Inhalte-Lieferanten bzw. des jeweiligen Autors berechtigt ist, die Möglichkeit des Reloads zu gewähren. <strong>Augmented Content</strong> behält sich also vor, einzelne Inhalte im Falle zeitlich befristeter Lizenzen sowie aus sonstigen Gründen ohne Vorankündigung aus dem Book-Shelf des Nutzers zu entfernen.&#187;
+          <h4>3.3</h4>
+          Eine Stornierung von Bestellvorgängen durch den Nutzer ist &#8211; unbeschadet eines etwaigen Widerrufsrechts des Nutzers &#8211; nur möglich, soweit der Inhalt noch nicht heruntergeladen wurde.
+          <h4>3.4</h4>
+          Für den Download der von <strong>Augmented Content</strong> vermittelten Inhalten durch den Nutzer fallen die üblichen Verbindungsentgelte der Verbindungsanbieter, insbesondere der Mobilfunkanbieter, an. Diese Entgelte sind vom Nutzer gesondert und zusätzlich zu vergüten. <strong>Augmented Content</strong> ist für die Bereitstellung von ggf. erforderlicher Software, Endgeräten und anderen Dienstleistungen nicht verantwortlich.
+          <h3>4. Rechtseinräumung</h3>
+          <h4>4.1</h4>
+          Sämtliche von <strong>Augmented Content</strong> für die Autoren vermittelten Inhalte sind unter urheber-, marken-, namens- und gegebenenfalls weiteren rechtlichen Gesichtspunkten geschützt. <strong>Augmented Content</strong> vermittelt dem Nutzer vom jeweiligen Autor des bezogenen Inhaltes jeweils ein einfaches und nicht übertragbares Nutzungsrecht, die Inhalte für den privaten, nicht-gewerblichen Gebrauch auf maximal drei mobile Abspielgeräte (z.B. SmartPhones) zu übertragen, zu speichern und auf diesen zu nutzen. Die Inhalte sind mit einem Kopierschutz versehen.
+          <h4>4.2</h4>
+          Eine weitergehende Nutzung, insbesondere eine weitere Vervielfältigung, ist nicht zulässig. Die Rechte des Nutzers aus den § 69d Abs. 2 und 3 sowie § 69e UrhG bleiben jedoch unberührt.
+          <h4>4.3</h4>
+          Es ist nicht zulässig, die Inhalte zu konvertieren, zu verändern und, insbesondere im Internet oder anderen Netzwerken, entgeltlich oder unentgeltlich anzubieten, zu verbreiten, weiterzugeben, zur Verfügung zu stellen, zu tauschen, öffentlich zugänglich zu machen, und/oder in irgendeiner Weise gewerblich zu nutzen.
+          <h4>4.4</h4>
+          Nutzt ein Dritter unbefugt die Ermächtigung (Zugangsdaten) zum Bezug und zur Nutzung der von <strong>Augmented Content</strong> vermittelten Inhalten aus Gründen, die der Nutzer zu vertreten hat, ist der Nutzer verpflichtet, gegenüber dem jeweiligen Autor des Inhalts bzw. <strong>Augmented Content</strong> etwaige hierdurch entstehende Kosten zu erstatten und/oder Schadensersatzforderungen nachzukommen.
+          <h3>5. Zahlung und Abrechnung</h3>
+          <h4>5.1</h4>
+          Die Preise für die Vermittlung der Inhalte durch <strong>Augmented Content</strong> ergeben sich aus den Preisangaben neben den jeweiligen Inhalten im Angebot von <strong>Augmented Content</strong> zum Zeitpunkt der Bestellung. Die Preise für die Abonnements sind speziell ausgewiesen. Sämtliche Preise verstehen sich inklusive der gesetzlichen Mehrwertsteuer.
+          <h4>5.2</h4>
+          Der jeweilige Kaufpreis im Einzelkauf ist sofort fällig und wird von <strong>Augmented Content</strong> von dem Konto bzw. der Kreditkarte des Nutzers eingezogen. Für die Bezahlung können auch Systeme von Drittanbietern (z.B. Paypal, One-Click-Buy, etc.) eingesetzt werden, die eigenen Nutzungsbedingungen unterliegen.
+          <h4>5.3</h4>
+          Der Nutzer erhält per E-Mail eine Bestätigung der getätigten Bestellungen. Eine weitere Rechnungslegung findet nicht statt.
+          <h4>5.4</h4>
+          <strong>Augmented Content</strong> oder der Drittanbieter für die Zahlungsabwicklung akzeptiert Kreditkartenzahlung. Durch Eingabe der Kreditkartendaten ermächtigt der Nutzer <strong>Augmented Content</strong> zur Belastung der Kreditkarte entsprechend der allgemeinen Bedingungen im Zahlungsverkehr mit Kreditkarten.
+          <h4>5.5</h4>
+          <strong>Augmented Content</strong> oder der Drittanbieter für die Zahlungsabwicklung bietet Bezahlung mittels elektronischem Lastschriftverfahren an. Bei Wahl des Lastschriftverfahrens, ermächtigt der Nutzer <strong>Augmented Content</strong>, die für den Bezug von Inhalten fälligen Beträge von dem durch Kontonummer und Bankleitzahl benannten Konto via Lastschrift einzuziehen.
+          <h4>5.6</h4>
+          <strong>Augmented Content</strong> behält sich vor, in Zukunft weitere Zahlungsmethoden als Ergänzung oder Ersatz anzubieten.
+          <h4>5.7</h4>
+          Der Nutzer ist dafür verantwortlich, dass die Abrechnungsinformationen (Kreditkarten- bzw. Kontodaten zwecks Lastschrift) vollständig, aktuell und zulässig sind, um pünktliche Zahlungen zu gewährleisten.
+          <h4>5.8</h4>
+          Sollte eine Lastschrift nicht durch die angegebene Bank eingelöst werden können und hat der Nutzer diesen Umstand zu vertreten, ist <strong>Augmented Content</strong> dazu berechtigt, den Rechnungsbetrag zzgl. der <strong>Augmented Content</strong> hierdurch entstandenen Aufwendungen in angemessener und üblicher Höhe einzufordern. Im Fall von Zahlungsverzug ist <strong>Augmented Content</strong> außerdem berechtigt, Verzugszinsen in gesetzlicher Höhe zu verlangen. Falls <strong>Augmented Content</strong> nachweisbar ein höherer Verzugsschaden entstanden ist, ist <strong>Augmented Content</strong> auch berechtigt, diesen in tatsächlicher Höhe geltend zu machen.
+          <h4>5.9</h4>
+          <strong>Augmented Content</strong> ist zudem berechtigt, den Zugang zu den Inhalten in dem persönlichen Book- Shelf zu sperren, sofern der Nutzer mit einer Zahlung in Verzug geraten ist bzw. die übermittelten Abrechnungsdaten/-unterlagen nicht zu einer pünktlichen und vollständigen Bezahlung fälliger Forderungen von <strong>Augmented Content</strong> führen.
+          <h4>5.10</h4>
+          Sollte auch nach einer wiederholten Zahlungsaufforderung bzw. einem wiederholten Einzug durch <strong>Augmented Content</strong> der ausstehende Betrag nicht beglichen werden, ermächtigt <strong>Augmented Content</strong> &#8211; unter Weitergabe der notwendigen Daten &#8211; einen Dritten zur Geltendmachung (Mahnwesen) der Forderung und zum Forderungsmanagement (Inkasso, Klage- und Vollstreckungsverfahren). Alle durch das Mahnwesen bzw. Forderungsmanagement entstehenden Kosten werden als Schadensersatz neben der Leistung der Forderung zugerechnet.
+          <h4>5.11</h4>
+          Für Abonnements gelten zusätzlich folgende Vergütungs- und Abrechnungsbestimmungen: a) <strong>Augmented Content</strong> behält sich vor, die Preise der Abonnements unter Wahrung einer Ankündigungsfrist von 30 (dreißig) Tagen zu verändern. <strong>Augmented Content</strong> wird den Nutzer bei einer Erhöhung entsprechend informieren und die Anhebung der Abonnementspreise begründen. Der Nutzer ist berechtigt, den jeweiligen Vertrag bis zum Ablauf der Ankündigungsfrist ohne Angabe von Gründen zu kündigen. Anderenfalls gelten nach dem Ablauf der Ankündigungsfrist im Vertragsverhältnis die neuen Preise.
+
+          b) Im Falle eines Laufzeitabonnements zieht <strong>Augmented Content</strong> den vereinbarten, fälligen Monatsbeitrag am jeweils gleichen Tag des Monats ein, erstmals am Tag des Abschlusses des Abonnements (Stichtag). c) Sollten Abbuchungen zwei (2) Monate hintereinander fehlschlagen oder eine fällige Forderung innerhalb von zwei (2) Monaten durch den Nutzer nicht bezahlt worden sein, hat <strong>Augmented Content</strong> das Recht zu einer außerordentlichen Kündigung des Vertragsverhältnisses. In diesem Fall werden alle noch offenen Rechnungsbeträge sowie die angefallenen Bankgebühren in einer Gesamtforderung in Rechnung gestellt und sofort fällig. Darüber hinaus ist <strong>Augmented Content</strong> in einem solchen Fall berechtigt, dem Nutzer Schadensersatz und Ausfallkosten in Rechnung zu stellen. d) Im Falle einer vorzeitigen Vertragsbeendigung eines Laufzeitabonnements &#8211; gleich aus welchem Grund &#8211; ermächtigen der Nutzer <strong>Augmented Content</strong> bereits an dieser Stelle, den Gesamtbetrag der ausstehenden Monatsbeiträge im Lastschriftverfahren oder über Kreditkarte einzuziehen.
+          <h4>5.12</h4>
+          Ein Recht zur Aufrechnung steht dem Nutzer nur zu, wenn seine Gegenansprüche rechtskräftig festgestellt oder von <strong>Augmented Content</strong> unbestritten sind. Außerdem ist er zur Ausübung eines Zurückbehaltungsrechts nur insoweit befugt, als sein Gegenanspruch auf dem gleichen Vertragsverhältnis beruht.
+          <h3>6. Gewährleistung</h3>
+          <h4>6.1</h4>
+          <strong>Augmented Content</strong> sichert nicht zu, dass die angeforderten Inhalte den Nutzer zu einem bestimmten Zeitpunkt erreichen.
+          <h4>6.2</h4>
+          <strong>Augmented Content</strong> behält sich ferner vor, einzelne Inhalte im Falle zeitlich befristeter Lizenzen sowie aus sonstigen Gründen ohne Vorankündigung aus dem Gesamtangebot zu entfernen.
+          <h4>6.3</h4>
+          <strong>Augmented Content</strong> übernimmt keine Gewähr dafür, dass die Inhalte beim Nutzer vorhandene Hard- und Software im Einzelfall zur Nutzung des <strong>Augmented Content</strong>-Dienste geeignet sind. Hilfestellungen und Hinweise auf der <strong>Augmented Content</strong>-Webseite oder durch <strong>Augmented Content</strong> Mitarbeiter erfolgen nach bestem Wissen und Gewissen. <strong>Augmented Content</strong> übernimmt keine Haftung für die Richtigkeit der Angaben.
+          <h4>6.4</h4>
+          <strong>Augmented Content</strong> übernimmt keine Gewährleistung für die inhaltliche Richtigkeit der Inhalte.
+          <h4>6.5</h4>
+          Erweist sich ein Inhalt als technisch mangelhaft, kann der Nutzer als Nacherfüllung die Beseitigung des Mangels oder die Bereitstellung eines mangelfreien Inhalts verlangen. <strong>Augmented Content</strong> kann die gewählte Art der Nacherfüllung verweigern, wenn sie nur mit unverhältnismäßigen Kosten möglich ist.
+          <h4>6.6</h4>
+          Schlägt eine Nachbesserung seitens <strong>Augmented Content</strong> zweimal fehl, verweigert <strong>Augmented Content</strong> beide Arten der Nacherfüllung oder erbringt <strong>Augmented Content</strong> die Nacherfüllung nicht innerhalb einer angemessenen Frist, so steht dem Nutzer die gesetzlichen Gewährleistungsrechte (Minderung, Rücktritt, Aufwendungsersatz oder Schadensersatz anstatt der Leistung) zu. Die Rechte zum Rücktritt und auf Schadensersatz anstatt der Leistung sind ausgeschlossen, wenn der Mangel des Inhalts nur unerheblich ist.
+          <h4>6.7</h4>
+          <p>
+            Die Haftung von <strong>Augmented Content</strong> für Mängel ist ausgeschlossen, soweit diese durch eine den Produktvorschriften nicht entsprechende Behandlung der Inhalte durch Nutzer oder Dritte verursacht wurden.
+          </p>
+          <h2>Teil III. &#8211; WIDERRUFSBELEHRUNG</h2>
+          <h3>1. Widerrufsrecht</h3>
+          <p>
+            Sie können Ihre Vertragserklärung innerhalb von einem Monat ohne Angabe von Gründen in Textform (z.B. Brief, Fax, E-Mail) widerrufen. Die Frist beginnt nach Erhalt dieser Belehrung in Textform, jedoch nicht vor Vertragsabschluss und auch nicht vor Erfüllung unserer Informationspflichten gemäß Artikel 246 § 2 in Verbindung mit § 1 Abs. 1 und 2 EGBGB sowie unserer Pflichten gemäß § 312e Abs. 1 Satz 1 BGB in Verbindung mit Artikel 246 § 3 EGBGB. Zur Wahrung der Widerrufsfrist genügt die rechtzeitige Absendung des Widerrufs. Der Widerruf ist zu richten an:
+          </p>
+          <pre>
+            Augmented Content GmbH
+            Hafersteig 113
+            D-12683 Berlin
+            Fax +49 (0)30 55 129 033
+            E-Mail: support@augmentedcontent.de
+          </pre>
+          <h3>2. Widerrufsfolgen</h3>
+          <p>
+            Im Falle eines wirksamen Widerrufs sind die beiderseits empfangenen Leistungen zurückzugewähren und ggf. gezogene Nutzungen (z.B. Zinsen) herauszugeben. Können Sie uns die empfangene Leistung ganz oder teilweise nicht oder nur in verschlechtertem Zustand zurückgewähren, müssen Sie uns insoweit ggf. Wertersatz leisten. Dies kann dazu führen, dass Sie die vertraglichen Zahlungsverpflichtungen für den Zeitraum bis zum Widerruf gleichwohl erfüllen müssen. Verpflichtungen zur Erstattung von Zahlungen müssen innerhalb von 30 Tagen erfüllt werden. Die Frist beginnt für Sie mit der Absendung der Widerrufserklärung, für uns mit deren Empfang.
+          </p>
+          <h3>3. Besondere Hinweise</h3>
+          <p>Ihr Widerrufsrecht erlischt bei der Erbringung von Dienstleistungen vorzeitig, wenn der Vertrag von beiden Seiten auf Ihren ausdrücklichen Wunsch (z.B. durch Beginn des Downloads) vollständig erfüllt ist, bevor Sie Ihr Widerrufsrecht ausgeübt haben.</p>
+        </page>
+      </menuitem>
+      <menuitem title="Autorenvertrag" order="30" alias="contract">
+        <page>
+          <h1>Autorenvertrag</h1>
+          <div class="item">
+            Damit Du als Autor über <strong>texxtoor</strong>&#8482; Dein Werk veröffentlichen und vermarkten kannst, muss ein Autorenvertrag zu den sogenannten Verwertungsrechten abgeschlossen werden.
+          </div>
+          <div class="item">
+            Dieser Vertrag ist wie alles bei <strong>texxtoor</strong>&#8482; transparent und fair.
+          </div>
+          <div class="item">
+            Hier geht es <a href="/Home/Contract">zum Autorenvertrag</a> (kostenlose Registrierung erforderlich).
+          </div>
+        </page>
+      </menuitem>
+      <menuitem title="Urheber-/Nutzungsrecht" order="40" alias="rights">
+        <page>
+          <h1>Urheber-/Nutzungsrecht</h1>
+          <div class="item">
+            <h2>Urheberrecht</h2>
+            <p>Als Autor hast Du einen Artikel oder ein ganzes Werk geschrieben und dabei Dein Fachwissen und viel Arbeit investiert. Das Ergebnis ist Dein geistiges Eigentum und wird durch das Urheberrecht geschützt. Der Urheberrechtsschutz entsteht automatisch, ohne dass Du etwas dazu tun musst und ist im Urheberrechtsgesetz (UrhG) geregelt.</p>
+          </div>
+          <div class="item">
+            <h2>Wissen verwerten und vermarkten</h2>
+            <p>Als Urheber kannst Du entscheiden, ob und wie Dein Werk veröffentlicht wird, ob und wie das Werk kopiert, verbreitet, online gestellt oder anders öffentlich gemacht werden darf.</p>
+            <p>
+              <strong>texxtoor</strong>&#8482; erlangt niemals die Urheberrechte an Deiner Arbeit, die Rechte verbleiben immer bei Dir als Autor. Die Nutzung Deines Werkes auf der Plattform, durch die Plattform und damit durch andere Teilnehmer wird in Übereinstimmung mit dem Urheberrechtsgesetz immer klar geregelt.
+            </p>
+          </div>
+          <div class="item">
+            <h2>Nutzungsrecht</h2>
+            <p>Wenn Du als Autor ein Werk veröffentlichst, gibst Du sogenannte Verwertungsrechte an Deinem Werk ab, die im Autorenvertrag festgelegt werden. Dabei kannst Du zwischen folgenden Nutzungsrechtseinräumungen wählen:</p>
+          </div>
+          <h3>Das einfache/nicht-exklusive Nutzungsrecht</h3>
+          <p>Dieses Nutzungsrecht erlaubt es z.B. einem Verlag das Werk auf die genehmigte Art zu verwenden, ohne dass hierdurch eine Nutzung durch Dich als Urheber selbst oder durch Dritte ausgeschlossen wird. Das bedeutet, dass Du Dein Werk nach wie vor uneingeschränkt selbst nutzen kannst oder von anderen nutzen lassen kannst.</p>
+          <p>
+            <strong>texxtoor</strong>&#8482; arbeitet ausschließlich mit dieser Art des Nutzungsrechtes. Du hast damit als Autor immer die vollständige Kontrolle und die Freiheit zu entscheiden, wie Du Dein Werk nutzen möchtest.
+          </p>
+          <h3>Das ausschließliche/exklusive Nutzungsrecht</h3>
+          <p>Wenn Du das ausschließliche Nutzungsrecht auf Dein Werk vergibst, so kann es z.B. der Verlag exklusiv und unter Ausschluss aller anderen Personen nutzen. Damit dürftest Du Dein eigenes Werk noch nicht einmal auf Deiner eigenen Website publizieren.</p>
+          <p>
+            <strong>texxtoor</strong>&#8482; will Dich nicht einschränken, sondern Deinem Werk die größtmöglichen Verbreitungs- und Verkaufschancen geben &#8211; über die weltweite Distribution, auf der Plattform, auf Deiner eigenen Website. Daher ist dieser Art des Nutzungsrechtes kein Thema bei <strong>texxtoor</strong>&#8482; .
+          </p>
+        </page>
+      </menuitem>
+      <menuitem title="DRM" order="50" alias="drm">
+        <page>
+          <h1>Digital Rights Management (DRM)</h1>
+          <div class="item">Mit der digitalen Rechteverwaltung &#8211; Digital Rights Management (DRM) &#8211; kannst Du als Urheber die Nutzung und Verwertung Deines Werkes  in digitaler Form regulieren und kontrollieren. Das Kopieren von Inhalten wird damit drastisch eingeschränkt. Doch Vorsicht: Deinem Werk wird damit die Möglichkeit genommen sich weiterzuentwickeln, indem es z.B. illustriert, übersetzt oder für eine bestimmte Zielgruppe angepasst wird.</div>
+          <div class="item">
+            <h2>Mit Kopien Geld verdienen</h2>
+            <p>
+              Wir bei <strong>texxtoor</strong>&#8482; empfehlen, Deine Werke kopierbar zu halten. Das steigert nicht nur die Bekanntheit Deiner Inhalte, auch Deine Einkünfte werden höher sein. Das digitale Duplikat ist dabei bei <strong>texxtoor</strong>&#8482; nicht nur eine simple Kopie, sondern bleibt als Link erhalten. So kann jede Verwendung protokolliert und bei Bedarf vergütet werden.
+            </p>
+            Mehr dazu findest Du unter <a href="/Home/Page/rights">Die Rechte am eigenen Werk</a>.
+          </div>
+        </page>
+      </menuitem>
+    </menu>
+    <menu title="Über texxtoor" order="3">
+      <menuitem title="Jobs" order="10" alias="jobs"></menuitem>
+      <menuitem title="Andere über uns" order="20" alias="others"></menuitem>
+      <menuitem title="Presse" order="30" alias="press"></menuitem>
+      <menuitem title="Kontakt" order="40" alias="contact">
+        <h1>Kontakt</h1>
+        <div class="item">Wir sind für Dich da! Mit unserem Kontaktbereich bieten wir Dir die Gelegenheit, den richtigen Ansprechpartner für Dein Anliegen zu finden.</div>
+        <div class="item">
+          <h2>Presse</h2>
+          presse@texxtoor.de
+        </div>
+        <div class="item">
+          <h2>Hilfe und Support</h2>
+          support@texxtoor.de
+        </div>
+        <div class="item">
+          <h2>Entwickler</h2>
+          development@texxtoor.de
+        </div>
+        <div class="item">
+          <h2>Jobs</h2>
+          recruiting@texxtoor.de
+          <p>Wird eine der E-Mail-Adressen angeklickt öffnet sich das Kontaktformular.</p>
+          <ul>
+            <li>Presse: presse@texxtoor.de</li>
+            <li>Hilfe und Support: support@texxtoor.de</li>
+            <li>Entwickler: development@texxtoor.de</li>
+            <li>Jobs: recruiting@texxtoor.de</li>
+          </ul>
+        </div>
+      </menuitem>
+      <menuitem title="Impressum" order="50" alias="impress">
+        <h1>Impressum</h1>
+        Augmented Content GmbH<br />
+        Hafersteig 113<br />
+        12683 Berlin<br /><br />
+        T. +49 (0700) texxtoor<br />
+        F. +49 (30) 55 129 033<br />
+        support@texxtoor.de<br />
+        <br />
+        Sitz der Gesellschaft: Berlin<br />
+        Amtsgericht Charlottenburg, HRB 135318 B<br />
+        USt-IdNr.: DE278131367<br />
+        Geschäftsführung: Jörg Krause<br />
+        <div class="item">
+          <h2>Disclaimer</h2>
+          <p>Mit dem Urteil vom 12. Mai 1998 hat das Landgericht Hamburg entschieden, dass man durch die Anbringung eines Links die Inhalte der gelinkten Seiten ggf. mit zu verantworten hat. Dies kann nur dadurch verhindert werden, dass man sich ausdrücklich von diesem Inhalt distanziert.</p>
+          <p>Für alle Links auf dieser Homepage gilt: Wir distanzieren uns hiermit ausdrücklich von allen Inhalten aller verlinkten Seitenadressen auf dieser Seite und machen uns diese Inhalte nicht zu eigen.</p>
+        </div>
+      </menuitem>
+      <menuitem title="Kooperationen, Mitgliedschaften" order="60" alias="memberships">
+        <h1>Kooperationen und Mitgliedschaften</h1>
+        <p>
+          <strong>texxtoor</strong>&#8482; ist auf regionaler, nationaler genauso wie auf internationaler Ebene aktiv. Hier findest Du eine Auswahl von Organisationen und Netzwerken, mit denen <strong>texxtoor</strong>&#8482; zusammenarbeitet. bzw. bei denen <strong>texxtoor</strong>&#8482; Mitglied ist.
+        </p>
+        <div class="item">
+          <h2>Mitgliedschaft beantragt im Börsenverein des Deutschen Buchhandels</h2>
+          [Logo einfügen]
+        </div>
+        <div class="item">
+          <h2>Mitgliedschaft beantragt des AKEP (Arbeitskreis Elektronisches Publizieren)</h2>
+          [Logo einfügen]
+        </div>
+        <div class="item">
+          <h2>Mitgliedschaft beantragt im media.net berlinbrandenburg e.V.</h2>
+          [Logo einfügen]
+        </div>
+        <div class="item">
+          <h2>media.net berlinbrandenburg e.V.</h2>
+          [Logo einfügen]
+        </div>
+        <div class="item">
+          <h2>Mitgliedschaft beantragt im International Digital Publishing Forum</h2>
+          [Logo einfügen]
+        </div>
+      </menuitem>
+      <menuitem title="texxtoor bei Facebook" order="70" navigateurl="http://www.facebook.com/texxtoor"></menuitem>
+      <menuitem title="texxtoor bei twitter" order="80" navigateurl="http://www.twitter.com/joergisageek"></menuitem>
+    </menu>
+  </menu>
+  <menu type="footer-simple">
+    <menu title="Simple">
+      <menuitem title="Home" order="0" navigateurl="/">Start</menuitem>
+      <menuitem title="News" order="0" navigateurl="/Home/News" alias="about" visible="false">Neues</menuitem>
+      <menuitem title="Presse" order="1" navigateurl="/Home/Press" alias="press" visible="false">Presse"</menuitem>
+      <menuitem title="Kontakt" order="2" navigateurl="/Home/Contact">Kontakt</menuitem>
+      <menuitem title="Impressum" order="3" alias="impress">
+        <page>
+          <![CDATA[
+          <strong>Augmented Content GmbH</strong>
+          <br />
+          Hafersteig 113
+          <br />
+          12683 Berlin
+          <br />
+          T. +49 (0700) texxtoor
+          <br />
+          F. +49 (30) 55 129 033
+          <br />
+          support@texxtoor.de
+          <br />
+          Location: Berlin
+          <br />
+          Amtsgericht Charlottenburg, HRB 135318 B
+          <br />
+          USt-IdNr.: DE278131367
+          <br />
+          CEO: Jörg Krause
+          ]]>
+        </page>
+      </menuitem>
+      <menuitem title="AGB" order="4" navigateurl="/Home/Terms">AGB</menuitem>
+    </menu>
+  </menu>
+</portal>

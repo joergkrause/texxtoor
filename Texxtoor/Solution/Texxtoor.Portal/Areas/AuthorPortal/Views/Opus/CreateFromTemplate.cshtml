@@ -1,0 +1,135 @@
+﻿@using Texxtoor.DataModels.Models.Common
+@model Texxtoor.DataModels.Models.Content.Opus
+@{
+  PageData["Title"] = Loc("title", @"Create Workspace From Template");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("text1", @"On this page you start a new book within the project <em>{0}</em>. Modify settings according your needs.", @Model.Project.Name);
+}
+@section HeadContent{
+  <script>
+    $(function() {
+      var amount = $("#txtAmount").val();
+      var rate = $("txtRate").val();
+      if (amount != "") {
+        $("#txtRate").blur(function() {
+          if (rate == "") {
+            alert("Enter rate");
+          }
+        });
+      }
+      $('#milestoneEditor').hide();
+      $('#templateSelection').accordion({ autoHeight: true, clearStyle: true, collapsible: true, active: false });
+      //$('input[name=Version]').spinner({ min: 0, max: 100 });
+
+      $(".datepicker").datepicker({
+        showOn: 'both',
+        changeMonth: true,
+        changeYear: true,
+        yearRange: "@(DateTime.Now.Year):@(DateTime.Now.Year + 20)",
+        buttonImage: '@Url.Content("~/Content/icons/calendar.png")'
+      });
+      $('#createSpaceButton').click(function() {
+        var ui = new Dialog();
+        ui.validateAndSend("#createForm");
+      });
+      $('input[name=useMilestones]').on('change', function() {
+        ($('input[name=useMilestones]').is(':checked')) ? $('#milestoneEditor').show() : $('#milestoneEditor').hide();
+      });
+      $("#mainForm").show();
+    });
+    function submitForm() {
+      var form = $('form#createForm');
+      $.validator.unobtrusive.parse(form);
+      if (form.valid()) {
+        form.submit();
+      }
+      return false;
+    }
+  </script>
+}
+@using (Html.BtFormPanel(Loc("legend", @"Common Workspace Settings"), "mainForm", "green")) {
+  using (Html.BeginForm("CreateFromTemplate", "Opus", FormMethod.Post, new Dictionary<string, object> { { "id", "createForm" } })) {
+    @Html.HiddenFor(m => m.Project.Id)
+
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#common" data-toggle="tab">1. @Loc("legend1", @"Basic Data")</a></li>
+      <li><a href="#boilerplate" data-toggle="tab">2. @Loc("legend2", @"Text Structure Templates")</a></li>
+      <li><a href="#milestones" data-toggle="tab">3. @Loc("legend3", @"Project Management Settings")</a></li>
+      <li><a href="#create" data-toggle="tab">4. @Loc("legend4", @"Create Text")</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="common">
+        @using (Html.BtFieldset(Loc("legend1", @"Basic Data"))) {
+          @Html.LabelFor(m => m.Name)
+          <div class="editor-field">
+            @Html.EditorFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+            <br />
+            <small>
+              @Loc("help1", @"This is an internal name and not meant to be the published
+        app's name")
+            </small>
+          </div>
+          @Html.LabelFor(m => m.Version)
+          <div class="editor-field" id="editorFieldWidth">
+            @Html.EditorFor(m => m.Version)
+            <br />
+            <small>
+              @Loc("help2", @"A version number if this exists in various versions.
+        Keep '0' if unsure how to use.")
+            </small>
+          </div>
+          @Html.LabelFor(m => m.LocaleId)
+          <div class="editor-field">
+            @Html.CultureSelectionDropDown("", "Language", "Language")
+            <br />
+            <small>
+              @Loc("help3", @"Select the primary language for this work. Create
+        a seperate workspace for each language.")
+            </small>
+          </div>
+        }
+      </div>
+      <div class="tab-pane" id="boilerplate">
+        @using (Html.BtFieldset(Loc("legend2", @"Text Structure Templates"))) {
+          <div class="well well-sm">@Loc("help4", @"Templates help creating consistent textbook Content.")</div>
+          <label>@Loc("lblTemplates", @"Templates")</label>
+          <div class="editor-field container">
+            @Html.Partial("Create/_Templates")
+          </div>
+        }
+      </div>
+      <div class="tab-pane" id="milestones">
+        @using (Html.BtFieldset(Loc("legend3", @"Project Management Settings"))) {
+          <div class="well well-sm">@Loc("help5", @"Milestones help managing the writing progress.")</div>
+          <label>
+            @Loc("lblUseMilestones", @"Use Milestones")
+          </label>
+          <div class="editor-field">
+            @Html.CheckBox("useMilestones", false)
+          </div>
+          <div class="left editor-field" id="milestoneEditor">
+            @Html.Partial("Create/_AssignOpusMilestones", Model)
+          </div>
+        }
+      </div>
+      <div class="tab-pane" id="create">
+        <div class="well well-sm">
+          @Loc("explainSend", @"Click the button below to create the text. You can start working on it immediately after. Next steps:
+<ul>
+  <li>Add team members if you need help for certain tasks</li>
+  <li>If you have milestones defined, you add, change, or remove milestones. If you have a team, you can assign milestones to contributors.</li>
+  <li>If you have boilerplate texts you start with the boilerplate function to include default snippets.</li>
+  <li>To use certain tools consider adding working roles to either yourself or your contributors.</li>
+</ul>
+")
+        </div>
+          <div class="formsendButtons">            
+            @Create.ActionClick("createSpaceButton", false, "submitForm()", ViewResources.Action_Create_Workspace, BtStyle.ButtonPrimary)
+          </div>
+        </div>
+      </div>
+  }
+}
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = Model.Id }), ViewResources.LinkButton_ToDashboard)

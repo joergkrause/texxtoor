@@ -1,0 +1,28 @@
+﻿@model Texxtoor.BaseLibrary.Core.Utilities.Pagination.IPagedList<Texxtoor.DataModels.Models.Users.User>
+@Html.Partial("_Pagination", Texxtoor.ViewModels.Common.PaginationViewModel<Texxtoor.DataModels.Models.Users.User>.Create(Model, "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});", true, m => m.UserName))
+<div class="multilist">
+  @foreach (var item in Model) {
+    <div class="listitem">
+      <div class="firstRow">
+        <a href="@Url.Action("ShowProfile", "Community", new { id = item.Id, area = "" })">
+          @item.UserName
+        </a>
+      </div>
+      <div class="secondRow">
+        @Loc("txtGroupUser", @"
+        User <em><span data-args='0' data-desc='User'>{0}</span></em>,
+      can be contacted via mail at <em><span data-args='1' data-desc='Mail'>{1}</span></em>.",
+          item.UserName,
+          item.Email)
+      </div>
+      <div class="thirdRow">
+        <div class="optionFields" data-item="@item.Id">
+          <a href="#" class="btn btn-primary btn-sm" id="messageButton" onclick="CreateMessage('@item.Id') ">
+            @ViewResources.Action_Groups_SendMessage
+          </a>
+          @Html.ActionLink(ViewResources.Action_Reader_ShowProfile, "ShowProfile", "Community", new { id = item.Profile.Id, area = "" }, new { @class = "btn btn-primary btn-sm" })
+        </div>
+      </div>
+    </div>
+  }
+</div>

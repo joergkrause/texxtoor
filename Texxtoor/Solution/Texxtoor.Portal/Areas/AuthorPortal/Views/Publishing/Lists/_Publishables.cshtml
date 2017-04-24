@@ -1,0 +1,54 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@model IPagedList<Texxtoor.DataModels.Models.Content.Opus>
+@if (!Model.Any()) {
+  <div class="alert alert-warning">
+    @Loc("textNothing", @"There are no publishable text in this project.")
+    @if (ViewBag.Misses != null) {
+      @Loc("however", "However, we found some texts that have issues you need to resolve before publish them:")
+      <ul>
+        @foreach (var miss in (List<KeyValuePair<Opus, string>>)ViewBag.Misses) {
+          <li><em>@miss.Key.Name</em>: @miss.Value</li>
+        }
+      </ul>
+    }
+  </div>
+} else {
+  @Html.Partial("_Pagination", PaginationViewModel<Texxtoor.DataModels.Models.Content.Opus>.Create(Model, "javascript:Publishables(" + ((int)ViewBag.ProjectId) + ", {page}, '{order}', '{dir}', {pagesize});", true, m => m.Name))
+  <div class="multilist">
+    @foreach (var opus in Model) {
+      <div class="listitem">
+        <div class="firstRow">
+          @Badges.NewItem(opus.Name, opus.ModifiedAt, TimeSpan.FromDays(5))
+        </div>
+        <div class="secondRow">
+          <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+          <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+
+            @Loc("textWork", @"Work <em><span data-args='0' data-desc='Work Name'>{0}</span></em>,
+                                created at <em><span data-args='1' data-desc='Work Date'>{1}</span></em>."
+            , opus.Name + " (" + opus.Project.Name + ")", opus.CreatedAt.ToShortDateString())
+            <div class="alert alert-warning">
+              @if (opus.IsPublished) {
+                @Loc("txtRepubl", @"Was already published.")
+              } else {
+                @Loc("txtPubl", @"This is the first publishing. Select and proceed with options.")
+              }
+            </div>
+            </div>
+          </div>
+        <div class="thirdRow">
+          <div class="optionFields">
+            @if (opus.IsPublished) {            
+              @Html.Action("AddPublishMarketingButton", "Publishing", new { id = opus.Published.Id })
+              @Create.ActionLink("republish", true, Url.Action("CreateNewVersion", new { id = opus.Id }), ViewResources.Action_Publish_UpdateVersion, BtStyle.ButtonWarning)
+            } else {
+              @Html.Action("AddFullPublishButton", "Publishing", new { id = opus.Id })
+            }
+            @Create.ActionLink("preview", true, Url.Action("AuthorPreview", new { id = opus.Id }), ViewResources.Action_Publish_CreateContentPreview)
+            @Create.ActionLink("republish", true, Url.Action("QuickPublished", new { id = opus.Id }), ViewResources.Action_Publish_QuickPublish)
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

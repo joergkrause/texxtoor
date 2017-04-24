@@ -1,0 +1,23 @@
+﻿@model Texxtoor.ViewModels.Users.LogOn
+@using(Html.BtDiv(BtStyle.Well)) {
+@Loc("text1", "Type Username and password, please.")
+}
+@Html.ValidationSummary(false, null, new { @class = "error" })
+@using (Html.BeginForm("QuickLogOn", "Orders", new { area = "ReaderPortal" }, FormMethod.Post,
+  new {
+    @class = "quickForm",
+    data_next_invalid_tab = "formLogon",
+    data_next_error_tab = "formLogon",
+    data_next_success_tab = "formRegister",
+    data_next_form_url = Url.Action("QuickAddress"),
+    data_next_form_target = "formAddress",
+    data_next_form_id = ViewBag.PublishedId
+  })) {  
+  using(Html.BtFieldset(Loc("legend", "Credentials"))) {
+    @Html.EditorForModel()
+    <div class="formsendButtons">
+      <input type="button" id="btnLogOn" value="@ViewResources.Action_Common_Logon" data-form class="@BtStyle.ButtonAndPrimary" />
+      <input type="button" id="btnRegister" data-next-tab="3" data-form value="@ViewResources.Action_Common_Register" class="@BtStyle.ButtonAndPrimary" />
+    </div>
+  }
+}

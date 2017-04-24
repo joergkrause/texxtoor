@@ -1,0 +1,62 @@
+﻿<section id="create-new-text">
+  <div class="modal-header">
+    <h3>CREATE NEW TEXT</h3>
+    <i class="icon-times pull-right" ng-click="close()"></i>
+  </div>
+  <div class="modal-body">
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="inform-icon pull-left"></div>
+        <span>Wir freuen uns dass du loslegen willst. Wähle eine Option und beginne dann im Editor zu schreiben.
+        Alternativ kannst du ein Word-AddIn herunterladen und deinen Text direkt in Microsoft &trade; Word &reg; bearbeiten.
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        Name your text: <input type="text" name="name" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="dialog-cover">
+          <img src="/Content/Images/dialog-cover.png" alt="" />
+        </div>
+        <span>
+          <input type="radio" name="templateOption" value="1" checked />
+          Create a simple article using this option (1 chapter)
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="dialog-cover">
+          <img src="/Content/Images/dialog-cover.png" alt="" />
+        </div>
+        <span>
+          <input type="radio" name="templateOption" value="2" checked />
+          Create a textbook (multiple chapters)
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="dialog-cover">
+          <img src="/Content/Images/dialog-cover.png" alt="" />
+        </div>
+        <span>
+          <input type="radio" name="templateOption" value="3" checked />
+          Create a blog entry or feed source (1 continuning text)
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-default btn-sm btn-uppercase" ng-click="close()">Cancel</a>
+    <button class="btn btn-primary btn-sm btn-uppercase" ng-click="word()">Download Word-AddIn</button>
+    <button class="btn btn-success btn-sm btn-uppercase" ng-click="edit()">Proceed with Editor</button>
+  </div>
+
+
+</section>

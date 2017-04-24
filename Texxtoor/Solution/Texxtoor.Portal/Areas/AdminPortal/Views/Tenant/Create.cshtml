@@ -1,0 +1,39 @@
+﻿@model Texxtoor.DataModels.Models.Users.Tenant
+@{
+  PageData["Title"] = "Create";
+  Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");  
+}
+
+<h1>Create</h1>
+
+@using (Html.BeginForm()) {
+  @Html.ValidationSummary(true)
+  using(Html.BtFieldset("User")) {
+
+    <div class="editor-label">
+      @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="editor-field">
+      @Html.EditorFor(model => model.Name)
+      @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="editor-label">
+      @Html.LabelFor(model => model.Description)
+    </div>
+    <div class="editor-field">
+      @Html.EditorFor(model => model.Description)
+      @Html.ValidationMessageFor(model => model.Description)
+    </div>
+    <p>
+      Use Edit function to change Logo, Add Users, or modify these values later.
+    </p>
+    <p>
+      <input type="submit" value="Create" />
+    </p>
+  }
+}
+
+<div>
+  @Html.ActionLink("Back to List", "Index")
+</div>

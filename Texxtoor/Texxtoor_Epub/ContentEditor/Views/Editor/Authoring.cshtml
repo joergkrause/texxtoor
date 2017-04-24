@@ -1,0 +1,87 @@
+﻿@model Texxtoor.Editor.ViewModels.ChapterDataModel
+@{
+  ViewBag.Title = "Editor";
+  Layout = "~/Views/Shared/_LayoutAuthorEditor.cshtml";
+}
+@section HeadContent{
+  @Styles.Render("~/Content/Base/AuthorRoom/Editor")
+  @Scripts.Render("~/Scripts/Base/AuthorRoom/Editor")
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=UnifrakturMaguntia">
+  <script type="text/javascript">
+    var baseUrl = '@ViewBag.BaseUrl';
+    var ribbonUrl = '@Url.Content("~/Scripts/author/")';
+    var ui = new AuthorUI();
+    var opus = @Model.DocumentId;
+    var isClosed = true;
+    var isCtrl = false;
+    var chapterId = @Model.CurrentChapter.Id;
+    var author = new Author(baseUrl, opus, chapterId, ui);
+    var crop = new ImageCrop();
+    var closeLocation = '@Url.Action("Index", "Home", new { id = Model.DocumentId })';    
+    var htmlLocation = '@Url.Action("ShowHtml", "Editor", new { id = Model.DocumentId })';
+    var epubLocation = '@Url.Action("ShowEpub", "Editor", new { id = Model.DocumentId })';
+    var pdfLocation = '@Url.Action("ShowPdf", "Editor", new { id = Model.DocumentId })';
+  </script>
+}
+@section HeadPane {
+  @Html.Action("AvailableToolSet", new { documentId = Model.DocumentId })
+}
+@section AjaxLoader {
+  <div class="loader-layout">
+    <div class="loader-opacity">
+    </div>
+    <div class="loader-block">
+      <div class="loader-msg">
+      </div>
+      <img src="~/Content/images/ajax_loader_big.gif" alt="" />
+    </div>
+  </div>
+}
+@section FindReplacePanel {
+  <div class="fr-wrapper">
+    <div class="fr-container">
+      <div id="find">
+        <span>Find what:</span><input type="text" /><div class="counter"></div>
+        <img id="f-prev" src="@Url.Content("~/Content/icons/Editor/navigate_up_16.png")" alt="Previous" title="Previous" />
+        <img id="f-next" src="@Url.Content("~/Content/icons/Editor/navigate_down_16.png")" alt="Next" title="Next" />
+        <img id="f-close" src="@Url.Content("~/Content/icons/Editor/delete_24.png")" alt="Close" title="Close" />
+      </div>
+      <div id="replace">
+        <span>Replace with:</span><input type="text" />
+        <img id="r-replace" src="@Url.Content("~/Content/icons/Editor/icon_small_replace.png")" alt="Replace" title="Replace" />
+      </div>
+    </div>
+  </div>
+}
+@section RightPanes {
+}
+@section LeftPanes {
+}
+<form id="editor">
+</form>
+<div class='popup-layout'>
+  <div class="internalLinkDialog dialog-popup">
+    @Html.Action("InternalLink", new { id = Model.DocumentId })
+  </div>
+  <div class="imageCropDialog dialog-popup">
+    @Html.Partial("Widgets/Tools/_ImageCrop")
+  </div>
+  <div class="imageColorsDialog dialog-popup">
+    @Html.Action("ImageColors")
+  </div>
+</div>
+@section Footer {
+  <ul style="display: none; font-family: Trebuchet MS, Arial; font-size: 10pt; list-style-type: none;
+    position: fixed; bottom: 0px; width: 100%; height: 25px; z-index: 2000; border-top: 1px solid #8db2e3;
+    background-image: url(/Scripts/author/ribbon/themes/windows7/images/menu_background.png)">
+    <li style="display: inline-block; height: 100%; padding: 0 8px 0 2px; line-height: 25px;
+      border-right: 1px solid #abc; margin: 0px 2px"
+      id="documentName">Document Name</li>
+    <li style="display: inline-block; height: 100%; padding: 0 8px 0 2px; line-height: 25px;
+      border-right: 1px solid #abc; margin: 0px 2px"
+      id="statusBar">Saved</li>
+    <li style="display: inline-block; height: 100%; padding: 0 8px 0 2px; line-height: 25px;
+      border-right: 1px solid #abc; margin: 0px 2px"
+      id="messageBar">...</li>
+  </ul>
+}

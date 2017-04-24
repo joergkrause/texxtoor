@@ -1,0 +1,35 @@
+﻿@model Texxtoor.ViewModels.Content.FeedPreview
+@{
+  PageData["Title"] = Loc("title", "Quick Published");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("txt11", "Your article <em><span data-args='0' data-desc='Published Title Name'>{0}</span></em> has been made available to the public as HTML and RSS feed.", Model.Published.Title);
+
+}
+@section HelpSection {
+  @Loc("txt22", "The link below is a private feed you can use to check it out on your favorite feed reader.")
+}
+<img class="QuickPublishedImg pull-right" src="~/Content/icons/Rss-Feed-Metro-256.png" />
+<br />
+<h2>@Loc("title11", "Perma Link")</h2>
+<div class="well well-sm">
+  @Loc("permaTxt", "This is the permanent link to the published work:")
+  <div class="alert alert-warning">
+    @Context.Request.Url.Scheme://@Context.Request.Url.Host:@Context.Request.Url.Port/ServiceApi/Services/FeedService.svc/Rss/@Model.Published.Id
+  </div>
+  <a href="/ServiceApi/Services/FeedService.svc/Rss/@Model.Published.Id" target="_blank" class="link">@Loc("permaLnk", "Link for project '{0}'",  Model.Published.Title)</a>
+  <br /><br />
+  @Loc("growing", "To watch your growing work while not publishing, use the temporary link below.")
+</div>
+<h2>@Loc("titlePrev", "Preview and Source Link")</h2>
+<div class="well well-sm">
+  @Loc("state", "You can even check the state of the project on production side using this link:")<br /><br />
+  <a href="/ServiceApi/Services/FeedService.svc/RssPreview/@Model.User.Id/@Model.Published.SourceOpus.Id" target="_blank" class="link">@Loc("permaLnk", "Link for project '{0}'", Model.Published.Title)</a>
+</div>
+<div class="alert alert-danger">
+  @Loc("frozen", "This is not in a frozen state and reflects your current work. It is NOT accessible from other accounts but yours.")
+</div>
+
+@Create.ActionTask("", false, Url.Action("Index", "Project"), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("service", false, Url.Action("Index", "Service", null), ViewResources.TasksButton_ToService)
+@Create.ActionTask("", true, Url.Action("RecentlyPublished", "Publishing", null), ViewResources.TasksButton_RecentlyPublished)
+@Create.ActionTask("", true, Url.Action("Imprint", "Publishing", null), ViewResources.TasksButton_Imprint)

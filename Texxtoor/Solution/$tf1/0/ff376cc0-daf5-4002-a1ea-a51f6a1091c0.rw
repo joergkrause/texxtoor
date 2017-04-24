@@ -1,0 +1,2 @@
+﻿@model Decimal
+@((Model/100).ToString("0.00"))

@@ -1,0 +1,8 @@
+﻿@* Generator: MvcHelper *@
+
+@helper NewItem(string name, DateTime createdAt, TimeSpan span) {
+  <strong>@name</strong>
+  if (createdAt.Add(span) > DateTime.Now) {
+    <img src="~/Content/icons/newstar.png" alt="@createdAt" />
+  }
+}

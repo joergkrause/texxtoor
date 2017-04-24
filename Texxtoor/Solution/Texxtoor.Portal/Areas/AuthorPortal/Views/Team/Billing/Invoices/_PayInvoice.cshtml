@@ -1,0 +1,7 @@
+﻿@model Texxtoor.DataModels.Models.Author.Invoice
+@using (Html.BeginForm("CreateInvoice", "Team", new { area = "AuthorPortal" }, FormMethod.Post, new { id = "createInvoiceForm" })) {
+  using (Html.BtFieldset(Loc("legendGrp", @"Create New Invoice"))) {
+    @Html.EditorForModel()
+    @Button.FormSendButtons("createInvoiceSendButton", ViewResources.Action_Team_BillingCreateInvoice, "createInvoiceCancelButton", ViewResources.Button_CancelAndClose)
+  }
+}

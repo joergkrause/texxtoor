@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Content.Milestone>
+@if (!Model.Any()) {
+  <small class="alert alert-warning">
+    @Loc("textNoMs", @"There are no milestones assigned to this book project.")
+  </small>
+} else {
+  <div id="verbose-@ViewBag.OpusId" class="hidden-to-show">
+    @foreach (var item in Model) {
+      if (item.Overdue) {
+      <img src="~/Content/icons/Project/trafficlight_red_32.png" alt="@item.Description" />
+      }
+      switch (item.Progress) {
+        case 0:
+      <img src="~/Content/icons/Project/trafficlight_off_32.png" alt="@item.Description" />
+          break;
+        case 100:
+      <img src="~/Content/icons/Project/trafficlight_green_32.png" alt="@item.Description" />
+          break;
+        default:
+      <img src="~/Content/icons/Project/trafficlight_yellow_32.png" alt="@item.Description" />
+          break;
+      }
+      if (item.Owner.Member == null) {
+      @:&nbsp;@Loc("textNotAssigned", @"The milestone is not yet assigned. Assign now?")
+      } else {
+      @:&nbsp;@Loc("text", @"The milestone <em><span data-args='0' data-desc='Name'>{0}</span></em>, assigned to user <em><span data-args='1' data-desc='User'>{1}</span></em> at <em><span data-args='2' data-desc='At'>{2}</span></em>is due at <em><span data-args='3' data-desc='Due'>{3}</span></em>.", item.Name, item.Owner.Member.UserName, item.DateAssigned.ToShortDateString(), item.DateDue.ToShortDateString())
+      @:&nbsp;@Loc("text", @"The current progress <em><span data-args='0' data-desc='Progress'>{0}</span>%</em>. The milestone is <em><span data-args='1' data-desc='Done'>{1}</span></em>", item.Progress, (item.Done ? "done" : "not yet done"))
+      <br />
+      }
+    }
+  </div>
+}

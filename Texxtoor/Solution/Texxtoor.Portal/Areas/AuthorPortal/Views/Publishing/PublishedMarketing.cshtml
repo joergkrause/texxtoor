@@ -1,0 +1,286 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.Published
+@{
+  PageData["Title"] = Loc("titlePublMain", "Publishing");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("text1", @"Use this form to describe your work as good as possible. After publishing is done we create an electronic book immediately.
+User will see the book in the public catalogues and can order you work.");
+}
+@section HeadContent{
+  <link href="~/Content/css/plugins/fuelux/wizard.css" rel="stylesheet" />
+  <script src="~/Content/css/plugins/fuelux/wizard.js"></script>
+  <style>
+    fieldset {
+      width: 850px !important;
+    }
+
+    td label {
+      width: auto !important; 
+    }
+
+    .bioBox {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    ul.fontselector {
+      background: white;
+      border: 1px solid #ccc;
+      border-top: 0;
+      font-size: 14px;
+      float: left;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      line-height: 1.2;
+      z-index: 10;
+      position: absolute;
+    }
+
+      ul.fontselector li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      ul.fontselector a {
+        display: block;
+        padding: 3px;
+        color: black;
+        text-decoration: none;
+      }
+
+        ul.fontselector a:hover {
+          background: #ddd;
+          cursor: pointer;
+        }
+  </style>
+  <style>
+    .fileinput-button {
+      position: relative;
+    }
+
+    input[type=file] {
+      position: absolute;
+      height: 25px;
+      width: 100px;
+      top: 0;
+      left: 0;
+      filter: alpha(opacity=1);
+      -moz-opacity: 0.01;
+      opacity: 0.01;
+    }
+  </style>
+
+  <script src="~/Scripts/jquery/jquery.jeditable.js"></script>
+  <script src="~/Scripts/jquery/jquery.jeditable.ajaxupload.js"></script>
+  <script src="~/Scripts/views/publishing/publishedmarketing.js"></script>
+  <script>
+    $(function () {
+      PUBL.Init('@Model.Id',
+        // action Urls
+        {
+          marketingUrl: '@Url.Action("GetBasePrice", "Marketing")',
+          contractUrl: '@Url.Action("GetContract", "Publishing")',
+          getCoverUrl: '@Url.Action("GetImg", "Tools", new { id = Model.Id, res = "100x145", nc = true, c = "ProjectCover", area = "" })',
+          getCoverUrlBig: '@Url.Action("GetImg", "Tools", new { id = Model.Id, res = "600x868", nc = true, c = "ProjectCover", area = "" })',
+          removeCoverUrl: '@Url.Action("RemoveCover", new { id = Model.Id })',
+          setCoverUrl: '@Url.Action("SetCover", new { id = Model.Id })',
+          filterUrl: '@Url.Action("Catalog")'
+        },
+        // Resources
+        {
+          Dialog_View_Saving: '@ViewResources.Dialog_View_Saving',
+          Action_UploadImportFile: '@ViewResources.Action_UploadImportFile',
+          Button_Cancel: '@ViewResources.Button_Cancel',
+          textUpload: '@Loc("textUpload", @"Click Image to upload custom cover.")',
+          Publishing_Catalogie_NoStoreFound: '@ViewResources.Publishing_Catalogie_NoStoreFound'
+        },
+        '.wizard'
+      );
+      $('.wizard').wizard('selectedItem', { step: 1 });
+    });
+  </script>
+}
+<div class="box">
+  <div class="box-content box-padding">
+    <div class="fuelux">
+      <div class="wizard">
+        <ul class="steps">
+          <li class="active" data-step="step1" title="@Loc("titleTarget", "Target Selection")">
+            <span class="step">1. </span>
+          </li>
+          <li data-step="step2" title="@Loc("titleComm", "Description")">
+            <span class="step">2. </span>
+          </li>
+          <li data-step="step3" title="@Loc("titleCatalog", "Categories")">
+            <span class="step">3. </span>
+          </li>
+          <li data-step="step4" title="@Loc("titleGlob", "Marketing Settings")">
+            <span class="step">4. </span>
+          </li>
+          <li data-step="step5" title="@Loc("titleCover", "Icon & Cover")">
+            <span class="step">5. </span>
+          </li>
+          <li data-step="step6" title="@Loc("titleRes", "Resources")">
+            <span class="step">6. </span>
+          </li>
+          <li data-step="step7" title="@Loc("titleConfirm", "Confirm")">
+            <span class="step">7. </span>
+          </li>
+        </ul>
+        <div class="actions">
+          <button class="btn btn-xs btn-prev" disabled="disabled">
+            <i class="icon-arrow-left"></i>@ViewResources.Prev
+          </button>
+          <button class="btn btn-xs btn-success btn-next" data-last="Finish">@ViewResources.Next<i class="icon-arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="step-content">
+        <hr class="hr-normal">
+        @*<form class="form" style="margin-bottom: 0;" method="post" action="#" accept-charset="UTF-8">*@
+        <input name="authenticity_token" type="hidden">
+        <div class="step-pane active" data-step="step1">
+          <div id="target">
+            <h2>@Loc("titleTarget", "Target Selection")</h2>
+            @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+              @Loc("textTarget", "Select the targets for this publication. This changes the availability of options on the next steps.")
+            }
+            @Html.Partial("Options/_TargetSelection", Model)
+          </div>
+        </div>
+
+        <div class="step-pane" data-step="step2">
+          <div id="common">
+            <h2>@Loc("titleComm", "Description")</h2>
+            @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+              @Loc("textCommon", "These setting apply to all target platforms.")
+            }
+            @Html.Partial("Options/_CommonSettings", Model)
+          </div>
+        </div>
+
+        <div class="step-pane" data-step="step3">
+          <div id="catalogue">
+            <h2>@Loc("titleCatalog", "Categories")</h2>
+            @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+              @Loc("textCatalogue", "Specify how this text will appear in catalogues.")
+            }
+            @Html.Partial("Options/_AssignCatalog", Model)
+            <div id="bioShow" title="@ViewResources.Title_Published_Marketing_Contributors_Biography"></div>
+          </div>
+        </div>
+
+        <div class="step-pane" data-step="step4">
+          <div id="marketing">
+            <h2>@Loc("titleGlob", "Marketing Settings")</h2>
+            @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+              @Loc("textGlobal", "We publish your book worldwide. A selection of shops appears below. Please fill in the fields carfully to publish successfully.")
+            }
+            @using (Html.BtDiv(BtStyle.AlertAndInfo & BtStyle.WellSmall)) {
+              @Loc("selPckg", "Package <em><span data-args='0' data-desc='Marketing Name'>{0}</span></em> has been selected.", Model.Marketing.Name)
+            }
+            @Create.ActionTask("btnEditPackage", false, Url.Action("MarketingPackage", "Marketing", new { id = Model.SourceOpus.Project.Id }), ViewResources.TasksButton_ManageMarketingPackages)
+            @Html.Partial("Options/_Marketing", Model)
+          </div>
+        </div>
+
+        <div class="step-pane" data-step="step5">
+          <div id="cover">
+            <h2>@Loc("titleCover", "Icon & Cover")</h2>
+            @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+              @Loc("coverOptions", @"Cover Options")
+            }
+            @Html.Partial("Options/_Cover", Model)
+          </div>
+        </div>
+
+        <div class="step-pane" data-step="step6">
+          <div id="resources">
+            <h2>@Loc("titleRes", "Resources")</h2>
+            @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+              @Loc("resOptions", @"Resources are a convenient way to provide additional data to your users. After publishing you get a unqiue support page for each published text that allows users the access to the provided files.")
+            }
+            @Html.Partial("Options/_Resources", Model)
+          </div>
+        </div>
+
+        <div class="step-pane" data-step="step7">
+          <div id="confirm">
+            <h2>@Loc("titleConfirm", "Confirm")</h2>
+            @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+              @Loc("txtConfirm", "Confirm the procedure. This is the final step and makes your text available immediately.")
+            }
+            @Html.Partial("Options/_Confirm", Model)
+            @Loc("undone", "(publishing cannot be undone)")
+          </div>
+        </div>
+
+        @*</form>*@
+
+      </div>
+    </div>
+  </div>
+</div>
+
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = Model.SourceOpus.Project.Id }), ViewResources.LinkButton_ToDashboard)
+@Create.ActionTask("", false, Url.Action("Index", "Resource", new { id = Model.SourceOpus.Project.Id }), ViewResources.TasksButton_FileResources)
+
+@section helpSection{
+  <div>
+    <img src="~/Content/images/media/logo_ibookstore_de.gif" />
+    <img src="~/Content/images/media/logo_partner_amazon.gif" />
+    <img src="~/Content/images/media/logo_partner_bn.gif" />
+    <img src="~/Content/images/media/logo_partner_cdl.gif" />
+    <img src="~/Content/images/media/logo_partner_hugendubel.gif" />
+    <img src="~/Content/images/media/logo_partner_kobo.gif" />
+    <img src="~/Content/images/media/logo_partner_pageplace.png" />
+    <img src="~/Content/images/media/logo_partner_weltbild.gif" />
+    <h3>All Partner Shops</h3>
+    Amazon Kindle-Shop
+    Apple iBookstore
+    Barnes & Noble
+    Beam
+    bol.de / bol.ch
+    buch.de / buch.ch
+    buecher.de
+    Der Club Bertelsmann
+    e-buchkatalog.de
+    E-cademic
+    e-readers.ch
+    eBook.de (früher libri.de)
+    eBookCards
+    ePagine
+    EPUBBuy
+    Fnac
+    Hugendubel
+    Jokers
+    Kobo
+    Lehmanns Media
+    Librairie Ernster
+    Libris
+    Mayersche
+    Media Markt
+    Orell Füssli / books.ch
+    Osiander
+    PagePlace
+    PaperC
+    pubbles
+    Readersplanet
+    Samsung Readers Hub
+    Schweitzer Fachinformationen
+    Skoobe
+    Sony Reader Store
+    Spiegel Online Shop
+    Stauffacher
+    Süddeutsche Zeitung Shop
+    textunes
+    Thalia
+    txtr
+    uncuva
+    Vodafone
+    Weltbild
+    WHSmith
+    ZAP
+  </div>
+}

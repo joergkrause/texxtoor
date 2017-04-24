@@ -1,0 +1,11 @@
+﻿@model string
+@{
+  var countryProperty = (string)ViewData.ModelMetadata.AdditionalValues["CountryProperty"];
+}
+<script>
+  $(document).on('change', '[name="@countryProperty"]', function () {
+    getRegions($(this).val(), '@ViewData.ModelMetadata.PropertyName', '@Model');
+  });
+</script>
+<select id="@ViewData.ModelMetadata.PropertyName" name="@ViewData.ModelMetadata.PropertyName" data-current="@Model"></select>
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

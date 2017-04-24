@@ -1,0 +1,29 @@
+﻿@* Generator: MvcHelper *@
+
+@using Texxtoor.Portal.Core.Extensions
+@helper Submit(string text, string cssClass = "btn-primary") {
+   <input type="submit" value="@text" class="btn @cssClass" />
+}
+@helper Send(string id, string text, string cssClass = "btn-primary") {
+  <button id="@id" class="btn @cssClass">@text</button>
+}
+@helper FormSendButtons(string sendId, string sendText, string cancelId, string cancelText) {
+  <div class="formsendButtons">
+    @Create.FormButtonOnClick(sendId, "", sendText)
+    @Create.FormButtonOnClick(cancelId, "", cancelText, BtStyle.ButtonDefault)
+  </div>
+}
+
+@helper FormSendButtons(string sendId, string sendText, string cancelId, string cancelText, bool cancelHistoryBack) {
+  <div class="formsendButtons">
+    @Create.FormButtonOnClick(sendId, "", sendText)
+    @Create.FormButtonOnClick(cancelId, "history.back()", cancelText, BtStyle.ButtonDefault)
+  </div>
+}
+
+@helper FormSendButtons(string sendId, string sendText, string sendAction, string cancelId, string cancelText) {
+  <div class="formsendButtons">
+    @Create.FormButtonOnClick(sendId, sendAction, sendText)
+    @Create.FormButtonOnClick(cancelId, "", cancelText, BtStyle.ButtonDefault)
+  </div>
+}

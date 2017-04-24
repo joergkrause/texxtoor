@@ -1,0 +1,26 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@model IPagedList<Texxtoor.DataModels.Models.Content.ResourceFile>
+@Html.Partial("_Pagination", PaginationViewModel<ResourceFile>.Create(Model, "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});", true, m => m.Name))
+<div class="multilist">
+  @foreach (var item in Model) {
+    <div class="listitem">
+      <div class="firstRow">
+        <strong>@item.Name</strong>
+      </div>
+      <div class="secondRow">
+        <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+        <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+
+          @Loc("textDescr", @"The workspace <em><span data-args='0' data-desc='Name'>{0}</span></em> was created <em><span data-args='1' data-desc='Date'>{1}</span></em> at <em><span data-args='2' data-desc='Name'>{2}</span></em>", item.Name, item.CreatedAt.ToShortDateString(), item.CreatedAt.ToShortTimeString())
+        </div>
+      </div>
+      <div class="thirdRow">
+        <div class="optionFields" data-item="@item.Id">
+          @Create.ActionLink("btnRestore", false, Url.Action("RestoreFromHistory", "Opus", new { Id = item.Id }), ViewResources.Action_Opus_Restore, BtStyle.ButtonAndPrimary)
+          @Create.ActionLink("btnEdit", false, Url.Action("DownloadHistory", "Opus", new { Id = item.Id }), ViewResources.Action_Opus_Download)
+          @Create.ActionClick("btnDel", "DeleteHistory(" + item.Id + ")", ViewResources.Action_Opus_Delete, BtStyle.ButtonAndDanger, null)
+        </div>
+      </div>
+    </div>
+  }
+</div>

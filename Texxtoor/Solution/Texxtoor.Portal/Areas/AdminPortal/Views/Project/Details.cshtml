@@ -1,0 +1,13 @@
+﻿@model Texxtoor.DataModels.Models.Content.Project
+
+@{
+  PageData["Title"] = "Project Details";
+  Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+@using (Html.BtFieldset("Project")) {
+  @Html.DisplayForModel()
+  <div class="formsendButtons">
+    @Html.ActionLink("Edit Project", "Edit", new {id = Model.Id}, new { @class = "btn btn-sm btn-primary" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-sm btn-default"})
+  </div>
+}

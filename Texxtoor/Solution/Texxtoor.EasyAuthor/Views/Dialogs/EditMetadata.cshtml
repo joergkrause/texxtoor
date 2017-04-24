@@ -1,0 +1,20 @@
+﻿@using Texxtoor.Portal.Core.Extensions.EditorForModel
+@model Texxtoor.EasyAuthor.Models.MetadataDto
+<section id="edit-metadata">
+  <div class="modal-header">
+    <h3>EDIT META DATA</h3>
+    <i class="icon-times pull-right" ng-click="close($event)"></i>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-sm-12">
+        @Html.AngularEditorForModel()
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-default btn-sm btn-uppercase" ng-click="close($event)">Cancel</a>
+    <button class="btn btn-default btn-sm btn-uppercase" ng-click="save($event)">Save</button>
+  </div>
+</section>
+

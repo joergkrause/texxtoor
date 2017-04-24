@@ -1,0 +1,7 @@
+﻿@model Texxtoor.Models.Document
+@{
+    ViewBag.Title = "Download Epub";
+}
+
+<h2>Download Epub</h2>
+<strong>&rArr;</strong> @Html.ActionLink(Model.Name, "DownloadEpub", "Editor", new { id = Model.Id }, null)<br />

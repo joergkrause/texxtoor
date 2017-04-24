@@ -1,0 +1,34 @@
+﻿@model List<string>
+<img src="/Content/icons/Editor/delete2_16.png" class="linkClose close-popup" alt="" />
+<h2>Image Colors</h2>
+<div class="image-opts-container">
+    <div class="opt-titles">
+        <div class="opts-block">
+            <h4>Transparent Color</h4>
+            <input type="text" value="FF0000" id='t-color'/> <div class='t-color-picker'><div></div></div>
+            <h4>Brightness</h4>
+            <div class='s-value'></div><div class="slider" id='b-slider'></div>
+            <h4>Contrast</h4>
+            <div class='s-value'></div><div class="slider" id='c-slider'></div>
+            <h4>Hue</h4>
+            <div class='s-value'></div><div class="slider" id='h-slider'></div>
+            <h4>Saturation</h4>
+            <div class='s-value'></div><div class="slider" id='s-slider'></div>
+        </div>
+        <div class="opts-block">
+            <h4>Effects</h4>
+            <div class="connectedSortable" id="available-effects">
+            @foreach (var item in Model) {
+                <div class="ui-state-default">@item</div>
+            }
+            </div>
+            <div class="connectedSortable" id="selected-effects">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="buttons">
+    <input type="button" value="Ok" id='saveColors' />
+    <input type="button" value="Cancel" class="close-popup" />
+</div>

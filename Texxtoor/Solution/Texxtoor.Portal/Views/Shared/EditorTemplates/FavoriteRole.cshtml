@@ -1,0 +1,4 @@
+﻿@using Texxtoor.DataModels.Models.Author
+@model ContributorRole
+@(Html.DropdownForEnum<ContributorRole>("targets", Model, new Dictionary<string, object>(){{"style", "width:180px;"}}, true))
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

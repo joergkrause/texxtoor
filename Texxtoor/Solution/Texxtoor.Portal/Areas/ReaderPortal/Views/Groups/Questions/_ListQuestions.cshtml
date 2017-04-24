@@ -1,0 +1,82 @@
+﻿@using Texxtoor.DataModels.Models.Reader.Content
+@using Texxtoor.DataModels.Models.Reader.Functions
+@model IPagedList<QuestionsAnswers>
+@{
+  var userName = User.Identity.Name;
+}
+@if ((string) ViewBag.QAndAType == "User") {
+  if (((List<Work>) ViewBag.WorkCollection).Any()) {
+    @Html.Partial("_Pagination", PaginationViewModel<QuestionsAnswers>.Create(Model, "javascript:update('" + (string) ViewBag.QAndAType + "', {page}, '{order}', '{dir}');",
+      new Dictionary<string, string> {
+        {"id", "btnAddQuestion"},
+        {"action", "ui.addElement()"},
+        {"text", ViewResources.Action_Groups_CreateQuestion},
+        {"cssclass", "btn-primary"}
+      }, true, m => m.Subject, m => m.Theme))
+  } else {
+    <div class="alert alert-danger">
+      @Loc("txtNoWork", "You cannot ask any questions because you don't have any texts in your library. Consider adding texts first and ask questions concerning these texts.")
+    </div>
+  }
+}
+@if (!Model.Any()) {
+  <div class="alert alert-info">
+    @Loc("txtNo", "There is nothing to do here.")
+  </div>
+} else {
+  <div class="multilist">
+    @foreach (var item in Model) {
+      <div class="firstRow">
+        <strong>@item.Subject</strong>
+      </div>
+      <div class="secondRow">
+        @Loc("legend", @"Question <em><span data-args='0' data-desc='Name'>{0}</span></em> 
+        was created at <em><span data-args='1' data-desc='At'>{1}</span></em>
+        with ", item.Subject, item.CreatedAt.ToShortDateString())
+        @if (@item.Theme != null) {
+          @:<em>@Loc("textTheme", @"the subject <span data-args='0' data-desc='Theme'>{0}</span>", item.Theme.Name)</em>
+          } else {
+          @:<em>@Loc("textNoSubject", @"no subject")</em>
+          }
+        @Loc("text", @"This question is <em><span data-args='0' data-desc='Private'>{0}</span></em>.", (!item.Private ? "public" : "private"))
+        @if (item.Children == null || !item.Children.Any()) {
+          @: @Loc("textNoAnswers", @"There are no answers so far.")
+          } else {
+          @: @Loc("textAnswer", @"There are <em><span data-args='0' data-desc='Count'>{0}</span></em> Answers", item.Children.Count())
+          }
+        <div class="well well-sm">
+          @item.Content
+        </div>
+      </div>
+      <div class="thirdRow">
+        <div class="optionFields" data-item="@item.Id">
+          @if (ViewBag.QAndAType == "User" && !item.HasChildren() && item.Owner.UserName == userName || !item.Private) {
+            <a href="#" class="btn btn-primary" id="editButton" onclick="ui.editelement('@item.Id') ">@ViewResources.Action_Question_Edit</a>
+          }
+          @if (item.Owner.UserName != userName) {
+            <div class="alert alert-warning">@Loc("txtNoOwner", "The question is from other user and not public.")</div>
+          }
+          @if (item.HasChildren()) {
+            <div class="alert alert-warning">@Loc("txtNo", "Editing not possible as there are answers already.")</div>
+          }
+          @if (ViewBag.QAndAType == "Author" && item.Work.Extern == Texxtoor.DataModels.Models.Reader.Content.WorkType.Published && item.Work.Published.Authors.Any(a => a.UserName == userName)) {
+            <a href="#" class="btn btn-primary" id="answerButton" onclick="answerFor('@item.Id') ">@ViewResources.Action_Question_Answer</a>
+          }
+        </div>
+      </div>
+      <div class="thirdRow">
+        @if (item.HasChildren()) {
+          foreach (var questionsAnswers in item.Children) {
+          <div class="well well-sm">
+            @questionsAnswers.Owner.UserName @Loc("txtAt", "answered at") @questionsAnswers.CreatedAt.ToShortDateString():
+                <p>
+                  @questionsAnswers.Content
+                </p>
+          </div>
+          }
+        }
+      </div>
+    }
+  </div>
+
+}

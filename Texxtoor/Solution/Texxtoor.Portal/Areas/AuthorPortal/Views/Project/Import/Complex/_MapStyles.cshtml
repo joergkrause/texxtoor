@@ -1,0 +1,87 @@
+﻿@model Pair
+@{
+  var map = Model.First as Dictionary<string, Texxtoor.BaseLibrary.WordInterop.IMapObject>;
+  var styleList = Model.Second as Dictionary<string, KeyValuePair<string, string>[]>;
+}
+<table class="Width950">
+  <tr>
+    <th class="Width160">
+      @Loc("thStyleName", @"Internal Style Name")
+    </th>
+    <th class="Width200">
+      @Loc("thUIName", "UI names")
+    </th>
+    <th class="Width480">
+      @Loc("thSemantic", "Semantic Mapping if Type '{0}'", ViewData["MapType"])
+    </th>
+    <th class="Width140">
+      @Loc("thSplit", "Split | Type")
+    </th>
+  </tr>
+  @foreach (var item in styleList) {
+    // prepare the current setting for this particular mapping
+    string controlData = "";
+    string controlAttribute = "";
+    bool isSplit = false;
+    string typeName = "";
+    bool isNoMap = false;
+    string itemKey = item.Key.InnerTrim();
+    if (map.ContainsKey(itemKey) && map[itemKey] is Texxtoor.BaseLibrary.WordInterop.MapObject) {
+      controlData = ((Texxtoor.BaseLibrary.WordInterop.MapObject)map[itemKey]).ControlData;
+      controlAttribute = ((Texxtoor.BaseLibrary.WordInterop.MapObject)map[itemKey]).ControlAttributes;
+      if (!String.IsNullOrEmpty(controlAttribute)) {
+        controlData += "[" + controlAttribute + "]";
+      }
+      isSplit = ((Texxtoor.BaseLibrary.WordInterop.MapObject)map[itemKey]).FragmentSplit;
+      typeName = ((Texxtoor.BaseLibrary.WordInterop.MapObject)map[itemKey]).FragmentTypeName;
+    } else {
+      isNoMap = true;
+    }
+    <tr>
+      <td>
+        @item.Key
+    </td>
+    <td>
+      @String.Join(", ", item.Value.Select(v => v.Key))
+    </td>
+    <td>
+      <input type="checkbox" @(isNoMap ? "" : "checked") data-key="@itemKey-@ViewData["MapType"]" name="MapOption-@itemKey-@ViewData["MapType"]" value="false" class="NoMapValueRadioBox" />
+      <input type="hidden" name="MapOption-@itemKey-@ViewData["MapType"]" value="true" />
+      @Loc("textMap", @"map to &gt;")
+      <select data-key-target="@itemKey-@ViewData["MapType"]" name="MapValue-@itemKey-@ViewData["MapType"]" class="MapValueSelectBox">
+        <option value="">Select a Style</option>
+        @switch (ViewData["MapType"].ToString()) {
+          case "P":
+            foreach (var option in (Dictionary<string, string>)ViewData["P-Options"]) {
+              <option value="@option.Key" @(controlData.StartsWith(option.Key) ? "selected=selected" : "")>@option.Value</option>
+            }
+            break;
+          case "C":
+            foreach (var option in (Dictionary<string, string>)ViewData["C-Options"]) {
+              <option value="@option.Key" @(controlData.StartsWith(option.Key) ? "selected=selected" : "")>@option.Value</option>
+            } break;
+          case "N":
+            foreach (var option in (Dictionary<string, string>)ViewData["N-Options"]) {
+              <option value="@option.Key" @(controlData.StartsWith(option.Key) ? "selected=selected" : "")>@option.Value</option>
+            }
+            break;
+        }
+      </select>
+
+    </td>
+    <td>
+      @if (ViewData["MapType"].ToString() == "P") {
+        <input type="checkbox" @(isSplit ? "checked" : "") value="true" name="MapSplit-@itemKey-@ViewData["MapType"]" data-key-target="@itemKey-@ViewData["MapType"]" />
+        <select data-key-target="@itemKey-@ViewData["MapType"]" name="MapType-@item.Key.InnerTrim()-@ViewData["MapType"]">
+          <option value="Texxtoor.DataModels.Models.Content.Section" @(typeName == "Texxtoor.DataModels.Models.Content.Section" ? "selected" : "")>Section</option>
+          <option value="Texxtoor.DataModels.Models.Content.TextSnippet" @(typeName == "Texxtoor.DataModels.Models.Content.TextSnippet" ? "selected" : "")>Text</option>
+          <option value="Texxtoor.DataModels.Models.Content.ImageSnippet" @(typeName == "Texxtoor.DataModels.Models.Content.ImageSnippet" ? "selected" : "")>Image</option>
+          <option value="Texxtoor.DataModels.Models.Content.TableSnippet" @(typeName == "Texxtoor.DataModels.Models.Content.TableSnippet" ? "selected" : "")>Table</option>
+        </select>
+      } else {
+        @:@Loc("textNoOptions", @"n/a")
+        }
+    </td>
+  </tr>
+  }
+</table>

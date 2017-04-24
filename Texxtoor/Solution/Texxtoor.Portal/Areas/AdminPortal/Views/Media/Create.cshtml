@@ -1,0 +1,22 @@
+﻿@model Texxtoor.DataModels.Models.Cms.CmsMedia
+
+@{
+    PageData["Title"] = "Create Media";
+    Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+
+<script src="~/Scripts/jquery/jquery.validate.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery/jquery.validate.unobtrusive.js" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    using(Html.BtFieldset("Media")) {
+
+        @Html.EditorForModel()
+
+        <div class="formsendButtons">
+          <button type="submit" class="btn btn-sm btn-primary">Create Media</button>
+          @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-sm btn-default" })
+        </div>
+    }
+}

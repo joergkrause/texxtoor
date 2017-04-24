@@ -1,0 +1,30 @@
+﻿@model string
+<div class="container">
+
+  <div class="nav-item @(Model == "overview" ? "active" : "")" @if (Model != "overview") { <text> ng-click="$state.go('overview', { opusid: id })" </text>    }>
+    <span>WORKING</span>
+    <div class="arrow"></div>
+  </div>
+
+  <div class="nav-item @(Model == "preview" ? "active" : "")" @if (Model != "preview") { <text> ng-click="$state.go('preview', { opusId: id })" </text>      }>
+    <span>PREVIEW</span>
+    <div class="arrow"></div>
+  </div>
+
+
+
+  <div class="nav-item @(Model == "publish" ? "active" : "")" @if (Model != "publish") { <text> ng-click="$state.go('publish', { opusId: id })" </text>   }>
+    <span>PUBLISHING</span>
+    <div class="arrow"></div>
+  </div>
+
+  <div class="nav-item @(Model == "marketing" ? "active" : "")" @if (Model != "marketing") { <text> ng-click="$state.go('marketing', { opusId: id })" </text>  }>
+    <span>MARKETING</span>
+    <div class="arrow"></div>
+  </div>
+
+  <div class="nav-item @(Model == "success" ? "active" : "")" @if (Model != "success") { <text> ng-click="$state.go('success', { opusId: id })" </text>  }>
+    <span>MONITORING</span>
+  </div>
+
+</div>

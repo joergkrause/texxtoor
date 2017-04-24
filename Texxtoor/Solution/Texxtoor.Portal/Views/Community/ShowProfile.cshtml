@@ -1,0 +1,38 @@
+﻿@using System.Linq
+@model Texxtoor.DataModels.Models.Users.UserProfile
+@{
+  Layout = Url.GetGlobalLayout();
+  PageData["Title"] = Loc("maintitle", "Public Profile");
+  PageData["ShortHelp"] = "";
+}
+@section HeadContent{
+  <script>
+    $(function () {
+      var doc = $("#profileFrame").contents()[0];
+      $(doc.body).html($('#profileContent').html());
+    });
+  </script>
+}
+<h2>@Loc("title", "Public Profile for <span data-args='0' data-desc='User Name'>{0}</span>", Model.User.UserName)</h2>
+<div class="well well-lg">
+    <h3 style="margin-top:0px"> @Model.StatementOfTaste</h3>
+    <br />
+    @Model.Notes
+  <i class="@BtIcon.Smile pull-right icon-large text-blue"></i>
+</div>
+<div class="well">@Model.Description
+  <i class="@BtIcon.PaperClip pull-right icon-large text-brown"></i>
+</div>
+<div class="well">
+  <img class="ShowProfileImg1" src="/Tools/GetImg/@Model.Id?c=Profile&res=125x155" 
+    alt="@Model.User.UserName" />
+  <iframe width="100%" height="500" id="profileFrame"></iframe>
+  <script type="application/xml" id="profileContent">
+  @Html.Raw(Model.Walltext)
+  </script>
+</div>
+@if (Model.User.UserName == User.Identity.Name) {
+  @Create.ActionTask("btnEdit", true, Url.Action("EditProfile", new { id = Model.Id, controller = "Community", area = "" }), ViewResources.TasksButton_Common_EditProfile)
+}
+@Create.ActionTask("btnEdit", true, Url.Action("UserProfile", "Account", new { area = "" }),ViewResources.LinkButton_Community_UserProfile)
+@Create.ActionTask("btnEdit", false, Url.Action("Groups", "Groups", new { area = "ReaderPortal" }),ViewResources.LinkButton_Reader_Groups)

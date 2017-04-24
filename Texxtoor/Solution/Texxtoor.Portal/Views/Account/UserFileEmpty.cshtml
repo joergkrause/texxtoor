@@ -1,0 +1,7 @@
+﻿@{
+  Layout = Url.GetGlobalLayout();
+  PageData["Title"] = Loc("title", "User File Empty");
+}
+<div class="alert alert-warning">
+  @Loc("txtErr", "The file you're trying download appears to be empty. This might happen if the production cycle fails. Consider producing the file again and deleting the empty file entry.")
+</div>

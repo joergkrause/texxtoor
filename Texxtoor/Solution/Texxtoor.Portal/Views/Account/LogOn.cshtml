@@ -1,0 +1,40 @@
+﻿@model Texxtoor.ViewModels.Users.LogOn
+@{
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+  PageData["Title"] = Loc("title", "Log On");
+  var returnUrl = Request.QueryString["ReturnUrl"];
+  var domain = ViewBag.Domain;
+}
+@using (Html.BeginForm("LogOn", "Account", new { area = "", returnUrl = returnUrl }, FormMethod.Post)) {
+  @Html.AntiForgeryToken()
+  if (!Html.ViewData.ModelState.IsValid) {
+    @Html.ValidationSummary(false, null, new {@class = "alert alert-danger"})
+  }
+  using (Html.BtFieldset(Loc("legend", "Credentials"))) {
+  using (Html.BtDiv(BtStyle.Well)) {
+    @Loc("text1", "Type Username and password, please.")
+    @:&nbsp;
+    @Html.ActionLink(ViewResources.Action_Common_Register, "Register")
+    @Loc("text2", ", if you don't have an account yet.")
+  }
+  @Html.EditorForModel()
+  <div class="formsendButtons">
+    @Button.Submit(ViewResources.Action_Common_Logon)
+  </div>
+  }
+}
+@using (Html.BtFieldset(Loc("headersrv", "Logon Services")))
+{
+  <div class="well well-sm ">
+    @Loc("txtSrv", "Use these functions to help yourself registering or maintaining your account.")
+  </div>
+  <div class="btn-group">
+    <a href="@Url.Action("Register")" class="btn btn-lg btn-default" title="@Loc("srvRegister", "Register for new account")" >@ViewResources.TasksButton_Common_Register</a>
+  </div>
+  <div class="btn-group">
+    <a href="@Url.Action("RetrievePassword")" class="btn btn-lg btn-default" title="@Loc("srvRegister", "Register for new account")">@ViewResources.Action_Common_RetrievePassword</a>
+  </div>
+  if (System.Web.Configuration.WebConfigurationManager.AppSettings["social:LEAD_URL"] == Request.Url.Authority) { 
+    @Html.Action("ExternalLoginsList", "Account", new {ReturnUrl = ViewBag.ReturnUrl, area = ""})
+  }
+}

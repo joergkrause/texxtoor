@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="portal">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="menu">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="menu">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element minOccurs="0" name="page" type="xs:string" />
+                                        <xs:element maxOccurs="unbounded" name="menuitem">
+                                            <xs:complexType mixed="true">
+                                                <xs:sequence minOccurs="0">
+                                                    <xs:element name="page">
+                                                        <xs:complexType mixed="true">
+                                                            <xs:sequence minOccurs="0">
+                                                                <xs:choice maxOccurs="unbounded">
+                                                                    <xs:element name="h1" type="xs:string" />
+                                                                    <xs:element maxOccurs="unbounded" name="h2" type="xs:string" />
+                                                                    <xs:element maxOccurs="unbounded" name="h3" type="xs:string" />
+                                                                    <xs:element name="aside" type="xs:string" />
+                                                                    <xs:element name="section" type="xs:string" />
+                                                                    <xs:element name="ol">
+                                                                        <xs:complexType>
+                                                                            <xs:sequence>
+                                                                                <xs:choice maxOccurs="unbounded">
+                                                                                    <xs:element maxOccurs="unbounded" name="li" type="xs:string" />
+                                                                                    <xs:element name="ol">
+                                                                                        <xs:complexType>
+                                                                                            <xs:sequence>
+                                                                                                <xs:element maxOccurs="unbounded" name="li" type="xs:string" />
+                                                                                            </xs:sequence>
+                                                                                        </xs:complexType>
+                                                                                    </xs:element>
+                                                                                </xs:choice>
+                                                                            </xs:sequence>
+                                                                        </xs:complexType>
+                                                                    </xs:element>
+                                                                    <xs:element name="br" />
+                                                                </xs:choice>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="order" type="xs:unsignedByte" use="required" />
+                                                <xs:attribute name="title" type="xs:string" use="optional" />
+                                                <xs:attribute name="icon" type="xs:string" use="optional" />
+                                                <xs:attribute name="navigateurl" type="xs:string" use="optional" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="title" type="xs:string" use="required" />
+                                    <xs:attribute name="order" type="xs:unsignedByte" use="optional" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="type" type="xs:string" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

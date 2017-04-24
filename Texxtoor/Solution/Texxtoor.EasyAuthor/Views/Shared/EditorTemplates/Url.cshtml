@@ -1,0 +1,12 @@
+﻿@model string
+@{
+  var ro = ViewData.ModelMetadata.IsReadOnly;
+  var le = (ViewData.ModelMetadata.AdditionalValues.ContainsKey("Length") ? Convert.ToInt32(ViewData.ModelMetadata.AdditionalValues["Length"]) : 25) * 10;
+}
+@if (ro) {
+  @Html.TextBoxFor(m => m, new {disabled = "disabled", style = "width:" + le});
+}
+else {
+  @Html.TextBoxFor(m => m, new {style = "width:" + le});
+}
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

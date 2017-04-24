@@ -1,0 +1,12 @@
+﻿@model Texxtoor.ViewModels.Shared.Users.Account.Tasks
+@if (Model.MilestonesDue.Any()) {
+  <ul class="list-unstyled list-striped">
+    @foreach (var ms in Model.MilestonesDue) {
+      <li>@ms.Name (@ms.Progress %) @Html.ActionLink(ViewResources.Action_Opus_FinishMilestone, "FinishMilestone", "Opus", new { Id = ms.Opus.Id, area = "AuthorPortal" }, new { @class = "pull-right" })</li>
+    }
+  </ul>
+} else {
+  <div class="alert alert-danger">
+    @Loc("noDue", "There are no milestones already due or overdue.")
+  </div>
+}

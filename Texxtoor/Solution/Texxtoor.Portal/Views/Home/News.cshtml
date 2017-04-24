@@ -1,0 +1,18 @@
+﻿@model IDictionary<string, string>
+@{
+  PageData["Title"] = Loc("title1", "News");
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+}
+@using (Html.BtDiv(BtStyle.Well)){
+  Loc("text1", "See what happend recently.");
+}
+@if (Model != null && Model.Any()) {
+  foreach (var news in Model) {
+  <h2>@news.Key</h2>
+  <div class="well well-sm">@news.Value</div>
+  }
+} else {
+  using (Html.BtDiv(BtStyle.AlertAndWarning)){
+    Loc("txtErr", "There are currently no news available.");
+  }
+}

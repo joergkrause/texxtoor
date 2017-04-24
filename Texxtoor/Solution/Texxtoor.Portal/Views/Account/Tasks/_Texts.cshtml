@@ -1,0 +1,12 @@
+﻿@model Texxtoor.ViewModels.Shared.Users.Account.Tasks
+@if (Model.Texts.Any()) {
+  <ul class="list-unstyled list-striped">
+    @foreach (var text in Model.Texts.OrderBy(t => t.Project.Name).ThenByDescending(t => t.CreatedAt)) {
+      <li>@text.Name (@text.Project.Name) @Html.ActionLink(ViewResources.Action_Opus_WorkOnIt, "Edit", "Opus", new { Id = text.Id, area = "AuthorPortal" }, new { @class = "pull-right" })</li>
+    }
+  </ul>
+} else {
+  <div class="alert alert-danger">
+    @Loc("noTexts", "There are no texts you can currently work with.")
+  </div>
+}

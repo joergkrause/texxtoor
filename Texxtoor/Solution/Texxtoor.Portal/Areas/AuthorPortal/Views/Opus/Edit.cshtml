@@ -1,0 +1,192 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using Texxtoor.DataModels.Models.Author
+@model Texxtoor.DataModels.Models.Content.Opus
+@{
+  PageData["Title"] = Loc("titleEdit", "Author your Content");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = new HtmlString(Loc("textBookEdit", @"Your are editing <em><span data-args='0' data-desc='Work Name'>{0}</span></em>. Choose the appropriate tool from the task pane at the right.", Model.Name).ToString() + " " + Loc("textBookPubl", "This text is part of project <em>{0}</em>.", Model.Project.Name).ToString());
+}
+@section HeadContent{
+  <style>
+    .opusresource {
+      position: absolute;
+      height: 125px;
+      right: 25%;
+      margin-top: -150px;
+    }
+  </style>
+  <script type="text/javascript">
+    $(function() {
+      $(document).on('click', '.opusmatrix-add', function() {
+        AddOrRemoveFromMatrix('@Url.Action("TargetAudienceAdd")', '@Url.Action("TargetAudience")', '@Model.Id', null, '#targetAudienceDiv');
+        return false;
+      });
+      $(document).on('click', '.opusmatrix-remove', function(evt) {
+        var val = $(evt.srcElement).data('item');
+        AddOrRemoveFromMatrix('@Url.Action("TargetAudienceRemove")', '@Url.Action("TargetAudience")', '@Model.Id', val, '#targetAudienceDiv');
+        return false;
+      });
+      $(document).on('click', '.opusmatrix-save', function(evt) {
+        var val = $(evt.srcElement).data('item');
+        SaveMatrix('@Url.Action("TargetAudienceEdit")', {
+          id: '@Model.Id',
+          matrix: val,
+          keywords: $('input[data-item=' + val + '][name=keyWords]').val(),
+          targets: $('select[data-item=' + val + '][name=targets]').val(),
+          stages: $('select[data-item=' + val + '][name=stages]').val()
+        });
+        return false;
+      });
+      $(document).on('click', '.opusmatrix-saveall', function() { SaveAll(); });
+      $(document).on('change', '[data-select]', function() {
+        var id = $(this).find(':selected').val();
+        var target = $(this).data('target');
+        if (id == 0) {
+          $('img[data-target="' + target + '"]').hide();
+        } else {
+          var src = '/Tools/GetImg/' + id + '?c=editorresource' + '&t=' + (new Date().getTime());
+          $('img[data-target="' + target + '"]').attr('src', src);
+          $('img[data-target="' + target + '"]').show();
+        }
+      });
+
+      SetBehavior();
+      @if ((bool) ViewBag.UserIsTeamlead)
+      {
+        <text>
+      $(document).on('change blur', '#saveOpusForm input, #saveOpusForm select', function(e) {
+        var ui = new Dialog();
+        ui.validateAndSend('#saveOpusForm', function() {
+          $.ajax({
+            url: '@Url.Action("Edit", "Opus", new {area = "AuthorPortal"})',
+            data: $('form#saveOpusForm').serialize(),
+            type: 'POST',
+            dataType: 'json',
+            success: function(d) {
+              toastr.success(d.msg);
+            }
+          });
+        });
+        e.preventDefault();
+        return false;
+      });
+
+      $('#btnSavePublished').click(function(e) {
+        var ui = new Dialog();
+        ui.validateAndSend('#savePublishForm', function() {
+          $.ajax({
+            url: $('form#savePublishForm').attr('action'),
+            data: $('form#savePublishForm').serialize(),
+            type: 'POST',
+            dataType: 'json',
+            success: function(d) {
+              toastr.success(d.msg);
+            }
+          });
+        });
+        e.preventDefault();
+        return false;
+
+      });
+      </text>
+      }
+    });
+
+    function AddOrRemoveFromMatrix(url, loadUrl, profileId, matrixId, targetElementId) {
+      SaveAll().then(function() {
+        $.ajax({
+          url: url,
+          data: { id: profileId, matrix: matrixId },
+          type: 'POST',
+          cache: false,
+          success: function(d) {
+            toastr.success(d.msg);
+            $(targetElementId).load(loadUrl, { id: profileId }, SetBehavior);
+          },
+          error: function(d) {
+            toastr.error(d.msg);
+          }
+        });
+      });
+    }
+
+    function SaveAll() {
+      var formData = $('div#targetAudienceDiv :input').serialize();
+      if (!!formData) {
+        return SaveMatrix('@Url.Action("TargetAudienceEdit")', formData + "&id=" + @Model.Id);
+      }
+      var dfd = new jQuery.Deferred();
+      setTimeout(function() { dfd.resolve(""); }, 100);
+      return dfd.promise();
+    }
+
+    function SaveMatrix(url, data, callback) {
+      return $.ajax({
+        url: url,
+        data: data,
+        type: 'POST',
+        cache: false,
+        success: function(d) {
+          toastr.success(d.msg);
+          $('#SaveConsumerMatrixMessage').hide();
+          if (callback != undefined) {
+            callback();
+          }
+          $('#SaveOpusMatrixMessage').show();
+          setTimeout(function() { $('#SaveOpusMatrixMessage').fadeOut(); }, 3000);
+        },
+        error: function(d) {
+          toastr.error(d.responseText);
+          $('#SaveConsumerMatrixMessage').hide();
+        }
+      });
+    }
+
+    function SetBehavior() {
+      if ($('#targetAudienceDiv tr').length > 2) {
+        $('.opusmatrix-saveall').show();
+      } else {
+        $('.opusmatrix-saveall').hide();
+      }
+      SetTableBehavior();
+    }
+  </script>
+  @Script.SetTableBehavior(true)
+}
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#tools" data-toggle="tab">@Loc("toolstab", "Tools to Work on it")</a></li>
+  <li><a href="#history" data-toggle="tab">@Loc("doctab", "Document's History")</a></li>
+  <li><a href="#options" data-toggle="tab">@Loc("settingstab", "Common Settings")</a></li>
+  <li><a href="#targets" data-toggle="tab">@Loc("targettab", "Target Audience")</a></li>
+  <li><a href="#publishing" data-toggle="tab">@Loc("targetpubl", "Publishing Options Preset")</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="tools">
+    @Html.Partial("Edit/_Tools", Model)
+  </div>
+  <div class="tab-pane" id="history">
+    @Html.Partial("Edit/_History", Model)
+  </div>
+  <div class="tab-pane" id="options">
+    @Html.Partial("Edit/_Properties", Model)
+  </div>
+  <div class="tab-pane" id="targets">
+    @Html.Partial("Edit/_Target", Model)
+  </div>
+  <div class="tab-pane" id="publishing">
+    @Html.Partial("Edit/_Preset", Model)
+  </div>
+</div>
+@Create.ActionTask("", true, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", true, Url.Action("Dashboard", "Project", new { id = Model.Project.Id }), ViewResources.LinkButton_ToDashboard)
+@Create.ActionTask("", true, Url.Action("Import", "Project", new { id = Model.Project.Id }), ViewResources.LinkButton_ToImport)
+@Create.ActionTask("", true, Url.Action("PublishedMarketing", "Publishing", new { id = Model.Id }), ViewResources.LinkButton_Publishing)
+@Create.ActionTask("", true, Url.Action("AuthorPreview", "Publishing", new { id = Model.Id }), ViewResources.TasksButton_ProductionPreview)
+
+@Create.ActionTask("", false, Url.Action("Restore", "Opus", new { id = Model.Id }), ViewResources.Action_Opus_Restore)
+@Create.ActionTask("", false, Url.Action("DownloadCopy", "Editor", new { id = Model.Id }), ViewResources.TasksButton_DownloadBackup)
+@Create.ActionTask("", false, Url.Action("CreateFrom", "Opus", new { Id = Model.Id }), ViewResources.Action_Opus_CopyToNew)
+@Create.ActionTask("", false, Url.Action("MergeWith", "Opus", new { Id = Model.Id }), ViewResources.Action_Opus_MergeWith)
+@Create.ActionTask("", false, Url.Action("MergeBoilerplates", "Opus", new { Id = Model.Id }), ViewResources.Action_Opus_Boilerplates)
+@Create.ActionTask("", false, Url.Action("MoveOpus", "Project", new { Id = Model.Id }), ViewResources.Action_MoveOpusToText)
+

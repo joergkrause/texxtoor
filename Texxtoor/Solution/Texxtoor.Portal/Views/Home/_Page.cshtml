@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Cms.CmsPage>
+<div class="clearfix"></div>
+<article class="item">
+  <header>
+    <h1 class="title pageHead">
+      @ViewBag.PageTitle
+    </h1>
+  </header>
+  <div class="content clearfix">
+    @if (Model != null) {
+      foreach (var page in Model) {
+        <h2>@page.PageTitle</h2>
+        <div>
+          @Html.Raw(page.PageContent)
+        </div>
+      }
+    }
+  </div>
+</article>

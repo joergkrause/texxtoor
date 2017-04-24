@@ -1,0 +1,594 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Commentare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Commentare1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CommandService_PublishCommand_Error_Checking" xml:space="preserve">
+    <value>Fehlerkontrolle</value>
+  </data>
+  <data name="lb_btnBulletList" xml:space="preserve">
+    <value>Aufzählungsliste</value>
+  </data>
+  <data name="lb_btnCheckDocument" xml:space="preserve">
+    <value>Dokument prüfen</value>
+  </data>
+  <data name="lb_btnComments" xml:space="preserve">
+    <value>Kommentare</value>
+  </data>
+  <data name="lb_btnConvertTextToTable" xml:space="preserve">
+    <value>Konvertiere Text in Tabelle</value>
+  </data>
+  <data name="lb_btnCopy" xml:space="preserve">
+    <value>Kopieren</value>
+  </data>
+  <data name="lb_btnCut" xml:space="preserve">
+    <value>Ausschneiden</value>
+  </data>
+  <data name="lb_btnDelete" xml:space="preserve">
+    <value>Snippet Löschen</value>
+  </data>
+  <data name="lb_btnDrawTable" xml:space="preserve">
+    <value>Tabelle zeichnen</value>
+  </data>
+  <data name="lb_btnGetPicturefromLocal" xml:space="preserve">
+    <value>Bild von Computer</value>
+  </data>
+  <data name="lb_btnGetPicturefromServer" xml:space="preserve">
+    <value>Bild vom Server</value>
+  </data>
+  <data name="lb_btnIndex" xml:space="preserve">
+    <value>Indexeintrag</value>
+  </data>
+  <data name="lb_btnInsertCodeSnippet" xml:space="preserve">
+    <value>Listing</value>
+  </data>
+  <data name="lb_btnInsertSideBar" xml:space="preserve">
+    <value>Box</value>
+  </data>
+  <data name="lb_btnInsertTable" xml:space="preserve">
+    <value>Tabelle einfügen</value>
+  </data>
+  <data name="lb_btnInsertText" xml:space="preserve">
+    <value>Text einfügen</value>
+  </data>
+  <data name="lb_btnInsertVideo" xml:space="preserve">
+    <value>Video einfügen</value>
+  </data>
+  <data name="lb_btnInternalLink" xml:space="preserve">
+    <value>Interne Verknüpfung </value>
+  </data>
+  <data name="lb_btnLeftIndent" xml:space="preserve">
+    <value>Ausrücken</value>
+  </data>
+  <data name="lb_btnManageProject" xml:space="preserve">
+    <value>Projekt wählen</value>
+  </data>
+  <data name="lb_btnNumberList" xml:space="preserve">
+    <value>Nummerierte Liste</value>
+  </data>
+  <data name="lb_btnOpenExisting" xml:space="preserve">
+    <value>Dokument öffnen</value>
+  </data>
+  <data name="lb_btnPaste" xml:space="preserve">
+    <value>Einfügen</value>
+  </data>
+  <data name="lb_btnPublish" xml:space="preserve">
+    <value>An Server senden</value>
+  </data>
+  <data name="lb_btnQuickTables" xml:space="preserve">
+    <value>Tabellenvorlage</value>
+  </data>
+  <data name="lb_btnRemoveLink" xml:space="preserve">
+    <value>Link entfernen</value>
+  </data>
+  <data name="lb_btnResearch" xml:space="preserve">
+    <value>Nachschlagen</value>
+  </data>
+  <data name="lb_btnRightIndent" xml:space="preserve">
+    <value>Ausrücken</value>
+  </data>
+  <data name="lb_btnSetLanguage" xml:space="preserve">
+    <value>Sprache auswählen</value>
+  </data>
+  <data name="lb_btnSpellingAndGrammar" xml:space="preserve">
+    <value>Rechtschreibung &amp;amp; Grammatik</value>
+  </data>
+  <data name="lb_btnThesaurus" xml:space="preserve">
+    <value>Thesaurus</value>
+  </data>
+  <data name="lb_btnWordCount" xml:space="preserve">
+    <value>Wörter zählen</value>
+  </data>
+  <data name="lb_grpBasicText" xml:space="preserve">
+    <value>Einfacher Text</value>
+  </data>
+  <data name="lb_grpClipboard" xml:space="preserve">
+    <value>Zwischenablage</value>
+  </data>
+  <data name="lb_grpCommentsPane" xml:space="preserve">
+    <value>Soziale Funktionen</value>
+  </data>
+  <data name="lb_grpInsertPicture" xml:space="preserve">
+    <value>Abbildung</value>
+  </data>
+  <data name="lb_grpInsertTable" xml:space="preserve">
+    <value>Tabelle</value>
+  </data>
+  <data name="lb_grpInsertText" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="lb_grpInsertVideo" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="lb_grpInternalLinkPane" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="lb_grpProofing" xml:space="preserve">
+    <value>Kontrolle</value>
+  </data>
+  <data name="lb_grpSemanticElements" xml:space="preserve">
+    <value>Semantische Elemente</value>
+  </data>
+  <data name="lb_grpSemanticText" xml:space="preserve">
+    <value>Semantische Formate</value>
+  </data>
+  <data name="lb_grpSidebarType" xml:space="preserve">
+    <value>Boxtyp</value>
+  </data>
+  <data name="lb_grpSnippets" xml:space="preserve">
+    <value>Snippets</value>
+  </data>
+  <data name="lb_grpTextoorText" xml:space="preserve">
+    <value>  texxtoor online</value>
+  </data>
+  <data name="lb_lblDocumentId" xml:space="preserve">
+    <value>Dokumenten-Id</value>
+  </data>
+  <data name="lb_lblUserName" xml:space="preserve">
+    <value>Benutzername</value>
+  </data>
+  <data name="lb_menuAbbrevations" xml:space="preserve">
+    <value>Abkürzungen</value>
+  </data>
+  <data name="lb_menuCites" xml:space="preserve">
+    <value>Zitate</value>
+  </data>
+  <data name="lb_menuDefinitions" xml:space="preserve">
+    <value>Definitionen</value>
+  </data>
+  <data name="lb_menuIdioms" xml:space="preserve">
+    <value>Idiome</value>
+  </data>
+  <data name="lb_menuLinks" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="lb_menuVariables" xml:space="preserve">
+    <value>Variablen</value>
+  </data>
+  <data name="lb_mnuSideBarType" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="lb_quickStylesGallery" xml:space="preserve">
+    <value>Formatvorlagen</value>
+  </data>
+  <data name="lb_btn_CharacterCode" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="lb_btn_CharacterFile" xml:space="preserve">
+    <value>Datei</value>
+  </data>
+  <data name="lb_btn_CharacterKeystroke" xml:space="preserve">
+    <value>Taste</value>
+  </data>
+  <data name="lb_splitBtnPicture__btn" xml:space="preserve">
+    <value>Bild</value>
+  </data>
+  <data name="lb_splitbtnPublish__btn" xml:space="preserve">
+    <value>Senden</value>
+  </data>
+  <data name="lb_splitBtnQuickTables__btn" xml:space="preserve">
+    <value>Schnelltabelle</value>
+  </data>
+  <data name="lb_splitBtnSpelling__btn" xml:space="preserve">
+    <value>Rechtschreibung</value>
+  </data>
+  <data name="lb_splitBtnTable__btn" xml:space="preserve">
+    <value>Tabelle</value>
+  </data>
+  <data name="lb_splitBtnTranslate__btn" xml:space="preserve">
+    <value>Übersetzen</value>
+  </data>
+  <data name="lb_tabInsert" xml:space="preserve">
+    <value>Einfügen</value>
+  </data>
+  <data name="lb_tabSemantics" xml:space="preserve">
+    <value>Semantische Daten</value>
+  </data>
+  <data name="lb_tabTEXXTOOR" xml:space="preserve">
+    <value>TEXXTOOR</value>
+  </data>
+  <data name="lb_toggleBtnAlignCenter" xml:space="preserve">
+    <value>Mittig ausrichten</value>
+  </data>
+  <data name="lb_toggleBtnAlignLeft" xml:space="preserve">
+    <value>Links ausrichten</value>
+  </data>
+  <data name="lb_toggleBtnAlignRight" xml:space="preserve">
+    <value>Rechts ausrichten</value>
+  </data>
+  <data name="lb_toggleBtnBold" xml:space="preserve">
+    <value>Fett</value>
+  </data>
+  <data name="lb_toggleBtnItalic" xml:space="preserve">
+    <value>Kursiv</value>
+  </data>
+  <data name="lb_toggleBtnUnderline" xml:space="preserve">
+    <value>Unterstrichen</value>
+  </data>
+  <data name="st_splitbtnPublish__btn" xml:space="preserve">
+    <value>Sende den Text zum Server, um ihn dort weiter zu verarbeiten. Der Text wird noch nicht veröffentlicht.</value>
+  </data>
+  <data name="st_splitbtnPublish__mnu" xml:space="preserve">
+    <value>Sende den Text zum Server, um ihn dort weiter zu verarbeiten. Der Text wird noch nicht veröffentlicht.</value>
+  </data>
+  <data name="st_toggleBtnAlignCenter" xml:space="preserve">
+    <value>Mittig ausrichten</value>
+  </data>
+  <data name="st_toggleBtnAlignLeft" xml:space="preserve">
+    <value>Links ausrichten</value>
+  </data>
+  <data name="st_toggleBtnAlignRight" xml:space="preserve">
+    <value>Rechts ausrichten</value>
+  </data>
+  <data name="st_toggleBtnBold" xml:space="preserve">
+    <value>Fett</value>
+  </data>
+  <data name="st_toggleBtnItalic" xml:space="preserve">
+    <value>Italic</value>
+  </data>
+  <data name="st_toggleBtnUnderline" xml:space="preserve">
+    <value>Unterstreichen</value>
+  </data>
+  <data name="lb_btnHomePage" xml:space="preserve">
+    <value>Portal</value>
+  </data>
+  <data name="CommentsTaskPane_LoadComments_No_Connection" xml:space="preserve">
+    <value>Keine Verbindung zum Server</value>
+  </data>
+  <data name="ServerService_LogonFailed" xml:space="preserve">
+    <value>Anmelden am Server fehlgeschlagen</value>
+  </data>
+  <data name="CommentsTaskPane_btnAddComment_Click_Please_Enter_Subject" xml:space="preserve">
+    <value>Bitte Kommentar eingeben</value>
+  </data>
+  <data name="DocumentService_GetDocumentContent_New_File_Name" xml:space="preserve">
+    <value>Neuer Dateiname</value>
+  </data>
+  <data name="DocumentService_GetDocumentContent_You_must_provide_a_new_document_name" xml:space="preserve">
+    <value>Du must einen neuen Dateinamen vergeben.\nEs ist nicht erlaubt, den Vorlagennamen zu benutzen.</value>
+  </data>
+  <data name="Default_ListingContent" xml:space="preserve">
+    <value>public class { \n   // Code hier platzieren... \n}</value>
+  </data>
+  <data name="Default_ChapterText" xml:space="preserve">
+    <value>Kapitel</value>
+  </data>
+  <data name="Default_SectionText" xml:space="preserve">
+    <value>Abschnitt</value>
+  </data>
+  <data name="DocumentService_InsertFigure_Image_files" xml:space="preserve">
+    <value>Bildateien (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png</value>
+  </data>
+  <data name="DocumentService_ProvideNewName_Save_File" xml:space="preserve">
+    <value>Datei speichern</value>
+  </data>
+  <data name="DocumentService_ProvideNewName_Word_files" xml:space="preserve">
+    <value>Word-Datei (*.docx, *.doc) | Alle Dateitypen (*.*)</value>
+  </data>
+  <data name="CommandService_GoToHome" xml:space="preserve">
+    <value>http://www.texxtoor.de</value>
+  </data>
+  <data name="CommandService_GoToHome_Opus_Edit_" xml:space="preserve">
+    <value>http://www.texxtoor.de/AuthorPortal/Opus/Edit/</value>
+  </data>
+  <data name="lb_btnActivate" xml:space="preserve">
+    <value>Vorlage zuweisen</value>
+  </data>
+  <data name="lb_grpActivateTexxtoor" xml:space="preserve">
+    <value>Aktivieren</value>
+  </data>
+  <data name="st_btnActivate" xml:space="preserve">
+    <value>Weist die texxtoor-Vorlage dem aktuellen Dokument zu und ersetzt die Formatvorlagen, sodass das Dokument konform zur Online-Version wird.</value>
+  </data>
+  <data name="DocumentService_InsertFigure_Figure" xml:space="preserve">
+    <value>Abbildung </value>
+  </data>
+  <data name="lb_tabActivateTEXXTOOR" xml:space="preserve">
+    <value>TEXXTOOR</value>
+  </data>
+  <data name="CommandService_PublishCommand_Texxtoor_Backup" xml:space="preserve">
+    <value>Texxtoor Sicherung (*.xml, *.txxb) | *.xml; *.txxb | Alle Dateitypen | *.*</value>
+  </data>
+  <data name="DocumentService_InsertListing_Listing" xml:space="preserve">
+    <value>Listing </value>
+  </data>
+  <data name="h11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\h11.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="h21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\h21.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="h31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\h31.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="h41" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\h41.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="h51" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\h51.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Normal1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Normal1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Text1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Text1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RibbonTexxtoor_GetComments_Comments___Meta_Data" xml:space="preserve">
+    <value>Kommentare &amp; Metadaten</value>
+  </data>
+  <data name="RibbonTexxtoor_InternalLinks_Internal_Links" xml:space="preserve">
+    <value>Interne Referenzen</value>
+  </data>
+  <data name="CommandService_PublishCommand_Cannot_convert_document" xml:space="preserve">
+    <value>Kann Dokument wegen eines internen Fehlers nicht konvertieren. Bitte kontaktiere uns.</value>
+  </data>
+  <data name="DocumentService_InsertIndex_Error_Adding_Index" xml:space="preserve">
+    <value>Fehler Index hinzufügen</value>
+  </data>
+  <data name="DocumentService_InsertIndex_Select_the_text" xml:space="preserve">
+    <value>Wähle den Text aus, der dem Index hinzugefügt werden soll.</value>
+  </data>
+  <data name="lb_btnShowIndex" xml:space="preserve">
+    <value>Ganzer Index</value>
+  </data>
+  <data name="DocumentService_ApplyTemplate_" xml:space="preserve">
+    <value>Möchtest du auf die texxtoor-Vorlage umschalten?
+
+Die aktuell benutzte Vorlage ist: </value>
+  </data>
+  <data name="DocumentService_HeadingOrderChecker_This_section_violates" xml:space="preserve">
+    <value>Dieser Abschnitt verstößt gegen die Reihenfolge der Überschriften.\nDie höchste Stufe an dieser Stelle ist '{0}'.\nBitte ändere die Stufe oder verschiebe den Abschnitt.</value>
+  </data>
+  <data name="CommandService_PublishCommand_Cannot_export_because" xml:space="preserve">
+    <value>Kann nicht exportieren, weil einige Überschriften nicht in der richtigen Reihenfolge sind.</value>
+  </data>
+  <data name="DocumentService_CheckDocument_The_document_has_been_checked_successfully_" xml:space="preserve">
+    <value>Das Dokument wurde erfolgreich geprüft.</value>
+  </data>
+  <data name="RibbonTexxtoor_OnGetGalleryItemCount_NoCount" xml:space="preserve">
+    <value>Das im Moment ausgewählte Projekt enthält keine Bilder auf dem Server.</value>
+  </data>
+  <data name="RibbonTexxtoor_OnGetGalleryItemCount_No_Content" xml:space="preserve">
+    <value>Kein Inhalt</value>
+  </data>
+  <data name="DocumentService_InsertTable" xml:space="preserve">
+    <value>Tabelle </value>
+  </data>
+  <data name="DocumentService_DeleteSnippet_Error_Deleting" xml:space="preserve">
+    <value>Fehler beim Löschen</value>
+  </data>
+  <data name="DocumentService_DeleteSnippet_You_cannot_delete_the_only_chapter_heading" xml:space="preserve">
+    <value>Du kannst eine Kapitelüberschrift nicht löschen, wenn es die einzige ist.</value>
+  </data>
+  <data name="lb_btnRefreshLists" xml:space="preserve">
+    <value>Begriffe aktualisieren</value>
+  </data>
+  <data name="lb_btnSubscript" xml:space="preserve">
+    <value>Runterstellen</value>
+  </data>
+  <data name="lb_btnSuperscript" xml:space="preserve">
+    <value>Hochstellen</value>
+  </data>
+  <data name="SidebarTipDefault" xml:space="preserve">
+    <value>Tipp</value>
+  </data>
+  <data name="SidebarNoteDefault" xml:space="preserve">
+    <value>Notiz</value>
+  </data>
+  <data name="SidebarWarningDefault" xml:space="preserve">
+    <value>Warnung</value>
+  </data>
+  <data name="SidebarCustomDefault" xml:space="preserve">
+    <value>Eigene Überschrift</value>
+  </data>
+  <data name="DocumentService_ConsistencyChecker_Document_shall_not_end" xml:space="preserve">
+    <value>Das Dokument sollte hier nicht enden, Box nicht vollständig.</value>
+  </data>
+  <data name="DocumentService_ConsistencyChecker_There_is_a_sidebar" xml:space="preserve">
+    <value>Diese Box scheint kaputt zu sein. Bitte neu erstellen.</value>
+  </data>
+  <data name="DocumentService_ConsistencyChecker_The_document_must_begin_with_a_chapter_heading" xml:space="preserve">
+    <value>Das Dokument muss mit einer Kapitelüberschrift beginnen.</value>
+  </data>
+  <data name="InternalLinkTaskPane_btnSave_Click_Error_Adding_Link" xml:space="preserve">
+    <value>Fehler Hinzufügen</value>
+  </data>
+  <data name="InternalLinkTaskPane_btnSave_Click_The_selected_paragraph_is_not_valid" xml:space="preserve">
+    <value>Der ausgewählte Text ist kein gültiges Ziel für einen Hyperlink.</value>
+  </data>
+  <data name="InternalLinkTaskPane_CaptionPattern_" xml:space="preserve">
+    <value>^(?&lt;type&gt;(Abbildung)|(Tabelle)|(Listing)?)\s*(?&lt;counter&gt;(?&lt;chapter&gt;\d{1,2}?).(?&lt;number&gt;\d{1,3}?)?)\s*[:]?\s*(?&lt;text&gt;.*?)$</value>
+  </data>
+  <data name="DocumentService_AssureStyles_The_style___0___is_not_allowed__Assign_valid_style_from_toolbar" xml:space="preserve">
+    <value>Das Format '{0}' isr nicht erlaubt. Nutze nur Formate aus der Menüleiste.</value>
+  </data>
+  <data name="ServerService_PublishDocument_Error_Publishing" xml:space="preserve">
+    <value>Fehler beim Veröffentlichen</value>
+  </data>
+  <data name="ServerService_PublishDocument_Publishing_Done" xml:space="preserve">
+    <value>Veröffentlichung fertig</value>
+  </data>
+  <data name="ServerService_PublishDocument_The_document_has_been_published_successfully_" xml:space="preserve">
+    <value>Das Dokument wurde auf den Server übertragen.</value>
+  </data>
+  <data name="DocumentService_DocumentChange_texxtoor_template_recognized__Activate_full_service_" xml:space="preserve">
+    <value>texxtoor-Template erkannt. Alle Dienste aktivieren?</value>
+  </data>
+  <data name="lb_btnCheckDocumentRaw" xml:space="preserve">
+    <value>Dokument prüfen</value>
+  </data>
+  <data name="lb_btnExport" xml:space="preserve">
+    <value>Exportieren</value>
+  </data>
+  <data name="lb_btnPublishRaw" xml:space="preserve">
+    <value>Zum Server senden</value>
+  </data>
+  <data name="lb_splitbtnPublishRaw__btn" xml:space="preserve">
+    <value>Serverfunktionen</value>
+  </data>
+  <data name="lb_btnRedo" xml:space="preserve">
+    <value>Wiederholen</value>
+  </data>
+  <data name="lb_btnUndo" xml:space="preserve">
+    <value>Rückgängig</value>
+  </data>
+  <data name="lb_btnFullAddIn" xml:space="preserve">
+    <value>Exklusiver Modus</value>
+  </data>
+  <data name="lb_btnMakeText" xml:space="preserve">
+    <value>In Text wandeln</value>
+  </data>
+  <data name="lb_groupStyles" xml:space="preserve">
+    <value>Abschnitte</value>
+  </data>
+  <data name="lb_splitbtnConvertSection__btn" xml:space="preserve">
+    <value>Konvertieren</value>
+  </data>
+  <data name="lb_splitbtnInsertSection__btn" xml:space="preserve">
+    <value>Einfügen</value>
+  </data>
+  <data name="ServerService_LogOn_Error_accessing_Server" xml:space="preserve">
+    <value>Fehler beim Zugriff auf den Server</value>
+  </data>
+  <data name="lb_splitbtnConvertSection__mnu" xml:space="preserve">
+    <value>Konvertiere nach...</value>
+  </data>
+</root>

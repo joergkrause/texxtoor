@@ -1,0 +1,55 @@
+﻿/* Move tools down to support ribbons */
+#main_button {
+  top: 30px;
+}
+#tools_top {
+  top: 30px;
+  left: 105px;
+}
+#rulers #ruler_corner, #rulers #ruler_x, #tools_left {
+  top: 100px;
+}
+#rulers #ruler_y {
+  top: 100px;
+}
+#workarea, #sidepanels {
+  top: 115px;
+}
+body {
+  background: white;
+  font-family: Segoe UI Light, Arial, Verdana, sans-serif;  
+}
+#body {
+  margin: 15px !important;
+}
+#tools {
+  position: absolute;
+  height: 120px;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+#head {
+  width: 100%;
+  height: 120px;
+}
+ul.ribbon {
+  display: block !important;
+}
+
+ul.menu {
+  left: 20px;
+  position: absolute;
+}
+.wrapper {
+  height: 100%;
+}
+
+#svg_docprops #svg_docprops_container,
+#svg_prefs #svg_prefs_container {
+  background-color: #fff;
+}
+
+ .main_menu_separator {
+   border-top: 1px solid darkgray;
+ }

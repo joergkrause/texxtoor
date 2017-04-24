@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Reader.Orders.OrderProduct>
+
+@{
+  PageData["Title"] = "Orders";
+  Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+  PageData["ShortHelp"] = "Manage your users' orders here. See order state and production progress.";
+}
+<table class="table table-bordered table-condensed">
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      UserName
+    </th>
+    <th>
+      Shipping to
+    </th>
+    <th>
+      Billing to
+    </th>
+    <th>
+      Fullfillment
+    </th>
+    <th>
+      Subscription
+    </th>
+    <th></th>
+  </tr>
+
+  @foreach (var item in Model.OrderByDescending(m => m.CreatedAt)) {
+    <tr>
+      <td>
+        @Html.DisplayFor(modelItem => item.Name)<br />
+        <span class="badge badge-warning">@item.CreatedAt.ToShortDateString()</span>
+      </td>
+      <td>
+        @Html.ActionLink(item.Owner.UserName, "Details", "User", new { id = item.Owner.Id }, new { @class = "btn btn-xs btn-info" })
+      </td>
+      <td>
+        @if (item.ShippingAddress != null) {
+          @Html.ActionLink(item.ShippingAddress.Name, "Details", "Address", new {id = item.ShippingAddress.Id}, new {@class = "btn btn-xs btn-default"})
+        }
+      </td>
+      <td>
+        @if (item.BillingAddress != null) {
+          @Html.ActionLink(item.BillingAddress.Name, "Details", "Address", new { id = item.BillingAddress.Id }, new { @class = "btn btn-xs btn-default" })
+        }
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Store.FullFillment)
+      </td>
+      <td>
+        @if (item.Store.BeginSubscription.HasValue) {
+          @item.Store.BeginSubscription.GetValueOrDefault().ToShortDateString()
+          @:-
+          @item.Store.EndSubscription.GetValueOrDefault().ToShortDateString()
+        } else {
+          <span class="badge badge-info">None</span>
+        }
+      </td>
+      <td>
+        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-xs btn-default" })
+      </td>
+    </tr>
+  }
+
+</table>

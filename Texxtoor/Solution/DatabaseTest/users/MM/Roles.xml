@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<roles>
+  <role name="Admin" main="true">
+    This is admin role.
+  </role>
+  <role name="CmsAdmin" main="true">
+    This is admin role for managing content of portal.
+  </role>
+  <role name="TenantAdmin" main="true">
+    This is admin role for managin AC² tenants. It's a delegate account, that can be handed to AC² customer.
+  </role>
+  <role name="Author" main="true">
+    This is author role.
+  </role>
+  <role name="Reader" main="true">
+    This is reader role.
+  </role>
+  <role name="TeamLead" main="false" parentrole="Author">
+    This is team lead role.
+  </role>
+  <role name="Contributor" main="false" parentrole="Author">
+    This is contributor role.
+  </role>
+  <role name="Guest" main="false" parentrole="Author">
+    This is guest role. Guests are people with read-only rights in the team, such as a reviewer.
+  </role>
+</roles>

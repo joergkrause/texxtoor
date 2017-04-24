@@ -1,0 +1,25 @@
+﻿@model Texxtoor.Editor.ViewModels.ChapterDataModel
+@if (Model.ChapterElements.Any()) {
+    // before all elements we need to create the chapter's head element for editing  
+    // all other can be moved around 
+    foreach (var item in Model.ChapterElements) {
+        Model.CurrentElement = item;
+        @Html.Partial("_SingleWidget", Model, ViewData)
+    }
+    // some tools all widget can share
+    <div class='popup-layout'>
+        <div class="internalLinkDialog dialog-popup">
+            @Html.Action("InternalLink", new { id = Model.DocumentId })
+        </div>
+        <div class="externalLinkDialog dialog-popup">
+            @Html.Action("ExternalLink", new { id = Model.DocumentId })
+        </div>
+        <div class="imageCropDialog dialog-popup">
+            @Html.Partial("Widgets/Tools/_ImageCrop")
+        </div><div class="imageColorsDialog dialog-popup">
+            @Html.Action("ImageColors")
+        </div>
+    </div>
+} else {
+    <!-- This is just a placeholder for an empty document -->
+}

@@ -1,0 +1,9 @@
+﻿@model Texxtoor.DataModels.Models.Common.Message
+@{
+  PageData["Title"] = "Report As Spam";
+  Layout = Url.GetGlobalLayout();
+  PageData["Title"] =Loc("title", "Report As Spam");
+}
+<div class="alert alert-info">
+  @Loc("text", "The mail shown below can be reported as spam. We'll contact the sender and remove the mail from our system.")
+</div>

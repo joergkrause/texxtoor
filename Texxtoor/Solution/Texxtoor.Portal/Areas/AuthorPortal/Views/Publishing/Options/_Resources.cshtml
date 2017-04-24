@@ -1,0 +1,52 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.Published
+@using (Html.BeginForm("SavePublishedResources", "Publishing", new { id = Model.Id }, FormMethod.Post, new { id = "marketingForm", data_item = "6" })) {
+  using (Html.BtFieldset(Loc("legendRes", "Select resources"))) {
+    <label>@Loc("labelRes", "Source & Target")</label>
+    <div class="editor-field">
+      <table class="table table-condensed">
+        <tr>
+          <th class="HalfWidth">
+            @Loc("thSource", "Resources available in the source project")
+          </th>
+          <td>&nbsp;</td>
+          <th class="HalfWidth">
+            @Loc("thTarget", "Resources associated with published text")
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <ul class="chapterList" id="sourceList">
+              @foreach (var res in ViewBag.ResourceFiles) {
+                if (Model.ResourceFiles.Any(r => r.Id == res.Id) || res.FileSize == -1) {
+                  <li data-type="exclude" class="text-muted">
+                    <i class="@BtIcon.Remove" style="position: relative; left: -25px;"></i> @res.Name<br /><small class="text-muted">(@res.MimeType)</small>
+                    @if (res.FileSize == -1) {
+                      <br />
+                      <span style="color: red;">@Loc("fileCorrupt", "! File corrupt")</span>
+                    }
+                  </li>
+                } else {
+                  <li data-item="@res.Id">
+                    @res.Name<br /><small>(@res.MimeType, @res.FileSizeString)</small>
+                  </li>
+                }
+              }
+            </ul>
+          </td>
+          <td>&nbsp;</td>
+          <td>
+            <ul class="chapterList" id="targetList">
+              @foreach (var res in Model.ResourceFiles) {
+                <li data-item="@res.Id">@res.Name<br /><small>(@res.MimeType, @res.FileSizeString)</small></li>
+              }
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="formsendButtons">
+      @Create.FormButtonOnClick("btnSaveResources", "", ViewResources.Action_Publish_SaveGlobal, "btn-primary btnSave")
+      @Create.FormButtonOnClick("btnSaveResourcesTab", "", ViewResources.Action_Publish_SaveGlobal_Tab, "btn-primary btnNext")
+    </div>
+  }
+}

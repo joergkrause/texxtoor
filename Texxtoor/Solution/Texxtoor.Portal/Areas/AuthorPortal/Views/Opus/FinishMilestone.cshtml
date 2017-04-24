@@ -1,0 +1,89 @@
+﻿@model Texxtoor.DataModels.Models.Content.Opus
+@{
+  PageData["Title"] = Loc("title1", "Finish Or Set Your Milestones");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+}
+@section HeadContent {
+  <script src="~/Scripts/jquery/jcookies/jcookies.js"></script>
+  <script type="text/javascript">
+
+    $(function () {
+      $(document).on('click', '#showAllComments', function(e) {
+        $("[data-target-item]").show();
+        e.preventDefault();
+        return false;
+      });
+      $(document).on('click', '#hideAllComments', function (e) {
+        $("[data-target-item]").hide();
+        e.preventDefault();
+        return false;
+      });
+      $(document).on('click', '[data-action="showMore"]', function (e) {
+        var id = $(this).parents('.optionFields').attr('data-item');
+        var div = $("[data-target-item=" + id + "]");
+        if ($(div).is(':visible')) {
+          $(div).hide();
+        } else {
+          $(div).fadeIn();
+        }
+        e.preventDefault();
+        return false;
+      });
+      ui = new Dialog(
+        {}, {}, {},
+        {
+          formId: '#main',
+          formDivId: '#main',
+          formAction: '@Url.Action("ListMilestonesForFinish", "Opus", new { id = Model.Id })',
+            onShow: function () {
+              $('#main').removeAttr('disabled');
+            }
+          });
+        ui.updateTable();
+      });
+
+        //this function simply gets the window scroll position, works in all browsers
+        function getPageScroll() {
+          var yScroll = 0;
+          if (self.pageYOffset) {
+            yScroll = self.pageYOffset;
+          } else if (document.documentElement && document.documentElement.scrollTop) {
+            yScroll = document.documentElement.scrollTop;
+          } else if (document.body) {
+            yScroll = document.body.scrollTop;
+          }
+          return yScroll;
+        }
+
+        function ChangeMilestone(id, comment, progress) {
+          $.cookie('myCookie', getPageScroll());
+          $('#main').attr('disabled', 'disabled');
+          progress = parseInt(progress, 10);
+          progress = progress > 100 ? 100 : progress;
+          $.ajax({
+            url: '@Url.Action("ChangeMilestone")',
+        type: "POST",
+        cache: false,
+        data: {
+          id: id,
+          comment: comment,
+          progress: progress
+        },
+        success: function (data) {
+          ui.updateTable();
+          toastr.success(data.msg);
+          window.scroll(0, $.cookie('myCookie'));
+        }
+      });
+      return false;
+    }
+  </script>
+}
+@using (Html.BtDiv(BtStyle.AlertAndInfo)){
+  @Loc("text1", @"You're currently working with Workroom <em><span data-args='0' data-desc='Work Name'>{0}</span></em>. 
+The list below shows all milestones. You can change the state for those milestones you're currently responsible. As a team lead you can 
+delegate the responsibilty to somebody else from your team.", Model.Name)
+}
+@Create.MainContentWithLoader()
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = Model.Project.Id }), ViewResources.LinkButton_ToDashboard)
+@Create.ActionTask("", false, Url.Action("Billing", "Team", new { id = Model.Id }), ViewResources.LinkButton_Billing)

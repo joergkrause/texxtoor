@@ -1,0 +1,17 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+$TexxtoorClrDark: #333333; 
+$TexxtoorClrMedium: #A1AAA1;
+$TexxtoorClrLight: #C8C8C8;
+$TexxtoorBwDark: #666666; 
+$TexxtoorBwMedium: #A1A1A1;
+$TexxtoorBwLight: #DDDDDD;
+$TexxtoorBlack: #000000;
+$baseWidth: 960px;   // view port
+$superWidth: 1200px; // max outbound
+$baseFont: "Montserrat","Helvetica","Arial",sans-serif;
+$inputFont: "Montserrat","Helvetica","Arial",sans-serif;
+$headerFont: "Montserrat","Helvetica","Arial",sans-serif;
+$monoFont: "Courier New", Courier, monospace;
+
+@import "custom/style.scss";

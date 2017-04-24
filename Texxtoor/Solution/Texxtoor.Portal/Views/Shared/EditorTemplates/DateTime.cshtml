@@ -1,0 +1,16 @@
+﻿@using System.Globalization
+@model System.DateTime
+<script type="text/javascript">
+  $(function () {
+    $(".@ViewData.ModelMetadata.PropertyName").datepicker({
+      format: '@(new CultureInfo(Culture).DateTimeFormat.ShortDatePattern.ToLower())',
+      startDate: @String.Format("new Date({0}, 1, 1)", DateTime.Now.Year - 10),
+      endDate: @String.Format("new Date({0}, 1, 1)", DateTime.Now.Year + 10),
+      buttonImage: '@Url.Content("~/Content/icons/calendar.png")',
+      language: '@Culture'
+    });
+    $(".@ViewData.ModelMetadata.PropertyName").datepicker('setDate', @(String.Format("new Date({0}, {1}, {2})", Model.Year, Model.Month - 1, Model.Day)));
+  });
+</script>
+@Html.TextBox("", Model.ToLongDateString(), new { @class = ViewData.ModelMetadata.PropertyName })
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

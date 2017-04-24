@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Sticky Header</title>
+    <link rel="Stylesheet" type="text/css" href="stickyheader.css" />
+    
+    <!--[if IE 6]>
+    <link rel="stylesheet" href="ie/ie6.css" type="text/css" media="screen" />
+    <![endif]-->
+        
+    <script type="text/javascript" src="scripts/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.stickyheader.js"></script>
+    
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#header').stickyheader();
+        });
+    </script>   
+    
+</head>
+<body>
+
+<div id="header" class="black"> <!-- BEGIN STICKY HEADER CONTAINER -->
+
+    <ul id="menu"> <!-- BEGIN MENU -->
+
+        <li><a href="#"><img class="logo" src="images/Home-32.png" alt="home" /></a> <!-- WEBSITE LOGO -->
+        </li>
+        
+        <li class="search"> 
+            <form action="send"> <!-- SEARCH FORM -->
+                <input type="text" id="text_search" />
+                <input id="submit_search" type="submit" value=" " />
+            </form> 
+        </li>
+                               
+        <li><a class="drop" href="#">Links</a> <!-- DROP DOWN MENU -->
+            <ul class="dropdown"> 
+                <li><a href="#">All Files</a></li>
+                <li><a href="#">HTML</a></li>
+                <li><a href="#">CSS</a></li>
+                <li><a href="#">WordPress</a></li>
+                <li><a href="#">JavaScript</a></li>
+                <li><a href="#">Mobile</a></li>
+                <li><a href="#">PHP</a></li>
+                <li><a href="#">.NET</a></li>
+                <li><a href="#">Tutorials</a>
+                </li>
+            </ul>
+        </li>
+        
+        <li><a class="drop" href="#">2 Columns</a> <!-- 2 COLUMS MENU -->
+            <div class="column4container dropcontent">
+                                
+                <div class="column2">
+                     <ul class="bluebox">
+                        <li><a href="#">Envato</a></li>
+                        <li><a href="#">ActiveDen</a></li>
+                        <li><a href="#">ThemeForest</a></li>
+                        <li><a href="#">AudioJungle</a></li>
+                        <li><a href="#">VideoHive</a></li>
+                        <li><a href="#">GraphicRiver</a></li>
+                        <li><a href="#">3DOcean</a></li>
+                        <li><a href="#">CodeCanyon</a></li>
+                    </ul>   
+
+                </div>
+                
+                <div class="column2">
+                     <ul class="bluebox">
+                        <li><a href="#">Plus</a></li>
+                        <li><a href="#">Psdtuts+</a></li>
+                        <li><a href="#">Nettuts+</a></li>
+                        <li><a href="#">Vectortuts+</a></li>
+                        <li><a href="#">Audiotuts+</a></li>
+                        <li><a href="#">Aetuts+</a></li>
+                        <li><a href="#">Activetuts+</a></li>
+                        <li><a href="#">Cgtuts+</a></li>
+                    </ul>   
+
+                </div>
+            </div>
+        </li>
+        
+        <li><a class="drop" href="#">Mega Menu</a> <!-- MEGA MENU -->
+            <div class="column12container fullwidthdropcontent">
+                <div class="column4">
+                    <h2>About Us</h2> <!-- ABOUT -->
+                    <img class="img_left" src="images/mapalla-100.png" />
+                    <p>
+                    Lorem ipsum dolor sit amet. Maecenas eget eros lorem, nec pellentesque lacus. Aenean dui orci, rhoncus sit amet tristique eu, 
+                    tristique sed odio. Praesent ut interdum elit.
+                    </p>
+                    <p>
+                    Maecenas eget eros lorem, nec pellentesque lacus. Aenean dui orci, rhoncus sit amet tristique eu, 
+                    tristique sed odio. Praesent ut interdum elit.
+                    </p>
+                    <p>
+                    Aliquam elementum felis quis felis consequat scelerisque. Fusce sed lectus at arcu mollis accumsan at nec nisi. 
+                    Aliquam pretium mollis fringilla. Nunc in leo urna, eget varius metus. Aliquam sodales nisi. <a href="#">More...</a>
+                    </p>
+                </div>
+                                         
+                <div class="column4">
+                    <h2>Contact Us</h2>
+                <form class="contact" action="post"> <!-- CONTACT FORM -->
+                            
+                        <fieldset>
+                        
+                            <p><label>Name</label><input type="text" size="30" /></p>
+                            <p><label>Email</label><input type="text" size="30" /></p>
+
+                            <p><label>Subject</label><input type="text" size="30" /></p>
+                            <p><label>Message</label><textarea cols="30" rows="10"></textarea></p>		
+                                                    
+                            <button type="submit" class="submit">Send</button>
+                        
+                        </fieldset>		
+                                
+                    </form>
+
+                </div>
+                
+                <div class="column2">
+                    <ul class="simple"> <!-- SIMPLE LINKS -->
+                        <li><a href="#">Envato</a></li>
+                        <li><a href="#">ActiveDen</a></li>
+                        <li><a href="#">ThemeForest</a></li>
+                        <li><a href="#">AudioJungle</a></li>
+                        <li><a href="#">VideoHive</a></li>
+                        <li><a href="#">GraphicRiver</a></li>
+                        <li><a href="#">3DOcean</a></li>
+                        <li><a href="#">CodeCanyon</a></li>
+                        <li><a href="#">Creattica</a></li>
+                        <li><a href="#">AppStorm</a></li>
+                    </ul>
+                </div>
+                
+                <div class="column2">
+                    <ul class="simple">
+                        <li><a href="#">Plus</a></li>
+                        <li><a href="#">Psdtuts+</a></li>
+                        <li><a href="#">Nettuts+</a></li>
+                        <li><a href="#">Vectortuts+</a></li>
+                        <li><a href="#">Audiotuts+</a></li>
+                        <li><a href="#">Aetuts+</a></li>
+                        <li><a href="#">Activetuts+</a></li>
+                        <li><a href="#">Cgtuts+</a></li>
+                        <li><a href="#">Phototuts+</a></li>
+                        <li><a href="#">Mobiletuts+</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+        </li>
+        
+        <li class="right"><a class="drop" href="#">Sign in</a> <!-- SIGN IN MENU ALIGNED RIGHT -->
+            <div class="column3container dropcontent align_right">
+                <div class="column3">
+                    <form class="signin" action="post"> <!-- SIGN IN FORM -->
+                        <fieldset>
+                        
+                            <p><label>Username</label><br />
+                            <input id="username" type="text" size="28" /></p>
+                            
+                            <p><label>Password</label><br />
+                            <input id="password1" type="password" size="28" />
+                            </p>
+                                                    
+                            <button type="submit">Sign in</button>
+                            <input id="Checkbox1" type="checkbox" />Remember me
+                        
+                        </fieldset>		
+                    </form>
+                    
+                </div>
+            </div>
+        </li>
+                           
+        <li class="right separator"></li> <!-- SEPARATOR -->
+        
+        <!-- SOCIAL ICONS -->
+        <!-- The span is the text appearing on hover, use the tooltip class in the link -->
+        <li class="right icon"><a class="tooltip" href="#"><img src="images/email.png" /><span>Subscribe</span></a></li>
+        <li class="right icon"><a class="tooltip" href="#"><img src="images/rss.png" /><span>RSS</span></a></li>
+        <li class="right icon"><a class="tooltip" href="#"><img src="images/twitter.png" /><span>Twitter</span></a></li>
+        <li class="right icon"><a class="tooltip" href="#"><img src="images/facebook.png" /><span>Facebook</span></a></li>
+        
+    </ul> <!-- END MENU -->
+        
+</div> <!-- END CONTAINER -->
+
+
+</body>
+</html>

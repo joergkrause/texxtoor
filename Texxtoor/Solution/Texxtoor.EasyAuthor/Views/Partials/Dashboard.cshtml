@@ -1,0 +1,74 @@
+﻿<div ng-controller="dashboardCtrl" class="dashboard">
+  <div class="container">
+    <div class="clearfix">
+      <div class="st-title">My Texts</div>
+      <button type="button" class="btn btn-success pull-right new-text btn-uppercase" ng-click="createNewText()">Create New Text</button>
+    </div>
+
+    <div class="clearfix">
+      <text-item ng-repeat="text in texts | limitTo:3"
+                 ng-class-odd="'pull-left'"
+                 ng-class-even="'pull-right'"
+                 ng-click="overview()"
+                 opus-id="{{text.id}}"
+                 team-member-role={{text.teammemberrole}}
+                 book-title={{text.title}}
+                 book-details="Heir steht optional ein Untertitel"
+                 author={{text.authors[0].userName}}
+                 message-count={{text.newMessages.length}}
+                 cover-url={{text.coverUrl}}>
+      </text-item>
+      <text-item ng-class="'pull-right'"
+                 title="3 more"
+                 details="Click for more">
+      </text-item>
+    </div>
+
+
+    <hr />
+    <div class="clearfix">
+      <div class="st-title">My Published Texts</div>
+      <div ng-if="published.length > 1">
+        <button type="button" class="btn btn-default btn-sm pull-right btn-uppercase" ng-click="showAllPublished()">Show All</button>
+        <text-item ng-repeat="text in published"
+                   ng-class-even="'pull-left'"
+                   ng-class-odd="'pull-right'"
+                   book-title={{text.title}}
+                   book-details="Heir steht optional ein Untertitel"
+                   author={{text.authors[0].userName}}
+                   message-count={{text.newMessages.length}}
+                   cover-url={{text.coverUrl}}>
+        </text-item>
+      </div>
+      <div ng-if="published.length == 0" class="alert alert-danger">
+        There is nothing to show here
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="clearfix">
+      <div class="st-title">Texts that need help</div>
+      <div ng-if="slides.length > 1">
+        <button type="button" class="btn btn-default btn-sm pull-right btn-uppercase" ng-click="showAllTexts()">Show All</button>
+        <div class="clearfix" style="margin-top: 25px; margin-bottom: 60px;">
+          <carousel interval="myInterval">
+            <slide ng-repeat="slide in slides" active="slide.active">
+              <div class="carusel-item" ng-repeat="item in slide">
+                <div class="cover">
+                  <img ng-src="{{item.coverUrl}}" alt="" />
+                </div>
+                <div class="title">
+                  <span>{{item.opusName}}</span>
+                </div>
+              </div>
+            </slide>
+          </carousel>
+        </div>
+      </div>
+      <div ng-if="slides.length == 0" class="alert alert-danger">
+        There is nothing to show here
+      </div>
+    </div>
+  </div>
+</div>

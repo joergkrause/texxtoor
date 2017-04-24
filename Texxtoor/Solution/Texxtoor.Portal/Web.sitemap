@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+User Helper, der Html.ActionLink ersetzt und Sitemap abgleicht, kein Recht == erscheint nicht
+Lokalisierung in der globalen Resourcetabelle SiteMapResources, via resourceKey
+
+AuthFilter auf allen(!) actions, das die Action mit der Sitemap abgleicht und ggf. Exception wirft
+
+Entries mit refId sind nur informativ und identifizieren sinnlose Verbindungen
+-->
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" enableLocalization="true">
+  <siteMapNode id="1" url="/" title="Home" resourceKey="Home" description="" securityTrimmingEnabled="true" >
+    <siteMapNode id="10" url="/Home/Readers" title="Reader Main"  description="" />
+    <!-- READER -->
+    <siteMapNode id="20" url="/ReaderPortal/Home" title="Search the catalog"  description="">
+      <siteMapNode id="200" url="/ReaderPortal/Reader" title="Show Book"  description="">
+        <siteMapNode id="2010" url="/ReaderPortal/Reader/WorkDetails" title="Show Book Details"  description="" />
+        <siteMapNode id="2020" url="/ReaderPortal/Reader/CreateWorkFromPublished" title="Put Book in Library"  description="" />
+        <siteMapNode id="2040" url="/ReaderPortal/Reader/Library" title="Read"  description="" />
+        <siteMapNode id="2040" url="/ReaderPortal/Reader/MessageBoard" title="Discuss Book"  description="" />
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode id="21" url="/ReaderPortal/Reader/LastWork" title="Book Read Last"  description="" />
+    <siteMapNode id="23" url="/ReaderPortal/Reader/Works" title="Personal Library"  description="" />
+    <siteMapNode id="24" url="/ReaderPortal/Assembler/Products" title="Personal Products"  description="" />
+    <siteMapNode id="25" url="/ReaderPortal/Orders/PreviousOrders" title="Search the catalog"  description="" />
+    <!-- COMMUNITY FUNCTIONS -->
+    <!-- AUTHOR -->
+    <siteMapNode id="30" url="/AuthorPortal/Project" title="Project Overview and New Project"  description="" roles="Contributor,Author">
+      <siteMapNode id="310" url="/AuthorPortal/Project " title="New Project"  description=""  roles="Author,ProjectLead"/>
+      <siteMapNode id="320" url="/AuthorPortal/Project/Dashboard " title="Work with project"  description=""  roles="Contributor,Author">
+        <siteMapNode id="50" url="/AuthorPortal/Project/Import" title="Import from Word"  description="" roles="ProjectLead" >
+          <siteMapNode id="520" url="/AuthorPortal/Project/Mapping" title="Map"  description="" roles="ProjectLead" />
+          <siteMapNode id="530" url="/AuthorPortal/Project/SaveProjectFromImport" title="Import"  description="" roles="ProjectLead" />
+        </siteMapNode>
+        <!-- Team -->
+        <siteMapNode id="2" url="/AuthorPortal/Team/Details" title="Team Details" refId="32720" />
+        <!-- Opus -->
+        <siteMapNode id="3210" url="/AuthorPortal/Opus/Create" title="Create New Opus"  description="" roles="ProjectLead" />
+        <siteMapNode id="3220" url="/AuthorPortal/Opus/Edit" title="Edit Opus"  description="" roles="Contributor,Author" />
+        <siteMapNode id="3230" url="/AuthorPortal/Opus/Close" title="Close Opus"  description="" roles="ProjectLead" />
+        <siteMapNode id="3230" url="/AuthorPortal/Opus/ShowClosed" title="Show Closed"  description="" roles="ProjectLead" backLinks="320" />
+        <siteMapNode id="3240" url="/AuthorPortal/Publishing/Publish" title="Publish Work"  description="" roles="ProjectLead" />
+        <siteMapNode id="3240" url="/AuthorPortal/Publishing/PublishMarketung" title="Publish with Settings"  description="" roles="ProjectLead" />
+        <siteMapNode id="3250" url="/AuthorPortal/Opus/CreateFrom" title="Copy Opus"  description="" roles="ProjectLead" />
+        <siteMapNode id="3260" url="/AuthorPortal/Marketing/MarketingSettings" title="Marketing Packages"  description="" roles="ProjectLead" />
+        <!-- Team -->
+        <siteMapNode id="3270" url="/AuthorPortal/Team" title="Team Home"  description="" roles="Contributor,Author">
+          <siteMapNode id="32710" url="/AuthorPortal/Team/Create" title="New Team"  description="" roles="ProjectLead" />
+          <siteMapNode id="32720" url="/AuthorPortal/Team/Details" title="Manage Team"  description="" roles="Contributor,Author" >
+            <siteMapNode id="327210" url="/AuthorPortal/Team/New" title="New Member"  description="" roles="TeamLead" />
+            <siteMapNode id="327220" url="/AuthorPortal/Team/Profile" title="New Member"  description="" roles="Contributor,Author" />
+            <siteMapNode id="327230" url="/AuthorPortal/Team/Delete" title="New Member"  description="" roles="TeamLead" />
+          </siteMapNode>
+          <siteMapNode id="32730" url="/AuthorPortal/Team/Delete" title="Delete Team"  description="" roles="TeamLead" />
+        </siteMapNode>
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode id="40" url="/AuthorPortal/Resource " title="Resources for Project"  description=""  roles="Contributor,Author,ProjectLead"/>
+  </siteMapNode>
+</siteMap>

@@ -1,0 +1,62 @@
+﻿.scrollContainer {
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: -95px;
+    right: -95px;
+    top: 0;
+    bottom: 0;
+}
+/*.scrollContainer .scrollPanel {
+    right: 120px;
+    left: 100px;
+    position: absolute;
+}*/
+.scrollContainer .scrollPanel .snippet-block {
+    right: 120px;
+    left: 100px;
+    position: absolute;
+}
+.scrollContainer .scrollTrack {
+    position: absolute;
+	top: 0;
+	bottom: 0;
+    right: 86px;
+    width: 16px;
+}
+.scrollContainer .scrollTrack .scrollBar {
+    background: #8E8E8E;
+    position: absolute;
+    border-radius: 4px;
+    top: 0;
+    left: 4px;
+    right: 5px;
+    cursor: pointer;
+}
+.scrollContainer .scrollTrack:hover .scrollBar,
+.scrollContainer .scrollTrack.active .scrollBar {
+    background: #4E4E4E;
+}
+.scrollContainer .scrollTrack .arrowUp {
+    position: absolute;
+    top: -16px;
+    left: 4px;
+    border-bottom: none;
+    width: 8px;
+    height: 16px;
+    cursor: pointer;
+    background: transparent url("/Scripts/jquery/jqueryscroll/arrow-up.png") no-repeat scroll 0px 4px;
+}
+.scrollContainer .scrollTrack .arrowDown {
+    position: absolute;
+    bottom: -16px;
+    left: 4px;
+    width: 8px;
+    height: 16px;
+    cursor: pointer;
+    background: transparent url("/Scripts/jquery/jqueryscroll/arrow-down.png") no-repeat scroll 0px 6px;
+}
+.scrollContainer .scrollTrack .arrowUp.active,
+.scrollContainer .scrollTrack .arrowDown.active {
+    /*background: #634FFF;*/
+}

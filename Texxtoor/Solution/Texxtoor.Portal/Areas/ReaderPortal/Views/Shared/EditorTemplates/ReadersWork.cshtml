@@ -1,0 +1,8 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.Work
+@if (ViewBag.WorkCollection != null){
+  @Html.DropDownListFor(m => m, (SelectList) ViewBag.WorkCollection)
+  @Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)
+}
+else{
+  <div>@Model.Name</div>
+}

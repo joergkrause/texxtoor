@@ -1,0 +1,44 @@
+﻿@using Texxtoor.DataModels.Models.Users
+@model IEnumerable<Texxtoor.DataModels.Models.Content.ElementMatrix>
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th>
+        @Html.DisplayNameFor(m => m.Keyword)
+      </th>
+      <th>
+        @Html.DisplayNameFor(m => m.Target)
+      </th>
+      <th>
+        @Html.DisplayNameFor(m => m.Stage)
+      </th>
+      <th class="Width200"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model) {
+      <tr>
+        <td>
+          @Html.Hidden("matrix", item.Id)
+          @(Html.TextBox("keyWords", item.Keyword, new Dictionary<string, object>() { { "style", "width:180px" }, { "data-item", item.Id } }))
+        </td>
+        <td>
+          @(Html.DropdownForEnum<TargetType>("targets", item.Target, new Dictionary<string, object>() { { "data-item", item.Id } }))
+        </td>
+        <td>
+          @(Html.DropdownForEnum<StageType>("stages", item.Stage, new Dictionary<string, object>() { { "data-item", item.Id } }))
+        </td>
+        <td>
+          <div class="optionFields" data-item="@item.Id">
+            <a href="#" id="opusmatrix-remove-@item.Id" class="opusmatrix-remove btn btn-xs btn-danger" data-item="@item.Id">
+              @ViewResources.Action_Common_Profile_Remove
+            </a>
+            <a href="#" id="opusmatrix-save-@item.Id" class="opusmatrix-save btn btn-xs btn-primary" data-item="@item.Id">
+              @ViewResources.Action_Common_Profile_Save
+            </a>
+          </div>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

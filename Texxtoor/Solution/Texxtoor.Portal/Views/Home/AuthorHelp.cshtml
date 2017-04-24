@@ -1,0 +1,16 @@
+﻿@{
+  PageData["Title"] = Loc("title1", "Help and Support for Authors");
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+  PageData["ShortHelp"] = Loc("text1", "We provide extensive help for authors.");
+}
+<h2>@Loc("head1", "Microsoft Word Add-In")</h2>
+<div class="well">
+  @Loc("text2", "The easist way to start with texxtoor is the texxtoor Word Add-In. This consists of template with few styles and the ability to check the document for consistency and upload to your project.")
+</div>
+<div class="btn-group">
+  <a href="~/Download/Package.zip" class="btn btn-lg btn-primary">@Loc("download", "Download Package here (ZIP)")</a>
+  <a href="~/Download/setup.exe" class="btn btn-lg btn-primary">@Loc("downloadWord", "MS Word Add-In (Click Once Executable)")</a>
+</div>
+@section FooterContent {
+  @Html.Action("Show", "Navigation", new { menuName = "footer", area = "" })
+}

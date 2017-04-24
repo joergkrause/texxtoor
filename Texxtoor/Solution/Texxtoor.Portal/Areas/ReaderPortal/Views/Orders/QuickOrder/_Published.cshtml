@@ -1,0 +1,15 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.Published
+<div id="Overview">
+  <h3>@Loc("titleInfo", "Information for '<span data-args='0' data-desc='Book Title'>{0}</span>'", Model.Title)
+  </h3>
+  <img class="publishedimg pull-right" src="@Url.Action("GetImg", "Tools", new { area = "", c = "Home", id = Model.Id, res = "150x190" })" alt="@Model.Title" />
+  <div class="BoldFont">@Model.SubTitle</div>
+  <div class="well well-sm">@Loc("textFrontMatter", @"written by <em><span data-args='0' data-desc='Book Author'>{0}</span></em>", Model.AuthorInformation)
+  </div>
+</div>
+<div id="Abstract">
+  <h3>@Loc("titleAbstract", "Abstract")</h3>
+  <div class="well well-sm">
+    @Model.Abstract
+  </div>
+</div>

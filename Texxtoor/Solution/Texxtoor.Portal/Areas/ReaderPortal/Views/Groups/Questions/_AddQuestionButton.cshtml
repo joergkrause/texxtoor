@@ -1,0 +1,4 @@
+﻿@Create.FormButtonOnClick("btnAddQuestion", "ui.addElement()", ViewResources.Action_Groups_CreateQuestion, "btn-primary", (ViewData["MinScore"] != null))
+@if (ViewData["MinScore"] != null) {
+  @Html.Partial("LayoutPartials/_MinScoreRequired", new Tuple<string, int, int>("To add a question a min reputation of {0} is required. ", (int)ViewData["MinScore"], (int)ViewData["HasScore"]))  
+}

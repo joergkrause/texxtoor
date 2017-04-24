@@ -1,0 +1,15 @@
+﻿@model decimal?
+@{
+  var ro = ViewData.ModelMetadata.IsReadOnly;
+  var le = String.Format("{0}px", (ViewData.ModelMetadata.AdditionalValues.ContainsKey("Length") ? Convert.ToInt32(ViewData.ModelMetadata.AdditionalValues["Length"]) : 25) * 10);
+  var dt = ViewData.ModelMetadata.DataTypeName == "Currency" ? "&euro;" : "";
+}
+@if (ro) {
+  @Html.TextBoxFor(m => m, new {disabled = "disabled", style = "width:" + le});
+  @Html.Raw(dt)
+}
+else {
+  @Html.TextBoxFor(m => m, new {style = "width:" + le, @class= "form-control"});
+  @Html.Raw(dt)
+}
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

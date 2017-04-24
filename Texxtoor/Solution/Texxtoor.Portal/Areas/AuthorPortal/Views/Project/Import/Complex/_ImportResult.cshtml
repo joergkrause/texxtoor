@@ -1,0 +1,16 @@
+﻿@model Texxtoor.ViewModels.Author.ImportResult
+@using(Html.BtFieldset(Loc("legendStat", @"Statistics"))) {
+  <label>@Loc("lblMissed", @"Missed Items:")</label>
+  <div class="editor-field">@Model.ItemsMissed.Count()</div>
+  <label>@Loc("lblMissingItems", @"Items not found:")</label>
+  <div class="editor-field">
+    @if (Model.ItemsMissed.Any()) {
+      foreach (var item in Model.ItemsMissed) {
+      @:@item,&nbsp;
+        }
+    }&nbsp;
+  </div>
+  <label>@Loc("lblSuccess", @"Successfully Processed Items:")</label>
+  <div class="editor-field">@Model.ItemsProcessed.Count()</div>
+}
+@Create.ActionTask("toEditButton", true, Url.Action("Edit", new { id = Model.OpusId }), ViewResources.LinkButton_EditorRoom)

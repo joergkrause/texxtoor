@@ -1,0 +1,211 @@
+﻿@using Texxtoor.DataModels.Models.Reader.Content
+@model Texxtoor.DataModels.Models.Reader.Content.Published
+<div id="workDetailsTab" class="box">
+  <div class="box-header green-background">
+    @Loc("titleInfo", "Information for '<span data-args='0' data-desc='Book Title'>{0}</span>'", Model.Title)
+    @if (!(bool)ViewBag.IsMain) {
+      <div class="pull-right">
+        <a id="btnCloseDetails" class="btn btn-primary">@ViewResources.Dialog_View_Cancel</a>
+      </div>
+    }
+  </div>
+  <div class="box-content box-padding">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#Abstract" data-toggle="tab"><span>@Loc("tab1", "Common Information")</span></a></li>
+      <li><a href="#Author" data-toggle="tab"><span>@Loc("tab6", "Author Information")</span></a></li>
+      <li><a href="#ToC" data-toggle="tab"><span>@Loc("tab3", "Table of Content")</span></a></li>
+      <li><a href="#Rating" data-toggle="tab"><span>@Loc("tab4", "Rating") &amp; @Loc("tab5", "Peer Reviews")</span></a></li>
+      <li><a href="#Resources" data-toggle="tab"><span>@Loc("tabRes", "Resources")</span></a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="Abstract" class="tab-pane active container">
+        <div class="pull-right">
+          <img class="publishedimg" src="@Url.Action("GetImg", "Tools", new { area = "", c = "Home", id = Model.Id, res = "150x190" })" alt="@Model.Title" />
+          <div id="ratingStars" style="margin: 200px 0 15px 0">
+            @Html.Partial("Published/_RatingStars", Model.Starred)
+          </div>
+        </div>
+        <h3>@Loc("tab1", "Common Information")</h3>
+        <div class="title">@Model.Title</div>
+        <div>@Model.SubTitle</div>
+        <h3>@Loc("titleAbstract", "Abstract")</h3>
+        <div>@Model.Abstract</div>
+        <div>
+          @Loc("textFrontMatter", @"written by <em><span data-args='0' data-desc='Book Author'>{0}</span></em>", Model.AuthorInformation)
+        </div>
+      </div>
+      <div id="Author" class="tab-pane">
+        <h3>@Loc("titleAuthors", "Authors")</h3>
+        <p>
+          @Loc("text4Authors", @"Find here information about the authors and contributors for this particular work.")
+        </p>
+        @if (Model.AuthorProfiles != null && Model.AuthorProfiles.Any()) {
+          foreach (var author in Model.AuthorProfiles) {
+            <h3>@author.FirstName @author.LastName</h3>
+            <div>@author.Application</div>
+          }
+        } else {
+          <label>@Loc("lblAuthors", "Authors"):</label> @Model.AuthorInformation
+          <div class="alert alert-warning">@Loc("txtNoProfile", "There is no author profile available")</div>
+        }
+      </div>
+
+      <div id="ToC" class="tab-pane">
+        <h3>@Loc("titleToC", "Table Of Content")</h3>
+        <p>
+          @Loc("txtToc", "Items shown here can be extracted, stored in collections, and reused to create custom content.")
+        </p>
+        <div id="res_TocBar">
+        </div>
+      </div>
+      <div id="Rating" class="tab-pane">
+        <h3>@Loc("titleRating", "Rating and Starring")</h3>
+        <div class="well well-sm">
+          @Loc("textRating", @"
+    Each work on <strong>texxtoor</strong> can be rated and reviews. The title <em><span data-args='0' data-desc='Book Title'>{0}</span></em>
+    has <strong style=""color: Green"" data-args='1' data-desc='Points'>{1}</strong> points. The summary of all ratings
+    looks like this: <span>", Model.Title, Model.Rating)
+        </div>
+        <div id="ratingStars" style="margin: 0 0 15px 0">
+          @Html.Partial("Published/_RatingStars", Model.Starred)
+        </div>
+        <div class="well well-sm">
+          @Loc("textInfoRating", "The rating system consists of two parts. First, the direct user input counts 50%. Each start given provides ten points. Second, " +
+                                 "the actual activities around the content provide the other 50%. Activities like reading, order as an app, or even re-use content " +
+                                 "from other authors give more points. There is also a deduction procedure. After some time of missing activity the points get reduced.")
+        </div>
+        <h3>@Loc("titleReader", "Reader Reviews")</h3>
+        @{
+          var readers = Model.Reviews != null ? Model.Reviews.OfType<ReaderReview>().ToList() : new List<ReaderReview>();
+        }
+        @if (!readers.Any()) {
+          <div class="alert alert-warning">
+            @Loc("noPeers", "There are no peer reviews for this content. Consider helping authors by writing reviews.")
+          </div>
+          <a href="@Url.Action("Review", new { id =  Model.Id })" class="btn btn-primary btn-sm" id="becomeReviewer">@Loc("btnNewPeer", "Become a reviewer")</a>
+        } else {
+          <div id="row">
+            <div class="alert alert-success">
+              @Loc("liRev", "There are <span data-args='0' data-desc='Review Count'>{0}</span> reviews available.", readers.Count())
+              @if (readers.Any(r => r.Reviewer.UserName == User.Identity.Name)) {
+                @Loc("liRevHas", "You have already added a review. You cannot review more than once.")
+              }
+              else {
+                <a href="@Url.Action("Review", new {id = Model.Id})" class="btn btn-primary btn-xs pull-right" id="becomeReviewer">@Loc("btnPeer", "Add a Review")</a>
+              }
+            </div>
+            <div class="box-content">
+              @foreach (var rev in readers) {
+                <div class="pull-left">
+                  <p>
+                    <a href="@Url.Action("ShowProfile", "Community", new { area = "", id = rev.Reviewer.Profile.Id })">
+                      <strong>@rev.Reviewer.UserName</strong>
+                      @rev.Reviewer.Profile.FirstName @rev.Reviewer.Profile.LastName
+                    </a>
+                  </p>
+                  <p>
+                    @if (rev.Level > 4) {
+                      <span class="label label-success">@Loc("txtPos", "Positive")</span>
+                    } else {
+                      if (rev.Level >= 3) {
+                        <span class="label label-warning">@Loc("txtAcc", "Acceptable")</span>
+                      } else {
+                        <span class="label label-danger">@Loc("txtNeg", "Negative")</span>
+                      }
+                    }
+                  </p>
+                </div>
+                <div class="text-right pull-right">
+                  <h4 class="contrast price">@Loc("txtWith", "with eval") @rev.Level</h4>
+                  <p>
+                    <span class="timeago fade has-tooltip in" data-placement="top" title="@rev.ModifiedAt">@rev.ModifiedAt</span>
+                    <i class="icon-time"></i>
+                  </p>
+                </div>
+                <div class="clearfix"></div>
+                <div title="@Loc("textPreRevComm1", @"Comment of reviewer:")">
+                  @rev.Comment
+                </div>
+                <hr class="hr-normal" />
+              }
+            </div>
+            @if (readers.Count() >= 10) {
+              <a href="#" id="moreReaderReviewLink" class="btn btn-info btn-sm">@Loc("linkDet", "Show peer reviews for this work...")</a>
+            }
+          </div>
+        }
+        <h3>@Loc("titlePeer", "Peer Reviews")</h3>
+        @{
+          var peers = Model.Reviews != null ? Model.Reviews.OfType<PeerReview>().ToList() : new List<PeerReview>();
+        }
+        @if (!peers.Any()) {
+          <div class="alert alert-warning">
+            @Loc("noPeers", "There are no peer reviews for this content. Consider helping authors by writing reviews.")
+          </div>
+        } else {
+          <div id="row">
+            <div class="alert alert-success">
+              @Loc("liRev", "There are <span data-args='0' data-desc='Review Count'>{0}</span> reviews available.", peers.Count())
+            </div>
+            <div class="box-content">
+              @foreach (var rev in peers) {
+                <div class="pull-left">
+                  <p>
+                    <a href="@Url.Action("ShowProfile", "Community", new { area = "", id = rev.Reviewer.Profile.Id })">
+                      <strong>@rev.Reviewer.UserName</strong>
+                      @rev.Reviewer.Profile.FirstName @rev.Reviewer.Profile.LastName
+                    </a>
+                  </p>
+                  <p>
+                    @if (rev.Level > 4) {
+                      <span class="label label-success">@Loc("txtPos", "Positive")</span>
+                    } else {
+                      if (rev.Level >= 3) {
+                        <span class="label label-warning">@Loc("txtAcc", "Acceptable")</span>
+                      } else {
+                        <span class="label label-danger">@Loc("txtNeg", "Negative")</span>
+                      }
+                    }
+                  </p>
+                </div>
+                <div class="text-right pull-right">
+                  <h4 class="contrast price">@Loc("txtWith", "with eval") @rev.Level</h4>
+                  <p>
+                    <span class="timeago fade has-tooltip in" data-placement="top" title="@rev.ModifiedAt">@rev.ModifiedAt</span>
+                    <i class="icon-time"></i>
+                  </p>
+                </div>
+                <div class="clearfix"></div>
+                <div title="@Loc("textPreRevComm1", @"Comment of reviewer:")">
+                  @rev.Comment
+                </div>
+                <hr class="hr-normal" />
+              }
+            </div>
+            @if (peers.Count() >= 10) {
+              <a href="#" id="moreReviewLink" class="btn btn-info btn-sm">@Loc("linkDet", "Show peer reviews for this work...")</a>
+            }
+          </div>
+        }
+      </div>
+      <div id="Resources" class="tab-pane">
+        <h3>@Loc("titleResources", "Resources")</h3>
+        <p>
+          @Loc("textResources", "The author provides the following files to support the text.")
+        </p>
+        @if (Model.ResourceFiles.Any()) {
+          <ul>
+            @foreach (var res in Model.ResourceFiles) {
+              <li>@Html.ActionLink(res.Name, "GetResourceFile", new { id = res.Id })</li>
+            }
+          </ul>
+        } else {
+          <div class="alert alert-warning">
+            @Loc("textNoResources", "There are currently no resources associated with any of the source texts.")
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+

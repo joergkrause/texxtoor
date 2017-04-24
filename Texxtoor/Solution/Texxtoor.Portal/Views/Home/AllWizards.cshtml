@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Texxtoor.ViewModels.Users.Demo.DemoWizard>
+@{
+  PageData["Title"] = "CreateProject";
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+}
+<h1>All Wizards</h1>
+<p>
+  @Loc("title", "Shows all available demo wizards.")
+</p>
+@foreach (var item in Model) {
+  <a href="/Home/DemoWizard?wizard=@item.Id" class="BoldFont">@item.Title</a>
+  <div class="MarginLeft25">@item.Description</div>  
+}
+@Create.ActionTask("", true, Url.Action("Index", "Home", new { area = "" }), ViewResources.LinkButton_Common_Home)

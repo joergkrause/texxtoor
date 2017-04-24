@@ -1,0 +1,32 @@
+﻿@using DocumentFormat.OpenXml.Drawing
+@model IPagedList<Texxtoor.DataModels.Models.Content.Opus>
+@Html.Partial("_Pagination", PaginationViewModel<Texxtoor.DataModels.Models.Content.Opus>.Create(Model, "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});", true, m => m.Name, m => m.ModifiedAt))
+<div class="multilist">
+  @foreach (var item in Model) {
+    <div class="listitem">
+      <div class="firstRow">
+        @Badges.NewItem(item.Name, item.CreatedAt, TimeSpan.FromMinutes(180))
+      </div>
+      <div class="secondRow">
+        <strong class="text text-red pull-left"><i class="icon icon-money"></i>&nbsp;@Loc("shares", "{0} shares", item.ContributorRatios.Count())</strong>
+        <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+        <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+
+          @Loc("text", @"The book <em><span data-args='0' data-desc='Name'>{0}</span></em> was created at
+        <em><span data-args='0' data-desc='CreatedAt'>{1}</span></em>.
+        There are <em><span data-args='0' data-desc='Ratio'>{2}</span></em> shares defined. ",
+            item.Name, item.CreatedAt.ToShortDateString(), item.ContributorRatios.Count())
+        </div>
+      </div>
+      <div class="thirdRow">
+        <div class="optionFields" data-item="@item.Id">
+          @if ((string)ViewBag.TeamLead == User.Identity.Name) {
+            @Create.ActionClick("btnEdit", false, "EditShares(" + item.Id + ")", ViewResources.Action_Team_SetShares, BtStyle.ButtonAndPrimary)
+          } else {
+            @Create.ActionClick("btnEdit", false, "EditShares(" + item.Id + ")", ViewResources.Action_Team_ConfirmShares)
+          }
+        </div>
+      </div>
+    </div>
+  }
+</div>

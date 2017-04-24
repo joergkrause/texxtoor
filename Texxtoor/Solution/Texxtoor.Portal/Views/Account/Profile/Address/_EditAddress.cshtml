@@ -1,0 +1,10 @@
+﻿@model Texxtoor.DataModels.Models.Users.AddressBook
+<div class="box box-padding">
+  <form class="box-content" id="editAddressForm">
+    @Html.HiddenFor(m => m.Id)
+    @using (Html.BtFieldset(Loc("legend", @"Edit Address"))) {
+      @Html.EditorForModel()
+      @Button.FormSendButtons("editAddressSendButton", ViewResources.Action_Profile_EditAddress, "editAddressCancelButton", ViewResources.Button_CancelAndClose)
+    }
+  </form>
+</div>

@@ -1,0 +1,58 @@
+﻿@model Texxtoor.DataModels.Models.Users.Tenant
+
+@{
+  PageData["Title"] = "Edit";
+  Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+
+<h1>Edit</h1>
+
+@using (Html.BeginForm()) {
+  @Html.ValidationSummary(true)
+  using(Html.BtFieldset("Tenant's primary data")) {
+
+    <div class="editor-label">
+      @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="editor-field">
+      @Html.EditorFor(model => model.Name)
+      @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="editor-label">
+      @Html.LabelFor(model => model.Description)
+    </div>
+    <div class="editor-field">
+      @Html.EditorFor(model => model.Description)
+      @Html.ValidationMessageFor(model => model.Description)
+    </div>
+
+    <div class="editor-label">
+      @Html.LabelFor(model => model.LogoImage)
+    </div>
+    <div class="editor-field">
+      @Html.EditorFor(model => model.LogoImage)
+      @Html.ValidationMessageFor(model => model.LogoImage)
+    </div>
+
+    <div class="editor-label">
+      @Html.LabelFor(model => model.Users)
+    </div>
+    <div class="editor-field">
+      @foreach (var user in Model.Users)
+      {
+        <div class="editPaddingLeft">@user.UserName</div>
+      }
+    </div>
+
+    @Html.HiddenFor(model => model.Id)
+
+    <p>
+      <input type="submit" value="Save" />
+    </p>
+  }
+}
+
+<div>
+  @Html.ActionLink("Back to List", "Index")
+</div>

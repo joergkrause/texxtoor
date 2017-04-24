@@ -1,0 +1,4659 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<profiles>
+  <profile>
+    <user>DemoUser</user>
+    <awardstate>Gold</awardstate>
+    <description>Demo Account</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Minestrone</street>
+        <zip>98765</zip>
+        <city>Klein Italy</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Demo</firstName>
+    <lastName>Nstrant</lastName>
+    <middleName></middleName>
+    <statementOfTaste>I Like to show you everything</statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>01/01/1990</birthDay>
+    <privateKeywords>Admin</privateKeywords>
+    <professionalKeywords>Admin</professionalKeywords>
+    <expertKeywords>Admin</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>Admin.jpg</Image>
+    <maxhourlyrate>50</maxhourlyrate>
+    <minhourlyrate>25</minhourlyrate>
+    <contractaccepted>True</contractaccepted>
+    <sharingaccepted>True</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>Admin</user>
+    <awardstate>Member</awardstate>
+    <description>Admin Account</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Hafersteig 113</street>
+        <zip>12683</zip>
+        <city>Berlin</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Jörg</firstName>
+    <lastName>Krause</lastName>
+    <middleName>Admin</middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>01/01/1990</birthDay>
+    <privateKeywords>Admin</privateKeywords>
+    <professionalKeywords>Admin</professionalKeywords>
+    <expertKeywords>Admin</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>Admin.jpg</Image>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>CmsAdmin</user>
+    <awardstate>Member</awardstate>
+    <description>Admin Account</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Hafersteig 113</street>
+        <zip>12683</zip>
+        <city>Berlin</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Jörg</firstName>
+    <lastName>Krause</lastName>
+    <middleName>Admin</middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>01/01/1990</birthDay>
+    <privateKeywords>Admin</privateKeywords>
+    <professionalKeywords>Admin</professionalKeywords>
+    <expertKeywords>Admin</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>Admin.jpg</Image>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>TenantAdmin</user>
+    <awardstate>Member</awardstate>
+    <description>Admin Account</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Hafersteig 113</street>
+        <zip>12683</zip>
+        <city>Berlin</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Jörg</firstName>
+    <lastName>Krause</lastName>
+    <middleName>Admin</middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>01/01/1990</birthDay>
+    <privateKeywords>Admin</privateKeywords>
+    <professionalKeywords>Admin</professionalKeywords>
+    <expertKeywords>Admin</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>Admin.jpg</Image>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>Author</user>
+    <awardstate>Gold</awardstate>
+    <description>Author Account</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Demoallee 1</street>
+        <zip>12345</zip>
+        <city>Berlin</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Jörg</firstName>
+    <lastName>Krause</lastName>
+    <middleName>isageek</middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>01/01/1990</birthDay>
+    <privateKeywords>Admin</privateKeywords>
+    <professionalKeywords>Admin</professionalKeywords>
+    <expertKeywords>Admin</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>2Giro4U.jpg</Image>
+    <maxhourlyrate>50</maxhourlyrate>
+    <minhourlyrate>25</minhourlyrate>
+    <contractaccepted>True</contractaccepted>
+    <sharingaccepted>True</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>TeamLead</user>
+    <awardstate>Member</awardstate>
+    <description>TeamLead Account</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Demoallee 1</street>
+        <zip>12345</zip>
+        <city>Berlin</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Jörg</firstName>
+    <lastName>Krause</lastName>
+    <middleName>Admin</middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>01/01/1990</birthDay>
+    <privateKeywords>Admin</privateKeywords>
+    <professionalKeywords>Admin</professionalKeywords>
+    <expertKeywords>Admin</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>Admin.jpg</Image>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>RosMeißner</user>
+    <awardstate>Member</awardstate>
+    <description>ist auf der Suche nach Werken mit Potenzial</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Demoallee 1</street>
+        <zip>12345</zip>
+        <city>Berlin</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Roswitta</firstName>
+    <lastName>Meißner</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Female</gender>
+    <birthDay>10/01/1979</birthDay>
+    <privateKeywords></privateKeywords>
+    <professionalKeywords></professionalKeywords>
+    <expertKeywords></expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>RosMeißner.jpg</Image>
+    <maxhourlyrate>50</maxhourlyrate>
+    <minhourlyrate>25</minhourlyrate>
+    <contractaccepted>False</contractaccepted>
+    <sharingaccepted>True</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>KaiAppelt</user>
+    <awardstate>Member</awardstate>
+    <description>segelt um die Welt</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Demoallee 1</street>
+        <zip>12345</zip>
+        <city>Berlin</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Kai</firstName>
+    <lastName>Appelt</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>03/20/1985</birthDay>
+    <privateKeywords></privateKeywords>
+    <professionalKeywords></professionalKeywords>
+    <expertKeywords></expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>KaiAppelt.jpg</Image>
+    <maxhourlyrate>50</maxhourlyrate>
+    <minhourlyrate>10</minhourlyrate>
+    <contractaccepted>True</contractaccepted>
+    <sharingaccepted>True</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>2Giro4U</user>
+    <awardstate>Member</awardstate>
+    <description>ist ein riesen How I Met Your Mother Fan</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Demoallee 1</street>
+        <zip>12345</zip>
+        <city>Berlin</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Babett</firstName>
+    <lastName>Bettermann</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Female</gender>
+    <birthDay>11/29/1982</birthDay>
+    <privateKeywords>HIMYM,Java,Excel</privateKeywords>
+    <professionalKeywords>Excel</professionalKeywords>
+    <expertKeywords>Excel</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>2Giro4U.jpg</Image>
+    <maxhourlyrate>25</maxhourlyrate>
+    <minhourlyrate>10</minhourlyrate>
+    <contractaccepted>True</contractaccepted>
+    <sharingaccepted>True</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>Moritz2</user>
+    <awardstate>Member</awardstate>
+    <description>immer für eine Hilfestellung ansprechbar :-)</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Demoallee 1</street>
+        <zip>12345</zip>
+        <city>Berlin</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Moritz</firstName>
+    <lastName>Zwoh</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>05/01/1975</birthDay>
+    <privateKeywords>Excel,Linus,Microsoft</privateKeywords>
+    <professionalKeywords>Microsoft;Linux</professionalKeywords>
+    <expertKeywords>Excel</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>Moritz2.jpg</Image>
+    <maxhourlyrate>50</maxhourlyrate>
+    <minhourlyrate>25</minhourlyrate>
+    <contractaccepted>True</contractaccepted>
+    <sharingaccepted>False</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Reviewer" minimumrole="Contributor">Reviewer</entry>
+      <entry lang="de" contributorrole="Reviewer" minimumrole="Contributor">Gutachter</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>KlausGrau</user>
+    <awardstate>Member</awardstate>
+    <description>Wer braucht Hilfe?</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Klaus</firstName>
+    <lastName>Grau</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>false</newsletter>
+    <gender>Male</gender>
+    <birthDay>10/29/1969</birthDay>
+    <privateKeywords>Microsoft Office</privateKeywords>
+    <professionalKeywords></professionalKeywords>
+    <expertKeywords>Microsoft Office</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>KlausGrau.jpg</Image>
+    <maxhourlyrate>50</maxhourlyrate>
+    <minhourlyrate>25</minhourlyrate>
+    <contractaccepted>False</contractaccepted>
+    <sharingaccepted>True</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>Tina92</user>
+    <awardstate>Member</awardstate>
+    <description>legte eine Studienpause ein um jetzt wieder durchzustarten</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Tina</firstName>
+    <lastName>Rausch</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Female</gender>
+    <birthDay>06/14/1987</birthDay>
+    <privateKeywords>Programmierung</privateKeywords>
+    <professionalKeywords>PHP</professionalKeywords>
+    <expertKeywords>PHP</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>Tina92.jpg</Image>
+    <maxhourlyrate>30</maxhourlyrate>
+    <minhourlyrate>20</minhourlyrate>
+    <contractaccepted>True</contractaccepted>
+    <sharingaccepted>True</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>Dieter1Mais</user>
+    <awardstate>Member</awardstate>
+    <description>ist eine Art Organisationsbot</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Dieter</firstName>
+    <lastName>Mais</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>08/08/1967</birthDay>
+    <privateKeywords>Organisation</privateKeywords>
+    <professionalKeywords>Programmierung</professionalKeywords>
+    <expertKeywords>Programmierung</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>Dieter1Mais.jpg</Image>
+  </profile>
+  <profile>
+    <user>Jenny4ever</user>
+    <awardstate>Member</awardstate>
+    <description>ist nur mit Ihrem Hund vollständig</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Jenny</firstName>
+    <lastName>Kersten</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Female</gender>
+    <birthDay>03/05/1981</birthDay>
+    <privateKeywords>Design</privateKeywords>
+    <professionalKeywords>Foto</professionalKeywords>
+    <expertKeywords>Foto</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>Jenny4ever.jpg</Image>
+  </profile>
+  <profile>
+    <user>Ehrenfried.Stil</user>
+    <awardstate>Member</awardstate>
+    <description>Alter schützt vor Technik nicht</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Ehrenfried</firstName>
+    <lastName>Stil</lastName>
+    <middleName>Hans</middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>10/05/1933</birthDay>
+    <privateKeywords>HTML</privateKeywords>
+    <professionalKeywords>HTML</professionalKeywords>
+    <expertKeywords>HTML</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>Ehrenfried.Stil.jpg</Image>
+  </profile>
+  <profile>
+    <user>HeinerFan</user>
+    <awardstate>Member</awardstate>
+    <description>ist der größte Heiner Fan!!</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Tanya</firstName>
+    <lastName>Berg</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Female</gender>
+    <birthDay>04/13/1965</birthDay>
+    <privateKeywords>CMS,Foto</privateKeywords>
+    <professionalKeywords>CMS</professionalKeywords>
+    <expertKeywords>Foto</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>HeinerFan.jpg</Image>
+    <maxhourlyrate>100</maxhourlyrate>
+    <minhourlyrate>5</minhourlyrate>
+    <contractaccepted>True</contractaccepted>
+    <sharingaccepted>False</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>CarlosNivi</user>
+    <awardstate>Member</awardstate>
+    <description>findet seine Inspiration in den Klängen der Gitarre.</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Carlos</firstName>
+    <lastName>Nivi</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>05/03/1965</birthDay>
+    <privateKeywords>Design,Foto</privateKeywords>
+    <professionalKeywords>Design</professionalKeywords>
+    <expertKeywords>Foto</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>CarlosNivi.jpg</Image>
+    <maxhourlyrate>50</maxhourlyrate>
+    <minhourlyrate>25</minhourlyrate>
+    <contractaccepted>True</contractaccepted>
+    <sharingaccepted>False</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>JoergK</user>
+    <awardstate>Gold</awardstate>
+    <description>Konto vom Chef</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Jörg</firstName>
+    <lastName>Krause</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>11/07/1964</birthDay>
+    <privateKeywords>PHP,Java</privateKeywords>
+    <professionalKeywords>PHP</professionalKeywords>
+    <expertKeywords>Java</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>JoergK.jpg</Image>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>AchimWetzler</user>
+    <awardstate>Member</awardstate>
+    <description>Achim ist Verleger</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Achim</firstName>
+    <lastName>Wetzler</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>12/01/1935</birthDay>
+    <privateKeywords>lesen,IT</privateKeywords>
+    <professionalKeywords>Verlagswesen</professionalKeywords>
+    <expertKeywords>Design</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>achimwetzler.jpg</Image>
+    <maxhourlyrate>50</maxhourlyrate>
+    <minhourlyrate>25</minhourlyrate>
+    <contractaccepted>False</contractaccepted>
+    <sharingaccepted>True</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>Karin2Web</user>
+    <awardstate>Member</awardstate>
+    <description>Karin wird reich</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Karin</firstName>
+    <lastName>Bettermann</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Female</gender>
+    <birthDay>11/01/1975</birthDay>
+    <privateKeywords>Foto,Design</privateKeywords>
+    <professionalKeywords>Photoshop</professionalKeywords>
+    <expertKeywords>Photoshop</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>Karin2Web.jpg</Image>
+    <maxhourlyrate>50</maxhourlyrate>
+    <minhourlyrate>25</minhourlyrate>
+    <contractaccepted>True</contractaccepted>
+    <sharingaccepted>False</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>WallE</user>
+    <awardstate>Member</awardstate>
+    <description>Ich mag keine Kätzchen und fahre hunderte Kilometer mit dem Rad, um meine Leidenschaft für TacoBell auszugleichen.</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Leah</firstName>
+    <lastName>Eclor</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Female</gender>
+    <birthDay>05/05/1987</birthDay>
+    <privateKeywords></privateKeywords>
+    <professionalKeywords></professionalKeywords>
+    <expertKeywords></expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>WallE.jpg</Image>
+    <maxhourlyrate>15</maxhourlyrate>
+    <minhourlyrate>5</minhourlyrate>
+    <contractaccepted>True</contractaccepted>
+    <sharingaccepted>False</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>Michi85</user>
+    <awardstate>Member</awardstate>
+    <description>Michi kümmert sich um immer neue tolle Bücher. Wenn er nicht gerade neue Projekte anlegt, geht er wandern, Rad fahren oder in der Bay Area surfen. Außerdem reist er gerne und probiert die tollen Restaurants in Berlin.</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Michael</firstName>
+    <lastName>Laarsen</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>male</gender>
+    <birthDay>12/12/1985</birthDay>
+    <privateKeywords>Linux</privateKeywords>
+    <professionalKeywords>Linux</professionalKeywords>
+    <expertKeywords>Linux</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>Michi85.jpg</Image>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>KM81</user>
+    <awardstate>Member</awardstate>
+    <description>ist Flieger mit Leib und Seele</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Karsten</firstName>
+    <lastName>Mann</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>03/12/1981</birthDay>
+    <privateKeywords>Datenbanken</privateKeywords>
+    <professionalKeywords>Datenbanken</professionalKeywords>
+    <expertKeywords></expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>KM81.jpg</Image>
+    <maxhourlyrate>50</maxhourlyrate>
+    <minhourlyrate>25</minhourlyrate>
+    <contractaccepted>False</contractaccepted>
+    <sharingaccepted>True</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>JessyWayne</user>
+    <awardstate>Member</awardstate>
+    <description>kennt Wayne tatsächlich.</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Jessica</firstName>
+    <lastName>Kruse</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Female</gender>
+    <birthDay>09/18/1983</birthDay>
+    <privateKeywords>Moodle</privateKeywords>
+    <professionalKeywords>Moodle</professionalKeywords>
+    <expertKeywords>Moodle</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>JessyWayne.jpg</Image>
+  </profile>
+  <profile>
+    <user>XavierFell</user>
+    <awardstate>Member</awardstate>
+    <description>liest nicht nur seine eigenen Bücher.</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Xavier</firstName>
+    <lastName>Fell</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>05/08/1979</birthDay>
+    <privateKeywords>Excel</privateKeywords>
+    <professionalKeywords>Excel</professionalKeywords>
+    <expertKeywords>Excel</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>XavierFell.jpg</Image>
+    <maxhourlyrate>100</maxhourlyrate>
+    <minhourlyrate>20</minhourlyrate>
+    <contractaccepted>True</contractaccepted>
+    <sharingaccepted>False</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>KesslerJan</user>
+    <awardstate>Member</awardstate>
+    <description>C## kann jeder.</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Jan</firstName>
+    <lastName>Kessler</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>10/16/1976</birthDay>
+    <privateKeywords>c##</privateKeywords>
+    <professionalKeywords>c##</professionalKeywords>
+    <expertKeywords>c##</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>KesslerJan.jpg</Image>
+  </profile>
+  <profile>
+    <user>Pusteblume</user>
+    <awardstate>Member</awardstate>
+    <description>Die Natur ist der beste Bauplan für ein Netzwerk</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Karla</firstName>
+    <lastName>Wegener</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Female</gender>
+    <birthDay>09/04/1981</birthDay>
+    <privateKeywords>Netzwerk</privateKeywords>
+    <professionalKeywords>Netzwerk</professionalKeywords>
+    <expertKeywords>NEtzwerk</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>Pusteblume.jpg</Image>
+  </profile>
+  <profile>
+    <user>(V)eister</user>
+    <awardstate>Member</awardstate>
+    <description>Regen = Schreiberzeit</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Michael</firstName>
+    <lastName>Veister</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>07/15/1981</birthDay>
+    <privateKeywords>VMware</privateKeywords>
+    <professionalKeywords>VMware</professionalKeywords>
+    <expertKeywords>VMware</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>(V)eister.jpg</Image>
+  </profile>
+  <profile>
+    <user>Schreiberline</user>
+    <awardstate>Member</awardstate>
+    <description>kann den Stift häufig nicht weglegen.</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Karla</firstName>
+    <lastName>Kolumnar</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Female</gender>
+    <birthDay>06/19/1974</birthDay>
+    <privateKeywords>SAP</privateKeywords>
+    <professionalKeywords>SAP</professionalKeywords>
+    <expertKeywords>SAP</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>Schreiberline.jpg</Image>
+  </profile>
+  <profile>
+    <user>KH-Mölders</user>
+    <awardstate>Member</awardstate>
+    <description>ein langer Spaziergang wirkt meist wunder.</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Karl-Heinz</firstName>
+    <lastName>Mölders</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>05/06/1966</birthDay>
+    <privateKeywords>Access</privateKeywords>
+    <professionalKeywords>Access</professionalKeywords>
+    <expertKeywords>Access</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>KH-Mölders.jpg</Image>
+    <maxhourlyrate>50</maxhourlyrate>
+    <minhourlyrate>25</minhourlyrate>
+    <contractaccepted>False</contractaccepted>
+    <sharingaccepted>True</sharingaccepted>
+    <contributormatrix>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>Gisi</user>
+    <awardstate>Member</awardstate>
+    <description>ist eine gute Seele des Autorenclubs</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Gisella</firstName>
+    <lastName>Weber</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Female</gender>
+    <birthDay>02/05/1962</birthDay>
+    <privateKeywords>Microsoft Office</privateKeywords>
+    <professionalKeywords>Microsoft Office</professionalKeywords>
+    <expertKeywords>Mircosoft Office</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>Gisi.jpg</Image>
+  </profile>
+  <profile>
+    <user>HBubbak</user>
+    <awardstate>Member</awardstate>
+    <description>sucht immer nach dem Rechtschreibfehler.</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Horst</firstName>
+    <lastName>Bubbak</lastName>
+    <middleName>Egon</middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>12/05/1952</birthDay>
+    <privateKeywords>Word</privateKeywords>
+    <professionalKeywords>Word</professionalKeywords>
+    <expertKeywords>Word</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>bionagy.jpg</Image>
+    <maxhourlyrate>50</maxhourlyrate>
+    <minhourlyrate>5</minhourlyrate>
+    <contractaccepted>True</contractaccepted>
+    <sharingaccepted>True</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>ClaudiaFun</user>
+    <awardstate>Member</awardstate>
+    <description>führt ein sportliches Leben</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Claudia</firstName>
+    <lastName>Funtian</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Female</gender>
+    <birthDay>05/23/1978</birthDay>
+    <privateKeywords>Webdesign</privateKeywords>
+    <professionalKeywords>Webdesign</professionalKeywords>
+    <expertKeywords>Webdesign</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>ClaudiaFun.jpg</Image>
+  </profile>
+  <profile>
+    <user>DaniK</user>
+    <awardstate>Member</awardstate>
+    <description>auf dem Rücken der Pferde zuhause</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Daniela</firstName>
+    <lastName>Kantner</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Female</gender>
+    <birthDay>09/19/1980</birthDay>
+    <privateKeywords>MySQL</privateKeywords>
+    <professionalKeywords>MySQL</professionalKeywords>
+    <expertKeywords>MySQL</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>DaniK.jpg</Image>
+  </profile>
+  <profile>
+    <user>LudgerSieger</user>
+    <awardstate>Member</awardstate>
+    <description>fährt gerne große Motorradtouren</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Ludger</firstName>
+    <lastName>Sieger</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>11/30/1952</birthDay>
+    <privateKeywords>Film</privateKeywords>
+    <professionalKeywords>Film</professionalKeywords>
+    <expertKeywords>Film</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>LudgerSieger.jpg</Image>
+  </profile>
+  <profile>
+    <user>HMetzer</user>
+    <awardstate>Member</awardstate>
+    <description>ist Mitglieder des FC Augsburg.</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Helmut</firstName>
+    <lastName>Metzer</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>10/05/1967</birthDay>
+    <privateKeywords>CMS</privateKeywords>
+    <professionalKeywords>CMS</professionalKeywords>
+    <expertKeywords>CMS</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>HMetzer.jpg</Image>
+    <maxhourlyrate>50</maxhourlyrate>
+    <minhourlyrate>25</minhourlyrate>
+    <contractaccepted>False</contractaccepted>
+    <sharingaccepted>True</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>Starlet_Moni</user>
+    <awardstate>Member</awardstate>
+    <description>gefällt die GLitzwelt</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Monika</firstName>
+    <lastName>Kanzler</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Female</gender>
+    <birthDay>03/08/1974</birthDay>
+    <privateKeywords>Film</privateKeywords>
+    <professionalKeywords>Film</professionalKeywords>
+    <expertKeywords>Film</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>bionagy.jpg</Image>
+  </profile>
+  <profile>
+    <user>TheAuthor</user>
+    <awardstate>Member</awardstate>
+    <description>will mehr Tinte.</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Falk</firstName>
+    <lastName>Mechalak</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>08/26/1979</birthDay>
+    <privateKeywords>Java</privateKeywords>
+    <professionalKeywords>Java</professionalKeywords>
+    <expertKeywords>Java</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>TheAuthor.jpg</Image>
+  </profile>
+  <profile>
+    <user>IcePlant</user>
+    <awardstate>Member</awardstate>
+    <description>Ein Bild sagt mehr als 1000 Worte.</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Jaqueline</firstName>
+    <lastName>Müller</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Female</gender>
+    <birthDay>08/07/1981</birthDay>
+    <privateKeywords>Foto</privateKeywords>
+    <professionalKeywords>Foto</professionalKeywords>
+    <expertKeywords>Foto</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>IcePlant.jpg</Image>
+    <maxhourlyrate>60</maxhourlyrate>
+    <minhourlyrate>20</minhourlyrate>
+    <contractaccepted>True</contractaccepted>
+    <sharingaccepted>True</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>Melle22</user>
+    <awardstate>Member</awardstate>
+    <description>ist Webdesignerin</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Melanie</firstName>
+    <lastName>Nülner</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Female</gender>
+    <birthDay>08/13/0984</birthDay>
+    <privateKeywords>Webdesign</privateKeywords>
+    <professionalKeywords>Webdesign</professionalKeywords>
+    <expertKeywords>Webdesign</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>Melle22.jpg</Image>
+  </profile>
+  <profile>
+    <user>Burk-Hart</user>
+    <awardstate>Member</awardstate>
+    <description>lesen ist seine Leidenschaft</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Burkhart</firstName>
+    <lastName>Alfons</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>03/03/1947</birthDay>
+    <privateKeywords>Foto-Print</privateKeywords>
+    <professionalKeywords>Foto-Print</professionalKeywords>
+    <expertKeywords>Foto-Print</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>Burk-Hart.jpg</Image>
+    <maxhourlyrate>50</maxhourlyrate>
+    <minhourlyrate>25</minhourlyrate>
+    <contractaccepted>False</contractaccepted>
+    <sharingaccepted>True</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>HyonLi</user>
+    <awardstate>Member</awardstate>
+    <description>spricht 5 Sprachen fließend.</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Hyon</firstName>
+    <lastName>Li</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>07/08/1957</birthDay>
+    <privateKeywords>Server</privateKeywords>
+    <professionalKeywords>Server</professionalKeywords>
+    <expertKeywords>Server</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>HyonLi.jpg</Image>
+    <maxhourlyrate>100</maxhourlyrate>
+    <minhourlyrate>10</minhourlyrate>
+    <contractaccepted>True</contractaccepted>
+    <sharingaccepted>True</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>KaiserMen</user>
+    <awardstate>Member</awardstate>
+    <description>studiert Projektmanagement.</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Erik</firstName>
+    <lastName>Klassner</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>09/04/1983</birthDay>
+    <privateKeywords>IT-Service</privateKeywords>
+    <professionalKeywords>It-Service</professionalKeywords>
+    <expertKeywords>IT-Service</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>KaiserMen.jpg</Image>
+  </profile>
+  <profile>
+    <user>Wheely</user>
+    <awardstate>Member</awardstate>
+    <description>berät auch im beruflichen.</description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+    <h2>
+Auf einen Blick</h2>
+<hr style="height: 1px" />
+<h3>
+Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+<li>Hafersteig 113</li>
+<li>12683 Berlin</li>
+<li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+  </div>
+  &nbsp;+49 30 56 30 10 32</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+  </div>
+  &nbsp;+49 30 55 129 033</li>
+<li>
+  <div style="width: 16px; height: 16px; float: left" class="icon-email">
+  </div>
+  &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+<li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+<li>SQL Server </li>
+<li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+<li>E-Commerce, Online Marketing </li>
+<li>
+ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+Ich suche</label>
+<p class="editor-field">
+I'm seeking software developers, venture capitalists, seed investors and business
+angels. Additionally I'm looking for authors of all kind of textbooks as partner
+for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+Ich biete</label>
+<p class="editor-field">
+.NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+Web 2.0 (and 3.0), social media, and software development at all. I'm available
+world wide as a contract worker / freelancer.</p>
+<label>
+Interessen</label>
+<p class="editor-field">
+Bücher schreiben...</p>
+    ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Wilhelm</firstName>
+    <lastName>Bambur</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Male</gender>
+    <birthDay>08/14/1969</birthDay>
+    <privateKeywords>App</privateKeywords>
+    <professionalKeywords>App</professionalKeywords>
+    <expertKeywords>App</expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>Wheely.jpg</Image>
+    <maxhourlyrate>50</maxhourlyrate>
+    <minhourlyrate>5</minhourlyrate>
+    <contractaccepted>True</contractaccepted>
+    <sharingaccepted>False</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+  <profile>
+    <user>MNagy</user>
+    <awardstate>Member</awardstate>
+    <description>Michael hat an der Wayne State University studiert. Er ist für den Support und andere ihm willkürlich zugewiesene Aufgaben zuständig. Wenn er sich nicht gerade Support-Tickets bei Dropbox erledigt, unterrichtet er Computerkurse in Michigan. </description>
+    <addresses>
+      <address default="true" invoice="true">
+        <street>Authors Street 5010</street>
+        <zip>54586</zip>
+        <city>New York City</city>
+      </address>
+    </addresses>
+    <walltext>
+      <![CDATA[
+      <h2>
+  Auf einen Blick</h2>
+  <hr style="height: 1px" />
+<h3>
+  Jörg Krause</h3>
+<strong>CEO</strong> <strong>ABG Augmented Books GmbH</strong>
+<strong>Geschäftliche Kontakte</strong>
+<ul>
+  <li>Hafersteig 113</li>
+  <li>12683 Berlin</li>
+  <li>Deutschland</li>
+</ul>
+<strong>Kommunikation</strong>
+<ul>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-phone">
+    </div>
+    &nbsp;+49 30 56 30 10 32</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-telephone">
+    </div>
+    &nbsp;+49 30 55 129 033</li>
+  <li>
+    <div style="width: 16px; height: 16px; float: left" class="icon-email">
+    </div>
+    &nbsp;joerg@krause.net</li>
+</ul>
+<h2>
+  Über mich</h2>
+<hr style="height: 1px" />
+Ich bin als <b>Berater</b>, <b>Entwickler</b> und <b>Autor</b> aktiv.
+<br />
+Schwerpunkt ist alles rund um Microsoft-Entwicklertechnologien, insbesondere:
+<br />
+<ul>
+  <li>.NET (ASP.NET, WCF, WPF, IE, Visual Studio) </li>
+  <li>SQL Server </li>
+  <li>Microsoft Office Server (Sharepoint, Biztalk) </li>
+</ul>
+Ich habe zahlreiche Bücher veröffentlicht (> 40 mit über 250.000 Gesamtauflage seit
+1997), u.a:
+<ul>
+  <li>E-Commerce, Online Marketing </li>
+  <li>
+  ASP.NET, Windows Server, SharePoint/li>
+</ul>
+<h2>
+  Persönliches</h2>
+<hr style="height: 1px" />
+<label>
+  Ich suche</label>
+<p class="editor-field">
+  I'm seeking software developers, venture capitalists, seed investors and business
+  angels. Additionally I'm looking for authors of all kind of textbooks as partner
+  for my own textbook publishing platform "AugmentedBooks".</p>
+<label>
+  Ich biete</label>
+<p class="editor-field">
+  .NET Software development, in-depth know how and consulting around .NET, ASP.NET,
+  SharePoint Development, Entity Framework, SQL Server. I have a lot ideas about Internet,
+  Web 2.0 (and 3.0), social media, and software development at all. I'm available
+  world wide as a contract worker / freelancer.</p>
+<label>
+  Interessen</label>
+<p class="editor-field">
+  Bücher schreiben...</p>
+      ]]>
+    </walltext>
+    <notes></notes>
+    <status>Active</status>
+    <firstName>Michael</firstName>
+    <lastName>Nagy</lastName>
+    <middleName></middleName>
+    <statementOfTaste></statementOfTaste>
+    <newsletter>False</newsletter>
+    <gender>Both</gender>
+    <birthDay></birthDay>
+    <privateKeywords></privateKeywords>
+    <professionalKeywords></professionalKeywords>
+    <expertKeywords></expertKeywords>
+    <XingProfile></XingProfile>
+    <FacebookProfile></FacebookProfile>
+    <OtherProfile></OtherProfile>
+    <Image>bionagy.jpg</Image>
+    <maxhourlyrate>50</maxhourlyrate>
+    <minhourlyrate>25</minhourlyrate>
+    <contractaccepted>True</contractaccepted>
+    <sharingaccepted>True</sharingaccepted>
+    <contributormatrix>
+      <entry lang="en" contributorrole="Author" minimumrole="Author">Author</entry>
+      <entry lang="en" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+      <entry lang="de" contributorrole="Author" minimumrole="Author">Autor</entry>
+      <entry lang="de" contributorrole="Designer" minimumrole="Contributor">Designer</entry>
+    </contributormatrix>
+  </profile>
+</profiles>

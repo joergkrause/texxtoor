@@ -1,0 +1,103 @@
+﻿.ribbon 
+{
+  font-family: Trebuchet MS, Arial;
+  font-size: 11pt;
+  padding: 0px;
+  display: none;
+  margin:0px;
+  color:#254264;
+  background-color:#DCE5F2;
+  background-image:url(/Scripts/author/ribbon/themes/Windows7/images/background.png);
+  background-repeat:repeat-x;
+}
+
+.ribbon h1
+{
+	font-family: Trebuchet MS, Arial;
+	font-size: 14pt;
+}
+
+.ribbon h2
+{
+	font-family: Trebuchet MS, Arial;
+	font-size: 13pt;
+	color: #4E81C8;
+}
+
+.ribbon img
+{
+    border: 0px;
+}
+
+.ribbon a
+{
+    color: #254264;
+    text-decoration: underline;
+}
+
+.ribbon a:hover
+{
+    text-decoration: none;
+}
+
+.mainContainer
+{
+    width: 100%;
+    background-color: #d9e4f3;
+    border: 1px solid #3b5a82;
+    border-bottom: 0px;
+}
+
+.textbox
+{
+	background-image: url(images/textboxbg.png);
+	background-repeat: repeat-y;
+	width: 809px;
+	margin: 0px auto;
+}
+
+.textbox div
+{
+	width: 740px;
+	margin: 0px auto;
+	padding: 20px;
+	overflow: hidden;
+}
+
+.left
+{
+	background-image: url(images/textboxbg.png);
+	background-repeat: repeat-y;
+	width: 32px;
+	margin: 0px 0px 0px 10px;
+	min-height:1000px;
+	height:100%;
+	float: left;
+}
+
+.left div
+{
+	width: 32px;
+	margin: 0px auto;
+	padding: 2px;
+	overflow: hidden;
+}
+
+.right
+{
+	background-image: url(images/textboxbg.png);
+	background-repeat: repeat-y;
+	width: 32px;
+	margin: 0px 10px 0px 0px;
+	float: right;
+	min-height:1000px;
+	height:100%;
+}
+
+.right div
+{
+	width: 32px;
+	margin: 0px auto;
+	padding: 2px;
+	overflow: hidden;
+}

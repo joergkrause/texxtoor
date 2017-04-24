@@ -1,0 +1,76 @@
+﻿@model Texxtoor.ViewModels.Shared.Users.Account.Tasks
+@{
+  PageData["Title"] = @Loc("title", "Tasks");
+  Layout = Url.GetGlobalLayout();
+}
+<div class="well">
+  @Loc("tasks", "Here we show all actions and tasks you're responsible to, that might need your immediate attention. Use the links to various platform function to perform these tasks on the designated pages.")  
+</div>
+<div class="row">
+  <div class="col-md-12 box">
+    @using (Html.BeginForm()) {
+      <div id="accordion" class="accordion accordion-green accordion-contrast panel-group">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseTexts">
+              <i class="icon-certificate" style="color: #fff;"></i>@Loc("lblTexts", "Texts you're assigned to")
+            </a>
+          </div>
+          <div id="collapseTexts" class="panel-collapse collapse">
+            <fieldset>
+              @Html.Partial("Tasks/_Texts", Model)
+            </fieldset>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-heading">
+            <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseMemberships">
+              <i class="icon-user" style="color: #fff;"></i>@Loc("lblMemberships", "Pending Memberships in Teams")
+            </a>
+          </div>
+          <div id="collapseMemberships" class="panel-collapse collapse">
+            <fieldset>
+              @Html.Partial("Tasks/_MembershipsPending", Model)
+            </fieldset>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-heading">
+            <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseDue">
+              <i class="icon-bullseye" style="color: #fff;"></i>@Loc("lblMilestonesDue", "Your milestones that are due or overdue")
+            </a>
+          </div>
+          <div id="collapseDue" class="panel-collapse collapse">
+            <fieldset>
+              @Html.Partial("Tasks/_MilestonesDue", Model)
+            </fieldset>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-heading">
+            <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseNotDone">
+              <i class="icon-bullseye" style="color: #fff;"></i>@Loc("lblMilestonesNotdone", "Your milestones not yet done")
+            </a>
+          </div>
+          <div id="collapseNotDone" class="panel-collapse collapse">
+            <fieldset>
+              @Html.Partial("Tasks/_MilestonesNotDone", Model)
+            </fieldset>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-heading">
+            <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseInvoice">
+              <i class="icon-money" style="color: #fff;"></i>@Loc("lblInvoices", "Invoices due or shortly due")
+            </a>
+          </div>
+          <div id="collapseInvoice" class="panel-collapse collapse">
+            <fieldset>
+              @Html.Partial("Tasks/_Invoices", Model)
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

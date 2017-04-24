@@ -1,0 +1,111 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@using Texxtoor.ViewModels.Shared.Common
+@model IPagedList<Project>
+@Html.Partial("_Pagination", PaginationViewModel<Project>.Create(Model, "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});",
+  new Dictionary<string, string> {
+    {"id", "createNewButton"},
+    {"action", "ui.addElement()" },
+    {"text", ViewResources.Action_Project_CreateProject},
+    {"cssclass", BtStyle.ButtonPrimary}
+  }, true, m => m.Name, m => m.ModifiedAt))
+@Html.Partial("_Multilist", MultilistViewModel<Project>.Create(Model, true,
+  p => String.Format("{0} ({1})", p.Name, ViewResources.TasksButton_ToProjects),
+  p => new HtmlString(p.Name),
+  p => new HtmlString(p.Team.TeamLead.UserName == User.Identity.Name ? @"<i class=""icon icon-thumbs-up-alt""></i>&nbsp;<strong class=""text text-red"">" + Loc("txtLeading", "I'm leading this project.").ToString() + "</strong>" : ""),
+  "/AuthorPortal/Project/Dashboard",
+  p => {
+    var leader = p.Team.TeamLead;
+    var fromList = true;
+    var deactivated = (bool)ViewBag.ForDeactivated;
+    var options = new List<OptionField>();
+    if (deactivated) {
+      options.Add(new OptionClickField("lnkReactivate", true, "ui.reactivateProject(" + p.Id + "," + Model.PageIndex + ",'" + Model.Order + "','" + Model.Descending + "')", ViewResources.Action_Project_Reactivate, 5));
+      if (p.Opuses == null || p.Opuses.Count(o => o.Active) == 0) {
+        options.Add(new OptionClickField("lnkRemove", true, "ui.deleteProject(" + p.Id + "," + Model.PageIndex + ",'" + Model.Order + "','" + Model.Descending + "')", ViewResources.Action_Project_Delete, 4, "btn-warning"));
+      }
+    } else {
+      if (fromList) {
+        if (p.Opuses != null && p.Opuses.Any(o => o.Active)) {
+          options.Add(new OptionLinkField("lnkEdit", true, Url.Action("EditOpus", "Project", new { id = p.Id }), ViewResources.Action_Project_EditCurrentText, "btn-info"));
+        }
+        options.Add(new OptionLinkField("lnkDashboard", true, Url.Action("Dashboard", "Project", new { id = p.Id }), ViewResources.Action_Project_ShowDashboard, "btn-info"));
+      }
+      if (leader.UserName == User.Identity.Name) {
+        if (Model != null) {
+          options.Add(new OptionClickField("directEdit", false, "ui.editElement(" + p.Id + "," + Model.PageIndex + ",'" + Model.Order + "','" + Model.Descending + "')", ViewResources.Action_Project_EditProject, 4, "btn-warning"));
+        }
+        options.Add(new OptionLinkField("lnkImport", false, Url.Action("Import", "Project", new { id = p.Id, type = "MsWord" }), ViewResources.Action_Project_Import));
+        options.Add(new OptionLinkField("showClosedButton", false, Url.Action("ShowClosed", "Opus", new { id = p.Id }), ViewResources.TasksButton_ShowClosed));
+        options.Add(new OptionLinkField("createTplButton", true, Url.Action("CreateFromTemplate", "Opus", new { id = p.Id }), ViewResources.TasksButton_CreateNewWork));
+        options.Add(new OptionClickField("lnkDeactivate", false, "ui.deleteElement(" + p.Id + ")", ViewResources.Action_Project_Deactivate, "btn-warning"));
+        options.Add(new OptionLinkField("lnkMarketing", false, Url.Action("MarketingPackage", "Marketing", new { id = p.Id }), ViewResources.Action_Project_PricingMarketing));
+        options.Add(new OptionLinkField("lnkShares", false, Url.Action("ManageShares", "Team", new { p.Id }), ViewResources.TasksButton_PricingRevenueShare));
+        options.Add(new OptionLinkField("btnNewLead", false, Url.Action("AssignToLeadAuthor", "Project", new { Id = p.Id }), ViewResources.Action_Project_AssignToLeadAuthor));
+        if (p.CanPublish()) {
+          options.Add(new OptionLinkField("lnkPublish", false, Url.Action("Index", "Publishing", new { id = p.Id }), ViewResources.Action_Project_Publish));
+        }
+      }
+      options.Add(new OptionLinkField("gotoTeam", false, Url.Action("Details", "Team", new { id = p.Team.Id, projectId = p.Id, area = "AuthorPortal" }), ViewResources.TasksButton_TeamsRoom));
+      options.Add(new OptionLinkField("lnkResources", false, Url.Action("Index", "Resource", new { Id = p.Id }), ViewResources.TasksButton_FileResources));
+      options.Add(new OptionLinkField("lnkSemantic", false, Url.Action("Termsets", "Resource", new { Id = p.Id }), ViewResources.TasksButton_SemanticData));
+    }
+    return options;
+  },
+  p => p.Id,
+  p => new HtmlString(
+    String.Concat(
+    Loc("textTabCellInfo", @"Project <em><span data-args='0' data-desc='Project Count'>{0}</span></em>, active since <em><span data-args='1' data-desc='CreatedAt'>{1}</span></em>",
+    p.Name, p.CreatedAt.ToShortDateString(), p.Opuses.Any() ? p.Opuses.Max(o => o.ModifiedAt).ToShortDateString() : p.ModifiedAt.ToShortDateString()),
+    (p.Team.TeamLead.UserName == User.Identity.Name) ? "&nbsp;" + Loc("txtLeading", "I'm leading this project.").ToString() : "&nbsp;" + Loc("txtNotLeading", "I'm a team member.") + @"<em>" + p.Team.TeamLead.UserName + "</em> " + Loc("txtIsLeader", "is the project's leader.").ToString(),
+    p.Team.Members.Count() == 1 ? "&nbsp;" + Loc("lnkTeamOne", "You're the only member in the team.").ToString() : "&nbsp;" + Loc("lnkTeam", @"<em><span data-args='0' data-desc='Team Member Count'>{0}</span></em> Members in the <span data-args='1' data-desc='Team Id'>{1}</span>",
+        p.Team.Members.Count(),
+        Html.ActionLink("team " + p.Team.Name, "Details", "Team", new { id = p.Team.Id }, null)
+        ).ToString(),
+        
+    (p.Opuses == null || p.Opuses.Count(o => o.Active) == 0) ? Loc("lnkBookNo", "No text in the project. Start via Dashboard.").ToString() : "",
+    (p.Opuses != null && p.Opuses.Count(o => o.Active) == 1) ? Loc("lnkBookOne", "There is one active text in this project.").ToString() : "",
+    (p.Opuses != null && p.Opuses.Count(o => o.Active) > 1) ? Loc("lnkBooks", @"<em><span data-args='0' data-desc='Opus Count'>{0}</span></em> active books in the project.", p.Opuses.Count(o => o.Active)).ToString() : "",
+    (!p.CanPublish() && ViewBag.ForDeactivated != null && !(bool)ViewBag.ForDeactivated) ? @"<span class=""text text-red"">" + Loc("txtNotPublishable", "Not yet publishable.").ToString() + "</span>" : ""
+    )
+    ),
+  p => {
+    var tiles = new List<InfoBoxTileViewModel> {
+      new InfoBoxImageTileViewModel {
+        Src = Url.Action("GetImg", "Tools", new {area = "", id = p.Id, c = "Project", res = "108x108", nc = true, t = DateTime.Now.Ticks})
+      },
+      new InfoBoxTextTileViewModel {
+        Value = p.Opuses.Count(),
+        Explain = "Texts",
+        ColorStyleClass = "dark"
+      },
+      new InfoBoxTextTileViewModel {
+        Value = p.Team.Members.Count(),
+        Explain = "Members",
+        ColorStyleClass = "medium"
+      }
+    };
+    var green = p.Active && p.Published != null && p.Published.Any();
+    var red = p.Active && !p.CanPublish() && !green;
+    var yellow = p.Active && !green && !red;
+    var off = !p.Active;
+    tiles.Add(new InfoBoxStatusTileViewModel {
+      Color = green ? "green" : red ? "red" : yellow ? "yellow" : off ? "gray" : "",
+      Explain = green ? "Go" : red ? "Stopped" : yellow ? "Progress" : off ? "Off" : "",
+      ColorStyleClass = "light"
+    });
+    return tiles;
+  }
+  ))
+
+@*<script>
+    $(document).on('mouseover', '[data-area=infobox]', function () { $(this).find('div[data-type=infobox]').show(); });
+    $(document).on('mouseout', '[data-area=infobox]', function () { $(this).find('div[data-type=infobox]').hide(); });
+  </script>
+  <div class="multilist">
+    @foreach (var item in Model) {
+      var leader = item.Team.Members.Single(t => t.TeamLead);
+      <div class="listitem draggable" style="height: 110px; background-color: #fafafa" data-drop-item="@item.Id"  data-title="@item.Name (@ViewResources.TasksButton_ToProjects)" data-model="/AuthorPortal/Project/Dashboard">
+        @Html.Partial("Projects/_Item", item, new ViewDataDictionary() { { "leader", leader }, { "pagination", Model }, { "deactivated", (bool)ViewBag.ForDeactivated }, { "fromList", true } })
+      </div>
+    }
+  </div>*@

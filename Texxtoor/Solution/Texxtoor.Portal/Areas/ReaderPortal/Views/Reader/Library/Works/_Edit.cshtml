@@ -1,0 +1,7 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.Work
+@using (Html.BeginForm("EditWork", "Reader", new { id = Model.Id, area = "ReaderPortal" }, FormMethod.Post, new { id = "editBookForm" })) {
+  using(Html.BtFieldset(Loc("legend", "Change Work"))) {
+    @Html.EditorForModel()
+    @Button.FormSendButtons("editBookSendButton", ViewResources.Action_Library_EditContent, "editBookCancelButton", ViewResources.Button_CancelAndClose)
+  }
+}

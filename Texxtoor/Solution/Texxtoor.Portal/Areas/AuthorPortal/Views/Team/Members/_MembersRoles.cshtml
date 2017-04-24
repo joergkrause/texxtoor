@@ -1,0 +1,10 @@
+﻿@model Texxtoor.ViewModels.Author.TeamMemberModel
+@{
+  var localizedRoles = new List<string>();
+}
+<em>@Model.Member.UserName</em> @Loc("isCurrently", "Is currently")
+@foreach (var role in Model.Roles) {
+  var rs = Enum.GetValues(typeof(Texxtoor.DataModels.Models.Author.ContributorRole)).Cast<Texxtoor.DataModels.Models.Author.ContributorRole>();
+  localizedRoles.AddRange(from r in rs where role.ContributorRoles.HasFlag(r) select typeof(Texxtoor.DataModels.Models.Author.ContributorRole).GetField(r.ToString()).GetCustomAttributes(typeof(System.ComponentModel.DataAnnotations.DisplayAttribute), true).Cast<System.ComponentModel.DataAnnotations.DisplayAttribute>().Single() into attr select attr.GetName());
+}
+<em>@Html.Raw(String.Join("</em>, <em>", localizedRoles.ToArray()))</em>

@@ -1,0 +1,22 @@
+﻿@model Texxtoor.ViewModels.Users.ExternalLoginConfirmationViewModel
+@{
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+  PageData["Title"] = Loc("textHead", @"Register now");
+}
+<div class="well">
+  @Loc("text", "Use this form to register.")
+  @Loc("text2", "The password should have at least {0} characters.", ViewBag.LoginProvider)
+</div>
+<div class="alert alert-info">
+  @Loc("text3", "In case you already have a local texxtoor account you can provide the very same username and local password. The external logon will get associated and you keep access to your local projects with this external account. If you don't have a local account and you're about to just create a new using an external logon just provide a username for the texxtoor platform or stay with the suggestion shown. Do NOT enter a password - we never ask for passwords for external accounts.")
+</div>
+@using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl })) {
+  @Html.AntiForgeryToken()
+  @Html.ValidationSummary(true)
+    using(Html.BtFieldset(Loc("text1", @"Register Details"))) {
+    @Html.EditorForModel()  
+    <div class="formsendButtons">
+        <input type="submit" value="@ViewResources.Action_Common_Register" class="btn btn-primary" />
+    </div>
+    }
+}

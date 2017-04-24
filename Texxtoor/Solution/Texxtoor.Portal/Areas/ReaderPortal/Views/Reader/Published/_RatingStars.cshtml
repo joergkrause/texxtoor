@@ -1,0 +1,11 @@
+﻿@model int
+<div style="padding: 5px 0px 15px 0px">
+  @for (int i = 0; i < Model; i++) {
+    <div class="icon-award_star_gold_1 rating-field" data-value="@i">
+    </div>
+  }
+  @for (int i = 5; i > Model; i--) {
+    <div class="icon-award_star_silver_1 rating-field" data-value="@i">
+    </div>
+  }
+</div>

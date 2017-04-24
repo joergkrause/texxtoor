@@ -1,0 +1,20 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using Texxtoor.DataModels.Models.Users
+@model Texxtoor.DataModels.Models.Users.User
+@if (Model.Profile.FirstName != null && Model.Profile.LastName != null) {
+  @:[@Model.Profile.FirstName @Model.Profile.LastName 
+}
+else {
+  @:[@Model.UserName 
+}
+@{
+  var userScore = Model.Profile.UserScore;
+  var creaScore = Model.Profile.CreatorScore;
+  var userBadge = Model.Profile.UserBadge;
+  var creaBadge = Model.Profile.CreatorBadge;
+  var userBadgeAttr = typeof(UserBadge).GetField(userBadge.ToString()).GetCustomAttributes(typeof(DisplayAttribute), true).Cast<DisplayAttribute>().Single();
+  var userBadgeName = userBadgeAttr.GetName();
+  var creaBadgeAttr = typeof(CreatorBadge).GetField(creaBadge.ToString()).GetCustomAttributes(typeof(DisplayAttribute), true).Cast<DisplayAttribute>().Single();
+  var creaBadgeName = creaBadgeAttr.GetName();  
+} 
+| @userBadgeName | @creaBadgeName ]

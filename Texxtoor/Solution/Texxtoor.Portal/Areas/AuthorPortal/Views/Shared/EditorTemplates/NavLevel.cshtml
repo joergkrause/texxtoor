@@ -1,0 +1,7 @@
+﻿@model int?
+@using Texxtoor.DataModels.Models.Reader.Content
+@{
+  var m = Model.HasValue ? (NavLevel) Model.Value : NavLevel.Document;
+}
+@(Html.DropdownForEnum("navLevel", m, new Dictionary<string, object>(){{"style", "width:180px;"}}, true))
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

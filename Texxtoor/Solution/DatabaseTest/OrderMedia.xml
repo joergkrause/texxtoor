@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Medias>
+  <Media PriceBase="0.00">Web</Media>
+  <Media PriceBase="3.00">iBook</Media>
+  <Media PriceBase="2.00">ePub</Media>
+  <Media PriceBase="2.00">Kindle</Media>
+  <Media PriceBase="1.00">AndroidApp</Media>
+  <Media PriceBase="1.00">Phone7App</Media>
+  <Media PriceBase="3.00">iPadApp</Media>
+  <Media PriceBase="5.00">Print</Media>
+</Medias>

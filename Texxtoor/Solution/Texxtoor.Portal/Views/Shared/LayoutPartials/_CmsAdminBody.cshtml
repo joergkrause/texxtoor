@@ -1,0 +1,12 @@
+﻿@if (User.IsInRole("CmsAdmin")) {
+  <div class="CmsAdminBodyDiv1">
+    <img src='~/Content/icons/application_edit.png' id="resSummaryIcon" style='' class="CmsAdminBodyImg"/>
+    <div id="resSummary" class="CmsAdminBodyDiv2">
+      @Html.Action("ResourceSummary", "ThemeSwitcher", new { area = "", view = ((RazorView)ViewContext.View).ViewPath })
+      Current = @Culture<br/>
+      Set -->
+      @Html.ActionLink("de", "SetCulture", "ThemeSwitcher", new { area = "", culture = "de" }, null)
+      @Html.ActionLink("en", "SetCulture", "ThemeSwitcher", new { area = "", culture = "en" }, null)
+    </div>
+  </div>
+}

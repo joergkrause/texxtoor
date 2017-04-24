@@ -1,0 +1,86 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Orders.OrderProduct
+@{
+  PageData["Title"] = Loc("title1", "Checkout");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+  PageData["ShortHelp"] = Loc("lblPara", @"If you pay with PayPal there is no need to add any personal data.");
+}
+@section HeadContent {
+  <script>
+    $(function() {
+      $('#orderAmount').spinner({ min: 1, max: 100 });
+      $('#orderAmount').change(function() {
+        getShipping(this);
+      });
+      getShipping($('#orderAmount'));
+    });
+    function getShipping(e) {
+      var amount = $(e).val();
+      if (!amount) amount = 1;
+      $.ajax({
+        url: '@Url.Action("CalculateShippingAndHandling", "Orders")',
+        data: {
+          id: @Model.Id,
+          amount: amount
+        },
+        dataType: 'json',
+        type: 'GET',
+        success: function(data) {
+          $('#lblFinalPriceSale').text(data.total);
+        }
+      });
+    }
+  </script>
+}
+<h2>@Loc("titlePayment", "Payment")</h2>
+@using (Html.BeginForm()){
+   using (Html.BtFieldset(Loc("legend", @"Order Information for <span>{0}</span>", Model.Title))){
+     if (Model.RealPrice > 0){
+       <div class="pull-right">
+         @Create.ImageAction("ppCheckout", Url.Action("ExpressCheckout", "Orders", new{id = Model.Id}), "Reader/paypalcheckout.jpg")
+       </div>
+     }
+     else{
+       <div class="alert alert-warning">
+         @Loc("textFree", @"This is a free delivery. There is no confirmation required. You can immediately use the content.")
+       </div>
+     }
+     <label>@Loc("lblMedia", @"Media Formats")</label>
+     <div class="editor-field">
+       @{
+         foreach (var media in Model.Media){
+           @media.Name
+           <text>&nbsp;</text>
+         }
+       }
+     </div>
+     <label>
+       @Loc("lblPrice", @"Final pricing includes shipping, assurance, and V.A.T., if applicable")</label>
+     <div class="editor-field BoldFont">
+       <span id="lblFinalPriceSale" class="ordermediaspan">@(String.Format("{0:C}", Model.RealPrice/100))</span>
+     </div>
+     <br />
+     if (@Model.Media.Any(m => m.Name == "Print")){
+       <label>@Loc("lbIssues", @"Number of issues")</label>
+       <div class="editor-field">
+         <input type="text" name="orderAmount" id="orderAmount" />
+       </div>
+     }
+     <br />
+     <label>@Loc("lblShipping", @"Shipping information")</label>
+     <div class="editor-field">
+       @Loc("lblDelivery", @"Electronic delivery")
+     </div>
+     <p>@Loc("pArchive", @"Use the archive function to download electronic items any time after purchase.")</p>
+   }
+ }
+@if (Model.RealPrice == 0) {
+  <h2>@Loc("titleImmediate", "Immediate Media Access")</h2>
+  <div class="well well-sm">
+    @Loc("textImmediate", @"This order contains free items only. You can download now or any time later using the archive from your private menu.")
+  </div>
+}
+@Create.ActionTask("", true, Url.Action("Archive", "Account", new { area = "" }), ViewResources.TasksButton_Reader_Archive)
+@Create.ActionTask("", false, Url.Action("Library", "Reader"), ViewResources.TasksButton_Reader_Library)
+@Create.ActionTask("", false, Url.Action("Matrix", "Home"), ViewResources.LinkButton_Reader_Matrix)
+@Create.ActionTask("", false, Url.Action("Products", "Products"), ViewResources.LinkButton_Reader_Products)
+@Create.ActionTask("", false, Url.Action("ReOrder", "Orders", new { id = Model.Id }), ViewResources.LinkButton_Reader_CurrentOrder)

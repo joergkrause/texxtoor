@@ -1,0 +1,9 @@
+﻿@model string
+@{
+  var rows = (int)ViewData.ModelMetadata.AdditionalValues["Rows"] * 24;
+  var cols = (int)ViewData.ModelMetadata.AdditionalValues["Cols"] * 10;
+  var wm = ViewData.ModelMetadata.Watermark;
+  var style = String.Format("width: {0}px; height: {1}px", cols, rows);
+}
+@Html.TextAreaFor(m => m, new Dictionary<string, object>{ { "data-watermark", wm }, { "class", "editor-field-textarea"}, { "style", style } })
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

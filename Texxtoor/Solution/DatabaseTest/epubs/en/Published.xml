@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<published>
+  <!--<book rating="125" starred="3">
+    <filename>Backup and Restore of SQL Server Databases.epub</filename>
+    <coverimage>Backup and Restore of SQL Server Databases.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Databases</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  
+  <book rating="323" starred="1">
+    <filename>Building Elastic and Resilient Cloud Applications.epub</filename>
+    <coverimage>Building Elastic and Resilient Cloud Applications.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Cloud Computing</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="100" starred="4">
+    <filename>Business continuity for SharePoint 2010.epub</filename>
+    <coverimage>Business continuity for SharePoint 2010.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Office and SharePoint</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="455" starred="1">
+    <filename>Configure Kerberos Authentication for SharePoint 2010 Products.epub</filename>
+    <coverimage>Configure Kerberos Authentication for SharePoint 2010 Products.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Operating Systems</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>    
+  <book rating="125" starred="1">
+    <filename>Data Analysis Expressions - DAX - Reference.epub</filename>
+    <coverimage>Data Analysis Expressions - DAX - Reference.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Databases</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="125" starred="5">
+    <filename>Deploying an ASP.NET using Visual Studio.epub</filename>
+    <coverimage>Deploying an ASP.NET using Visual Studio.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Cloud Computing</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="125" starred="5">
+    <filename>Deployment guide for Microsoft SharePoint Server 2010.epub</filename>
+    <coverimage>Deployment guide for Microsoft SharePoint Server 2010.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Office and SharePoint</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="125" starred="5">
+    <filename>Getting Started with ASP.NET 4.5 Web Forms - Beta.epub</filename>
+    <coverimage>Getting Started with ASP.NET 4.5 Web Forms - Beta.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Programming</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="333" starred="3">
+    <filename>Getting started with Microsoft SharePoint Server 2010.epub</filename>
+    <coverimage>Getting started with Microsoft SharePoint Server 2010.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Office and SharePoint</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="444" starred="4">
+    <filename>Governance guide for Microsoft SharePoint Server 2010.epub</filename>
+    <coverimage>Governance guide for Microsoft SharePoint Server 2010.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Office and SharePoint</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="726" starred="5">
+    <filename>Intro to ASP.NET MVC 4 with Visual Studio - Beta.epub</filename>
+    <coverimage>Intro to ASP.NET MVC 4 with Visual Studio - Beta.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Programming</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="992" starred="3">
+    <filename>Introducing ASP.NET Web Pages 2.epub</filename>
+    <coverimage>Introducing ASP.NET Web Pages 2.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Programming</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="13" starred="3">
+    <filename>Introducing Microsoft SQL Server 2012.epub</filename>
+    <coverimage>Introducing Microsoft SQL Server 2012.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Databases</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="16" starred="3">
+    <filename>Introducing Windows Server 2012.epub</filename>
+    <coverimage>Introducing Windows Server 2012.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Operating Systems</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="56" starred="5">
+    <filename>Master Data Services Capacity Guidelines.epub</filename>
+    <coverimage>Master Data Services Capacity Guidelines.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Databases</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="83" starred="5">
+    <filename>Microsoft SQL Server Disaster Recovery.epub</filename>
+    <coverimage>Microsoft SQL Server Disaster Recovery.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Databases</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="125" starred="5">
+    <filename>Microsoft SQL Server Analysis Services Multidimensional Performance and Operations Guide.epub</filename>
+    <coverimage>Microsoft SQL Server Analysis Services Multidimensional Performance and Operations Guide.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Databases</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="45" starred="3">
+    <filename>Moving Applications to the Cloud - 2nd Edition.epub</filename>
+    <coverimage>Moving Applications to the Cloud - 2nd Edition.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Cloud Computing</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="80" starred="3">
+    <filename>Profile synchronization guide for SharePoint 2010.epub</filename>
+    <coverimage>Profile synchronization guide for SharePoint 2010.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Office and SharePoint</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="92" starred="3">
+    <filename>QuickStart - Learn DAX Basics in 30 Minutes.epub</filename>
+    <coverimage>QuickStart - Learn DAX Basics in 30 Minutes.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Databases</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="23" starred="3">
+    <filename>Security and Privacy for Microsoft Office 2010 Users.epub</filename>
+    <coverimage>Security and Privacy for Microsoft Office 2010 Users.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Office and SharePoint</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="46" starred="3">
+    <filename>Sharepoint_Designer_2010_Workflows.epub</filename>
+    <coverimage>Sharepoint_Designer_2010_Workflows.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Office and SharePoint</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="98" starred="3">
+    <filename>SQL Server 2012 Transact-SQL DML Reference.epub</filename>
+    <coverimage>SQL Server 2012 Transact-SQL DML Reference.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Databases</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="86" starred="5">
+    <filename>SQL Server 2012 - Analysis Services Data Mining.epub</filename>
+    <coverimage>SQL Server 2012 - Analysis Services Data Mining.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Databases</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="125" starred="3">
+    <filename>SQL Server 2012 - Analysis Services Multidimensional Modeling.epub</filename>
+    <coverimage>SQL Server 2012 - Analysis Services Multidimensional Modeling.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Databases</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="400" starred="3">
+    <filename>SQL Server 2012 - Analysis Services Tabular Modeling.epub</filename>
+    <coverimage>SQL Server 2012 - Analysis Services Tabular Modeling.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Databases</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="645" starred="3">
+    <filename>SQL Server 2012 Upgrade Technical Guide.epub</filename>
+    <coverimage>SQL Server 2012 Upgrade Technical Guide.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Databases</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="534" starred="3">
+    <filename>Reference for Microsoft SharePoint Server 2010.epub</filename>
+    <coverimage>Reference for Microsoft SharePoint Server 2010.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Databases</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="43" starred="3">
+    <filename>Entity Framework 4.0 and ASP.NET Web Forms.epub</filename>
+    <coverimage>Entity Framework 4.0 and ASP.NET Web Forms.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Programming</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="312" starred="3">
+    <filename>Upgrading to Microsoft SharePoint Server 2010.epub</filename>
+    <coverimage>Upgrading to Microsoft SharePoint Server 2010.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Office and SharePoint</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="911" starred="3">
+    <filename>WCF RIA Services - Brian Noyes.epub</filename>
+    <coverimage>WCF RIA Services - Brian Noyes.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Programming</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="112" starred="3">
+    <filename>Windows Azure Prescriptive Guidance.epub</filename>
+    <coverimage>Windows Azure Prescriptive Guidance.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Cloud Computing</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="224" starred="3">
+    <filename>Windows Azure Service Bus Reference.epub</filename>
+    <coverimage>Windows Azure Prescriptive Guidance.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Cloud Computing</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="552" starred="5">
+    <filename>WP7.5 Fundamentals - Andrea Boschin.epub</filename>
+    <coverimage>WP7.5 Fundamentals - Andrea Boschin.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Programming</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>
+  <book rating="783" starred="5">
+    <filename>XNA.Framework.Edition.Programming.Windows.Phone.7.epub</filename>
+    <coverimage>XNA.Framework.Edition.Programming.Windows.Phone.7.jpg</coverimage>
+    <marketing name="Default Package for Public EBooks" baseprice="3">Desc</marketing>
+    <catalog>Programming</catalog>
+    <reviews>
+      <review level="2" approved="true" user="Moritz2">This is a very nice work</review>
+    </reviews>
+  </book>-->
+</published>

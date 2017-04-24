@@ -1,0 +1,21 @@
+﻿@model Texxtoor.DataModels.Models.Users.UserProfile
+@using (Html.BtFieldset(Loc("legend8", @"Payment Settings"))) {
+  <div class="well well-sm">
+    @Loc("textPayment", @"You can assign your default payment settings. For readers how to pay, for authors how to get revenues.")
+  </div>
+  @Html.LabelFor(m => m.PayPalUserId, new { @class = "control-label col-sm-3" })
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.PayPalUserId)
+    @Html.ValidationMessageFor(m => m.PayPalUserId)
+  </div>
+  <div class="editor-field-accordion">
+    @if (User.IsInRole("Author")) {
+      <div class="alert alert-danger">
+        @Loc("expl", "See task for payments and billing options exclusively for authors.")
+      </div>
+      @Create.ActionTask("btnInInv", false, Url.Action("InvoicesIncoming", "Team", new { area = "AuthorPortal" }), ViewResources.TasksButton_IncomingInvoices)
+      @Create.ActionTask("btnOuInv", false, Url.Action("InvoicesOutgoing", "Team", new { area = "AuthorPortal" }), ViewResources.TasksButton_OutgoingInvoices)
+    }
+  </div>
+}
+@Create.ActionTask("btnPayment", true, Url.Action("Index", "Payment", new { area = "AuthorPortal" }), ViewResources.TasksButton_CurrentPayments)

@@ -1,0 +1,42 @@
+﻿@model IPagedList<Texxtoor.DataModels.Models.Reader.Functions.Bookmark>
+@Html.Partial("_Pagination", PaginationViewModel<Texxtoor.DataModels.Models.Reader.Functions.Bookmark>.Create(Model,
+"javascript:UpdateTable({page}, '{order}', '{dir}', {pagesize});",
+new Dictionary<string, string> {
+    {"id", "delBookmarks"},
+    {"action", "" },
+    {"text", ViewResources.Action_Reader_Bookmarks_Delete},
+    {"cssclass", "btn-primary"}
+  }, 
+  true, 
+  m => m.Work.Name, m => m.ModifiedAt))
+@if (!Model.Any()) {
+  <div class="alert alert-warning">
+    @Loc("textNoData", @"There are no bookmarks in this work")
+  </div>
+} else {   
+  <div class="multilist">
+    @foreach (var item in Model) {
+      <div class="listitem">
+        <div class="firstRow">
+          @Badges.NewItem(item.FragmentHref, item.CreatedAt, TimeSpan.FromDays(2))
+        </div>
+        <div class="secondRow">
+          @Loc("text", @"
+          This bookmark was create at <em><span data-args='0' data-desc='Date'>{0}</span></em> 
+          at <em><span data-args='1' data-desc='Time'>{1}</span></em>
+          for fragment <em><span data-args='2' data-desc='Href'>{2}</span></em>.",
+          item.CreatedAt.ToShortDateString(),
+          item.CreatedAt.ToShortTimeString(),
+          item.FragmentHref
+          )
+        </div>
+        <div class="thirdRow">
+          <div class="optionFields">
+            <label for="bookMarkId-@item.Id" class="@BtStyle.ButtonDanger">@Loc("lnkRemove", "Remove")</label>
+            <input type="checkbox" value="@item.Id" name="bookMarkId" id="bookMarkId-@item.Id" />
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

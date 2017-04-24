@@ -1,0 +1,10 @@
+﻿@model Texxtoor.DataModels.Models.Content.Opus
+@{
+  PageData["Title"] = Loc("title", "Error");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("text1", @"The workspace <span data-args='0' data-desc='Worspace Name'>{0}</span> has an error and appears to be empty. This could cause by an incomplete import. Repeat import or close the workspace and repeat the last action. If the problem persist contact our support staff.", Model.Name);
+}
+@section HeadContent{  
+
+}
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = Model.Project.Id }), ViewResources.LinkButton_ToDashboard)

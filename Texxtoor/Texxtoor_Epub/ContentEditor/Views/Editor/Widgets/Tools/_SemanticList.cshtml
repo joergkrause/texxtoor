@@ -1,0 +1,11 @@
+﻿@using Texxtoor.Editor.Core.Extensions
+@model SelectList
+<ul class="ribbon-theme">
+  @if (!Model.Any()) {
+    <li>List is empty</li>      
+  } else {
+    foreach (var item in Model) {  
+    <li data-value="@item.Value" @(item.Selected ? "checked" : "") class="ribbon-button" data-command="insert" data-action="term" data-option="@ViewBag.Type">@item.Text.Ellipsis(20)</li>
+    }
+  }
+</ul>

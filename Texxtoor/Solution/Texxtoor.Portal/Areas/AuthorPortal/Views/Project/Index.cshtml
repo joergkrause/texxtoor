@@ -1,0 +1,126 @@
+﻿@{
+  PageData["Title"] = Loc("title", "Project");
+  PageData["ShortHelp"] = Loc("text1", @"On this page you can see all projects you're associated with. As a lead-author you can edit the project details and initiate
+the publishing process. As a participant, such as a co-author or translator, you can view project settings and team members.");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+}
+@section HeadContent{
+  <script type="text/javascript">
+    $(function() {
+      $("#addProject").css("display", "none");
+      ui = new Dialog(
+      {
+        formId: '#addProjectForm',
+        formDivId: '#addProject',
+        formAction: '@Url.Action("AddProject")',
+        sendBtnId: '#addProjectSendButton',
+        cancelBtnId: '#addProjectCancelButton',
+        onShow:
+          function() {
+            $('#createNewButton').hide();
+            $('#templateSelection').accordion({ heightStyle: "content", clearStyle: true, collapsible: true });
+            $(".datepicker").datepicker({
+              showOn: 'both',
+              changeMonth: true,
+              changeYear: true,
+              yearRange: "@(DateTime.Now.Year):@(DateTime.Now.Year + 20)",
+              buttonImage: '@Url.Content("~/Content/icons/calendar.png")'
+          });
+          $('#showMilestones').hide();
+          $('input[name=useMilestones]').on('change', function() {
+            ($('input[name=useMilestones]').is(':checked')) ? $('#showMilestones').show() : $('#showMilestones').hide();
+          });
+        },
+        onClose: function() {
+          $('#createNewButton').show();
+        }
+      },
+      {
+        formId: '#editProjectForm',
+        formDivId: '#editProject',
+        formAction: '@Url.Action("EditProject")',
+        sendBtnId: '#editProjectSendButton',
+        cancelBtnId: '#editProjectCancelButton',
+        onShow:
+          function() {
+            $('#main').hide();
+          },
+        onClose: function() {
+          $('#main').show();
+        }
+      },
+      {
+        formId: '#delProject',
+        formDivId: '#delProject',
+        formAction: '@Url.Action("DeactivateProject")',
+        sendBtnId: '#delProjectSendButton',
+        cancelBtnId: '#delProjectCancelButton'
+      },
+      {
+        formId: '#main',
+        formDivId: '#main',
+        formAction: '@Url.Action("ListProjects")'
+      });
+      ui.updateTable();
+
+      ui.reactivateProject = function(id, page, order, dir, pagesize) {
+        $.ajax({
+          url: '@Url.Action("ReactivateProject", "Project")',
+          data: { id: id, page: page, order: order, dir: dir, pagesize: pagesize },
+          type: 'GET',
+          dataType: 'json',
+          success: function(data) {
+            toastr.success(data.msg);
+            ui.updateTable(0);
+          }
+        });
+      };
+
+      ui.deleteProject = function(id, page, order, dir, pagesize) {
+        $.ajax({
+          url: '@Url.Action("DeleteProject", "Project")',
+          data: { id: id, page: page, order: order, dir: dir, pagesize: pagesize },
+          type: 'GET',
+          dataType: 'json',
+          success: function(data) {
+            toastr.success(data.msg);
+            ui.updateTable(0);
+          }
+        });
+      };
+    });
+
+  </script>
+}
+@using (Html.BtDeleteTemplate(Loc("txtDel", "You're about to deactivate a project permanently. Please confirm."))) {
+  @Create.FormButtonOnClick("delProjectSendButton", "", ViewResources.Action_Project_Deactivate, cssClass: "btn-warning")
+  @Create.FormButtonOnClick("delProjectCancelButton", "", ViewResources.Button_Cancel)
+}
+@using (Html.BtFormPanel(Loc("legend", @"New Project"), "addProject", "green")) {
+  
+}
+@Create.ContentFormEmpty("editProject", Loc("editForm", "Edit Project Properties").ToHtmlString())
+@Create.MainContentWithLoader()
+@Create.ActionTask("deactivatedButton", false, Url.Action("DeactivatedProjects"), ViewResources.TasksButton_ProjectDeactivated)
+@Create.ActionTask("lnkTeams", false, Url.Action("Index", "Team"), ViewResources.TasksButton_ToTeams)
+@section HelpSection{
+  <p>
+    @Loc("text2", @"You start a new project any time. If you start a project you become a lead-author automatically. You can go further by just
+start typing or invite others to participate helping to create, style, and lay-out your project.")
+  </p>
+  <p>
+    @Loc("text3", @"A project can contain a single book, multiple versions of a book, or even works as some sort of container for Content
+such blog articles. You can ran a team or do it yourself.")
+  </p>
+}
+
+
+
+
+
+
+
+
+
+
+

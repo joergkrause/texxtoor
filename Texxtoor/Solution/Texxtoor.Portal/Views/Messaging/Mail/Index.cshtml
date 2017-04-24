@@ -1,0 +1,140 @@
+﻿@model Texxtoor.DataModels.Models.Common.Message
+@{
+  Layout = Url.GetGlobalLayout();
+  PageData["Title"] = Loc("title", "Mailbox");
+  PageData["ShortHelp"] = Loc("text1", @"This is your internal mailbox. Use this box to contact others without using or sharing your private email address.");
+  var rm = (Texxtoor.DataModels.Models.Common.RunMode)HttpContext.Current.Application["RunMode"];
+}
+@section HeadContent{
+  <script>
+    $(document).ready(function() {
+      $("#addMessage").hide();
+    });
+  </script>
+
+  <script type="text/javascript">
+    var receiversSelector = null;
+    $(function() {
+      window.ui = new Dialog(
+      {
+        formId: '#addMessageForm',
+        formDivId: '#addMessage',
+        formAction: '@Url.Action("AddMessage")',
+        sendBtnId: '#addMessageSendButton',
+        cancelBtnId: '#addMessageCancelButton',
+        onShow: function() {
+          $('#addMessage').show();
+          $('#pagecontent').hide();
+          if (!receiversSelector) {
+            receiversSelector = $('#receivers').tokenInput('@Url.Action("GetMessageReceivers", "Messaging", null)', {
+              minChars: 2,
+              theme: "@rm.ToString().ToLowerInvariant()",
+              preventDuplicates: true,
+              hintText: "@ViewResources.Input_NameOfRecipient",
+              noResultsText: "@ViewResources.Input_Search_NoResult",
+              searchingText: "@ViewResources.Action_Team_SearchUsers"
+            });
+            $("#addMessageForm").validate({
+              ignore: [],
+              rules: {
+                receivers: {
+                  required: true
+                }
+              }
+            });
+          }
+        },
+        onClose: function() {
+          $('#pagecontent').show();
+          $("#addMessageForm input").val('');
+          $("#addMessageForm textarea").empty();
+          window.ui.updateTable();
+          UpdateOutBox(0);
+        }
+      },
+      {
+        formId: '#showMessageForm',
+        formDivId: '#showMessage',
+        formAction: '@Url.Action("ShowMessage")',
+        cancelBtnId: '#showMessageCancelButton',
+        onShow: function() {
+          $('#pagecontent').hide();
+        },
+        onClose: function() {
+          $('#pagecontent').show();
+        }
+      },
+      {
+        formId: '#delMessage',
+        formDivId: '#delMessage',
+        sendBtnId: '#delMailSendButton',
+        cancelBtnId: '#delMailCancelButton'
+      },
+      {
+        formId: '#inbox',
+        formDivId: '#inbox',
+        formAction: '@Url.Action("ListMessages", new {filter = "In"})'
+      });
+      window.ui.updateTable();
+      UpdateOutBox(0);
+    });
+
+    function deleteElement(id) {
+      $.ajax({
+        url: '@Url.Action("DeleteMessage")',
+        data: { id: id },
+        type: 'GET',
+        cache: false,
+        dataType: "json",
+        success: function(data) {
+          toastr.success(data.msg);
+          ui.updateTable();
+          UpdateOutBox();
+        },
+        error: function(data) {
+          toastr.error(data.statusText);
+        }
+      });
+    }
+
+    function UpdateOutBox(page) {
+      $.ajax({
+        url: '@Url.Action("ListMessages")',
+        data: { filter: 'Out', page: page },
+        type: 'GET',
+        cache: false,
+        dataType: "html",
+        success: function(data) {
+          // load data into form container
+          $('#outbox').html(data);
+          ui.setTableBehavior();
+        }
+      });
+    }
+
+  </script>
+}
+@Create.ContentForm("addMessage", new MvcHtmlString(""), Loc("headerAdd", "Add Message").ToString())
+@using (Html.BtDeleteTemplate(Loc("permDel", "You're about to delete a mail entry. Please confirm."))) {
+  @Create.FormButtonOnClick("delMailSendButton", "", ViewResources.Action_Delete_Mail, BtStyle.ButtonWarning)
+  @Create.FormButtonOnClick("delMailCancelButton", "", ViewResources.Button_Cancel)
+}
+@Create.ContentFormEmpty("showMessage")
+<div id="pagecontent">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#in" data-toggle="tab">@Loc("title2", "InBox")</a></li>
+    <li><a href="#out" data-toggle="tab">@Loc("title3", "Sent")</a></li>
+  </ul>
+  <div class="tab-content" id="editorTab">
+    <div class="tab-pane active" id="in">
+      <h2>@Loc("title2", "InBox")</h2>
+      @Create.MainContentWithLoader("inbox")
+    </div>
+    <div class="tab-pane" id="out">
+      <h2>@Loc("title3", "Sent")</h2>
+      @Create.MainContentWithLoader("outbox")
+    </div>
+  </div>
+</div>
+@Create.ActionTask("", false, Url.Action("UserProfile", "Account", new { area = "" }), ViewResources.LinkButton_Community_UserProfile)
+@Create.ActionTask("", false, Url.Action("Private", "Account", new { area = "" }), ViewResources.LinkButton_Common_Archive)

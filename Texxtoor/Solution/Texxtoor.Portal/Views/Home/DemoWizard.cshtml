@@ -1,0 +1,28 @@
+﻿@model Texxtoor.ViewModels.Users.Demo.DemoWizard
+@{
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+  PageData["Title"] = Model.Title;
+}
+<table class="DemoWizardTable1" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+      <div>
+        @Model.Description
+      </div>
+    </td>
+    <td class="backgroundcolorBlack">
+      <img src="@Model.Image" class="border0"/>
+      @using (Html.BeginForm("DemoWizardCall", "Home", FormMethod.Post)) {
+        <input type="hidden" name="wizard" value="@Model.Id"/>   
+        <input type="image" src="~/Content/icons/ShowDemo.png" class="DemoWizardImg" />
+      }
+    </td>
+    <td>
+      <div>@Loc("textImp", @"Important: While running, the demo will you sign out and being logged on using a <u>demo account</u>!")
+      </div>
+      <div>@Loc("textStop", @"Hit the STOP button to stop the demo. Sign in with your account, then.")
+      </div>
+    </td>
+  </tr>
+</table>
+@Create.ActionLink("AllWizards", true, Url.Action("AllWizards", "Home", new { @class = "backNavButton btn btn-primary backArrowBlack" }), "All Wizards")

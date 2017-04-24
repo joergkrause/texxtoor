@@ -1,0 +1,73 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.Published
+@{
+  PageData["Title"] = Loc("title", @"Update Publishing");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+}
+@using(Html.BtDiv(BtStyle.Well)) {
+  @Loc("text", @"You have decided to update a currently published work. As we guarantee both, a stable access to data (frozen state) and up-to-data content, some decisions are required. Fill in the form below and proceed with the publishing procedure.")
+}
+@using (Html.BtPanel(Loc("titleProps", "General Content Properties"), "green")) {
+  using (Html.BeginForm("UpdatePublishing", "Publishing", new { id = Model.Id }, FormMethod.Post, new { id = "updateOpusForm" })) {
+    <fieldset>
+      <legend>@Loc("legend", "Refresh your work's settings")</legend>
+      <div class="well well-sm">
+        <small>@Loc("noChangeTitle", "You cannot change these settings for an intermediate update release")</small>
+      </div>
+      <div class="editor-field">
+        @Html.LabelFor(m => m.Title)
+        @Html.DisplayFor(m => m.Title)
+      </div>
+
+      <div class="editor-field">
+        @Html.LabelFor(m => m.Marketing.BasePrice)
+        @Html.DisplayFor(m => m.Marketing.BasePrice)
+      </div>
+      <div class="well well-sm">
+        <small>@Loc("changeTitle", "You change these settings at any time. However, printed copies and published work on foreign platforms will not update. The update refreshes the content source database on texxtoor only.")</small>
+      </div>
+      <div class="editor-field">
+        @Html.LabelFor(m => m.SubTitle)
+        @Html.EditorFor(m => m.SubTitle)
+        @Html.ValidationMessageFor(m => m.SubTitle)
+      </div>
+
+      <div class="editor-field">
+        @Html.LabelFor(m => m.ExternalPublisher.Description)
+        @Html.EditorFor(m => m.ExternalPublisher.Description)
+        @Html.ValidationMessageFor(m => m.ExternalPublisher.Description)
+      </div>
+      <div class="formsendButtons">
+        @Button.Send("btnRepublish", ViewResources.LinkButton_Publishing, "btn-sm btn-primary")
+      </div>
+    </fieldset>
+  }
+}
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", false, Url.Action("Index", "Publishing", new { id = Model.Id }), ViewResources.LinkButton_Publishing)
+@section HelpSection {
+<ul>
+  <li>1. Include this update in subscriptions. Subscribers get this for free as part of the subscription. (recommended)</li>
+  <li>2. Notify current users of the content that this is subject to.
+    <ul>
+      <li>a. A bugfix, correction, errata, or other smaller improvement</li>
+      <li>b. An update that contains up-to-date data, a new version, an improvement (recommended)</li>
+      <li>c. There is new content, a huge enhancement or otherwise an significant improvement</li>
+      <li>d. No notification to existing users. New users will just see this new version as the current one.</li>
+    </ul>
+  </li>
+  <li>3. Make previous versions of frozen fragments inactive. That means user cannot longer add comments or set bookmarks. The reason is that you plan to no longer
+    provide any support for this previous version.</li>
+  <li>4. Inform authors and contributors using current content that a new version is available (recommended).
+    <ul>
+      <li>a. Make this version mandatory. Until contributors take over the references their current content remains inactive.</li>
+      <li>b. Taking the new content is voluntary (recommended).</li>
+    </ul>
+  </li>
+</ul>
+<p>
+  After sending this form the new version of content will be created and distributed immediately. You cannot undo 
+  this. In case of failure you can repeat this procedure any time. Consider making changes often enough to stay
+  current but hardly more often than once week to keep the number of versions low enough to be handy. 
+</p>
+
+}

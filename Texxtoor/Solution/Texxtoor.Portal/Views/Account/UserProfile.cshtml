@@ -1,0 +1,519 @@
+﻿@model Texxtoor.DataModels.Models.Users.UserProfile
+@{
+  Layout = Url.GetGlobalLayout();
+  PageData["Title"] = Loc("titleProfile", "My Data");
+  PageData["ShortHelp"] = Loc("textBusinessData", @"You can store business you like to share as well as any private information here. This
+information is used internally to further tailor your reading experience on <strong>texxtoor</strong>. Everything
+is volontary and can be changed or deleted any time. You can participate as an author, designer, translator, or copy-editor creating sophistictad textbooks for any platform.
+Use this page to offer your services and get the project you desire.
+    <br />
+    Authors who want to launch there own project use the information given here to find and hire constributors.");
+}
+@section HeadContent {
+  <script src="~/Scripts/jquery/jtimeframe/js/jquery.fn.gantt.js"></script>
+  <link href="~/Scripts/jquery/jtimeframe/css/style.css" rel="stylesheet" />
+  <script type="text/javascript">
+
+    var ui;
+    $(function () {
+      // general handling
+      $('#btnProfileSave').click(function () {
+        profile = {
+          "UserId": '@Model.User.Id',
+          "RunControl.UiLanguage": $('#UiLanguage').val(),
+          "RunControl.Complexity": $('[name="RunControl.Complexity"]').val(),
+          "LastName": $('#LastName').val(),
+          "MiddleName": $('#MiddleName').val(),
+          "FirstName": $('#FirstName').val(),
+          "BirthDay": $('#BirthDay').val(),
+          "Gender": $('#Gender').val(),
+          "Description": $('#Description').val(),
+          "Notes": $('#Notes').val(),
+          "Walltext": $('#Walltext').val(),
+          "ShowWalltextOnApplication": $('#ShowWalltextOnApplication').val(),
+          "Application": $('#Application').val(),
+          "FacebookProfile": $('#FacebookProfile').val(),
+          "XingProfile": $('#XingProfile').val(),
+          "OtherProfile": $('#OtherProfile').val(),
+          "ExternalProfileUrl": $('#ExternalProfileUrl').val(),
+
+          "Newsletter": $('#Newsletter').val(),
+          "StatementOfTaste": $('#StatementOfTaste').val(),
+          "ExpertKeywords": $('#ExpertKeywords').val(),
+          "PrivateKeywords": $('#PrivateKeywords').val(),
+          "ProfessionalKeywords": $('#ProfessionalKeywords').val(),
+          "Hidden": $('#Hidden').val(),
+          "ContractAccepted": $('#ContractAccepted').val(),
+          "SharingAccepted": $('#SharingAccepted').val(),
+          "MinHourlyRate": $('#MinHourlyRate').val(),
+          "MaxHourlyRate": $('#MaxHourlyRate').val(),
+          "PayPalUserId": $('#PayPalUserId').val()
+        };
+        $.ajax({
+          url: '@Url.Action("UserProfile")',
+          data: $.toJSON({
+            profile: profile,
+            gender: $('#Gender').val()
+          }),
+          type: 'POST',
+          cache: false,
+          dataType: "json",
+          contentType: "application/json; charset=utf-8",
+          success: function (data) {
+            toastr.success(data.msg);
+            if (data.redirect) {
+              window.location.href = data.redirect;
+            }
+          },
+          error: function (data) {
+            toastr.success(data.msg);
+          }
+        });
+      });
+
+      // Matrix'
+      $('.consumermatrix-add').click(function (e) {
+        $('.consumermatrix-save').click();
+        AddOrRemoveFromMatrix('@Url.Action("ConsumerMatrixAdd")', '@Url.Action("ConsumerMatrix")', '@Model.Id', null, '#consumerMatrixDiv');
+        e.preventDefault();
+        return false;
+      });
+      $('.contributormatrix-add').click(function (e) {
+        $('.contributormatrix-save').click();
+        AddOrRemoveFromMatrix('@Url.Action("ContributorMatrixAdd")', '@Url.Action("ContributorMatrix")', '@Model.Id', null, '#contributorMatrixDiv');
+        e.preventDefault();
+        return false;
+      });
+      $('.languagematrix-add').click(function (e) {
+        $('.languagematrix-save').click();
+        AddOrRemoveFromMatrix('@Url.Action("LanguageMatrixAdd")', '@Url.Action("LanguageMatrix")', '@Model.Id', null, '#languageMatrixDiv');
+        e.preventDefault();
+        return false;
+      });
+      SaveRemoveHandler();
+
+      $(document).on('click', '#addAddressSendButton', function () {
+        saveAddress('#addAddressForm', '@Url.Action("AddAddress")');
+      });
+      $(document).on('click', '#editAddressSendButton', function () {
+        saveAddress('#editAddressForm', '@Url.Action("EditAddress")');
+      });
+      $(document).on('click', '#addAddressCancelButton, #editAddressCancelButton', function () {
+        $('#addAddress, #editAddress').hide();
+      });
+      updateAddresses(0, 'Name', 'ASC', 5);
+
+      // time slots
+      var g = $(".gantt").gantt({
+        source: '@Url.Action("GetTimeslots", new { id = Model.Id})',
+        navigate: "scroll",
+        maxScale: "month",
+        minScale: "days",
+        itemsPerPage: 10,
+        onItemClick: function (data) {
+          $('[name=StartAvailability]').val(data.from);
+          $('[name=EndAvailability]').val(data.to);
+          $('[name=Kind]').val(data.name);
+          $('[name=Name]').val(data.desc);
+          $('#removeTimeslotSendButton').show();
+          $('#addTimeslotSendButton').hide();
+          $('#addTimeslot').show();
+        },
+        onAddClick: function (data, rowId) {
+          $('[name=Kind]').val(data.name);
+          $('[name=Name]').val(data.desc);
+          $('#removeTimeslotSendButton').hide();
+          $('#addTimeslotSendButton').show();
+          $('#addTimeslot').show();
+        },
+        onRender: function () {
+        }
+      });
+
+      $('#addTimeslotButton').click(function () {
+        $('#removeTimeslotSendButton').hide();
+        $('#addTimeslotSendButton').show();
+        $('#addTimeslot').show();
+      });
+
+      $('#addTimeslotSendButton').click(function () {
+        $.ajax({
+          url: '@Url.Action("AddTimeslot")',
+          data: {
+            id: @Model.Id,
+            StartAvailability: $('[name=StartAvailability]').val(),
+            EndAvailability: $('[name=EndAvailability]').val(),
+            Kind: $('[name=Kind]').val(),
+            Name: $('[name=Name]').val()
+          },
+          type: 'post',
+          dataType: 'json',
+          success: function(data) {
+            if (data.err)
+              toastr.error(data.msg);
+            else
+              toastr.success(data.msg);
+            g.create();
+          }
+        });
+        $('#addTimeslot').hide();
+      });
+
+      $('#removeTimeslotSendButton').click(function () {
+        $.ajax({
+          url: '@Url.Action("RemoveTimeslot")',
+          data: {
+            id: @Model.Id,
+            StartAvailability: $('[name=StartAvailability]').val(),
+            EndAvailability: $('[name=EndAvailability]').val()
+          },
+          type: 'post',
+          dataType: 'json',
+          success: function(data) {
+            if (data.err)
+              toastr.error(data.msg);
+            else
+              toastr.success(data.msg);
+            g.create();
+          }
+        });
+        $('#addTimeslot').hide();
+      });
+
+      $('#addTimeslotCancelButton').click(function () {
+        $('#addTimeslot').hide();
+      });
+
+    });
+
+    function updateAddresses(page, order, dir, pagesize) {
+      $.ajax({
+        url: '@Url.Action("ListAddresses")',
+        data: { id: '@Model.Id', page: page, order: order, dir: dir, pagesize: pagesize },
+        cache: false,
+        success: function (data) {
+          $('#main').html(data);
+          //SetTableBehavior();
+        }
+      });
+    }
+
+    function showAddAddressForm() {
+      $('#editAddress, #addAddress').hide();
+      $.ajax({
+        url: '@Url.Action("AddAddress")',
+        cache: false,
+        success: function (data) {
+          $('#addAddress .box-content').html(data);
+          $('#addAddress').show();
+          getRegions($('#addAddressForm').find('[name="Country"]').val(), 'Region', '');
+        }
+      });
+    }
+
+    function deleteAddressForm(id) {
+      if ($('#delTemplate').data('html')) {
+        var oldId = $('#delTemplate').data('htmlid');
+        $('[data-item=' + oldId + ']').html($('#delTemplate').data('html'));
+        $('#delTemplate').removeAttr('data-html');
+        $('#delTemplate').removeAttr('data-htmlid');
+      }
+      // save the current option fields area
+      var td = $('.optionFields[data-item=' + id + ']');
+      $('#delTemplate').data('html', td.html());
+      $('#delTemplate').data('htmlid', id);
+      var template = $('#delTemplate').clone().removeClass('hidden-to-show').attr('id', 'delFormId');
+      // copy the template
+      td.html($(template));
+      $(document).on('keyup.delTemplate', function (e) {
+        if (e.keyCode == 13) {
+          $("#delFormId #delAddressSendButton").click();
+        } // enter
+        if (e.keyCode == 27) {
+          $("#delFormId #delAddressCancelButton").click();
+        } // esc
+      });
+      $(document).off('click', '#delAddressSendButton');
+      $(document).on('click', '#delAddressSendButton', function () {
+        $.ajax({
+          url: '@Url.Action("DeleteAddress")',
+          data: { id: id },
+          cache: false,
+          success: function (data) {
+            updateAddresses(0, 'Name', 'ASC', 5);
+          }
+        });
+      });
+      $(document).off('click', '#delAddressCancelButton');
+      $(document).on('click', '#delAddressCancelButton', function () {
+        td.html($('#delTemplate').data('html'));
+        $(document).off('keyup.delTemplate');
+      });
+      // hide others
+      $('#editAddressForm').hide();
+      $('#addAddressForm').hide();
+    }
+
+    function showEditAddressForm(id) {
+      $('#editAddress, #addAddress').hide();
+      $.ajax({
+        url: '@Url.Action("EditAddress")',
+        data: { id: id },
+        cache: false,
+        success: function (data) {
+          $('#editAddress .box-content').html(data);
+          $('#editAddress').show();
+          var current = $('#editAddressForm #Region').data('current');
+          getRegions($('#editAddressForm').find('[name="Country"]').val(), 'Region', current);
+        }
+      });
+    }
+
+    function saveAddress(formId, url) {
+      $.validator.unobtrusive.parse($(formId));
+      if ($(formId).valid()) {
+        $.ajax({
+          url: url,
+          data: $.toJSON({
+            Id: $(formId + ' #Id').val(),
+            StreetNumber: $(formId + ' #StreetNumber').val(),
+            Name: $(formId + ' #Name').val(),
+            Zip: $(formId + ' #Zip').val(),
+            City: $(formId + ' #City').val(),
+            Region: $(formId + ' #Region').val(),
+            countryId: $(formId + ' #Country').val(),
+            Invoice: $(formId + ' #Invoice:checked').val(),
+            Default: $(formId + ' #Default:checked').val()
+          }),
+          type: 'POST',
+          cache: false,
+          contentType: 'application/json',
+          dataType: 'json',
+          success: function (data) {
+            toastr.success(data.msg);
+            updateAddresses(0, 'Name', 'ASC', 5);
+          },
+          error: function (data) {
+            toastr.error(data.msg);
+          }
+        });
+        $('#editAddress .box-content').empty();
+        $('#addAddress .box-content').empty();
+        $('#addAddress, #editAddress').hide();
+        $('#main').show();
+      }
+    }
+
+    function AddOrRemoveFromMatrix(url, loadUrl, profileId, matrixId, targetElementId) {
+      $.ajax({
+        url: url,
+        data: { id: profileId, matrixId: matrixId },
+        type: 'POST',
+        cache: false,
+        success: function (data) {
+          toastr.success(data.msg);
+          $(targetElementId).load(loadUrl, { id: profileId }, function () { SetTableBehavior(); });
+        },
+        error: function (data) {
+          toastr.success(data.msg);
+        }
+      });
+      return false;
+    }
+
+    function SaveMatrix(url, data, callback) {
+      $('#SaveConsumerMatrixMessage').show();
+      $.ajax({
+        url: url,
+        data: data,
+        type: 'POST',
+        cache: false,
+        success: function (d) {
+          toastr.success(d.msg);
+          $('#SaveConsumerMatrixMessage').hide();
+          if (callback != undefined) {
+            callback();
+          }
+        },
+        error: function (d) {
+          toastr.success(d.msg);
+          $('#SaveConsumerMatrixMessage').hide();
+        }
+      });
+    }
+
+    function SaveRemoveHandler() {
+      $(document).on('click', '.consumermatrix-remove', function (evt) {
+        var val = $(this).data('item');
+        AddOrRemoveFromMatrix('@Url.Action("ConsumerMatrixRemove")', '@Url.Action("ConsumerMatrix")', '@Model.Id', val, '#consumerMatrixDiv');
+        evt.preventDefault();
+        return false;
+      });
+      $(document).on('click', '.contributormatrix-remove', function (evt) {
+        var val = $(this).data('item');
+        AddOrRemoveFromMatrix('@Url.Action("ContributorMatrixRemove")', '@Url.Action("ContributorMatrix")', '@Model.Id', val, '#contributorMatrixDiv');
+        evt.preventDefault();
+        return false;
+      });
+      $(document).on('click', '.languagematrix-remove', function (evt) {
+        var val = $(this).data('item');
+        AddOrRemoveFromMatrix('@Url.Action("LanguageMatrixRemove")', '@Url.Action("LanguageMatrix")', '@Model.Id', val, '#languageMatrixDiv');
+        evt.preventDefault();
+        return false;
+      });
+      $(document).on('click', '.consumermatrix-save', function (evt) {
+        var val = $(this).data('item');
+        SaveMatrix('@Url.Action("ConsumerMatrixEdit")', { id: '@Model.Id', matrix: val, keyword: $('input[name=keyWord-' + val + ']').val(), targets: $('select[name=targets-' + val + ']').val(), stages: $('select[name=stages-' + val + ']').val() });
+        evt.preventDefault();
+        return false;
+      });
+      $(document).on('click', '.contributormatrix-save', function (evt) {
+        var val = $(this).data('item');
+        SaveMatrix('@Url.Action("ContributorMatrixEdit")', { id: '@Model.Id', matrix: val, role: $('select[name=role-' + val + ']').val(), language: $('select[name=language-' + val + ']').val(), information: $('select[name=information-' + val + ']').val() });
+        evt.preventDefault();
+        return false;
+      });
+      $(document).on('click', '.languagematrix-save', function (evt) {
+        var val = $(this).data('item');
+        var cb = function () {
+          $.ajax({
+            url: '@Url.Action("ContributorMatrix", new {id = Model.Id})',
+            dataType: "html",
+            type: "GET",
+            cache: false,
+            success: function (data) { $('#contributorMatrixDiv').html(data); }
+          });
+        };
+        SaveMatrix('@Url.Action("LanguageMatrixEdit")', { id: '@Model.Id', matrix: val, language: $('select[name=language-' + val + ']').val(), levels: $('select[name=levels-' + val + ']').val() }, cb);
+        // refresh the contributomatrix because there is a dependency
+        evt.preventDefault();
+        return false;
+      });
+    }
+
+  </script>
+  @Script.SetTableBehavior(false)
+}
+@if ((bool)ViewBag.HasError) {
+  using (Html.BtDiv(BtStyle.AlertAndError)) {
+    @Html.ValidationSummary(true, "Errors in some fields.")
+  }
+}
+@Create.ContentFormEmpty("addAddress")
+@Create.ContentFormEmpty("editAddress")
+<div class="row">
+  <div class="col-md-12 box">
+    @using (Html.BeginForm()) {
+      @Html.HiddenFor(m => m.User.Id)    ;
+      <div id="accordion" class="accordion accordion-green accordion-contrast panel-group">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseOne-accordion">
+              <i class="icon-asterisk icon-fixed-width" style="color:#fff;"></i>&nbsp;@Loc("lblBadgesAndCommon", "Awards and Common Information [Everybody]")
+            </a>
+          </div>
+          <div id="collapseOne-accordion" class="panel-collapse collapse">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#p0" data-toggle="tab"><i class="icon-certificate" style="color:#666;"></i>&nbsp;@Loc("lblBadges", "Awards and Badges [Everybody]")</a></li>
+              <li><a href="#p1a" data-toggle="tab"><i class="icon-info" style="color:#666;"></i>&nbsp;@Loc("lblCommon", "Common Information [Everybody]")</a></li>
+              <li><a href="#p3a" data-toggle="tab"><i class="icon-list-alt" style="color:#666;"></i>&nbsp;@Loc("lblUserTaste", "About Myself")</a></li>
+              <li><a href="#p3b" data-toggle="tab"><i class="icon-list-alt" style="color:#666;"></i>&nbsp;@Loc("lblUserMtrix", "Interessents Matrix")</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="p0">
+                @Html.Partial("Profile/_Profile0", Model)
+              </div>
+              <div class="tab-pane" id="p1a">
+                @Html.Partial("Profile/_Profile1a", Model)
+              </div>
+              <div class="tab-pane" id="p3a">
+                @Html.Partial("Profile/_Profile3a", Model)
+              </div>
+              <div class="tab-pane" id="p3b">
+                @Html.Partial("Profile/_Profile3b", Model)
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-heading">
+            <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo-accordion">
+              <i class="icon-user icon-fixed-width" style="color:#fff;"></i>&nbsp;@Loc("lblPersonal", "Personal Data [Everybody]")
+            </a>
+          </div>
+          <div id="collapseTwo-accordion" class="panel-collapse collapse">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#p1b" data-toggle="tab"><i class="icon-certificate" style="color:#666;"></i>&nbsp;@Loc("lblNameAndGender", "Common Profileinformation")</a></li>
+              <li><a href="#p2" data-toggle="tab"><i class="icon-user" style="color:#666;"></i>&nbsp;@Loc("lblPublicProfile", "Public Profiles")</a></li>
+              <li><a href="#p4" data-toggle="tab"><i class="icon-envelope-alt" style="color:#666;"></i>&nbsp;@Loc("lblAddress", "Addresses [Everybody]")</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="p1b">
+                @Html.Partial("Profile/_Profile1b", Model)
+              </div>
+              <div class="tab-pane" id="p2">
+                @Html.Partial("Profile/_Profile2", Model)
+              </div>
+              <div class="tab-pane" id="p4">
+                @Html.Partial("Profile/_Profile4", Model)
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-heading">
+            <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseSix-accordion">
+              <i class="icon-credit-card icon-fixed-width" style="color:#fff;"></i>&nbsp;@Loc("lblBusiness", "Business Informationen [Authors, Contributors]")</a>
+          </div>
+          <div id="collapseSix-accordion" class="panel-collapse collapse">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#p5a" data-toggle="tab"><i class="icon-flag" style="color:#666;"></i>&nbsp;@Loc("lblBusinessLang", "Languages")</a></li>
+              <li><a href="#p5b" data-toggle="tab"><i class="icon-certificate" style="color:#666;"></i>&nbsp;@Loc("lblBusinessSkills", "Skills")</a></li>
+              <li><a href="#p5c" data-toggle="tab"><i class="icon-sun" style="color:#666;"></i>&nbsp;@Loc("lblBusinessSupport", "Support")</a></li>
+              <li><a href="#p6" data-toggle="tab"><i class="icon-time" style="color:#666;"></i>&nbsp;@Loc("lblAvail", "Personal Availability [Authors, Contributors]")</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="p5a">
+                @Html.Partial("Profile/_Profile5a", Model)
+              </div>
+              <div class="tab-pane" id="p5b">
+                @Html.Partial("Profile/_Profile5b", Model)
+              </div>
+              <div class="tab-pane" id="p5c">
+                @Html.Partial("Profile/_Profile5c", Model)
+              </div>
+              <div class="tab-pane" id="p6">
+                @Html.Partial("Profile/_Profile6", Model)
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-heading">
+            <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseeight-accordion">
+              <i class="icon-gear icon-fixed-width" style="color:#fff;"></i>@Loc("lblContrib", "Contributor Settings [Authors, Contributors]")</a>
+          </div>
+          <div id="collapseeight-accordion" class="panel-collapse collapse">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#p7" data-toggle="tab"><i class="icon-book" style="color:#666;"></i>&nbsp;@Loc("lblContribCommon", "Contributor Settings")</a></li>
+              <li><a href="#p8" data-toggle="tab"><i class="icon-money" style="color:#666;"></i>&nbsp;@Loc("lblPayment", "Payment Settings")</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="p7">
+                @Html.Partial("Profile/_Profile7", Model)
+              </div>
+              <div class="tab-pane" id="p8">
+                @Html.Partial("Profile/_Profile8", Model)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><br />
+      using (Html.BtDiv(BtStyle.WellAndSmall)) {
+        <input type="button" id="btnProfileSave" class="btn btn-primary btn-lg" value="@ViewResources.Action_Common_SaveProfile" />
+      }
+    }
+  </div>
+</div>
+@Create.ActionTask("", true, Url.Action("Archive", "Account", new { area = "" }), ViewResources.LinkButton_Common_Archive)
+@Create.ActionTask("", false, Url.Action("Index", "Messaging", new { area = "" }), ViewResources.LinkButton_Common_Mail)

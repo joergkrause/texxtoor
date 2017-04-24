@@ -1,0 +1,202 @@
+@charset "utf-8";
+
+@page {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+  
+@font-face {
+	font-family: "NotCourierSans";
+	font-style: normal;
+	font-weight: normal;
+	src:url(Fonts/NotCourierSans.otf);
+}
+@font-face {
+	font-family: "NotCourierSans";
+	font-style: normal;
+	font-weight: bold;
+	src:url(Fonts/NotCourierSans-Bold.otf);
+}
+
+ 
+/* Style Sheet */
+/* This defines styles and classes used in the book */
+body { 
+	margin-left: 5%; 
+	margin-right: 5%; 
+}
+
+p { 
+	margin-top: 0em; 
+	margin-bottom: 0.5em; 
+	padding: 0em; 
+	text-align: left; 
+	line-height: 1.3em; 
+}
+img {
+	max-width: 100%;
+	height: auto;
+	padding: 0; 
+	border: 0px none;
+	text-align: left; margin-left:0; margin-right:0; margin-top:0; margin-bottom:0
+}
+
+p.Titel {
+	text-align: center;
+	font-weight: bold;
+	font-size: 3em; 
+	line-height: 1.5em; 
+}
+
+p.berschrift1 { 
+	font-weight: bold;
+	font-size: 2.5em; 
+	line-height: 1.5em; 
+	border-bottom: 1px solid #000;
+}
+p.berschrift2 { 
+	font-weight: bold;
+	font-size: 2em; 
+	line-height: 1.5em; 
+	margin-top: 2.5em;
+}
+p.berschrift3 { 
+	font-weight: bold;
+	font-size: 1.5em; 
+	line-height: 1.5em; 
+	margin-top: 2em;
+}
+p.berschrift4 { 
+	font-weight: bold;
+	margin-top: 1.5em;
+}
+p.Zwischenber { 
+	font-weight: bold;
+	margin-top: 1em;
+}
+
+p.Bildunterschrift { 
+	font-weight: bold;
+	font-size: 0.5em; 
+	margin-bottom: 1.0em;
+}
+
+p.ListePunkt {
+	margin-bottom: 0em;
+}
+
+p.DefListTerm {
+	margin-top: 0.5em;
+	margin-bottom: 0em;
+}
+p.DefListDef {
+	margin-left: 2em;
+}
+
+p.Listenabsatz {
+	margin-bottom: 0em;
+}
+p.Listeeinzug {
+	margin-bottom: 0em;
+}
+li {
+	margin-bottom: 0.5em;
+}
+
+.Plattform { }
+
+.HinweisStart {
+	font-weight: bold;
+	border-top: 1px solid #000;
+	padding-top: 10px;
+	margin-top: 2em;
+}
+.HinweisEnde {
+	margin-top: -1em;
+	border-bottom: 1px solid #000;
+	margin-bottom: 2em;
+}
+
+
+table, th {
+	vertical-align: top;
+	border-bottom: 1px solid #000;
+	padding-right: 0.5em;
+}
+td {
+	vertical-align: top;
+	padding-right: 0.5em;
+}
+
+th > p {
+	font-family: bold;
+	margin-bottom: 0.25em;
+}
+td > p {
+	margin-bottom: 0.25em;
+}
+
+.Code {
+	margin-left: 2em;
+	font-family: "NotCourierSans";
+}
+.CodeinTab {
+	font-family: "NotCourierSans";
+}
+
+.ientry   {display: hide;}
+.center   {text-align: center;}
+.smcap    {font-variant: small-caps;}
+.u        {text-decoration: underline;}
+.bold     {font-weight: bold;}
+.italic   {font-style: italic;}
+.Hyperlink { }
+.ZeichenCode {
+	font-family: "NotCourierSans";
+}
+
+
+
+/* index */
+.index_grp {
+	margin-bottom: 0;
+	margin-top: 1em;
+	font-weight: bold;
+}
+.index_level1 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.index_level2 {
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 2em;
+}
+.index_level2 {
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 4em;
+}
+.index_level2 {
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 6em;
+}
+
+
+/* toc */
+.toc_berschrift1, .toc_h1 {
+	margin-bottom: 0em;
+	margin-top: 1.5em;
+	font-weight: bold;
+}
+.toc_berschrift2, .toc_h3 {
+	margin-bottom: 0em;
+	margin-top: 0.5em;
+	margin-left: 2em;
+}
+.toc_berschrift3 {
+	margin-bottom: 0em;
+	margin-top: 0em;
+	margin-left: 4em;
+}

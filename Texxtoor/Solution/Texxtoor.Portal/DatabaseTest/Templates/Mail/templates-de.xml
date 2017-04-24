@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mail locale="en" name="texxtoor">
+  <template name="QuickForm">
+    <![CDATA[
+    <subject>Mail Quickform</subject>
+    <body>
+      User {Name}, Phone {Phone}, has following project proposal: {ProjectName}.
+    </body>
+    ]]>
+  </template>
+  <template name="QuickForm">
+    <![CDATA[
+    <subject>Mail Quickform</subject>
+    <body>
+      Benutzer {Name}, Telefon {Phone}, hat folgenden Projektvorschlag: {ProjectName}.
+    </body>
+    ]]>
+  </template>
+  <template name="QuickForm-Sender">
+    <![CDATA[
+    <subject>Danke für Ihre Anfrage</subject>
+    <body>
+      Lieber Autor,
+      
+      vielen Dank für dein Interesse an unserer Plattform. Wir werden uns mit dir in Verbindung setzen.
+      
+      Ihr texxtoor Team
+      
+      Benutzer {Name}, Telefon {Phone}, Projektvorschlag: {ProjectName}.
+    </body>
+    ]]>
+  </template>
+  <template name="WelcomeUser" >
+    <![CDATA[
+    <subject>{UserName} hat sich bei texxtoor angemeldet!</subject>
+    <body>
+      Herzlich Willkommen bei texxtoor, {UserName}!
+      
+      texxtoor bietet dir eine umfassende Plattform für die Veröffentlichung von Fachtexten auf allen Geräten und im klassischen Druck. 
+      
+      Für die Kommunikation mit dir, deinem Team, Mitarbeitern und die Abwicklung der Produktion ist eine zuverlässige Verbindung notwendig. Deswegen
+      prüfen wir die angegebene E-Mail am Anfang einmalig. Bitte bestätige dies mit dem folgenden Link und du kannst alle Funktionen sofort nutzen.
+      
+      <a href="{ConfirmLink}">{ConfirmLink}</a>
+      
+      Du bist angemeldet als: {UserName}.
+
+      Vielen Dank, dein texxtoor Team
+      
+    </body>
+    ]]>
+  </template>
+  <template name="ConfirmAssociation" >
+    <![CDATA[
+    <subject>Bestätigung der sozialen Netzwerkkonto Verein!</subject>
+    <body>
+    
+      Liebe {UserName}!      
+      
+      Ihr Bestätigungscode ist {ConfirmCode}
+      
+    </body>
+    ]]>
+  </template>
+</mail>

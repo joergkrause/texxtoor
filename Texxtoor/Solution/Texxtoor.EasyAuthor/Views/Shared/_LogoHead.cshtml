@@ -1,0 +1,7 @@
+﻿@using Texxtoor.DataModels.Models.Common
+@if (User != null && !User.Identity.IsAuthenticated) {
+  <a class="navbar-brand" href="@Url.Action("Index", "Home", new {area = ""})">
+    <img width="297" height="105" src="~/Content/images/Texxtoor-297x80.png" class="logo" alt="Logo" />
+    <img width="160" height="56" src="~/Content/images/Texxtoor-160x56.png" class="logo-xs hidden-to-show" alt="Logo" />
+  </a>
+}

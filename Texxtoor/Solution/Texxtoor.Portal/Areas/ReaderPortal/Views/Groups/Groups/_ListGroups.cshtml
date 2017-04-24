@@ -1,0 +1,50 @@
+﻿@model IPagedList<Texxtoor.DataModels.Models.Reader.Functions.ReaderGroup>
+@Html.Partial("_Pagination", PaginationViewModel<Texxtoor.DataModels.Models.Reader.Functions.ReaderGroup>.Create(Model, "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});",
+  new Dictionary<string, string> {
+    {"id", "createNewButton"},
+    {"action", "ui.addElement()" },
+    {"text", ViewResources.Action_Reader_CreateGroup},
+    {"cssclass", BtStyle.ButtonPrimary}
+  }, true, m => m.Name, m => m.CreatedAt))
+@if (!Model.Any()) {
+  <div class="alert alert-warning">
+    @Loc("textNoModel", @"There are no groups. Just start a new group by yourself.")
+  </div>
+} else {
+  <div class="multilist">
+    @foreach (var item in Model) {
+      if (item.Owner == null) { continue; }
+      <div class="listitem">
+        <div class="firstRow">
+          <strong>@item.Name</strong>
+        </div>
+        <div class="secondRow">
+          <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+          <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+
+            @Loc("text", @"Group <em><span data-args='0' data-desc='Name'>{0}</span></em>,
+          created at <em><span data-args='1' data-desc='At'>{1}</span></em>,
+          is managed by <em><span data-args='2' data-desc='User Name'>{2}</span></em>.
+          This is a <em><span data-args='3' data-desc='Private'>{3}</span></em> group.",
+              item.Name,
+              item.CreatedAt.ToLongDateString(),
+              item.Owner.UserName,
+              (item.Public ? Loc("txtPublic", "public") : Loc("txtPrivate", "private")))
+          </div>
+        </div>
+        <div class="thirdRow">
+          <div class="optionFields" data-item="@item.Id">
+            @if (item.Owner.UserName == User.Identity.Name) {
+              @:@Create.ActionLink("members", true, Url.Action("Member", "Groups", new { id = item.Id }), ViewResources.Action_Groups_ManageMembers + "...")
+              @:@Create.ActionClick("editGroup", true, "ui.editElement(" + item.Id + ")", ViewResources.Action_Groups_Edit)
+              @:@Create.ActionClick("delGroupBtn", true, "ui.deleteElement(" + item.Id + ")", ViewResources.Action_Groups_Delete, BtStyle.ButtonDanger)
+                                        } else {
+              @:@Create.ActionLink("members", true, Url.Action("Member", "Groups", new { id = item.Id }), ViewResources.Action_Groups_ShowMembers)
+                                    }
+            @Create.ActionClick("sharedContent", false, "GetSharedContent(" + item.Id + ", 0)", ViewResources.Action_Groups_SharedContent)
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

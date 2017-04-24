@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{407C596C-0BBA-4002-94B5-30CD80337DE7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Texxtoor.BaseLibrary.WordInterop</RootNamespace>
+    <AssemblyName>Texxtoor.BaseLibrary.WordInterop</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConvertToHtml.cs" />
+    <Compile Include="BlobStoreEventArgs.cs" />
+    <Compile Include="HtmlConverter\BackgroundAccessor.cs" />
+    <Compile Include="HtmlConverter\ChangeAccessor.cs" />
+    <Compile Include="HtmlConverter\ChartsheetAccessor.cs" />
+    <Compile Include="HtmlConverter\CommentAccessor.cs" />
+    <Compile Include="HtmlConverter\ContentFormatAccessor.cs" />
+    <Compile Include="HtmlConverter\ContentStyleAccessor.cs" />
+    <Compile Include="HtmlConverter\CorePropertiesAccesor.cs" />
+    <Compile Include="HtmlConverter\CustomPropertiesAccesor.cs" />
+    <Compile Include="HtmlConverter\CustomXmlAccessor.cs" />
+    <Compile Include="HtmlConverter\DigitalSignatureAccessor.cs" />
+    <Compile Include="HtmlConverter\DocumentBuilder.cs" />
+    <Compile Include="HtmlConverter\DocumentExtensions.cs" />
+    <Compile Include="HtmlConverter\DocumentManager.cs" />
+    <Compile Include="HtmlConverter\FooterAccessor.cs" />
+    <Compile Include="HtmlConverter\HeaderAccessor.cs" />
+    <Compile Include="HtmlConverter\IndexAccessor.cs" />
+    <Compile Include="HtmlConverter\OpenXmlDocument.cs" />
+    <Compile Include="HtmlConverter\PictureAccessor.cs" />
+    <Compile Include="HtmlConverter\PowerToolsExtensions.cs" />
+    <Compile Include="HtmlConverter\SettingAccessor.cs" />
+    <Compile Include="HtmlConverter\SharedStringsAccesor.cs" />
+    <Compile Include="HtmlConverter\SpreadsheetDocument.cs" />
+    <Compile Include="HtmlConverter\SpreadsheetDocumentManager.cs" />
+    <Compile Include="HtmlConverter\SpreadSheetStyleAccessor.cs" />
+    <Compile Include="HtmlConverter\SpreadSheetTableAccesor.cs" />
+    <Compile Include="HtmlConverter\StyleAccessor.cs" />
+    <Compile Include="HtmlConverter\ThemeAccessor.cs" />
+    <Compile Include="HtmlConverter\TOAAccessor.cs" />
+    <Compile Include="HtmlConverter\TOCAccessor.cs" />
+    <Compile Include="HtmlConverter\TOFAccessor.cs" />
+    <Compile Include="HtmlConverter\WatermarkAccesor.cs" />
+    <Compile Include="HtmlConverter\WordprocessingDocument.cs" />
+    <Compile Include="HtmlConverter\WordprocessingDocumentManager.cs" />
+    <Compile Include="HtmlConverter\WorksheetAccessor.cs" />
+    <Compile Include="IMapObject.cs" />
+    <Compile Include="Import.cs" />
+    <Compile Include="MapObject.cs" />
+    <Compile Include="NoMapObject.cs" />
+    <Compile Include="ProcessArgs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\html.xsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Texxtoor.BaseLibrary.Core\Texxtoor.BaseLibrary.Core.csproj">
+      <Project>{307FEABA-C5A1-47B8-A0B5-0B56D982F570}</Project>
+      <Name>Texxtoor.BaseLibrary.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Texxtoor.DataLayer\Texxtoor.DataLayer.csproj">
+      <Project>{dd4e4b0b-7b5c-43f8-b47f-6c36d20283a9}</Project>
+      <Name>Texxtoor.DataLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,194 @@
+﻿@using Texxtoor.DataModels.Models.Users
+@model IEnumerable<Texxtoor.DataModels.Models.Users.ConsumerMatrix>
+@{
+  PageData["Title"] = Loc("title", "Get Your! Book");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+  PageData["ShortHelp"] = Loc("textExMatrix", @"<strong>texxtoor</strong> has not just a few books you can select from. <strong>texxtoor</strong>
+  has million of variations, built on request for you, a perfect fit to your needs.");
+}
+@section HeadContent {
+  <script type="text/javascript" src="~/Scripts/views/work/library.js"></script>
+  <script type="text/javascript">
+    var lib = new LibraryFunctions({
+    });
+  </script>
+  <script type="text/javascript">
+    $(function () {
+      getKeywords();
+      retrieveCatalog();
+      $(document).on('click', 'a.miniReader', function () {
+        var id = $(this).data('item');
+        $.ajax({
+          url: '@Url.Action("MiniReader", "Reader")',
+          data: { id: id },
+          success: function (data) {
+            $('#miniReaderDialog').html(data);
+            $('#miniReaderDialog img').each(function (i, e) {
+              $(e).attr('src', '@Url.Action("MiniReaderImg", "Reader")/' + $(e).attr('src'));
+            });
+            $('#miniReaderDialog').dialog('open');
+          }
+        });
+      });
+      $('#matrixForm').show();
+      $('#miniReaderDialog').dialog(
+        {
+          autoOpen: false, resizable: true, width: '850', height: '600', modal: true, title: 'Content Preview', css: { zindex: 10000 },
+          buttons: [
+            {
+              text: 'Close', click: function () {
+                $(this).dialog("close");
+              }
+            }
+          ]
+        }
+      );
+    });
+    function addKeyword() {
+      $.ajax({
+        url: '@Url.Action("AddMatrixValue")',
+        data: {
+          Keyword: $('#keyword').val(),
+          Stage: $('select[name=level]').val(),
+          Target: $('select[name=target]').val()
+        },
+        type: 'POST',
+        cache: false,
+        success: function () {
+          getKeywords();
+        },
+        error: function () {
+
+        }
+      });
+      return false;
+    }
+    function removeKeyword(e) {
+      var id = $(e.srcElement).attr('id');
+      $.ajax({
+        url: '@Url.Action("RemoveMatrixValue")',
+        data: {
+          id: id
+        },
+        type: 'POST',
+        dataType: 'json',
+        cache: false,
+        success: function () {
+          getKeywords();
+        },
+        error: function () {
+
+        }
+      });
+      return false;
+    }
+    function getKeywords() {
+      $.ajax({
+        url: '@Url.Action("GetMatrixValues")',
+        type: 'GET',
+        dataType: 'json',
+        cache: false,
+        success: function (data) {
+          var d = $('#keywordList');
+          d.empty();
+          if (data.data == null || data.data.length == 0) {
+            $('<div>').addClass('alert alert-danger').text(d.data('empty-text')).appendTo(d);
+          } else {
+            for (var i in data.data) {
+              var pm = data.data[i];
+              $('<a>')
+                  .attr('href', '#')
+                  .attr('id', pm.Id)
+                  .click(function (e) { return removeKeyword(e); })
+                  .html(pm.Keyword + "(<i class='icon-level-up'></i> " + pm.Stage + " &amp; <i class='icon-tag'></i> " + pm.Target + ")")
+                  .appendTo(d)
+                  .append('<br>');
+            }
+          }
+        },
+        error: function () {
+
+        }
+      });
+    }
+    function retrieveCatalog(page, order, dir) {
+      $.ajax({
+        url: '@Url.Action("Recommendations")',
+        data: { page: page, order: order, dir: dir },
+        type: 'GET',
+        dataType: 'html',
+        cache: false,
+        success: function (html) {
+          $('#main').html(html);
+        },
+        error: function () {
+
+        }
+      });
+    }
+
+  </script>
+}
+@section helpSection {
+  @Loc("text2", @"Just select from the keywords provided by your profile or simply add a new selection.")
+}
+@using (Html.BtFormPanel(Loc("legend", @"Your selection"), "matrixForm", "green")) {
+  using (Html.BeginForm()) {
+    using (Html.BtFieldset(Loc("lblPublicKey", "Profile Keywords"))) {
+      <label>
+        @Loc("lblPublicKey", "Profile Keywords")
+      </label>
+      if (Model == null || !Model.Any()) {
+        <div class="editor-field" style="max-width: 300px;">
+          <div class="panel panel-danger">
+            @Loc("textNoProfile", "No profile data. Consider adding reader profile matrix.")
+          </div>
+        </div>
+      } else {
+        <div class="editor-field">
+          @foreach (var cm in Model) {
+            @cm.Keyword
+            @:(<i class="@BtIcon.LevelUp"></i>: @cm.Stage; <i class="@BtIcon.Tag"></i>: @cm.Target)
+            if (Model.Last() != cm) {
+              <br />
+            }
+          }
+        </div>
+      }
+    }
+    using (Html.BtFieldset(Loc("legend2", @"Your keywords (add as many as you like one by one)"))) {
+      <label>
+        @Loc("lblPrivateKey", "Keywords")
+      </label>
+      <div class="editor-field" id="keywordList" style="max-width: 300px; " data-empty-text="No keywords. Start adding a few.">
+      </div>
+      <div class="editor-field editor-field-help">@Loc("textRemove", "Click an element to remove from keyword filter:")</div>
+      <div>
+        <label for="keyword">@Loc("label", @"Keyword")</label>
+        <div class="editor-field">
+          <input type="text" name="keyword" id="keyword" />
+          @Create.FormButtonOnClick("btnAdd", "addKeyword()", ViewResources.Action_Reader_Search_AddKeyword)
+        </div>
+        <br style="clear: both;" />
+        <label for="level">@Loc("lblLevel", "Level")</label>
+        <div class="editor-field">
+          @(Html.DropdownForEnum<StageType>("level", StageType.Novice, null))
+        </div>
+        <label for="target">@Loc("lblUsage", "Usage")</label>
+        <div class="editor-field">
+          @(Html.DropdownForEnum<TargetType>("target", TargetType.Personal, null))
+        </div>
+      </div>
+      <div class="formsendButtons">
+        @Create.FormButtonOnClick("btnRefresh", "retrieveCatalog(0, 'Title', false)", ViewResources.Action_Reader_Search_GetResults)
+      </div>
+    }
+  }
+}
+@Create.MainContentWithLoader()
+<div class="clearfix hidden-to-show" id="miniReaderDialog">
+</div>
+@Create.ActionTask("", false, Url.Action("Index", "Home", null), ViewResources.LinkButton_Reader_Catalog)
+@Create.ActionTask("", false, Url.Action("Library", "Reader", null), ViewResources.LinkButton_Reader_Library)
+@Create.ActionTask("", false, Url.Action("Products", "Products"), ViewResources.TasksButton_Reader_Products)
+@Create.ActionTask("", true, Url.Action("QuickOrder", "Orders"), ViewResources.TasksButton_Reader_Products)

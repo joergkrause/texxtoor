@@ -1,0 +1,123 @@
+﻿<div ng-controller="overviewCtrl" class="overview">
+  <div class="nav-bar">
+    @Html.Partial("_ProcessMenu", "overview")
+  </div>
+  <div class="overview-p">
+    <div class="container">
+      <div class="row col-md-9">
+        <h1>{{text.title}}</h1>        
+        <h2>{{text.subTitle}}</h2>
+      </div>
+      <div class="col-md-3">
+        <div class="btn btn-success btn-block btn-sm btn-uppercase" style="margin-top:30px;">Open Editor</div>
+      </div>
+      <div class="row col-md-12">
+        <div class="st-title">Team Information</div>
+        <button class="btn btn-help pull-right" data-container="body" data-toggle="popover" data-placement="left" title="Team Members" data-content="Start working by using the editor. Watch your team's members and add more to get help.'"></button>
+      </div>
+      <div class="row">
+        <div class="col-md-3" ng-repeat="author in text.authors|limitTo:2">
+          <button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown" data-author-roles="{{author.roles}}">
+            <img ng-src="{{author.thumbnailPath}}?res=24x24&amp;nc=true" style="width: 24px; height: 24px;" />
+            {{author.fullName}} <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href='' ng-click="authorAssignRole(author.memberId, $event)">Assign Role</a></li>
+            <li><a href='' ng-click="authorRemove(author.memberId, $event)">Remove</a></li>
+            <li class="divider"></li>
+            <li><a href='' ng-click="authorRate(author.memberId, $event)">Rate</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3" ng-if="text.authors.length > 2">
+          <button type="button" class="btn btn-default btn-block"><i class="icon-plus-sign"></i>+ {{text.authors.length}} Members</button>
+        </div>
+        <div class="col-md-3">
+          <button type="button" class="btn btn-default btn-block btn-uppercase dropdown-toggle" data-toggle="dropdown">
+            Contributors <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href=''>Look for contributors</a></li>
+            <li><a href=''>Invite contributors</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row col-md-12">
+        <div class="st-title">Overview</div>
+        <button class="btn btn-help pull-right" data-container="body" data-toggle="popover" data-placement="left" title="Overview" data-content="use the meta data button below to edit this."></button>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <img ng-src="{{text.coverUrl}}" class="pull-left" />
+        </div>
+        <div class="col-md-9">
+          <div class="clearfix">
+            {{text.description}}
+          </div>
+        </div>
+      </div>
+      <div class="row col-md-12">
+        <div class="st-title">Text's Building Blocks</div>
+        <button class="btn btn-help btn-xs pull-right" data-container="body" data-toggle="popover" data-placement="left" title="Content and Structure" data-content="Change structure, files, and semantic data here."></button>
+      </div>
+      <div class="row">
+        <div class="clearfix" style="min-height: 250px">
+          <ul class="nav nav-tabs">
+            <li ng-class="{active: overview.active.tab == 'content'}"><button ng-href="#" class="btn btn-default btn-uppercase" ng-click="$state.go('overview.content')">Content</button></li>
+            <li ng-class="{active: overview.active.tab == 'files'}"><button ng-href="#" class="btn btn-default btn-uppercase" ng-click="$state.go('overview.files')">Files</button></li>
+            <li ng-class="{active: overview.active.tab == 'semantics'}"><button ng-href="#" class="btn btn-default btn-uppercase" ng-click="$state.go('overview.semantics')">Semantics</button></li>
+          </ul>
+          <div class="tab-content">
+            <div ng-switch="overview.active.tab" ui-view>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row col-md-12">
+        <div class="st-title">Meta Data</div>
+        <button class="btn btn-help btn-xs pull-right" data-container="body" data-toggle="popover" data-placement="left" title="Meta Data" data-content="Change meta data for your text here."></button>
+      </div>
+      <div class="col-md-9">
+        <table class="table table-bordered table-hover">
+          <tr>
+            <td>Language</td>
+            <td>{{text.language}}</td>
+          </tr>
+          <tr>
+            <td>Publisher</td>
+            <td>{{text.publisher}}</td>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>{{text.publishingDate}}</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>{{text.location}}</td>
+          </tr>
+          <tr>
+            <td>Keywords</td>
+            <td>
+              <span class="badge badge-info" ng-repeat="keyword in text.keywords">{{keyword}}</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Categories</td>
+            <td>
+              <ul class="list-group list-unstyled">
+                <li class="list-group-item-info" ng-repeat="category in text.categories">{{category}}</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>License</td>
+            <td>{{text.license}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-3 pull-right">
+        <button class="btn btn-success btn-sm btn-uppercase btn-block" ng-click="editMetadata()">Edit Meta Data</button>
+        <button class="btn btn-default btn-sm btn-uppercase btn-block" ng-click="editImprint()">Edit Imprint</button>
+      </div>
+    </div>
+  </div>
+</div>

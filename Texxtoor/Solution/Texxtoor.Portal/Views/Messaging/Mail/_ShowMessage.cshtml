@@ -1,0 +1,20 @@
+﻿@model Texxtoor.DataModels.Models.Common.Message
+@{
+  var sender = Model.Receiver == null ? 0 : Model.Receiver.Id;
+  var receiver = Model.Sender == null ? 0 : Model.Sender.Id;
+}
+<form>
+  @using (Html.BtFieldset(Loc("legend", @"Message"))) {
+    @Html.LabelFor(m => m.Receiver)
+    <div class="editor-field BoldFont">
+      @(Model.Receiver == null ? "System" : Model.Receiver.UserName)
+    </div>
+    @Html.DisplayForModel()
+    <div class="formsendButtons">
+      @if (receiver != 0){
+        @Html.ActionLink(ViewResources.Action_Common_Mail_ReadAndAnswer, "SendMail", "Messaging", new {id = receiver, senderId = sender}, new {@class = BtStyle.ButtonAndInfo & "btn-sm"})
+      }
+      @Create.FormButtonOnClick("showMessageCancelButton", "", ViewResources.Action_Common_Mail_Close)
+    </div>
+  }
+</form>

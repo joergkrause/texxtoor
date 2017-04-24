@@ -1,0 +1,13 @@
+﻿@model int
+@{
+  var ro = ViewData.ModelMetadata.IsReadOnly;
+  var le = String.Format("{0}px", (ViewData.ModelMetadata.AdditionalValues.ContainsKey("Length") ? Convert.ToInt32(ViewData.ModelMetadata.AdditionalValues["Length"]) : 25) * 10);  
+  // TODO: Recognize Range Attribute and create spinner attributes
+}
+@if (ro) {
+  @Html.TextBoxFor(m => m, new {disabled = "disabled", style = "width:" + le, @class= "form-control", data_spinner="true"});
+}
+else {
+  @Html.TextBoxFor(m => m, new {style = "width:" + le, @class= "form-control", data_spinner="true"});
+}
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

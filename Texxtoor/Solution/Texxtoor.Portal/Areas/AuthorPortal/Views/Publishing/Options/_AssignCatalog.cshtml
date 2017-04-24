@@ -1,0 +1,36 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.Published
+@using (Html.BeginForm("SavePublishedCatalogue", "Publishing", new { id = Model.Id }, FormMethod.Post, new { id = "assignCatalogForm", data_item = "3" })) {
+  <div class="alert alert-warning" id="catalogError" style="display: @(Model.Catalogs.Any() ? "none" : "block")">
+    @Loc("textNoCat", @"There are no catalogue entries assigned yet. ")
+  </div>
+  using (Html.BtFieldset(Loc("lblCat", "Categories"))) {
+    <label>@Loc("lblSearch", "Search")</label>
+    <div class="editor-field">
+      <input type="text" value="" id="cat_filter" style="width: 300px" />@Create.FieldHelpIcon(Html, published => published.Catalogs)
+    </div>
+    <label>@Loc("lblSelect", "Select")</label>
+    <div class="editor-field">
+      <div id="catalog-content-list" style="width: 300px">
+        <div id="res_catBar">
+        </div>
+        <div id="responseMessage" class="ColorRed">
+        </div>
+      </div>
+    </div>
+    <label>@Loc("lblCurrent", "Current Selection: ")</label>
+    <div class="editor-field">
+      <select size="5" multiple="multiple" name="Catalogs" id="Catalogs" style="width: 300px">
+        @foreach (var option in Model.Catalogs) {
+          <option value="@option.Id" selected="selected">@option.Name</option>
+        }
+      </select>
+      @Create.FieldHelpIcon(
+          Loc("hlpCat", "Klicke auf eines der Einträge, um ihn wieder aus der Liste zu entfernen.").ToString(),
+          Loc("hlpCatTitle", "Einträge korrigieren", "").ToString(), "")
+    </div>
+    <div class="formsendButtons">
+      @Create.FormButtonOnClick("btnSaveCatalogue", "", ViewResources.Action_Publish_SaveCommon, "btn-primary btnSave")
+      @Create.FormButtonOnClick("btnSaveCatalogueTab", "", ViewResources.Action_Publish_SaveCommon_Tab, "btn-primary btnNext")
+    </div>
+  }
+}

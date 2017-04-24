@@ -1,0 +1,26 @@
+﻿@model Texxtoor.Portal.Areas.AdminPortal.Controllers.HomeController.DbCounter
+@{
+  PageData["Title"] = "Statistics";
+  Layout = Url.GetGlobalLayout("_LayoutConfig", "AdminPortal");
+  PageData["ShortHelp"] = "Show Statistics about the complete database and certain database fields.";
+}
+<ul class="nav nav-pills nav-stacked">
+  <li style="width:200px">Name: <span class="badge badge-warning pull-right">@Model.Databasename</span></li>
+  <li style="width:200px">Total: <span class="badge badge-info pull-right">@Model.TotalSize MB</span></li>
+  <li style="width:200px">Rows: <span class="badge pull-right">@Model.RowSize MB</span></li>
+  <li style="width:200px">Log: <span class="badge pull-right">@Model.LogSize MB</span></li>
+</ul>
+<table class="table table-bordered table-striped smaller">
+  <tr>
+    <th>Table Name</th>
+    <th>Schema</th>
+    <th>Count(*)</th>
+  </tr>
+  @foreach (var item in Model.StatCounters) {
+    <tr>
+      <td class="VerticalTop">@item.TableName</td>
+      <td class="VerticalTop">@item.SchemaName</td>
+      <td class="VerticalTop">@item.Rows</td>
+    </tr>
+  }
+</table>

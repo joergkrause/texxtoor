@@ -1,0 +1,20 @@
+﻿@model Texxtoor.ViewModels.Users.LinkInternalAccount
+
+@{
+  Layout = Url.GetGlobalLayout();
+  PageData["Title"] = Loc("title", @"Associate your {0} account", (string) ViewBag.ProviderDisplayName);
+}
+<div class="well">
+    @Loc("textprovider", @"You've successfully authenticated with <strong>{0}</strong>.
+            It seems that you are already registered with us. Click the button below to link to 
+            this account.", (string)ViewBag.ProviderDisplayName)
+</div>
+@using (Html.BeginForm("ConfirmAssociation", "Account", new { ReturnUrl = ViewBag.ReturnUrl  })) {
+  @Html.AntiForgeryToken()
+  @Html.ValidationSummary(true) 
+  @Html.HiddenFor(m => m.ExternalLoginData)
+  @Html.HiddenFor(m => m.UserName)
+    <div class="formsendButtons">
+        <input type="submit" value="@ViewResources.Action_Common_Associate" class="btn btn-primary" />
+    </div>  
+}

@@ -1,0 +1,15 @@
+﻿@model Texxtoor.DataModels.Models.Cms.CmsMedia
+
+@{
+    PageData["Title"] = "Media";
+    Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+@using (Html.BeginForm()) {
+  using (Html.BtFieldset("Media")) {
+    @Html.DisplayForModel()
+  }
+}
+<p>
+  @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-sm btn-default" })
+  @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-sm btn-primary" })
+</p>

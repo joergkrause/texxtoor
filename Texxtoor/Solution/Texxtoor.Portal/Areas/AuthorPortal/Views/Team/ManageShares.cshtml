@@ -1,0 +1,138 @@
+﻿@model Texxtoor.DataModels.Models.Content.Project
+@{
+  PageData["Title"] = Loc("title1", "Manage Shares");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("text1", @"Set and adjust the pricing for the books created within the project <em><span data-args='0' data-desc='Project Name'>{0}</span></em>.", Model.Name);
+
+  int? opusId = ViewBag.FilterToOpus == null ? null : (int?) ViewBag.FilterToOpus;
+}
+@section HelpSection {
+@Loc("text3", @"Based on the price tag provided above the author and the contributors can negotiate a share. If the author pays the contributors a fixed or hourly
+salary it is not necessary to share the revenues. Contributors must confirm the share before the project becomes publishable.")
+@Loc("text4", @"Each project can contain one or more books (work). The team members can get distinct shares for each of these books.")  
+}
+@section HeadContent{
+  <script>
+    $(function() {
+      ui = new Dialog({}, {}, {}, {
+        formId: '#main',
+        formDivId: '#main',
+        formAction: '@Html.Raw(Url.Action("ListOpus", new { id = Model.Id, opusId = opusId, tl = ViewBag.TeamLead }))',
+        onShow: function() {
+          $('[data-item="assignPackage"]').click(function(e) {
+            var id = $(this).parent().data('item');
+          });
+        }
+      });
+      ui.updateTable();
+      refreshShares();
+      $(document).on('keyup blur', '[name="ratio"]', function() {
+        var id = $(this).data('item');
+        var shareType = $('[name="shareType"][data-item=' + id + ']').val();
+        if (shareType == 7) {
+          var val = Number($(this).val());
+          if (val > 100) {
+            $(this).val(100);
+          }
+        }
+        refreshShares();
+      });
+      $(document).on('change', '[name="shareType"]', function() {
+        var shareType = $(this).val() - 0;
+        var id = $(this).data('item');
+        switch (shareType) {
+          case 1: /* Free */
+            $('[name="ratio"][data-item=' + id + ']').val(0);
+            $('[name="ratio"][data-item=' + id + ']').prop('disabled', true);
+            break;
+          case 2: /* Hourly */
+          case 3: /* Daily */
+          case 4: /* Weekly */
+          case 5: /* Monthly */
+          case 6: /* Fixed */
+            $('[name="ratio"][data-item=' + id + ']').val(0);
+            $('[name="ratio"][data-item=' + id + ']').prop('disabled', false);
+            break;
+          case 7: /* Ratio */
+            $('[name="ratio"][data-item=' + id + ']').val(20);
+            $('[name="ratio"][data-item=' + id + ']').prop('disabled', false);
+            break;
+        }
+        refreshShares();
+      });
+    });
+
+    function refreshShares() {
+      var sum = 100;
+      $('[name="ratio"]').each(function() {
+        var id = $(this).data('item');
+        if (id) {
+          var shareType = $('[name="shareType"][data-item=' + id + ']').val();
+          if (shareType == 7) {
+            sum -= Number($(this).val());
+            if (sum < 0) {
+              $(this).val(0);
+            }
+          }
+        }
+      });
+      $("#leadShareText").text(sum);
+      $("#leadShareValue").val(sum);
+    }
+
+    function EndRequest(message) {
+      ui.updateTable();
+      toastr.success(message);
+    }
+
+    function FormSubmitEdit() {
+      $("#editSharesForm").ajaxSubmit(function(data) {
+        $("#editSharesContainer").hide();
+        $('#main').show();
+        EndRequest(data.msg);
+      });
+    }
+
+    function EditShares(opusId) {
+      $.ajax({
+        url: '@Url.Action("EditShares")',
+        data: { id: opusId },
+        cache: false,
+        dataType: "html",
+        success: function(data) {
+          $('#editSharesContainer').html(data);
+          $("#editSharesForm").ajaxForm({
+            beforeSubmit: function() {
+              refreshShares();
+            },
+            success: function(data) {
+              $("#editSharesForm").resetForm();
+              EndRequest(data.msg);
+            },
+            error: function(data) {
+              $("#editSharesForm").resetForm();
+              EndRequest(data.msg);
+            }
+          });
+          $('#main').hide();
+          $("#editSharesContainer").show();
+          $('#cancelEditSharesButton').click(function() {
+            $("#editSharesContainer").hide();
+            $('#main').show();
+          });
+        }
+      });
+      return false;
+    }
+
+  </script>
+  @Script.SetTableBehavior()
+}
+<h2>@Loc("titleContrib", "Contributors Share")</h2>
+@Create.ContentFormEmpty("editSharesContainer")
+@Create.MainContentWithLoader()
+@Create.ActionTask("btnMarketing", false, Url.Action("MarketingPackage", "Marketing", new { id = Model.Id }), ViewResources.TasksButton_ManageMarketingPackages)
+@Create.ActionTask("btnRev", true, Url.Action("Revenues", "Marketing", null), ViewResources.LinkButton_Common_Revenues)
+@Create.ActionTask("btnStats", true, Url.Action("Stats", "Marketing", null), ViewResources.LinkButton_Common_Stats)
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = Model.Id }), ViewResources.LinkButton_ToDashboard)

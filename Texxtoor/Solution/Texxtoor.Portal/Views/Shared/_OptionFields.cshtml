@@ -1,0 +1,39 @@
+﻿@using Texxtoor.ViewModels.Common
+@model IEnumerable<OptionField>
+@{
+  var orderedMainButtons = Model.Where(b => b.Important).OrderBy(b => b.Order);
+  var orderedDropButtons = Model.Where(b => !b.Important).OrderBy(b => b.Order);
+}
+<div class="btn-group btn-toolbar">
+  @foreach (OptionField btn in orderedMainButtons) {
+    switch (btn.Type) {
+      case OptionField.LinkType.Link:
+        @Create.ActionLink(btn.Id, btn.Url, btn.Text, btn.AdditionalStyles, btn.HtmlProperties)
+        break;
+      case OptionField.LinkType.Click:
+      @Create.ActionClick(btn.Id, btn.Url, btn.Text, btn.AdditionalStyles, btn.HtmlProperties)
+        break;
+    }
+  }
+</div>
+@if (orderedDropButtons.Any()) {
+  <div class="btn-group dropdown">
+    <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+      @ViewResources.MoreOptionEllipses<span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      @foreach (OptionField btn in orderedDropButtons) {
+        <li>
+          @switch (btn.Type) {
+            case OptionField.LinkType.Link:
+              @Create.ActionLink(btn.Id, btn.Url, btn.Text, btn.AdditionalStyles, btn.HtmlProperties)
+              break;
+            case OptionField.LinkType.Click:
+            @Create.ActionClick(btn.Id, btn.Url, btn.Text, btn.AdditionalStyles, btn.HtmlProperties)
+              break;
+          }
+        </li>
+      }
+    </ul>
+  </div>
+}

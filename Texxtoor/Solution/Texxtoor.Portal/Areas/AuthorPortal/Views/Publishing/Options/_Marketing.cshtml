@@ -1,0 +1,61 @@
+﻿@using Texxtoor.DataModels.Models.Author
+@model Texxtoor.DataModels.Models.Reader.Content.Published
+@using (Html.BeginForm("SavePublishedMarketing", "Publishing", new { id = Model.Id }, FormMethod.Post, new { id = "marketingForm", data_item = "4" })) {
+  using (Html.BtFieldset(Loc("legendPub", "Manage the appearance in eBook shops here"))) {
+    @Html.LabelFor(m => m.Marketing.BasePrice)
+    <div class="editor-field">
+      @Html.EditorFor(m => m.Marketing.BasePrice, "Currency", "BasePrice")
+      <span class="marketingSpan1">Print: <span id="estimatePricePrint"></span></span>&nbsp; &nbsp;
+      <span class="marketingSpan1">EPUB: <span id="estimatePriceEPub"></span></span>&nbsp; &nbsp;
+      <span class="marketingSpan1">iBook: <span id="estimatePriceiBook"></span></span>
+    </div>
+    @Html.LabelFor(m => m.Marketing.ShareContent)
+    <div class="editor-field">
+      <input type="checkbox" value="true" @(Model.Marketing.ShareContent ? "checked='checked'" : "") name="ShareContent" />
+      @(Create.FieldHelpIcon<Texxtoor.DataModels.Models.Reader.Content.Published>(m => m.Marketing.ShareContent))
+    </div>
+    @Html.LabelFor(m => m.Marketing.RegisterForLibraries)
+    <div class="editor-field">
+      <input type="checkbox" value="true" @(Model.Marketing.RegisterForLibraries ? "checked='checked'" : "") name="RegisterForLibraries" />
+      @(Create.FieldHelpIcon<Texxtoor.DataModels.Models.Reader.Content.Published>(m => m.Marketing.RegisterForLibraries))
+    </div>
+    @Html.LabelFor(m => m.Marketing.CreateRssFeed)
+    <div class="editor-field">
+      <input type="checkbox" value="true" @(Model.Marketing.CreateRssFeed ? "checked='checked'" : "") name="CreateRssFeed" />
+      @(Create.FieldHelpIcon<Texxtoor.DataModels.Models.Reader.Content.Published>(m => m.Marketing.CreateRssFeed))
+    </div>
+    }
+    <div data-globalonly="true">
+      @using (Html.BtFieldset(Loc("lndOptions", "Public Visibility"))) {
+        @Html.LabelFor(m => m.ExternalPublisher.DrmRequired)
+        <div class="editor-field">
+          <input type="checkbox" value="true" @(Model.ExternalPublisher.DrmRequired ? "checked='checked'" : "") name="KindleDrmRequired" />
+          @(Create.FieldHelpIcon<Texxtoor.DataModels.Models.Reader.Content.Published>(m => m.ExternalPublisher.DrmRequired))
+          @Html.ValidationMessageFor(m => m.ExternalPublisher.DrmRequired)
+        </div>
+        @Html.LabelFor(m => m.ExternalPublisher.CreativeCommon)
+        <div class="editor-field">
+          <input type="checkbox" value="true" @(Model.ExternalPublisher.CreativeCommon ? "checked='checked'" : "") name="KindleCreativeCommon" />
+          @(Create.FieldHelpIcon<Texxtoor.DataModels.Models.Reader.Content.Published>(m => m.ExternalPublisher.CreativeCommon))
+          @Html.ValidationMessageFor(m => m.ExternalPublisher.CreativeCommon)
+        </div>
+        @Html.LabelFor(m => m.Marketing.AssignIsbn)
+        <div class="editor-field">
+          <input type="checkbox" value="true" @(Model.Marketing.AssignIsbn ? "checked='checked'" : "") name="AssignIsbn" />
+          @(Create.FieldHelpIcon<Texxtoor.DataModels.Models.Reader.Content.Published>(m => m.Marketing.AssignIsbn))
+        </div>
+        <div class="editor-field" id="KindleIsbn">
+          @Html.DisplayFor(m => m.ExternalPublisher.Isbn.Isbn13)
+          @if (Model.ExternalPublisher.Isbn != null) {
+            <div class="alert alert-success">
+              <img src="/Tools/GetImg/@Model.Id?c=BarCode&res=150x80&href=@Model.ExternalPublisher.Isbn.Isbn13" />
+            </div>
+        }
+        </div>
+        <div class="formsendButtons">
+          @Create.FormButtonOnClick("btnSaveGlobal", "", ViewResources.Action_Publish_SaveGlobal, "btn-primary btnSave")
+          @Create.FormButtonOnClick("btnSaveGlobalTab", "", ViewResources.Action_Publish_SaveGlobal_Tab, "btn-primary btnNext")
+        </div>
+    }
+  </div>
+}

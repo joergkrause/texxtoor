@@ -1,0 +1,110 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@model IEnumerable<Texxtoor.DataModels.Models.Content.TemplateGroup>
+@{
+  PageData["Title"] = "Template Manager";
+  Layout = Url.GetGlobalLayout("_LayoutTemplates", "AdminPortal");
+}
+@section HeadContent
+{
+  <script>
+    $(function () {
+      $('#templatesTab').tabs().css({
+        'resize': 'none',
+        'min-height': '450px',
+        'min-width': '1015px',
+        'select': '@ViewBag.CurrentTab'
+      });
+    });
+  </script>
+  <style>
+    div#templatesTab table
+    {
+      width: 450px;
+      border-width: 0 0 1px 0;
+      border-color: black;
+      border-style: solid;
+      border-spacing: 0;
+      border-collapse: collapse;
+    }
+
+    div#templatesTab td
+    {
+      margin: 0;
+      padding: 4px;
+      border-width: 1px 1px 0 1px;
+      background-color: #FFC;
+      border-style: solid;
+    }
+
+    div#templatesTab th
+    {
+      margin: 0;
+      padding: 4px;
+      border-width: 0 0 0 0;
+      background-color: #CCC;
+    }
+
+    a.right
+    {
+      display: block;
+      width: 150px;
+    }
+  </style>
+}
+<div class="well">
+  Manage your own templates here. Templates modify the behavior while creating printable PDF, EPUBs, sending mails or import text from Word.
+</div>
+
+<ul class="nav nav-tabs">
+  <li class="@((int)ViewBag.CurrentTab == 0 ? "active" : "")"><a href="#pdf" data-toggle="tab">PDF Templates</a></li>
+  <li class="@((int)ViewBag.CurrentTab == 1 ? "active" : "")"><a href="#epub" data-toggle="tab">EPUB Templates</a></li>
+  <li class="@((int)ViewBag.CurrentTab == 4 ? "active" : "")"><a href="#mail" data-toggle="tab">Mail Templates</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane @((int)ViewBag.CurrentTab == 0 ? "active" : "")" id="pdf">
+    <h2>PDF Templates (Production)</h2>    
+    <div class="well well-sm" >
+      @Html.ActionLink("Create new Group", "CreatePdfGroup", "Template", null, new Dictionary<string, object>() { { "class", "btn btn-sm btn-primary pull-right" } })
+      Templates für PDF (Layout and common sections). Each template consists of a group of files, which must have at least one file named 'document.xml'. This file
+      can reference others by using &lt;xi:include&gt; for HTML and &lt;t:style&gt; for CSS tags. CSS is an enhanced CSS3 compatible system that supports print as well.
+    </div>
+    @{
+      var pdfTemplates = Model.Where(t => t.Group == GroupKind.Pdf).OrderBy(t => t.Name).ToList();
+    }
+    @if (!pdfTemplates.Any()) {
+      <div class="alert alert-warning">There are no templates in this category</div>
+    } else {
+      @Html.Partial("Pdf/_List", pdfTemplates)
+    }
+  </div>
+  <div class="tab-pane@((int)ViewBag.CurrentTab == 1 ? "active" : "")" id="epub">
+    <h2>EPUB Templates</h2>
+    <div class="well well-sm">
+      @Html.ActionLink("Create new Group", "CreateEpubGroup", "Template", null, new Dictionary<string, object>() { { "class", "btn btn-sm btn-primary pull-right" } })
+      @Html.ActionLink("Import Templates", "EditEpubTemplate", "Template", new Dictionary<string, object>() { { "class", "btn btn-sm btn-primary pull-right" } })
+      Templates fpr EPUB (Layout and predefined sections).
+    </div>
+    @{
+      var epubTemplates = Model.Where(t => t.Group == GroupKind.Epub).OrderBy(t => t.Name).ToList();
+    }
+    @if (!epubTemplates.Any()) {
+      <div class="alert alert-warning">There are no templates in this category</div>
+    } else {
+      @Html.Partial("Epub/_List", epubTemplates)      
+    }
+  </div>
+  <div class="tab-pane@((int)ViewBag.CurrentTab == 4 ? "active" : "")" id="mail">
+    <h2>E-Mail Vorlagen (Interne Mail)</h2>
+    <div class="well well-sm">      
+      Manage variables you want to use in customized mail responses. 
+    </div>
+    @{
+      var mailTemplates = Model.Where(t => t.Group == GroupKind.Email).OrderBy(t => t.Name).ToList();
+    }
+    @if (!mailTemplates.Any()) {
+      <div class="alert alert-warning">There are no templates in this category</div>
+    } else {
+     @Html.Partial("Mail/_List", mailTemplates)
+    }
+  </div>
+</div>

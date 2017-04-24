@@ -1,0 +1,51 @@
+﻿@* Generator: MvcHelper *@
+
+@helper SetTableBehavior(bool activateImmediately = false) {
+  <script>
+    @if (activateImmediately) {
+      <text>
+    $(function () {
+      SetTableBehavior();
+    });
+     </text>
+    }
+    function SetTableBehavior() {
+      $('div.thirdRow').each(function (i, e) {
+        var options = $(e).find('div.optionFields');
+        $(e).next().hover(
+          function (evt) {
+            options.addClass('multilistSelected');
+          },
+          function (evt) {
+            options.removeClass('multilistSelected');
+          });
+        $(e).hover(
+          function (evt) {
+            options.addClass('multilistSelected');
+          },
+          function (evt) {
+            options.removeClass('multilistSelected');
+          });
+      });
+      $('tr.thirdRow').each(function(i, e) {
+        var options = $(e).nextAll(':first').find('div.optionFields');
+        if (options) {
+          $(e).hover(
+            function(evt) {
+              options.css('opacity', '1');
+            },
+            function(evt) {
+              options.css('opacity', '0.5');
+            });
+          $(e).next().hover(
+            function(evt) {
+              options.css('opacity', '1');
+            },
+            function(evt) {
+              options.css('opacity', '0.5');
+            });
+        }
+      });
+    }
+  </script>
+}

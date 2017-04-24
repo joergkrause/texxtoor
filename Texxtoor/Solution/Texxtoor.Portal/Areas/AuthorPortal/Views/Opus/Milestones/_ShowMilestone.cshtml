@@ -1,0 +1,76 @@
+﻿@model Texxtoor.DataModels.Models.Content.Milestone
+<div class="firstRow pull-left" style="padding: 0px 15px 0px 15px;">
+  @switch (Model.Progress) {
+    case 0:
+    <img src="~/Content/icons/Project/trafficlight_off_32.png" alt="@Model.Description" class="TopVertical" />
+      break;
+    case 100:
+    <img src="~/Content/icons/Project/trafficlight_green_32.png" alt="@Model.Description" class="TopVertical"  />
+      break;
+    default:
+    <img src="~/Content/icons/Project/trafficlight_yellow_32.png" alt="@Model.Description" class="TopVertical" />
+      break;
+  }
+  @if (Model.Overdue) {
+    <span class="ShowMilestoneSpan1">!</span>
+  }
+  <strong>@Model.Name</strong>
+</div>
+<div class="secondRow">
+  <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+  <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+
+    @Loc("textMs", @"The milestone <em><span data-args='0' data-desc='Name'>{0}</span></em>, assigned to user
+<em><span data-args='1' data-desc='User'>{1}</span></em>at <em><span data-args='2' data-desc='Assigned'>{2}</span></em>
+is due at <em><span data-args='3' data-desc='Due'>{3}</span></em>.
+    The current progress <em><span data-args='4' data-desc='Progress'>{4}</span>%</em>. ",
+    Model.Name,
+    Model.Owner.Member.UserName,
+    Model.DateAssigned.ToShortDateString(),
+    Model.DateDue.ToShortDateString(),
+    Model.Progress)
+    @if (Model.Done) {
+      @Loc("textMSDone", @"The milestone is <em>{0}</em>.", Loc("done", @"done"))
+    } else {
+      @Loc("textMSDone", @"The milestone is <em>{0}</em>.", Loc("notdone", @"not done"))
+    }
+    @if (Model.NextMilestone != null) {
+      <span>@Loc("textNext", @"This milestone connects to <em><span data-args='0' data-desc='Name'>{0}</span></em>", Model.NextMilestone.Name)</span>
+    }
+    @if (Model.Overdue) {
+      <span class="error">@Loc("textOverDue", @"This milestone is currently overdue.")</span>
+    }
+    </div>
+  </div>
+@{
+  var canOrder = (bool) ViewData["CanOrder"];
+}
+<div class="thirdRow">
+  <div class="optionFields" data-item="@Model.Id">
+    @if (Model.Owner.Member.Id == (int) ViewData["UserId"]) {
+      @Create.ActionIcon("", "ChangeMilestone(" + Model.Id + ", $('#valComment-" + Model.Id + "').val(), 100);", ViewResources.Action_Milestones_SetAsdone, BtIcon.Check)
+      @Create.ActionClick("", false, "ChangeMilestone(" + Model.Id + ", $('#valComment-" + Model.Id + "').val(), 0);", ViewResources.Action_Milestones_SetAsUndone)
+    }
+    @if ((int)ViewData["UserId"] == (int)ViewData["TeamLeadId"]) { 
+      @Create.ActionClick("", true, "ui.editElement(" + Model.Id + ")", ViewResources.Action_Milestones_Edit)
+      if (Model.Opus.Milestones.Count(m => m.NextMilestone == null) > 1 && canOrder) {
+        if (Model.Opus.Milestones.Last().Id != Model.Id && Model.NextMilestone == null) {
+          @Create.ActionIcon("", "MoveMilestone(" + Model.Id + ", 'u')", ViewResources.Action_Milestones_Up, BtIcon.ArrowUp)
+        }
+        if (Model.Opus.Milestones.First().Id != Model.Id && Model.NextMilestone == null) {
+          @Create.ActionIcon("", "MoveMilestone(" + Model.Id + ", 'd')", ViewResources.Action_Milestones_Down, BtIcon.ArrowDown)
+        }
+      }
+      if (Model.NextMilestone == null || ((bool) ViewData["CanRemove"])){
+        @Create.ActionClick("", true, "ui.deleteElement(" + Model.Id + ") ", ViewResources.Action_Milestones_Remove, "btn-warning")
+      }
+      else{
+        using (Html.BtDiv(BtStyle.AlertAndWarning & BtStyle.WellSmall)){
+          @Loc("txtChain", @"Cannot remove, part of chain (next: <em><span data-args='0' data-desc='Name'>{0}</span></em>)", Model.NextMilestone.Name)
+        }
+      }
+    } else {
+      @Loc("textNoOptions", @"There are no options because you're not responsible for this milestone. Contact your team lead.")
+    }
+  </div>
+</div>

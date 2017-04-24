@@ -1,0 +1,41 @@
+﻿@model IPagedList<Texxtoor.DataModels.Models.Content.Opus>
+@Html.Partial("_Pagination", PaginationViewModel<Texxtoor.DataModels.Models.Content.Opus>.Create(Model, "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});", true, m => m.Name, m => m.Version, m => m.ModifiedAt))
+@if (!Model.Any()) {
+  <div class="alert alert-error">
+    @Loc("textNothing", @"There are no publishable text in this project.")
+  </div>
+} else {
+  <div class="multilist">
+    @foreach (var opus in Model) {
+      var teamLead = @opus.Project.Team.Members.Single(t => t.TeamLead).Member.UserName;
+      var current = teamLead == User.Identity.Name;
+      <div class="listitem">
+      <div class="firstRow">
+        @Badges.NewItem(opus.Name, opus.CreatedAt, TimeSpan.FromDays(2))
+      </div>
+        <div class="secondRow">
+          <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+          <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+
+            @Loc("textWork", @"Work <em><span data-args='0' data-desc='Work Name'>{0}</span></em>,
+                                created at <em><span data-args='1' data-desc='Work Date'>{1}</span></em>."
+              , opus.Name + " (" + opus.Project.Name + ")", opus.CreatedAt.ToShortDateString())
+            Version <em>@opus.Version</em> from <em>@teamLead</em>
+            @if (current) {
+              <div class="alert alert-warning well-sm">
+                @Loc("textCurrent", @"This is your own text. You cannot unfreeze yourself.")
+              </div>
+            }
+          </div>
+          </div>
+        <div class="thirdRow">
+          <div class="optionFields">
+            @if (!opus.IsPublished && !current) {
+              @Create.ActionLink("freeText", true, Url.Action("UnfreezeText", new { id = opus.Id }), ViewResources.Action_Publish_UnfreezeText)
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

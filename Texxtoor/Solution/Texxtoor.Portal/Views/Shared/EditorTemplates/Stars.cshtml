@@ -1,0 +1,7 @@
+﻿@model int
+@{
+  var minRange = 1;
+  var maxRange = 6;
+}
+<input type="number" name="@ViewData.ModelMetadata.PropertyName" data-rating data-max="@maxRange" data-min="@minRange" value="@Model" />
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

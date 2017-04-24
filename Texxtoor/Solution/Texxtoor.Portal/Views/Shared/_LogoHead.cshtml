@@ -1,0 +1,11 @@
+﻿@using System.Web.Configuration
+@using Texxtoor.DataModels.Models.Common
+@{
+  var rm = (Texxtoor.DataModels.Models.Common.RunMode)HttpContext.Current.Application["RunMode"];
+  var logo = WebConfigurationManager.AppSettings["Logo-" + rm.ToString().ToLowerInvariant()];
+}
+@if (!User.Identity.IsAuthenticated || (ViewBag.IsLandingPage != null && (bool)ViewBag.IsLandingPage)) {
+  <a class="navbar-brand" href="/">
+    <img src="~/Content/images/@logo" class="logo" alt="Logo" width="297" height="105" />
+  </a>
+}

@@ -1,0 +1,9 @@
+﻿<div class="about" id="about-h-1" xmlns:t="http://www.texxtoor.de/2014/templating">
+  <t:img src="author" />
+  <h3 class='builder'>
+    <t:authorname type="lead" />
+  </h3>
+  <p>
+    <t:biography type="lead" />
+  </p>
+</div>

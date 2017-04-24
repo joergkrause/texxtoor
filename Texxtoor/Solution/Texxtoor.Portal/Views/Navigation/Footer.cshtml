@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Cms.CmsMenu>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      @foreach (var menu in Model) {
+        <div class="col-md-3 footerContent">
+          <h4>@menu.Title</h4>
+          <menu>
+            @foreach (var item in menu.MenuItems.Where(m => m.Visible)) {
+              <li style="font-size:smaller"><a href="@Url.BuildMenuLink(item)" title="@item.Title">@Html.Raw(item.Title)</a></li>
+            }
+          </menu>
+        </div>
+      }
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>

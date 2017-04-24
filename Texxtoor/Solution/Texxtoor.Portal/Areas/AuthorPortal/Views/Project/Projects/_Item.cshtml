@@ -1,0 +1,101 @@
+﻿@model Texxtoor.DataModels.Models.Content.Project
+@{
+  var leader = ViewData["leader"] as Texxtoor.DataModels.Models.Author.TeamMember;
+  var fromList = ViewData["fromList"] == null || (bool)ViewData["fromList"];
+  var paging = ViewData["pagination"] as IPagedList<Texxtoor.DataModels.Models.Content.Project>;
+  var deactivated = ViewData["deactivated"] == null || (bool)ViewData["deactivated"];
+}
+<div data-area="infobox">
+  <div style="height: 108px; width: 108px; position: absolute; right: 15px; margin: -5px;">
+    <img src="@Url.Action("GetImg", "Tools", new { area = "", id = Model.Id, c = "Project", res = "108x108", nc = true, t = DateTime.Now.Ticks })" alt="@Model.Name" class="pull-left img img-thumbnail" style="width: 108px; height: 108px" />
+  </div>
+  <div style="height: 108px; width: 108px; position: absolute; right: 123px; text-align:center; margin: -5px;" class="light">
+    @{
+      var green = Model.Active && Model.Published != null && Model.Published.Any();
+      var red = Model.Active && !Model.CanPublish() && !green;
+      var yellow = Model.Active && !green && !red;
+      var off = !Model.Active;
+    }
+    @if (green) {
+      @*<img src="~/Content/icons/Project/trafficlight_green_32.png" style="width: 100%" alt="description" data-content="@ViewResources.ProjectState_Content_Green" data-header="@ViewResources.ProjectState_Header_Green"
+        id="fh-2" />*@
+      <div style="background-color: green; margin: 15px auto; width: 40px; height: 40px; border-radius: 20px;"></div>
+      <span style="font-size: 1.1em;">@Loc("lblGo", "Go")</span>
+    }
+    @if (yellow) {
+      @*<img src="~/Content/icons/Project/trafficlight_yellow_32.png" style="width: 100%" alt="description" data-content="@ViewResources.ProjectState_Content_Yellow" data-header="@ViewResources.ProjectState_Header_Yellow" id="fh-2" />*@
+      <div style="background-color: yellow; margin: 15px auto; width: 40px; height: 40px; border-radius: 20px;"></div>
+      <span style="font-size: 1.1em;">@Loc("lblProgress", "Progress")</span>
+    }
+      @if(red) {
+      @*<img src="~/Content/icons/Project/trafficlight_red_32.png" style="width: 100%" alt="description" data-content="@ViewResources.ProjectState_Content_Red" data-header="@ViewResources.ProjectState_Header_Red" id="fh-3" />*@
+      <div style="background-color: red; margin: 15px auto; width: 40px; height: 40px; border-radius: 20px;"></div>
+      <span style="font-size: 1.1em;">@Loc("lblStopped", "Stopped")</span>
+    }
+        @if (off) {
+      @*<img src="~/Content/icons/Project/trafficlight_off_32.png" style="width: 100%" alt="description" data-content="@ViewResources.ProjectState_Content_Off" data-header="@ViewResources.ProjectState_Header_Off" id="fh-4" />*@
+      <div style="background-color: #fff; margin: 15px auto; width: 40px; height: 40px; border-radius: 20px;"></div>
+      <span style="font-size: 1.1em;">@Loc("lblWaiting", "Waiting")</span>
+    }
+  </div>
+  <div style="height: 108px; width: 108px; position: absolute; right: 231px; text-align:center; margin: -5px;" class="dark">
+    <span style="font-size: 3em; line-height: 1.8em;">@Model.Opuses.Count()</span><br />
+    <span style="font-size: 1.1em;">@Loc("lblTexts", "Texts")</span>
+  </div>
+  <div style="height: 108px; width: 108px; position: absolute; right: 339px; text-align:center; margin: -5px;" class="medium">
+    <span style="font-size: 3em; line-height: 1.8em;">@Model.Team.Members.Count()</span><br />
+    <span style="font-size: 1.1em;">@Loc("lblMembers", "Members")</span>
+  </div>
+  <div class="hidden-to-show" data-type="infobox" style="background-color: #fff; color: black; height: 108px; z-index:1000; position: absolute; right: 448px; left: 18px; text-align:left; margin: -5px; padding: 15px 5px;" onmouseout="$(this).hide();">
+    
+  </div>
+</div>
+<div class="firstRow">
+  @Badges.NewItem(Model.Name, Model.CreatedAt, TimeSpan.FromDays(2))
+</div>
+<div class="secondRow">
+  <div class="pull-left">
+    @if (leader.Member.UserName == User.Identity.Name) {
+      <i class="icon icon-thumbs-up-alt"></i>@:&nbsp;<strong class="text text-red">@Loc("txtLeading", "I'm leading this project.")</strong>
+    }
+  </div>  
+</div>
+<div class="thirdRow">
+  <div class="optionFields" data-item="@Model.Id">
+    @{
+      var options = new List<OptionField>();
+      if (deactivated) {
+        options.Add(new OptionClickField("lnkReactivate", true, "ui.reactivateProject(" + Model.Id + "," + paging.PageIndex + ",'" + paging.Order + "','" + paging.Descending + "')", ViewResources.Action_Project_Reactivate, 5));
+        if (Model.Opuses == null || Model.Opuses.Count(o => o.Active) == 0) {
+          options.Add(new OptionClickField("lnkRemove", true, "ui.deleteProject(" + Model.Id + "," + paging.PageIndex + ",'" + paging.Order + "','" + paging.Descending + "')", ViewResources.Action_Project_Delete, 4, "btn-warning"));
+        }
+      } else {
+        if (fromList) {
+          if (Model.Opuses != null && Model.Opuses.Any(o => o.Active)) {
+            options.Add(new OptionLinkField("lnkEdit", true, Url.Action("EditOpus", "Project", new { id = Model.Id }), ViewResources.Action_Project_EditCurrentText, "btn-info"));
+          }
+          options.Add(new OptionLinkField("lnkDashboard", true, Url.Action("Dashboard", "Project", new { id = Model.Id }), ViewResources.Action_Project_ShowDashboard, "btn-info"));
+        }
+        if (leader.Member.UserName == User.Identity.Name) {
+          if (paging != null) {
+            options.Add(new OptionClickField("directEdit", false, "ui.editElement(" + Model.Id + "," + paging.PageIndex + ",'" + paging.Order + "','" + paging.Descending + "')", ViewResources.Action_Project_EditProject, 4, "btn-warning"));
+          }
+          options.Add(new OptionLinkField("lnkImport", false, Url.Action("Import", "Project", new { id = Model.Id, type = "MsWord" }), ViewResources.Action_Project_Import));
+          options.Add(new OptionLinkField("showClosedButton", false, Url.Action("ShowClosed", "Opus", new { id = Model.Id }), ViewResources.TasksButton_ShowClosed));
+          options.Add(new OptionLinkField("createTplButton", true, Url.Action("CreateFromTemplate", "Opus", new { id = Model.Id }), ViewResources.TasksButton_CreateNewWork));
+          options.Add(new OptionClickField("lnkDeactivate", false, "ui.deleteElement(" + Model.Id + ")", ViewResources.Action_Project_Deactivate, "btn-warning"));
+          options.Add(new OptionLinkField("lnkMarketing", false, Url.Action("MarketingPackage", "Marketing", new { id = Model.Id }), ViewResources.Action_Project_PricingMarketing));
+          options.Add(new OptionLinkField("lnkShares", false, Url.Action("ManageShares", "Team", new { Model.Id }), ViewResources.TasksButton_PricingRevenueShare));
+          options.Add(new OptionLinkField("btnNewLead", false, Url.Action("AssignToLeadAuthor", "Project", new { Id = Model.Id }), ViewResources.Action_Project_AssignToLeadAuthor));
+          if (Model.CanPublish()) {
+            options.Add(new OptionLinkField("lnkPublish", false, Url.Action("Index", "Publishing", new { id = Model.Id }), ViewResources.Action_Project_Publish));
+          }
+        }
+        options.Add(new OptionLinkField("gotoTeam", false, Url.Action("Details", "Team", new { id = Model.Team.Id, projectId = Model.Id, area = "AuthorPortal" }), ViewResources.TasksButton_TeamsRoom));
+        options.Add(new OptionLinkField("lnkResources", false, Url.Action("Index", "Resource", new { Id = Model.Id }), ViewResources.TasksButton_FileResources));
+        options.Add(new OptionLinkField("lnkSemantic", false, Url.Action("Termsets", "Resource", new { Id = Model.Id }), ViewResources.TasksButton_SemanticData));
+      }
+    }
+    @Html.Partial("_OptionFields", options)
+  </div>
+</div>

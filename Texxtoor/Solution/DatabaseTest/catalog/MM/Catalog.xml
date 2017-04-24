@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<OpusCategories>
+  <OpusCategory lang="de" order="0">
+    <name>Haushaltstechnik</name>
+  </OpusCategory>
+  <OpusCategory lang="de" order="1">
+    <name>Unterhaltungselektronik</name>
+  </OpusCategory>
+  <OpusCategory lang="en" order="0">
+    <name>Household Technology</name>
+  </OpusCategory>
+  <OpusCategory lang="en" order="1">
+    <name>HiFi Electronics</name>
+  </OpusCategory>
+</OpusCategories>

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mail locale="de" name="MyManuals">
+  <template name="QuickForm">
+    <![CDATA[
+    <subject>Mail Quickform</subject>
+    <body>
+      Benutzer {Name}, Telefon {Phone}, hat folgenden Projektvorschlag: {ProjectName}.
+    </body>
+    ]]>
+  </template>
+  <template name="QuickForm-Sender">
+    <![CDATA[
+    <subject>Danke für Ihre Anfrage</subject>
+    <body>
+      Lieber Autor,
+      
+      vielen Dank für Ihr Interesse an MyManuals. Wir werden uns mit Ihnen in Verbindung setzen.
+      
+      Ihr MyManuals-Team
+      
+      Benutzer {Name}, Telefon {Phone}, Projektvorschlag: {ProjectName}.
+    </body>
+    ]]>
+  </template>
+  <template name="WelcomeUser" >
+    <![CDATA[
+    <subject>{UserName} hat sich bei MyManuals angemeldet!</subject>
+    <body>
+      Herzlich Willkommen bei MyManuals, {UserName}!
+      
+      texxtoor bietet dir eine umfassende Plattform zum Erstellen professioneller Anleitungen. 
+      
+      Für die Kommunikation mit Ihnen, Ihrem Team, Mitarbeitern und die Abwicklung der Produktion ist eine zuverlässige Verbindung notwendig. Deswegen
+      prüfen wir die angegebene E-Mail am Anfang einmalig. Bitte bestätigen Sie dies mit dem folgenden Link und alle Funktionen können sofort genutzt werden.
+      
+      <a href="{ConfirmLink}">{ConfirmLink}</a>
+      
+      Sie sind angemeldet als: {UserName}.
+
+      Vielen Dank, Ihr MyManuals Team
+      
+    </body>
+    ]]>
+  </template>
+  <template name="AddedToTeam" >
+    <![CDATA[
+    <subject>Der Benutzer {UserName} wurde einem MyManuals-Team hinzugefügt</subject>
+    <body>
+      Glücvkwunsch {UserName}!
+      
+      MyManuals bietet eine hervorragend Plattform für die Veröffentlichung von Fachtexten.
+      
+      Ein Autor hat Sie seinem Team '{TeamName}' hinzugefügt. Bitte melden Sie sich so bald wie möglich an und prüfen SIe ihren Status.
+
+      Viele Grüße, Ihr MyManuals-Team
+      
+    </body>
+    ]]>
+  </template>
+  <template name="AddedToTeamLead" >
+    <![CDATA[
+    <subject>User {UserName} wurde einem MyManuals-Team hinzugefügt</subject>
+    <body>
+      Lieber {UserName}!
+              
+      Sie haben als führender Autor den Benutzer {ContributorName} dem Team {TeamName} hinzugefügt.
+
+      Viele Grüße, Ihr MyManuals-Team
+      
+    </body>
+    ]]>
+  </template>
+  <template name="RemovedFromTeam" >
+    <![CDATA[
+    <subject>Der  Benutzer {UserName} wurde aus einem MyManuals-Team entfernt</subject>
+    <body>
+      Lieber {UserName}!
+      
+      Sie wurden aus dem Team '{TeamName}' entfernt. 
+
+      Viele Grüße, Ihr MyManuals-Team
+      
+    </body>
+    ]]>
+  </template>
+  <template name="RemovedFromTeamLead" >
+    <![CDATA[
+    <subject>User {UserName} has been removed from a texxtoor-team</subject>
+    <body>
+      Lieber {UserName}!
+              
+      Sie haben als führender Autor den Benutzer {ContributorName} aus dem Team {TeamName} entfernt.
+
+      Viele Grüße, Ihr MyManuals-Team
+      
+    </body>
+    ]]>
+  </template>
+  <template name="RetrievePassword" >
+    <![CDATA[
+    <subject>Dein Kennwort auf MyManuals wurde zurückgesetzt</subject>
+    <body>
+      Lieber {UserName}!
+              
+      Wir haben dein Kennwort zurückgesetzt. Du kannst dich jetzt mit '{Password}' anmelden. 
+      
+      Wenn du dann angemeldet bist, ändere bitte das Kennwort.
+
+      Liebe Grüße, Ihr MyManuals-Team
+      
+    </body>
+    ]]>
+  </template>
+</mail>

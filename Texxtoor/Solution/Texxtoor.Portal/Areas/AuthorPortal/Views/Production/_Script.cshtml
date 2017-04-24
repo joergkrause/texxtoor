@@ -1,0 +1,56 @@
+﻿  <style>
+    ul.templateNames li
+    {
+      cursor: pointer;
+      background-color: rgb(227, 29, 34);
+      color: #fff;
+      display: inline-block;
+      padding: 5px;
+      min-width: 140px;
+      text-decoration: none;
+    }
+
+      ul.templateNames li:hover
+      {
+        text-decoration: underline;
+      }
+
+    .processing
+    {
+      cursor: not-allowed;
+      color: silver;
+    }
+
+      .processing:hover
+      {
+        text-decoration: none;
+      }
+  </style>
+  <script>
+    $(function () {
+      $('button[data-action]').on('click', function () {
+        $('button[data-action]').attr('disabled', 'disabled');
+        var btn = $(this);
+        var type = $(btn).data('type');
+        var id = $(btn).data('value');
+        $.ajax({
+          url: '@Url.Action("ProduceMedia", "Production")',
+          data: {
+            id: '@ViewBag.OpusId',
+            type: type,
+            templateGroupId: id
+          },
+          type: 'POST',
+          success: function (data) {
+            $('button[data-action]').removeAttr('disabled');
+            toastr.success(data.msg);
+          },
+          error: function (data) {
+            $('button[data-action]').removeAttr('disabled');
+            toastr.error(data.statusText);
+          }
+        });
+        return false;
+      });
+    });
+  </script>

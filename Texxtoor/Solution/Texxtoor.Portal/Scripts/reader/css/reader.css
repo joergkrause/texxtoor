@@ -1,0 +1,939 @@
+html
+{
+  width: 100%;
+  height: 100%;
+}
+
+body
+{
+  font-size: 14px;
+  font-family: "Times New Roman", serif;
+  color: #232323;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+  font-family: "Arial", "Helvetica", sans-serif;
+}
+
+/*--------------------------Testing department-------------------------------*/
+p
+{
+  /*background-color: red;*/
+}
+
+/*--------------------------Reader Service-------------------------------*/
+.sign-in-form, .ssid-form
+{
+  width: 95%;
+  border: 1px solid #333;
+  margin: 0 auto 10px auto;
+  box-shadow: 0 3px 3px #333;
+  position: relative;
+}
+
+.ssid-form
+{
+  display: none;
+}
+
+.field
+{
+  display: inline;
+}
+
+.field-btn
+{
+  display: inline;
+}
+
+#ssid
+{
+  width: 260px;
+}
+
+.books-preview
+{
+  position: relative;
+}
+
+.book-item
+{
+  position: relative;
+  border: 1px solid #333;
+  margin: 20px;
+  padding: 10px 10px 0 10px;
+  width: 500px;
+}
+
+.book-item-field
+{
+  margin: 0 0 10px 0;
+}
+
+  .book-item-field b
+  {
+    margin-right: 10px;
+  }
+
+.book-item-fragment
+{
+  position: absolute;
+  border: 1px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #333;
+  background-color: White;
+  padding: 20px;
+  display: none;
+  width: 800px;
+  z-index: 10;
+  top: 0;
+  left: 550px;
+}
+
+.loader
+{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  background-color: #AAA;
+  opacity: 0.6;
+}
+
+.loader-img
+{
+  width: 24px;
+  height: 24px;
+  margin: 50px auto;
+  top: 0;
+  background-image: url(../img/ajax-loader.gif);
+  position: relative;
+}
+
+/*-----------------------------Context menu---------------------------------*/
+#jqContextMenu hr
+{
+  border-top: 1px solid #999;
+  margin: 0;
+}
+/*--------------------------Reader Service UI-------------------------------*/
+.book-reader
+{
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.view-container
+{
+  position: relative;
+  bottom: 0;
+  height: 89%;
+  margin: 0 auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  top: 72px;
+  right: 0px;
+}
+
+/*-----------------------------Top Menu Block---------------------------------*/
+.menu-block
+{
+  width: 100%;
+  height: 72px;
+  background-color: black;
+  position: absolute;
+  z-index: 120;
+  top: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.topMenu
+{
+  background: #1f2024; /* Old browsers */
+  background: -moz-linear-gradient(top, #1f2024 0%, #1f2024 17%, #1f2024 67%, #1f2024 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1f2024), color-stop(17%,#1f2024), color-stop(67%,#1f2024), color-stop(100%,#1f2024)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #1f2024 0%,#1f2024 17%,#1f2024 67%,#1f2024 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #1f2024 0%,#1f2024 17%,#1f2024 67%,#1f2024 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #1f2024 0%,#1f2024 17%,#1f2024 67%,#1f2024 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #1f2024 0%,#1f2024 17%,#1f2024 67%,#1f2024 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f2024', endColorstr='#1f2024',GradientType=0 ); /* IE6-9 */
+  height: 25px;
+  margin: 25px 5px 0px 5px;
+  float: left;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  color: #f3f3f3;
+  text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+  -webkit-transition: color .2s ease-in-out;
+  -moz-transition: color .2s ease-in-out;
+  -o-transition: color .2s ease-in-out;
+  -ms-transition: color .2s ease-in-out;
+  transition: color .2s ease-in-out;
+}
+
+  .topMenu span
+  {
+    float: left;
+    margin: 4px 0px 0px 9px;
+  }
+
+  .topMenu img
+  {
+    float: right;
+    margin: 5px 2px 0;
+  }
+
+  .topMenu:hover > span
+  {
+    color: #8fde62;
+  }
+
+.mainMenuHeading:hover > span
+{
+  color: #8fde62;
+}
+
+#divTree
+{
+  position: absolute;
+  top: 51px;
+  left: 70px;
+  z-index: 10000;
+  width: 250px;
+  background: #1f2024; /* Old browsers */
+  background: -moz-linear-gradient(top, #1f2024 0%, #1f2024 17%, #1f2024 67%, #1f2024 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1f2024), color-stop(17%,#1f2024), color-stop(67%,#1f2024), color-stop(100%,#1f2024)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #1f2024 0%,#1f2024 17%,#1f2024 67%,#1f2024 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #1f2024 0%,#1f2024 17%,#1f2024 67%,#1f2024 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #1f2024 0%,#1f2024 17%,#1f2024 67%,#1f2024 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #1f2024 0%,#1f2024 17%,#1f2024 67%,#1f2024 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f2024', endColorstr='#1f2024',GradientType=0 ); /* IE6-9 */
+}
+
+  #divTree a
+  {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+    -webkit-transition: color .2s ease-in-out;
+    -moz-transition: color .2s ease-in-out;
+    -o-transition: color .2s ease-in-out;
+    -ms-transition: color .2s ease-in-out;
+    transition: color .2s ease-in-out;
+  }
+
+  #divTree li:hover > a
+  {
+    color: #8fde62;
+  }
+
+.menu
+{
+  /*background: #4c4e5a;
+	background: -webkit-linear-gradient(top, #4c4e5a 0%,#2c2d33 100%);
+	background: -moz-linear-gradient(top, #4c4e5a 0%,#2c2d33 100%);
+	background: -o-linear-gradient(top, #4c4e5a 0%,#2c2d33 100%);
+	background: -ms-linear-gradient(top, #4c4e5a 0%,#2c2d33 100%);
+	background: linear-gradient(top, #4c4e5a 0%,#2c2d33 100%);*/
+  background: #1f2024; /* Old browsers */
+  background: -moz-linear-gradient(top, #1f2024 0%, #1f2024 17%, #1f2024 67%, #1f2024 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1f2024), color-stop(17%,#1f2024), color-stop(67%,#1f2024), color-stop(100%,#1f2024)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #1f2024 0%,#1f2024 17%,#1f2024 67%,#1f2024 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #1f2024 0%,#1f2024 17%,#1f2024 67%,#1f2024 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #1f2024 0%,#1f2024 17%,#1f2024 67%,#1f2024 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #1f2024 0%,#1f2024 17%,#1f2024 67%,#1f2024 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f2024', endColorstr='#1f2024',GradientType=0 ); /* IE6-9 */
+  height: 20px;
+  margin: 25px 5px 0px 5px;
+}
+
+  .menu,
+  .menu ul,
+  .menu li,
+  .menu a
+  {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+  }
+
+    .menu li
+    {
+      position: relative;
+      list-style: none;
+      float: left;
+      display: block;
+      height: 20px;
+    }
+
+      .menu li a
+      {
+        display: block;
+        padding: 0 1px;
+        line-height: 28px;
+        text-decoration: none;
+        font-family: Helvetica, Arial, sans-serif;
+        font-weight: bold;
+        font-size: 13px;
+        color: #f3f3f3;
+        text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+        -webkit-transition: color .2s ease-in-out;
+        -moz-transition: color .2s ease-in-out;
+        -o-transition: color .2s ease-in-out;
+        -ms-transition: color .2s ease-in-out;
+        transition: color .2s ease-in-out;
+      }
+
+      .menu li:hover > a
+      {
+        color: #8fde62;
+      }
+
+    .menu ul
+    {
+      position: absolute;
+      top: 26px;
+      left: 0;
+      opacity: 0;
+      background: #1f2024;
+      -webkit-transition: opacity .25s ease .1s;
+      -moz-transition: opacity .25s ease .1s;
+      -o-transition: opacity .25s ease .1s;
+      -ms-transition: opacity .25s ease .1s;
+      transition: opacity .25s ease .1s;
+    }
+
+    .menu li:hover > ul
+    {
+      opacity: 1;
+    }
+
+    .menu ul li
+    {
+      height: 0;
+      overflow: hidden;
+      padding: 0;
+      -webkit-transition: height .25s ease .1s;
+      -moz-transition: height .25s ease .1s;
+      -o-transition: height .25s ease .1s;
+      -ms-transition: height .25s ease .1s;
+      transition: height .25s ease .1s;
+    }
+
+    .menu li:hover > ul li
+    {
+      height: 36px;
+      overflow: visible;
+      padding: 0;
+    }
+
+    .menu ul li a
+    {
+      width: 100px;
+      padding: 4px 0 4px 40px;
+      margin: 0;
+      border: none;
+      border-bottom: 1px solid #353539;
+    }
+
+    .menu ul li:last-child a
+    {
+      border: none;
+    }
+
+    .menu a.larger
+    {
+      background: url(../img/larger.png) no-repeat 6px center;
+    }
+
+    .menu a.smaller
+    {
+      background: url(../img/smaller.png) no-repeat 6px center;
+    }
+
+    .menu a.invisible
+    {
+      background: url(../img/3.png) no-repeat 6px center;
+    }
+
+    .menu a.user
+    {
+      background: url(../img/3.png) no-repeat 6px center;
+    }
+
+
+.content-block .btn-close, .create-comment-block .btn-close
+{
+  right: 5px;
+  top: 5px;
+  position: absolute;
+  cursor: pointer;
+  border: 1px solid #4472C4;
+  padding: 0 5px;
+}
+
+.content-body
+{
+  position: absolute;
+  padding: 0px 50px 0px 50px;
+  margin: 10px 90px 16px 70px;
+  /*cursor: pointer;*/
+  width: 70%;
+  background-color: white;
+  -webkit-box-shadow: 10px 5px 20px 10px #333;
+  box-shadow: 10px 5px 20px 5px #B6B6B6;
+}
+
+.vertical-bar
+{
+  position: absolute;
+  right: 0;
+  cursor: default;
+  padding: 20px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 100%;
+}
+
+.vertical-bar-left
+{
+  position: absolute;
+  left: 0;
+  cursor: default;
+  padding: 20px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 100%;
+}
+
+.slider
+{
+  height: 450px;
+  padding: 16px 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  position: fixed;
+}
+
+.book-fragment
+{
+  margin: 0;
+}
+
+.track
+{
+  position: relative;
+  background: #5B9BD5;
+  top: 50px;
+  width: 20px;
+  height: 100%;
+  z-index: 110;
+  right: 15px;
+}
+
+.menu-left
+{
+  position: relative;
+  padding: 5px 0px 0px 5px;
+  border: none;
+  width: 22px;
+  height: 200px;
+  z-index: 110;
+  box-shadow: inset 0px 0px 2px #333;
+}
+
+.scroll
+{
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: url(../img/arrow_right.png);
+  left: -15px;
+  cursor: pointer;
+  z-index: 500;
+  top: -6px;
+}
+
+.navigation-section
+{
+  height: 2px;
+  background-color: #ED7D31;
+  position: absolute;
+  width: 20px;
+  cursor: pointer;
+}
+
+.navigation-arrow-up, .navigation-arrow-down
+{
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.navigation-arrow-up
+{
+  top: 0;
+  background: url(../img/arrow-up.png);
+}
+
+.navigation-arrow-down
+{
+  bottom: 0;
+  background: url(../img/arrow-down.png);
+}
+
+.book-content
+{
+  display: none;
+  background-color: white;
+  position: absolute;
+  z-index: 510;
+  box-shadow: 0 0 5px #333;
+  padding: 10px;
+}
+
+#content-body-context-menu
+{
+  display: none;
+}
+
+.fragment-bookmark
+{
+  position: absolute;
+  background: url(../img/bookmark_small.png);
+  right: -12px;
+  width: 10px;
+  height: 12px;
+  cursor: pointer;
+}
+
+.fragment-bookmarkLarge
+{
+  position: absolute;
+  background: url(../img/bookmark_large.png);
+  left: 50px;
+  width: 22px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.fragment-comment
+{
+  position: absolute;
+  background-color: Black;
+  left: -12px;
+  width: 10px;
+  height: 5px;
+  cursor: pointer;
+}
+
+
+.comments-block, .create-comment-block
+{
+  /*top:100px;*/
+  width: 400px;
+  min-height: 100px;
+  max-height: 100%;
+  z-index: 110;
+  overflow: auto;
+  position: absolute;
+  background-color: #FFFFFF;
+  border: solid 1px #4472C4;
+  font-family: "Arial", "Helvetica", sans-serif;
+}
+
+.comments-block
+{
+  width: 620px;
+}
+
+/*--------------------------Reader Service UI (comments style)-------------------------------*/
+/*---add comment form---*/
+
+.create-comment-field
+{
+  margin: 10px 10px 10px 0px;
+  float: left;
+}
+
+  .create-comment-field input[type=text], .create-comment-field textarea
+  {
+    display: block;
+    border: solid 1px #3CAA37;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  }
+
+  .create-comment-field textarea
+  {
+    height: 170px;
+    width: 200px;
+    resize: none;
+  }
+
+.comment-color-box
+{
+  width: 150px;
+  height: 80px;
+  padding: 2px;
+}
+
+.comment-color-box-color {
+  width: 24px;
+  height: 24px;
+  border: 2px solid transparent;
+  float: left;
+}
+
+.box
+{
+  width: 28px;
+  height: 21px;
+  border: solid 1px black;
+  margin: 1px;
+}
+
+.boxGreen
+{
+  background-color: #3caa37;
+}
+
+.boxBlue
+{
+  background-color: #5B9BD5;
+}
+
+.boxYellow
+{
+  background-color: #ED7D31;
+}
+
+.comment-subject
+{
+  display: block;
+  border: solid 1px #3CAA37;
+}
+/*---comments---*/
+
+.comments-block-body
+{
+  padding: 10px;
+  max-height : 300px;
+  overflow-y : scroll;
+}
+
+.comment
+{
+
+}
+
+div.book-fragment * div[id], div.book-fragment * table[id]
+{
+  border: 1px solid transparent;
+}
+
+#comments-dialog-menu
+{
+  top: 0px;
+  left: 100px;
+  width: 100px;
+  position: absolute;
+  border: solid 1px black;
+  background-color: black;
+  color: white;
+  font-family: "Arial", "Helvetica", sans-serif;
+  font-size: 12px;
+}
+
+.comments-dialog-menu {
+  background-repeat: no-repeat;
+  padding-left: 32px;
+  margin: 3px;
+}
+
+.comments-dialog-menu:hover {
+  background-color: silver;
+  color: black;
+  cursor: pointer;
+}
+
+#comments-dialog-menu-all
+{
+  background-image: url(/Scripts/reader/img/comments.png);
+}
+
+#comments-dialog-menu-add
+{
+  background-image: url(/Scripts/reader/img/comment_add.png);
+}
+
+#comments-dialog-menu-bookmark
+{
+  background-image: url(/Scripts/reader/img/bookmark_add.png);
+}
+
+.comment-header
+{
+  padding: 2px 3px;
+  background-color: #dcdcdc;
+  color: #777;
+  border: 1px solid #aaa;
+  border-bottom: 1px solid #ccc;
+}
+
+  .comment-header .add-comment-btn
+  {
+    float: right;
+    color: #777;
+  }
+
+.comment-body
+{
+  padding: 10px;
+  background-color: White;
+}
+
+#comment-body-text
+{
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+  color: GrayText;
+  font-size: larger;
+}
+
+#comment-body-owner {
+  color: silver;
+}
+
+#comment-body-color {
+  width: 24px;
+  height: 24px;
+}
+
+#comment-body-confidelity {
+  font-weight: bold;
+  float: right;
+}
+
+#comment-body-text {
+
+}
+
+.comment-body-reply-arrow
+{
+  float: right;
+  margin-top: 20px;
+}
+
+.replyBy
+{
+  float: right;
+  margin-top: 40px;
+  margin-right: 10px;
+  color: gray;
+  font-size: smaller;
+}
+
+.sub-comments
+{
+  padding-left: 30px;
+}
+
+.icon
+{
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+div.figure {
+  height: 24px;
+}
+
+div.figure p.caption
+{
+  font-weight: bold;
+  font-family: "Arial", "Helvetica", sans-serif;
+}
+
+  div.figure p.caption:before
+  {
+    content: "Figure: ";
+    font-weight: bold;
+    margin-top: 24px;
+    min-height: 24px;
+    font-family: "Arial", "Helvetica", sans-serif;
+  }
+
+div.figure p.art
+{
+  box-shadow: -3px 3px 3px #333;
+}
+
+.drawLine
+{
+  background-color: black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid silver;
+  position: relative;
+  left: 0px;
+  top: -40px;
+  height: 1px;
+}
+
+div.listing
+{
+  display: block;
+  width: auto;
+}
+
+  div.listing p.caption
+  {
+    font-weight: normal;
+    font-family: "Arial", "Helvetica", sans-serif;
+  }
+
+    div.listing p.caption:before
+    {
+      content: "Listing: ";
+      font-weight: bold;
+      font-family: "Arial", "Helvetica", sans-serif;
+      margin-top: 24px;
+    }
+
+  div.listing pre
+  {
+    border-left: 2px solid green;
+  }
+
+table caption
+{
+  font-weight: normal;
+  text-align: left;
+  font-family: "Arial", "Helvetica", sans-serif;
+}
+
+  table caption:before
+  {
+    content: "Table: ";
+    font-weight: bold;
+    margin-top: 24px;
+    font-family: "Arial", "Helvetica", sans-serif;
+    margin-bottom: 12px;
+  }
+
+header.builder
+{
+  display: block;
+  color: red;
+  background-color: #d8bfd8;
+  width: 100%;
+  padding: 5px;
+  line-height: 24px;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "Arial", "Helvetica", sans-serif;
+}
+
+aside.builder
+{
+  display: block;
+  margin: 0px;
+  background-color: #dcdcdc;
+  width: 100%;
+  line-height: 14px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+  aside.builder > p
+  {
+    margin: 0px;
+    padding: 12px 5px 12px 5px;
+  }
+
+aside.builder
+{
+  margin: 0px;
+  padding: 12px 5px 12px 5px;
+}
+
+.content-body img
+{
+  border: solid 1px #4472C4;
+  margin-top: -139px;
+  width: 100px;
+  height: 100px;
+  float: right;
+  z-index: 1000;
+  position: absolute;
+  right: -140px;
+  display: block;
+  cursor: pointer;
+}
+
+.content-body pre
+{
+  overflow-x: hidden;
+  /*text-overflow:ellipsis;*/
+}
+
+.rightCircle
+{
+  float: right;
+  right: -30px;
+  position: absolute;
+  cursor: pointer;
+  height: 60px;
+  width: 30px;
+  border-radius: 0 60px 60px 0;
+  -moz-border-radius: 0 60px 60px 0;
+  -webkit-border-radius: 0 60px 60px 0;
+  background-color: black;
+}
+
+.leftCircle
+{
+  display: none;
+  float: right;
+  right: -180px;
+  position: absolute;
+  cursor: pointer;
+  height: 60px;
+  width: 30px;
+  border-radius: 60px 0px 0px 60px;
+  -moz-border-radius: 60px 0px 0px 60px;
+  -webkit-border-radius: 60px 0px 0px 60px;
+  background-color: black;
+}
+
+/*.content-body pre:hover{
+	    position: relative;
+	    width: 1200px;
+	    z-index: 1000;
+        background-color:gray;
+        overflow-x:visible; 
+	}*/
+
+
+/* CSS for Dialog */
+.dialog-popup
+{
+}

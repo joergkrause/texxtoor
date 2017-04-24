@@ -1,0 +1,125 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Web.Mvc;
+
+namespace Texxtoor.BaseLibrary.Core.Extensions {
+  public static class TreeViewHtmlHelper {
+    /// <summary>    
+    /// Create a TreeView of nodes starting from a root element    
+    /// </summary>    
+    /// <param name="treeId">The ID that will be used when the ul is created</param>    
+    /// <param name="rootItems">The root nodes to create</param>    
+    /// <param name="childrenProperty">A lambda expression that returns the children nodes</param>   
+    /// /// <param name="itemContent">A lambda expression defining the content in each tree node</param>   
+    public static MvcHtmlString TreeView<T>(this HtmlHelper html, string treeId, IEnumerable<T> rootItems, Func<T, IEnumerable<T>> childrenProperty, Func<T, string> itemContent) {
+      return html.TreeView(treeId, rootItems, childrenProperty, itemContent, true, null);
+    }
+
+    public static MvcHtmlString TreeView<T>(this HtmlHelper html, string treeId, IEnumerable<T> rootItems, Func<T, IEnumerable<T>> childrenProperty, Func<T, MvcHtmlString> itemContent) {
+      return html.TreeView(treeId, rootItems, childrenProperty, itemContent, true, null);
+    }
+
+
+    /// <summary>    
+    /// Create a TreeView of nodes starting from a root element    
+    /// </summary>    
+    /// <param name="treeId">The ID that will be used when the ul is created</param>    
+    /// <param name="rootItems">The root nodes to create</param>    
+    /// <param name="childrenProperty">A lambda expression that returns the children nodes</param>    
+    /// <param name="itemContent">A lambda expression defining the content in each tree node</param>    
+    /// <param name="includeJavaScript">If true, output will automatically render the JavaScript to turn the ul into the treeview</param>        
+    public static MvcHtmlString TreeView<T>(this HtmlHelper html, string treeId, IEnumerable<T> rootItems, Func<T, IEnumerable<T>> childrenProperty, Func<T, string> itemContent, bool includeJavaScript) {
+      return html.TreeView(treeId, rootItems, childrenProperty, itemContent, includeJavaScript, null);
+    }
+
+    public static MvcHtmlString TreeView<T>(this HtmlHelper html, string treeId, IEnumerable<T> rootItems, Func<T, IEnumerable<T>> childrenProperty, Func<T, MvcHtmlString> itemContent, bool includeJavaScript) {
+      return html.TreeView(treeId, rootItems, childrenProperty, itemContent, includeJavaScript, null);
+    }
+
+    public static MvcHtmlString TreeView<T>(this HtmlHelper html, string treeId, IEnumerable<T> rootItems, Func<T, IEnumerable<T>> childrenProperty, Func<T, string> itemContent, bool includeJavaScript, string emptyContent) {
+      var sb = new StringBuilder();
+      sb.AppendFormat("<ul id='{0}'>\r\n", treeId);
+      if (!rootItems.Any()) {
+        sb.AppendFormat("<li>{0}</li>", emptyContent);
+      }
+      foreach (T item in rootItems) {
+        RenderLi(sb, item, itemContent);
+        AppendChildren(sb, item, childrenProperty, itemContent);
+      }
+      sb.AppendLine("</ul>"); 
+      if (includeJavaScript) {
+        sb.AppendFormat(@"<script type='text/javascript'>
+                                    $(document).ready(function() {{
+                                    $('#{0}').treeview({{ animated: 'fast' }});              
+                                    }});                
+                                  </script>", treeId);
+      }
+      return MvcHtmlString.Create(sb.ToString());
+    }
+
+    /// <summary>    
+    /// Create a TreeView of nodes starting from a root element    
+    /// </summary>    
+    /// <param name="treeId">The ID that will be used when the ul is created</param>    
+    /// <param name="rootItems">The root nodes to create</param>    
+    /// <param name="childrenProperty">A lambda expression that returns the children nodes</param>    
+    /// <param name="itemContent">A lambda expression defining the content in each tree node</param>    
+    /// <param name="includeJavaScript">If true, output will automatically render the JavaScript to turn the ul into the treeview</param>    
+    /// <param name="emptyContent">Content to be rendered when the tree is empty</param>    
+    public static MvcHtmlString TreeView<T>(this HtmlHelper html, string treeId, IEnumerable<T> rootItems, Func<T, IEnumerable<T>> childrenProperty, Func<T, MvcHtmlString> itemContent, bool includeJavaScript, string emptyContent) {
+    var sb = new StringBuilder();
+    sb.AppendFormat("<ul id='{0}'>\r\n", treeId);
+    if (!rootItems.Any()) {
+      sb.AppendFormat("<li>{0}</li>", emptyContent);
+    }
+    foreach (T item in rootItems) {
+      RenderLi(sb, item, itemContent);
+      AppendChildren(sb, item, childrenProperty, itemContent);
+    }
+    sb.AppendLine("</ul>"); if (includeJavaScript) {
+      sb.AppendFormat(@"<script type='text/javascript'>
+                                  $(document).ready(function() {{
+                                  $('#{0}').treeview({{ animated: 'fast' }});              
+                                  }});                
+                                </script>", treeId);
+    }
+    return MvcHtmlString.Create(sb.ToString());
+  }
+
+  private static void AppendChildren<T>(StringBuilder sb, T root, Func<T, IEnumerable<T>> childrenProperty, Func<T, MvcHtmlString> itemContent) {
+    AppendChildren<T, MvcHtmlString>(sb, root, childrenProperty, itemContent);
+  }
+
+  private static void AppendChildren<T>(StringBuilder sb, T root, Func<T, IEnumerable<T>> childrenProperty, Func<T, string> itemContent) {
+    AppendChildren<T, string>(sb, root, childrenProperty, itemContent);
+  }
+
+  private static void AppendChildren<T, TV>(StringBuilder sb, T root, Func<T, IEnumerable<T>> childrenProperty, Func<T, TV> itemContent) {
+    var children = childrenProperty(root);
+    if (children == null || !children.Any()) {
+      sb.AppendLine("</li>"); return;
+    }
+    sb.AppendLine("\r\n<ul>");
+    foreach (T item in children) {
+      RenderLi<T, TV>(sb, item, itemContent);
+      AppendChildren<T, TV>(sb, item, childrenProperty, itemContent);
+    }
+    sb.AppendLine("</ul></li>");
+  }
+
+  private static void RenderLi<T>(StringBuilder sb, T item, Func<T, MvcHtmlString> itemContent) {
+    RenderLi<T, MvcHtmlString>(sb, item, itemContent);
+  }
+
+  private static void RenderLi<T>(StringBuilder sb, T item, Func<T, string> itemContent) {
+    RenderLi<T, string>(sb, item, itemContent);
+  }
+
+  private static void RenderLi<T, TV>(StringBuilder sb, T item, Func<T, TV> itemContent) {
+    sb.AppendFormat("<li>{0}", itemContent(item));
+  }
+  }
+
+}

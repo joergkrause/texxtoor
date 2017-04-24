@@ -1,0 +1,50 @@
+﻿@model Texxtoor.DataModels.Models.Users.AddressBook
+@{
+  PageData["Title"] = Loc("title", "Default Address");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+}
+@section HeadContent{
+  <script>
+    function AddressFormSubmit(id, btn) {
+      var form = $(btn).parents('form');
+      form.validate();
+      if (form.valid()) {
+        var address = {
+          id: id,
+          country: $('select[name="Country"] option:selected').val(),
+          region: $('select[name="Region"] option:selected').val(),
+          newAddress: {
+            'Name': $('[name=Name]').val(),
+            'StreetNumber': $('[name=StreetNumber]').val(),
+            'City': $('[name=City]').val(),
+            'Zip': $('[name=Zip]').val()
+          }
+        };
+        $.ajax({
+          url: '@Url.Action("OrderAddress")',
+          data: $.toJSON(address),
+          type: 'POST',
+          cache: false,
+          dataType: "json",
+          contentType: "application/json; charset=utf-8",
+          success: function (data) {
+            toastr.success(data.msg);
+          },
+          error: function (data) {
+            toastr.success(data.msg);
+          }
+        });
+      }
+    }
+  </script>
+}
+<div class="col-md-12">
+  <div class="alert alert-warning">
+    @Loc("text", "You have been directed here because your profile misses any address information for orders.")
+  </div>
+  @Html.Action("OrderAddress", Model)
+  <div class="well well-sm">
+    <a href="@ViewBag.Referrer" class="link">@Loc("proceed", "Proceed here with your order")</a>
+  </div>
+</div>
+@Create.ActionTask("", false, Url.Action("Order", "Orders", new { id = (int)ViewBag.OrderId }), ViewResources.LinkButton_Reader_CurrentOrder)

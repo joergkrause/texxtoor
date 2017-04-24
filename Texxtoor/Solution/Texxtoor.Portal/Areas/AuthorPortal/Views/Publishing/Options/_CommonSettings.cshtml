@@ -1,0 +1,88 @@
+﻿@using Texxtoor.DataModels.Models.Author
+@model Texxtoor.DataModels.Models.Reader.Content.Published
+@using (Html.BeginForm("SavePublishedCommon", "Publishing", new { id = Model.Id }, FormMethod.Post, new { id = "commonPaneForm", data_item = "2" })) {
+  using (Html.BtFieldset(Loc("legend", @"Common Data"))) {
+    @Html.LabelFor(m => m.Title)
+    <div class="editor-field">
+      @Html.EditorFor(m => m.Title)
+      @Html.ValidationMessageFor(m => m.Title)
+    </div>
+    @Html.LabelFor(m => m.SubTitle)
+    <div class="editor-field">
+      @Html.EditorFor(m => m.SubTitle)
+      @Html.ValidationMessageFor(m => m.SubTitle)
+    </div>
+    @Html.LabelFor(m => m.ExternalPublisher.Description)
+    <div class="editor-field">
+      @Html.EditorFor(m => m.ExternalPublisher.Description)
+      @Html.ValidationMessageFor(m => m.ExternalPublisher.Description)
+    </div>
+    @Html.LabelFor(m => m.ExternalPublisher.KindleLanguage)
+    <div class="editor-field">
+      @Html.CultureSelectionDropDown(Model.ExternalPublisher.KindleLanguage, "ExternalPublisher.KindleLanguage", "ExternalPublisher.KindleLanguage")
+      @Html.ValidationMessageFor(m => m.ExternalPublisher.KindleLanguage)
+    </div>
+    @Html.LabelFor(m => m.ExternalPublisher.Keywords)
+    <div class="editor-field">
+      @Html.EditorFor(m => m.ExternalPublisher.Keywords)
+      @Html.ValidationMessageFor(m => m.ExternalPublisher.Keywords)
+    </div>
+    @Html.LabelFor(m => m.NavLevel)
+    <div class="editor-field">
+      @Html.EditorFor(m => m.NavLevel)
+      @Html.ValidationMessageFor(m => m.NavLevel)
+    </div>
+  }
+  using (Html.BtFieldset(Loc("legendAuthors", "Authors and Biography"))) {
+    <label>@Loc("txtAuthors", "Include contributors in the list of authors")</label>
+    <div class="editor-field" style="min-height: 80px">
+      @foreach (var contrib in Model.SourceOpus.Project.Team.Members) {
+        bool isChecked = false;
+        if (!Model.Authors.Any()) {
+          // default settings
+          isChecked = ((contrib.Role.ContributorRoles | ContributorRole.Author) == ContributorRole.Author);
+        } else {
+          isChecked = Model.Authors.Any(a => a.Id == contrib.Member.Id);
+        }
+        <input type="checkbox" value="@contrib.Member.Id" name="contrib" @(isChecked ? "checked='checked'" : "") id="add-author-@contrib.Id" />
+        <label for="add-author-@contrib.Id" style="font-weight: normal">@contrib.Member.UserName</label><br />
+      }
+    </div>
+    <label>@Loc("txtContrib", "Include these contributor's biography in the 'about the authors' section")</label>
+    <div class="editor-field" style="min-height: 120px">
+      @foreach (var about in Model.SourceOpus.Project.Team.Members) {
+        var isChecked = Model.ExternalPublisher.AuthorIds.Any(a => a == about.Member.Id);
+        <input type="checkbox" value="@about.Member.Id" id="add-profile-@about.Id" name="about" @(isChecked ? "checked='checked'" : "") />
+        <label for="add-profile-@about.Id" style="font-weight: normal">@about.Member.UserName</label>
+        @:&nbsp;<button data-toggle="modal" data-target="#profile-@about.Id" class="btn btn-xs">Show Profile</button><br />
+        <div class="modal fade" id="profile-@about.Id" tabindex="-1" role="dialog" aria-labelledby="@about.Member.UserName" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                  &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                  @about.Member.UserName
+                </h4>
+              </div>
+              <div class="modal-body">
+                @about.Member.Profile.Application
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                  @ViewResources.Button_OK
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    <div class="formsendButtons">
+      @Create.FormButtonOnClick("btnSaveCommon", "", ViewResources.Action_Publish_SaveCommon, BtStyle.ButtonPrimary & "btnSave")
+      @Create.FormButtonOnClick("btnSaveCommonTab", "", ViewResources.Action_Publish_SaveCommon_Tab, BtStyle.ButtonPrimary & "btnNext")
+    </div>
+  }
+}

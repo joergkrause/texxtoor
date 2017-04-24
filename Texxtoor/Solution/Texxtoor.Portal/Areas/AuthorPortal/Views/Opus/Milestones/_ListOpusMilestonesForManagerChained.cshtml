@@ -1,0 +1,26 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@model List<Stack<Milestone>>
+@{
+  var uid = (int)ViewBag.UserId;
+  var tlid = (int)ViewBag.TeamLeadId;
+}
+@if (!Model.Any()) {
+  <div class="alert alert-warning">
+    @Loc("textNoChainMs", @"No chained milestones. Consider optimizing your process management by creating chained milestones.")
+  </div>
+} else {
+  foreach (var stack in Model) {
+    int indent = 0;
+    using (Html.BtDiv(BtStyle.WellAndSmall)) {
+      @:@Loc("textConn", @"This is a chain of milestones that depend on each other")
+    }
+    <div class="multilist">
+      @while (stack.Count > 0) {
+        var item = stack.Pop();
+        <div class="listitem" style="margin-left: @(indent++ * 10)px;">
+          @Html.Partial("Milestones/_ShowMilestone", item, new ViewDataDictionary { { "CanRemove", true }, { "UserId", uid }, { "TeamLeadId", tlid }, { "CanOrder", false } })
+        </div>
+      }
+    </div>
+  }
+}

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Content.Project>
+@{
+  PageData["Title"] = Loc("titlePublMain", "Recent Publish Procedures");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+}
+@section HeadContent {
+  <script>
+    $(function() {
+      RecentlyPublished(0);
+    });
+
+    function RecentlyPublished(page, order, dir) {
+      var ids = [@(Model != null ? String.Join(", ", Model.Select(p => p.Id).ToArray()) : "")];
+      $.ajax({
+        url: '@Url.Action("ListRecentlyPublished")',
+        traditional: true,        
+        data: { ids: ids, page: page, order: order, dir: dir },
+        cache: false,
+        dataType: "html",
+        success: function(data) {
+          $('#main').html(data);
+          SetTableBehavior();
+        }
+      });
+    }
+
+  </script>
+  @Script.SetTableBehavior(true)
+}
+@using(Html.BtDiv(BtStyle.Well)) {
+@Loc("textPubl", @"These are recently published projects. Re-Publish or finish publishing procedures.");
+}
+@Create.MainContentWithLoader()
+@if (Model != null && Model.Any()) {
+  foreach (var prj in Model) {
+    @Create.ActionTask("prj" + prj.Id, false, Url.Action("Dashboard", "Project", new {id = prj.Id}), String.Format(ViewResources.LinkButton_ToDashboards, prj.Name))
+  }
+}
+else {
+using(Html.BtDiv(BtStyle.AlertAndError)) {
+@Loc("textError", @"There are no any projects with texts you can publish. Review project settings, milestones, team settings, and content.");
+}  
+}
+@Create.ActionTask("service", false, Url.Action("Index", "Service", null), ViewResources.TasksButton_ToService)
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@section HelpSection{
+
+}

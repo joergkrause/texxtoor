@@ -1,0 +1,37 @@
+﻿@using Texxtoor.DataModels.Models.Common
+@model IEnumerable<Texxtoor.DataModels.Models.Cms.CmsMenu>
+@* Search on Phone *@
+<div class="search">
+  @using (Html.BeginForm("SearchAll", "Home", new { area = "" }, FormMethod.Post)) {
+    <div class="search-wrapper">
+      <input value="" class="search-query form-control" placeholder="@ViewResources.Placeholder_Search" autocomplete="off" name="q" type="text" />
+      <button class="btn btn-link icon-search" name="button" type="submit"></button>
+    </div>
+  }
+</div>
+
+<ul class="nav nav-stacked">
+  @* BEGIN MENU
+    // Complex Menu*@
+  @foreach (var menu in Model.OrderBy(m => m.Order)) {
+    <li>
+      <a class="dropdown-collapse in" href="#">
+        <i class="@menu.Style"></i>
+        <span>@menu.Title</span>
+        <i class="icon-angle-down angle-down"></i>
+      </a>
+      <ul class="nav nav-stacked in">
+        @Html.Partial("_ToSubMenu", menu)
+      </ul>
+    </li>
+  }
+  <li id="favorites-droppable">
+    <a class="dropdown-collapse in" href="#">
+      <i class="icon icon-list-alt"></i>
+      <span>@Loc("txtFavorites", "Favorites")</span>
+    </a>
+    <ul id="favorites" class="nav nav-stacked in"></ul>
+  </li>
+
+</ul>
+<!-- END MENU -->

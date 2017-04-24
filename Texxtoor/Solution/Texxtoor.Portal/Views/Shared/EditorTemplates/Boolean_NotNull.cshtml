@@ -1,0 +1,14 @@
+﻿@model bool
+@{
+  bool isReadOnly = false;
+  var readOnly = ViewData["readOnly"] as string;
+  if (readOnly != null) {
+    isReadOnly = readOnly.Split(',').Contains(ViewData.ModelMetadata.PropertyName);
+  }
+}
+@if (isReadOnly) {
+  @Html.CheckBox("", Model, new { @readonly = "readonly", @class= "form-control" })
+} else {
+  @Html.CheckBox("", Model, new { @class= "form-control"})
+}
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

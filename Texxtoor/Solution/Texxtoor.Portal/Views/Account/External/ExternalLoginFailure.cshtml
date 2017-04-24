@@ -1,0 +1,10 @@
+﻿@{
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+  PageData["Title"] = Loc("title", "Login Failure");
+}
+
+<div class="alert alert-warning">
+  @Loc("fail", "Unsuccessful login with service. Please try again later or use another service.")
+</div>
+
+@Html.Action("ExternalLoginsList", "Account", new { ReturnUrl = ViewBag.ReturnUrl, area = "" })

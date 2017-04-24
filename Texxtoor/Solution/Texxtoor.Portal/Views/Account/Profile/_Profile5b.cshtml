@@ -1,0 +1,10 @@
+﻿@using Texxtoor.DataModels.Models.Users
+@model Texxtoor.DataModels.Models.Users.UserProfile
+@using(Html.BtFieldset(Loc("legend5b", @"Skills you can provide"))) {
+  @Html.LabelFor(m => m.ContributorMatrix,new{@class="control-label col-sm-3"})
+  <div class="editor-field-accordion col-md-9">
+    @Html.Action("ContributorMatrix", new { id = Model.Id })
+    <a href="#" class="contributormatrix-add btn btn-sm btn-primary ">@ViewResources.Action_Common_Profile_AddSkill</a>
+    @Create.FieldHelpIcon(Loc("txtSkill", @"Describe all skills one by one. Select a field of expertise, the language you provide this, and optionally describe your experience.").ToString(), "Matrix", "")
+  </div>
+}

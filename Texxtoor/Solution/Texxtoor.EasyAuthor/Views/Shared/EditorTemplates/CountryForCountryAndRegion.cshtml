@@ -1,0 +1,6 @@
+﻿@model Texxtoor.DataModels.Models.Common.Country
+@{
+  var countryList = UserProfileRepository.Instance.GetCountryListForSelect();
+}
+@Html.DropDownListFor(m => m.Id, countryList, ViewResources.DropList_Profile_SelectCountry, new Dictionary<string, object> { { "style", "width:250px" } })
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

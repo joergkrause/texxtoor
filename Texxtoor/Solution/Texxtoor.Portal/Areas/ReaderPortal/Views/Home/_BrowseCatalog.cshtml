@@ -1,0 +1,84 @@
+﻿@using Texxtoor.DataModels.Models.Reader.Content
+@model IPagedList<Published>
+@Html.Partial("_Pagination", PaginationViewModel<Published>.Create(Model, "javascript:retrieveCatalog({page}, '{order}', '{dir}', {pagesize});", true, m => m.Title, m => m.Rating))
+@{
+  var pricing = (Dictionary<int, Dictionary<string, decimal>>)ViewBag.PricingPreview;
+}
+<div class="multilist">
+  @foreach (var item in Model) {
+    <div class="listitem">
+      <div class="firstRow">
+        <table style="width:100%" class="table table-striped">
+          <tr>
+            <td style="width:50%">@Badges.NewItem(item.Title, item.ModifiedAt, TimeSpan.FromDays(7))</td>
+            <td style="width:25%">
+              @if (item.IsRecommendation) {
+                <div class="badge badge-important">@Loc("rec", "Recommandation")</div>
+              }
+            </td>
+            <td id="showSingleworkDiv" style="width:25%">
+              @if (pricing != null) {
+                <div class="label label-success show-price" data-target="@item.Id">
+                  @Loc("from", "from") &euro; @(item.Marketing != null ? item.Marketing.BasePrice.ToString("0.00", new System.Globalization.CultureInfo(Culture)) : "0.00")
+                </div>
+                <div class="hidden-to-show" data-price-target="@item.Id" style="position:absolute; z-index: 1000; left: 100px; width: 300px;">
+                  @using (Html.BtPanel(Loc("prices", "Prices"), "red")) {
+                    foreach (var price in pricing[item.Id]) {
+                      <div class="pull-right">&euro; @price.Value.ToString("0.00")</div>
+                      <div class="">@price.Key @Loc("ca", "approx.")</div>
+                    }
+                  }
+                </div>
+              }
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <div data-item="@item.Id" data-toggle="popover" data-trigger="hover" data-html="true" data-placement="bottom">
+                @item.SubTitle
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              @if (item.SourceOpus != null && !String.IsNullOrEmpty(item.SourceOpus.LocaleId)) {                
+                <div class="pull-left" data-lang-image="@(new System.Globalization.CultureInfo(item.SourceOpus.LocaleId).TwoLetterISOLanguageName)">
+                  @(new System.Globalization.CultureInfo(item.SourceOpus.LocaleId).NativeName)
+                </div>
+              } else {
+                @Loc("noLang", "No language specified")
+              }
+            </td>
+            <td>
+              <div class="badge badge-success">
+                @item.Rating @Loc("textPts", @"points")
+              </div>
+            <td>@Html.Partial("../Reader/Published/_RatingStars", item.Starred)</td>
+          </tr>
+        </table>
+      </div>
+      <div data-popover-item="@item.Id" class="hidden">
+        <div class="col-md-12" style="height: 150px">
+          <img src="@Url.Action("GetImg", "Tools", new { id = item.Id, area = "", c = "Reader", res = "80x100" })" class="border-widthSize pull-right" style="box-shadow: 5px 5px 2px silver" />
+          <small class="showDetails">@item.ExternalPublisher.Description</small>
+        </div>
+      </div>
+      @if (pricing != null) {
+        <div class="hidden-to-show" data-price-target="@item.Id" style="position:absolute; z-index: 1000; left: 100px; width: 300px;">
+          @using (Html.BtPanel(Loc("prices", "Prices"), "red")) {
+            foreach (var price in pricing[item.Id]) {
+              <div class="pull-right">@price.Value.ToString("c")</div>
+              <div class="">@price.Key @Loc("ca", "approx.")</div>
+            }
+          }
+        </div>
+      }
+      <div class="thirdRow BothClear" data-item="@item.Id">
+        <div class="optionFields">
+          @Create.ActionLink("btnRead", true, Url.Action("ReaderAppForPublished", "Reader", new { id = item.Id }), ViewResources.Action_Reader_ReadAndWork)
+          @Create.ActionLink("btnDetails", true, Url.Action("Published", "Reader", new { id = item.Id }), ViewResources.LinkButton_PublishedDetails)
+        </div>
+      </div>
+    </div>
+  }
+</div>

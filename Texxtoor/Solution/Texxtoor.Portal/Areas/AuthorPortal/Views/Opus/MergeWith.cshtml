@@ -1,0 +1,84 @@
+﻿@model Texxtoor.DataModels.Models.Content.Opus
+@{
+  PageData["Title"] = Loc("title", "Merge Text");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("txtIntro", "You can merge text by moving first level elements (chapters) form one workspace to another. Empty workspaces, where no  content has been left, will become inactive.");
+  
+}
+@section HeadContent{
+  <script type="text/javascript">
+    $(function() {
+      LoadViewData();
+    });
+    function LoadViewData() {
+      $.ajax({
+        url: '@Url.Action("MergeWithContent")',
+        data: {
+          id: @Model.Id
+          },
+        type: 'GET',
+        cache: false,
+        dataType: "html",
+        success: function(data) {
+          $('#mergeForm').html(data);
+          $('#mergeForm').show();
+          // attach events to handle drag'n'drop
+          $('ul.chapterList li').click(function() {
+            $(this).toggleClass('selected');
+          });
+          var lastClick, diffClick;
+          $('ul.chapterList li').bind('mousedown mouseup', function(e) {
+            if (e.type == "mousedown") {
+              lastClick = e.timeStamp; // get mousedown time
+            } else {
+              diffClick = e.timeStamp - lastClick;
+              if (diffClick < 600) {
+                // add selected class to group draggable objects
+                $(this).toggleClass('selected');
+              }
+            }
+          });
+          $('ul.chapterList').sortable({
+            connectWith: 'ul.chapterList',
+            start: function(e, i) {
+              i.item.siblings(".selected").appendTo(i.item);
+            },
+            stop: function(e, i) {
+              i.item.after(i.item.find('li'));
+            }
+          });
+          $("#main").fadeIn('fast');
+          $('#changeCollectionCancelButton').click(function() {
+            $("#changeCollection").fadeOut();
+          });
+        }
+      });
+    }
+    function ChangeFormSubmit() {
+      var data = [];
+      $('#chapterListTarget li[data-item]').map(function () {
+        data.push($(this).data('item'));
+      });
+      // Add, Remove Sort --> we just send the desired result
+      $.ajax({
+        url: '@Url.Action("SaveMergedContent")',
+        cache: false,
+        data: {
+          id: $('#chapterListTarget').data('item'),
+          fragmentIds: data
+        },
+        type: 'POST',
+        traditional: true,
+        datatype: 'json',
+        success: function (data) {
+          toastr.success(data.msg);
+          LoadViewData();
+        }
+      }); // ajax
+    }
+  </script>
+}
+@Create.ContentFormEmpty("mergeForm", Loc("txtForm", "Merge Text Portions").ToHtmlString())
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = Model.Project.Id }), ViewResources.LinkButton_ToDashboard)
+@Create.ActionTask("", true, Url.Action("Edit", "Opus", new { id = Model.Id }), ViewResources.LinkButton_EditorRoom)

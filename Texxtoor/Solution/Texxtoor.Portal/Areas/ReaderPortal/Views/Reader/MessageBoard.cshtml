@@ -1,0 +1,86 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.Published
+@{
+  PageData["Title"] = Loc("title", "Message Board");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+  PageData["ShortHelp"] = Loc("textMsg1", "Public Message Board for <em><span data-args='0' data-desc='Work Name'>{0}</span></em>.", Model.Title);
+}
+@section HeadContent {
+  <script type="text/javascript">
+
+    var pid;
+
+    $(function () {
+      InitCreateForm();
+      UpdateTable();
+      $(document).on('click', '#cancelMessageButton', function() {
+        $('#main').show();
+        $('#addMessageForm').hide();
+      });
+    });
+
+    function EndRequest(message) {
+      UpdateTable();
+      $('#main').show();
+      $('#addMessageForm').hide();
+      InitCreateForm();
+      toastr.success(message);
+    }
+
+    function InitCreateForm() {
+      $("#createMessageForm").ajaxForm({
+        beforeSubmit: function () {
+          return $("#createMessageForm").valid();
+        },
+        data: {
+          parentId: (pid == undefined) ? null : pid,
+          publishedId: @Model.Id
+        },
+        success: function (result) {
+          EndRequest(result.data);
+        },
+        error: function () {
+          EndRequest('Error creating message');
+        }
+      });
+    }
+
+    function startNewTopic() {
+      $('#main').hide();
+      $('#addMessageForm').show();
+    }
+
+
+    function UpdateTable(page, order, dir, pagesize) {
+      $.ajax({
+        url: '@Url.Action("TopMessage")',
+        data: {
+          id : @Model.Id,
+          page: page,
+          order: order,
+          dir: dir,
+          pagesize: pagesize
+        },
+        cache: false,
+        dataType: "html",
+        success: function (data) {
+          $('#main').html(data);
+          $('input:radio[name=parentId]').click(function() {
+            pid = $(this).val();
+          });
+        }
+      });
+    }
+
+  </script>
+}
+@section helpSection {
+  @Loc("textMsg2", @"Use this page to share anything outside the content level with your fellow readers.")
+}
+<div id="addMessageForm" class="hidden-to-show">
+  @Html.Action("CreateMessage", new { name = Model.Title })
+</div>
+@Create.MainContentWithLoader()
+@Create.ActionTask("", false, Url.Action("Matrix", "Home"), ViewResources.LinkButton_Reader_Matrix)
+@Create.ActionTask("", false, Url.Action("Library", "Reader"), ViewResources.TasksButton_Reader_Library)
+@Create.ActionTask("", true, Url.Action("Published", "Reader", new { id = Model.Id }), ViewResources.TasksButton_Reader_CurrentContent)
+

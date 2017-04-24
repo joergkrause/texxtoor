@@ -1,0 +1,42 @@
+﻿<br />
+<div style="width: 400px; font-size: smaller;">
+  <label style="width:250px;">@Loc("lblPublicDomain", @"Content is free (Public Domain)")</label>
+  <div class="editor-field">
+    <input type="checkbox" value="1" checked="checked" name="package" />
+    @Create.FieldHelpIcon(Loc("help1", @"Content is available without any charge on the platform. You can still sell printed
+      copies.").ToString(), "", "")
+  </div>
+  <label style="width:250px;">@Loc("lblCreativeCommon", @"Content is free (Creative Common)")</label>
+  <div class="editor-field">
+    <input type="checkbox" value="2" checked="checked" name="package" />
+    @Create.FieldHelpIcon(Loc("help2", @"Content is available without any charge on the platform. You can still sell printed
+      copies.").ToString(), "", "")
+  </div>
+  <label style="width:250px;">@Loc("lblAdSupported", @"Content is free (Ad Supported)")</label>
+  <div class="editor-field">
+    <input type="checkbox" value="4" checked="checked" name="package" />
+    @Create.FieldHelpIcon(Loc("help3", @"Content is available without any charge on the platform. Printed copies can have
+      ads.").ToString(), "", "")
+  </div>
+  <label style="width:250px;">@Loc("lblRegularSale", @"Regular sale on a 'per piece' base")</label>
+  <div class="editor-field">
+    <input type="checkbox" value="8" checked="checked" name="package" />
+    @Create.FieldHelpIcon(Loc("help4", @"User can buy based on the pricing below. This is 'your price'. Production cost will
+      add.").ToString(), "", "")
+  </div>
+  <label style="width:250px;">@Loc("lblSubscr", @"Subscription accepted")</label>
+  <div class="editor-field">
+    <input type="checkbox" value="16" name="package" />
+    @Create.FieldHelpIcon(Loc("help5", @"If a subscription is available this publication will participate").ToString(), "", "")
+  </div>
+  <label style="width:250px;">@Loc("lblCustomLvl", @"Some custom level ")</label>
+  <div class="editor-field">
+    <input type="checkbox" value="32" name="package" />
+    @Create.FieldHelpIcon(Loc("help6", @"A custom level with more specific settings defined while publishing").ToString(), "", "")
+  </div>
+  <label style="width:250px;">@Loc("lblClosedPriv", @"Closed (private)")</label>
+  <div class="editor-field">
+    <input type="checkbox" value="64" name="package" />
+    @Create.FieldHelpIcon(Loc("help7", @"Does not participate in any sales model (other options may not apply)").ToString(), "", "")
+  </div>
+</div>

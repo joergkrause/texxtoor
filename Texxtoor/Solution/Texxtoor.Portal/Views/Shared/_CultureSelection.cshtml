@@ -1,0 +1,21 @@
+﻿@using Texxtoor.DataModels.Models.Common
+@model string
+@{
+  var rm = new System.Globalization.CultureInfo(Model);
+}
+
+@foreach (var item in System.Web.Configuration.WebConfigurationManager.AppSettings["ui:SupportedCultures"].Split(',')) {
+  if (String.Compare(rm.TwoLetterISOLanguageName, item, StringComparison.OrdinalIgnoreCase) == 0) {
+    continue;
+  }
+  var lnlk = Url.Action("SetCulture", "ThemeSwitcher", new { area = "", culture = item });
+  var culture = new System.Globalization.CultureInfo(item);
+  <div class="culture-selection-logoff pull-right" onclick="javascript:window.location.href = '@lnlk'; ">
+    <img src="@Url.Content(String.Format("~/Content/images/arrow-25-10.png", item))" />
+    <div class="culture-selections">@culture.TwoLetterISOLanguageName.ToUpperInvariant()</div>
+  </div>
+}
+<div class="culture-selection-logoff pull-right">
+  <img src="@Url.Content(String.Format("~/Content/images/arrow-25-12.png", rm.TwoLetterISOLanguageName))" />
+    <div class="culture-selections">@rm.TwoLetterISOLanguageName.ToUpperInvariant()</div>
+</div>

@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TargetPlatformVersion>12.0</TargetPlatformVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C9D5E348-9881-437E-9CB3-0B5C692A48D7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ImportWordDocument</RootNamespace>
+    <AssemblyName>ImportWordDocument</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <PublishUrl>D:\Apps\StudioApps\AugmentedBooks\TexxtoorPortal\uwe-nb732-setup\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>BD4E40A19AF787D03A31DE66F18BECEAD48A6A33</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ImportWordDocument_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Html2XmlUtil.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Texxtoor.BaseLibrary.Core\Texxtoor.BaseLibrary.Core.csproj">
+      <Project>{307FEABA-C5A1-47B8-A0B5-0B56D982F570}</Project>
+      <Name>Texxtoor.BaseLibrary.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Texxtoor.BaseLibrary.WordInterop\Texxtoor.BaseLibrary.WordInterop.csproj">
+      <Project>{407C596C-0BBA-4002-94B5-30CD80337DE7}</Project>
+      <Name>Texxtoor.BaseLibrary.WordInterop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Texxtoor.BusinessLayer\Texxtoor.BusinessLayer.csproj">
+      <Project>{280A2C48-203E-4C66-A63B-7AA571BD3D7E}</Project>
+      <Name>Texxtoor.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Texxtoor.DataModels\Texxtoor.DataModels.csproj">
+      <Project>{DD4E4B0B-7B5C-43F8-B47F-6C36D20283A9}</Project>
+      <Name>Texxtoor.DataModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image001.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image002.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image003.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image004.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image005.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image006.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image007.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image008.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image009.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image010.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image011.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image012.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image013.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image014.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image015.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image016.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image017.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image018.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image019.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image020.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image021.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image022.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image023.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image024.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image025.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image026.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\Html\Lastenheft_wundmanager_vers  1 4_17-09-12-Dateien\image027.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image001.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image002.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image003.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image004.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image005.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image006.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image007.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image008.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image009.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image010.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image011.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image012.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image013.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image014.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image015.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image016.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image017.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image018.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image019.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image020.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image021.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image022.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image023.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image024.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image025.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image026.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\images\image027.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\Lastenheft_wundmanager_vers  1 4_17-09-12.xml" />
+    <Content Include="Xslt\Listgenerator.xsl" />
+    <EmbeddedResource Include="Xslt\generateListingFix.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xslt\config.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xslt\normalizeText.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xslt\normalizeListing.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xslt\generateTableFix.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xslt\transformHtml.xslt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xslt\normalizeTable.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <Content Include="TestBook\AndreaBoschin-WP7.5_Fundamentals\WP7.5_Fundamentals Andrea Boschin.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\BrianNoyes-WCF_RIA_Services\WCF RIA Services - Brian Noyes.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\JKrause-ASPNET_Ext\1.Introduction.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\customXml\_rels\item1.xml.rels" />
+    <None Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\word\_rels\document.xml.rels" />
+    <None Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\word\_rels\settings.xml.rels" />
+    <None Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\_rels\.rels" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_02_V1.0.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_03_V1.0.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_04_V1.0.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_05_V1.0.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_06_V1.0.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_07_V1.0.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_08_V1.0.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_09_V1.0.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\soleosoft\Lastenheft_wundmanager_vers  1 4_17-09-12.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestBook\ImportController.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\customXml\item1.xml" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\customXml\itemProps1.xml" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\docProps\app.xml" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\docProps\core.xml" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\word\comments.xml" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\word\customizations.xml" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\word\document.xml" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\word\endnotes.xml" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\word\fontTable.xml" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\word\footnotes.xml" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\word\media\image1.tiff" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\word\media\image2.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\word\media\image3.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\word\numbering.xml" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\word\settings.xml" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\word\styles.xml" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\word\stylesWithEffects.xml" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\word\theme\theme1.xml" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\word\webSettings.xml" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\ASPNETEXT_Chapter_01_V1.0 - Copy.docx\[Content_Types].xml" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0700.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0701.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0702.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0703.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0704.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0705.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0706.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0707.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0708.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0709.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0710.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0711.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0712.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0800.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0801.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0900.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0901.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0902.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0903.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0904.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\19835f0905.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0101.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0102.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0103.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0104.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0105.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0106.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0107.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0108.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0201.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0202.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0203.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0204.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0205.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0206.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0207.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0208.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0209.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0210.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0211.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0301.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0302.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0304.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0305.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0306.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0307.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0308.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0309.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0310.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0311.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0312.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0313.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0314.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0315.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0401.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0402.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0403.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0404.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0405.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0406.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0407.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0501.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0502.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0503.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0504.tif" />
+    <Content Include="TestBook\JKrause-ASPNET_Ext\Images\ASPEXTf0505.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TestHtml\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

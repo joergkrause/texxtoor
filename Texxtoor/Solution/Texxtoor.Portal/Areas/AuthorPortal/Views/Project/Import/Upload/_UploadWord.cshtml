@@ -1,0 +1,31 @@
+﻿@model int
+@using (Html.BeginForm("Upload", "Project", FormMethod.Post, new Dictionary<string, object>() { { "id", "uploadWordForm" }, { "enctype", "multipart/form-data" } })) {  
+  <input type="hidden" name="id" value="@Model" />
+  <input type="hidden" name="upload" value="@((string)ViewBag.Type)" />
+  using(Html.BtFieldset(Loc("legendImport", "Upload Import File"))) {
+    @Loc("textHelp", @"<p>A complete Word project may appear in different ways. You can upload your work here like this:</p>
+<ol>
+  <li>Create a single document</li>
+  <li>Create a document per chapter (recommended)</li>
+</ol>
+<p>
+It's strongly recommend to have all images in the document separately. For you convenience it's <em>not</em> necessary
+to change the local paths to the images in the document. Once an image is found the import processor looks it up in a
+subfolder 'Images'. If it can't be found there, it's looked up in 'Images/ChapterName'. 
+<br />
+Embedded images are processed directly and without further folder management. However, due to the size of final Word file,
+we recommend uploading images separately.</p>
+</p>
+")
+    <label for="file">
+     @Loc("label",  "Select your file (*.docx only):")</label>
+    <div class="editor-field">
+      <span class="btn btn-success btn-sm fileinput-button" name="file"><i class="icon-plus icon-white"></i><span>Add files...</span><input name="file" type="file" /></span>
+      <div id="progress" class="hidden-to-show">
+        <img src="~/Content/loading.gif" class="ProjectImportImg"
+             alt="Uploading..." />
+      </div>
+    </div>
+    @Button.FormSendButtons("uploadWordSendButton", ViewResources.Action_Reader_Library_Upload, "uploadWordCancelButton", ViewResources.Button_CancelAndClose)
+  }
+}

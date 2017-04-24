@@ -1,0 +1,54 @@
+﻿<div ng-controller="overviewContentCtrl" class="container">
+  <fieldset class="hidden">
+    <legend>Legend</legend>
+    <ul class="list-group list-unstyled">
+      <li class="list-group-item-text"><i class="icon-circle"></i> Section has content </li>
+    </ul>
+  </fieldset>
+  <div class="container">
+    <div class="row">
+      <button class="btn btn-help pull-right" data-container="body" data-toggle="popover" data-placement="left" title="Team Members" data-content="Show the texts structure and work on it."></button>
+      Show <select ng-model="limit">
+        <option value="2">1</option>
+        <option value="3">2</option>
+        <option value="4">3</option>
+        <option value="5">4</option>
+        <option value="8">All</option>
+      </select> Levels
+    </div>
+    <div class="row" ng-repeat="section in sections" ng-hide="section.level > limit">
+      <div class="col-md-1"><i class="icon-circle" ng-if="section.hasContent"></i></div>
+      <div class="col-md-2">{{section.orderNumber}}</div>
+      <div class="col-md-7" ng-class="{'text-bold': section.isChapter}">{{section.title}}</div>
+      <div class="col-md-2">
+        <div class="btn-group dropdown btn-block">
+          <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
+            Action <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#" ng-click="deleteSection(section.id)">Delete</a></li>
+            <li><a href="#" ng-click="renameSection(section.id)">Rename</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+      <select ng-model="addsection" class="form-control" ng-options="section.id as section.orderNumber for section in sections">
+        <option>After:</option>
+      </select>
+    </div>
+    <div class="col-md-7">
+      <input type="text" class="form-control" ng-model="addSectionTitle" />
+    </div>
+    <div class="col-md-2">
+      <div class="btn-group">
+        <button type="button" class="btn btn-sm btn-primary btn-block" ng-class="{'disabled': addSectionTitle.length < 3 }">
+          Add After {{addsection.orderNumber}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

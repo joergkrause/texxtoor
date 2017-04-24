@@ -1,0 +1,196 @@
+﻿@model Texxtoor.DataModels.Models.Content.Project
+@{
+  PageData["Title"] = @Loc("title", "Project Dashboard");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = @Loc("text1", @"On this page you can manage all your project's details. Team members can view but not change details.");
+}
+@section HeadContent{
+  <script type="text/javascript">
+    $(function () {
+      ui = new Dialog(
+        {
+        },
+        {
+        },
+        {
+        },
+        {
+          formId: '#main',
+          formDivId: '#main',
+          formAction: '@Url.Action("List", "Opus", new { id = Model.Id, closed = false })'
+        });
+      ui.updateTable(0);
+      UpdateTable(0);
+      $('#dashboard').accordion({ heightStyle: "content", clearStyle: true, collapsible: true });
+    });
+    // MessageBoard
+    function UpdateTable(page, order, dir) {
+      $.ajax({
+        url: '@Url.Action("TopMessage")',
+        data: {
+          id: '@Model.Id',
+          page: page,
+          order: order,
+          dir: dir
+        },
+        cache: false,
+        dataType: "html",
+        success: function (data) {
+          $('#board').html(data);
+        }
+      });
+    }
+  </script>
+}
+@if (Model == null) {
+  <h2>@Loc("titleNoModel", "This project does not exists")</h2>
+  <div class="alert alert-warning">
+    @Loc("textNoModel", @"The project you're trying to view does no longer exists. It might be inactive, deleted, or moved.
+Try searching for a specific project from project's listing.")
+  </div>
+  <p>
+    @Html.ActionLink("Project List", "Index")
+  </p>
+} else {
+  var leader = Model.Team.Members.FirstOrDefault(t => t.TeamLead);
+  var leaders = Model.Team.Members.Where(t => t.TeamLead).ToList();
+  @Create.ActionTask("newText", false, Url.Action("CreateFromTemplate", "Opus", new { id = Model.Id }), ViewResources.TasksButton_CreateNewWork)
+  <div class="accordion accordion-green accordion-contrast panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseOne-accordion">
+          @Loc("titleSummary", "Project Summary")
+        </a>
+      </div>
+      <div id="collapseOne-accordion" class="panel-collapse collapse" style="height: 0px;">
+        <div class="panel-body">
+          @Html.Partial("Dashboard/_Summary", Model, new ViewDataDictionary() { { "TeamLead", ViewBag.TeamLead }, { "CurrentUser", ViewBag.CurrentUser } })
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo-accordion">
+          @Loc("titleBookProgress", "Text Editing and Progress (<span data-args='0' data-desc='Text Count'>{0}</span> texts)", @Model.Opuses.Count(b => b.Active))
+        </a>
+      </div>
+      <div id="collapseTwo-accordion" class="panel-collapse collapse" style="height: 0px;">
+        <div class="panel-body">
+          @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+            @Loc("textWorkspace", @"Each entry is the place where a text is being born and grow up. Start with a new text and enter everything or create one by uploading content.")
+          }
+          @if (ViewBag.TeamLead.Id != ((Texxtoor.DataModels.Models.Users.User)ViewBag.CurrentUser).Id) {
+            using (Html.BtDiv(BtStyle.AlertAndError)) {
+              @Loc("textNoWorkCreation", @"Only the lead author can create a new workspace.")
+              @:&nbsp;
+              @Loc("txtCurrentLead", @"The lead author for this project is <em>{0}</em>.", ViewBag.TeamLead.UserName)
+            }
+          }
+          @Create.MainContentWithLoader()
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseThree-accordion">
+          @if (Model.Marketing != null) {
+            @Loc("titleYesMrktng", "Marketing and Pricing (package '<span data-args='0' data-desc='Has Package'>{0}</span>' assigned)", Model.Marketing.Name)
+          } else {
+            @Loc("titleNoMrktng", "Marketing and Pricing (no package assigned)")
+          }
+        </a>
+      </div>
+      <div id="collapseThree-accordion" class="panel-collapse collapse" style="height: 0px;">
+        <div class="panel-body">
+          @Html.Partial("Dashboard/_Marketing", Model)
+        </div>
+      </div>
+    </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapsefour-accordion">
+        @if (Model.Resources != null) {
+          @Loc("titleResources", "Project Resources (<span data-args='0' data-desc='Res Count'>{0}</span> resources)", Model.Resources.OfType<Texxtoor.DataModels.Models.Content.ResourceFile>().Count())
+        }
+        else {
+          @Loc("titleResources", "Project Resources (<span data-args='0' data-desc='Res Count'>{0}</span> resources)", Loc("none", "no"))
+        }
+      </a>
+    </div>
+    <div id="collapsefour-accordion" class="panel-collapse collapse" style="height: 0px;">
+      <div class="panel-body">
+        @Html.Partial("Dashboard/_Resources", Model)
+      </div>
+    </div>
+  </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapsefive-accordion">
+          @Html.Pluralize(Model.Team.Members.Count(), 
+            Loc("titleTeamSing", "Team, Jobs and Status (<span data-args='0' data-desc='User Count'>{0}</span> Team Member)"),
+            Loc("titleTeams", "Team, Jobs and Status (<span data-args='0' data-desc='User Count'>{0}</span> Team Members)"))
+        </a>
+      </div>
+      <div id="collapsefive-accordion" class="panel-collapse collapse" style="height: 0px;">
+        <div class="panel-body">
+          @Html.Action("DetailsTeam", Model.Id)
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapsesix-accordion">
+          @Loc("titleTerms", "Terms")
+        </a>
+      </div>
+      <div id="collapsesix-accordion" class="panel-collapse collapse" style="height: 0px;">
+        <div class="panel-body">
+          @Html.Partial("Dashboard/_Terms", Model)
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseseven-accordion">
+          @Loc("titleRoom", "Work Room and Discussion")
+        </a>
+      </div>
+      <div id="collapseseven-accordion" class="panel-collapse collapse" style="height: 0px;">
+        <div class="panel-body">
+          @Html.Partial("Dashboard/_Discussion")
+        </div>
+      </div>
+    </div>
+
+  </div>
+}
+@Create.ActionTask("", true, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@section helpSection {
+  <h3>Optionen für Bearbeiter</h3>
+  <p></p>
+  <h3>Optionen für führende Autoren</h3>
+  <p>
+    Wenn Sie führender Autor sind, können Sie folgendes tun:
+    <ul>
+      <li>
+        Im Abschnitt 'Projektübersicht':
+        <ul>
+          <li>Titel berarbeiten: Klicken Sie einfach auf den Titel</li>
+          <li>Beschreibung berarbeiten: Klicken Sie einfach auf die Beschreibung</li>
+          <li>Projektbild ändern: Klicken Sie einfach auf das Bild. Sie können dann ein anderes hochladen</li>
+        </ul>
+      </li>
+      <li>
+        Im Abschnitt 'Texte und Fortschritte':
+        <ul>
+          <li>
+            Text deaktivieren: Der Text ist nun für Mitarbeiter nicht mehr sichtbar und kann nicht bearbeiten werden. Der Text kann jederzeit wieder reaktiviert werden.
+          </li>
+          <li>Wiederherstellen: Lade eine Sicherungskopie (XML) hoch und ersetzen Sie den Inhalt mit der Sicherung</li>
+          <li>Weiteren Text erstellen: Erstelleeinen neuen Text oder eine Kopie des aktuellen, um diese weiter zu bearbeiten</li>
+          <li>Text verbinden: Verschiebe Kapitel von anderen Texten in den ausgewählten</li>
+        </ul>
+      </li>
+    </ul>
+  </p>
+}

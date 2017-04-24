@@ -1,0 +1,124 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@model Opus
+@{
+  var closed = ViewBag.Closed != null && (bool)ViewBag.Closed;
+  var ps = Model.GetMilestonesPercentage();
+  var bgclr = "";
+  var fgclr = "#FFF";
+}
+<div class="firstRow">
+  @Badges.NewItem(Model.Name, Model.CreatedAt, TimeSpan.FromDays(2))  
+</div>
+<div class="secondRow">
+  @if (Model.Milestones != null && Model.Milestones.Any()) {
+  <div style="height: 25px; width: 300px; border: 1px solid silver; padding:0; margin:0; float: left">
+    @if (ps < 15) {
+      bgclr = "#FF0000";
+    }
+    @if (ps >= 15 && ps < 75) {
+      bgclr = "#FF6A00";
+    }
+    @if (ps >= 75 && ps < 95) {
+      bgclr = "#FFD800";
+      fgclr = "#000";
+    }
+    @if (ps >= 95 && ps < 100) {
+      bgclr = "#496F67";
+    }
+    @if (ps == 100) {
+      bgclr = "green";
+    }
+    @if (ps < 5) {
+      fgclr = "#000";
+    }
+    
+    <div style="height: 23px; color: @fgclr; width: @(3*Model.GetMilestonesPercentage())px; background-color: @bgclr; overflow-x: visible;"><div style="padding: 2px;">@(Model.GetMilestonesPercentage())&nbsp;%</div></div>
+  </div>
+  }
+  <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+  <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+    @Loc("textDescr", @"The workspace <em><span data-args='0' data-desc='Name'>{0}</span></em> was created <em><span data-args='1' data-desc='Date'>{1}</span></em> at <em><span data-args='2' data-desc='Name'>{2}</span></em>", Model.Name, Model.CreatedAt.ToShortDateString(), Model.CreatedAt.ToShortTimeString())
+    <ul class="sidemenu">
+      @if (Model.Milestones != null && Model.Milestones.Any()) {
+        foreach (var milestone in Model.Milestones) {
+          <li>@Loc("assigned", "User <em>{0}</em> is responsible for {1}", milestone.Owner.Member.UserName, milestone.Name)</li>
+        }
+      }
+    </ul>
+    @Loc("textVer", @"This is version <em><span data-args='0' data-desc='Version'>{0}</span></em>.", Model.Version + " / " + Model.VariationName)
+    @if (Model.Variation != VariationType.HeadRevision) {
+      var parent = (Texxtoor.DataModels.Models.Content.Opus)Model.PreviousVersion;
+      <ul class="sidemenu">
+        @while (parent != null) {
+          <li>@Loc("derivedFrom", "Derived from text <em>{0} ({1} / {2})</em>", parent.Name, parent.Version, parent.VariationName)</li>
+          parent = (Texxtoor.DataModels.Models.Content.Opus)parent.PreviousVersion;
+        }
+      </ul>
+    }
+    @if (!Model.Children.Any()) {
+      using (Html.BtDiv(BtStyle.AlertAndError)) {
+        @Loc("errContent", @"There is a problem with the content of this document. Options: Use a backup to restore; close and re-open; delete and start new.")
+      }
+    }
+    @if (Model.Milestones != null && Model.Milestones.Any()) {
+      @Loc("textStatus", @"Status of Milestones:")
+      @Html.Action("ListMilestonesSimple", new {id = Model.Id, options = false})
+    }
+    @if (Model.IsBoilerplate) {
+      <div class="alert alert-danger">
+        @Loc("isboilerplate", "This text is a boilerplate.")
+      </div>
+    }
+  </div>
+</div>
+<div class="thirdRow">
+  <div class="optionFields" data-model="@Model.Id">
+    @{
+      var options = new List<OptionField>();
+    }
+    @if (!Model.Children.Any()) {
+      options.Add(new OptionLinkField("btnRepair", true, Url.Action("Repair", "Opus", new { Id = Model.Id }), ViewResources.Action_Opus_Repair, BtStyle.ButtonAndDanger));
+    }
+    @if (Model.Children.Any() && Model.Active) {
+      options.Add(new OptionLinkField("btnWork", true, Url.Action("Edit", "Opus", new { Id = Model.Id }), ViewResources.Action_Opus_WorkOnIt, BtStyle.ButtonSuccess));
+      if (!Model.UserIsTeamLead(User.Identity.Name)) {
+        if ((Model.Project.Team.Members.Single(m => m.Member.UserName == User.Identity.Name).Role.ContributorRoles & Texxtoor.DataModels.Models.Author.ContributorRole.Author) == Texxtoor.DataModels.Models.Author.ContributorRole.Author)
+        {
+          options.Add(new OptionLinkField("btnRestore", false, Url.Action("Restore", "Opus", new {Id = Model.Id}), ViewResources.TasksButton_RestoreBackup));
+        }
+        options.Add(new OptionLinkField("lnkBackup", false, Url.Action("DownloadCopy", "Editor", new { id = Model.Id }), ViewResources.TasksButton_DownloadBackup));
+      }
+      if (Model.Project.Team.Members.Count() > 1) {
+        if (!Model.UserIsTeamLead(User.Identity.Name)) {
+          options.Add(new OptionLinkField("btnBill", false, Url.Action("Billing", "Team", new { Id = Model.Id }), ViewResources.Action_Opus_RaiseInvoice));
+        }
+      }
+      if (Model.Project.Team.Members.Count() > 1 || !Model.UserIsTeamLead(User.Identity.Name)) {
+        options.Add(new OptionLinkField("btnConfShare", false, Url.Action("ManageShares", "Team", new { Id = Model.Project.Id, opusId = Model.Id }), ViewResources.Action_Opus_ConfirmShares));
+      }
+    }
+    @if (Model.UserIsTeamLead(User.Identity.Name)) {
+      if (Model.Active) {
+        options.Add(new OptionLinkField("btnClose", false, Url.Action("Close", "Opus", new { Id = Model.Id }), ViewResources.Action_Opus_Close, BtStyle.ButtonDanger));
+        options.Add(new OptionLinkField("lnkPreview", true, Url.Action("AuthorPreview", "Publishing", new { id = Model.Id }), ViewResources.TasksButton_ProductionPreview));
+        options.Add(new OptionLinkField("lnkFullPublish", true, Url.Action("FullPublish", "Publishing", new { id = Model.Id }), ViewResources.TasksButton_Publish, BtStyle.ButtonSuccess));
+        options.Add(new OptionLinkField("lnkQuickPublish", false, Url.Action("QuickPublished", "Publishing", new { id = Model.Id }), ViewResources.TasksButton_QuickPublish, BtStyle.ButtonSuccess));
+        options.Add(new OptionLinkField("lnkBackup", false, Url.Action("DownloadCopy", "Editor", new { id = Model.Id }), ViewResources.TasksButton_DownloadBackup));
+        options.Add(new OptionLinkField("lnkRestore", false, Url.Action("Restore", "Opus", new { id = Model.Id }), ViewResources.TasksButton_RestoreBackup));
+        options.Add(new OptionLinkField("btnMstn", false, Url.Action("ManageMilestones", "Opus", new { Id = Model.Id }), ViewResources.Action_Opus_ManageMilestones));
+        if (!closed) {
+          options.Add(new OptionLinkField("btnCopy", false, Url.Action("CreateFrom", "Opus", new { Id = Model.Id }), ViewResources.Action_Opus_CopyToNew));
+          options.Add(new OptionLinkField("btnMerge", false, Url.Action("MergeWith", "Opus", new { Id = Model.Id }), ViewResources.Action_Opus_MergeWith));
+          options.Add(new OptionLinkField("btnBolierplate", false, Url.Action("MergeBoilerplates", "Opus", new { Id = Model.Id }), ViewResources.Action_Opus_Boilerplates));
+          options.Add(new OptionLinkField("btnMove", false, Url.Action("MoveOpus", "Project", new { Id = Model.Id }), ViewResources.Action_MoveOpusToText));
+        }
+      } else {
+        options.Add(new OptionLinkField("btnReactivate", false, Url.Action("Open", "Opus", new { Id = Model.Id }), ViewResources.Action_Opus_Reactivate));
+      }
+    }
+    @Html.Partial("_OptionFields", options)
+    @if (Model.Active && Model.Milestones.Any()) {
+      @Create.ActionLink("btnMs", true, Url.Action("FinishMilestone", "Opus", new { Id = Model.Id }), ViewResources.Action_Opus_FinishMilestone, BtStyle.ButtonDanger)
+    }
+  </div>
+</div>

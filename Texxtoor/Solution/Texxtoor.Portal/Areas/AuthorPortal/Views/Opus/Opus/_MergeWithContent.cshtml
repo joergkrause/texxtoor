@@ -1,0 +1,73 @@
+﻿@model Tuple<IEnumerable<Texxtoor.DataModels.Models.Content.Opus>, Texxtoor.DataModels.Models.Content.Opus>
+@using (Html.BeginForm("MergeWithContent", "Opus", new { id = Model.Item2.Id, area = "AuthorPortal" }, FormMethod.Post, new { id = "mergeContentForm" })) {
+  using (Html.BtFieldset(Loc("legend", @"Manage collection content."))) {
+    using (Html.BtDiv(BtStyle.WellAndSmall)) {
+      @Loc("helpa1", @"Drag 'n drop themes from left side to the right to add to current text.")
+      @:
+      @Loc("helpb", @"Reorder elements on the right to re-arrange chapters.")
+    }
+    <table class="Fullwidth">
+      <tr>
+        <td class="HalfWidth">
+          @if (Model.Item1 == null) {
+            <div class="alert alert-warning">
+              @Loc("titleSrcErr", @"Select a content source first.")
+            </div>
+          } else {
+            <span class="pull-right">
+              @Create.FieldHelpIcon(Loc("titleSource", @"This is the current source of texts").ToString(), "", "")
+            </span>
+            if (Model.Item1.Any()) {
+              foreach (var opus in Model.Item1) {
+                <h4 class="badge badge-success clearfix">@opus.Name.StripTags()</h4>
+                if (opus.Children.Any()) {
+                  <ul class="chapterList" id="chapterListSource-@opus.Id" data-item="@opus.Id">
+                    @foreach (var chapter in opus.Children.OrderBy(c => c.OrderNr)) {
+                      <li data-item="@chapter.Id">@(chapter.OrderNr). @chapter.RawContent.StripTags().Ellipsis(40)</li>
+                    }
+                  </ul>
+                } else {
+                  <span class="alert alert-warning well well-sm">
+                    @Loc("textNoCnt", "This text appears to be empty.")
+                  </span>
+                }
+              }
+            } else {
+              if ((bool)ViewBag.WithBoilerplates) {
+                <div class="alert alert-warning">
+                  @Loc("textNoBolierplates", "None of your projects provides any boilerplates. Consider moving your boilerplate texts to one project and tag them as 'is boilerplate'.")
+                </div>
+              } else {
+                <div class="alert alert-warning">
+                  @Loc("textNoTxt", "This project does not has any other texts you can merge from.")
+                </div>
+              }
+            }
+          }
+        </td>
+
+        <td style="vertical-align: middle; font-size: 2em;">
+          &nbsp;&nbsp;&raquo;&raquo;&nbsp;&nbsp;
+        </td>
+        <td class="HalfWidth">
+          <h4 class="badge badge-info clearfix">@Model.Item2.Name</h4>
+          <span class="pull-right">
+            @Create.FieldHelpIcon(Loc("titleTargetText", @"This is the target text the chapters merge into").ToString(), "", "")
+          </span>
+          <ul class="chapterList" id="chapterListTarget" data-item="@Model.Item2.Id">
+            @foreach (var chapter in Model.Item2.Children.OrderBy(c => c.OrderNr)) {
+              <li data-item="@chapter.Id">@(chapter.OrderNr). @chapter.RawContent.Ellipsis(40)</li>
+            }
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>
+          @Create.FormButtonOnClick("changeCollectionSendButton", "ChangeFormSubmit()", ViewResources.Action_Opus_MergeText)
+      </td>
+    </tr>
+  </table>
+  }
+}

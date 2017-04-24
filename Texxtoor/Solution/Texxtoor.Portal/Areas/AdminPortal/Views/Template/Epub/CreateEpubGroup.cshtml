@@ -1,0 +1,15 @@
+﻿@{
+    PageData["Title"] = "Create EPUB Template";
+    Layout = Url.GetGlobalLayout("_LayoutTemplates", "AdminPortal");
+}
+<div class="well">
+  Give the templates a unique name. The function will create a bunch of templates under this group's name. The groups provided here
+  become available for both, authors' preview and printing feature for readers.
+</div>
+@using (Html.BeginForm()) {
+  @Html.TextBox("name", "")
+  <p>
+    Group is always a straight copy of the default "Common Template". Once created use the edit function to bent it to your will.
+  </p>
+  <input type="submit" value="Create Group" class="btn btn-primary" />
+}

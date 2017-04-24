@@ -1,0 +1,3923 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Content>
+  <Element Type="Opus" Name="ASP.NET Extensibility - Understanding ASP.NET" Short="Explore how to break through ASP.NET's boundaries" Description="Pro ASP.NET Extensibility, a book for advanced users of ASP.NET.">
+    ASP.NET Extensibility
+    <Element Type="Section" Name="Understanding ASP.NET">
+      Understanding ASP.NET
+      <Element Type="Text">
+        <p>In this chapter, we look under the covers of ASP.NET. Many fundamentals of ASP.NET just scratch the surface but to get the most out of the framework it is a good idea to look much deeper. </p>
+        <p>Objectives in this chapter:</p>
+        <ul>
+          <li>Explain how ASP.NET works internally and highlight the relevant features needed for your everyday tasks.</li>
+          <li>Outline the behind-the-scenes concepts: the application life cycle, the page life cycle and the control creation process.</li>
+          <li>Cover the steps taken to translate your *.aspx and *.cs files into compiled code.</li>
+          <li>Delve beyond the common ASP.NET features such as form stickiness and view state.</li>
+        </ul>
+      </Element>
+      <Element Type="Section" Name="A Promise in Advance">
+        A Promise in Advance
+        <Element Type="Text">
+          <p>
+            ASP.NET is a powerful and flexible
+            architecture for building web applications. The high level parts – WebForms and
+            WebServices – are well-known. However, as your applications scale up in real
+            life, sooner or later you encounter performance issues, or find that things which
+            seemed easy become challenging. That is what this book provides – a look beyond
+            the big picture. The little details are harder to understand and sometimes more
+            abstract; less fun for more work. But let me begin with a promise: it’s worth
+            the effort.
+          </p>
+        </Element>
+      </Element>
+      <Element Type="Section" Name="The Low Level Architecture of Request Handling">
+        The Low Level Architecture of Request Handling
+        <Element Type="Text">
+          <p>
+            Understanding the innermost parts of a
+            platform is highly satisfying. You will feel confident knowing that you can
+            write better applications and recognizing why they work. In this section we will
+            examine the system level of ASP.NET in order to understand how requests flow
+            through the processing pipeline. This is not aimed at those learning the basics
+            or creating a simple interactive page. This is what you need to know when you
+            write or build large sites which involve hundreds of pages handling requests
+            from thousands of users.
+          </p>
+          <p>
+            WebForms and WebServices are both
+            sophisticated, high level implementations of HTTP handlers. They are built on
+            top of the ASP.NET framework and exposed as default project templates. Most
+            developers are happy with these project types, and are ignorant of, or
+            misunderstand, the additional potential that exists. The basic HTTP handlers
+            are built with managed code. This means that you can get highly customized
+            behavior processing requests through the pipeline by using your very own code.
+          </p>
+        </Element>
+        <Element Type="Section" Name="What is ASP.NET">
+          What is ASP.NET
+          <Element Type="Text">
+            <p>
+              In general terms, ASP.NET is a request
+              processing engine. It takes an incoming request and passes it through its
+              internal pipeline to an end point, where you as a developer can attach code to
+              process that request. This engine is completely separate from HTTP runtime or
+              the Web Server. In fact, the HTTP runtime is a component that you can host in
+              your own applications outside of Internet Information Services (IIS) or any
+              server side application altogether. Visual Studio and the integrated
+              development server is a good example of an implementation that bypasses IIS.
+            </p>
+
+            <p>
+              The HTTP runtime is responsible
+              for routing requests through this pipeline, a complex yet very elegant
+              mechanism. Several interrelated objects, extensible via subclassing or through
+              interfaces, are available for customization work. This makes the framework
+              highly adaptable. In this book I’ll cover most of these extensibility points and
+              show that there are virtually no limits when using ASP.NET.
+            </p>
+
+            <p>
+              Through this mechanism it’s
+              possible to hook into low-level interfaces such as authentication,
+              authorization, and caching. You can even filter content by routing incoming
+              requests that match a specific signature directly to your code. Of course,
+              there are a lot of different ways to accomplish the same thing – but all of the
+              approaches are straightforward to implement.
+            </p>
+
+            <p>
+              The ASP.NET engine was written
+              entirely in managed code and all of the extensibility functionality is provided
+              via “managed code extensions". The impressive part of ASP.NET is that it is very
+              powerful but simple to work with. Despite its breadth and complexity, accomplishing
+              your desired outcomes is easy. ASP.NET enables you to perform tasks that were previously
+              the domain of ISAPI extensions and filters on IIS. ISAPI is a low-level Win32
+              API that has a very spartan interface. It was very difficult to develop
+              anything on top of this interface. Since ISAPI is low-level, it is very fast.
+              But writing ISAPI filters in C++ is not included in most current application
+              level development. Thus, for some time ISAPI development has been largely relegated
+              to providing bridge interfaces to other application or platforms, such as PHP.
+              But ISAPI did not become obsolete with the appearance of ASP.NET. The ASP.NET engine
+              interfaces with IIS through an ISAPI extension. This extension hosts .NET
+              through the ASP.NET runtime.
+            </p>
+
+            <p>
+              ISAPI provides the core
+              interface from the Web Server and ASP.NET uses the unmanaged ISAPI code portion
+              to retrieve input and send output back to the client. The content that ISAPI
+              provides is passed using common objects like<code>HttpRequest</code>
+              and <code>HttpResponse</code> that expose the unmanaged data as managed objects. Back in the .NET
+              world it becomes very easy to use these objects in your own code.
+              I’ll later explain how the umanaged and managed world interoperate.
+            </p>
+
+          </Element>
+        </Element>
+        <Element Type="Section" Name="The Lifetime of a Request">
+          The Lifetime of a Request
+          <Element Type="Text">
+
+            <p>
+              The lifetime starts with an ASP.NET
+              request. Whenever the user types in a URL, clicks on a hyperlink, or submits an
+              HTML form on the browser, a request is sent to the server.
+            </p>
+
+          </Element>
+          <Element Type="Sidebar" SidebarType="Note">
+
+            <header>Note</header>
+            <aside>
+              It’s essentially the same
+              for web services. A client application calls an ASP.NET based Web Service by
+              sending a request. Therefore, I refer to the term Request and don’t differentiate
+              between Web Service and browser requests. You can assume that the examples given
+              are intended to run in a browser environment.
+            </aside>
+
+          </Element>
+          <Element Type="Text">
+            <p>
+              For the sake of clarity, we left out the
+              steps made behind the scenes in the browser and through the protocol stacks. This
+              includes port assignment within the TCP/IP stack and name resolution using the
+              DNS protocol. As long as we’re talking about ASP.NET we have no direct
+              influence on DNS, so let’s keep this in mind but not complicate the description
+              with side effects.
+            </p>
+
+          </Element>
+          <Element Type="Sidebar" SidebarType="Box" Name="Domain NAME SYSTEM">
+
+            <header>Domain NAME SYSTEM</header>
+            <aside>
+              <p>
+                The Domain Name System (DNS) is
+                hierarchical naming system for internet resources. Mainly these are computers
+                that get human readable names—the hostnames—the DNS translates into IP
+                addresses. Beginning with some root servers the DNS is a hierarchy of name
+                resolution servers for particular levels of the hostname. The protocol running
+                between the servers and clients is called DNS protocol.
+              </p>
+              <p>
+                The .NET Framework supports DNS with several
+                classes. However, for ASP.NET applications usually there is no need to program
+                directly against this low level protocol. The request we focus on begins when
+                the name resolution process is done.
+              </p>
+            </aside>
+
+          </Element>
+          <Element Type="Text">
+            <p>
+              On the server side the web
+              server picks up the request. In this description we focus mainly on ISS7 with
+              some words for IIS6, which is still widely used. However, most parts will not
+              refer to a specific version, so the term IIS covers all from IIS5 to IIS7 (and
+              beyond, probably). Within IIS the request is usually routed to the aspx page.
+              How this process works internally depends entirely on the HTTP handler that
+              handles the request. The mapping between the .aspx extension and the ISAPI DLL,
+              aspnet_isapi.dll, is responsible for this. Every request that handles
+              applications extensions which we want to be served by ASP.NET must be routed
+              that way. This means that the extension is a pre-defined, yet voluntary, definition.
+              Imagine if you mapped .html pages to be processed by ASP.NET as well — it wouldn’t
+              be obvious that ASP.NET was doing the trick.
+            </p>
+
+            <p>
+              This means, too, that
+              different extensions might route to different handlers. For instance, the .asmx
+              extension is routed to the web service handler. Instead of opening a page and
+              starting a page parser, this request does not open a file but a specially
+              attributed class that identifies the implementation. Many other handlers are
+              installed with ASP.NET and you are also able to define your own. All these
+              handlers are mapped to the ASP.NET ISAPI extension and configured in web.config
+              to get routed to a specific implementation.
+            </p>
+
+            <p>
+              In coding terms the handler is a
+              type, implemented by a .NET class that handles a specific extension. You can
+              also attach your own handlers to existing extensions and route the request
+              through both your own and the default implementation. The extension is the
+              basic mapping where the processing starts. The basic mappings already available
+              are shown in Table 1
+            </p>
+
+          </Element>
+          <Element Type="Table" Name="Application mappings assigned to aspnet_isapi.dll">
+            <table>
+              <tr>
+                <th>Extension</th>
+                <th>Resource</th>
+                <th>Type</th>
+                <th>Comments</th>
+              </tr>
+              <tr>
+                <td>.asax</td>
+                <td>ASP.NET application files.</td>
+                <td>Usually the global.asax file only.</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>.ascx</td>
+                <td>ASP.NET user control files.</td>
+                <td>Usually these files are not called directly.</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>.ashx</td>
+                <td>HTTP handlers.</td>
+                <td>The managed counterpart of ISAPI extensions; see chapter 3 for details.</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>.asmx</td>
+                <td>ASP.NET web services.</td>
+                <td>Obsolete since the appearance of Windows Communication Foundation (WCF).</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>.aspx</td>
+                <td>ASP.NET web pages.</td>
+                <td>The regular page handler.</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>.axd</td>
+                <td>ASP.NET internal HTTP handler.</td>
+                <td>Used for embedded resources like JavaScript or images pulled from compiled code.</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>.svc</td>
+                <td>Web service handler.</td>
+                <td>WCF based services now have its own extension.</td>
+                <td></td>
+              </tr>
+            </table>
+          </Element>
+          <Element Type="Text">
+            <p>
+              Let’s talk about the asmx extension
+              shown in the table. With the introduction of .NET 3.0, Microsoft moved all the
+              communication stuff like .NET remoting and web services to Windows
+              Communication Foundation (WCF) base library.
+              This means that the ASP.NET based webservices are superseded. Even though they
+              are still fully supported it makes sense to consider moving web service
+              projects from ASP.NET platform to WCF. It’s not a significant change, as most
+              classes are similar and WCF has some more powerful approaches. However, I don’t
+              cover WCF in this book and therefore the following description is limited to
+              the ASP.NET portion.
+            </p>
+
+          </Element>
+          <Element Type="Section" Name="From ISAPI to ASP.NET">
+            From ISAPI to ASP.NET
+            <Element Type="Text">
+              <p>
+                The Internet Service API (ISAPI) is a common
+                Win32 API to access IIS on a very low level. This means that it’s both fast and
+                “unfriendly". The interface is optimized for performance but it’s also very
+                simple and straightforward. For developers with .NET experience it’s pretty
+                hard to use, because the coding style you use in .NET to, say, create sophisticated
+                infrastructure solutions, is the opposite of the style you see when coding
+                ISAPI extensions in C++. Many high level web development languages (such as
+                PHP, Perl, and even ASP.NET) are built on top of ISAPI.
+              </p>
+
+              <p>
+                ISAPI is good for writing such
+                environments. For application developers it’s not the best way to write our
+                sites on time and within budget. However, ISAPI is the layer our ASP.NET engine
+                is built on and a good understanding is helpful for getting the most out of
+                ASP.NET. For ASP.NET the ISAPI level is just acting as a routing layer. The
+                heavy stuff, such as processing and request management, occurs inside the
+                ASP.NET engine and is mostly done in managed code.
+              </p>
+
+              <p>
+                You can think of ISAPI as a sort of
+                protocol. This protocol supports two flavors, ISAPI extensions and ISAPI
+                filters. Extensions act as a transaction interface; they handle the flow of
+                data in to and out of the web server. Each request coming down the pipeline is
+                going through the extensions and the code decides how they are treated. As you
+                might imagine, ASP.NET is such an extension. ASP.NET has several ways to give
+                you as much control as possible to hook into this extension and modify the
+                default behavior. The low level ISAPI interfaces are now available as high
+                level .NET interfaces, named IHttpHandler and IHttpModule. This is very
+                powerful and still provides good performance, because it’s a well written balance
+                between lean access to the lower level and an easy-to-use high level API.
+              </p>
+
+              <p>
+                Like any other ISAPI extension the code
+                is provided as a DLL and is hooked into the IIS management. You can find this
+                DLL here:
+              </p>
+
+              <pre>&lt;.NET FrameworkDir&gt;\aspnet_isapi.dll</pre>
+
+              <p>
+                If you have several versions of .NET
+                framework installed you may wonder why there is just one such DLL in the tree.
+                I predict that you will find this in the v2.0.50727 folder or at least in one
+                with v2.0 at the beginning. If you have .NET 1 installed, another version might
+                reside in a folder named v1.1.x.  The reason is that Microsoft has added a lot
+                of features in .NET 3.0 and .NET 3.5 regarding ASP.NET, but the low level
+                interfaces are still the same. All new functionality is completely written in
+                managed code. This is indeed a transition as it shows that it’s possible to
+                write infrastructure components in managed code. With powerful hardware the
+                performance loss is not that critical whereas the benefits regarding security,
+                reliability, and shorter development cycles matter.
+              </p>
+
+            </Element>
+            <Element Type="Sidebar" SidebarType="Note">
+              <header>Note</header>
+              <aside>
+                With the upcoming .NET 4.0
+                a new engine appears on the horizon that is closer to IIS7 and has several
+                internal improvements. For now, it seems as though most of the techniques and
+                internal behaviors described here have barely changed.
+              </aside>
+            </Element>
+          </Element>
+          <Element Type="Section" Name="The Extension mapping">
+            The Extension mapping
+            <Element Type="Text">
+
+              <p>
+                As you have already seen, the web
+                server recognizes resource requests by analyzing the file extension. The first
+                step to get the ASP.NET ISAPI extension running is a mapping between the
+                several file types and the DLL I mentioned earlier. In IIS7 you can see this by
+                following these steps:
+              </p>
+              <ul>
+                <li>
+                  Open Internet Information
+                  Services (IIS) Manager
+                </li>
+                <li>Choose the server node</li>
+                <li>
+                  In the right pane scroll to the IIS
+                  table
+                </li>
+                <li>Double click Handler Mappings</li>
+              </ul>
+              <p>
+                In the table you will see a column Path
+                with the extensions already assigned. In the column Handler you will see the
+                assigned module. For the *.aspx extension there are these mappings:
+              </p>
+              <p>
+                <ul>
+                  <li>PageHandlerFactory-Integrated</li>
+                  <li>PageHandlerFactory-ISAPI-2.0</li>
+                </ul>
+                <p>
+                  Additionally, with .NET 4.0, two
+                  additional mappings are installed (on a 32-bit machine):
+                </p>
+                <ul>
+                  <li>PageHandlerFactory-Integrated-4.0</li>
+                  <li>PageHandlerFactory-ISAPI-4.0_32bit</li>
+                </ul>
+              </p>
+
+              <p>
+                For the unmanaged side you will see the
+                IsapiModule handler and for the managed one .NET types used to handle the
+                pages.
+              </p>
+
+            </Element>
+            <Element Type="Image" Name="IIS7 maps extensions like *.aspx to ISAPI extensions">
+              images/19835f0101.png
+            </Element>
+            <Element Type="Text">
+              <p>
+                If the mapping isn’t there, ASP.NET is
+                probably not correctly installed. Don’t try to map this by hand. There is a lot
+                of configuration that happens behind the scenes. To register or re-register the
+                mappings just invoke the following command:
+              </p>
+              <pre>cd &lt;.NetFrameworkDirectory&gt;</pre>
+              <pre>aspnet_regiis - i</pre>
+              <p>
+                Again, this command is not available
+                for all .NET framework versions. Version 2.0 will do the trick, even if you run
+                3.0 or 3.5. With ASP.NET 4.0, a new ISAPI DLL will be introduced — but backward
+                compatibility is still guaranteed. If you still have version 1.x sites running,
+                there is another version available. It’s a bit tricky, but in order to run two
+                different ASP.NET versions, just register with the highest available. In IIS6
+                the properties of a specific site of a web server let you choose the right
+                framework. In IIS7 it has been moved to the application pool settings dialog.
+                Each application pool can run only one version of the runtime. To set another
+                framework for a specific site, you have to create another application pool, set
+                the appropriate framework version, and assign the application pool to the site.
+              </p>
+            </Element>
+            <Element Type="Image" Name="Adding a new application pool and get the right framework there">
+              images/19835f0102.png
+            </Element>
+          </Element>
+        </Element>
+        <Element Type="Section" Name="The request comes in">
+          The Request Comes in
+          <Element Type="Text">
+            <p>
+              When a request comes in, IIS checks for
+              the script map and routes the request to the associated extension. In case of
+              ASP.NET we assume that the request is something like Default.aspx, so it’s
+              being routed to aspnet_isapi.dll.
+            </p>
+          </Element>
+          <Element Type="Image" Name="">
+            images/19835f0103.png
+          </Element>
+          <Element Type="Text">
+            <p>
+              I assume that you have already worked
+              with and probably configured the application pool. The application pool was
+              introduced with IIS6 and allows the complete isolation of applications from
+              each other. This means that IIS is able to completely separate things happening
+              in one application from those in another. Putting applications together in one
+              pool could still make sense, because another pool would create its own worker
+              process and, as shown in Figure 1-3, could use up many resources. Separate applications make the web
+              server more reliable. If an application hangs, consumes too much CPU time, or
+              behaves unpredictably, it influences its entire pool. Other application pools
+              (and the applications within them) will continue to run. Additionally, the
+              application pools are highly configurable. You’ve already learned that the
+              framework version can be different for each pool, which is very useful for
+              migration scenarios. You can configure the security environment by choosing the
+              impersonation level and customizing the rights given to a web application.
+              Application pools are executables that run as any other program. This makes them
+              easy to monitor and configure. Although this does not sound very “low level", application
+              pools are highly optimized to talk directly to the kernel mode driver http.sys.
+              Incoming requests are directly routed to the pool attached to the application.
+              At this point you might be wondering where InetInfo is gone. It is still there,
+              but it is basically just an administration and configuration service. The flow
+              of data through the IIS system goes as directly and quickly as possible,
+              straight down from http.sys to the application pools. This is one reason why
+              IIS7 is much faster and more reliable than any other IIS before it.
+            </p>
+
+            <p>
+              An IIS7 application pool also
+              has intrinsic knowledge of ASP.NET and in turn ASP.NET can communicate with the
+              new low level APIs that allow direct access to the HTTP Cache APIs. This can
+              offload caching from the ASP.NET level directly into the Web Server’s cache,
+              which again will improve performance drastically.
+            </p>
+
+            <p>
+              In IIS7, ISAPI extensions run in
+              the Application Pool’s worker process. The .NET Runtime also runs in this same
+              process, and consequently communication between the ISAPI extension and the
+              .NET runtime runs “in-process", which is inherently more efficient.
+            </p>
+
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Getting into the .NET runtime">
+          Getting into the .NET runtime
+          <Element Type="Text">
+
+            <p>
+              Now let’s look at what happens to the
+              request when accessing the managed level. The worker process w3wp.exe hosts the
+              .NET runtime, and the ISAPI DLL calls into a small set of unmanaged interfaces
+              via low level COM.
+              Unfortunately, there is not much information available from Microsoft. Apart
+              from a few blogs that we can’t always trust, it’s hard to say how the
+              interaction between ASP.NET and ISAPI is made. Reading the manual doesn’t help
+              either. Microsoft states that the API “supports the .NET Framework
+              infrastructure and is not intended to be used directly from your code", which
+              confirms the existence of the interface but nothing more.
+            </p>
+
+            <p>
+              Using a disassembly tool like .NET Reflector
+              (from red-gate.com) is one way to look into the details. Let’s examine the
+              System.Web DLL, which contains everything we’d like to know. First, the entry
+              point is the namespace System.Web.Hosting, where you’ll see how the runtime
+              interacts with the ISAPI part.
+            </p>
+
+          </Element>
+          <Element Type="Image" Name="If there is no information available we can use Reflector to reveal the internal code">
+            images/19835f0104.png
+          </Element>
+          <Element Type="Text">
+            <p>
+              If the runtime handles a request, it
+              calls the <code>ProcessRequest</code> method of the <code>IISAPIRuntime</code>interface.
+              The interface is part of ISAPI and exposed as COM. The first parameter will
+              return a pointer which gives access to the ISAPI module.
+            </p>
+          </Element>
+          <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true" Name="Definition of the ProcessRequest method">
+            [return: MarshalAs(UnmanagedType.I4)]
+            int ProcessRequest([In] IntPtr ecb,
+            [In, MarshalAs(UnmanagedType.I4)] int useProcessModel);
+          </Element>
+          <Element Type="Text">
+            <p>
+              The parameter called “ecb" returns the
+              ISAPI Extension Control Block (ECB, (Microsoft)) that is passed as an unmanaged
+              resource. The method takes the ECB and uses it as the base input and output
+              interface used with the Request and Response objects. An ISAPI ECB contains all
+              low level request information. This includes server variables, an input stream
+              for form variables as well as an output stream that is used to write data back
+              to the client. The output is later accessible via the Response objects, but you
+              can see the tight relation between incoming request and outgoing response. The
+              ecb pointer basically provides access to the functionality of an ISAPI request.
+              The <code>ProcessRequest</code> method is the entry and exit point where this resource initially enters
+              the street up to our managed code world and where the managed processing ends.
+            </p>
+          </Element>
+          <Element Type="Section" Name="Threads and processes">
+            Threads and processes
+            <Element Type="Text">
+              <p>
+                So far things are not quite easy but
+                the flow of the request through the code is straight. However, in real life
+                things tend to become more complex. The ISAPI extension runs requests
+                asynchronously. This means that the ISAPI extension immediately returns on the
+                calling worker process or IIS thread, but keeps the ECB for the current request
+                alive. The ECB then includes a mechanism for letting ISAPI know when the
+                request is complete. This asynchronous processing releases the ISAPI worker
+                thread immediately, and forwards processing to a separate thread that is
+                managed by ASP.NET. We’ll look into threading later to understand what ASP.NET
+                is doing. For now, ASP.NET receives this ECB reference and uses it internally
+                to retrieve information about the current request.
+              </p>
+              <p>
+                This includes such information as
+                server variables, POST data, and output returning to the server. The ECB data
+                block stays alive until the request finishes or times out in IIS. The ASP.NET
+                engine continues to communicate with it until the request is done. Any output
+                is written into the ISAPI output stream using the appropriate method call and
+                when the request is done, the ISAPI extension is notified of request
+                completion. The extension will then free the ECB from memory. Just remember
+                that in this cruel unmanaged world the code is responsible for handling all
+                in-memory actions, and not releasing memory leads to memory leaks. However, the
+                implementation is very efficient as the .NET classes essentially act as a thin
+                wrapper around ISAPI.
+              </p>
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Loading the .NET runtime">
+            Loading the .NET runtime
+            <Element Type="Text">
+              <p>
+                Again, there is not much information
+                available about the loading procedure. I assume that the runtime is loaded, if
+                not yet present, when the first request to ASP.NET is made by a mapped
+                extension. The managed <code>ISAPIRuntime</code> is then
+                instantiated and starts talking to the unmanaged world. For isolation purposes,
+                each virtual directory creates a new application domain (AppDomain). Within
+                this AppDomain the <code>ISAPIRuntime</code> resides.
+                Starting the application is also the beginning of the application’s life cycle,
+                which we’ll look into later in this chapter. It’s also likely that the
+                instantiation is made by the unmanaged part, because the wrapper interface is
+                exposing the <code>ComVisible</code> attribute. This makes it
+                available from the other side.
+              </p>
+
+              <p>
+                To create the ISAPIRuntime instance the
+                <code>AppDomainFactory.Create</code> method is called. The following code snippet, created with
+                Reflector, shows how it’s done internally.
+              </p>
+
+            </Element>
+            <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true"  Name="The code of the AppDomainFactory.Create method">
+              [return: MarshalAs(UnmanagedType.Interface)]
+              public object Create(string appId, string appPath)
+              {
+              object obj2;
+              try
+              {
+              if (appPath[0] == '.')
+              {
+              FileInfo info = new FileInfo(appPath);
+              appPath = info.FullName;
+              }
+              if (!StringUtil.StringEndsWith(appPath, '\\'))
+              {
+              appPath = appPath + @&quot;\&quot;;
+              }
+              ISAPIApplicationHost appHost = new ISAPIApplicationHost(appId, appPath, false);
+              ISAPIRuntime o = (ISAPIRuntime) this._appManager.CreateObjectInternal(style='font-family: Wingdings'>
+              appId, typeof(ISAPIRuntime),
+              appHost, false, null);
+              o.StartProcessing();
+              obj2 = new ObjectHandle(o);
+              }
+              catch (Exception)
+              {
+              throw;
+              }
+              return obj2;
+              }
+            </Element>
+            <Element Type="Text">
+              <p>
+                Even if it is not visible in this code
+                snippet, internally the appId is used to cache the relation with the requested
+                virtual directory. Therefore subsequent calls do not start the application
+                again but process the existing <code>AppDomain</code>. Finally, in
+                this code <code>StartProcessing</code> forces ISAPI to process the request, and, because it is
+                asynchronous, the call returns immediately and the method returns the ECB as type
+                <code>object</code>.
+              </p>
+            </Element>
+            <Element Type="Image" Name="Behind the scenes the first request is responsible for the creation of a new application">
+              images/19835f0105.png
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Handle the Request within the Runtime">
+            Handle the Request within the Runtime
+            <Element Type="Text">
+              <p>
+                The managed part is now alive and ISAPI
+                is able to call it whenever there is something available for processing. In
+                basic ASP.NET terms everything begins here. The AppDomain, the application life
+                cycle and the first page cycle are born here and live for varying lengths of
+                time. From now on, we’re back in the managed world. But there is a bit more you
+                should know about the whole procedure. IIS is a multithreaded host and so is
+                ISAPI. Each request is processed asynchronously, running in its own thread.
+                Again, a look into the code using Reflector reveals what ASP.NET is doing here.
+                The <code>ProcessRequest</code> method receives an ISAPI ecb object and server type as parameters.
+                The method is thread safe, so multiple ISAPI threads can safely call this
+                single returned object instance simultaneously.
+              </p>
+
+            </Element>
+            <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true" >
+              public int ProcessRequest(IntPtr ecb, int iWRType)
+              {
+              IntPtr zero = IntPtr.Zero;
+              if (iWRType == 2)
+              {
+              zero = ecb;
+              ecb = UnsafeNativeMethods.GetEcb(zero);
+              }
+              ISAPIWorkerRequest wr = null;
+              try
+              {
+              bool useOOP = iWRType == 1;
+              wr = ISAPIWorkerRequest.CreateWorkerRequest(ecb, useOOP);
+              wr.Initialize();
+              string appPathTranslated = wr.GetAppPathTranslated();
+              string appDomainAppPathInternal = HttpRuntime.AppDomainAppPathInternal;
+              if ((appDomainAppPathInternal == null)
+              || StringUtil.EqualsIgnoreCase(appPathTranslated, appDomainAppPathInternal))
+              {
+              HttpRuntime.ProcessRequestNoDemand(wr);
+              return 0;
+              }
+              HttpRuntime.ShutdownAppDomain( ApplicationShutdownReason.PhysicalApplicationPathChanged,
+              SR.GetString(&quot;Hosting_Phys_Path_Changed&quot;, new object[] { appDomainAppPathInternal, appPathTranslated }));
+              return 1;
+              }
+              catch (Exception exception)
+              {
+              // removed for sake of clarity
+              }
+              }
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                The code is just a part of the complete
+                method. I have removed the catch block to focus on the working code. The method
+                receives the pointer to an ECB data block and passes it to the <code>CreateWorkerRequest</code>
+                method. This method is responsible for creating the <code>ISAPIWorkerRequest</code>
+                object. From now on we have a <code>Request</code>
+                object available that is able to talk directly to the ISAPI layer.
+              </p>
+
+              <p>
+                The <code>ISAPIWorkerRequest</code> (defined in the <code>System.Web.Hosting</code>
+                namespace) class is an abstract subclass of <code>HttpWorkerRequest</code>. This class holds all the knowledge to talk HTTP. It’s a piece of
+                cake, and although it would take too much time to go into here, it’s worth a
+                closer look if you like. I’d encourage you to go on and find out how things
+                work under the hood. Just open the method <code>ProcessRequest</code> in Reflector, click on <code>ISAPIWorkerRequest</code>
+                and then on the HttpWorkerRequest subclass. At the end of the
+                listing of signatures of either class click on the link Expand Methods and there
+                you have it. Because we have an abstract class, eventually there must be some
+                implementation elsewhere. The factory method that creates the type using <code>CreateWorkerRequest</code>
+                method, is able to return one of the following four types
+                available:
+              </p>
+              <ul>
+                <li>
+                  <code>ISAPIWorkerRequestInProcForIIS7</code>
+                </li>
+                <li>
+                  <code>ISAPIWorkerRequestInProcForIIS6</code>
+                </li>
+                <li>
+                  <code>ISAPIWorkerRequestInProc</code>
+                </li>
+                <li>
+                  <code>ISAPIWorkerRequestOutOfProc</code>
+                </li>
+              </ul>
+              <p>
+                It’s a Bit in the ECB that drives the
+                decision. This means that finally the ISAPI module controls the way ASP.NET
+                handles requests. Because ASP.NET is not limited to IIS, it’s simply the
+                version of IIS that is responsible. <code>ISAPIWorkerRequestInProc</code> is for all IIS versions up to and including version 6 and IIS7
+                serves all versions from 7 and above. This sounds silly—there is no IIS8 in
+                existence—but the ASP.NET engine would be robust against new versions as long
+                as the ISAPI module is able to emulate IIS7 behavior.
+              </p>
+
+              <p>
+                Whenever you have trouble understanding
+                what is going on in your application, whether it’s with creating and sending
+                headers, receiving weird stuff, or getting wrong data down the wire, it’s worth
+                taking a closer look here. <code>HttpWorkerRequest</code> is
+                meant to provide a high level abstraction around the low level interfaces,
+                regardless of the source of the data. However, reading and understanding are two
+                different things. Let’s take an example of how to deal with all the internals.
+                The next listing shows you how the well known QueryString is retrieved from the
+                ECB. Moving down the class hierarchy, we find that it’s partly implemented in
+                the base class and partly in the <code>ISAPIWorkerRequestInProc</code> class. For IIS6 and IIS7 there is no distinct change here, so we
+                can skip these classes for now.
+              </p>
+
+            </Element>
+            <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true" >
+              internal override int GetQueryStringRawBytesCore(byte[] buffer, int size)
+              {
+              if (base._ecb == IntPtr.Zero)
+              {
+              return 0;
+              }
+              return
+              UnsafeNativeMethods.EcbGetQueryStringRawBytes(base._ecb, buffer, size);
+              }
+              [DllImport(&quot;webengine.dll&quot;)]
+              internal static extern int EcbGetQueryStringRawBytes(IntPtr pECB, byte[] buffer, int size);
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                Again, there is nothing thrilling here.
+                These classes are all very thin wrappers around native method calls. In fact,
+                ASP.NET does not provide any significant overhead to the request procedure.
+                That means ASP.NET is extremely fast — as fast as IIS with native code. If you
+                feel (or know) that your application is slow, then you know that in most cases it
+                will be a problem in your code. Let’s focus on the managed side of the world
+                and learn more about what’s going on here.
+              </p>
+
+            </Element>
+          </Element>
+        </Element>
+        <Element Type="Section" Name="HttpContext and HttpApplication">
+          HttpContext and HttpApplication
+          <Element Type="Text">
+            <p>
+              You’re probably already familiar with
+              the HttpContext and HttpApplication classes. Instances of these classes are
+              created whenever a request hits the engine. At a glance, the steps are:
+            </p>
+            <ul>
+              <li>
+                Create a new <code>HttpContext</code> instance for the request
+              </li>
+              <li>
+                Retrieve an <code>HttpApplication</code> instance (or create one, if it’s the first request)
+              </li>
+              <li>
+                Call <code>HttpApplication.Init</code> to set up pipeline events
+              </li>
+              <li>
+                Call <code>HttpApplication.ResumeProcessing</code> to start the ASP.NET pipeline processing
+              </li>
+            </ul>
+          </Element>
+          <Element Type="Section" Name="Wrapping the Request: HttpContext">
+            Wrapping the Request: HttpContext
+            <Element Type="Text">
+              <p>
+                The context of an HTTP request is
+                available throughout the lifetime of the request. For ease of use it’s always
+                accessible through the static <code>HttpContext.Current</code>
+                property. Because every request usually starts a new thread, your code runs in
+                that thread. In chapter 2 I’ll explain in more detail the thread and processing
+                behavior. For now, this isn’t needed to understand the request processing on the
+                context level. The current context has a one-to-one relation to the request for
+                that thread. This context object is also the place where all other objects
+                required to process the request are stored: <code>Request</code>, <code>Response</code>,
+                <code>Application</code>, <code>Server</code>, and
+                <code>Cache</code>. At any time
+                during request processing <code>HttpContext.Current</code>
+                gives you access to all these. There are several shortcuts, so you may use the Page’s
+                property <code>Context</code> instead, but it’s exactly the same object.
+              </p>
+
+              <p>
+                You may already use several collections
+                available in the <code>Application</code>, <code>Session</code>,
+                and <code>Cache</code> objects. Even the
+                <code>HttpContext</code> class contains a useful collection that provides a store for
+                request specific data. The big difference to the other data collections is the
+                life time. The <code>HttpContext</code> represents exactly the
+                current request. If the processing is finished and the data sent to the server,
+                then the collections are also disposed of. However, the Context exists before
+                the page’s life span begins and ends after it finishes. This data storage is therefore
+                a bit more powerful than simple page members.
+              </p>
+
+              <p>
+                The following sample shows how to use <code>Context.Items</code>
+                to get information about the request processing elapsed time. At
+                the <code>BeginRequest</code> event a timestamp is stored and retrieved later at
+                <code>EndRequest</code>.
+              </p>
+              <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true"  Name="Get request information using events in global.asax">
+                Application_BeginRequest(object sender, EventArgs e)
+                {
+                if (Settings.Default.Logging)
+                {
+                Context.Items.Add(&quot;LogTime&quot;, DateTime.Now);
+                }
+                }
+
+                protected void Application_EndRequest(object sender, EventArgs e)
+                {
+                if (Settings.Default.Logging)
+                {
+                DateTime end = DateTime.Now;
+                TimeSpan span = end.Subtract((DateTime) Context.Items[&quot;LogTime&quot;]);
+                System.Diagnostics.Debug.WriteLine(span.TotalMilliseconds, &quot;RequestTime&quot;);
+                }
+                }
+              </Element>
+              <Element Type="Text">
+                <p>
+                  This sample uses two events defined in
+                  the global.ascx code behind file. You might be thinking of how to put the
+                  results into a database or log file, but for now the output to a Visual Studio
+                  console window will do.
+                </p>
+              </Element>
+              <Element Type="Image" Name="Get time information about the request while debugging">
+                images/19835f0106.png
+              </Element>
+              <Element Type="Text">
+
+                <p>
+                  If you feel that the values shown in
+                  the figure are too high, you need to be aware that I’m running the entire
+                  environment in a Virtual PC console, and that the timestamps shown are expressed
+                  in milliseconds.
+                </p>
+
+              </Element>
+            </Element>
+          </Element>
+          <Element Type="Section" Name="The most basic type: HttpApplication">
+            The most basic type: HttpApplication
+            <Element Type="Text">
+
+              <p>
+                The <code>HttpApplicationFactory</code> is responsible for creating an appropriate number of <code>HttpApplication</code> objects.
+                The load and the number of threads required affect how it handles
+                incoming requests. The size of the pool is limited to the <code>MaxWorkerThreads</code>
+                setting in the ProcessModel key in the machine.config, which by
+                default is 20. Since the days of .NET 2.0 it’s still an auto-configured entry:
+              </p>
+              <pre>
+                &lt;processModel
+                autoConfig=&quot;true&quot; /&gt;
+              </pre>
+              <p>Change this to the following:</p>
+
+              <pre>
+                &lt;processModel
+                autoConfig=&quot;false&quot; maxWorkerThreads=&quot;30&quot; /&gt;
+              </pre>
+
+              <p>
+                You can find more information about
+                threading in chapter 2.
+              </p>
+
+              <p>
+                The pool starts out with a smaller
+                number— usually one — and it then grows as multiple simultaneous requests are processed.
+                The pool is monitored so that under load it grows to a maximum number of
+                instances. Later the pool is scaled back to a smaller number as the load drops.
+                Once we have the right number of instances of <code>HttpApplication,</code> we have the real entry point within the managed world for an
+                incoming request. <code>HttpApplication</code> is like
+                an outer container for the whole application. For easy access the events
+                related to the application are mapped in the global.asax file, which is the
+                declarative expression of this class. The definition of global.asax in
+                global.asax.cs reveals:
+              </p>
+
+              <pre>
+                public class Global :
+                System.Web.HttpApplication
+              </pre>
+
+              <p>
+                The pipeline the request is going
+                through fires several events to let you control and intercept the various states
+                of the application’s life cycle. The following list shows all of them, even if
+                the majority are never used in an application. In the next few sections I’ll
+                dig deeper into the world of application events.
+              </p>
+
+            </Element>
+            <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true"  Name="Events available on application level (pulled from HttpApplication)">
+              public event EventHandler AcquireRequestState;
+              public event EventHandler AuthenticateRequest;
+              public event EventHandler AuthorizeRequest;
+              public event EventHandler BeginRequest;
+              public event EventHandler Disposed;
+              public event EventHandler EndRequest;
+              public event EventHandler Error;
+              public event EventHandler LogRequest;
+              public event EventHandler MapRequestHandler;
+              public event EventHandler PostAcquireRequestState;
+              public event EventHandler PostAuthenticateRequest;
+              public event EventHandler PostAuthorizeRequest;
+              public event EventHandler PostLogRequest;
+              public event EventHandler PostMapRequestHandler;
+              public event EventHandler PostReleaseRequestState
+              public event EventHandler PostRequestHandlerExecute;
+              public event EventHandler PostResolveRequestCache;
+              public event EventHandler PostUpdateRequestCache;
+              public event EventHandler PreRequestHandlerExecute;
+              public event EventHandler PreSendRequestContent;
+              public event EventHandler PreSendRequestHeaders;
+              public event EventHandler ReleaseRequestState;
+              public event EventHandler ResolveRequestCache;
+              public event EventHandler UpdateRequestCache;
+            </Element>
+            <Element Type="Text">
+              <p>
+                By writing something like the following
+                into the code behind file, you attach a handler:
+              </p>
+
+              <pre>
+                protected void
+                Application_BeginRequest(object sender, EventArgs e)
+              </pre>
+
+              <p>
+                Avoiding an explicit delegate
+                definition is just for the sake of convenience.
+              </p>
+              <p>
+                The whole handling of <code>AppDomain</code>, <code>HttpApplication</code>, and threads might look
+                confusing. Remember that the server has to handle multiple incoming requests
+                simultaneously. Each ASP.NET application runs in its own AppDomain, where
+                several instances of <code>HttpApplication</code> can run
+                in parallel, supplied from the pool managed by the factory. To get a better understanding
+                of this, let’s examine the information we can extract from related objects.
+              </p>
+
+            </Element>
+            <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true"  Name="Retrieving information about the application">
+
+              protected void Page_Load(object sender, EventArgs e)
+              {
+              Guid appId = ((Global) Context.ApplicationInstance).AppId;
+              this.appId.Text = appId.ToString();
+              this.threadId.Text = Thread.CurrentThread.ManagedThreadId.ToString();
+              this.domainId.Text = AppDomain.CurrentDomain.FriendlyName;
+              this.threadInfo.Text = Thread.CurrentThread.IsThreadPoolThread ?
+              &quot;Pool Thread&quot; : &quot;No Thread&quot;;
+              this.threadApart.Text = Thread.CurrentThread.GetApartmentState().ToString();
+              Thread.Sleep(4000);
+              }
+
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                The <code>Sleep</code> call
+                allows you to open several browser instances and hit F5 to refresh the page
+                within the four second period in order to see how it works. This simulates the
+                behavior when several requests come in while previous requests are still
+                running.
+              </p>
+
+              <p>
+                An application by definition has no
+                internal id. To create one, add the following code to the global.asax code
+                behind:
+              </p>
+
+              <code>internal Guid AppId = Guid.NewGuid();</code>
+
+              <p>
+                Figure 1-7 shows three screens made
+                within the four second period using three different browser windows.
+              </p>
+
+            </Element>
+            <Element Type="Image" Name="The application’s id changes, as the thread id does">
+              images/19835f0107.png
+            </Element>
+            <Element Type="Text">
+              <p>
+                You can see that the
+                application id and the thread id change. If you remove the <code>Sleep</code>
+                command and request the pages one by one, the application id is
+                always the same. Usually the thread is recycled from the pool and the id is also unchanged.
+              </p>
+              <p>
+                The abbreviation ‘MTA’ for the
+                thread’s apartment model stands for Multi Threaded Apartment. You can override
+                this apartment state in ASP.NET pages with the <code>ASPCOMPAT=&quot;true&quot;</code> attribute in the <code>@Page</code> directive. <code>ASPCOMPAT</code>
+                is meant to provide COM components with a safe environment in which
+                to run. <code>ASPCOMPAT</code> uses special Single Threaded Apartment (STA) threads to service
+                those requests. STA threads are set aside and pooled separately as they require
+                special handling. As long as there you have multi threaded COM component in
+                your application only, you can simply ignore this. For single threaded
+                components some additional work is required. Usually a well developed COM
+                component should support multiple threads.
+              </p>
+              <p>
+                It is a simple fact that all <code>HttpApplication</code>
+                objects are in the same AppDomain. This has, however, some
+                influence on their behavior. If you change something in the page’s code or
+                web.config, the application restarts. To be more precise, it’s actually the
+                AppDomain which is being shut down and restarted. This ensures that all currently
+                existing <code>HttpApplication</code> instances are also shut down and recreated. To see this behavior in
+                action, open the example shown in Listing 1-5 and launch it. Hit F5 several
+                times and notice that the Domain ID value is still the same. Now change
+                something in the web.config file. This forces a shutdown and therefore the
+                creation of a new AppDomain. The Domain ID value is now different.
+              </p>
+              <p>
+                Currently running requests are
+                being processed properly, even if the new AppDomain is already up and running.
+                To avoid old threads blocking resources, the request has a specific time out
+                value. Once timed out, the threads are shut down and the request’s “life" ends.
+              </p>
+            </Element>
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Flowing through the ASP.NET Pipeline">
+          Flowing through the ASP.NET Pipeline
+          <Element Type="Text">
+            <p>
+              You now have a good overview firstly of
+              what happens when a request comes in, and secondly of how the objects start up
+              as they wait to be used in your code. There are several steps following this
+              startup sequence worth investigating further. In each step you’ll find events
+              and callbacks to intercept the process and customize or optimize its behavior.
+            </p>
+            <p>
+              Figure 1-8 illustrates what happens
+              during the various states. If you look into the code using Reflector, you can
+              find the steps in subclass <code>ApplicationStepManager</code>
+              and the additional steps for IIS7 in <code>PipelineStepManager</code>.
+            </p>
+
+          </Element>
+          <Element Type="Image" Name="Events that build the pipeline">
+            images/19835f0108.png
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              The most important information here is
+              that modules precede handlers. They are loaded and executed at the particular
+              state of the processing pipeline, if configured properly in web.config file.
+              The figure shows only the minimum number required to execute a page. You’ll
+              find a closer look at all these events in the next section. For now, it’s
+              enough to know when and why the modules and handlers get executed. This is the
+              major part of the pipeline business, and I’ll go into more detail in the next
+              section.
+            </p>
+
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Modules and Handlers using HttpModule and HttpHandler">
+          Modules and Handlers using HttpModule and HttpHandler
+          <Element Type="Text">
+            <p>
+              <code>HttpApplication</code> and
+              <code>HttpContext</code> are merely containers for incoming messages. They build the
+              pipeline by forming a chain of events that commence in a defined order, and
+              they hold together data related to the request, in order to give other
+              instances easy access to the information involved in the process. However, the
+              real work is done in other processing units, particularly the modules and
+              handlers. Modules are built on top of the <code>HttpModule</code>
+              class. Handlers are built on top of the <code>HttpHandlers</code>
+              class. Both are abstract classes and need concrete implementations. In
+              addition, both are highly configurable and act as a chain of instances. That
+              means that you can attach as many modules and handlers as you like and the
+              request will flow through all these instances.
+            </p>
+
+            <p>
+              Several tasks could be handled
+              in both levels — however, there is a different intention behind them. Modules
+              tend to control tasks on a lower level; their nature is more basic than that of
+              handlers. Think of modules as the right place to prepare data being processed
+              by handlers or modify data subsequently when the regular treatment by a handler
+              is completed. IIS programming aficionados can think of modules as ISAPI
+              filters. The good news is that programming ASP.NET modules using .NET is much
+              easier than developing filters for IIS. Moving on from IIS, let’s focus on the
+              amazing things that become possible as we extend ASP.NET.
+            </p>
+
+            <p>
+              The natural order of modules and
+              handlers is:
+            </p>
+            <ol>
+              <li>Use module to pre-process a request</li>
+              <li>Use handler to process the request</li>
+              <li>Use module again to post-process the request</li>
+            </ol>
+            <p>
+              ASP.NET comes with several default
+              handlers, such as the very basic ones for *.aspx pages or web services. Some default
+              modules exist that are responsible for simple tasks like authentication and
+              caching. In an ideal world, the modules are transparent to the handlers. This
+              means that handlers don’t know about the modules that work before or after their
+              own processing. ASP.NET allows several easy ways to create your own modules and
+              handlers. This is usually the first approach of extending the standard behavior
+              of ASP.NET. Let’s take a closer look at this technique.
+            </p>
+
+          </Element>
+          <Element Type="Image" Name="Modules and Handlers fit closely in the ASP.NET model">
+            images/19835f0109.png
+          </Element>
+          <Element Type="Text">
+            <p>
+              In Chapter 3, we’ll take a closer look at
+              the process of developing custom modules and custom handlers with some clever examples.
+              By now it’s enough to know that several modules process the request one after
+              another on both, the request and the reponse path. Whereas only one handler
+              processes the request finally, either an internal handler or a custom one.
+            </p>
+
+          </Element>
+        </Element>
+        <Element Type="Section" Name="The Life Cycles">
+          The Life Cycles
+          <Element Type="Text">
+            <p>
+              The life cycle is a term used in almost
+              every introduction to ASP.NET. This term is absolutely important for a complete understanding
+              and the correct usage of ASP.NET.
+            </p>
+            <p>
+              To break things down we can divide the different
+              life cycles into three parts:
+            </p>
+            <ol>
+              <li>
+                The application’s life cycle
+              </li>
+              <li>
+                The page’s life cycle
+              </li>
+              <li>
+                The control’s life cycle
+              </li>
+            </ol>
+            <p>
+              The following sections covers this
+              in-depth. The behavior of the cycles is slightly different between IIS versions
+              but the overall description is the same. The following explanations focus on
+              IIS7 and Framework 3.5 behavior, which is valid for .NET 2.0 up to the upcoming
+              4.0.
+            </p>
+            <p>
+              IIS7 can run in two different modes. The
+              IIS integrated mode is the new native one, whereas the classic mode mimics the
+              behavior of IIS5 or IIS6. The integrated mode has several advantages and should
+              be preferred if there is no explicit requirement to step down.
+            </p>
+          </Element>
+        </Element>
+      </Element>
+      <Element Type="Section" Name="The IIS7 integrated pipeline">
+        The IIS7 integrated pipeline
+        <Element Type="Text">
+          <p>
+            The IIS7 integrated pipeline is a
+            unified request processing pipeline. Each incoming request is handled by this
+            pipeline and routed through the internal parts of IIS. The pipeline supports
+            both managed and native code modules. You may already know about creating
+            managed modules based on the <code>IHttpModule</code> interface.
+            Once implemented and hooked into the pipeline, the module receives all events
+            used to interact with the request passing through the pipe.
+          </p>
+          <p>
+            The term “unified request processing
+            pipeline" needs some more investigation. IIS6 provided two different pipelines:
+            one for native and one for managed code. This is obviously for historical
+            reasons, because the managed world came after the IIS world. In IIS 7 both
+            pipelines united to become the unified request processing pipeline. For ASP.NET
+            developers this has several benefits:
+          </p>
+          <ul>
+            <li>
+              The integrated pipeline raises
+              all exposed events, which enables existing ASP.NET modules to work in the
+              integrated mode.
+            </li>
+            <li>
+              Both native-code and managed-code
+              modules can be configured at the Web server, Web site, or Web application
+              level.
+            </li>
+            <li>
+              Managed-code modules can be invoked
+              at any stage in the pipeline.
+            </li>
+            <li>
+              Modules are registered and
+              enabled or disabled through an application’s Web.config file.
+            </li>
+          </ul>
+          <p>
+            The configuration of modules includes
+            the built-in ASP.NET managed-code modules for session state, forms
+            authentication, profiles, and role management. Furthermore, managed-code
+            modules can be enabled or disabled for all requests, regardless of whether the
+            request is for an ASP.NET resource like an .aspx file.
+          </p>
+          <p>
+            Invoking modules at any stage means that
+            this may happen before any server processing occurs for the request, after all
+            server processing has occurred, or anywhere in between.
+          </p>
+
+        </Element>
+      </Element>
+      <Element Type="Section" Name="The Application’s Pipeline">
+        The Application’s Pipeline
+        <Element Type="Text">
+
+          <p>
+            In more generic terms the pipeline
+            describes the flow through several instances within the IIS. Each step
+            processes the request in a distinct way and fires appropriate events. This
+            forces interactions with the modules and applications attached by
+            configuration. The variety of actions you can perform ranges from none to total
+            control. However, doing nothing lets the built-in modules accomplish their job
+            and handle the basic page processing. From the perspective of the extensibility
+            of ASP.NET, “total control" is what we’re looking for.
+          </p>
+
+        </Element>
+        <Element Type="Image" Name="Application’s life cycle events">
+          images/19835f0110.png
+        </Element>
+        <Element Type="Text">
+
+          <p>
+            Two states are new in IIS7: Map Handler
+            and Log Request. This gives developers much more control over the request
+            process. Some modules are managed whereas others are written in native code.
+            You can add your own modules in either way. However, as a .NET developer, you’d
+            probably prefer writing in managed code and indeed I would strongly recommend
+            this. (Native code is an option if you need to create a high performance module
+            which performs simple functions.)
+          </p>
+
+        </Element>
+        <Element Type="Section" Name="The Request Arrives">
+          The Request Arrives
+          <Element Type="Text">
+            <p>
+              The application life cycle begins when a
+              request is made for an application resource sent by a client application, such
+              as a browser, to the Web server. In integrated mode, the unified pipeline
+              handles all requests. When the pipeline receives a request, it’s being passed
+              through stages that are common to all requests. These stages are represented internally
+              by the <code>RequestNotification</code> enumeration. All request stages can be configured to allow
+              developers to take advantage of ASP.NET functionality. That functionality is
+              encapsulated in managed-code modules that have access to the request pipeline. For
+              instance, even though the .htm filename extension is not mapped by default to
+              ASP.NET, a request for an HTML page still invokes ASP.NET modules. This enables
+              you to take advantage of ASP.NET authentication and authorization for all
+              resources.
+            </p>
+          </Element>
+          <Element Type="Section" Name="The unified pipeline receives the first request">
+            The unified pipeline receives the first request
+            <Element Type="Text">
+
+              <p>
+                When the unified pipeline receives the
+                first request for any resource in an application, an instance of the <code>ApplicationManager</code> class is created.
+                This builds the application domain (AppDomain) in
+                which the request is processed. Application domains provide isolation between
+                applications for global variables and enable each application to be unloaded
+                separately. In the application domain, an instance of the <code>HostingEnvironment</code> class is created, which provides access
+                to information about the application, such as the name of the folder where the application is stored.
+              </p>
+
+            </Element>
+            <Element Type="Sidebar" SidebarType="Tip">
+              <header>Tip</header>
+              <aside>
+                When an application operates
+                in the context of Visual Studio while you run a debug session, the application
+                starts with the launch of the integrated web server. When the debug session
+                ends and you launch the application again using the F5 key, the integrated web
+                server will run the same application domain. This means that between the debug
+                sessions no new application life cycle is being started. To force restarting
+                the application you can right click the notification icon in the system tray
+                and stop the web server.
+              </aside>
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                The first request has several additional
+                tasks. You will notice this because the elapsed time for the page to be delivered
+                is longer than for all subsequent requests. During the first request, top-level
+                items in the application are compiled, if required. This includes application
+                code in the project. By the way, since the days of Visual Studio 2008, there is
+                no longer a special code folder named App_Code. Even if you name a folder this,
+                it will have no special function. Code that resides in any folder at any level
+                is compiled in one assembly per project.
+              </p>
+
+            </Element>
+          </Element>
+          <Element Type="Section">
+            Response objects are created for each request
+            <Element Type="Text">
+
+              <p>
+                After the application domain has been
+                created and the <code>HostingEnvironment</code>
+                object has been instantiated, application objects such as <code>HttpContext</code>, <code>HttpRequest</code>, and
+                <code>HttpResponse</code> are created and initialized. These objects exist throughout the
+                lifetime of the request and give developers full access to all related data.
+              </p>
+
+              <p>
+                The <code>HttpContext</code>
+                class contains objects that are specific to the current application request,
+                such as the <code>HttpRequest</code> and <code>HttpResponse</code> objects. The <code>HttpRequest</code> object contains
+                information about the current request, which includes cookies and browser
+                information. The <code>HttpResponse</code> object
+                contains the response that is about to be send to the client, which includes
+                all rendered output and header data, such as cookies. <code>HttpContext.Current</code> gives you permanent access to the
+                current context through a static method. For easy access the <code>Page</code> class has
+                properties like <code>Request</code> and <code>Response</code> that return instances of the very same related objects.
+              </p>
+
+            </Element>
+            <Element Type="Section">
+              Differences between IIS6 and IIS7
+              <Element Type="Text">
+
+                <p>
+                  We’re currently in the
+                  transition period from IIS6 to IIS7. While IIS7 is the best choice for a web
+                  server on Microsoft platforms, there are still many servers with IIS6 in
+                  production. Because you may already have a deep understanding of processing
+                  ASP.NET based on IIS6, the following explanation focuses on the key differences
+                  between IIS6 and IIS7, running in both Integrated mode and with the .NET
+                  Framework 3.5 or later. The following properties are specific to IIS7 with
+                  Integrated mode. You must run IIS7 to take advantage of these.
+                </p>
+
+                <p>
+                  The <code>HttpResponse</code> object has a new property <code>SubStatusCode</code>. This is useful for setting codes for tracking failed requests.
+                  The <code>Headers</code> property of the <code>HttpResponse</code> object
+                  provides access to response headers for the response. Two properties of the <code>HttpContext</code> object,
+                  <code>IsPostNotification</code> and <code>CurrentNotification</code>, are used when one event handler handles several
+                  <code>HttpApplication</code> events. Both the <code>Headers</code> and <code>ServerVariables</code> property of the <code>HttpRequest</code>
+                  object are write-enabled. 
+                </p>
+
+              </Element>
+            </Element>
+            <Element Type="Section">
+              An HttpApplication object is assigned to the request
+              <Element Type="Text">
+                <p>
+                  After all application objects have been
+                  initialized, the application is started by creating an instance of the <code>HttpApplication</code> class. If the application has a Global.asax file,
+                  ASP.NET instead creates an instance of the Global.asax class that is derived from the <code>HttpApplication</code> class. It then uses the derived class to represent the application.
+                  This way you get access to the application events simply by overwriting the
+                  handlers within the global.asax code portion.
+                </p>
+              </Element>
+              <Element Type="Sidebar" SidebarType="Note">
+                <header>Note</header>
+                <aside>
+                  The first time that an
+                  ASP.NET page or process is requested in an application, a new instance of the <code>HttpApplication</code>
+                  class is created. However, to maximize performance, <code>HttpApplication</code> instances might be reused for multiple requests.
+                </aside>
+              </Element>
+            </Element>
+            <Element Type="Section">
+              The request is processed by the pipeline
+              <Element Type="Text">
+                <p>
+                  The <code>HttpApplication</code> class performs several tasks while the request is being processed.
+                  Each step fires a specific request to allow you to run code when the event is
+                  raised. Without any further action, all incoming requests will fire all events
+                  and the attached modules will be invoked in sequence. To take advantage of extensibility,
+                  some interfaces come into the scope. <code>IHttpModule</code>
+                  is the basic interface for custom modules. In IIS7’s integrated mode you can use
+                  the module’s <code>Init</code> method to attach the required
+                  events.
+                </p>
+                <p>
+                  One step you’re supposed to perform is
+                  the request validation. Imagine hackers trying to send malicious markup or
+                  other intrusions. The following list of events shows all steps you can run
+                  private code in. Validating the request should take place as early as possible,
+                  according to the following list in <code>BeginRequest</code>.
+                </p>
+                <ul>
+                  <li>Raise the BeginRequest event. </li>
+                  <li>Raise the AuthenticateRequest event. </li>
+                  <li>Raise the PostAuthenticateRequest event. </li>
+                  <li>Raise the AuthorizeRequest event. </li>
+                  <li>Raise the PostAuthorizeRequest event. </li>
+                  <li>Raise the ResolveRequestCache event. </li>
+                  <li>Raise the PostResolveRequestCache event. </li>
+                  <li>
+                    Raise the MapRequestHandler event. An
+                    appropriate handler is selected based on the filename extension of the
+                    requested resource. The handler can be a native code module such as the IIS7
+                    StaticFileModule or a managed module such as the <code>PageHandlerFactory</code> class. 
+                  </li>
+                  <li>Raise the PostMapRequestHandler event. </li>
+                  <li>Raise the AcquireRequestState event. </li>
+                  <li>Raise the PostAcquireRequestState event. </li>
+                  <li>
+                    Raise the PreRequestHandlerExecute event. Call
+                    either the <code>ProcessRequest</code> method for synchronous
+                    calls or the asynchronous version <code>IHttpAsyncHandler.BeginProcessRequest</code> of the appropriate <code>IHttpHandler</code> class.
+                  </li>
+                  <li>Raise the PostRequestHandlerExecute event.</li>
+                  <li>Raise the ReleaseRequestState event. </li>
+                  <li>Raise the PostReleaseRequestState event. </li>
+                  <li>Perform response filtering if the Filter property is defined. </li>
+                  <li>Raise the UpdateRequestCache event. </li>
+                  <li>Raise the PostUpdateRequestCache event. </li>
+                  <li>Raise the LogRequest event. </li>
+                  <li>Raise the PostLogRequest event. </li>
+                  <li>Raise the EndRequest event. </li>
+                  <li>Raise the PreSendRequestHeaders event. </li>
+                  <li>Raise the PreSendRequestContent event. </li>
+                </ul>
+              </Element>
+            </Element>
+          </Element>
+        </Element>
+      </Element>
+      <Element Type="Section" Name="The Page’s Life Cycle">
+        The Page’s Life Cycle
+        <Element Type="Text">
+          <p>
+            After understanding the application’s
+            life cycle, you’re now ready to move further along the path taken by the
+            request. The request is now being processed until the resources are prepared
+            and ready to be served. For static resources it’s easy; the data is all ready
+            to send to the client. (Examples of static resources include images, JavaScript
+            files, and embedded objects.) The more exciting information is how dynamic
+            resources are processed.
+          </p>
+          <p>
+            The basic steps in the page’s
+            life cycle include initialization, instantiating controls, restoring and
+            maintaining state, running event handler code, and rendering. As you saw in the
+            application’s life cycle, you will be able to interact with the processing and
+            change the handling for your intended effects. Some steps during the page’s
+            life cycle are more complex and require a closer look in order to take full
+            advantage of their customization potential. One major portion is the view state
+            handling. I’ll dedicate a whole section to explaining view state later in this
+            chapter.
+          </p>
+          <p>
+            It is also important for you to
+            understand the page life cycle. As a developer creating custom controls, for
+            instance, you must be familiar with the life cycle in order to correctly
+            initialize controls, populate control properties with view state data, and run
+            any control behavior code. You may have heard of a control life cycle, too. You
+            may already know that a page in ASP.NET is a sort of specialized control and
+            therefore a control’s life cycle is very similar. However, pages have more
+            events available.
+          </p>
+        </Element>
+        <Element Type="Section" Name="What about Master Page Life Cycle?">
+          What about Master Page Life Cycle?
+          <Element Type="Text">
+            <p>
+              You might miss information regarding
+              master pages here. The master page itself does not have any stages, because
+              it’s not an object created and run standalone. The master page hierarchy is
+              used to resolve the final construct of the page requested and then the page’s
+              life cycle begins. Therefore, the master page is treated like a control, with
+              some events related to the page’s life cycle events, but again, not with its
+              own life cycle.
+            </p>
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Page Request">
+          Page Request
+          <Element Type="Text">
+            <p>
+              The page request occurs before the page
+              life cycle begins. When the page is requested by a client, ASP.NET determines
+              whether the page needs to be parsed and compiled, or whether a cached version
+              of the page can be sent in response without executing the page. In each case
+              the “life" of the page begins.
+            </p>
+          </Element>
+          <Element Type="Section" Name="Start">
+            Start
+            <Element Type="Text">
+              <p>
+                In this step, page properties such as <code>Request</code> and <code>Response</code> are set. These
+                properties give you access to the current <code>HttpRequest</code>
+                and <code>HttpResponse</code> instances created through the application’s life cycle.
+              </p>
+              <p>
+                You can access all information related
+                to the request using <code>this.Request.</code> (In later
+                stages you can modify the response created and stored in <code>this.Response</code>.) At this stage, the page also determines whether the request
+                is a postback or a new request and sets the <code>IsPostBack</code>
+                property. This involves two checks: whether the request is done as a POST, and whether
+                it comes from the same ASP.NET page. Additionally, during the Start step, the
+                page’s <code>UICulture</code> property is set. At this point you can perform any action based on
+                the automatically recognized page culture. Alternatively, you can force the
+                culture property, so that the correct resources are obtained. (Forcing the
+                culture doesn’t work in other steps).
+              </p>
+
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Page Initialization">
+            Page Initialization
+            <Element Type="Text">
+
+              <p>
+                During page initialization step,
+                controls on the page become available and each control’s <code>UniqueID</code> property is set. The <code>UniqueID</code> is
+                used later on postbacks to assign control state in order to make forms sticky,
+                for instance. Any themes are also applied to the page. If the current request
+                is a postback, the postback data has not yet been loaded and control property
+                values have not been restored to the values from view state.
+              </p>
+
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Load">
+            Load
+            <Element Type="Text">
+
+              <p>
+                During load, if the current request is
+                a postback, control properties are loaded with information recovered from view
+                state and control state. For a regular request via GET, view state and control
+                state are set to their respective default states.
+              </p>
+
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Validation">
+            Validation
+            <Element Type="Text">
+
+              <p>
+                During this step the <code>Validate</code> method of all validator controls is called. The <code>IsValid</code> property of
+                all validator controls is set and as a summary the page’s <code>IsValid</code> property is set, too.
+              </p>
+
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Postback Event Handling">
+            Postback Event Handling
+            <Element Type="Text">
+
+              <p>
+                If the request is a postback, any event
+                handlers are called, such as button click events.
+              </p>
+
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Rendering">
+            Rendering
+            <Element Type="Text">
+
+              <p>
+                Before rendering, view state is saved
+                for the page and all controls. Rendering is the process that creates the HTML
+                that makes the page visible in a browser. Each control is responsible for rendering
+                itself. This feature and the extensible design time support is a major opportunity
+                for third party control vendors. Their controls can encapsulate all the clever design
+                time experience and run time functionality within each control. That means
+                during the rendering phase, the page calls the <code>Render</code>
+                method for each control, providing a <code>TextWriter</code> instance
+                that writes its output to the <code>OutputStream</code> of the
+                page’s <code>Response</code> property.
+              </p>
+
+            </Element>
+          </Element>
+          <Element Type="Section" Name="Unload">
+            Unload
+            <Element Type="Text">
+
+              <p>
+                Unload is called after the page has
+                been fully rendered, sent to the client, and is ready to be discarded. At this
+                point, page properties such as <code>Response</code> and <code>Request</code> are unloaded and any cleanup is performed.
+              </p>
+
+            </Element>
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Events Fired Within the Life Cycle">
+          Events Fired Within the Life Cycle
+          <Element Type="Text">
+
+            <p>
+              Within each stage of the life cycle of
+              a page, the page raises events that you can handle to run your own code. For
+              control events, you bind the event handler to the event, either declaratively
+              using attributes such as <code>onclick</code>, or in code.
+            </p>
+
+            <p>
+              Pages also support automatic
+              event wire-up, meaning that ASP.NET looks for methods with particular names and
+              automatically runs those methods when certain events are raised. If the <code>AutoEventWireup</code> attribute of the <code>@Page</code>
+              directive is set to <code>true</code>, page events are automatically bound to methods that use the naming
+              convention that follow the pattern Page_&lt;event&gt;, such as <code>Page_Load</code> and <code>Page_Init</code>.
+            </p>
+
+            <p>
+              The following table lists all the
+              page events. The "Typical Use" column
+              indicates the events you usually handle when developing pages and controls. The
+              other events are less important but give you more control from the
+              extensibility perspective, for instance when you create custom controls that
+              require a very specific behavior.
+            </p>
+          </Element>
+          <Element Type="table" Name="Usage of page events">
+            <table>
+              <tr>
+                <th>Page Event </th>
+                <th>Typical Use</th>
+              </tr>
+              <tr>
+                <td>PreInit</td> 
+                <td>
+                  Use this event to check the <code>IsPostBack</code> property to determine whether this is the first time the page is
+                  being processed. Create or re-create dynamic controls. You may also set master
+                  pages and the <code>Theme</code> property dynamically. Read or set any
+                  profile property values.
+                </td>
+              </tr>
+              <tr>
+                <td>Init</td>     
+                <td>
+                  Event is raised after all
+                  controls have been initialized and any skin settings have been applied. Use
+                  this event to read or initialize control properties.
+                </td>
+              </tr>
+              <tr>
+                <td>InitComplete</td>
+                <td>
+                  This event is raised by the
+                  Page object. Use this event for processing tasks that require all
+                  initialization be complete.
+                </td>
+              </tr>
+              <tr>
+                <td>PreLoad</td>          
+                <td>
+                  Use this event if you
+                  need to perform processing on your page or control before the Load event.
+                  Before the Page instance raises this event, it loads view state for itself and
+                  all controls, and then processes any post-back data included with the <code>Request</code> instance.
+                </td>
+              </tr>
+              <tr>
+                <td>Load</td>   
+                <td>
+                  The Page calls the <code>OnLoad</code> event method on the <code>Page</code>, then recursively
+                  does the same for each child control, which does the same for each of its child
+                  controls until the page and all controls are loaded. Use the overridden <code>OnLoad</code> event method to set properties
+                  in controls and establish database connections.
+                </td>
+              </tr>
+              <tr>
+                <td>Control events</td>  
+                <td>
+                  Use these events to
+                  handle specific control events, such as a Button control's Click event or a
+                  TextBox control’s Text-Changed event.
+                </td>
+              </tr>
+              <tr>
+                <td>LoadComplete</td>  
+                <td>
+                  Use this event for tasks
+                  that require that all other controls on the page be loaded.
+                </td>
+              </tr>
+              <tr>
+                <td>PreRender</td>        
+                <td>
+                  Before this event occurs,
+                  the <code>Page</code> object calls <code>EnsureChildControls</code> for
+                  each control and for the page itself. Each data bound control whose <code>DataSourceID</code> property is set calls its <code>DataBind</code>
+                  method. The <code>PreRender</code> event occurs for each control
+                  on the page. Use the event to make final changes to the contents of the page or
+                  its controls.
+                </td>
+              </tr>
+              <tr>
+                <td>SaveStateComplete</td>       
+                <td>
+                  Before this event
+                  occurs, view state has been saved for the page and for all controls. Any
+                  changes to the page or controls at this point will be ignored. See the section
+                  about view state later in this chapter to learn more about its specific
+                  behavior. Use this event to perform tasks that require view state to be saved,
+                  but that do not make any changes to controls.
+                </td>
+              </tr>
+              <tr>
+                <td>Unload</td>
+                <td>
+                  This
+                  event occurs for each control and, when all control events are done, for the
+                  page. In controls, use this event to do final cleanup for specific actions,
+                  such as closing database connections. For the page itself, use this event to do
+                  final cleanup work, such as closing open files and database connections, finishing
+                  up logging or other request-specific tasks.
+                </td>
+              </tr>
+            </table>
+          </Element>
+          <Element Type="Text">
+            <p>
+              If the request is a postback,
+              the values of the controls have not yet been restored from view state during <code>PreInit</code> state. If you set a control property at this stage,
+              its value might be overwritten in the next event.
+            </p>
+            <p>
+              Again, in a postback request
+              during <code>Load</code> event, if the page contains validator controls, check the <code>IsValid</code> property of the
+              <code>Page</code> and of individual
+              validation controls before performing any processing.
+            </p>
+            <p>
+              During the <code>Unload</code> stage, the page and its controls have been rendered, so you cannot
+              make further changes to the response stream. If you attempt to call a method
+              such as the <code>Response.Write</code> method, the page will
+              throw an exception. The render process itself does not have an event; it
+              happens after <code>PreRender</code> and before <code>UnLoad</code> and can be intercepted by overwriting the <code>Render</code> method.
+            </p>
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Additional Page Life Cycle Considerations">
+          Additional Page Life Cycle Considerations
+          <Element Type="Text">
+
+            <p>
+              Server controls have their own life
+              cycle that is similar to the page life cycle. For example, a control’s <code>Init</code> and <code>
+                Load
+              </code> events occur
+              during the corresponding page events. Although both <code>Init</code> and <code>
+                Load
+              </code> recursively occur
+              on each control, they happen in reverse order. The <code>Init</code> and also the <code>
+                Unload
+              </code> event for each
+              child control occur before the corresponding event is raised for its container.
+              This is clearly the expected behavior, because the <code>Init</code> event on page level indicates that all subsequent <code>Init</code>
+              events are completed. You may read the event as “Is Initialized". However, the <code>
+                Load
+              </code> event for a container occurs before
+              the <code>Load</code> events for its child controls, which is the opposite behavior. This
+              is so that you can have access to the process before any other processing takes
+              place. From perspective of <code>
+                Init
+              </code> event it doesn’t
+              make sense to do anything before it appears, because there is nothing you can
+              access in your code.
+            </p>
+            <p>
+              You can customize the appearance or
+              content of a control by handling the events for the control, such as the <code>Click</code> event for the <code>
+                Button
+              </code> control, and the
+              <code>SelectedIndexChanged</code> event for the <code>
+                ListBox
+              </code> control.
+            </p>
+
+            <p>
+              When inheriting a class from the <code>Page</code> class, in addition to handling events raised by the page, you can
+              override methods from the page’s base class. It’s a common technique to create your
+              own base page classes that derive from <code>
+                Page
+              </code> and to handle
+              common tasks there. For example, you can override the page’s <code>InitializeCulture</code> method to dynamically set culture information.
+              Overriding event handlers or attaching events are two different methods to perform almost the same
+              action. If you use the Page_&lt;event&gt; syntax you don’t need to handle the
+              base implementation. However, if you override the method you must handle the
+              base implementation and therefore call the base method. You can do this at the
+              beginning, at the end, or anywhere in between.
+            </p>
+
+          </Element>
+        </Element>
+      </Element>
+      <Element Type="Section" Name="Dynamic Controls and Data Binding Events">
+        Dynamic Controls and Data Binding Events
+        <Element Type="Text">
+          <p>
+            The page and control life cycles define
+            a chain of events to give you maximum control over the creation and runtime of
+            the control. However, the control handling has more possibilities than you can
+            achieve with such a straightforward model. You will see a different behavior
+            when adding controls dynamically. Furthermore data-bound controls work
+            internally other than this way.
+          </p>
+
+        </Element>
+        <Element Type="Section" Name="Dynamic Control Events">
+          Dynamic Control Events
+          <Element Type="Text">
+
+            <p>
+              The page life cycle and control life
+              cycle are very similar because of the nature of a <code>Page</code> as a class derived from <code>
+                Control
+              </code>.
+              However, you can add controls dynamically—a feature which doesn’t make sense
+              for pages. You might assume that adding controls is not very common in ASP.NET.
+              However, imagine that declaratively authored controls within templates of
+              data-bound controls are treated like dynamically added controls. Their events
+              are not initially synchronized with the other controls on the page. The
+              lifetime of such controls begins with their instantiation; they raise the life
+              cycle events one after the other until the control has caught up to the event
+              during which it was added to the Controls collection.
+            </p>
+
+            <p>
+              Usually this has no
+              implications for developers. Unless you have nested data-bound controls, you
+              don’t need to be concerned about this. For nested data-bound controls, this
+              behavior is a bit different. If a child control has been data bound, but its
+              container control has not yet been bound, the data in the child control and the
+              data in its container control can be out of sync.
+            </p>
+
+            <p>
+              Imagine that you have a GridView
+              control and that each row contains a bound DropDownList control. Furthermore,
+              assume that the <code>DropDownList</code>’s data
+              properties, such as <code>DataSourceID,</code> are set
+              declaratively. The <code>DropDownList</code> will now
+              bind to its datasource when the <code>DataBinding</code> event of the containing <code>
+                GridView
+              </code> row occurs. However, the <code>GridView</code> might not yet have raised its <code>
+                RowDataBound
+              </code>event. In that case the <code>DropDownList</code> and
+              containing control are out of sync. To avoid this you simply put the data
+              source control—the one you have set in the <code>DataSourceID</code>
+              property—within the same template. Additionally, remove the declarative
+              assignment and set it programmatically during the <code>RowDataBound</code> event. In this event the container’s data are bound and both
+              controls can stay in sync.
+            </p>
+
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Data Binding Events for Data-Bound Controls">
+          Data Binding Events for Data-Bound Controls
+          <Element Type="Text">
+
+            <p>
+              To help you understand the relationship
+              between the page life cycle and data binding events, the following table lists
+              data-related events in data-bound controls. Remember that not all controls
+              support all events shown in the table.
+            </p>
+
+          </Element>
+          <Element Type="Sidebar" SidebarType="Note">
+            <header>Note</header>
+            <aside>
+              In the description of
+              data-bound control’s behavior I often refer to the term “containing control".
+              If there is no containing control this assumes that the container is the page.
+            </aside>
+          </Element>
+          <Element Type="table" Name="Relationship between life cycle events and data-bound events">
+            <table>
+              <tr>
+                <th>Event</th>
+                <th>Typical behavior</th>
+                <th>Usage hints</th>
+              </tr>
+              <tr>
+                <td>DataBinding</td>
+                <td>
+                  Raised before <code>PreRender</code> of containing control.
+                </td>
+                <td>This is the beginning of binding procedure. Open database connections here, if required.</td>
+              </tr>
+              <tr>
+                <td>RowCreated</td>
+                <td>Raised after each row gets bound.</td>
+                <td>Manipulate content that does not depend on data binding.</td>
+              </tr>
+              <tr>
+                <td>ItemCreated</td>
+                <td>Raised after each item gets bound.</td>
+                <td>Manipulate content that does not depend on data binding.</td>
+              </tr>
+              <tr>
+                <td>RowDataBound</td>
+                <td>Bound data is now available for the row.  </td>
+                <td>Format data, get and filter child rows or related data.</td>
+              </tr>
+              <tr>
+                <td>ItemDataBound</td>
+                <td>Bound data is now available for the item.</td>
+                <td>Format data, pull and filter child rows or related data.</td>
+              </tr>
+              <tr>
+                <td>DataBound</td>
+                <td>Marks the end of binding operation. All rows are bound now.</td>
+                <td>Do any action that requires all data available.</td>
+              </tr>
+            </table>
+
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Login Control Events">
+          Login Control Events
+          <Element Type="Text">
+            <p>
+              The login controls, which handle login
+              and authentication, are highly sophisticated and powerful. In most scenarios,
+              the controls work well out of the box or just need some configuration using the
+              web.config file. However, if you need to change or customize the behavior or
+              extend the available features, you’ll need to know the events fired during
+              their life cycle. 
+            </p>
+
+          </Element>
+          <Element Type="table" Name="Relationship between life cycle events and logging-in events">
+            <table>
+              <tr>
+                <th>Event</th>
+                <th>Typical behavior</th>
+                <th>Usage hint</th>
+              </tr>
+              <tr>
+                <td>LoggingIn</td>
+                <td>
+                  Raised during postback
+                  after LoadComplete.
+                </td>
+                <td>
+                  Tasks required before the login procedure, such as
+                  opening a database connection, if required.
+                </td>
+              </tr>
+              <tr>
+                <td>Authenticate</td>
+                <td>
+                  Raised next after
+                  LoggingIn.
+                </td>
+                <td>Customize the authentication behavior itself.</td>
+              </tr>
+              <tr>
+                <td>LoggedIn</td>
+                <td>
+                  Raised after
+                  authentication.
+                </td>
+                <td>
+                  Action required after successful authentication, such
+                  as redirect to another page.
+                </td>
+              </tr>
+              <tr>
+                <td>LoginError</td>
+                <td>
+                  Raised
+                  after failed authentication.
+                </td>
+                <td>
+                  Do any action to handle failed authentication, such
+                  as displaying instructions.           
+                </td>
+              </tr>
+            </table>
+
+          </Element>
+        </Element>
+      </Element>
+      <Element Type="Section" Name="View State">
+        View State
+        <Element Type="Text">
+
+          <p>
+            The ASP.NET view state is a mechanism
+            to track changes of the state of pages from one postback to the next. We call
+            it postback whenever a page sends the contents of a form back to the server.
+            The name comes from the underlying HTTP command POST that we use and the way that
+            it takes the contents back to the server. View state is turned on by default and
+            most developers don’t care about it. It contains the values of properties of
+            controls changed since the last page cycle and is stored in a serialized and
+            encrypted format within the page. Each postback sends all the information
+            stored in it back to the server. As you may know, using view state in the
+            default manner can lead to huge pages that consume a lot of bandwidth. It’s not
+            easy to understand view state completely, and simply disabling it leads to
+            controls not working or having fewer features.
+          </p>
+
+          <p>
+            The real internal behavior is confusing
+            and hard to understand. As long as you deal with simple applications, a basic
+            ideamight be enough. But when it comes to your own controls, complex pages, or
+            using AJAX, a good understanding is a prerequisite.
+          </p>
+
+        </Element>
+      </Element>
+      <Element Type="Section" Name="Why Understanding View State is Important">
+        Why Understanding View State is Important
+        <Element Type="Text">
+
+          <p>
+            Misunderstanding view state leads to
+            leaking of sensitive data, being exploited by view state attacks, poor page
+            performance, poor scalability, and headaches. Whatever you want to achieve with
+            your application, the Figure 1-11 shows the source of a page which we never want to see.
+          </p>
+
+        </Element>
+        <Element Type="Image" Name="The view state’s form field could grow">
+          images/19835f0111.png
+        </Element>
+        <Element Type="Text">
+          <p>
+            Simply disabling view state will not
+            help, however, because you will probably lose some features that you need and like.
+            In fact, there is nothing wrong with view state; it’s just the wrong or inappropriate
+            usage of it that causes problems. Now let’s move on by starting back at the
+            beginning. What does view state do?
+          </p>
+          <ol>
+            <li>
+              Stores values of control’s properties
+              by keys, similar to a hash table
+            </li>
+            <li>Tracks changes to initial values</li>
+            <li>
+              Serializes and deserializes a saved
+              dictionary in a hidden form field
+            </li>
+            <li>
+              Restores stored values into control’s
+              properties
+            </li>
+          </ol>
+          <p>
+            These features are well known. Much
+            more important is what the view state does not do:
+          </p>
+          <ol>
+            <li>Retain the state of class members</li>
+            <li>
+              Remember state information across page
+              loads (page reloads by GET request)
+            </li>
+            <li>
+              Avoid the need to repopulate data on every
+              request
+            </li>
+            <li>
+              Hold data in controls that are posted
+              back—the so-called sticky form behavior
+            </li>
+          </ol>
+          <p>
+            The last bullet point is probably the
+            most confusing here. Many developers think that this is the only task that the view
+            state has to do.Although the view state is involved in the process of holding
+            the control’s visible data; it is not the originator of the process (that would
+            be the control state).
+          </p>
+        </Element>
+        <Element Type="Section" Name="What View State is Supposed to Do">
+          What View State is Supposed to Do
+          <Element Type="Text">
+
+            <p>
+              Before we start looking into what view
+              state does exactly, some basic features should be reviewed.
+            </p>
+            <p>
+              <ul>
+                    <li>View state stores values</li>
+                    <li>View state tracks changes</li>
+                    <li>View state serializes and deserializes data</li>
+                    <li>View state restores data</li>
+              </ul>
+            </p>
+            <p>
+              View state is held in a hidden field
+              with the name <code>
+                __VIEWSTATE
+              </code>. “Hidden" means that the
+              browser does not render the field, but the field itself and its content are visible
+              in the page’s source. It needs the bandwidth twice—the first time when the page
+              is sent to the browser and the second time when the browser sends the page back
+              (that is, when a postback happens). A postback occurs very frequently when a
+              user navigates within the application; unless you use hyperlinks, almost all
+              actions are based on a form being sent back.
+            </p>
+
+          </Element>
+        </Element>
+      </Element>
+      <Element Type="Section" Name="The Page Cycle from the View State Perspective">
+        The Page Cycle from the View State Perspective
+        <Element Type="Text">
+
+          <p>
+            The page cycle is very important to
+            understanding view state completely as several levels of the cycle treat view state
+            explicitly. You can refer to the previous section to get an idea of the page
+            cycle in a nutshell. In this section I will repeat the major steps that
+            actually handle view state.
+          </p>
+
+          <p>
+            Each time the server receives a request
+            for an .aspx page it will be processed by the ASP.NET engine through a specific
+            number of steps. These include checking access security and restoring the
+            session state. At the end of the process the engine creates a class that
+            consists of the markup and code-behind. This generates an instance of that
+            class which becomes its <code>
+              ProcessRequest
+            </code> method.
+          </p>
+
+          <p>
+            The page life cycle begins with the
+            call to this method. It follows the initialization of the controls of the page
+            and life cycle phases of those controls begin. This includes the processing of
+            the view state, handling of postback data and related events and finally the
+            processing of HTML content.
+          </p>
+
+          <p>
+            The life cycle of the page ends when the
+            HTML is completely rendered and handed over to the web server. The web server
+            is responsible for sending the data over the wire to the browser. While the web
+            server is sending the data, the garbage collector is already freeing up the
+            released memory. This is true for all requests without any interaction or
+            custom code required. However, within this cycle, view state has an
+            extraordinary function and it makes your life as a control developer easier if
+            you understand life cycles and their relation to view state.
+          </p>
+
+        </Element>
+        <Element Type="Section" Name="Step One—Instantiation">
+          Step One—Instantiation
+          <Element Type="Text">
+
+            <p>
+              The instantiation is the
+              beginning of the life cycle of the page. The class, which represents the page, is
+              instantiated and launched. But what actually happens and where does the page’s
+              code get stored? ASP.NET pages consist of HTML markup with controls and code. Firstly,
+              the ASP.NET engine converts the text portion of the page and all markup into
+              web controls. That means the page is now completely made of code. Most parts
+              that consist of HTML are replaced by <code>
+                LiteralControl
+              </code> controls. Literals contain text that doesn’t need any further
+              processing. This is required in order to avoid the extensive recognition
+              process. The ASP.NET engine is able to recognize changes made and re-runs the
+              process, if required. The features required for a page are inherited from the <code>Page</code> class (<code>
+                System.Web.UI.Page
+              </code>). If
+              code behind is being used, one more step is required. Using the <code>partial</code> keyword this class is married with the code-behind
+              class that is associated with the aspx page.
+            </p>
+
+            <p>
+              When compilation is done with
+              SDK components, the final class is stored under this path:
+            </p>
+
+            <p class="Query">
+              WINDOWS\Microsoft.NET\Framework\&lt;Version&gt;\Temporary
+              ASP.NET Files
+            </p>
+
+            <p>
+              This is same if IIS is calling
+              a web project that is not pre-compiled and the ASP.NET engine is forced to
+              compile the code on the fly.
+            </p>
+            <p>
+              Using Visual Studio 2008, the
+              path is quite different:
+            </p>
+
+            <p class="Query">
+              &lt;UserHome&gt;\AppData\Local\Temp\Temporary
+              ASP.NET Files\root\
+            </p>
+
+            <p>
+              Under either path, you can find
+              folders for projects and solutions. However, Visual Studio uses some weird
+              codes to name the folders instead of the project’s real name. I suggest sorting
+              the explorer view by date to recognize the right folder based on last change
+              date. The language—either C# or Visual Basic—depends on the setting of the page
+              and the code behind used. Reading the generated pages can occasionally be helpful,
+              especially when researching odd errors. If you want to go deeper into the
+              internal page processing, it’s worth a look. The generated material includes
+              all fragments read from pages, code behind, user controls and master pages.
+            </p>
+
+            <p>
+              If the code is compiled directly
+              you may not find the generated classes but the final assembly only. In that
+              case I recommend using a tool like Red Gate’s Reflector to examine the finally
+              generated code.
+            </p>
+
+          </Element>
+          <Element Type="Section" Name="Building the Hierarchy of Controls">
+            Building the Hierarchy of Controls
+            <Element Type="Text">
+              <p>
+                The page is the top level of the
+                hierarchy of controls. Because the <code>
+                  Page
+                </code> class
+                itself inherits from <code>
+                  Control
+                </code>, it’s a
+                control, too. Each control has exactly one parent and none, one, or many
+                children. The elements placed declaratively in the page are children of the
+                highest level. There is no limit to nesting levels for the control hierarchy.
+                This leads to vast trees made of complex controls.
+              </p>
+
+              <p>
+                One important control is <code>HtmlForm</code> (full name is <code>
+                  System.Web.UI.HtmlControls.HtmlForm
+                </code>). It creates the <code>
+                  &lt;form&gt;
+                </code> tag and
+                determines the content sent during postback. The view state information is
+                necessarily placed here. You can see this in the sample shown in Listing 1-4.
+              </p>
+
+            </Element>
+            <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true"  Name="Simple ASPX page with controls">
+              &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+              &lt;head runat=&quot;server&quot;&gt;
+              &lt;title&gt;&lt;/title&gt;
+              &lt;/head&gt;
+              &lt;body&gt;
+              &lt;h1&gt;
+              Apress - ViewState&lt;/h1&gt;
+              &lt;form id=&quot;form1&quot; runat=&quot;server&quot;&gt;
+              &lt;div&gt;
+              &lt;asp:TextBox runat=&quot;server&quot; ID=&quot;txtName&quot; /&gt;
+              &lt;br /&gt;
+              Are you called a
+              &lt;asp:DropDownList runat=&quot;server&quot; ID=&quot;ddlWhat&quot;&gt;
+              &lt;asp:ListItem Value=&quot;G&quot; Selected=&quot;True&quot;&gt;Geek&lt;/asp:ListItem&gt;
+              &lt;asp:ListItem Value=&quot;N&quot;&gt;Nerd&lt;/asp:ListItem&gt;
+              &lt;asp:ListItem Value=&quot;W&quot;&gt;Don’t know&lt;/asp:ListItem&gt;
+              &lt;/asp:DropDownList&gt;
+              &lt;br /&gt;
+              &lt;asp:Button runat=&quot;server&quot; ID=&quot;btnSend&quot; Text=&quot;Send!&quot; /&gt;
+              &lt;/div&gt;
+              &lt;/form&gt;
+              &lt;/body&gt;
+              &lt;/html&gt;
+            </Element>
+            <Element Type="Text">
+              <p>
+                <link ref="Simple page in Visual Studio Designer" /> shows
+                how it will look like in the Visual Studio designer.
+              </p>
+
+            </Element>
+            <Element Type="Image" Name="Simple page in Visual Studio Designer">
+              images/19835f0112.png
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                The ASP.NET engine generates the output code,
+                a fragment of which is shown in Listing 1-5:
+              </p>
+
+            </Element>
+            <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true"  Name="Simple ASPX page from last listing compiled into code">
+
+              public class default_aspx : _Default, IRequiresSessionState, IHttpHandler
+              {
+              private static object __fileDependencies;
+              private static bool __initialized;
+              [DebuggerNonUserCode]
+              public default_aspx()
+              {
+              base.AppRelativeVirtualPath = &quot;~/Default.aspx&quot;;
+              if (!__initialized)
+              {
+              string[] virtualFileDependencies = new string[] { &quot;~/Default.aspx&quot; };
+              __fileDependencies =
+              base.GetWrappedFileDependencies(virtualFileDependencies);
+              __initialized = true;
+              }
+              }
+
+              [DebuggerNonUserCode]
+              private HtmlTitle __BuildControl__control2()
+              {
+              return new HtmlTitle();
+              }
+
+              [DebuggerNonUserCode]
+              private void __BuildControl__control3(ListItemCollection __ctrl)
+              {
+              ListItem item = this.__BuildControl__control4();
+              __ctrl.Add(item);
+              ListItem item2 = this.__BuildControl__control5();
+              __ctrl.Add(item2);
+              ListItem item3 = this.__BuildControl__control6();
+              __ctrl.Add(item3);
+              }
+
+              [DebuggerNonUserCode]
+              private ListItem __BuildControl__control4()
+              {
+              ListItem item = new ListItem();
+              item.Value = &quot;G&quot;;
+              item.Selected = true;
+              item.Text = &quot;Geek&quot;;
+              return item;
+              }
+
+              [DebuggerNonUserCode]
+              private ListItem __BuildControl__control5()
+              {
+              ListItem item = new ListItem();
+              item.Value = &quot;N&quot;;
+              item.Text = &quot;Nerd&quot;;
+              return item;
+              }
+
+              [DebuggerNonUserCode]
+              private ListItem __BuildControl__control6()
+              {
+              ListItem item = new ListItem();
+              item.Value = &quot;W&quot;;
+              item.Text = &quot;Don’t know&quot;;
+              return item;
+              }
+
+              [DebuggerNonUserCode]
+              private Button __BuildControlbtnSend()
+              {
+              Button button = new Button();
+              base.btnSend = button;
+              button.ApplyStyleSheetSkin(this);
+              button.ID = &quot;btnSend&quot;;
+              button.Text = &quot;Send!&quot;;
+              return button;
+              }
+
+              [DebuggerNonUserCode]
+              private DropDownList __BuildControlddlWhat()
+              {
+              DropDownList list = new DropDownList();
+              base.ddlWhat = list;
+              list.ApplyStyleSheetSkin(this);
+              list.ID = &quot;ddlWhat&quot;;
+              this.__BuildControl__control3(list.Items);
+              return list;
+              }
+
+              [DebuggerNonUserCode]
+              private HtmlForm __BuildControlform1()
+              {
+              HtmlForm form = new HtmlForm();
+              base.form1 = form;
+              form.ID = &quot;form1&quot;;
+              IParserAccessor accessor = form;
+              accessor.AddParsedSubObject(
+              new LiteralControl(&quot;\r\n    &lt;div&gt;\r\n        &quot;));
+              TextBox box = this.__BuildControltxtName();
+              accessor.AddParsedSubObject(box);
+              accessor.AddParsedSubObject(
+              new LiteralControl(&quot;\r\n        &lt;br /&gt;\r\n     
+              Are you called a \r\n        &quot;));
+              DropDownList list = this.__BuildControlddlWhat();
+              accessor.AddParsedSubObject(list);
+              accessor.AddParsedSubObject(
+              new LiteralControl(&quot;\r\n        &lt;br /&gt;\r\n        &quot;));
+              Button button = this.__BuildControlbtnSend();
+              accessor.AddParsedSubObject(button);
+              accessor.AddParsedSubObject(
+              new LiteralControl(&quot;\r\n    &lt;/div&gt;\r\n    &quot;));
+              return form;
+              }
+
+              [DebuggerNonUserCode]
+              private HtmlHead __BuildControlHead1()
+              {
+              HtmlHead head = new HtmlHead(&quot;head&quot;);
+              base.Head1 = head;
+              head.ID = &quot;Head1&quot;;
+              HtmlTitle title = this.__BuildControl__control2();
+              IParserAccessor accessor = head;
+              accessor.AddParsedSubObject(title);
+              return head;
+              }
+
+              [DebuggerNonUserCode]
+              private void __BuildControlTree(default_aspx__ctrl)
+              {
+              this.InitializeCulture();
+              IParserAccessor accessor = __ctrl;
+              accessor.AddParsedSubObject(
+              new LiteralControl(&quot;\r\n\r\n&lt;!DOCTYPE html PUBLIC \&quot;-//W3C//DTD XHTML 1.0 Transitional//EN\&quot; \&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\&quot;&gt;\r\n\r\n&lt;html xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;\r\n&quot;));
+              HtmlHead head = this.__BuildControlHead1();
+              accessor.AddParsedSubObject(head);
+              accessor.AddParsedSubObject(new LiteralControl(&quot;\r\n&lt;body&gt;\r\n    &lt;h1&gt;\r\n        Apress - ViewState&lt;/h1&gt;\r\n    &quot;));
+              HtmlForm form = this.__BuildControlform1();
+              accessor.AddParsedSubObject(form);
+              accessor.AddParsedSubObject(
+              new LiteralControl(&quot;\r\n&lt;/body&gt;\r\n&lt;/html&gt;\r\n&quot;));
+              }
+
+              [DebuggerNonUserCode]
+              private TextBox __BuildControltxtName()
+              {
+              TextBox box = new TextBox();
+              base.txtName = box;
+              box.ApplyStyleSheetSkin(this);
+              box.ID = &quot;txtName&quot;;
+              return box;
+              }
+
+              [DebuggerNonUserCode]
+              protected override void FrameworkInitialize()
+              {
+              base.FrameworkInitialize();
+              this.__BuildControlTree(this);
+              base.AddWrappedFileDependencies(__fileDependencies);
+              base.Request.ValidateInput();
+              }
+
+              [DebuggerNonUserCode]
+              public override int GetTypeHashCode()
+              {
+              return -1678387491;
+              }
+
+              [DebuggerNonUserCode]
+              public override void ProcessRequest(HttpContext context)
+              {
+              base.ProcessRequest(context);
+              }
+
+              // Properties
+              protected HttpApplication ApplicationInstance
+              {
+              get
+              {
+              return this.Context.ApplicationInstance;
+              }
+              }
+
+              protected DefaultProfile Profile
+              {
+              get
+              {
+              return (DefaultProfile) this.Context.Profile;
+              }
+              }
+              }
+
+            </Element>
+            <Element Type="Text">
+
+              <p>
+                The code is not very readable, but this
+                is what generated code is supposed to look like, right? There is no need to do
+                anything special with it, but rather to learn what is going on internally. Note
+                two things here. Firstly, the declarative assignment of attributes is being
+                replaced with simple property assignments. See the following markup:
+              </p>
+              <code>&lt;asp:Button text=&quot;Foobar&quot;&gt;</code>
+              <p>It becomes this in the generated class: </p>
+              <code>button1.Text = &quot;Foobar&quot;</code>
+              <p>
+                Secondly, all literal stuff is placed in
+                strings and copied into the final page “as is", just like shown in the snippet
+                below:
+              </p>
+              <code>
+                new
+                LiteralControl(&quot;\r\n&lt;/body&gt;\r\n&lt;/html&gt;\r\n&quot;))
+              </code>
+              <p>
+                Once the class is complete, the engine
+                proceeds to the next step.
+              </p>
+
+            </Element>
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Step Two—Initializing">
+          Step Two—Initializing
+          <Element Type="Text">
+
+            <p>
+              After creating the control hierarchy,
+              all the controls of the page are moved into the initialization state. This becomes
+              apparent by raising the <code>
+                Init
+              </code> event. In this
+              phase not only are the controls ready but they also having their static,
+              declarative properties assigned.
+            </p>
+
+          </Element>
+          <Element Type="Sidebar" SidebarType="Note">
+
+            <header>Note</header>
+            <aside>“Declarative" is everything that’s written within the markup and not in code fragments.</aside>
+
+          </Element>
+          <Element Type="Text">
+            <p>
+              Whether or not a property has been
+              declaratively assigned, you still can change the value any time before the
+              render process is complete. However, because I’m talking about view state, the
+              initialization step plays a special role regarding property values.
+            </p>
+
+          </Element>
+          <Element Type="Section">
+            View State Tracks Changes
+            <Element Type="Text">
+
+              <p>
+                View state tracks changes of properties.
+                This is a special function of the <code>
+                  StateBag
+                </code>
+                class, which holds the data behind the scenes. Tracking starts during the
+                Initializing step. In order to recognize the default value and the changed one,
+                the <code>StateBag</code> compares the initialized value set by declarative markup with the
+                current value set anytime later programmatically. Even if the results look the
+                same, the view state treats the data in a different way.
+              </p>
+
+            </Element>
+          </Element>
+          <Element Type="Section">
+            View State and Dynamic Controls
+            <Element Type="Text">
+
+              <p>
+                Using dynamic controls, you’ll know
+                that technically it’s possible to add controls any time before the page render
+                process is complete. View state, is not that flexible. Adding controls using <code>Controls.Add</code> method must take place in the
+                initializing phase. Otherwise the <code>StateBag</code> class does not recognize the <code>
+                  Init
+                </code> event
+                at the right time and does not start tracking changes. You still can add
+                controls anytime, but for those controls the view state will not work. You
+                might find problems here occasionally as the majority of controls being added
+                dynamically—such as the <code>
+                  Label
+                </code> control—don’t
+                require property value tracking.
+              </p>
+
+              <p>
+                The golden rule states that in
+                order to “take care of the view state, whether it’s required or not, add
+                dynamic controls during the Initializing step".
+              </p>
+
+            </Element>
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Step Three—Loading the View State">
+          Step Three—Loading the View State
+          <Element Type="Text">
+
+            <p>
+              View state data is saved into a hidden
+              field called <code>
+                __VIEWSTATE
+              </code>. It’s transmitted back to
+              the server only during a POST operation, which forces a postback.
+            </p>
+
+          </Element>
+          <Element Type="Sidebar" SidebarType="Note">
+            <header>Note</header>
+            <aside>
+              You can completely ignore
+              page requests that use GET for this step. Such requests do not interact with
+              view state at all.
+            </aside>
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              In this step the engine decodes
+              values from the hidden fields and assigns them to the controls, looping
+              recursively through the control hierarchy. Also in this phase the validity of
+              the view state is checked. There are several reasons why the view state could
+              become invalid. One reason is that the control hierarchy has been changed during
+              postback and the control is not at the expected place, or removed completely.
+            </p>
+            <p>If everything is fine, the engine proceeds to the next step.</p>
+
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Step Four—Loading Postback Data">
+          Step Four—Loading Postback Data
+          <Element Type="Text">
+
+            <p>
+              After loading and restoring the view
+              state, the form data is processed. Not all controls can return data. To let the
+              engine know whether it has to look for data sent back, the <code>IPostBackDataHandler</code> interface is recognized. Each control implementing this interface
+              might send form data back. Form data is sent back in the HTTP protocol as id&#8722;value
+              pairs:
+            </p>
+
+            <code>Myclientid=value</code>
+
+            <p>
+              The page class looks for a control with
+              a <code>ClientID</code> that equals “Myclientid". When found, it checks whether the control
+              implements the <code>
+                IPostBackDataHandler
+              </code> interface. If it does
+              this, the page class calls the only method defined there—<code>LoadPostData</code>. That means that the control itself manages the loading of data,
+              which opens up a great way of changing behavior and adding custom code.
+            </p>
+
+            <p>
+              Concerning view state, this behavior is very
+              significant. The ability to get the values of controls back between postbacks
+              is called “sticky form" behavior. It’s one of the best features of ASP.NET. Let
+              me explain this in more detail using the example of a <code>TextBox</code> control. The <code>
+                TextBox
+              </code> has a property <code>Text</code>. It also implements the <code>
+                IPostBackDataHandler
+              </code> interface. Once a page with the textbox control is posted back, the
+              <code>LoadPostData</code> method reads the value of the control out of the view state and
+              writes it into the <code>
+                Text
+              </code> property. The
+              default value—that was probably set declaratively—is overwritten. You can
+              easily check this with the following definition:
+            </p>
+
+            <pre>
+              &lt;asp:TextBox runat=&quot;server&quot;
+              ID=&quot;txtName&quot; Text=&quot;&quot; /&gt;
+            </pre>
+
+            <p>
+              The render process transforms this
+              markup into HTML form:
+            </p>
+
+            <pre>
+              &lt;input type=&quot;text&quot; id=&quot;txtName&quot;
+              Name=&quot;txtName&quot; /&gt;
+            </pre>
+
+            <p>
+              If the user now enters some text here,
+              like “It’s a geek", the form transmitted back to the server contains at least
+              this line:
+            </p>
+
+            <pre>txtName=It’s a geek</pre>
+
+            <p>
+              This data pair becomes part of the <code>Request.Form</code> collection. The key is “txtName" and the value is “It’s a geek".
+              The page class hands this data pair to the <code>
+                LoadPostData
+              </code>
+              method. Internally there is nothing surprising here. Using Reflector, you can
+              look into the relevant code inside <code>
+                System.Web.dll
+              </code>.
+            </p>
+
+          </Element>
+          <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true"  Name="Disassembled code of the LoadPostData method">
+
+            protected virtual bool LoadPostData(string postDataKey, NameValueCollection postCollection)
+            {
+            base.ValidateEvent(postDataKey);
+            string text = this.Text;
+            string str2 = postCollection[postDataKey];
+            if (!this.ReadOnly &amp;&amp; !text.Equals(str2, StringComparison.Ordinal))
+            {
+            this.Text = str2;
+            return true;
+            }
+            return false;
+            }
+
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              This code snippet is from <code>TextBox</code>, and the one and only property filled by a postback is <code>Text</code>.
+              The control might have been set read-only and therefore this is checked first (<code>
+                this.ReadOnly
+              </code>). Also, as the code
+              compares the old value and the new one, it’s written only if the value has been
+              changed. Why is this additional check required? You might assume that comparing
+              takes more time than assigning a property—even if there is nothing to render at
+              this stage. Well, the reason is view state. To understand this, take a look
+              into the code for the <code>
+                Text
+              </code> property:
+            </p>
+
+          </Element>
+          <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true"  Name="Disassembled code of Text method of the TextBox class">
+
+            public virtual string Text
+            {
+            get
+            {
+            string str = (string) this.ViewState[&quot;Text&quot;];
+            if (str != null)
+            {
+            return str;
+            }
+            return string.Empty;
+            }
+            set
+            {
+            this.ViewState[&quot;Text&quot;] = value;
+            }
+            }
+
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              The value is not stored in a private
+              field but only in view state. The tracking feature of the underlying <code>StateBag</code> class handles changes as well.
+              If nothing has changed, it’s not recommended to assign the value to view state, or the <code>StateBag</code> class will start tracking.
+              If there is nothing to track, it doesn’t make sense to do so, and the <code>
+                LoadPostData
+              </code> method is clever enough to know.
+            </p>
+
+            <p>
+              One major aspect many developers overlook
+              is the role of view state in the handling of postback data. The previous code
+              snippets showed that the postback and form data loading procedures do not
+              involve view state. More than that, they try to avoid any interaction with view
+              state. The form data handling and stickiness behavior has nothing to do with
+              the view state. The stickiness is a feature that comes with the <code>IPostBackDataHandler</code> interface.
+              Just for clarity, here it is in its entire glory:
+            </p>
+
+          </Element>
+          <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true"  Name="Code of IPostBackDataHandler interface">
+
+            public interface IPostBackDataHandler
+            {
+            bool LoadPostData(string postDataKey,
+            NameValueCollection postCollection);
+
+            void RaisePostDataChangedEvent();
+            }
+
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              You know now that view state tracks
+              changes and stores these changes. You know, too, that the stickiness of the
+              form has nothing to do with view state.
+            </p>
+            <p>
+              Now, all the controls have been initialized,
+              properly filled with declarative data, over-written with data posted back from
+              the browser, and are ready to enter the next state.
+            </p>
+
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Step Five—Load Step">
+          Step Five—Load Step
+          <Element Type="Text">
+
+            <p>
+              Most descriptions of ASP.NET put user
+              code into the <code>
+                Load
+              </code> event. In the explanation of life cycles
+              you read about this important step. I as it signals to us that the control is
+              now “ready". Even if you don’t want to do anything else with the control, it’s
+              ready to be rendered. This is why the best step for adding custom code and
+              modifying the behavior of the page is the load step. Internally, it’s much
+              easier, because there is nothing to do. Anything that is supposed to happen
+              here is up to you.
+            </p>
+
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Step Six—Raising Postback Events">
+          Step Six—Raising Postback Events
+          <Element Type="Text">
+
+            <p>
+              Several controls can fire events,
+              depending on the form data posted back. After the loading step, the events are fired
+              one by one. For example, the <code>
+                Button
+              </code> control can fire
+              a <code>Click</code> event, whereas the <code>
+                DropDownList
+              </code> fires <code>SelectedIndexChanged</code>. This is another major feature that makes the dynamic portion of an
+              ASP.NET page so powerful and easy to program.
+            </p>
+
+            <p>
+              There are two kinds of event
+              fired during the page’s postback.
+            </p>
+
+            <p>
+              One kind is responsible for changes,
+              indicated by the suffix <code>
+                _Change
+              </code>. The
+              implementation of <code>
+                IPostBackDataHandler
+              </code> is
+              responsible for recognizing this and firing the appropriate event by calling
+              the <code>RaisePostDataChangedEvent</code> method. In the case of the <code>
+                TextBox
+              </code> example,
+              the event exposed by the class is <code>
+                OnTextChanged
+              </code>.
+            </p>
+
+            <p>
+              The other kind of event is the trigger
+              event. For example, in the case of a <code>
+                Button
+              </code> this
+              is a <code>Click</code> event. There is no special state required and no data to compare.
+              To handle trigger events the <code>
+                IPostBackEventHandler
+              </code>
+              interface is used:
+            </p>
+
+          </Element>
+          <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true"  Name="Code of IPostBackEventHandler interface">
+
+            public interface IPostBackEventHandler
+            {
+            void RaisePostBackEvent(string eventArgument);
+            }
+
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              To understand what happens internally,
+              we’ll look into the <code>
+                RaisePostBackEvent
+              </code>
+              method. Listing 1-10 is for a <code>
+                Button
+              </code> control.
+            </p>
+
+          </Element>
+          <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true"  Name="Code of typical implementation of IPostBackEventHandler interface">
+
+            protected virtual void RaisePostBackEvent(string eventArgument)
+            {
+            base.ValidateEvent(this.UniqueID, eventArgument);
+            if (this.CausesValidation)
+            {
+            this.Page.Validate(this.ValidationGroup);
+            }
+            this.OnClick(EventArgs.Empty);
+            this.OnCommand(new CommandEventArgs(
+            this.CommandName, this.CommandArgument));
+            }
+
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              As you can see this method raises more
+              than one event in a predefined and hard-coded order. Several other actions take
+              place first—such as validation—but the events being fired are unconditional.
+            </p>
+            <p>
+              Again, all these events can only happen during
+              a postback. Calling the page using GET will do nothing. If you have a <code>DropDownlist,</code> and if you change the current index
+              programmatically, nothing will happen unless the page is posted back. This is different from the windows programming
+              model, where the controls can fire events immediately and independently of a
+              particular state.
+            </p>
+
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Step Seven—Storing the View State">
+          Step Seven—Storing the View State
+          <Element Type="Text">
+
+            <p>
+              After all events have been fired, the
+              current state of each control’s property changes needs to be stored. The
+              tracked changes are retrieved recursively through the controls hierarchy. To
+              get the value back, the <code>
+                SaveViewState
+              </code> method of
+              each control is called. The collection of data is then serialized and encoded
+              using Base64.
+            </p>
+
+            <p>
+              In the next step the string is saved to
+              the hidden field named <code>
+                __VIEWSTATE
+              </code>.
+            </p>
+
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Step Eight—Render the Page">
+          Step Eight—Render the Page
+          <Element Type="Text">
+
+            <p>
+              The render process runs through all the
+              controls and allows them to render. This is done by a recursive call to all <code>RenderControl</code> methods. The <code>
+                HtmlForm
+              </code> control
+              mentioned at the beginning is responsible for creating the <code>__VIEWSTATE</code> hidden field, which is the container for view state data.
+            </p>
+
+          </Element>
+        </Element>
+      </Element>
+      <Element Type="Section" Name="The True Role of View State">
+        The True Role of View State
+        <Element Type="Text">
+
+          <p>
+            The eight states of the life cycle are
+            virtually all important for view state. There are several more steps the
+            various life cycles could run through, but these steps don’t affect view state
+            and we can exclude them for now. To understand the view state, it’s crucial to
+            know what the purpose of view state is. As the name implies, view state stores
+            status information. But what kind of status is it?
+          </p>
+
+          <p>
+            The hierarchy of controls and the
+            default values of properties are defined in the declarative part of the page.
+            Take a look at this markup:
+          </p>
+
+          <code>
+            &lt;asp:Label runat=&quot;server&quot;
+            Text=&quot;We learn viewstate&quot; Font-Bold=&quot;true&quot; /&gt;
+          </code>
+
+          <p>
+            Neither the text “We learn viewstate"
+            nor the value <code>Bold</code> of the <code>Font</code> property is stored in view state. The values are assigned during
+            the initializing phase. View state, in contrast, tracks changes made <i>programmatically</i>.
+            This leads to the first definition about view state.
+          </p>
+
+        </Element>
+        <Element Type="Sidebar" SidebarType="Note">
+          <header>Note</header>
+          <aside>View state becomes important only if the page contains custom code.</aside>
+        </Element>
+        <Element Type="Text">
+
+          <p>
+            However, if a page contains custom code,
+            this does not necessarily mean that view state is required. Let’s look into
+            another code snippet. The following example has two buttons. Both cause a
+            postback, but only one has an <code>
+              OnClick
+            </code> event attached
+            and handled to access properties in code.
+          </p>
+
+        </Element>
+        <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true"  Name="Markup of the view state test">
+
+          &lt;asp:Label ID=&quot;LabelMessage&quot; runat=&quot;server&quot; Text=&quot;We learn viewstate&quot;&gt;&lt;/asp:Label&gt;
+          &lt;br /&gt;
+          &lt;asp:Button ID=&quot;ButtonSubmit&quot; runat=&quot;server&quot; onclick=&quot;ButtonSubmit_Click&quot;
+          Text=&quot;Change Text&quot; Width=&quot;150px&quot; /&gt;
+          &lt;br /&gt;
+          &lt;asp:Button ID=&quot;ButtonEmpty&quot; runat=&quot;server&quot; Text=&quot;No Change&quot;
+          Width=&quot;150px&quot; /&gt;
+
+        </Element>
+        <Element Type="Text">
+
+          <p>
+            The code of the click handler is simple,
+            too.
+          </p>
+
+        </Element>
+        <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true"  Name="Code of the Click handler">
+          protected void ButtonSubmit_Click(object sender, EventArgs e)
+          {
+          LabelMessage.Text = "Hello Geek!";
+          }
+        </Element>
+        <Element Type="Text">
+
+          <p>
+            At the first call of the page the ASPX
+            markup is processed and all values of properties are set, especially the text
+            “We learn viewstate" for the <code>
+              Label
+            </code>. View state
+            stores nothing and therefore contains only internal information without custom
+            data:
+          </p>
+
+          <code>
+            &lt;input type=&quot;hidden&quot;
+            Name=&quot;__VIEWSTATE&quot; id=&quot;__VIEWSTATE&quot;
+            style='font-family:Wingdings'>
+                        value=&quot;/wEPDwULLTExNjMzNDIxNjRkZGn5amjBsOOap6CvRbpUM5D9Mlgo&quot;
+            /&gt;
+          </code>
+
+          <p>
+            Now click on the button “No Change".
+            This forces the page to postback and reload, but nothing more happens, because
+            no custom code is involved. Now click on the other button “Change Text". Again
+            a postback occurs, but now the handler processes the <code>OnClick</code> event. In the code, the text of the label gets a new value. View
+            state is changed to this:
+          </p>
+
+          <code>
+            &lt;input type=&quot;hidden&quot;
+            Name=&quot;__VIEWSTATE&quot; id=&quot;__VIEWSTATE&quot;
+            va-lue=&quot;/wEPDwULLTExNjMzNDIxNjQPZBYCAgMPZBYCAgEPDxYCHgRUZXh0BQtIYWxsbyBHZWVrIWRkZHTeN11LiTv5BJ0xSdey0L0Qsnk8&quot;
+            /&gt;
+          </code>
+
+          <p>
+            As you see, the coded part is bigger
+            and obviously contains more information. This is no surprise. If you click now on
+            the other button “No Change", the page loads as expected and no custom code is
+            run. However, the text of the label is still “Hello geek!" There is no custom
+            code—the initializing phase has obviously passed and has set the declaratively
+            assigned values. But the change made programmatically in an earlier postback is
+            still there—it’s persistent.
+          </p>
+
+          <p>
+            And that’s really the purpose of view
+            state. During postbacks, it makes programmatic changes to control properties
+            persistent. To check whether this behavior is really managed by view state,
+            just disable it using the <code>@Page</code> directive:
+          </p>
+          <pre>
+            &lt;%@ Page Language=&quot;C#&quot; EnableViewState=&quot;false&quot; …
+          </pre>
+          <p>
+            The first click on “Change text" still
+            works as expected. The new text appears. However, when you click on “No change",
+            the postback forces the page to reload and the declarative part of the markup reloads
+            the default values.
+          </p>
+
+          <p>
+            Imagine that the “no view
+            state" behavior described above is the intended behavior in most cases. If you
+            have a label, you usually want it to show its default text. In case of an
+            exception you might want to display a different text. But subsequent reloads
+            usually store the state of such an exception by either overwriting the text
+            again or letting the default text appear.
+          </p>
+
+          <p>
+            Globally disabling view state is
+            not an option either, because several complex controls use it to handle their
+            behavior properly, such as the <code>
+              GridView
+            </code> control. You
+            need to understand the view state to prevent overuse in case you don’t need it.
+            In case you really need the special behavior the view state provides you use it
+            correctly, then.
+          </p>
+
+        </Element>
+      </Element>
+      <Element Type="Section" Name="View State Anti-Patterns">
+        View State Anti-Patterns
+        <Element Type="Text">
+
+          <p>
+            Improper use of view state is easily avoided
+            once you really understand how it works.To make things clear, I’ll explain the
+            most frequent misuse scenarios. Examples of how <i>not</i> to use view state
+            will help you understand how to use view state correctly:
+          </p>
+          <ol>
+            <li>Forcing a default.</li>
+            <li>Persisting static data.</li>
+            <li>Persisting “cheap" data.</li>
+            <li>Initializing child controls.</li>
+            <li>Adding controls dynamically.</li>
+            <li>Initializing dynamically created controls.</li>
+          </ol>
+          <p>I’ll explain each of these scenarios to make things as clear as possible.</p>
+
+        </Element>
+        <Element Type="Section">
+          Forcing a Default
+          <Element Type="Text">
+
+            <p>
+              Forcing a default vlue is a very common
+              misuse. Fortunately, it’s even easier to fix. It’s also a good demonstration of
+              the KISS principle. The developers of ASP.NET did a tremendous job to give us a powerful
+              and well-designed toolkit. The whole framework is an infrastructure thing and
+              provides stable and reliable blocks of code for basic stuff. Doing too much
+              infrastructure work is a signal that something is going wrong.
+            </p>
+
+            <p>
+              Assume that you want to store some
+              private data used in a user control. The following code uses the view state, which,
+              in principle, is not a bad idea.
+            </p>
+
+          </Element>
+          <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true"  Name="DON’T TRY THIS AT HOME: a wrongly written user control">
+            public class MyControl : WebControl
+            {
+            public string MyData
+            {
+            get { return ViewState[&quot;MyData&quot;] as string;  }
+            set { ViewState[&quot;MyData&quot;] = value; }
+            }
+            protected override OnLoad(EventArgs e)
+            {
+            if (!IsPostBack)
+            {
+            this. MyData = Session[&quot;Control MyData&quot;] as string;
+            }
+            base.OnLoad();
+            }
+            }
+
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              You may have written code like this before.
+              It’s not a bad style; it’s simply wrong. To understand my harsh judgment, let’s
+              examine the intent of the control. The developer wrote a user control with the
+              public property MyData. This gives other developers access to it in order to
+              put the control into a defined state using markup like this:
+            </p>
+
+            <pre>
+              &lt;alias:mycontrol runat=&quot;server&quot;
+              Text=&quot;Show this label&quot; id=&quot;myControl1&quot; /&gt;
+            </pre>
+
+            <p>
+              This compiles and runs well without any
+              exceptions. However, it doesn’t work as expected because the MyData property is
+              never set. Instead, the view state of the page starts growing because the view
+              state field stores this private information. From that perspective, it’s doing
+              well; it holds some data. Also, remember the life cycle events. It’s boring to
+              repeat them again and again, but everything in ASP.NET is based on the life
+              cycle. In Listing 1-13 the code
+              is written into the <code>
+                OnLoad
+              </code> method. But the <code>Load</code> stage is too late. View state already tracks changes and now it’s
+              being overwritten. That’s why it doesn’t make sense to write the data there. Let’s
+              improve our example:
+            </p>
+
+          </Element>
+          <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true"  Name="Save to be used at home: A well written control">
+
+            public class MyControl : WebControl
+            {
+            public string MyData
+            {
+            get {
+            if (ViewState[&quot;MyData&quot;] == null)
+            return Session[&quot;Control MyData&quot;] as string;
+            else
+            return ViewState[&quot;MyData&quot;] as string;
+            }
+            set { ViewState[&quot;MyData&quot;] = value; }
+            }
+            }
+
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              This involves less code and it’s
+              working well. The default value in the session is now used without touching view
+              state. Simply putting the control onto the page does not increase the size of view
+              state. <code>OnLoad</code> is out of the way here. The assignment of properties happens in the
+              Initializing phase—early enough to set values properly. In case the user of the
+              control sets the MyData property programmatically, view state is in full cry
+              and stores the changes silently in the hidden field.
+            </p>
+
+          </Element>
+        </Element>
+        <Element Type="Section">
+          Persisting constant data
+          <Element Type="Text">
+
+            <p>
+              A lot of data used in a page’s code
+              never changes during the life of the page or during the user’s session. Assume
+              your application has some “My" section that is customizable by the user. After
+              the user is logged on, his or her name appears at the top of each page. Assume
+              further that a user control is being written to achieve this.
+            </p>
+            <p>
+              <code>&lt;asp:label id="lblUser" runat="server"/&gt;</code>
+            </p>
+            <p>In the code behind portion the name is set:</p>
+
+          </Element>
+          <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true" >
+
+            public class MyControl : WebControl
+            {
+            protected override OnLoad(EventArgs e)
+            {
+            lbluser.Text = CurrentUser.Name;
+            base.OnLoad();
+            }
+            }
+
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              This is code that would work well.
+              However, it’s doing something under the hood that we don’t want. The label has
+              its own view state and, as a child control of the user control, it will store
+              its changed properties in the parent’s view state. The user control is going to
+              recognize this and store the change of view state. Storing the label’s text
+              value in view state doesn’t make sense as, each time it’s loaded, the value is
+              pulled from the <code>
+                CurrentUser
+              </code> class. The
+              default behavior of controls is an implicit usage of view state. Either you
+              assign it once, and hold data in view state, or you need to prevent it from
+              using view state. The solution I would recommend looks very easy:
+            </p>
+            <p>
+              <code>
+                &lt;asp:label id=&quot;lblUser&quot;
+                runat=&quot;server&quot; EnableViewstate=&quot;false&quot; /&gt;
+              </code>
+            </p>
+            <p>
+              Disable view state on the control level
+              and it will work like a charm.
+            </p>
+
+          </Element>
+        </Element>
+        <Element Type="Section">
+          Persisting cheap data
+          <Element Type="Text">
+
+            <p>
+              Sometimes you use data that changes
+              frequently, depending on user action or external conditions. Assume you want to
+              show a list of data on your page. It is a small list and it doesn’t change
+              frequently. But it could change or grow at any time. Your site is already using
+              a database; it’s fast and there is nothing wrong with pulling the data from a
+              table.
+            </p>
+
+            <pre>
+              &lt;asp:dropdownlist runat=&quot;server&quot;
+              id=&quot;ddlMyData&quot; DataTextField=&quot;Name&quot;      DataValueField=&quot;ID&quot;/&gt;
+            </pre>
+
+            <p>The (fictitious) code-behind portion could look like this:</p>
+
+          </Element>
+          <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true" >
+
+            public class MyControl : WebControl
+            {
+            protected override OnLoad(EventArgs e)
+            {
+            if (!IsPostBack)
+            {
+            ddlMyData.DataSource = DAL.QueryDdlData();
+            ddlMyData.DataBind();
+            }
+            base.OnLoad();
+            }
+            }
+
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              This is, again, working well and nobody
+              would see any issues here. However, there is something here that is easily
+              overlooked. Databound controls need to remember their state, for instance, to
+              hold the last selected option of a dropdownlist after postback. I discussed
+              this previously and called this smart behavior “stickiness". We don’t want to lose
+              the form’s sticky behavior. You might therefore assume that switching view
+              state off is not a solution either. But stickiness is part of the control
+              state; it’s made by checking the form data. It’s not related to view state, as
+              some developers think. The reason we run into trouble with view state is that
+              it grows each time the page reloads.
+            </p>
+
+            <p>
+              This time the solution is not so simple.
+              Switching off view state is only the half of the answer:
+            </p>
+
+            <pre>
+              &lt;asp:dropdownlist runat=&quot;server&quot;
+              id=&quot; ddlMyData&quot; DataTextField=&quot;Name&quot; DataValueField=&quot;ID&quot;
+              EnableViewState=&quot;false&quot; /&gt;
+            </pre>
+
+            <p>
+              The code behind is almost the same, except
+              we pull the data every time the control loads (note the missing <code>if</code> statement):
+            </p>
+
+          </Element>
+          <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true" >
+
+            Public class MyControl : WebControl
+            {
+            protected override OnLoad(EventArgs e)
+            {
+            ddlMyData.DataSource = DAL. QueryDdlData ();
+            ddlMyData.DataBind();
+            base.OnLoad();
+            }
+            }
+
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              Now view state is as clean as possible.
+              But the sticky form behavior has gone, too. Trying this, you might think you’ve
+              found a bug in this book and that the author is wrong about view state.
+            </p>
+
+            <p>
+              The fault is not view state itself. It
+              still has no function because the control state is restoring the data from
+              postback values. However, we overwrite this because the <code>OnLoad</code> event is fired after all states are restored. This is, again, a
+              life cycle issue. Understanding the life cycle leads us to the solution. Move
+              the last code fragment as is to another step in the life cycle—<code>OnInit</code>:
+            </p>
+
+          </Element>
+          <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true" >
+
+            public class MyControl : WebControl
+            {
+            protected override OnInit(EventArgs e)
+            {
+            ddlMyData.DataSource = DAL. QueryDdlData ();
+            ddlMyData.DataBind();
+            base.OnInit();
+            }
+            }
+
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              This solution is both clean and simple.
+              <code>OnInit</code> fires before the control state restores the values. It pulls static
+              data from a fast database, puts it directly into the control, forces the render
+              process before the control restores its state, and everything is fine. The
+              render process is an important step here, made by calling the <code>DataBind</code> method.
+            </p>
+
+          </Element>
+          <Element Type="Sidebar" SidebarType="Tip">
+
+            <header>Tip</header>
+            <aside>
+              You’ll probably want to
+              avoid heavy database access whenever possible. Instead, you’ll probably store
+              small data portions in XML files and maintain changes there. I would recommend
+              using a database anyway. Modern implementations, like Microsoft SQL Server™,
+              hold frequently requested data in memory. The amount of data requested is
+              small, and the connection is usually 1GB or 10GB Ethernet. A powerful data
+              access layer will also cache the data locally, so that in reality nothing is
+              transferred between the servers. The slowest part of the connection is from the
+              web server to the user. He or she will have ISDN, DSL, or a dial-up modem.
+              Storing the small portion of data in view state sends the data three times over
+              the wire: once when the user loads the page (as visible data in the dropdown
+              control), once in view state, and the third time when the form is sent back (as
+              view state is part of the form’s field collection). Calling a database
+              frequently is not torture; this is the reason for a database.
+            </aside>
+
+          </Element>
+        </Element>
+        <Element Type="Section">
+          Initializing child controls
+          <Element Type="Text">
+
+            <p>
+              One paradigm you might hear frequently
+              about ASP.NET is to do things declaratively. Whatever you can do directly
+              within the aspx page, do it! However, this has some implications and
+              limitations, and eventually you must start doing some work programmatically.
+              The trouble is that initializing controls programmatically is not straightforward.
+              As shown before, you can do this in <code>
+                OnLoad
+              </code>, but
+              this could cause the view state to grow and, in any case, it’s not necessary to
+              use view state when merely setting defaults. Even <code>OnInit</code> is not the best solution because view state will still track
+              changes and catch the settings. If you need view state and can’t disable it,
+              you’ll have to live with this behavior. Because the control’s view state tracks
+              changes from the bottom up—say, from the last leaf control in the control
+              hierarchy up to the tree’s root—the <code>
+                OnInit
+              </code> for
+              child controls is done when the current <code>
+                OnInit
+              </code> is
+              called.
+            </p>
+
+            <pre>&lt;asp:label id=&quot;lblDate&quot; runat=&quot;server&quot;/&gt;</pre>
+
+            <p>In the code behind portion we set the text by assigning the current date:</p>
+
+            <pre>
+              public class MyControl : WebControl
+              {
+              protected override OnInit(EventArgs e)
+              {
+              lblDate.Text = DateTime.Now.ToLongDate();
+              base.OnInit();
+              }
+              }
+            </pre>
+
+            <p>
+              Even if this is the earliest
+              event possible, it’s already too late. The label is initialized before the user
+              control, and view state is already tracking changes. This means thatthe date persists
+              in view state, which doesn’t make sense—this is the same situation we faced in
+              the current user name example.
+            </p>
+
+            <p>
+              Disabling view state has been
+              discussed before, but this is not always a solution. Perhaps you have tried
+              this:
+            </p>
+
+            <pre>
+              &lt;asp:label id=&quot;lblDate&quot;
+              runat=&quot;server&quot; Text=&quot;&lt;% = DateTime.Now.ToLongDate() %&gt;&quot;/&gt;
+            </pre>
+
+            <p>
+              This is not possible, because
+              ASP.NET doesn’t allow the initializing of properties in that way. Using
+              databinding syntax <code>
+                &lt;%# %&gt;
+              </code> is no
+              solution, either.
+            </p>
+
+            <p>
+              Let’s assume that for some
+              reason you want to assign the value by code. And you want to use view state for
+              some other reason as well. You may think about <code>OnPreInit</code>,
+              but this event isn’t recursive and appears only on the page level. So, what’s
+              going on here? It’s interesting that the <code>
+                OnInit
+              </code> event
+              behaves slightly differently depending on how you get access to it. The obvious
+              way is to override the event handler. This is easy, well supported in IntelliSense,
+              and the most common solution. You can attach events declaratively, too. As I
+              said before, this is one of the major paradigms of ASP.NET.
+            </p>
+
+            <pre>
+              &lt;asp:label id=&quot;lblDate&quot;
+              runat=&quot;server&quot; OnInit=&quot;lblDate_Init&quot; /&gt;
+            </pre>
+
+            <p>
+              This handler is fired before the
+              internal initialization takes place—before the <code>
+                TrackViewState
+              </code> method is called and the view state starts tracking changes. Just
+              set the text in the code behind as you would before:
+            </p>
+            <pre>
+              public class MyControl : WebControl
+              {
+              public void lblDate_Init(object sender, EventArgs e)
+              {
+              lblDate.Text = DateTime.Now.ToLongDate();
+              }
+              }
+            </pre>
+          </Element>
+          <Element Type="Sidebar" SidebarType="Tip">
+            <header>Tip</header>
+            <aside>If you’re wondering whether to use declarative events or just wire up to code—remember the basic rule: “Whatever we can do easily and safely the declarative way is our primary programming technique".</aside>
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              Another solution comes to mind if you’re
+              an experienced developer of object oriented software. Each object starts its
+              life with the call of the object’s constructor. Usually the constructor is the
+              place to initialize the object. However, in ASP.NET the life of controls begins
+              some time later, in the initialization phase. You may subclass the control and
+              override the constructor to invoke code there, but child controls are not yet
+              present. The various events required are fired some time later. With a custom
+              control it would work. This is indeed another powerful solution. By
+              implementing your own label you can access the constructor without needing to do
+              anything elsewhere:
+            </p>
+            <pre>
+              public class MyLabel : Label
+              {
+              public MyLabel()
+              {
+              this.Text = DateTime.Now.ToLongDate();
+              }
+              }
+            </pre>
+            <p>
+              This is a slightly modified label that
+              simply initializes itself at the right time without any side effects. The
+              constructor call assures that any tracking begins later.
+            </p>
+          </Element>
+          <Element Type="Sidebar" SidebarType="Note">
+            <header>Note</header>
+            <aside>
+              The internal “building
+              steps" of an object, like the constructor call, are made before the life time
+              of the object begins. By “life time", I mean the life of an object within the
+              control’s or page’s life cycle—not the life time of an object within the
+              runtime.
+            </aside>
+
+          </Element>
+        </Element>
+        <Element Type="Section">
+          Attaching Dynamic controls
+          <Element Type="Text">
+
+            <p>
+              All controls have a collection of child
+              controls, represented by the property <code>
+                Controls
+              </code>.
+              Some controls, such as <code>
+                Label
+              </code>, have an empty
+              collection, because they can’t render children. All controls inherit the
+              collection from <code>
+                Control
+              </code> base class.
+              This is the common way to access the hierarchy of controls. The class behind
+              the collection is defined:
+            </p>
+
+            <pre>
+              public class ControlCollection :
+              ICollection, IEnumerable
+            </pre>
+
+            <p>
+              There are no obvious limits preventing
+              you from adding new controls at any time.  With view state, it’s not that easy.
+              View state can track values only for existing controls. To handle dynamic
+              controls, you need to add them on any page load, whether it’s a postback or
+              regular page load cycle. Attaching dynamic controls must happen in the
+              initializing phase (<code>
+                OnInit
+              </code> event), because,
+              at an earlier state, there is no hierarchy of controls to which you could
+              attach anything. View state of those dynamically attached controls is then tracked
+              automatically. Remember that this is done recursively through the whole
+              hierarchy, so the <code>
+                StateBag
+              </code> class will
+              never miss anything. However, this point is critical. You might experience the
+              following exception loading the page after postback:
+            </p>
+            <pre> [Failed loading view state]</pre>
+
+            <p>
+              Failed to load view state. The control
+              tree into which view state is being loaded must match the control tree that was
+              used to save view state during the previous request. For example, when
+              adding controls dynamically, the controls added during a post-back must match
+              the type and position of the controls added during the initial request.
+            </p>
+
+            <p>
+              Let’s create an example so that we can
+              figure out what is happenning internally:
+            </p>
+
+          </Element>
+          <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true" >
+
+            protected void Page_Init(object sender, EventArgs e)
+            {
+            if (!IsPostBack)
+            {
+            Button myButton = new Button();
+            form1.Controls.Add(myButton);
+            myButton.Text = &quot;Click here&quot;;
+            }
+            else
+            {
+            Label label = new Label();
+            form1.Controls.Add(label);
+            }
+            }
+
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              The intent of this code is
+              obvious. The user has a <code>
+                Button
+              </code> to invoke some
+              action, and, when the action is completed, the button is replaced by a <code>Label</code> control. You might argue that this is not good practice,
+              but let’s examine it for the moment. View state tries to recognize the elements solely by their
+              index. In this example the control at index [0] is the <code>Button</code>. After postback it has been replaced by the <code>Label</code>,
+              using the same index [0]. This does not lead to the exception
+              shown above, because the restoring code is fairly stupid. It just looks for the
+              right property, and both <code>
+                Button
+              </code> and <code>Label</code> share the same <code>
+                Text
+              </code> property. While
+              this works, the label now shows the text “Click here". Why? The exception
+              appears even if this less than ideal method fails, probably because the control
+              does not provide the expected property.
+            </p>
+
+            <p>
+              The first solution is simple. Turn
+              off view state for the button control. Since you throw away the button anyway, view
+              state is not required at all. If the view state is being saved, it can’t
+              disturb the next cycle—problem solved. Here is the solution in all its glory:
+            </p>
+
+          </Element>
+          <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true" >
+
+            protected void Page_Init(object sender, EventArgs e)
+            {
+            if (!IsPostBack)
+            {
+            Button myButton = new Button();
+            myButton.EnableViewState = false;
+            form1.Controls.Add(myButton);
+            myButton.Text = &quot;Click here&quot;;
+            }
+            else
+            {
+            Label label = new Label();
+            form1.Controls.Add(label);
+            }
+            }
+
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              Had you been using view state in the
+              sample above, the problem would resolve itself—that is, if you had recreated
+              the control after postback, which is one of the basic rules of dynamic controls
+              creation. The ultimate solution looks like this:
+            </p>
+
+          </Element>
+          <Element Type="Listing" Language="text/x-csharp" Highlight="true" LineNumbers="true" >
+
+            protected void Page_Init(object sender, EventArgs e)
+            {
+            Button myButton = new Button();
+            myButton.EnableViewState = false;
+            form1.Controls.Add(myButton);
+            myButton.Text = &quot;Click here&quot;;
+            if (IsPostBack)
+            {
+            Label label = new Label();
+            form1.Controls.Add(label);
+            myButton.Visible = false;
+            }
+            }
+
+          </Element>
+          <Element Type="Text">
+
+            <p>
+              Here we are close to the best practice.
+              Allow all controls on the page to remain untouched and switch the visibility on
+              and off, as required, via code. The render method is smart enough to not render
+              invisible controls. But that’s another topic and would lead us away from view
+              state.
+            </p>
+
+          </Element>
+        </Element>
+        <Element Type="Section">
+          Initializing dynamically created controls
+          <Element Type="Text">
+
+            <p>
+              I discussed dynamic controls before and,
+              reading the text, you might feel that there are some issues with them. This is
+              indeed something we need to approach carefully, but there are no real issues.
+            </p>
+
+            <p>
+              The problem is very similar to the one
+              described before. Because you create the control when you choose, you have more
+              influence and this makes your life easier. It does, however, run against the
+              paradigm, because we leave the world of declarative definitions completely. In
+              any case, let’s look how to handle another view state issue correctly.
+            </p>
+            <pre>
+              public class MyCustomControl : Control
+              {
+              protected override void CreateChildControls()
+              {
+              Label l =  new Label();
+              Controls.Add(l);
+              l.Text = DateTime.Now.ToLongDate();
+              }
+              }
+            </pre>
+            <p>
+              You can create child controls any time,
+              but the <code>CreateChildControls</code> method is the best opportunity for fitting into the event sequence.
+              The initialize event is called and the control doesn’t miss the tracking of
+              view state. The secret is the behavior of the <code>
+                Controls.Add
+              </code>
+              call. This isn’t just a collection; it does much more when the <code>Add</code> method is invoked. Even if all events of the parent
+              hierarchy are complete, the control begins its regular life cycle and all events involved here are
+              fired correctly. That means that the control starts tracking view state
+              immediately after it’s added to the collection. <code>CreateChildControls</code> always seems too late, as even though it is called at different
+              points in time, it’s always later than <code>OnInit</code>. Just
+              for completeness, you need to know that it’s based on <code>EnsureChildControls</code> call, which happens in <code>OnPreRender</code>
+              at the latest. For some reasons the call might come much earlier.
+            </p>
+
+            <p>Now take a closer look at the solution:</p>
+            <pre>
+              public class MyCustomControl : Control
+              {
+              protected override void CreateChildControls()
+              {
+              Label l =  new Label();
+              l.Text = DateTime.Now.ToLongDate();
+              Controls.Add(l);
+              }
+              }
+            </pre>
+            <p>
+              There is only a subtle difference. The
+              control’s properties are set before the control is added, which means that it’s
+              initialized before the <code>OnInit</code> is fired, and
+              that subsequently it has not yet begun to track the view state.
+            </p>
+            <p>
+              You can also databind controls before they
+              have been added to the parent control’s control hierarchy. This is very powerful
+              and flexible. So real developers write their own custom controls and know how
+              they work internally. Because this is a good topic for extensibility I’ll cover
+              this in this book, too.
+            </p>
+
+          </Element>
+        </Element>
+      </Element>
+      <Element Type="Section" Name="Summary">
+        Summary
+        <Element Type="Text">
+
+          <p>
+            In this chapter you learned about the
+            internal processing of ASP.NET. Especially we took a look into the processing
+            pipeline, which is running a single request and performs the steps required to
+            create the content send to the client finally. The pipeline forms the life
+            cycle of application, pages, and controls. During the life cycle several states
+            store current processing step’s data. To rescue data from one request to
+            another, the view state is used. You learned what the view state is for and how
+            to overcome the quirks and traps the implemention has.
+          </p>
+
+          <p>
+            However, Web applications handle usually
+            more than one request at a time. The next chapter extends the description by
+            looking into threading, thread pools, and other stuff required to make an
+            ASP.NET project fast and reliable even if it comes under pressure from multiple
+            requests.
+          </p>
+        </Element>
+      </Element>
+    </Element>
+  </Element>
+</Content>

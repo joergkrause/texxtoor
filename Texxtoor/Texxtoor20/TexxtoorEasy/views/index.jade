@@ -1,0 +1,31 @@
+﻿extends layout
+
+block content
+  div(ng-controller="Index")
+    .jumbotron
+      h1 Texxtoor Easy Author
+      p.lead Texxtoor is a free app for building great textbook publications using HTML and make professional looking EPUB, PDF, or Websites out of it.
+      p
+        a.btn.btn-primary.btn-large(href='http://expressjs.com/') Learn more &raquo;
+    .row
+      .col-md-4
+        h2 Getting started
+        p Express gives you a powerful, patterns-based way to build dynamic websites that enables a clean separation of concerns and gives you full control over markup for enjoyable, agile development.
+        p
+          a.btn.btn-default(href='http://expressjs.com/') Learn more &raquo;
+      .col-md-4
+        h2 Get more information
+        p Node Packaged Modules is a repository of software for Node.js.
+        p
+          a.btn.btn-default(href='https://www.npmjs.org/') Learn more &raquo;
+      .col-md-4
+        h2 Existing Users
+        p You can easily publish to Microsoft Azure using Node.js Tools for Visual Studio. Find out how you can host your application using a free trial today.
+        p
+          a.btn.btn-default(href='http://azure.microsoft.com') Learn more &raquo;
+    .row
+      h3 User
+      ul(ng-repeat="d in data.data")
+        li {{d.name}} ({{d.id}})
+block scripts
+  script(src='/javascripts/client/controller/index.js')

@@ -1,0 +1,108 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Functions.ReaderGroup
+@{
+  PageData["Title"] = Loc("title", "Manage your Members");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+  PageData["ShortHelp"] = Loc("textMembers", @"Here you can access members of the group <em>{0}</em>.", Model.Name);
+}
+@section HeadContent {
+  <script type="text/javascript">
+    $(function() {
+
+      ui = new Dialog(
+      {
+        formId: '#addMemberForm',
+        formDivId: '#addMember',
+        formAction: '@Url.Action("AddMember", new {groupId = Model.Id })',
+        sendBtnId: '#addMemberSendButton',
+        cancelBtnId: '#addMemberCancelButton',
+        onShow: function() {
+          $('#main').hide();
+        },
+        onClose: function() {
+          $('#main').show();
+        }
+      },
+      {
+      
+      },
+      {
+        formId: '#delMember',
+        formDivId: '#delMember',
+        formAction: '@Url.Action("DeleteMember", new {groupId = Model.Id})',
+        sendBtnId: '#delMemberSendButton',
+        cancelBtnId: '#delMemberCancelButton'
+      },
+      {
+        formId: '#main',
+        formDivId: '#main',
+        formAction: '@Url.Action("ListMember", new {groupId = Model.Id})'
+      });
+      ui.updateTable();
+    });
+
+  </script>
+  <script type="text/javascript">
+    $(function() {
+      $(document).on('click', '#addMessageSendButton', function() {
+        var frm = $('#addMessageForm input');
+        var data = {};
+        $.each(frm, function(i, v) {
+          data[v.name] = v.value;
+        });
+        $.validator.unobtrusive.parse($('#addMessageForm'));
+        if ($('#addMessageForm').valid()) {
+          $.post('@Url.Action("SendMessage")', data, 'json')
+            .always(function(r) {
+              $('#main').show();
+              $('#addMessage').hide();
+              toastr.success(r.msg);
+            });
+        }
+      });
+      $(document).on('click', '#addMessageCancelButton', function() {
+        $('#addMessageForm input').val('');
+        $('#addMessage').hide();
+        $('#main').show();
+      });
+    });
+
+    function CreateMessageAll() {
+      ShowMessageForm({
+        url: '@Url.Action("AddMessageToGroup")',
+        data: { id: @Model.Id }
+      });
+    }
+
+    function CreateMessage(userId) {
+      ShowMessageForm({
+        url: '@Url.Action("AddMessageToUser")',
+        data: { id: userId }
+      });
+    }
+
+    function ShowMessageForm(d) {
+      $('#main').hide();
+      $.ajax({
+        url: d.url,
+        data: d.data,
+        type: 'GET',
+        dataType: 'html',
+        success: function(data) {
+          $('#addMessage').html(data);
+          $('#addMessage').show();
+        }
+      });
+    }
+  </script>
+  @Script.SetTableBehavior(true)
+}
+@using (Html.BtDeleteTemplate(Loc("textDel", @"You're about to delete a group permanently. Please confirm."))){
+  @Create.FormButtonOnClick("delMemberSendButton", "", ViewResources.Action_Reader_DeleteMember, BtStyle.ButtonWarning)
+  @Create.FormButtonOnClick("delMemberCancelButton", "", ViewResources.Button_Cancel)
+}
+@Create.ContentFormEmpty("addMessage")
+@Create.ContentForm("addMember", Html.Action("AddMember", new { groupId = Model.Id }), Loc("title", "Manage your Members").ToString())
+@Create.MainContentWithLoader()
+
+@Create.ActionTask("", false, Url.Action("Groups", "Groups", new { area = "ReaderPortal" }), ViewResources.LinkButton_Reader_PublicGroups)
+@Create.ActionTask("", false, Url.Action("Questions", "Groups", new { area = "ReaderPortal" }), ViewResources.LinkButton_Reader_Questions)

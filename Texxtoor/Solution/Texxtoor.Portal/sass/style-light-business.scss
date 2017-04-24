@@ -1,0 +1,15 @@
+﻿$TexxtoorClrDark: #0f9a54; 
+$TexxtoorClrMedium: #DD5555;
+$TexxtoorClrLight: #e4e03c;
+$TexxtoorBwDark: #666666; 
+$TexxtoorBwMedium: #A1A1A1;
+$TexxtoorBwLight: #DDDDDD;
+$TexxtoorBlack: #000000;
+$baseWidth: 960px;   // view port
+$superWidth: 1200px; // max outbound
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+$baseFont: "Montserrat","Helvetica","Arial",sans-serif;
+$inputFont: "Montserrat","Helvetica","Arial",sans-serif;
+$headerFont: "Montserrat","Helvetica","Arial",sans-serif;
+
+@import "custom/style-light"; 

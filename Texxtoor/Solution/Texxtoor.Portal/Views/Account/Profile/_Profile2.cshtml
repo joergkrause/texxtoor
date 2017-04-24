@@ -1,0 +1,18 @@
+﻿@model Texxtoor.DataModels.Models.Users.UserProfile
+@using(Html.BtFieldset(Loc("legend2", "Personal Data"))) {
+  @Html.LabelFor(m => m.XingProfile,new{@class="control-label col-sm-3"})
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.XingProfile)
+    @Html.ValidationMessageFor(m => m.XingProfile)
+  </div>
+  @Html.LabelFor(m => m.FacebookProfile,new{@class="control-label col-sm-3"})
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.FacebookProfile)
+    @Html.ValidationMessageFor(m => m.FacebookProfile)
+  </div>
+  @Html.LabelFor(m => m.OtherProfile,new{@class="control-label col-sm-3"})
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.OtherProfile)
+    @Html.ValidationMessageFor(m => m.OtherProfile)
+  </div>
+}

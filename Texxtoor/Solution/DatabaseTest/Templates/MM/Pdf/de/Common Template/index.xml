@@ -1,0 +1,6 @@
+﻿<div class="index" id="index-h-1" xmlns:t="http://www.texxtoor.de/2014/templating">
+  <h1 class='builder'></h1>
+  <ul class="index">
+    <t:index buildelement="li" level="2"></t:index>
+  </ul>
+</div>

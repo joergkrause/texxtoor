@@ -1,0 +1,29 @@
+﻿@model Texxtoor.ViewModels.Users.RegisterViewModel
+<div class="well well-sm">
+  @Loc("text1", "Use this form to create a new form.")
+  @Loc("text2", "The password should have at least {0} characters.", (int)ViewBag.PasswordLength)
+  @Loc("text3", "All users can do everything&mdash;Reading, Writing, Contributing, or just using. No obligations, always free!")
+</div>
+@using (Html.BeginForm("QuickRegister", "Orders", new { area = "ReaderPortal" }, FormMethod.Post, new {
+  @class = "quickForm",
+  data_next_invalid_tab = "formRegister",
+  data_next_error_tab = "formRegister",
+  data_next_success_tab = "formAddress",
+  data_next_form_url = Url.Action("QuickAddress"),
+  data_next_form_target = "formAddress",
+  data_next_form_id = ViewBag.PublishedId
+})) {
+  <span class="alert alert-warning">
+    @Html.ValidationSummary(false)
+    @ViewBag.Status
+  </span>
+  using(Html.BtFieldset(Loc("legend1", "Register Details"))) {
+    @Html.EditorForModel()
+    <div class="formsendButtons">
+      <input type="button" id="btnRegister" data-form data-next-tab="3" value="@ViewResources.Action_Common_Register" class="@BtStyle.ButtonAndPrimary quickForm" />
+    </div>
+  }
+}
+<div class="alert alert-info">
+  @Loc("txtBottom", "Once the registration has been sent we send a confirmation to the e-mail address given. You can use the account immediately. However, we recommend that you complete your profile to get everything the platform provides.")
+</div>

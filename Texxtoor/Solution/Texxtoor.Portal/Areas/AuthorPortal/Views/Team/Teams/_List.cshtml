@@ -1,0 +1,16 @@
+﻿@using Texxtoor.ViewModels.Author
+@model IPagedList<TeamOverviewModel>
+@Html.Partial("_Pagination", PaginationViewModel<TeamOverviewModel>.Create(Model, "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});",
+new Dictionary<string, string> {
+    {"id", "addBtn"},
+    {"action", "ui.addElement()" },
+    {"text", ViewResources.Action_Team_CreateTeam},
+    {"cssclass", BtStyle.ButtonPrimary}
+  }, true, m => m.Team.Name))
+<div class="multilist">
+  @foreach (var item in Model) {
+    <div class="listitem draggable" data-item="@item.Team.Id" data-drop-item="@item.Team.Id" data-title="@item.TeamName (@ViewResources.LinkButton_ToTeam)" data-model="/AuthorPortal/Team/Details">
+      @Html.Partial("Teams/_Item", item)
+    </div>
+  }
+</div>

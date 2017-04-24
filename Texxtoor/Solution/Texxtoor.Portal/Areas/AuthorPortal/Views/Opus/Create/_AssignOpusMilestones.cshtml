@@ -1,0 +1,47 @@
+﻿@model Texxtoor.DataModels.Models.Content.Opus      
+<script>
+  $(function() {
+    $('.date').datepicker({
+      format: '@(new System.Globalization.CultureInfo(Culture).DateTimeFormat.ShortDatePattern.ToLower())',
+      startDate: @String.Format("new Date({0}, 1, 1)", DateTime.Now.Year),
+      endDate: @String.Format("new Date({0}, 1, 1)", DateTime.Now.Year + 5),
+      buttonImage: '@Url.Content("~/Content/icons/calendar.png")',
+      language: '@Culture'
+    });
+  });
+</script>
+@if (Model == null || Model.Milestones == null || !Model.Milestones.Any()) {
+  using (Html.BtDiv(BtStyle.AlertAndInfo)) {
+    @Loc("textNoMs", @"There are no milestones assigned to this workspace.")
+  }
+} else {
+  using (Html.BtDiv(BtStyle.WellAndSmall & "col-md-8")) {
+    @Loc("textHasMs", @"You can, once the text has been created, remove, add, change, and edit milestones. You can assign milestones to contributors once a team has been established.")
+  }
+  <ul class="listStyleNone row col-md-9">
+    @foreach (var item in Model.Milestones) {
+      <li>
+        <input type="checkbox" id="ms-active-@item.Id" name="Opus.Milestones[@item.Id].Active" checked="checked" value="true" />
+        @Loc("txtActivate", "Activate")
+        <label style="margin-left: -30%;"><em>@item.Name</em></label>
+        @if (item.Opus.Project != null) {
+          if (item.Owner.Member == null) {
+            @:&nbsp;@Loc("textAssign", @"and assign to ")
+          } else {
+            @:&nbsp;@Loc("textChange", @"and change to ")
+          }
+          <select id="ms-assigned-@item.Id" name="Opus.Milestones[@item.Id].Owner">
+            @foreach (var member in item.Opus.Project.Team.Members) {
+              <option value="@member.Id" @(item.Owner.Id == member.Id ? "selected" : "") >@member.Member.UserName</option>
+            }
+          </select>
+        }
+        @Loc("txtDue", "and set due date to")
+        <span class="input-append datepicker Calender-Inline" id="datepicker-@item.Id">
+          <input type="text" name="Opus.Milestones[@item.Id].DateDue" value="@item.DateDue.ToShortDateString()" />
+          <span class="add-on"><i class="icon-calendar"></i></span>
+        </span>
+      </li>
+    }
+  </ul>
+}

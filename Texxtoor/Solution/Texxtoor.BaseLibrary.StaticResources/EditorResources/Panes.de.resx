@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Format_Font_Bold" xml:space="preserve">
+    <value>Fettgedruckt</value>
+  </data>
+  <data name="Format_Font_Italics" xml:space="preserve">
+    <value>Kursiv</value>
+  </data>
+  <data name="Format_Font_NonSemantic" xml:space="preserve">
+    <value>Schrift (nicht semantsich)</value>
+  </data>
+  <data name="Format_Font_Sub" xml:space="preserve">
+    <value>Unterkapitel</value>
+  </data>
+  <data name="Format_Font_Sup" xml:space="preserve">
+    <value>Super</value>
+  </data>
+  <data name="Format_Font_Underline" xml:space="preserve">
+    <value>Unterstrichen</value>
+  </data>
+  <data name="Format_Formatting_Bullets" xml:space="preserve">
+    <value>Aufzählung</value>
+  </data>
+  <data name="Format_Formatting_Editing" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="Format_Formatting_Indent" xml:space="preserve">
+    <value>Einrücken</value>
+  </data>
+  <data name="Format_Formatting_NonSemantic" xml:space="preserve">
+    <value>Formatierung (nicht semantsich)</value>
+  </data>
+  <data name="Format_Formatting_Numbers" xml:space="preserve">
+    <value>Nummerierung</value>
+  </data>
+  <data name="Format_Formatting_Outdent" xml:space="preserve">
+    <value>Ausrücken</value>
+  </data>
+  <data name="Format_Formatting_Undo" xml:space="preserve">
+    <value>Rückgängig</value>
+  </data>
+  <data name="Images_Insert_Image" xml:space="preserve">
+    <value>Abbildung einfügen</value>
+  </data>
+  <data name="Images_Tools" xml:space="preserve">
+    <value>Werkzeuge</value>
+  </data>
+  <data name="Images_Tools_Colors" xml:space="preserve">
+    <value>Farben</value>
+  </data>
+  <data name="Images_Tools_Crop" xml:space="preserve">
+    <value>Bildgröße</value>
+  </data>
+  <data name="Listing_Delete" xml:space="preserve">
+    <value>Entfernen</value>
+  </data>
+  <data name="Listing_Delete_Listing" xml:space="preserve">
+    <value>Listing entfernen</value>
+  </data>
+  <data name="Listing_Format" xml:space="preserve">
+    <value>Formatierung</value>
+  </data>
+  <data name="Listing_FormattingGuide_Language" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="Listing_Format_Code" xml:space="preserve">
+    <value>Quellcode formatieren</value>
+  </data>
+  <data name="Listing_Format_FormattingGuide" xml:space="preserve">
+    <value>Formatierungshilfe</value>
+  </data>
+  <data name="Listing_Format_LineNumbers" xml:space="preserve">
+    <value>Zeilennummern</value>
+  </data>
+  <data name="Navigate_Find" xml:space="preserve">
+    <value>Finden</value>
+  </data>
+  <data name="Navigate_Move_CurrentSection" xml:space="preserve">
+    <value>Aktuellen Abschnitt verschieben</value>
+  </data>
+  <data name="Navigate_Move_Down" xml:space="preserve">
+    <value>Runter</value>
+  </data>
+  <data name="Navigate_Move_HigherLevel" xml:space="preserve">
+    <value>Höher</value>
+  </data>
+  <data name="Navigate_Move_IncludeChildren" xml:space="preserve">
+    <value>Einfügen</value>
+  </data>
+  <data name="Navigate_Move_LowerLevel" xml:space="preserve">
+    <value>Niedriger</value>
+  </data>
+  <data name="Navigate_Move_Reorganize" xml:space="preserve">
+    <value>Reorganisieren</value>
+  </data>
+  <data name="Navigate_Move_Up" xml:space="preserve">
+    <value>Hoch</value>
+  </data>
+  <data name="Navigate_Options" xml:space="preserve">
+    <value>Optionen</value>
+  </data>
+  <data name="Navigate_Options_ShowFlow" xml:space="preserve">
+    <value>Elementtypen</value>
+  </data>
+  <data name="Navigate_Options_ShowNavi" xml:space="preserve">
+    <value>Schnellnavigation</value>
+  </data>
+  <data name="Navigate_Options_ShowSematicStyles" xml:space="preserve">
+    <value>Semantsiche Optionen</value>
+  </data>
+  <data name="Navigate_Orphane_NoSnippets" xml:space="preserve">
+    <value>Keine Elemente verfügbar</value>
+  </data>
+  <data name="Navigate_Orphan_IncludeChildren" xml:space="preserve">
+    <value>Einfügen</value>
+  </data>
+  <data name="Navigate_Orphan_Insert_Orphaned" xml:space="preserve">
+    <value>Element einfügen</value>
+  </data>
+  <data name="Navigate_Orphan_MergeWithNext" xml:space="preserve">
+    <value>Zusammenfassen mit folgendem</value>
+  </data>
+  <data name="Navigate_Orphan_Reorg" xml:space="preserve">
+    <value>Reorganisieren</value>
+  </data>
+  <data name="Navigate_Orphan_Snippet" xml:space="preserve">
+    <value>Element ablegen</value>
+  </data>
+  <data name="Navigate_Replace" xml:space="preserve">
+    <value>Ersetzen</value>
+  </data>
+  <data name="Navigate_Search" xml:space="preserve">
+    <value>Suchen</value>
+  </data>
+  <data name="Navigate_SelectAll" xml:space="preserve">
+    <value>Alle auswählen</value>
+  </data>
+  <data name="Semantic_Insert_Abbreviations" xml:space="preserve">
+    <value>Abkürzungsverzeichnis</value>
+  </data>
+  <data name="Semantic_Insert_Cites" xml:space="preserve">
+    <value>Zitate</value>
+  </data>
+  <data name="Semantic_Insert_Definitions" xml:space="preserve">
+    <value>Definitionen</value>
+  </data>
+  <data name="Semantic_Insert_Elements" xml:space="preserve">
+    <value>Element einfügen (semantisch)</value>
+  </data>
+  <data name="Semantic_Insert_Idiom" xml:space="preserve">
+    <value>Ausdrücke</value>
+  </data>
+  <data name="Semantic_Insert_Index" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="Semantic_Insert_Links" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="Semantic_Insert_Variables" xml:space="preserve">
+    <value>Variablen</value>
+  </data>
+  <data name="Semantic_Links" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="Semantic_Links_AddInternal" xml:space="preserve">
+    <value>Interne Verlinkung einfügen</value>
+  </data>
+  <data name="Semantic_Links_RemoveLink" xml:space="preserve">
+    <value>Verlinkung entfernen</value>
+  </data>
+  <data name="Semantic_MetaInformation" xml:space="preserve">
+    <value>Meta Informationen</value>
+  </data>
+  <data name="Semantic_MetaInformation_Stage" xml:space="preserve">
+    <value>Stufe</value>
+  </data>
+  <data name="Semantic_MetaInformation_Target" xml:space="preserve">
+    <value>Ziel</value>
+  </data>
+  <data name="Semantic_Sidebar" xml:space="preserve">
+    <value>Infobox</value>
+  </data>
+  <data name="Semantic_SocialInteraction" xml:space="preserve">
+    <value>Soziale Interaktion</value>
+  </data>
+  <data name="Semantic_SocialInteraction_Comments" xml:space="preserve">
+    <value>Kommentare</value>
+  </data>
+  <data name="Semantic_Type" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="Write_Chapter" xml:space="preserve">
+    <value>Kapitel</value>
+  </data>
+  <data name="Write_Clipboard" xml:space="preserve">
+    <value>Zwischenablage</value>
+  </data>
+  <data name="Write_Copy" xml:space="preserve">
+    <value>Kopieren</value>
+  </data>
+  <data name="Write_Cut" xml:space="preserve">
+    <value>Ausschneiden</value>
+  </data>
+  <data name="Write_Delete" xml:space="preserve">
+    <value>Entfernen</value>
+  </data>
+  <data name="Write_Delete_Children" xml:space="preserve">
+    <value>Mit Kindelementen</value>
+  </data>
+  <data name="Write_Delete_Snippet" xml:space="preserve">
+    <value>Aktuelles Element</value>
+  </data>
+  <data name="Write_Insert_Content" xml:space="preserve">
+    <value>Inhalt einfügen</value>
+  </data>
+  <data name="Write_Insert_Content_Listing" xml:space="preserve">
+    <value>Code-Listing</value>
+  </data>
+  <data name="Write_Insert_Content_Sidebar" xml:space="preserve">
+    <value>Seitenleiste</value>
+  </data>
+  <data name="Write_Insert_Content_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="Write_Insert_Section" xml:space="preserve">
+    <value>Abschnitt einfügen</value>
+  </data>
+  <data name="Write_Paste" xml:space="preserve">
+    <value>Einfügen</value>
+  </data>
+  <data name="Write_S1" xml:space="preserve">
+    <value>1.1 (#1)</value>
+  </data>
+  <data name="Write_S2" xml:space="preserve">
+    <value>1.1.1 (#2)</value>
+  </data>
+  <data name="Write_S3" xml:space="preserve">
+    <value>1.1.1.1 (#3)</value>
+  </data>
+  <data name="Write_S4" xml:space="preserve">
+    <value>1.1.1.1.1 (#4)</value>
+  </data>
+  <data name="Write_ShowWidget_Tab" xml:space="preserve">
+    <value>Elementtypen anzeigen</value>
+  </data>
+  <data name="Write_ShowWidget_Tab_Equation" xml:space="preserve">
+    <value>Gleichung</value>
+  </data>
+  <data name="Write_ShowWidget_Tab_Figure" xml:space="preserve">
+    <value>Abbildungen</value>
+  </data>
+  <data name="Write_ShowWidget_Tab_Table" xml:space="preserve">
+    <value>Tabelle</value>
+  </data>
+  <data name="Write_Subsection" xml:space="preserve">
+    <value>Unterabschnitt</value>
+  </data>
+  <data name="Equations_Greek" xml:space="preserve">
+    <value>Griechisch</value>
+  </data>
+  <data name="Equations_InsertCustomEquation" xml:space="preserve">
+    <value>Eigene Gleichung</value>
+  </data>
+  <data name="Equations_Letters" xml:space="preserve">
+    <value>Buchstaben</value>
+  </data>
+  <data name="Equations_Predefined" xml:space="preserve">
+    <value>Vordefiniert</value>
+  </data>
+  <data name="Equations_Scripts" xml:space="preserve">
+    <value>Schriften</value>
+  </data>
+  <data name="Images_Delete" xml:space="preserve">
+    <value>Entfernen</value>
+  </data>
+  <data name="Images_DeleteImage" xml:space="preserve">
+    <value>Abbildung entfernen</value>
+  </data>
+  <data name="Images_Measures" xml:space="preserve">
+    <value>Maße</value>
+  </data>
+  <data name="Images_Measures_Height" xml:space="preserve">
+    <value>Höhe</value>
+  </data>
+  <data name="Images_Measures_Width" xml:space="preserve">
+    <value>Breite</value>
+  </data>
+  <data name="Table_Choose_Dimensions" xml:space="preserve">
+    <value>1. Maße wählen</value>
+  </data>
+  <data name="Table_Choose_Style" xml:space="preserve">
+    <value>2. Mit diesem Stil erstellen</value>
+  </data>
+  <data name="Table_Printer_Settings" xml:space="preserve">
+    <value>Einstellungen Druck</value>
+  </data>
+  <data name="Table_AppendCol" xml:space="preserve">
+    <value>Spalte anhängen</value>
+  </data>
+  <data name="Table_AppendRow" xml:space="preserve">
+    <value>Reihe anhängen</value>
+  </data>
+  <data name="Table_AvoidPageBreak" xml:space="preserve">
+    <value>Zeilenumbruch vermeiden</value>
+  </data>
+  <data name="Table_Delete" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="Table_DeleteCol" xml:space="preserve">
+    <value>Spalte löschen</value>
+  </data>
+  <data name="Table_DeleteRow" xml:space="preserve">
+    <value>Reihe löschen</value>
+  </data>
+  <data name="Table_DeleteTable" xml:space="preserve">
+    <value>Tabelle löschen</value>
+  </data>
+  <data name="Table_InsertCol" xml:space="preserve">
+    <value>Spalte einfügen</value>
+  </data>
+  <data name="Table_InsertRow" xml:space="preserve">
+    <value>Reihe einfügen</value>
+  </data>
+  <data name="Table_MergeCells" xml:space="preserve">
+    <value>Zellen verbinden</value>
+  </data>
+  <data name="Table_RepeatHeader" xml:space="preserve">
+    <value>Kopfzeile wiederholen</value>
+  </data>
+  <data name="Table_SplitCells" xml:space="preserve">
+    <value>Zellen teilen</value>
+  </data>
+  <data name="Table_Tools" xml:space="preserve">
+    <value>Tabellenwerkzeuge</value>
+  </data>
+</root>

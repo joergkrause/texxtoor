@@ -1,0 +1,20 @@
+﻿@using System.Globalization
+@model System.DateTime
+@{
+  var uniqueName = Guid.NewGuid().ToString().Replace("-", "").Replace("{", "").Replace("}", "");
+  var offset = (ViewData.ModelMetadata.AdditionalValues.ContainsKey("Offset") ? (int)ViewData.ModelMetadata.AdditionalValues["Offset"] : 7);
+}
+<script type="text/javascript">
+  $(function () {
+    $(".@(ViewData.TemplateInfo.HtmlFieldPrefix + uniqueName)").datepicker({
+      format: '@(new CultureInfo(Culture).DateTimeFormat.ShortDatePattern.ToLower())',
+      startDate: @String.Format("new Date({0}, 1, 1)", DateTime.Now.Year),
+      endDate: @String.Format("new Date({0}, 1, 1)", DateTime.Now.Year + 10),
+      buttonImage: '@Url.Content("~/Content/icons/calendar.png")',
+      language: '@Culture'
+    });
+    $(".@(ViewData.TemplateInfo.HtmlFieldPrefix + uniqueName)").datepicker('setDate',  @(String.Format("new Date({0}, {1}, {2})", Model.Year, Model.Month - 1, Model.Day)));
+  });
+</script>
+@Html.TextBox("", Model.ToShortDateString(), new { id = ViewData.TemplateInfo.HtmlFieldPrefix + uniqueName, @class = ViewData.TemplateInfo.HtmlFieldPrefix + uniqueName })
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

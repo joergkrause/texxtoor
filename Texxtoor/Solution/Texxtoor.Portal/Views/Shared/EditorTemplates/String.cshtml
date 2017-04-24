@@ -1,0 +1,20 @@
+﻿@model string
+@{
+  var ro = ViewData.ModelMetadata.IsReadOnly;
+  var le = (ViewData.ModelMetadata.AdditionalValues.ContainsKey("Length") ? Convert.ToInt32(ViewData.ModelMetadata.AdditionalValues["Length"]) : 25) * 10;
+  var wm = ViewData.ModelMetadata.Watermark;
+  IDictionary<string, object> go = new Dictionary<string, object>();
+  if (ViewData["HtmlAttributes"] != null) {
+    var t = (Tuple<string, string>) ViewData["HtmlAttributes"];
+    go.Add(t.Item1, t.Item2);
+  }
+  if (ro) {
+    go.Add("disabled", "disabled");
+  } else {
+    go.Add("data-watermark", wm);
+  }
+  go.Add("style", "width:" + le + "px");
+  go.Add("class", "form-control");
+}
+@Html.TextBoxFor(m => m, go)
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

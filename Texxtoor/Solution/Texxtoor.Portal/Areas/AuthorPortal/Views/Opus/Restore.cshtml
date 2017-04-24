@@ -1,0 +1,86 @@
+﻿@model Texxtoor.DataModels.Models.Content.Opus
+@{
+  PageData["Title"] = Loc("titleRestore", @"Restore");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("textRest", @"You can upload a backup made with the backup tool and replace the Content of the current work with this.");
+}
+@section HeadContent{
+  <style>
+    .fileinput-button {
+      position: relative;
+    }
+
+    input[type=file] {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      filter: alpha(opacity=1);
+      -moz-opacity: 0.01;
+      opacity: 0.01;
+    }
+  </style>
+  <script src="~/Scripts/jquery/jquery.jeditable.js"></script>
+  <script src="~/Scripts/jquery/jquery.jeditable.ajaxupload.js"></script>
+  <script>
+  $(function() {
+    $('#restore').editable('@Url.Action("Restore", new { id = Model.Id })', {
+      type: 'ajaxupload',
+      indicator: 'Restoring ...',
+      submit: '@ViewResources.Action_Opus_Restore',
+        cancel: undefined,
+        tooltip: 'Click to upload a backup file',
+        name: 'file',
+        ajaxoptions: { "dataType": "json" },
+        intercept: function(s, r) {
+
+        },
+        callback: function(data) {
+          alert(data.msg);
+        },
+        error: function(data) {
+          alert(data);
+        }
+      });
+      $('#restore').trigger('click');
+      LoadList();
+    });
+    function DeleteHistory(id) {
+      $.ajax({
+        url: '@Url.Action("DeleteHistory", "Opus")',
+        data: { id: id },
+        cache: false,
+        success: function(data) {
+          toastr.success(data.msg);
+          LoadList();
+        }
+      });
+      return false;
+    }
+    function LoadList() {
+      $.ajax({
+        url: '@Url.Action("ListHistory")',
+        data: { id: @Model.Id },
+        cache: false,
+        success: function(data) {
+          $('#main').html(data);
+          SetTableBehavior();
+        }
+      });
+    }
+  </script>
+  @Script.SetTableBehavior()
+}
+@using (Html.BtPanel(Loc("titleRestoreAction", "Upload a Backup and Restore"), "green")) {
+  <div id="restore">@ViewResources.Action_Xml_Backup</div>
+}
+<h2>@Loc("titleHistory", "History of work development")</h2>
+@using (Html.BtDiv(BtStyle.WellAndSmall)) {
+  @Loc("textHistory", "Each time an author sets a restore point a copy of the whole document has been created. " +
+                           "Click on one of the restore points, the return to this very version. The current version will become " +
+                           "a new restore point itself so you're safe against any changes made.")
+}
+@Create.MainContentWithLoader()
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = Model.Id }), ViewResources.LinkButton_ToDashboard)

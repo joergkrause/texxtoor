@@ -1,0 +1,75 @@
+﻿@model Texxtoor.ViewModels.Author.TeamOverviewModel
+<div class="well well-sm">
+  @Loc("textTeamSummary", @"This project is run by Team <em><span data-args='0' data-desc='Team Name'>{0}</span></em>.
+This team runs <em><span data-args='1' data-desc='Other projects'>{1}</span></em> other project.
+Our team currently has <em><span data-args='2' data-desc='Member Count'>{2}</span></em> members.",
+Model.Team.Name, Model.Team.Projects.Count() - 1, Model.Team.Members.Count())
+</div>
+@foreach (var item in Model.Team.Members.OrderByDescending(m => m.TeamLead)) {
+  <div class="well well-lg" style="@(item.TeamLead ? "background-color: beige" : "" )">
+    @if (item.TeamLead) {
+      <div class="alert  alert-success">
+        <strong>@Loc("isLead", @"This is the team's leader and project owner.")</strong>
+      </div>
+    }
+    <div class="pull-right">
+      <img src="/Tools/GetImg/@item.Member.Profile.Id?res=50x70&c=MemberThumbnail" class="TeamImg pull-right" />
+      <br />
+      <small>@item.Member.UserName</small>
+    </div>
+    <strong>@Loc("textSkills", @"Skills provided by this user:")</strong>
+    @if (Model.AllUserRoleMatrix != null) {
+      var ct = Model.AllUserRoleMatrix;
+      if (ct.ContainsKey(item.Member.UserName) && ct[item.Member.UserName].Any()) {
+        @: <em>@Html.Raw(String.Join("</em>, <em>", ct[item.Member.UserName].Select(c => c.Name + " (" + c.LocaleIdLocalName + ")").ToArray()))</em>
+          } else {
+        @: @Loc("textNothing", @"Nothing.")
+          }
+    }
+    <br />
+    <strong>@Loc("textRoles", @"Roles this user is assigned to in this project:")</strong>
+    @if (Model.AssignedRoleMatrix != null) {
+      var ct = Model.AssignedRoleMatrix;
+      if (ct.ContainsKey(item.Member.UserName) && ct[item.Member.UserName].Any()) {
+        @: <em>@Html.Raw(String.Join("</em>, <em>", ct[item.Member.UserName].Select(c => c.Name + " (" + c.LocaleIdLocalName + ")").ToArray()))</em>
+          } else {
+        @: @Loc("textNothing", @"Nothing.")
+          }
+    }
+    <br />
+    <strong>@Loc("textActual", @"Roles this user actually has in the project:")</strong>
+    @{var mrroleNames = new List<string>();
+    foreach (Texxtoor.DataModels.Models.Author.ContributorRole mr in Enum.GetValues(typeof(Texxtoor.DataModels.Models.Author.ContributorRole))) {
+      if (((int)item.Role.ContributorRoles & (int)mr) == (int)mr) {
+        var mrattr = typeof(Texxtoor.DataModels.Models.Author.ContributorRole).GetField(mr.ToString()).GetCustomAttributes(typeof(System.ComponentModel.DataAnnotations.DisplayAttribute), true).Cast<System.ComponentModel.DataAnnotations.DisplayAttribute>
+          ().Single();
+        mrroleNames.Add(mrattr.GetName());
+      }
+    }
+    <em>
+      @String.Join(", ", mrroleNames.ToArray())
+    </em>
+    }
+    <br />
+    <strong>@Loc("textAvail", @"These roles are still available:")</strong>
+    @if (Model.AvailableRoleMatrix != null) {
+      var ct = Model.AvailableRoleMatrix;
+      if (ct.ContainsKey(item.Member.UserName) && ct[item.Member.UserName].Any()) {
+        @: <em>@Html.Raw(String.Join("</em>, <em>", ct[item.Member.UserName].Select(c => c.Name + " (" + c.LocaleIdLocalName + ")").ToArray()))</em>
+          } else {
+        @: @Loc("textNothing", @"Nothing.")
+          }
+    }
+    <br />
+    <strong>@Loc("textNotSup", @"Roles the user is assigned to but does no longer support:")</strong>
+    @if (Model.RemovedRoleMatrix != null) {
+      var ct = Model.RemovedRoleMatrix;
+      if (ct.ContainsKey(item.Member.UserName) && ct[item.Member.UserName].Any()) {
+        @: <em>@Html.Raw(String.Join("</em>, <em>", ct[item.Member.UserName].Select(c => c.Name + " (" + c.LocaleIdLocalName + ")").ToArray()))</em>
+          } else {
+        @: @Loc("textNothing", @"Nothing.")
+          }
+    }
+  </div>
+}
+@Create.ActionTask("", false, Url.Action("Details", "Team", new { id = Model.Team.Id }), ViewResources.TasksButton_TeamsRoom)

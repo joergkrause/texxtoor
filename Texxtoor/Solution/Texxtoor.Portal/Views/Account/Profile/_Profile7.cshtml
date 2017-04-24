@@ -1,0 +1,23 @@
+﻿@model Texxtoor.DataModels.Models.Users.UserProfile
+@using(Html.BtFieldset(Loc("legend7", @"Common Conditions"))) {
+  @Html.LabelFor(m => m.ContractAccepted,new{@class="control-label col-sm-3"})
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.ContractAccepted)    
+    <small>@Loc("text1", @"Work on hourly base accepted")</small>
+  </div>
+  @Html.LabelFor(m => m.SharingAccepted,new{@class="control-label col-sm-3"})
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.SharingAccepted)    
+    <small>@Loc("text2", @"Revenue sharing accepted (recommended)")</small>
+  </div>
+  @Html.LabelFor(m => m.MinHourlyRate,new{@class="control-label col-sm-3"})
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.MinHourlyRate)
+    @Html.ValidationMessageFor(m => m.MinHourlyRate)
+  </div>
+  @Html.LabelFor(m => m.MaxHourlyRate,new{@class="control-label col-sm-3"})
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.MaxHourlyRate)
+    @Html.ValidationMessageFor(m => m.MaxHourlyRate)
+  </div>
+}

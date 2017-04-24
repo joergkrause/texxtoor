@@ -1,0 +1,16 @@
+﻿@model Texxtoor.DataModels.Models.Content.Template
+@{
+    PageData["Title"] = "Create Mail Template";
+    Layout = Url.GetGlobalLayout("_LayoutTemplates", "AdminPortal");
+}
+<div class="well">
+  Create a new template for a partical language.
+</div>
+@using (Html.BeginForm()) {
+  @Html.HiddenFor(m => m.Id)
+  @Html.CultureSelectionDropDown("", "LocaleId", "LocaleId")
+  <p>
+    Select a language that does not yet exists. Edit the content in the following form.
+  </p>
+  <input type="submit" value="Create Template" class="btn btn-primary" />
+}

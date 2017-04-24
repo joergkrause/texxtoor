@@ -1,0 +1,27 @@
+﻿@model string
+@{
+  PageData["Title"] = Loc("title1", "Author Contract");
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+}
+@section HeadContent{
+  <style>
+    footer
+    {
+      display: none;
+    }
+
+    div.copyright
+    {
+      display: none;
+    }
+  </style>
+}
+<p>
+  @Loc("text1", "This is the contract which regulates the relation between each author and the platform.")
+</p>
+<div class="col-md-12">
+  @Html.Raw(Model)
+</div>
+@section FooterContent {
+  @Html.Action("Show", "Navigation", new { menuName = "footer", area = "" })
+}

@@ -1,0 +1,82 @@
+﻿<div class="accordion accordion-green accordion-contrast panel-group row col-md-8" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <input type="radio" name="tpl" id="tpl-0" value="0" checked="checked" class="pull-left col-md-1" />            
+      <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseOne-accordion">
+        @Loc("prjTmplEmptyTitle", "Empty (Default)")
+      </a>      
+    </div>
+    <div id="collapseOne-accordion" class="panel-collapse collapse" style="height: 0px;">
+      <div class="panel-body">
+        @Loc("prjTmplEmpty", "<em>Empty</em>, does not contain anything.")<br />
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <input type="radio" name="tpl" id="tpl-1" value="1" class="pull-left col-md-1" />
+      <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo-accordion">
+        @Loc("prjTmplStdTitle", "Standard, simple work")
+      </a>
+    </div>
+    <div id="collapseTwo-accordion" class="panel-collapse collapse" style="height: 0px;">
+      <div class="panel-body">        
+        @Loc("prjTmplStd", "<em>Standard</em>, has this structure:")<br />
+        <div class="templateDiv">
+          @Loc("prjTmplStd1", "1. Preface")<br />
+          @Loc("prjTmplStd2", "2.")
+          <input type="text" class="small-number" maxlength="2" value="5" name="tpl-1-chapters" />
+          @Loc("prjTmplStd3", "chapters")
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <input type="radio" name="tpl" id="tpl-2" value="2" class="pull-left col-md-1" />
+      <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseThree-accordion">
+        @Loc("prjTmplAdvTitle", "Advanced, textbook style")
+      </a>
+    </div>
+    <div id="collapseThree-accordion" class="panel-collapse collapse" style="height: 0px;">
+      <div class="panel-body">        
+        @Loc("prjTmplAdv", "<em>Advanced</em>, has this structure:")
+        <div class="TemplatesDiv1">
+          @Loc("prjTmplAdv1", "1. &nbsp;&nbsp;Preface")<br />
+          @Loc("prjTmplAdv2", "1.1 Target Audience")<br />
+          @Loc("prjTmplAdv3", "1.2 Who Should Read This?")<br />
+          @Loc("prjTmplAdv4", "1.3 Examples and Feedback")<br />
+          @Loc("prjTmplAdv5", "1.4 Dedications")<br />
+          @Loc("prjTmplAdv6", "1.5 About the Authors")<br />
+          @Loc("prjTmplAdv7", "2. &nbsp;&nbsp;Introduction")
+          <input type="text" maxlength="2" value="3" name="tpl-2-chapters-1" />
+          @Loc("prjTmplAdv8", "sections")<br />
+          @Loc("prjTmplAdv9", "3. &nbsp;&nbsp;Deep Dive")
+          <input type="text" maxlength="2" value="3" name="tpl-2-chapters-2" />
+          @Loc("prjTmplAdv10", "sections")<br />
+          @Loc("prjTmplAdv11", "4. &nbsp;&nbsp;Reference")
+          <input type="text" maxlength="2" value="3" name="tpl-2-chapters-3" />
+          @Loc("prjTmplAdv12", "sections")<br />
+          @Loc("prjTmplAdv13", "5. &nbsp;&nbsp;Appendixes")<br />
+          @Loc("prjTmplAdv14", "5.1 Resources Used")<br />
+          @Loc("prjTmplAdv15", "5.2 Glossary")<br />
+          @Loc("prjTmplAdv16", "5.3 Exercises")<br />
+          @Loc("prjTmplAdv17", "5.4 Solutions")
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <input type="radio" name="tpl" id="tpl-3" value="3" class="pull-left col-md-1" />
+      <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapsefour-accordion">
+        @Loc("prjTmplBlogTitle", "Blog Article")
+      </a>
+    </div>
+    <div id="collapsefour-accordion" class="panel-collapse collapse" style="height: 0px;">
+      <div class="panel-body">        
+        @Loc("prjTmplBlog", "<em>Blog Article</em>, does contain a single article.")
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using System.Reflection
+@using Texxtoor.DataModels.Models.Reader.Orders
+@model Texxtoor.DataModels.Models.Reader.Orders.OrderProduct
+<div class="col-sm-6">
+  <div class="row">
+    <div class="col-sm-12">
+      @using (Html.BtBox(Loc("legendSummary", @"Product Details"), System.Drawing.Color.Blue, BtIcon.Book)) {
+        @Html.LabelFor(m => m.Name)
+        using (Html.BtDiv(BtStyle.AlertAndInfo)) {
+        @Html.DisplayFor(m => m.Name)<br />
+        @Loc("from", "written by") @Html.DisplayFor(m => m.Authors)
+        }
+        @Html.LabelFor(m => m.Title)
+        using (Html.BtDiv(BtStyle.AlertAndSuccess)) {
+        @Html.DisplayFor(m => m.Title)
+        }
+        @Html.LabelFor(m => m.SubTitle)
+        using (Html.BtDiv(BtStyle.AlertAndSuccess)) {
+        @Html.DisplayFor(m => m.SubTitle)
+        }
+        @Html.LabelFor(m => m.Dedication)
+        using (Html.BtDiv(BtStyle.AlertAndInfo)) {
+        @Html.DisplayFor(m => m.Dedication)
+        }
+      }
+      @Html.LabelFor(m => m.Store.FullFillment)
+      <div class="alert alert-danger">
+        @{
+          var name = Enum.GetName(typeof(FullFillmentState), Model.Store.FullFillment);
+          var localizeAttribute = typeof(FullFillmentState).GetField(name).GetCustomAttribute(typeof(DisplayAttribute), true) as DisplayAttribute;
+          var locName = (localizeAttribute != null) ? localizeAttribute.GetName() : name;            
+        }
+        @Loc("fState", "This product currently has the following state: ") <em>@locName</em>
+      </div>
+    </div>
+  </div>
+</div>

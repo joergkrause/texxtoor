@@ -1,0 +1,79 @@
+﻿@model Texxtoor.BaseLibrary.WordInterop.Import
+@{
+  PageData["Title"] = Loc("title", "Map Word Style to Import");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("textTitle", @"Assign the appropriate settings to each of the styles found in your Word import. Click 'Assign Styles', than. 
+The setting are stored as part of the project settings and you can repeat this procedure any time until the import satisfies your needs.");
+}
+@section HeadContent{
+  <script type="text/javascript">
+    $(function () {
+
+      var preset = function (e) {
+        var key = $(e).data('key');
+        if ($(e).is(':checked')) {
+          $('[data-key-target=' + key + ']').removeAttr('disabled');
+        } else {
+          $('[data-key-target=' + key + ']').attr("disabled", "disabled");
+        }
+      }
+
+      // preset
+      $('.NoMapValueRadioBox').each(function (n, e) {
+        preset(e);
+      });
+      // interactive
+      $(document).on('click', '.NoMapValueRadioBox', function () {
+        preset(this);
+      });
+      $("tr:even").css("background-color", "#F4F4F8");
+      $("tr:odd").css("background-color", "#EFF1F1");
+    });
+  </script>
+}
+@section helpSection {
+ @Loc("textSaveName", @"The set of mappings is saved for further reference under the given name. Choose a name from list edit an existing set. Each mapping is stored as part of a single project.")
+}
+@{
+  int resourceId = Convert.ToInt32(ViewBag.ResourceId);
+  int projectId = Convert.ToInt32(ViewBag.ProjectId);
+}
+@Html.Action("ImportMapStyles", new { id = projectId, resourceId = resourceId })
+
+@using (Html.BeginForm("ImportMapping", "Project", FormMethod.Post, null)) {
+  using (Html.BtFieldset(Loc("legendSave", @"Save Current Mapping"))) {
+    <input type="hidden" name="mappingResource" value="@resourceId" id="mappingResource" />
+    <input type="submit" class="btn btn-primary btn-small pull-right" value="Assign Styles" />
+    <label>@Loc("lblNew", @"New Mapping Name")</label>
+    <div class="editor-field">
+      <input type="text" name="MapName" id="mapname" value="Default Mapping" readonly required />
+    </div>
+  }  
+  using(Html.BtFieldset(Loc("titlePara", "Paragraph Styles", Model.ParagraphStyles.GroupBy(s => s.Value).Count()))) {
+    if (Model.ParagraphStyles.Any()) {
+      Html.RenderPartial("Import/Complex/_MapStyles",
+        new Pair(Model.ParagraphStylesMap, Model.ParagraphStyles.OrderBy(s => s.Value).GroupBy(s => s.Value).ToDictionary(s => s.Key, s => s.ToArray())), new ViewDataDictionary { { "MapType", "P" }, { "P-Options", ViewBag.POptions } });
+    } else {
+      @:@Loc("textParaNo", @"No Paragraph Styles have been found in the import documents.")
+                      }
+  }
+  using(Html.BtFieldset(Loc("titleChar", "Character Styles", Model.CharacterStyles.GroupBy(s => s.Value).Count()))) {
+    if (Model.CharacterStyles.Any()) {
+      Html.RenderPartial("Import/Complex/_MapStyles",
+        new Pair(Model.CharacterStylesMap, Model.CharacterStyles.OrderBy(s => s.Value).GroupBy(s => s.Value).ToDictionary(s => s.Key, s => s.ToArray())), new ViewDataDictionary { { "MapType", "C" }, { "C-Options", ViewBag.COptions } });
+    } else {
+      @:@Loc("textCharNo", @"No Character Styles have been found in the import documents.")
+                    }
+  }
+  using (Html.BtFieldset(Loc("titleNumb", "Number Styles", Model.NumberingStyles.GroupBy(s => s.Value).Count()))) {
+    if (Model.NumberingStyles.Any()) {
+      Html.RenderPartial("Import/Complex/_MapStyles",
+        new Pair(Model.NumberingStylesMap, Model.NumberingStyles.OrderBy(s => s.Value).GroupBy(s => s.Value).ToDictionary(s => s.Key, s => s.ToArray())), new ViewDataDictionary { { "MapType", "N" }, { "N-Options", ViewBag.NOptions } });
+    } else {
+      @:@Loc("textNumbNo", @"No Numbering Styles have been found in the import documents.")
+                    }
+  }
+}
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = Model.ProjectId }), ViewResources.LinkButton_ToDashboard)
+@Create.ActionTask("", false, Url.Action("Import", new { id = Model.ProjectId }), ViewResources.LinkButton_ToImport)

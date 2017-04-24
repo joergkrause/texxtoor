@@ -1,0 +1,195 @@
+﻿@model int
+<!DOCTYPE html>
+<html>
+<head>
+  <title>@ViewResources.ReaderApp_Title</title>
+  <meta charset="utf-8" />
+  @Styles.Render("~/Content/ReaderApp")
+  @Scripts.Render("~/Scripts/ReaderApp")
+  <script type="text/javascript">
+    var SSID = '@ViewBag.Ssid';
+    var baseUrl = '@ViewBag.BaseUrl';
+    var signOutUrl = '@(Request.UrlReferrer == null ? "/" : Request.UrlReferrer.AbsolutePath)';
+    $(function () {
+      var reader = new Reader(baseUrl, signOutUrl);
+      reader.ssid = SSID;
+      var readerUI = new ReaderUI(reader, $('.reader-ui'));
+      jQuery.support.cors = true;
+      reader.getWork('@Model', function (book) {
+        readerUI.readBook(book);
+      });
+      // events
+      $("#divTree").hide();
+      $("#topMenuChaps").click(function () {
+        if ($("#divTree").is(":visible") == true) {
+          $("#divTree").hide();
+        }
+        else {
+          $("#divTree").show();
+        }
+      });
+      $("#comments-dialog-menu").hide();
+    });
+
+  </script>
+  <style>
+  </style>
+</head>
+<body scroll="no">
+  <div class="books-preview"></div>
+  <div class="reader-ui" style="background-color: white; height: 100%;"></div>
+  <!-- Reader Pane -->
+  <div class="book-reader">
+    <div class="menu-block">
+      <div style="float: left; margin-left: 65px;">
+        <div id="divTree"></div>
+        <div class="topMenu" style="width: 90px;" id="topMenuChaps">
+          <span>@ViewResources.ReaderApp_Chapters</span>
+          <img src="~/Scripts/reader/img/menu_arrow.png" />
+        </div>
+        <div class="topMenu" style="width: 150px;">
+          <span>@DateTime.Now.ToString()</span>
+        </div>
+      </div>
+      <div style="float: right; margin-right: 112px;">
+        <div class="topMenu">
+          <ul class="menu">
+            <li>
+              <div style="width: 110px;" class="mainMenuHeading">
+                <span>@ViewResources.ReaderApp_Bookmarks</span>
+                <img src="~/Scripts/reader/img/menu_arrow.png" />
+              </div>
+              <ul>
+                <li id="topmenu-bookmark-add"><a href="#" style="width: 130px; padding-left: 10px;">@ViewResources.ReaderApp_CreateBookmark</a></li>
+                <li id="topmenu-bookmark-del"><a href="#" style="width: 130px; padding-left: 10px;">@ViewResources.ReaderApp_DeleteBookmark</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="topMenu" style="display:none">
+          <ul class="menu">
+            <li>
+              <a href="#" style="width: 65px;">
+                <span style="margin: 0 8px;">4</span>
+                <img src="~/Scripts/reader/img/menu_arrow.png" style="border: none;" />
+                <img src="~/Scripts/reader/img/user_settings.png" style="border: none;" />
+              </a>
+              <ul>
+                <li><a href="#" class="user">User 1</a></li>
+                <li><a href="#" class="user" style="width: 160px;">Send message to all</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="topMenu">
+          <ul class="menu">
+            <li>
+              <a href="#" style="width: 50px;">
+                <span style="margin: -3px 0;">
+                  <img src="~/Scripts/reader/img/settings.png" style="border: none;" />
+                </span>
+                <img src="~/Scripts/reader/img/menu_arrow.png" style="border: none;" />
+              </a>
+              <ul>
+                <li><a href="#" class="larger">@ViewResources.ReaderApp_Larger</a></li>
+                <li><a href="#" class="smaller">@ViewResources.ReaderApp_Smaller</a></li>
+                <li><a href="#" class="invisible">@ViewResources.ReaderApp_Invisible</a></li>
+                <li id="signOutMenu"><a href="#" style="padding-left: 10px;">@ViewResources.ReaderApp_LogOut</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="view-container">
+      <div class="content-body">
+      </div>
+      <div class="vertical-bar">
+        <div class="slider">
+          <div class="track">
+            <div class="scroll">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="comments-dialog-menu">
+      <div id="comments-dialog-menu-all" class="comments-dialog-menu">@ViewResources.ReaderApp_ShowComments</div>
+      <div id="comments-dialog-menu-add" class="comments-dialog-menu">@ViewResources.ReaderApp_AddComment</div>
+      <div id="comments-dialog-menu-bookmark" class="comments-dialog-menu">@ViewResources.ReaderApp_AddBookmark</div>
+    </div>
+    <!-- Add Comments -->
+    <div id="comments-dialog-add" title="@ViewResources.ReaderApp_AddComments">
+      <fieldset class="create-comment-field">
+        <legend>Comment or Note</legend>
+        <textarea id="comment-value1" name="comment-value" placeholder="@ViewResources.ReaderApp_YourComment"></textarea>
+      </fieldset>
+      <div class="create-comment-options">
+        <fieldset>
+          <legend>@ViewResources.ReaderApp_CommentType</legend>
+          <input type="radio" id="comment-type-comm" name="comment-type" value="COMM" checked />
+          <label for="comment-type-comm">@ViewResources.ReaderApp_Comment</label>
+          <input type="radio" id="comment-type-note" name="comment-type" value="NOTE" />
+          <label for="comment-type-note">@ViewResources.ReaderApp_PostIt</label>
+          <div class="comment-color-box">
+            <div style="background-color:green;" data-color="green" class="comment-color-box-color"></div>
+            <div style="background-color:red;" data-color="red" class="comment-color-box-color"></div>
+            <div style="background-color:blue;" data-color="blue" class="comment-color-box-color"></div>
+            <div style="background-color:orange;" data-color="orange" class="comment-color-box-color"></div>
+            <div style="background-color:indigo;" data-color="indigo" class="comment-color-box-color"></div>
+          </div>
+        </fieldset>
+        <fieldset id="create-comment-options">
+          <legend>@ViewResources.ReaderApp_Confidelity</legend>
+          <div>
+            <input type="radio" id="comment-keep-private" name="comment-keep" value="Private" checked />
+            <label for="comment-keep-private">@ViewResources.ReaderApp_Private</label>
+          </div>
+          <div>
+            <input type="radio" id="comment-keep-group" name="comment-keep" value="GroupOnly" />
+            <label for="comment-keep-group">@ViewResources.ReaderApp_GroupOnly</label>
+          </div>
+          <div>
+            <input type="radio" id="comment-keep-toauthor" name="comment-keep" value="ToAuthor" />
+            <label for="comment-keep-author">@ViewResources.ReaderApp_Author</label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+  <!-- Show Comments -->
+  <div id="comments-dialog-show">
+    <div class="comments-block" title="@ViewResources.ReaderApp_Comments">
+      <div class="comments-block-body"></div>
+    </div>
+    
+    <!-- Template for Comments -->
+    <div class="comment-body">
+      <input type="hidden" id="comment-id"></input>      
+      <div id="comment-body-owner"></div>
+      <div id="comment-body-color"></div>
+      <div id="comment-body-confidelity"></div>
+      <div id="comment-body-text"></div>
+      <div class="comment-body-reply-arrow">
+        <a class="reply-comment-button">
+          @ViewResources.ReaderApp_Reply 
+          <img style="border: none" src="~/Scripts/reader/img/expand.png" alt="reply" />
+          <fieldset class="create-comment-field" style="display:none">
+            <legend>@ViewResources.ReaderApp_CommentOrNote</legend>
+            <textarea id="comment-value2"></textarea>
+            <input type="button" value="Post Reply" class="PostReply"/>
+            <input type="button" value="Cancel" class="CancelReply" />
+          </fieldset>
+        </a>
+      </div>
+      <div style="clear: both;"></div>
+      <div class="sub-comments"></div>
+    </div>
+  </div>
+  <!-- Loader -->
+  <div class="loader">
+    <div class="loader-img">
+    </div>
+  </div>
+</body>
+</html>

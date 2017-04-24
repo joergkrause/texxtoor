@@ -1,0 +1,11 @@
+﻿@{
+  PageData["Title"] = Loc("title", "Order Cancellation");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+}
+@using(Html.BtDiv(BtStyle.Well)) {
+@Loc("textCancel", "The order has been cancelled. You can order the product any time later if you like.")
+}
+<div class="alert alert-danger">@Loc("legendCancel", "You cancelled an order.")</div>
+@Create.ActionTask("", false, Url.Action("Index", "Home", null), ViewResources.LinkButton_Reader_Catalog)
+@Create.ActionTask("", false, Url.Action("Library", "Reader", null), ViewResources.LinkButton_Reader_Library)
+@Create.ActionTask("", false, Url.Action("Products", "Products"), ViewResources.TasksButton_Reader_Products)

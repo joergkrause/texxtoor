@@ -1,0 +1,26 @@
+﻿@using Texxtoor.DataModels.Models.Author
+@model Texxtoor.DataModels.Models.Content.Opus
+@{
+  var cr = (ContributorRole)ViewBag.ContributorRole;
+}
+<form>
+  @if ((bool)ViewBag.UserIsTeamlead || ((cr & ContributorRole.Author) == ContributorRole.Author)) {
+    using (Html.BtFieldset(Loc("lblTarget", "Target Audiences"))) {
+      using (Html.BtDiv(BtStyle.WellAndSmall)) {
+        @Loc("textProps", @"These properties manage the global matching of all Content. Authors can overwrite these settings on paragraph level.")
+        @Loc("txtAudHelp", @"Add as many descriptive elements as you like. Keywords
+        shall have a relation to Content. All settings can be refined on chapter or section.")
+      }
+      <div class="box">
+        <a href="#" class="opusmatrix-add btn btn-sm btn-info">@ViewResources.Action_Editor_AddAudienceDefinition</a>
+        <a href="#" class="opusmatrix-saveall btn btn-sm btn-primary hidden-to-show">@ViewResources.Action_Editor_AddAudienceSavall</a>
+        @Create.FieldHelpIcon(Html, opus => opus.MatchMatrix)
+        <div id="targetAudienceDiv" class="box-content box-no-padding">
+          @Html.Action("TargetAudience", new { id = Model.Id })
+        </div>
+        <span id="SaveOpusMatrixMessage" class="badge badge-success hidden-to-show">@Loc("txtSaved", "Saved")</span>
+      </div>
+    }
+  }
+</form>
+

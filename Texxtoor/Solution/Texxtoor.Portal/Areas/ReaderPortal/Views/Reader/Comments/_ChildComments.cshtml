@@ -1,0 +1,12 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Functions.Comment
+@if (Model.HasChildren()) {  
+  <ul class="list-unstyled" style="margin-left: 50px;">
+    @foreach (var child in Model.Children) {
+      <li>
+        <div class="well well-sm">
+         @child.Content</div>
+        @Html.Partial("Comments/_ChildComments", child)
+      </li>
+    }
+  </ul>
+}

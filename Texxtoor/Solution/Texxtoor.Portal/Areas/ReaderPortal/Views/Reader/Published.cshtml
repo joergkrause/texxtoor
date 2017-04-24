@@ -1,0 +1,51 @@
+﻿@using System.Activities.Expressions
+@model Texxtoor.DataModels.Models.Reader.Content.Published
+@{
+  PageData["Title"] = Loc("title2", "Read from our Catalog");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+  PageData["ShortHelp"] = new HtmlString(String.Concat(Loc("title5", "Use '<span data-args='0' data-desc='Book Title'>{0}</span>'", Model.Title).ToString(), 
+                                        Loc("textCopy", "Read the public content for free. Put the book into your library to get access to more functions, such as boomarks and private comments."), 
+                                        Loc("textBuy", "Read on your favorite device or order a printed copy."),
+                                        Loc("textDiscuss", "Discuss this work with others, share your mood, or learn more from other fellow readers.")));
+}
+@section HeadContent {
+<link href="~/Scripts/jquery/jstree/jquery.treeview.css" rel="stylesheet" />
+<script src="~/Scripts/jquery/jstree/jquery.jstree.js"></script>
+<!-- Rating -->
+<script type="text/javascript" src="~/Scripts/views/work/library.js"></script>
+  <!-- Show information about published work -->
+<script type="text/javascript">
+  var lib = new LibraryFunctions({
+    rateContent: '@Url.Action("RateContent")',
+    rateContentStars: '@Url.Action("RateContentStars")'
+    tableOfContentPublished: '@Url.Action("TableOfContentPublished")'
+  });
+  $(function () {
+    $('#btnCloseDetails').hide();
+    lib.attachHandler(@Model.Id, true);
+  });
+</script>
+}
+@if (User.Identity.IsAuthenticated) {
+  @Create.ActionTask("btnRead", true, Url.Action("ReaderAppForPublished", "Reader", new {id = Model.Id}), ViewResources.Action_Reader_ReadAndWork)
+  @Create.ActionTask("btnCopy", false, Url.Action("PutIntoLibrary", "Reader", new {id = Model.Id, createCopy = true}), ViewResources.TasksButton_Reader_Library_PutIn)
+  @Create.ActionTask("btnBuy", true, Url.Action("BuyProduct", "Products", new {id = Model.Id, createCopy = true}), ViewResources.TasksButton_Reader_Library_BuyNow)
+  @Create.ActionTask("btnBoard", false, Url.Action("MessageBoard", new {id = Model.Id}), ViewResources.TasksButton_Reader_Library_Board)
+}
+else {
+  using (Html.BtDiv(BtStyle.AlertAndError)) {
+      @Loc("textExplain", "Logon to store personal work, rate and comment others work, and read anytime from last reading position.")
+  }
+}
+@if (Model == null) {
+  using(Html.BtDiv(BtStyle.AlertAndWarning)) {
+@Loc("lblNoWork", "There was no work selected.");  
+}
+} else {
+  @Html.Action("PublishedDetails", new { id = Model.Id, main = true })
+}
+@Create.ActionTask("", true, Url.Action("Index", "Home"), ViewResources.TasksButton_Reader_Catalog)
+@Create.ActionTask("", false, Url.Action("Matrix", "Home"), ViewResources.LinkButton_Reader_Matrix)
+@Create.ActionTask("", false, Url.Action("Library", "Reader"), ViewResources.TasksButton_Reader_Library)
+
+

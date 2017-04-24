@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Cms.CmsPage>
+@{
+  PageData["Title"] = Loc("title1", "Search Results");
+  Layout = User.Identity.IsAuthenticated ? Url.GetGlobalLayout("_Layout") : Url.GetGlobalLayout("_LayoutCommon");
+}
+@section HeadContent {
+  <style>
+    menu[type=toolbar]
+    {
+      display: none;
+    }
+    div.searchResults {
+      margin: 5px 0;
+
+    }
+    div.searchResults > h1 {
+      font-size: 16px;
+    }
+    div.searchResults > a {
+      color: green;
+    }
+  </style>
+}
+<div class="alert alert-info">
+  @Loc("text1", "These are the most relevant results for your search.")
+</div>
+<div class="searchResults">
+  @if (Model != null && Model.Any()) {
+    foreach (var page in Model) {
+    <p>@page.PageContent.Ellipsis(200)</p>
+    @:&raquo;&raquo; @Html.ActionPageLink(page)
+    }
+  } else {
+    <div class="alert alert-warning">
+      @Loc("txtErr", "Sorry, we didn't found anything.")
+    </div>
+  }
+</div>
+@section FooterContent {
+  @if (User.Identity.IsAuthenticated) {
+    @Html.Action("Show", "Navigation", new { menuName = "footer-simple", area = "" })
+  } else {
+    @RenderSection("FooterContent", false)
+  }
+}

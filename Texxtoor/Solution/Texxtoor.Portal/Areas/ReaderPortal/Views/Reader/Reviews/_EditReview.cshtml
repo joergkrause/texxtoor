@@ -1,0 +1,7 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.PeerReview
+@using (Html.BeginForm("EditReview", "Reader", new { id = Model.Id, area = "ReaderPortal" }, FormMethod.Post, new { id = "editReviewForm" })) {
+  using(Html.BtFieldset(Loc("legend", @"Edit Review"))) {
+    @Html.EditorForModel()
+    @Button.FormSendButtons("editReviewSendButton", ViewResources.Action_Opus_EditReview, "editReviewCancelButton", ViewResources.Button_CancelAndClose)
+  }
+}

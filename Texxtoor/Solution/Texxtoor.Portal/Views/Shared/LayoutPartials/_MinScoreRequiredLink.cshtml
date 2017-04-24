@@ -1,0 +1,4 @@
+﻿@model Tuple<string, int, int>
+<div class="alert alert-danger well-sm">
+  @Html.Raw(String.Format(Model.Item1, Model.Item2)) @String.Format(ViewResources.MinScoreView_Have, @Model.Item3)
+</div>

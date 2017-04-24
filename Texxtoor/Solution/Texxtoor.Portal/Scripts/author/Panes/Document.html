@@ -1,0 +1,85 @@
+﻿<li>
+  <h2 data-lc="Panes" data-p="Navigate_Chapters"></h2>
+  <div class="ribbon-button" data-command="move" data-action="chapter" data-option="prev">
+    <i class="icon-chevron-left icon-4x red" title="Chapter"></i>
+  </div>
+  <div class="ribbon-button" data-command="move" data-action="chapter" data-option="next">
+    <i class="icon-chevron-right icon-4x red" title="Chapter"></i>
+  </div>
+</li>
+<li>
+  <h2 data-lc="Panes" data-p="Navigate_Move_CurrentSection"></h2>
+  <div class="ribbon-button item_hidden" data-command="move" data-action="reorganize">
+    <i class="icon-arrows icon-2x block " title="Reorganize"></i>
+    <span data-lc="Panes" data-p="Navigate_Move_Reorganize"></span>
+  </div>
+  <div class="ribbon-list">
+    <div class="ribbon-button" data-command="move" data-action="l">
+      <i class="icon-arrow-left" title="Increase"></i>
+      <span class="ribbon-smallicon" data-lc="Panes" data-p="Navigate_Move_HigherLevel"></span>
+    </div>
+    <div class="ribbon-button" data-command="move" data-action="r">
+      <i class="icon-arrow-right" title="Decrease"></i>
+      <span class="ribbon-smallicon" data-lc="Panes" data-p="Navigate_Move_LowerLevel"></span>
+    </div>
+    <div class="ribbon-button">
+      <input type="checkbox" data-command="move" data-action="withchildren" value="true" id="movewithchildren" />
+      <span for="movewithchildren" data-lc="Panes" data-p="Navigate_Move_IncludeChildren"></span>
+    </div>
+  </div>
+  <div class="ribbon-list">
+    <div class="ribbon-button" data-command="move" data-action="u">
+      <i class="icon-level-up" title="Up"></i>
+      <span class="ribbon-smallicon" data-lc="Panes" data-p="Navigate_Move_Up"></span>
+    </div>
+    <div class="ribbon-button" data-command="move" data-action="d">
+      <i class="icon-level-down" title="Down"></i>
+      <span class="ribbon-smallicon" data-lc="Panes" data-p="Navigate_Move_Down"></span>
+    </div>
+  </div>
+</li>
+<li>
+  <h2 data-lc="Panes" data-p="Navigate_Orphan_Reorg"></h2>
+  <div class="ribbon-list">
+    <div class="ribbon-button" data-command="move" data-action="o">
+      <i class="icon-save icon-1x" title="Orphane"></i>
+      <span data-lc="Panes" data-p="Navigate_Orphan_Snippet"></span>
+    </div>
+    <div class="ribbon-button">
+      <input type="checkbox" id="incChildren" class="ribbon-button" checked="checked" />
+      <label for="flowpane" data-lc="Panes" data-p="Navigate_Orphan_IncludeChildren"></label>
+    </div>
+  </div>
+  <div class="ribbon-list">
+    <div>
+      <span data-lc="Panes" data-p="Navigate_Orphan_Snippet"></span>
+      <ul id="orphanedSnippets">
+        <li class="ribbon-button" id="orphanedTemplate" data-command="move" data-action="i" data-option="0" data-lc="Panes" data-p="Navigate_Orphane_NoSnippets"></li>
+      </ul>
+    </div>
+    <div class="ribbon-button" data-command="move" data-action="mergetext">
+      <i class="icon-unlink"></i>
+      <span class="ribbon-smallicon" data-lc="Panes" data-p="Navigate_Orphan_MergeWithNext"></span>
+    </div>
+  </div>
+</li>
+<li>
+  <h2 data-lc="Panes" data-p="Navigate_Options"></h2>
+  <div class="ribbon-list">
+    <div>
+      <input type="checkbox" id="navipane" checked="checked" class="ribbon-button" data-command="shownavipane"
+             data-action="naviButton" />
+      <label for="navipane" data-lc="Panes" data-p="Navigate_Options_ShowNavi"></label>
+    </div>
+    <div>
+      <input type="checkbox" id="flowpane" checked="checked" class="ribbon-button" data-command="shownavipane"
+             data-action="flowButton" />
+      <label for="flowpane" data-lc="Panes" data-p="Navigate_Options_ShowFlow"></label>
+    </div>
+    <div>
+      <input type="checkbox" id="semanticstyles" checked="checked" class="ribbon-button" data-command="show"
+             data-action="semantic" />
+      <label for="flowpane" data-lc="Panes" data-p="Navigate_Options_ShowSematicStyles"></label>
+    </div>
+  </div>
+</li>

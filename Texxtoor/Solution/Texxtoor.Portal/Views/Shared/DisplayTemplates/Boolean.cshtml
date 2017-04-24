@@ -1,0 +1,10 @@
+﻿@model bool?
+@if (Model.HasValue) {
+  if (Model.Value) {
+    <img src="~/Content/icons/bool_yes.png" />
+  } else {
+    <img src="~/Content/icons/bool_no.png" />
+  }
+} else {
+  <img src="~/Content/icons/bool_null.png" />
+}

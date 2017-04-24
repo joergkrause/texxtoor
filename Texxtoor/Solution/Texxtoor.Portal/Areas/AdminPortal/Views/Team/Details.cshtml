@@ -1,0 +1,21 @@
+﻿@model Texxtoor.DataModels.Models.Author.Team
+
+@{
+  PageData["Title"] = "Team Details";
+  Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+@using (Html.BeginForm()) {
+  using (Html.BtFieldset("Team")) {
+    @Html.DisplayForModel()
+  }
+  using (Html.BtFieldset("Member")) {
+    foreach (var m in Model.Members) {
+       @Html.Partial("_Member", m)
+       <hr />
+    }
+  }
+  <div class="formsendButtons">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-sm btn-primary" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-sm btn-default" })
+  </div>
+}

@@ -1,0 +1,4923 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<languages>
+  <language code="ABW">
+    <language>Dutch</language>
+    <official>True</official>
+    <percentage>5,30000019073486</percentage>
+  </language>
+  <language code="ABW">
+    <language>English</language>
+    <official>False</official>
+    <percentage>9,5</percentage>
+  </language>
+  <language code="ABW">
+    <language>Papiamento</language>
+    <official>False</official>
+    <percentage>76,6999969482422</percentage>
+  </language>
+  <language code="ABW">
+    <language>Spanish</language>
+    <official>False</official>
+    <percentage>7,40000009536743</percentage>
+  </language>
+  <language code="AFG">
+    <language>Balochi</language>
+    <official>False</official>
+    <percentage>0,899999976158142</percentage>
+  </language>
+  <language code="AFG">
+    <language>Dari</language>
+    <official>True</official>
+    <percentage>32,0999984741211</percentage>
+  </language>
+  <language code="AFG">
+    <language>Pashto</language>
+    <official>True</official>
+    <percentage>52,4000015258789</percentage>
+  </language>
+  <language code="AFG">
+    <language>Turkmenian</language>
+    <official>False</official>
+    <percentage>1,89999997615814</percentage>
+  </language>
+  <language code="AFG">
+    <language>Uzbek</language>
+    <official>False</official>
+    <percentage>8,80000019073486</percentage>
+  </language>
+  <language code="AGO">
+    <language>Ambo</language>
+    <official>False</official>
+    <percentage>2,40000009536743</percentage>
+  </language>
+  <language code="AGO">
+    <language>Chokwe</language>
+    <official>False</official>
+    <percentage>4,19999980926514</percentage>
+  </language>
+  <language code="AGO">
+    <language>Kongo</language>
+    <official>False</official>
+    <percentage>13,1999998092651</percentage>
+  </language>
+  <language code="AGO">
+    <language>Luchazi</language>
+    <official>False</official>
+    <percentage>2,40000009536743</percentage>
+  </language>
+  <language code="AGO">
+    <language>Luimbe-nganguela</language>
+    <official>False</official>
+    <percentage>5,40000009536743</percentage>
+  </language>
+  <language code="AGO">
+    <language>Luvale</language>
+    <official>False</official>
+    <percentage>3,59999990463257</percentage>
+  </language>
+  <language code="AGO">
+    <language>Mbundu</language>
+    <official>False</official>
+    <percentage>21,6000003814697</percentage>
+  </language>
+  <language code="AGO">
+    <language>Nyaneka-nkhumbi</language>
+    <official>False</official>
+    <percentage>5,40000009536743</percentage>
+  </language>
+  <language code="AGO">
+    <language>Ovimbundu</language>
+    <official>False</official>
+    <percentage>37,2000007629395</percentage>
+  </language>
+  <language code="AIA">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="ALB">
+    <language>Albaniana</language>
+    <official>True</official>
+    <percentage>97,9000015258789</percentage>
+  </language>
+  <language code="ALB">
+    <language>Greek</language>
+    <official>False</official>
+    <percentage>1,79999995231628</percentage>
+  </language>
+  <language code="ALB">
+    <language>Macedonian</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="AND">
+    <language>Catalan</language>
+    <official>True</official>
+    <percentage>32,2999992370605</percentage>
+  </language>
+  <language code="AND">
+    <language>French</language>
+    <official>False</official>
+    <percentage>6,19999980926514</percentage>
+  </language>
+  <language code="AND">
+    <language>Portuguese</language>
+    <official>False</official>
+    <percentage>10,8000001907349</percentage>
+  </language>
+  <language code="AND">
+    <language>Spanish</language>
+    <official>False</official>
+    <percentage>44,5999984741211</percentage>
+  </language>
+  <language code="ANT">
+    <language>Dutch</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="ANT">
+    <language>English</language>
+    <official>False</official>
+    <percentage>7,80000019073486</percentage>
+  </language>
+  <language code="ANT">
+    <language>Papiamento</language>
+    <official>True</official>
+    <percentage>86,1999969482422</percentage>
+  </language>
+  <language code="ARE">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>42</percentage>
+  </language>
+  <language code="ARE">
+    <language>Hindi</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="ARG">
+    <language>Indian Languages</language>
+    <official>False</official>
+    <percentage>0,300000011920929</percentage>
+  </language>
+  <language code="ARG">
+    <language>Italian</language>
+    <official>False</official>
+    <percentage>1,70000004768372</percentage>
+  </language>
+  <language code="ARG">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>96,8000030517578</percentage>
+  </language>
+  <language code="ARM">
+    <language>Armenian</language>
+    <official>True</official>
+    <percentage>93,4000015258789</percentage>
+  </language>
+  <language code="ARM">
+    <language>Azerbaijani</language>
+    <official>False</official>
+    <percentage>2,59999990463257</percentage>
+  </language>
+  <language code="ASM">
+    <language>English</language>
+    <official>True</official>
+    <percentage>3,09999990463257</percentage>
+  </language>
+  <language code="ASM">
+    <language>Samoan</language>
+    <official>True</official>
+    <percentage>90,5999984741211</percentage>
+  </language>
+  <language code="ASM">
+    <language>Tongan</language>
+    <official>False</official>
+    <percentage>3,09999990463257</percentage>
+  </language>
+  <language code="ATG">
+    <language>Creole English</language>
+    <official>False</official>
+    <percentage>95,6999969482422</percentage>
+  </language>
+  <language code="ATG">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="AUS">
+    <language>Arabic</language>
+    <official>False</official>
+    <percentage>1</percentage>
+  </language>
+  <language code="AUS">
+    <language>Canton Chinese</language>
+    <official>False</official>
+    <percentage>1,10000002384186</percentage>
+  </language>
+  <language code="AUS">
+    <language>English</language>
+    <official>True</official>
+    <percentage>81,1999969482422</percentage>
+  </language>
+  <language code="AUS">
+    <language>German</language>
+    <official>False</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="AUS">
+    <language>Greek</language>
+    <official>False</official>
+    <percentage>1,60000002384186</percentage>
+  </language>
+  <language code="AUS">
+    <language>Italian</language>
+    <official>False</official>
+    <percentage>2,20000004768372</percentage>
+  </language>
+  <language code="AUS">
+    <language>Serbo-Croatian</language>
+    <official>False</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="AUS">
+    <language>Vietnamese</language>
+    <official>False</official>
+    <percentage>0,800000011920929</percentage>
+  </language>
+  <language code="AUT">
+    <language>Czech</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="AUT">
+    <language>German</language>
+    <official>True</official>
+    <percentage>92</percentage>
+  </language>
+  <language code="AUT">
+    <language>Hungarian</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="AUT">
+    <language>Polish</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="AUT">
+    <language>Romanian</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="AUT">
+    <language>Serbo-Croatian</language>
+    <official>False</official>
+    <percentage>2,20000004768372</percentage>
+  </language>
+  <language code="AUT">
+    <language>Slovene</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="AUT">
+    <language>Turkish</language>
+    <official>False</official>
+    <percentage>1,5</percentage>
+  </language>
+  <language code="AZE">
+    <language>Armenian</language>
+    <official>False</official>
+    <percentage>2</percentage>
+  </language>
+  <language code="AZE">
+    <language>Azerbaijani</language>
+    <official>True</official>
+    <percentage>89</percentage>
+  </language>
+  <language code="AZE">
+    <language>Lezgian</language>
+    <official>False</official>
+    <percentage>2,29999995231628</percentage>
+  </language>
+  <language code="AZE">
+    <language>Russian</language>
+    <official>False</official>
+    <percentage>3</percentage>
+  </language>
+  <language code="BDI">
+    <language>French</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="BDI">
+    <language>Kirundi</language>
+    <official>True</official>
+    <percentage>98,0999984741211</percentage>
+  </language>
+  <language code="BDI">
+    <language>Swahili</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="BEL">
+    <language>Arabic</language>
+    <official>False</official>
+    <percentage>1,60000002384186</percentage>
+  </language>
+  <language code="BEL">
+    <language>Dutch</language>
+    <official>True</official>
+    <percentage>59,2000007629395</percentage>
+  </language>
+  <language code="BEL">
+    <language>French</language>
+    <official>True</official>
+    <percentage>32,5999984741211</percentage>
+  </language>
+  <language code="BEL">
+    <language>German</language>
+    <official>True</official>
+    <percentage>1</percentage>
+  </language>
+  <language code="BEL">
+    <language>Italian</language>
+    <official>False</official>
+    <percentage>2,40000009536743</percentage>
+  </language>
+  <language code="BEL">
+    <language>Turkish</language>
+    <official>False</official>
+    <percentage>0,899999976158142</percentage>
+  </language>
+  <language code="BEN">
+    <language>Adja</language>
+    <official>False</official>
+    <percentage>11,1000003814697</percentage>
+  </language>
+  <language code="BEN">
+    <language>Aizo</language>
+    <official>False</official>
+    <percentage>8,69999980926514</percentage>
+  </language>
+  <language code="BEN">
+    <language>Bariba</language>
+    <official>False</official>
+    <percentage>8,69999980926514</percentage>
+  </language>
+  <language code="BEN">
+    <language>Fon</language>
+    <official>False</official>
+    <percentage>39,7999992370605</percentage>
+  </language>
+  <language code="BEN">
+    <language>Ful</language>
+    <official>False</official>
+    <percentage>5,59999990463257</percentage>
+  </language>
+  <language code="BEN">
+    <language>Joruba</language>
+    <official>False</official>
+    <percentage>12,1999998092651</percentage>
+  </language>
+  <language code="BEN">
+    <language>Somba</language>
+    <official>False</official>
+    <percentage>6,69999980926514</percentage>
+  </language>
+  <language code="BFA">
+    <language>Busansi</language>
+    <official>False</official>
+    <percentage>3,5</percentage>
+  </language>
+  <language code="BFA">
+    <language>Dagara</language>
+    <official>False</official>
+    <percentage>3,09999990463257</percentage>
+  </language>
+  <language code="BFA">
+    <language>Dyula</language>
+    <official>False</official>
+    <percentage>2,59999990463257</percentage>
+  </language>
+  <language code="BFA">
+    <language>Ful</language>
+    <official>False</official>
+    <percentage>9,69999980926514</percentage>
+  </language>
+  <language code="BFA">
+    <language>Gurma</language>
+    <official>False</official>
+    <percentage>5,69999980926514</percentage>
+  </language>
+  <language code="BFA">
+    <language>Mossi</language>
+    <official>False</official>
+    <percentage>50,2000007629395</percentage>
+  </language>
+  <language code="BGD">
+    <language>Bengali</language>
+    <official>True</official>
+    <percentage>97,6999969482422</percentage>
+  </language>
+  <language code="BGD">
+    <language>Chakma</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="BGD">
+    <language>Garo</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="BGD">
+    <language>Khasi</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="BGD">
+    <language>Marma</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="BGD">
+    <language>Santhali</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="BGD">
+    <language>Tripuri</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="BGR">
+    <language>Bulgariana</language>
+    <official>True</official>
+    <percentage>83,1999969482422</percentage>
+  </language>
+  <language code="BGR">
+    <language>Macedonian</language>
+    <official>False</official>
+    <percentage>2,59999990463257</percentage>
+  </language>
+  <language code="BGR">
+    <language>Romani</language>
+    <official>False</official>
+    <percentage>3,70000004768372</percentage>
+  </language>
+  <language code="BGR">
+    <language>Turkish</language>
+    <official>False</official>
+    <percentage>9,39999961853027</percentage>
+  </language>
+  <language code="BHR">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>67,6999969482422</percentage>
+  </language>
+  <language code="BHR">
+    <language>English</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="BHS">
+    <language>Creole English</language>
+    <official>False</official>
+    <percentage>89,6999969482422</percentage>
+  </language>
+  <language code="BHS">
+    <language>Creole French</language>
+    <official>False</official>
+    <percentage>10,3000001907349</percentage>
+  </language>
+  <language code="BIH">
+    <language>Serbo-Croatian</language>
+    <official>True</official>
+    <percentage>99,1999969482422</percentage>
+  </language>
+  <language code="BLR">
+    <language>Belorussian</language>
+    <official>True</official>
+    <percentage>65,5999984741211</percentage>
+  </language>
+  <language code="BLR">
+    <language>Polish</language>
+    <official>False</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="BLR">
+    <language>Russian</language>
+    <official>True</official>
+    <percentage>32</percentage>
+  </language>
+  <language code="BLR">
+    <language>Ukrainian</language>
+    <official>False</official>
+    <percentage>1,29999995231628</percentage>
+  </language>
+  <language code="BLZ">
+    <language>English</language>
+    <official>True</official>
+    <percentage>50,7999992370605</percentage>
+  </language>
+  <language code="BLZ">
+    <language>Garifuna</language>
+    <official>False</official>
+    <percentage>6,80000019073486</percentage>
+  </language>
+  <language code="BLZ">
+    <language>Maya Languages</language>
+    <official>False</official>
+    <percentage>9,60000038146973</percentage>
+  </language>
+  <language code="BLZ">
+    <language>Spanish</language>
+    <official>False</official>
+    <percentage>31,6000003814697</percentage>
+  </language>
+  <language code="BMU">
+    <language>English</language>
+    <official>True</official>
+    <percentage>100</percentage>
+  </language>
+  <language code="BOL">
+    <language>AimarÃ¡</language>
+    <official>True</official>
+    <percentage>3,20000004768372</percentage>
+  </language>
+  <language code="BOL">
+    <language>GuaranÃ­</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="BOL">
+    <language>KetÂšua</language>
+    <official>True</official>
+    <percentage>8,10000038146973</percentage>
+  </language>
+  <language code="BOL">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>87,6999969482422</percentage>
+  </language>
+  <language code="BRA">
+    <language>German</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="BRA">
+    <language>Indian Languages</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="BRA">
+    <language>Italian</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="BRA">
+    <language>Japanese</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="BRA">
+    <language>Portuguese</language>
+    <official>True</official>
+    <percentage>97,5</percentage>
+  </language>
+  <language code="BRB">
+    <language>Bajan</language>
+    <official>False</official>
+    <percentage>95,0999984741211</percentage>
+  </language>
+  <language code="BRB">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="BRN">
+    <language>Chinese</language>
+    <official>False</official>
+    <percentage>9,30000019073486</percentage>
+  </language>
+  <language code="BRN">
+    <language>English</language>
+    <official>False</official>
+    <percentage>3,09999990463257</percentage>
+  </language>
+  <language code="BRN">
+    <language>Malay</language>
+    <official>True</official>
+    <percentage>45,5</percentage>
+  </language>
+  <language code="BRN">
+    <language>Malay-English</language>
+    <official>False</official>
+    <percentage>28,7999992370605</percentage>
+  </language>
+  <language code="BTN">
+    <language>Asami</language>
+    <official>False</official>
+    <percentage>15,1999998092651</percentage>
+  </language>
+  <language code="BTN">
+    <language>Dzongkha</language>
+    <official>True</official>
+    <percentage>50</percentage>
+  </language>
+  <language code="BTN">
+    <language>Nepali</language>
+    <official>False</official>
+    <percentage>34,7999992370605</percentage>
+  </language>
+  <language code="BWA">
+    <language>Khoekhoe</language>
+    <official>False</official>
+    <percentage>2,5</percentage>
+  </language>
+  <language code="BWA">
+    <language>Ndebele</language>
+    <official>False</official>
+    <percentage>1,29999995231628</percentage>
+  </language>
+  <language code="BWA">
+    <language>San</language>
+    <official>False</official>
+    <percentage>3,5</percentage>
+  </language>
+  <language code="BWA">
+    <language>Shona</language>
+    <official>False</official>
+    <percentage>12,3000001907349</percentage>
+  </language>
+  <language code="BWA">
+    <language>Tswana</language>
+    <official>False</official>
+    <percentage>75,5</percentage>
+  </language>
+  <language code="CAF">
+    <language>Banda</language>
+    <official>False</official>
+    <percentage>23,5</percentage>
+  </language>
+  <language code="CAF">
+    <language>Gbaya</language>
+    <official>False</official>
+    <percentage>23,7999992370605</percentage>
+  </language>
+  <language code="CAF">
+    <language>Mandjia</language>
+    <official>False</official>
+    <percentage>14,8000001907349</percentage>
+  </language>
+  <language code="CAF">
+    <language>Mbum</language>
+    <official>False</official>
+    <percentage>6,40000009536743</percentage>
+  </language>
+  <language code="CAF">
+    <language>Ngbaka</language>
+    <official>False</official>
+    <percentage>7,5</percentage>
+  </language>
+  <language code="CAF">
+    <language>Sara</language>
+    <official>False</official>
+    <percentage>6,40000009536743</percentage>
+  </language>
+  <language code="CAN">
+    <language>Chinese</language>
+    <official>False</official>
+    <percentage>2,5</percentage>
+  </language>
+  <language code="CAN">
+    <language>Dutch</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="CAN">
+    <language>English</language>
+    <official>True</official>
+    <percentage>60,4000015258789</percentage>
+  </language>
+  <language code="CAN">
+    <language>Eskimo Languages</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="CAN">
+    <language>French</language>
+    <official>True</official>
+    <percentage>23,3999996185303</percentage>
+  </language>
+  <language code="CAN">
+    <language>German</language>
+    <official>False</official>
+    <percentage>1,60000002384186</percentage>
+  </language>
+  <language code="CAN">
+    <language>Italian</language>
+    <official>False</official>
+    <percentage>1,70000004768372</percentage>
+  </language>
+  <language code="CAN">
+    <language>Polish</language>
+    <official>False</official>
+    <percentage>0,699999988079071</percentage>
+  </language>
+  <language code="CAN">
+    <language>Portuguese</language>
+    <official>False</official>
+    <percentage>0,699999988079071</percentage>
+  </language>
+  <language code="CAN">
+    <language>Punjabi</language>
+    <official>False</official>
+    <percentage>0,699999988079071</percentage>
+  </language>
+  <language code="CAN">
+    <language>Spanish</language>
+    <official>False</official>
+    <percentage>0,699999988079071</percentage>
+  </language>
+  <language code="CAN">
+    <language>Ukrainian</language>
+    <official>False</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="CCK">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="CCK">
+    <language>Malay</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="CHE">
+    <language>French</language>
+    <official>True</official>
+    <percentage>19,2000007629395</percentage>
+  </language>
+  <language code="CHE">
+    <language>German</language>
+    <official>True</official>
+    <percentage>63,5999984741211</percentage>
+  </language>
+  <language code="CHE">
+    <language>Italian</language>
+    <official>True</official>
+    <percentage>7,69999980926514</percentage>
+  </language>
+  <language code="CHE">
+    <language>Romansh</language>
+    <official>True</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="CHL">
+    <language>AimarÃ¡</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="CHL">
+    <language>Araucan</language>
+    <official>False</official>
+    <percentage>9,60000038146973</percentage>
+  </language>
+  <language code="CHL">
+    <language>Rapa nui</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="CHL">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>89,6999969482422</percentage>
+  </language>
+  <language code="CHN">
+    <language>Chinese</language>
+    <official>True</official>
+    <percentage>92</percentage>
+  </language>
+  <language code="CHN">
+    <language>Dong</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="CHN">
+    <language>Hui</language>
+    <official>False</official>
+    <percentage>0,800000011920929</percentage>
+  </language>
+  <language code="CHN">
+    <language>MantÂšu</language>
+    <official>False</official>
+    <percentage>0,899999976158142</percentage>
+  </language>
+  <language code="CHN">
+    <language>Miao</language>
+    <official>False</official>
+    <percentage>0,699999988079071</percentage>
+  </language>
+  <language code="CHN">
+    <language>Mongolian</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="CHN">
+    <language>Puyi</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="CHN">
+    <language>Tibetan</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="CHN">
+    <language>Tujia</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="CHN">
+    <language>Uighur</language>
+    <official>False</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="CHN">
+    <language>Yi</language>
+    <official>False</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="CHN">
+    <language>Zhuang</language>
+    <official>False</official>
+    <percentage>1,39999997615814</percentage>
+  </language>
+  <language code="CIV">
+    <language>Akan</language>
+    <official>False</official>
+    <percentage>30</percentage>
+  </language>
+  <language code="CIV">
+    <language>Gur</language>
+    <official>False</official>
+    <percentage>11,6999998092651</percentage>
+  </language>
+  <language code="CIV">
+    <language>Kru</language>
+    <official>False</official>
+    <percentage>10,5</percentage>
+  </language>
+  <language code="CIV">
+    <language>Malinke</language>
+    <official>False</official>
+    <percentage>11,3999996185303</percentage>
+  </language>
+  <language code="CIV">
+    <language>[South]Mande</language>
+    <official>False</official>
+    <percentage>7,69999980926514</percentage>
+  </language>
+  <language code="CMR">
+    <language>Bamileke-bamum</language>
+    <official>False</official>
+    <percentage>18,6000003814697</percentage>
+  </language>
+  <language code="CMR">
+    <language>Duala</language>
+    <official>False</official>
+    <percentage>10,8999996185303</percentage>
+  </language>
+  <language code="CMR">
+    <language>Fang</language>
+    <official>False</official>
+    <percentage>19,7000007629395</percentage>
+  </language>
+  <language code="CMR">
+    <language>Ful</language>
+    <official>False</official>
+    <percentage>9,60000038146973</percentage>
+  </language>
+  <language code="CMR">
+    <language>Maka</language>
+    <official>False</official>
+    <percentage>4,90000009536743</percentage>
+  </language>
+  <language code="CMR">
+    <language>Mandara</language>
+    <official>False</official>
+    <percentage>5,69999980926514</percentage>
+  </language>
+  <language code="CMR">
+    <language>Masana</language>
+    <official>False</official>
+    <percentage>3,90000009536743</percentage>
+  </language>
+  <language code="CMR">
+    <language>Tikar</language>
+    <official>False</official>
+    <percentage>7,40000009536743</percentage>
+  </language>
+  <language code="COD">
+    <language>Boa</language>
+    <official>False</official>
+    <percentage>2,29999995231628</percentage>
+  </language>
+  <language code="COD">
+    <language>Chokwe</language>
+    <official>False</official>
+    <percentage>1,79999995231628</percentage>
+  </language>
+  <language code="COD">
+    <language>Kongo</language>
+    <official>False</official>
+    <percentage>16</percentage>
+  </language>
+  <language code="COD">
+    <language>Luba</language>
+    <official>False</official>
+    <percentage>18</percentage>
+  </language>
+  <language code="COD">
+    <language>Mongo</language>
+    <official>False</official>
+    <percentage>13,5</percentage>
+  </language>
+  <language code="COD">
+    <language>Ngala and Bangi</language>
+    <official>False</official>
+    <percentage>5,80000019073486</percentage>
+  </language>
+  <language code="COD">
+    <language>Rundi</language>
+    <official>False</official>
+    <percentage>3,79999995231628</percentage>
+  </language>
+  <language code="COD">
+    <language>Rwanda</language>
+    <official>False</official>
+    <percentage>10,3000001907349</percentage>
+  </language>
+  <language code="COD">
+    <language>Teke</language>
+    <official>False</official>
+    <percentage>2,70000004768372</percentage>
+  </language>
+  <language code="COD">
+    <language>Zande</language>
+    <official>False</official>
+    <percentage>6,09999990463257</percentage>
+  </language>
+  <language code="COG">
+    <language>Kongo</language>
+    <official>False</official>
+    <percentage>51,5</percentage>
+  </language>
+  <language code="COG">
+    <language>Mbete</language>
+    <official>False</official>
+    <percentage>4,80000019073486</percentage>
+  </language>
+  <language code="COG">
+    <language>Mboshi</language>
+    <official>False</official>
+    <percentage>11,3999996185303</percentage>
+  </language>
+  <language code="COG">
+    <language>Punu</language>
+    <official>False</official>
+    <percentage>2,90000009536743</percentage>
+  </language>
+  <language code="COG">
+    <language>Sango</language>
+    <official>False</official>
+    <percentage>2,59999990463257</percentage>
+  </language>
+  <language code="COG">
+    <language>Teke</language>
+    <official>False</official>
+    <percentage>17,2999992370605</percentage>
+  </language>
+  <language code="COK">
+    <language>English</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="COK">
+    <language>Maori</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="COL">
+    <language>Arawakan</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="COL">
+    <language>Caribbean</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="COL">
+    <language>Chibcha</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="COL">
+    <language>Creole English</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="COL">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>99</percentage>
+  </language>
+  <language code="COM">
+    <language>Comorian</language>
+    <official>True</official>
+    <percentage>75</percentage>
+  </language>
+  <language code="COM">
+    <language>Comorian-Arabic</language>
+    <official>False</official>
+    <percentage>1,60000002384186</percentage>
+  </language>
+  <language code="COM">
+    <language>Comorian-French</language>
+    <official>False</official>
+    <percentage>12,8999996185303</percentage>
+  </language>
+  <language code="COM">
+    <language>Comorian-madagassi</language>
+    <official>False</official>
+    <percentage>5,5</percentage>
+  </language>
+  <language code="COM">
+    <language>Comorian-Swahili</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="CPV">
+    <language>Crioulo</language>
+    <official>False</official>
+    <percentage>100</percentage>
+  </language>
+  <language code="CPV">
+    <language>Portuguese</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="CRI">
+    <language>Chibcha</language>
+    <official>False</official>
+    <percentage>0,300000011920929</percentage>
+  </language>
+  <language code="CRI">
+    <language>Chinese</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="CRI">
+    <language>Creole English</language>
+    <official>False</official>
+    <percentage>2</percentage>
+  </language>
+  <language code="CRI">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>97,5</percentage>
+  </language>
+  <language code="CUB">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>100</percentage>
+  </language>
+  <language code="CXR">
+    <language>Chinese</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="CXR">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="CYM">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="CYP">
+    <language>Greek</language>
+    <official>True</official>
+    <percentage>74,0999984741211</percentage>
+  </language>
+  <language code="CYP">
+    <language>Turkish</language>
+    <official>True</official>
+    <percentage>22,3999996185303</percentage>
+  </language>
+  <language code="CZE">
+    <language>Czech</language>
+    <official>True</official>
+    <percentage>81,1999969482422</percentage>
+  </language>
+  <language code="CZE">
+    <language>German</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="CZE">
+    <language>Hungarian</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="CZE">
+    <language>Moravian</language>
+    <official>False</official>
+    <percentage>12,8999996185303</percentage>
+  </language>
+  <language code="CZE">
+    <language>Polish</language>
+    <official>False</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="CZE">
+    <language>Romani</language>
+    <official>False</official>
+    <percentage>0,300000011920929</percentage>
+  </language>
+  <language code="CZE">
+    <language>Silesiana</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="CZE">
+    <language>Slovak</language>
+    <official>False</official>
+    <percentage>3,09999990463257</percentage>
+  </language>
+  <language code="DEU">
+    <language>German</language>
+    <official>True</official>
+    <percentage>91,3000030517578</percentage>
+  </language>
+  <language code="DEU">
+    <language>Greek</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="DEU">
+    <language>Italian</language>
+    <official>False</official>
+    <percentage>0,699999988079071</percentage>
+  </language>
+  <language code="DEU">
+    <language>Polish</language>
+    <official>False</official>
+    <percentage>0,300000011920929</percentage>
+  </language>
+  <language code="DEU">
+    <language>Southern Slavic Languages</language>
+    <official>False</official>
+    <percentage>1,39999997615814</percentage>
+  </language>
+  <language code="DEU">
+    <language>Turkish</language>
+    <official>False</official>
+    <percentage>2,59999990463257</percentage>
+  </language>
+  <language code="DJI">
+    <language>Afar</language>
+    <official>False</official>
+    <percentage>34,7999992370605</percentage>
+  </language>
+  <language code="DJI">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>10,6000003814697</percentage>
+  </language>
+  <language code="DJI">
+    <language>Somali</language>
+    <official>False</official>
+    <percentage>43,9000015258789</percentage>
+  </language>
+  <language code="DMA">
+    <language>Creole English</language>
+    <official>False</official>
+    <percentage>100</percentage>
+  </language>
+  <language code="DMA">
+    <language>Creole French</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="DNK">
+    <language>Arabic</language>
+    <official>False</official>
+    <percentage>0,699999988079071</percentage>
+  </language>
+  <language code="DNK">
+    <language>Danish</language>
+    <official>True</official>
+    <percentage>93,5</percentage>
+  </language>
+  <language code="DNK">
+    <language>English</language>
+    <official>False</official>
+    <percentage>0,300000011920929</percentage>
+  </language>
+  <language code="DNK">
+    <language>German</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="DNK">
+    <language>Norwegian</language>
+    <official>False</official>
+    <percentage>0,300000011920929</percentage>
+  </language>
+  <language code="DNK">
+    <language>Swedish</language>
+    <official>False</official>
+    <percentage>0,300000011920929</percentage>
+  </language>
+  <language code="DNK">
+    <language>Turkish</language>
+    <official>False</official>
+    <percentage>0,800000011920929</percentage>
+  </language>
+  <language code="DOM">
+    <language>Creole French</language>
+    <official>False</official>
+    <percentage>2</percentage>
+  </language>
+  <language code="DOM">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>98</percentage>
+  </language>
+  <language code="DZA">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>86</percentage>
+  </language>
+  <language code="DZA">
+    <language>Berberi</language>
+    <official>False</official>
+    <percentage>14</percentage>
+  </language>
+  <language code="ECU">
+    <language>KetÂšua</language>
+    <official>False</official>
+    <percentage>7</percentage>
+  </language>
+  <language code="ECU">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>93</percentage>
+  </language>
+  <language code="EGY">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>98,8000030517578</percentage>
+  </language>
+  <language code="EGY">
+    <language>Sinaberberi</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="ERI">
+    <language>Afar</language>
+    <official>False</official>
+    <percentage>4,30000019073486</percentage>
+  </language>
+  <language code="ERI">
+    <language>Bilin</language>
+    <official>False</official>
+    <percentage>3</percentage>
+  </language>
+  <language code="ERI">
+    <language>Hadareb</language>
+    <official>False</official>
+    <percentage>3,79999995231628</percentage>
+  </language>
+  <language code="ERI">
+    <language>Saho</language>
+    <official>False</official>
+    <percentage>3</percentage>
+  </language>
+  <language code="ERI">
+    <language>Tigre</language>
+    <official>False</official>
+    <percentage>31,7000007629395</percentage>
+  </language>
+  <language code="ERI">
+    <language>Tigrinja</language>
+    <official>True</official>
+    <percentage>49,0999984741211</percentage>
+  </language>
+  <language code="ESH">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>100</percentage>
+  </language>
+  <language code="ESP">
+    <language>Basque</language>
+    <official>False</official>
+    <percentage>1,60000002384186</percentage>
+  </language>
+  <language code="ESP">
+    <language>Catalan</language>
+    <official>False</official>
+    <percentage>16,8999996185303</percentage>
+  </language>
+  <language code="ESP">
+    <language>Galecian</language>
+    <official>False</official>
+    <percentage>6,40000009536743</percentage>
+  </language>
+  <language code="ESP">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>74,4000015258789</percentage>
+  </language>
+  <language code="EST">
+    <language>Belorussian</language>
+    <official>False</official>
+    <percentage>1,39999997615814</percentage>
+  </language>
+  <language code="EST">
+    <language>Estonian</language>
+    <official>True</official>
+    <percentage>65,3000030517578</percentage>
+  </language>
+  <language code="EST">
+    <language>Finnish</language>
+    <official>False</official>
+    <percentage>0,699999988079071</percentage>
+  </language>
+  <language code="EST">
+    <language>Russian</language>
+    <official>False</official>
+    <percentage>27,7999992370605</percentage>
+  </language>
+  <language code="EST">
+    <language>Ukrainian</language>
+    <official>False</official>
+    <percentage>2,79999995231628</percentage>
+  </language>
+  <language code="ETH">
+    <language>Amhara</language>
+    <official>False</official>
+    <percentage>30</percentage>
+  </language>
+  <language code="ETH">
+    <language>Gurage</language>
+    <official>False</official>
+    <percentage>4,69999980926514</percentage>
+  </language>
+  <language code="ETH">
+    <language>Oromo</language>
+    <official>False</official>
+    <percentage>31</percentage>
+  </language>
+  <language code="ETH">
+    <language>Sidamo</language>
+    <official>False</official>
+    <percentage>3,20000004768372</percentage>
+  </language>
+  <language code="ETH">
+    <language>Somali</language>
+    <official>False</official>
+    <percentage>4,09999990463257</percentage>
+  </language>
+  <language code="ETH">
+    <language>Tigrinja</language>
+    <official>False</official>
+    <percentage>7,19999980926514</percentage>
+  </language>
+  <language code="ETH">
+    <language>Walaita</language>
+    <official>False</official>
+    <percentage>2,79999995231628</percentage>
+  </language>
+  <language code="FIN">
+    <language>Estonian</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="FIN">
+    <language>Finnish</language>
+    <official>True</official>
+    <percentage>92,6999969482422</percentage>
+  </language>
+  <language code="FIN">
+    <language>Russian</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="FIN">
+    <language>Saame</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="FIN">
+    <language>Swedish</language>
+    <official>True</official>
+    <percentage>5,69999980926514</percentage>
+  </language>
+  <language code="FJI">
+    <language>Fijian</language>
+    <official>True</official>
+    <percentage>50,7999992370605</percentage>
+  </language>
+  <language code="FJI">
+    <language>Hindi</language>
+    <official>False</official>
+    <percentage>43,7000007629395</percentage>
+  </language>
+  <language code="FLK">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="FRA">
+    <language>Arabic</language>
+    <official>False</official>
+    <percentage>2,5</percentage>
+  </language>
+  <language code="FRA">
+    <language>French</language>
+    <official>True</official>
+    <percentage>93,5999984741211</percentage>
+  </language>
+  <language code="FRA">
+    <language>Italian</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="FRA">
+    <language>Portuguese</language>
+    <official>False</official>
+    <percentage>1,20000004768372</percentage>
+  </language>
+  <language code="FRA">
+    <language>Spanish</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="FRA">
+    <language>Turkish</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="FRO">
+    <language>Danish</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="FRO">
+    <language>Faroese</language>
+    <official>True</official>
+    <percentage>100</percentage>
+  </language>
+  <language code="FSM">
+    <language>Kosrean</language>
+    <official>False</official>
+    <percentage>7,30000019073486</percentage>
+  </language>
+  <language code="FSM">
+    <language>Mortlock</language>
+    <official>False</official>
+    <percentage>7,59999990463257</percentage>
+  </language>
+  <language code="FSM">
+    <language>Pohnpei</language>
+    <official>False</official>
+    <percentage>23,7999992370605</percentage>
+  </language>
+  <language code="FSM">
+    <language>Trukese</language>
+    <official>False</official>
+    <percentage>41,5999984741211</percentage>
+  </language>
+  <language code="FSM">
+    <language>Wolea</language>
+    <official>False</official>
+    <percentage>3,70000004768372</percentage>
+  </language>
+  <language code="FSM">
+    <language>Yap</language>
+    <official>False</official>
+    <percentage>5,80000019073486</percentage>
+  </language>
+  <language code="GAB">
+    <language>Fang</language>
+    <official>False</official>
+    <percentage>35,7999992370605</percentage>
+  </language>
+  <language code="GAB">
+    <language>Mbete</language>
+    <official>False</official>
+    <percentage>13,8000001907349</percentage>
+  </language>
+  <language code="GAB">
+    <language>Mpongwe</language>
+    <official>False</official>
+    <percentage>14,6000003814697</percentage>
+  </language>
+  <language code="GAB">
+    <language>Punu-sira-nzebi</language>
+    <official>False</official>
+    <percentage>17,1000003814697</percentage>
+  </language>
+  <language code="GBR">
+    <language>English</language>
+    <official>True</official>
+    <percentage>97,3000030517578</percentage>
+  </language>
+  <language code="GBR">
+    <language>Gaeli</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="GBR">
+    <language>Kymri</language>
+    <official>False</official>
+    <percentage>0,899999976158142</percentage>
+  </language>
+  <language code="GEO">
+    <language>Abhyasi</language>
+    <official>False</official>
+    <percentage>1,70000004768372</percentage>
+  </language>
+  <language code="GEO">
+    <language>Armenian</language>
+    <official>False</official>
+    <percentage>6,80000019073486</percentage>
+  </language>
+  <language code="GEO">
+    <language>Azerbaijani</language>
+    <official>False</official>
+    <percentage>5,5</percentage>
+  </language>
+  <language code="GEO">
+    <language>Georgiana</language>
+    <official>True</official>
+    <percentage>71,6999969482422</percentage>
+  </language>
+  <language code="GEO">
+    <language>Osseetti</language>
+    <official>False</official>
+    <percentage>2,40000009536743</percentage>
+  </language>
+  <language code="GEO">
+    <language>Russian</language>
+    <official>False</official>
+    <percentage>8,80000019073486</percentage>
+  </language>
+  <language code="GHA">
+    <language>Akan</language>
+    <official>False</official>
+    <percentage>52,4000015258789</percentage>
+  </language>
+  <language code="GHA">
+    <language>Ewe</language>
+    <official>False</official>
+    <percentage>11,8999996185303</percentage>
+  </language>
+  <language code="GHA">
+    <language>Ga-adangme</language>
+    <official>False</official>
+    <percentage>7,80000019073486</percentage>
+  </language>
+  <language code="GHA">
+    <language>Gurma</language>
+    <official>False</official>
+    <percentage>3,29999995231628</percentage>
+  </language>
+  <language code="GHA">
+    <language>Joruba</language>
+    <official>False</official>
+    <percentage>1,29999995231628</percentage>
+  </language>
+  <language code="GHA">
+    <language>Mossi</language>
+    <official>False</official>
+    <percentage>15,8000001907349</percentage>
+  </language>
+  <language code="GIB">
+    <language>Arabic</language>
+    <official>False</official>
+    <percentage>7,40000009536743</percentage>
+  </language>
+  <language code="GIB">
+    <language>English</language>
+    <official>True</official>
+    <percentage>88,9000015258789</percentage>
+  </language>
+  <language code="GIN">
+    <language>Ful</language>
+    <official>False</official>
+    <percentage>38,5999984741211</percentage>
+  </language>
+  <language code="GIN">
+    <language>Kissi</language>
+    <official>False</official>
+    <percentage>6</percentage>
+  </language>
+  <language code="GIN">
+    <language>Kpelle</language>
+    <official>False</official>
+    <percentage>4,59999990463257</percentage>
+  </language>
+  <language code="GIN">
+    <language>Loma</language>
+    <official>False</official>
+    <percentage>2,29999995231628</percentage>
+  </language>
+  <language code="GIN">
+    <language>Malinke</language>
+    <official>False</official>
+    <percentage>23,2000007629395</percentage>
+  </language>
+  <language code="GIN">
+    <language>Susu</language>
+    <official>False</official>
+    <percentage>11</percentage>
+  </language>
+  <language code="GIN">
+    <language>Yalunka</language>
+    <official>False</official>
+    <percentage>2,90000009536743</percentage>
+  </language>
+  <language code="GLP">
+    <language>Creole French</language>
+    <official>False</official>
+    <percentage>95</percentage>
+  </language>
+  <language code="GLP">
+    <language>French</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="GMB">
+    <language>Diola</language>
+    <official>False</official>
+    <percentage>9,19999980926514</percentage>
+  </language>
+  <language code="GMB">
+    <language>Ful</language>
+    <official>False</official>
+    <percentage>16,2000007629395</percentage>
+  </language>
+  <language code="GMB">
+    <language>Malinke</language>
+    <official>False</official>
+    <percentage>34,0999984741211</percentage>
+  </language>
+  <language code="GMB">
+    <language>Soninke</language>
+    <official>False</official>
+    <percentage>7,59999990463257</percentage>
+  </language>
+  <language code="GMB">
+    <language>Wolof</language>
+    <official>False</official>
+    <percentage>12,6000003814697</percentage>
+  </language>
+  <language code="GNB">
+    <language>Balante</language>
+    <official>False</official>
+    <percentage>14,6000003814697</percentage>
+  </language>
+  <language code="GNB">
+    <language>Crioulo</language>
+    <official>False</official>
+    <percentage>36,4000015258789</percentage>
+  </language>
+  <language code="GNB">
+    <language>Ful</language>
+    <official>False</official>
+    <percentage>16,6000003814697</percentage>
+  </language>
+  <language code="GNB">
+    <language>Malinke</language>
+    <official>False</official>
+    <percentage>6,90000009536743</percentage>
+  </language>
+  <language code="GNB">
+    <language>Mandyako</language>
+    <official>False</official>
+    <percentage>4,90000009536743</percentage>
+  </language>
+  <language code="GNB">
+    <language>Portuguese</language>
+    <official>True</official>
+    <percentage>8,10000038146973</percentage>
+  </language>
+  <language code="GNQ">
+    <language>Bubi</language>
+    <official>False</official>
+    <percentage>8,69999980926514</percentage>
+  </language>
+  <language code="GNQ">
+    <language>Fang</language>
+    <official>False</official>
+    <percentage>84,8000030517578</percentage>
+  </language>
+  <language code="GRC">
+    <language>Greek</language>
+    <official>True</official>
+    <percentage>98,5</percentage>
+  </language>
+  <language code="GRC">
+    <language>Turkish</language>
+    <official>False</official>
+    <percentage>0,899999976158142</percentage>
+  </language>
+  <language code="GRD">
+    <language>Creole English</language>
+    <official>False</official>
+    <percentage>100</percentage>
+  </language>
+  <language code="GRL">
+    <language>Danish</language>
+    <official>True</official>
+    <percentage>12,5</percentage>
+  </language>
+  <language code="GRL">
+    <language>Greenlandic</language>
+    <official>True</official>
+    <percentage>87,5</percentage>
+  </language>
+  <language code="GTM">
+    <language>Cakchiquel</language>
+    <official>False</official>
+    <percentage>8,89999961853027</percentage>
+  </language>
+  <language code="GTM">
+    <language>KekchÃ­</language>
+    <official>False</official>
+    <percentage>4,90000009536743</percentage>
+  </language>
+  <language code="GTM">
+    <language>Mam</language>
+    <official>False</official>
+    <percentage>2,70000004768372</percentage>
+  </language>
+  <language code="GTM">
+    <language>QuichÃ©</language>
+    <official>False</official>
+    <percentage>10,1000003814697</percentage>
+  </language>
+  <language code="GTM">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>64,6999969482422</percentage>
+  </language>
+  <language code="GUF">
+    <language>Creole French</language>
+    <official>False</official>
+    <percentage>94,3000030517578</percentage>
+  </language>
+  <language code="GUF">
+    <language>Indian Languages</language>
+    <official>False</official>
+    <percentage>1,89999997615814</percentage>
+  </language>
+  <language code="GUM">
+    <language>Chamorro</language>
+    <official>True</official>
+    <percentage>29,6000003814697</percentage>
+  </language>
+  <language code="GUM">
+    <language>English</language>
+    <official>True</official>
+    <percentage>37,5</percentage>
+  </language>
+  <language code="GUM">
+    <language>Japanese</language>
+    <official>False</official>
+    <percentage>2</percentage>
+  </language>
+  <language code="GUM">
+    <language>Korean</language>
+    <official>False</official>
+    <percentage>3,29999995231628</percentage>
+  </language>
+  <language code="GUM">
+    <language>Philippene Languages</language>
+    <official>False</official>
+    <percentage>19,7000007629395</percentage>
+  </language>
+  <language code="GUY">
+    <language>Arawakan</language>
+    <official>False</official>
+    <percentage>1,39999997615814</percentage>
+  </language>
+  <language code="GUY">
+    <language>Caribbean</language>
+    <official>False</official>
+    <percentage>2,20000004768372</percentage>
+  </language>
+  <language code="GUY">
+    <language>Creole English</language>
+    <official>False</official>
+    <percentage>96,4000015258789</percentage>
+  </language>
+  <language code="HKG">
+    <language>Canton Chinese</language>
+    <official>False</official>
+    <percentage>88,6999969482422</percentage>
+  </language>
+  <language code="HKG">
+    <language>Chiu chau</language>
+    <official>False</official>
+    <percentage>1,39999997615814</percentage>
+  </language>
+  <language code="HKG">
+    <language>English</language>
+    <official>True</official>
+    <percentage>2,20000004768372</percentage>
+  </language>
+  <language code="HKG">
+    <language>Fukien</language>
+    <official>False</official>
+    <percentage>1,89999997615814</percentage>
+  </language>
+  <language code="HKG">
+    <language>Hakka</language>
+    <official>False</official>
+    <percentage>1,60000002384186</percentage>
+  </language>
+  <language code="HND">
+    <language>Creole English</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="HND">
+    <language>Garifuna</language>
+    <official>False</official>
+    <percentage>1,29999995231628</percentage>
+  </language>
+  <language code="HND">
+    <language>Miskito</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="HND">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>97,1999969482422</percentage>
+  </language>
+  <language code="HRV">
+    <language>Serbo-Croatian</language>
+    <official>True</official>
+    <percentage>95,9000015258789</percentage>
+  </language>
+  <language code="HRV">
+    <language>Slovene</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="HTI">
+    <language>French</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="HTI">
+    <language>Haiti Creole</language>
+    <official>False</official>
+    <percentage>100</percentage>
+  </language>
+  <language code="HUN">
+    <language>German</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="HUN">
+    <language>Hungarian</language>
+    <official>True</official>
+    <percentage>98,5</percentage>
+  </language>
+  <language code="HUN">
+    <language>Romani</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="HUN">
+    <language>Romanian</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="HUN">
+    <language>Serbo-Croatian</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="HUN">
+    <language>Slovak</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="IDN">
+    <language>Bali</language>
+    <official>False</official>
+    <percentage>1,70000004768372</percentage>
+  </language>
+  <language code="IDN">
+    <language>Banja</language>
+    <official>False</official>
+    <percentage>1,79999995231628</percentage>
+  </language>
+  <language code="IDN">
+    <language>Batakki</language>
+    <official>False</official>
+    <percentage>2,20000004768372</percentage>
+  </language>
+  <language code="IDN">
+    <language>Bugi</language>
+    <official>False</official>
+    <percentage>2,20000004768372</percentage>
+  </language>
+  <language code="IDN">
+    <language>Javanese</language>
+    <official>False</official>
+    <percentage>39,4000015258789</percentage>
+  </language>
+  <language code="IDN">
+    <language>Madura</language>
+    <official>False</official>
+    <percentage>4,30000019073486</percentage>
+  </language>
+  <language code="IDN">
+    <language>Malay</language>
+    <official>True</official>
+    <percentage>12,1000003814697</percentage>
+  </language>
+  <language code="IDN">
+    <language>Minangkabau</language>
+    <official>False</official>
+    <percentage>2,40000009536743</percentage>
+  </language>
+  <language code="IDN">
+    <language>Sunda</language>
+    <official>False</official>
+    <percentage>15,8000001907349</percentage>
+  </language>
+  <language code="IND">
+    <language>Asami</language>
+    <official>False</official>
+    <percentage>1,5</percentage>
+  </language>
+  <language code="IND">
+    <language>Bengali</language>
+    <official>False</official>
+    <percentage>8,19999980926514</percentage>
+  </language>
+  <language code="IND">
+    <language>Gujarati</language>
+    <official>False</official>
+    <percentage>4,80000019073486</percentage>
+  </language>
+  <language code="IND">
+    <language>Hindi</language>
+    <official>True</official>
+    <percentage>39,9000015258789</percentage>
+  </language>
+  <language code="IND">
+    <language>Kannada</language>
+    <official>False</official>
+    <percentage>3,90000009536743</percentage>
+  </language>
+  <language code="IND">
+    <language>Malajalam</language>
+    <official>False</official>
+    <percentage>3,59999990463257</percentage>
+  </language>
+  <language code="IND">
+    <language>Marathi</language>
+    <official>False</official>
+    <percentage>7,40000009536743</percentage>
+  </language>
+  <language code="IND">
+    <language>Orija</language>
+    <official>False</official>
+    <percentage>3,29999995231628</percentage>
+  </language>
+  <language code="IND">
+    <language>Punjabi</language>
+    <official>False</official>
+    <percentage>2,79999995231628</percentage>
+  </language>
+  <language code="IND">
+    <language>Tamil</language>
+    <official>False</official>
+    <percentage>6,30000019073486</percentage>
+  </language>
+  <language code="IND">
+    <language>Telugu</language>
+    <official>False</official>
+    <percentage>7,80000019073486</percentage>
+  </language>
+  <language code="IND">
+    <language>Urdu</language>
+    <official>False</official>
+    <percentage>5,09999990463257</percentage>
+  </language>
+  <language code="IRL">
+    <language>English</language>
+    <official>True</official>
+    <percentage>98,4000015258789</percentage>
+  </language>
+  <language code="IRL">
+    <language>Irish</language>
+    <official>True</official>
+    <percentage>1,60000002384186</percentage>
+  </language>
+  <language code="IRN">
+    <language>Arabic</language>
+    <official>False</official>
+    <percentage>2,20000004768372</percentage>
+  </language>
+  <language code="IRN">
+    <language>Azerbaijani</language>
+    <official>False</official>
+    <percentage>16,7999992370605</percentage>
+  </language>
+  <language code="IRN">
+    <language>Bakhtyari</language>
+    <official>False</official>
+    <percentage>1,70000004768372</percentage>
+  </language>
+  <language code="IRN">
+    <language>Balochi</language>
+    <official>False</official>
+    <percentage>2,29999995231628</percentage>
+  </language>
+  <language code="IRN">
+    <language>Gilaki</language>
+    <official>False</official>
+    <percentage>5,30000019073486</percentage>
+  </language>
+  <language code="IRN">
+    <language>Kurdish</language>
+    <official>False</official>
+    <percentage>9,10000038146973</percentage>
+  </language>
+  <language code="IRN">
+    <language>Luri</language>
+    <official>False</official>
+    <percentage>4,30000019073486</percentage>
+  </language>
+  <language code="IRN">
+    <language>Mazandarani</language>
+    <official>False</official>
+    <percentage>3,59999990463257</percentage>
+  </language>
+  <language code="IRN">
+    <language>Persian</language>
+    <official>True</official>
+    <percentage>45,7000007629395</percentage>
+  </language>
+  <language code="IRN">
+    <language>Turkmenian</language>
+    <official>False</official>
+    <percentage>1,60000002384186</percentage>
+  </language>
+  <language code="IRQ">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>77,1999969482422</percentage>
+  </language>
+  <language code="IRQ">
+    <language>Assyrian</language>
+    <official>False</official>
+    <percentage>0,800000011920929</percentage>
+  </language>
+  <language code="IRQ">
+    <language>Azerbaijani</language>
+    <official>False</official>
+    <percentage>1,70000004768372</percentage>
+  </language>
+  <language code="IRQ">
+    <language>Kurdish</language>
+    <official>False</official>
+    <percentage>19</percentage>
+  </language>
+  <language code="IRQ">
+    <language>Persian</language>
+    <official>False</official>
+    <percentage>0,800000011920929</percentage>
+  </language>
+  <language code="ISL">
+    <language>English</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="ISL">
+    <language>Icelandic</language>
+    <official>True</official>
+    <percentage>95,6999969482422</percentage>
+  </language>
+  <language code="ISR">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>18</percentage>
+  </language>
+  <language code="ISR">
+    <language>Hebrew</language>
+    <official>True</official>
+    <percentage>63,0999984741211</percentage>
+  </language>
+  <language code="ISR">
+    <language>Russian</language>
+    <official>False</official>
+    <percentage>8,89999961853027</percentage>
+  </language>
+  <language code="ITA">
+    <language>Albaniana</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="ITA">
+    <language>French</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="ITA">
+    <language>Friuli</language>
+    <official>False</official>
+    <percentage>1,20000004768372</percentage>
+  </language>
+  <language code="ITA">
+    <language>German</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="ITA">
+    <language>Italian</language>
+    <official>True</official>
+    <percentage>94,0999984741211</percentage>
+  </language>
+  <language code="ITA">
+    <language>Romani</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="ITA">
+    <language>Sardinian</language>
+    <official>False</official>
+    <percentage>2,70000004768372</percentage>
+  </language>
+  <language code="ITA">
+    <language>Slovene</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="JAM">
+    <language>Creole English</language>
+    <official>False</official>
+    <percentage>94,1999969482422</percentage>
+  </language>
+  <language code="JAM">
+    <language>Hindi</language>
+    <official>False</official>
+    <percentage>1,89999997615814</percentage>
+  </language>
+  <language code="JOR">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>97,9000015258789</percentage>
+  </language>
+  <language code="JOR">
+    <language>Armenian</language>
+    <official>False</official>
+    <percentage>1</percentage>
+  </language>
+  <language code="JOR">
+    <language>Circassian</language>
+    <official>False</official>
+    <percentage>1</percentage>
+  </language>
+  <language code="JPN">
+    <language>Ainu</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="JPN">
+    <language>Chinese</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="JPN">
+    <language>English</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="JPN">
+    <language>Japanese</language>
+    <official>True</official>
+    <percentage>99,0999984741211</percentage>
+  </language>
+  <language code="JPN">
+    <language>Korean</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="JPN">
+    <language>Philippene Languages</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="KAZ">
+    <language>German</language>
+    <official>False</official>
+    <percentage>3,09999990463257</percentage>
+  </language>
+  <language code="KAZ">
+    <language>Kazakh</language>
+    <official>True</official>
+    <percentage>46</percentage>
+  </language>
+  <language code="KAZ">
+    <language>Russian</language>
+    <official>False</official>
+    <percentage>34,7000007629395</percentage>
+  </language>
+  <language code="KAZ">
+    <language>Tatar</language>
+    <official>False</official>
+    <percentage>2</percentage>
+  </language>
+  <language code="KAZ">
+    <language>Ukrainian</language>
+    <official>False</official>
+    <percentage>5</percentage>
+  </language>
+  <language code="KAZ">
+    <language>Uzbek</language>
+    <official>False</official>
+    <percentage>2,29999995231628</percentage>
+  </language>
+  <language code="KEN">
+    <language>Gusii</language>
+    <official>False</official>
+    <percentage>6,09999990463257</percentage>
+  </language>
+  <language code="KEN">
+    <language>Kalenjin</language>
+    <official>False</official>
+    <percentage>10,8000001907349</percentage>
+  </language>
+  <language code="KEN">
+    <language>Kamba</language>
+    <official>False</official>
+    <percentage>11,1999998092651</percentage>
+  </language>
+  <language code="KEN">
+    <language>Kikuyu</language>
+    <official>False</official>
+    <percentage>20,8999996185303</percentage>
+  </language>
+  <language code="KEN">
+    <language>Luhya</language>
+    <official>False</official>
+    <percentage>13,8000001907349</percentage>
+  </language>
+  <language code="KEN">
+    <language>Luo</language>
+    <official>False</official>
+    <percentage>12,8000001907349</percentage>
+  </language>
+  <language code="KEN">
+    <language>Masai</language>
+    <official>False</official>
+    <percentage>1,60000002384186</percentage>
+  </language>
+  <language code="KEN">
+    <language>Meru</language>
+    <official>False</official>
+    <percentage>5,5</percentage>
+  </language>
+  <language code="KEN">
+    <language>Nyika</language>
+    <official>False</official>
+    <percentage>4,80000019073486</percentage>
+  </language>
+  <language code="KEN">
+    <language>Turkana</language>
+    <official>False</official>
+    <percentage>1,39999997615814</percentage>
+  </language>
+  <language code="KGZ">
+    <language>Kazakh</language>
+    <official>False</official>
+    <percentage>0,800000011920929</percentage>
+  </language>
+  <language code="KGZ">
+    <language>Kirgiz</language>
+    <official>True</official>
+    <percentage>59,7000007629395</percentage>
+  </language>
+  <language code="KGZ">
+    <language>Russian</language>
+    <official>True</official>
+    <percentage>16,2000007629395</percentage>
+  </language>
+  <language code="KGZ">
+    <language>Tadzhik</language>
+    <official>False</official>
+    <percentage>0,800000011920929</percentage>
+  </language>
+  <language code="KGZ">
+    <language>Tatar</language>
+    <official>False</official>
+    <percentage>1,29999995231628</percentage>
+  </language>
+  <language code="KGZ">
+    <language>Ukrainian</language>
+    <official>False</official>
+    <percentage>1,70000004768372</percentage>
+  </language>
+  <language code="KGZ">
+    <language>Uzbek</language>
+    <official>False</official>
+    <percentage>14,1000003814697</percentage>
+  </language>
+  <language code="KHM">
+    <language>Chinese</language>
+    <official>False</official>
+    <percentage>3,09999990463257</percentage>
+  </language>
+  <language code="KHM">
+    <language>Khmer</language>
+    <official>True</official>
+    <percentage>88,5999984741211</percentage>
+  </language>
+  <language code="KHM">
+    <language>TÂšam</language>
+    <official>False</official>
+    <percentage>2,40000009536743</percentage>
+  </language>
+  <language code="KHM">
+    <language>Vietnamese</language>
+    <official>False</official>
+    <percentage>5,5</percentage>
+  </language>
+  <language code="KIR">
+    <language>Kiribati</language>
+    <official>True</official>
+    <percentage>98,9000015258789</percentage>
+  </language>
+  <language code="KIR">
+    <language>Tuvalu</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="KNA">
+    <language>Creole English</language>
+    <official>False</official>
+    <percentage>100</percentage>
+  </language>
+  <language code="KNA">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="KOR">
+    <language>Chinese</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="KOR">
+    <language>Korean</language>
+    <official>True</official>
+    <percentage>99,9000015258789</percentage>
+  </language>
+  <language code="KWT">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>78,0999984741211</percentage>
+  </language>
+  <language code="KWT">
+    <language>English</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="LAO">
+    <language>Lao</language>
+    <official>True</official>
+    <percentage>67,1999969482422</percentage>
+  </language>
+  <language code="LAO">
+    <language>Lao-Soung</language>
+    <official>False</official>
+    <percentage>5,19999980926514</percentage>
+  </language>
+  <language code="LAO">
+    <language>Mon-khmer</language>
+    <official>False</official>
+    <percentage>16,5</percentage>
+  </language>
+  <language code="LAO">
+    <language>Thai</language>
+    <official>False</official>
+    <percentage>7,80000019073486</percentage>
+  </language>
+  <language code="LBN">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>93</percentage>
+  </language>
+  <language code="LBN">
+    <language>Armenian</language>
+    <official>False</official>
+    <percentage>5,90000009536743</percentage>
+  </language>
+  <language code="LBN">
+    <language>French</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="LBR">
+    <language>Bassa</language>
+    <official>False</official>
+    <percentage>13,6999998092651</percentage>
+  </language>
+  <language code="LBR">
+    <language>Gio</language>
+    <official>False</official>
+    <percentage>7,90000009536743</percentage>
+  </language>
+  <language code="LBR">
+    <language>Grebo</language>
+    <official>False</official>
+    <percentage>8,89999961853027</percentage>
+  </language>
+  <language code="LBR">
+    <language>Kpelle</language>
+    <official>False</official>
+    <percentage>19,5</percentage>
+  </language>
+  <language code="LBR">
+    <language>Kru</language>
+    <official>False</official>
+    <percentage>7,19999980926514</percentage>
+  </language>
+  <language code="LBR">
+    <language>Loma</language>
+    <official>False</official>
+    <percentage>5,80000019073486</percentage>
+  </language>
+  <language code="LBR">
+    <language>Malinke</language>
+    <official>False</official>
+    <percentage>5,09999990463257</percentage>
+  </language>
+  <language code="LBR">
+    <language>Mano</language>
+    <official>False</official>
+    <percentage>7,19999980926514</percentage>
+  </language>
+  <language code="LBY">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>96</percentage>
+  </language>
+  <language code="LBY">
+    <language>Berberi</language>
+    <official>False</official>
+    <percentage>1</percentage>
+  </language>
+  <language code="LCA">
+    <language>Creole French</language>
+    <official>False</official>
+    <percentage>80</percentage>
+  </language>
+  <language code="LCA">
+    <language>English</language>
+    <official>True</official>
+    <percentage>20</percentage>
+  </language>
+  <language code="LIE">
+    <language>German</language>
+    <official>True</official>
+    <percentage>89</percentage>
+  </language>
+  <language code="LIE">
+    <language>Italian</language>
+    <official>False</official>
+    <percentage>2,5</percentage>
+  </language>
+  <language code="LIE">
+    <language>Turkish</language>
+    <official>False</official>
+    <percentage>2,5</percentage>
+  </language>
+  <language code="LKA">
+    <language>Mixed Languages</language>
+    <official>False</official>
+    <percentage>19,6000003814697</percentage>
+  </language>
+  <language code="LKA">
+    <language>Singali</language>
+    <official>True</official>
+    <percentage>60,2999992370605</percentage>
+  </language>
+  <language code="LKA">
+    <language>Tamil</language>
+    <official>True</official>
+    <percentage>19,6000003814697</percentage>
+  </language>
+  <language code="LSO">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="LSO">
+    <language>Sotho</language>
+    <official>True</official>
+    <percentage>85</percentage>
+  </language>
+  <language code="LSO">
+    <language>Zulu</language>
+    <official>False</official>
+    <percentage>15</percentage>
+  </language>
+  <language code="LTU">
+    <language>Belorussian</language>
+    <official>False</official>
+    <percentage>1,39999997615814</percentage>
+  </language>
+  <language code="LTU">
+    <language>Lithuanian</language>
+    <official>True</official>
+    <percentage>81,5999984741211</percentage>
+  </language>
+  <language code="LTU">
+    <language>Polish</language>
+    <official>False</official>
+    <percentage>7</percentage>
+  </language>
+  <language code="LTU">
+    <language>Russian</language>
+    <official>False</official>
+    <percentage>8,10000038146973</percentage>
+  </language>
+  <language code="LTU">
+    <language>Ukrainian</language>
+    <official>False</official>
+    <percentage>1,10000002384186</percentage>
+  </language>
+  <language code="LUX">
+    <language>French</language>
+    <official>True</official>
+    <percentage>4,19999980926514</percentage>
+  </language>
+  <language code="LUX">
+    <language>German</language>
+    <official>True</official>
+    <percentage>2,29999995231628</percentage>
+  </language>
+  <language code="LUX">
+    <language>Italian</language>
+    <official>False</official>
+    <percentage>4,59999990463257</percentage>
+  </language>
+  <language code="LUX">
+    <language>Luxembourgish</language>
+    <official>True</official>
+    <percentage>64,4000015258789</percentage>
+  </language>
+  <language code="LUX">
+    <language>Portuguese</language>
+    <official>False</official>
+    <percentage>13</percentage>
+  </language>
+  <language code="LVA">
+    <language>Belorussian</language>
+    <official>False</official>
+    <percentage>4,09999990463257</percentage>
+  </language>
+  <language code="LVA">
+    <language>Latvian</language>
+    <official>True</official>
+    <percentage>55,0999984741211</percentage>
+  </language>
+  <language code="LVA">
+    <language>Lithuanian</language>
+    <official>False</official>
+    <percentage>1,20000004768372</percentage>
+  </language>
+  <language code="LVA">
+    <language>Polish</language>
+    <official>False</official>
+    <percentage>2,09999990463257</percentage>
+  </language>
+  <language code="LVA">
+    <language>Russian</language>
+    <official>False</official>
+    <percentage>32,5</percentage>
+  </language>
+  <language code="LVA">
+    <language>Ukrainian</language>
+    <official>False</official>
+    <percentage>2,90000009536743</percentage>
+  </language>
+  <language code="MAC">
+    <language>Canton Chinese</language>
+    <official>False</official>
+    <percentage>85,5999984741211</percentage>
+  </language>
+  <language code="MAC">
+    <language>English</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="MAC">
+    <language>Mandarin Chinese</language>
+    <official>False</official>
+    <percentage>1,20000004768372</percentage>
+  </language>
+  <language code="MAC">
+    <language>Portuguese</language>
+    <official>True</official>
+    <percentage>2,29999995231628</percentage>
+  </language>
+  <language code="MAR">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>65</percentage>
+  </language>
+  <language code="MAR">
+    <language>Berberi</language>
+    <official>False</official>
+    <percentage>33</percentage>
+  </language>
+  <language code="MCO">
+    <language>English</language>
+    <official>False</official>
+    <percentage>6,5</percentage>
+  </language>
+  <language code="MCO">
+    <language>French</language>
+    <official>True</official>
+    <percentage>41,9000015258789</percentage>
+  </language>
+  <language code="MCO">
+    <language>Italian</language>
+    <official>False</official>
+    <percentage>16,1000003814697</percentage>
+  </language>
+  <language code="MCO">
+    <language>Monegasque</language>
+    <official>False</official>
+    <percentage>16,1000003814697</percentage>
+  </language>
+  <language code="MDA">
+    <language>Bulgariana</language>
+    <official>False</official>
+    <percentage>1,60000002384186</percentage>
+  </language>
+  <language code="MDA">
+    <language>Gagauzi</language>
+    <official>False</official>
+    <percentage>3,20000004768372</percentage>
+  </language>
+  <language code="MDA">
+    <language>Romanian</language>
+    <official>True</official>
+    <percentage>61,9000015258789</percentage>
+  </language>
+  <language code="MDA">
+    <language>Russian</language>
+    <official>False</official>
+    <percentage>23,2000007629395</percentage>
+  </language>
+  <language code="MDA">
+    <language>Ukrainian</language>
+    <official>False</official>
+    <percentage>8,60000038146973</percentage>
+  </language>
+  <language code="MDG">
+    <language>French</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="MDG">
+    <language>Malagasy</language>
+    <official>True</official>
+    <percentage>98,9000015258789</percentage>
+  </language>
+  <language code="MDV">
+    <language>Dhivehi</language>
+    <official>True</official>
+    <percentage>100</percentage>
+  </language>
+  <language code="MDV">
+    <language>English</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="MEX">
+    <language>Mixtec</language>
+    <official>False</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="MEX">
+    <language>NÃ¡huatl</language>
+    <official>False</official>
+    <percentage>1,79999995231628</percentage>
+  </language>
+  <language code="MEX">
+    <language>OtomÃ­</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="MEX">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>92,0999984741211</percentage>
+  </language>
+  <language code="MEX">
+    <language>Yucatec</language>
+    <official>False</official>
+    <percentage>1,10000002384186</percentage>
+  </language>
+  <language code="MEX">
+    <language>Zapotec</language>
+    <official>False</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="MHL">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="MHL">
+    <language>Marshallese</language>
+    <official>True</official>
+    <percentage>96,8000030517578</percentage>
+  </language>
+  <language code="MKD">
+    <language>Albaniana</language>
+    <official>False</official>
+    <percentage>22,8999996185303</percentage>
+  </language>
+  <language code="MKD">
+    <language>Macedonian</language>
+    <official>True</official>
+    <percentage>66,5</percentage>
+  </language>
+  <language code="MKD">
+    <language>Romani</language>
+    <official>False</official>
+    <percentage>2,29999995231628</percentage>
+  </language>
+  <language code="MKD">
+    <language>Serbo-Croatian</language>
+    <official>False</official>
+    <percentage>2</percentage>
+  </language>
+  <language code="MKD">
+    <language>Turkish</language>
+    <official>False</official>
+    <percentage>4</percentage>
+  </language>
+  <language code="MLI">
+    <language>Bambara</language>
+    <official>False</official>
+    <percentage>31,7999992370605</percentage>
+  </language>
+  <language code="MLI">
+    <language>Ful</language>
+    <official>False</official>
+    <percentage>13,8999996185303</percentage>
+  </language>
+  <language code="MLI">
+    <language>Senufo and Minianka</language>
+    <official>False</official>
+    <percentage>12</percentage>
+  </language>
+  <language code="MLI">
+    <language>Songhai</language>
+    <official>False</official>
+    <percentage>6,90000009536743</percentage>
+  </language>
+  <language code="MLI">
+    <language>Soninke</language>
+    <official>False</official>
+    <percentage>8,69999980926514</percentage>
+  </language>
+  <language code="MLI">
+    <language>Tamashek</language>
+    <official>False</official>
+    <percentage>7,30000019073486</percentage>
+  </language>
+  <language code="MLT">
+    <language>English</language>
+    <official>True</official>
+    <percentage>2,09999990463257</percentage>
+  </language>
+  <language code="MLT">
+    <language>Maltese</language>
+    <official>True</official>
+    <percentage>95,8000030517578</percentage>
+  </language>
+  <language code="MMR">
+    <language>Burmese</language>
+    <official>True</official>
+    <percentage>69</percentage>
+  </language>
+  <language code="MMR">
+    <language>Chin</language>
+    <official>False</official>
+    <percentage>2,20000004768372</percentage>
+  </language>
+  <language code="MMR">
+    <language>Kachin</language>
+    <official>False</official>
+    <percentage>1,39999997615814</percentage>
+  </language>
+  <language code="MMR">
+    <language>Karen</language>
+    <official>False</official>
+    <percentage>6,19999980926514</percentage>
+  </language>
+  <language code="MMR">
+    <language>Kayah</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="MMR">
+    <language>Mon</language>
+    <official>False</official>
+    <percentage>2,40000009536743</percentage>
+  </language>
+  <language code="MMR">
+    <language>Rakhine</language>
+    <official>False</official>
+    <percentage>4,5</percentage>
+  </language>
+  <language code="MMR">
+    <language>Shan</language>
+    <official>False</official>
+    <percentage>8,5</percentage>
+  </language>
+  <language code="MNG">
+    <language>Bajad</language>
+    <official>False</official>
+    <percentage>1,89999997615814</percentage>
+  </language>
+  <language code="MNG">
+    <language>Buryat</language>
+    <official>False</official>
+    <percentage>1,70000004768372</percentage>
+  </language>
+  <language code="MNG">
+    <language>Dariganga</language>
+    <official>False</official>
+    <percentage>1,39999997615814</percentage>
+  </language>
+  <language code="MNG">
+    <language>Dorbet</language>
+    <official>False</official>
+    <percentage>2,70000004768372</percentage>
+  </language>
+  <language code="MNG">
+    <language>Kazakh</language>
+    <official>False</official>
+    <percentage>5,90000009536743</percentage>
+  </language>
+  <language code="MNG">
+    <language>Mongolian</language>
+    <official>True</official>
+    <percentage>78,8000030517578</percentage>
+  </language>
+  <language code="MNP">
+    <language>Carolinian</language>
+    <official>False</official>
+    <percentage>4,80000019073486</percentage>
+  </language>
+  <language code="MNP">
+    <language>Chamorro</language>
+    <official>False</official>
+    <percentage>30</percentage>
+  </language>
+  <language code="MNP">
+    <language>Chinese</language>
+    <official>False</official>
+    <percentage>7,09999990463257</percentage>
+  </language>
+  <language code="MNP">
+    <language>English</language>
+    <official>True</official>
+    <percentage>4,80000019073486</percentage>
+  </language>
+  <language code="MNP">
+    <language>Korean</language>
+    <official>False</official>
+    <percentage>6,5</percentage>
+  </language>
+  <language code="MNP">
+    <language>Philippene Languages</language>
+    <official>False</official>
+    <percentage>34,0999984741211</percentage>
+  </language>
+  <language code="MOZ">
+    <language>Chuabo</language>
+    <official>False</official>
+    <percentage>5,69999980926514</percentage>
+  </language>
+  <language code="MOZ">
+    <language>Lomwe</language>
+    <official>False</official>
+    <percentage>7,80000019073486</percentage>
+  </language>
+  <language code="MOZ">
+    <language>Makua</language>
+    <official>False</official>
+    <percentage>27,7999992370605</percentage>
+  </language>
+  <language code="MOZ">
+    <language>Marendje</language>
+    <official>False</official>
+    <percentage>3,5</percentage>
+  </language>
+  <language code="MOZ">
+    <language>Nyanja</language>
+    <official>False</official>
+    <percentage>3,29999995231628</percentage>
+  </language>
+  <language code="MOZ">
+    <language>Ronga</language>
+    <official>False</official>
+    <percentage>3,70000004768372</percentage>
+  </language>
+  <language code="MOZ">
+    <language>Sena</language>
+    <official>False</official>
+    <percentage>9,39999961853027</percentage>
+  </language>
+  <language code="MOZ">
+    <language>Shona</language>
+    <official>False</official>
+    <percentage>6,5</percentage>
+  </language>
+  <language code="MOZ">
+    <language>Tsonga</language>
+    <official>False</official>
+    <percentage>12,3999996185303</percentage>
+  </language>
+  <language code="MOZ">
+    <language>Tswa</language>
+    <official>False</official>
+    <percentage>6</percentage>
+  </language>
+  <language code="MRT">
+    <language>Ful</language>
+    <official>False</official>
+    <percentage>1,20000004768372</percentage>
+  </language>
+  <language code="MRT">
+    <language>Hassaniya</language>
+    <official>False</official>
+    <percentage>81,6999969482422</percentage>
+  </language>
+  <language code="MRT">
+    <language>Soninke</language>
+    <official>False</official>
+    <percentage>2,70000004768372</percentage>
+  </language>
+  <language code="MRT">
+    <language>Tukulor</language>
+    <official>False</official>
+    <percentage>5,40000009536743</percentage>
+  </language>
+  <language code="MRT">
+    <language>Wolof</language>
+    <official>False</official>
+    <percentage>6,59999990463257</percentage>
+  </language>
+  <language code="MRT">
+    <language>Zenaga</language>
+    <official>False</official>
+    <percentage>1,20000004768372</percentage>
+  </language>
+  <language code="MSR">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="MTQ">
+    <language>Creole French</language>
+    <official>False</official>
+    <percentage>96,5999984741211</percentage>
+  </language>
+  <language code="MTQ">
+    <language>French</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="MUS">
+    <language>Bhojpuri</language>
+    <official>False</official>
+    <percentage>21,1000003814697</percentage>
+  </language>
+  <language code="MUS">
+    <language>Creole French</language>
+    <official>False</official>
+    <percentage>70,5999984741211</percentage>
+  </language>
+  <language code="MUS">
+    <language>French</language>
+    <official>False</official>
+    <percentage>3,40000009536743</percentage>
+  </language>
+  <language code="MUS">
+    <language>Hindi</language>
+    <official>False</official>
+    <percentage>1,20000004768372</percentage>
+  </language>
+  <language code="MUS">
+    <language>Marathi</language>
+    <official>False</official>
+    <percentage>0,699999988079071</percentage>
+  </language>
+  <language code="MUS">
+    <language>Tamil</language>
+    <official>False</official>
+    <percentage>0,800000011920929</percentage>
+  </language>
+  <language code="MWI">
+    <language>Chichewa</language>
+    <official>True</official>
+    <percentage>58,2999992370605</percentage>
+  </language>
+  <language code="MWI">
+    <language>Lomwe</language>
+    <official>False</official>
+    <percentage>18,3999996185303</percentage>
+  </language>
+  <language code="MWI">
+    <language>Ngoni</language>
+    <official>False</official>
+    <percentage>6,69999980926514</percentage>
+  </language>
+  <language code="MWI">
+    <language>Yao</language>
+    <official>False</official>
+    <percentage>13,1999998092651</percentage>
+  </language>
+  <language code="MYS">
+    <language>Chinese</language>
+    <official>False</official>
+    <percentage>9</percentage>
+  </language>
+  <language code="MYS">
+    <language>Dusun</language>
+    <official>False</official>
+    <percentage>1,10000002384186</percentage>
+  </language>
+  <language code="MYS">
+    <language>English</language>
+    <official>False</official>
+    <percentage>1,60000002384186</percentage>
+  </language>
+  <language code="MYS">
+    <language>Iban</language>
+    <official>False</official>
+    <percentage>2,79999995231628</percentage>
+  </language>
+  <language code="MYS">
+    <language>Malay</language>
+    <official>True</official>
+    <percentage>58,4000015258789</percentage>
+  </language>
+  <language code="MYS">
+    <language>Tamil</language>
+    <official>False</official>
+    <percentage>3,90000009536743</percentage>
+  </language>
+  <language code="MYT">
+    <language>French</language>
+    <official>True</official>
+    <percentage>20,2999992370605</percentage>
+  </language>
+  <language code="MYT">
+    <language>MahorÃ©</language>
+    <official>False</official>
+    <percentage>41,9000015258789</percentage>
+  </language>
+  <language code="MYT">
+    <language>Malagasy</language>
+    <official>False</official>
+    <percentage>16,1000003814697</percentage>
+  </language>
+  <language code="NAM">
+    <language>Afrikaans</language>
+    <official>False</official>
+    <percentage>9,5</percentage>
+  </language>
+  <language code="NAM">
+    <language>Caprivi</language>
+    <official>False</official>
+    <percentage>4,69999980926514</percentage>
+  </language>
+  <language code="NAM">
+    <language>German</language>
+    <official>False</official>
+    <percentage>0,899999976158142</percentage>
+  </language>
+  <language code="NAM">
+    <language>Herero</language>
+    <official>False</official>
+    <percentage>8</percentage>
+  </language>
+  <language code="NAM">
+    <language>Kavango</language>
+    <official>False</official>
+    <percentage>9,69999980926514</percentage>
+  </language>
+  <language code="NAM">
+    <language>Nama</language>
+    <official>False</official>
+    <percentage>12,3999996185303</percentage>
+  </language>
+  <language code="NAM">
+    <language>Ovambo</language>
+    <official>False</official>
+    <percentage>50,7000007629395</percentage>
+  </language>
+  <language code="NAM">
+    <language>San</language>
+    <official>False</official>
+    <percentage>1,89999997615814</percentage>
+  </language>
+  <language code="NCL">
+    <language>French</language>
+    <official>True</official>
+    <percentage>34,2999992370605</percentage>
+  </language>
+  <language code="NCL">
+    <language>Malenasian Languages</language>
+    <official>False</official>
+    <percentage>45,4000015258789</percentage>
+  </language>
+  <language code="NCL">
+    <language>Polynesian Languages</language>
+    <official>False</official>
+    <percentage>11,6000003814697</percentage>
+  </language>
+  <language code="NER">
+    <language>Ful</language>
+    <official>False</official>
+    <percentage>9,69999980926514</percentage>
+  </language>
+  <language code="NER">
+    <language>Hausa</language>
+    <official>False</official>
+    <percentage>53,0999984741211</percentage>
+  </language>
+  <language code="NER">
+    <language>Kanuri</language>
+    <official>False</official>
+    <percentage>4,40000009536743</percentage>
+  </language>
+  <language code="NER">
+    <language>Songhai-zerma</language>
+    <official>False</official>
+    <percentage>21,2000007629395</percentage>
+  </language>
+  <language code="NER">
+    <language>Tamashek</language>
+    <official>False</official>
+    <percentage>10,3999996185303</percentage>
+  </language>
+  <language code="NFK">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="NGA">
+    <language>Bura</language>
+    <official>False</official>
+    <percentage>1,60000002384186</percentage>
+  </language>
+  <language code="NGA">
+    <language>Edo</language>
+    <official>False</official>
+    <percentage>3,29999995231628</percentage>
+  </language>
+  <language code="NGA">
+    <language>Ful</language>
+    <official>False</official>
+    <percentage>11,3000001907349</percentage>
+  </language>
+  <language code="NGA">
+    <language>Hausa</language>
+    <official>False</official>
+    <percentage>21,1000003814697</percentage>
+  </language>
+  <language code="NGA">
+    <language>Ibibio</language>
+    <official>False</official>
+    <percentage>5,59999990463257</percentage>
+  </language>
+  <language code="NGA">
+    <language>Ibo</language>
+    <official>False</official>
+    <percentage>18,1000003814697</percentage>
+  </language>
+  <language code="NGA">
+    <language>Ijo</language>
+    <official>False</official>
+    <percentage>1,79999995231628</percentage>
+  </language>
+  <language code="NGA">
+    <language>Joruba</language>
+    <official>False</official>
+    <percentage>21,3999996185303</percentage>
+  </language>
+  <language code="NGA">
+    <language>Kanuri</language>
+    <official>False</official>
+    <percentage>4,09999990463257</percentage>
+  </language>
+  <language code="NGA">
+    <language>Tiv</language>
+    <official>False</official>
+    <percentage>2,29999995231628</percentage>
+  </language>
+  <language code="NIC">
+    <language>Creole English</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="NIC">
+    <language>Miskito</language>
+    <official>False</official>
+    <percentage>1,60000002384186</percentage>
+  </language>
+  <language code="NIC">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>97,5999984741211</percentage>
+  </language>
+  <language code="NIC">
+    <language>Sumo</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="NIU">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="NIU">
+    <language>Niue</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="NLD">
+    <language>Arabic</language>
+    <official>False</official>
+    <percentage>0,899999976158142</percentage>
+  </language>
+  <language code="NLD">
+    <language>Dutch</language>
+    <official>True</official>
+    <percentage>95,5999984741211</percentage>
+  </language>
+  <language code="NLD">
+    <language>Fries</language>
+    <official>False</official>
+    <percentage>3,70000004768372</percentage>
+  </language>
+  <language code="NLD">
+    <language>Turkish</language>
+    <official>False</official>
+    <percentage>0,800000011920929</percentage>
+  </language>
+  <language code="NOR">
+    <language>Danish</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="NOR">
+    <language>English</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="NOR">
+    <language>Norwegian</language>
+    <official>True</official>
+    <percentage>96,5999984741211</percentage>
+  </language>
+  <language code="NOR">
+    <language>Saame</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="NOR">
+    <language>Swedish</language>
+    <official>False</official>
+    <percentage>0,300000011920929</percentage>
+  </language>
+  <language code="NPL">
+    <language>Bhojpuri</language>
+    <official>False</official>
+    <percentage>7,5</percentage>
+  </language>
+  <language code="NPL">
+    <language>Hindi</language>
+    <official>False</official>
+    <percentage>3</percentage>
+  </language>
+  <language code="NPL">
+    <language>Maithili</language>
+    <official>False</official>
+    <percentage>11,8999996185303</percentage>
+  </language>
+  <language code="NPL">
+    <language>Nepali</language>
+    <official>True</official>
+    <percentage>50,4000015258789</percentage>
+  </language>
+  <language code="NPL">
+    <language>Newari</language>
+    <official>False</official>
+    <percentage>3,70000004768372</percentage>
+  </language>
+  <language code="NPL">
+    <language>Tamang</language>
+    <official>False</official>
+    <percentage>4,90000009536743</percentage>
+  </language>
+  <language code="NPL">
+    <language>Tharu</language>
+    <official>False</official>
+    <percentage>5,40000009536743</percentage>
+  </language>
+  <language code="NRU">
+    <language>Chinese</language>
+    <official>False</official>
+    <percentage>8,5</percentage>
+  </language>
+  <language code="NRU">
+    <language>English</language>
+    <official>True</official>
+    <percentage>7,5</percentage>
+  </language>
+  <language code="NRU">
+    <language>Kiribati</language>
+    <official>False</official>
+    <percentage>17,8999996185303</percentage>
+  </language>
+  <language code="NRU">
+    <language>Nauru</language>
+    <official>True</official>
+    <percentage>57,5</percentage>
+  </language>
+  <language code="NRU">
+    <language>Tuvalu</language>
+    <official>False</official>
+    <percentage>8,5</percentage>
+  </language>
+  <language code="NZL">
+    <language>English</language>
+    <official>True</official>
+    <percentage>87</percentage>
+  </language>
+  <language code="NZL">
+    <language>Maori</language>
+    <official>False</official>
+    <percentage>4,30000019073486</percentage>
+  </language>
+  <language code="OMN">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>76,6999969482422</percentage>
+  </language>
+  <language code="OMN">
+    <language>Balochi</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="PAK">
+    <language>Balochi</language>
+    <official>False</official>
+    <percentage>3</percentage>
+  </language>
+  <language code="PAK">
+    <language>Brahui</language>
+    <official>False</official>
+    <percentage>1,20000004768372</percentage>
+  </language>
+  <language code="PAK">
+    <language>Hindko</language>
+    <official>False</official>
+    <percentage>2,40000009536743</percentage>
+  </language>
+  <language code="PAK">
+    <language>Pashto</language>
+    <official>False</official>
+    <percentage>13,1000003814697</percentage>
+  </language>
+  <language code="PAK">
+    <language>Punjabi</language>
+    <official>False</official>
+    <percentage>48,2000007629395</percentage>
+  </language>
+  <language code="PAK">
+    <language>Saraiki</language>
+    <official>False</official>
+    <percentage>9,80000019073486</percentage>
+  </language>
+  <language code="PAK">
+    <language>Sindhi</language>
+    <official>False</official>
+    <percentage>11,8000001907349</percentage>
+  </language>
+  <language code="PAK">
+    <language>Urdu</language>
+    <official>True</official>
+    <percentage>7,59999990463257</percentage>
+  </language>
+  <language code="PAN">
+    <language>Arabic</language>
+    <official>False</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="PAN">
+    <language>Creole English</language>
+    <official>False</official>
+    <percentage>14</percentage>
+  </language>
+  <language code="PAN">
+    <language>Cuna</language>
+    <official>False</official>
+    <percentage>2</percentage>
+  </language>
+  <language code="PAN">
+    <language>Embera</language>
+    <official>False</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="PAN">
+    <language>GuaymÃ­</language>
+    <official>False</official>
+    <percentage>5,30000019073486</percentage>
+  </language>
+  <language code="PAN">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>76,8000030517578</percentage>
+  </language>
+  <language code="PCN">
+    <language>Pitcairnese</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="PER">
+    <language>AimarÃ¡</language>
+    <official>True</official>
+    <percentage>2,29999995231628</percentage>
+  </language>
+  <language code="PER">
+    <language>KetÂšua</language>
+    <official>True</official>
+    <percentage>16,3999996185303</percentage>
+  </language>
+  <language code="PER">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>79,8000030517578</percentage>
+  </language>
+  <language code="PHL">
+    <language>Bicol</language>
+    <official>False</official>
+    <percentage>5,69999980926514</percentage>
+  </language>
+  <language code="PHL">
+    <language>Cebuano</language>
+    <official>False</official>
+    <percentage>23,2999992370605</percentage>
+  </language>
+  <language code="PHL">
+    <language>Hiligaynon</language>
+    <official>False</official>
+    <percentage>9,10000038146973</percentage>
+  </language>
+  <language code="PHL">
+    <language>Ilocano</language>
+    <official>False</official>
+    <percentage>9,30000019073486</percentage>
+  </language>
+  <language code="PHL">
+    <language>Maguindanao</language>
+    <official>False</official>
+    <percentage>1,39999997615814</percentage>
+  </language>
+  <language code="PHL">
+    <language>Maranao</language>
+    <official>False</official>
+    <percentage>1,29999995231628</percentage>
+  </language>
+  <language code="PHL">
+    <language>Pampango</language>
+    <official>False</official>
+    <percentage>3</percentage>
+  </language>
+  <language code="PHL">
+    <language>Pangasinan</language>
+    <official>False</official>
+    <percentage>1,79999995231628</percentage>
+  </language>
+  <language code="PHL">
+    <language>Pilipino</language>
+    <official>True</official>
+    <percentage>29,2999992370605</percentage>
+  </language>
+  <language code="PHL">
+    <language>Waray-waray</language>
+    <official>False</official>
+    <percentage>3,79999995231628</percentage>
+  </language>
+  <language code="PLW">
+    <language>Chinese</language>
+    <official>False</official>
+    <percentage>1,60000002384186</percentage>
+  </language>
+  <language code="PLW">
+    <language>English</language>
+    <official>True</official>
+    <percentage>3,20000004768372</percentage>
+  </language>
+  <language code="PLW">
+    <language>Palau</language>
+    <official>True</official>
+    <percentage>82,1999969482422</percentage>
+  </language>
+  <language code="PLW">
+    <language>Philippene Languages</language>
+    <official>False</official>
+    <percentage>9,19999980926514</percentage>
+  </language>
+  <language code="PNG">
+    <language>Malenasian Languages</language>
+    <official>False</official>
+    <percentage>20</percentage>
+  </language>
+  <language code="PNG">
+    <language>Papuan Languages</language>
+    <official>False</official>
+    <percentage>78,0999984741211</percentage>
+  </language>
+  <language code="POL">
+    <language>Belorussian</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="POL">
+    <language>German</language>
+    <official>False</official>
+    <percentage>1,29999995231628</percentage>
+  </language>
+  <language code="POL">
+    <language>Polish</language>
+    <official>True</official>
+    <percentage>97,5999984741211</percentage>
+  </language>
+  <language code="POL">
+    <language>Ukrainian</language>
+    <official>False</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="PRI">
+    <language>English</language>
+    <official>False</official>
+    <percentage>47,4000015258789</percentage>
+  </language>
+  <language code="PRI">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>51,2999992370605</percentage>
+  </language>
+  <language code="PRK">
+    <language>Chinese</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="PRK">
+    <language>Korean</language>
+    <official>True</official>
+    <percentage>99,9000015258789</percentage>
+  </language>
+  <language code="PRT">
+    <language>Portuguese</language>
+    <official>True</official>
+    <percentage>99</percentage>
+  </language>
+  <language code="PRY">
+    <language>German</language>
+    <official>False</official>
+    <percentage>0,899999976158142</percentage>
+  </language>
+  <language code="PRY">
+    <language>GuaranÃ­</language>
+    <official>True</official>
+    <percentage>40,0999984741211</percentage>
+  </language>
+  <language code="PRY">
+    <language>Portuguese</language>
+    <official>False</official>
+    <percentage>3,20000004768372</percentage>
+  </language>
+  <language code="PRY">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>55,0999984741211</percentage>
+  </language>
+  <language code="PSE">
+    <language>Arabic</language>
+    <official>False</official>
+    <percentage>95,9000015258789</percentage>
+  </language>
+  <language code="PSE">
+    <language>Hebrew</language>
+    <official>False</official>
+    <percentage>4,09999990463257</percentage>
+  </language>
+  <language code="PYF">
+    <language>Chinese</language>
+    <official>False</official>
+    <percentage>2,90000009536743</percentage>
+  </language>
+  <language code="PYF">
+    <language>French</language>
+    <official>True</official>
+    <percentage>40,7999992370605</percentage>
+  </language>
+  <language code="PYF">
+    <language>Tahitian</language>
+    <official>False</official>
+    <percentage>46,4000015258789</percentage>
+  </language>
+  <language code="QAT">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>40,7000007629395</percentage>
+  </language>
+  <language code="QAT">
+    <language>Urdu</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="REU">
+    <language>Chinese</language>
+    <official>False</official>
+    <percentage>2,79999995231628</percentage>
+  </language>
+  <language code="REU">
+    <language>Comorian</language>
+    <official>False</official>
+    <percentage>2,79999995231628</percentage>
+  </language>
+  <language code="REU">
+    <language>Creole French</language>
+    <official>False</official>
+    <percentage>91,5</percentage>
+  </language>
+  <language code="REU">
+    <language>Malagasy</language>
+    <official>False</official>
+    <percentage>1,39999997615814</percentage>
+  </language>
+  <language code="REU">
+    <language>Tamil</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="ROM">
+    <language>German</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="ROM">
+    <language>Hungarian</language>
+    <official>False</official>
+    <percentage>7,19999980926514</percentage>
+  </language>
+  <language code="ROM">
+    <language>Romani</language>
+    <official>True</official>
+    <percentage>0,699999988079071</percentage>
+  </language>
+  <language code="ROM">
+    <language>Romanian</language>
+    <official>True</official>
+    <percentage>90,6999969482422</percentage>
+  </language>
+  <language code="ROM">
+    <language>Serbo-Croatian</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="ROM">
+    <language>Ukrainian</language>
+    <official>False</official>
+    <percentage>0,300000011920929</percentage>
+  </language>
+  <language code="RUS">
+    <language>Avarian</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="RUS">
+    <language>Bashkir</language>
+    <official>False</official>
+    <percentage>0,699999988079071</percentage>
+  </language>
+  <language code="RUS">
+    <language>Belorussian</language>
+    <official>False</official>
+    <percentage>0,300000011920929</percentage>
+  </language>
+  <language code="RUS">
+    <language>Chechen</language>
+    <official>False</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="RUS">
+    <language>Chuvash</language>
+    <official>False</official>
+    <percentage>0,899999976158142</percentage>
+  </language>
+  <language code="RUS">
+    <language>Kazakh</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="RUS">
+    <language>Mari</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="RUS">
+    <language>Mordva</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="RUS">
+    <language>Russian</language>
+    <official>True</official>
+    <percentage>86,5999984741211</percentage>
+  </language>
+  <language code="RUS">
+    <language>Tatar</language>
+    <official>False</official>
+    <percentage>3,20000004768372</percentage>
+  </language>
+  <language code="RUS">
+    <language>Udmur</language>
+    <official>False</official>
+    <percentage>0,300000011920929</percentage>
+  </language>
+  <language code="RUS">
+    <language>Ukrainian</language>
+    <official>False</official>
+    <percentage>1,29999995231628</percentage>
+  </language>
+  <language code="RWA">
+    <language>French</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="RWA">
+    <language>Rwanda</language>
+    <official>True</official>
+    <percentage>100</percentage>
+  </language>
+  <language code="SAU">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>95</percentage>
+  </language>
+  <language code="SDN">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>49,4000015258789</percentage>
+  </language>
+  <language code="SDN">
+    <language>Bari</language>
+    <official>False</official>
+    <percentage>2,5</percentage>
+  </language>
+  <language code="SDN">
+    <language>Beja</language>
+    <official>False</official>
+    <percentage>6,40000009536743</percentage>
+  </language>
+  <language code="SDN">
+    <language>Chilluk</language>
+    <official>False</official>
+    <percentage>1,70000004768372</percentage>
+  </language>
+  <language code="SDN">
+    <language>Dinka</language>
+    <official>False</official>
+    <percentage>11,5</percentage>
+  </language>
+  <language code="SDN">
+    <language>Fur</language>
+    <official>False</official>
+    <percentage>2,09999990463257</percentage>
+  </language>
+  <language code="SDN">
+    <language>Lotuko</language>
+    <official>False</official>
+    <percentage>1,5</percentage>
+  </language>
+  <language code="SDN">
+    <language>Nubian Languages</language>
+    <official>False</official>
+    <percentage>8,10000038146973</percentage>
+  </language>
+  <language code="SDN">
+    <language>Nuer</language>
+    <official>False</official>
+    <percentage>4,90000009536743</percentage>
+  </language>
+  <language code="SDN">
+    <language>Zande</language>
+    <official>False</official>
+    <percentage>2,70000004768372</percentage>
+  </language>
+  <language code="SEN">
+    <language>Diola</language>
+    <official>False</official>
+    <percentage>5</percentage>
+  </language>
+  <language code="SEN">
+    <language>Ful</language>
+    <official>False</official>
+    <percentage>21,7000007629395</percentage>
+  </language>
+  <language code="SEN">
+    <language>Malinke</language>
+    <official>False</official>
+    <percentage>3,79999995231628</percentage>
+  </language>
+  <language code="SEN">
+    <language>Serer</language>
+    <official>False</official>
+    <percentage>12,5</percentage>
+  </language>
+  <language code="SEN">
+    <language>Soninke</language>
+    <official>False</official>
+    <percentage>1,29999995231628</percentage>
+  </language>
+  <language code="SEN">
+    <language>Wolof</language>
+    <official>True</official>
+    <percentage>48,0999984741211</percentage>
+  </language>
+  <language code="SGP">
+    <language>Chinese</language>
+    <official>True</official>
+    <percentage>77,0999984741211</percentage>
+  </language>
+  <language code="SGP">
+    <language>Malay</language>
+    <official>True</official>
+    <percentage>14,1000003814697</percentage>
+  </language>
+  <language code="SGP">
+    <language>Tamil</language>
+    <official>True</official>
+    <percentage>7,40000009536743</percentage>
+  </language>
+  <language code="SHN">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="SJM">
+    <language>Norwegian</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="SJM">
+    <language>Russian</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="SLB">
+    <language>Malenasian Languages</language>
+    <official>False</official>
+    <percentage>85,5999984741211</percentage>
+  </language>
+  <language code="SLB">
+    <language>Papuan Languages</language>
+    <official>False</official>
+    <percentage>8,60000038146973</percentage>
+  </language>
+  <language code="SLB">
+    <language>Polynesian Languages</language>
+    <official>False</official>
+    <percentage>3,79999995231628</percentage>
+  </language>
+  <language code="SLE">
+    <language>Bullom-sherbro</language>
+    <official>False</official>
+    <percentage>3,79999995231628</percentage>
+  </language>
+  <language code="SLE">
+    <language>Ful</language>
+    <official>False</official>
+    <percentage>3,79999995231628</percentage>
+  </language>
+  <language code="SLE">
+    <language>Kono-vai</language>
+    <official>False</official>
+    <percentage>5,09999990463257</percentage>
+  </language>
+  <language code="SLE">
+    <language>Kuranko</language>
+    <official>False</official>
+    <percentage>3,40000009536743</percentage>
+  </language>
+  <language code="SLE">
+    <language>Limba</language>
+    <official>False</official>
+    <percentage>8,30000019073486</percentage>
+  </language>
+  <language code="SLE">
+    <language>Mende</language>
+    <official>False</official>
+    <percentage>34,7999992370605</percentage>
+  </language>
+  <language code="SLE">
+    <language>Temne</language>
+    <official>False</official>
+    <percentage>31,7999992370605</percentage>
+  </language>
+  <language code="SLE">
+    <language>Yalunka</language>
+    <official>False</official>
+    <percentage>3,40000009536743</percentage>
+  </language>
+  <language code="SLV">
+    <language>Nahua</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="SLV">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>100</percentage>
+  </language>
+  <language code="SMR">
+    <language>Italian</language>
+    <official>True</official>
+    <percentage>100</percentage>
+  </language>
+  <language code="SOM">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="SOM">
+    <language>Somali</language>
+    <official>True</official>
+    <percentage>98,3000030517578</percentage>
+  </language>
+  <language code="SPM">
+    <language>French</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="STP">
+    <language>Crioulo</language>
+    <official>False</official>
+    <percentage>86,3000030517578</percentage>
+  </language>
+  <language code="STP">
+    <language>French</language>
+    <official>False</official>
+    <percentage>0,699999988079071</percentage>
+  </language>
+  <language code="SUR">
+    <language>Hindi</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="SUR">
+    <language>Sranantonga</language>
+    <official>False</official>
+    <percentage>81</percentage>
+  </language>
+  <language code="SVK">
+    <language>Czech and Moravian</language>
+    <official>False</official>
+    <percentage>1,10000002384186</percentage>
+  </language>
+  <language code="SVK">
+    <language>Hungarian</language>
+    <official>False</official>
+    <percentage>10,5</percentage>
+  </language>
+  <language code="SVK">
+    <language>Romani</language>
+    <official>False</official>
+    <percentage>1,70000004768372</percentage>
+  </language>
+  <language code="SVK">
+    <language>Slovak</language>
+    <official>True</official>
+    <percentage>85,5999984741211</percentage>
+  </language>
+  <language code="SVK">
+    <language>Ukrainian and Russian</language>
+    <official>False</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="SVN">
+    <language>Hungarian</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="SVN">
+    <language>Serbo-Croatian</language>
+    <official>False</official>
+    <percentage>7,90000009536743</percentage>
+  </language>
+  <language code="SVN">
+    <language>Slovene</language>
+    <official>True</official>
+    <percentage>87,9000015258789</percentage>
+  </language>
+  <language code="SWE">
+    <language>Arabic</language>
+    <official>False</official>
+    <percentage>0,800000011920929</percentage>
+  </language>
+  <language code="SWE">
+    <language>Finnish</language>
+    <official>False</official>
+    <percentage>2,40000009536743</percentage>
+  </language>
+  <language code="SWE">
+    <language>Norwegian</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="SWE">
+    <language>Southern Slavic Languages</language>
+    <official>False</official>
+    <percentage>1,29999995231628</percentage>
+  </language>
+  <language code="SWE">
+    <language>Spanish</language>
+    <official>False</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="SWE">
+    <language>Swedish</language>
+    <official>True</official>
+    <percentage>89,5</percentage>
+  </language>
+  <language code="SWZ">
+    <language>Swazi</language>
+    <official>True</official>
+    <percentage>89,9000015258789</percentage>
+  </language>
+  <language code="SWZ">
+    <language>Zulu</language>
+    <official>False</official>
+    <percentage>2</percentage>
+  </language>
+  <language code="SYC">
+    <language>English</language>
+    <official>True</official>
+    <percentage>3,79999995231628</percentage>
+  </language>
+  <language code="SYC">
+    <language>French</language>
+    <official>True</official>
+    <percentage>1,29999995231628</percentage>
+  </language>
+  <language code="SYC">
+    <language>Seselwa</language>
+    <official>False</official>
+    <percentage>91,3000030517578</percentage>
+  </language>
+  <language code="SYR">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>90</percentage>
+  </language>
+  <language code="SYR">
+    <language>Kurdish</language>
+    <official>False</official>
+    <percentage>9</percentage>
+  </language>
+  <language code="TCA">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="TCD">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>12,3000001907349</percentage>
+  </language>
+  <language code="TCD">
+    <language>Gorane</language>
+    <official>False</official>
+    <percentage>6,19999980926514</percentage>
+  </language>
+  <language code="TCD">
+    <language>Hadjarai</language>
+    <official>False</official>
+    <percentage>6,69999980926514</percentage>
+  </language>
+  <language code="TCD">
+    <language>Kanem-bornu</language>
+    <official>False</official>
+    <percentage>9</percentage>
+  </language>
+  <language code="TCD">
+    <language>Mayo-kebbi</language>
+    <official>False</official>
+    <percentage>11,5</percentage>
+  </language>
+  <language code="TCD">
+    <language>Ouaddai</language>
+    <official>False</official>
+    <percentage>8,69999980926514</percentage>
+  </language>
+  <language code="TCD">
+    <language>Sara</language>
+    <official>False</official>
+    <percentage>27,7000007629395</percentage>
+  </language>
+  <language code="TCD">
+    <language>Tandjile</language>
+    <official>False</official>
+    <percentage>6,5</percentage>
+  </language>
+  <language code="TGO">
+    <language>Ane</language>
+    <official>False</official>
+    <percentage>5,69999980926514</percentage>
+  </language>
+  <language code="TGO">
+    <language>Ewe</language>
+    <official>True</official>
+    <percentage>23,2000007629395</percentage>
+  </language>
+  <language code="TGO">
+    <language>Gurma</language>
+    <official>False</official>
+    <percentage>3,40000009536743</percentage>
+  </language>
+  <language code="TGO">
+    <language>KabyÃ©</language>
+    <official>True</official>
+    <percentage>13,8000001907349</percentage>
+  </language>
+  <language code="TGO">
+    <language>Kotokoli</language>
+    <official>False</official>
+    <percentage>5,69999980926514</percentage>
+  </language>
+  <language code="TGO">
+    <language>Moba</language>
+    <official>False</official>
+    <percentage>5,40000009536743</percentage>
+  </language>
+  <language code="TGO">
+    <language>Naudemba</language>
+    <official>False</official>
+    <percentage>4,09999990463257</percentage>
+  </language>
+  <language code="TGO">
+    <language>Watyi</language>
+    <official>False</official>
+    <percentage>10,3000001907349</percentage>
+  </language>
+  <language code="THA">
+    <language>Chinese</language>
+    <official>False</official>
+    <percentage>12,1000003814697</percentage>
+  </language>
+  <language code="THA">
+    <language>Khmer</language>
+    <official>False</official>
+    <percentage>1,29999995231628</percentage>
+  </language>
+  <language code="THA">
+    <language>Kuy</language>
+    <official>False</official>
+    <percentage>1,10000002384186</percentage>
+  </language>
+  <language code="THA">
+    <language>Lao</language>
+    <official>False</official>
+    <percentage>26,8999996185303</percentage>
+  </language>
+  <language code="THA">
+    <language>Malay</language>
+    <official>False</official>
+    <percentage>3,59999990463257</percentage>
+  </language>
+  <language code="THA">
+    <language>Thai</language>
+    <official>True</official>
+    <percentage>52,5999984741211</percentage>
+  </language>
+  <language code="TJK">
+    <language>Russian</language>
+    <official>False</official>
+    <percentage>9,69999980926514</percentage>
+  </language>
+  <language code="TJK">
+    <language>Tadzhik</language>
+    <official>True</official>
+    <percentage>62,2000007629395</percentage>
+  </language>
+  <language code="TJK">
+    <language>Uzbek</language>
+    <official>False</official>
+    <percentage>23,2000007629395</percentage>
+  </language>
+  <language code="TKL">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="TKL">
+    <language>Tokelau</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="TKM">
+    <language>Kazakh</language>
+    <official>False</official>
+    <percentage>2</percentage>
+  </language>
+  <language code="TKM">
+    <language>Russian</language>
+    <official>False</official>
+    <percentage>6,69999980926514</percentage>
+  </language>
+  <language code="TKM">
+    <language>Turkmenian</language>
+    <official>True</official>
+    <percentage>76,6999969482422</percentage>
+  </language>
+  <language code="TKM">
+    <language>Uzbek</language>
+    <official>False</official>
+    <percentage>9,19999980926514</percentage>
+  </language>
+  <language code="TMP">
+    <language>Portuguese</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="TMP">
+    <language>Sunda</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="TON">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="TON">
+    <language>Tongan</language>
+    <official>True</official>
+    <percentage>98,3000030517578</percentage>
+  </language>
+  <language code="TTO">
+    <language>Creole English</language>
+    <official>False</official>
+    <percentage>2,90000009536743</percentage>
+  </language>
+  <language code="TTO">
+    <language>English</language>
+    <official>False</official>
+    <percentage>93,5</percentage>
+  </language>
+  <language code="TTO">
+    <language>Hindi</language>
+    <official>False</official>
+    <percentage>3,40000009536743</percentage>
+  </language>
+  <language code="TUN">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>69,9000015258789</percentage>
+  </language>
+  <language code="TUN">
+    <language>Arabic-French</language>
+    <official>False</official>
+    <percentage>26,2999992370605</percentage>
+  </language>
+  <language code="TUN">
+    <language>Arabic-French-English</language>
+    <official>False</official>
+    <percentage>3,20000004768372</percentage>
+  </language>
+  <language code="TUR">
+    <language>Arabic</language>
+    <official>False</official>
+    <percentage>1,39999997615814</percentage>
+  </language>
+  <language code="TUR">
+    <language>Kurdish</language>
+    <official>False</official>
+    <percentage>10,6000003814697</percentage>
+  </language>
+  <language code="TUR">
+    <language>Turkish</language>
+    <official>True</official>
+    <percentage>87,5999984741211</percentage>
+  </language>
+  <language code="TUV">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="TUV">
+    <language>Kiribati</language>
+    <official>False</official>
+    <percentage>7,5</percentage>
+  </language>
+  <language code="TUV">
+    <language>Tuvalu</language>
+    <official>True</official>
+    <percentage>92,5</percentage>
+  </language>
+  <language code="TWN">
+    <language>Ami</language>
+    <official>False</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="TWN">
+    <language>Atayal</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="TWN">
+    <language>Hakka</language>
+    <official>False</official>
+    <percentage>11</percentage>
+  </language>
+  <language code="TWN">
+    <language>Mandarin Chinese</language>
+    <official>True</official>
+    <percentage>20,1000003814697</percentage>
+  </language>
+  <language code="TWN">
+    <language>Min</language>
+    <official>False</official>
+    <percentage>66,6999969482422</percentage>
+  </language>
+  <language code="TWN">
+    <language>Paiwan</language>
+    <official>False</official>
+    <percentage>0,300000011920929</percentage>
+  </language>
+  <language code="TZA">
+    <language>Chaga and Pare</language>
+    <official>False</official>
+    <percentage>4,90000009536743</percentage>
+  </language>
+  <language code="TZA">
+    <language>Gogo</language>
+    <official>False</official>
+    <percentage>3,90000009536743</percentage>
+  </language>
+  <language code="TZA">
+    <language>Ha</language>
+    <official>False</official>
+    <percentage>3,5</percentage>
+  </language>
+  <language code="TZA">
+    <language>Haya</language>
+    <official>False</official>
+    <percentage>5,90000009536743</percentage>
+  </language>
+  <language code="TZA">
+    <language>Hehet</language>
+    <official>False</official>
+    <percentage>6,90000009536743</percentage>
+  </language>
+  <language code="TZA">
+    <language>Luguru</language>
+    <official>False</official>
+    <percentage>4,90000009536743</percentage>
+  </language>
+  <language code="TZA">
+    <language>Makonde</language>
+    <official>False</official>
+    <percentage>5,90000009536743</percentage>
+  </language>
+  <language code="TZA">
+    <language>Nyakusa</language>
+    <official>False</official>
+    <percentage>5,40000009536743</percentage>
+  </language>
+  <language code="TZA">
+    <language>Nyamwesi</language>
+    <official>False</official>
+    <percentage>21,1000003814697</percentage>
+  </language>
+  <language code="TZA">
+    <language>Shambala</language>
+    <official>False</official>
+    <percentage>4,30000019073486</percentage>
+  </language>
+  <language code="TZA">
+    <language>Swahili</language>
+    <official>True</official>
+    <percentage>8,80000019073486</percentage>
+  </language>
+  <language code="UGA">
+    <language>Acholi</language>
+    <official>False</official>
+    <percentage>4,40000009536743</percentage>
+  </language>
+  <language code="UGA">
+    <language>Ganda</language>
+    <official>False</official>
+    <percentage>18,1000003814697</percentage>
+  </language>
+  <language code="UGA">
+    <language>Gisu</language>
+    <official>False</official>
+    <percentage>4,5</percentage>
+  </language>
+  <language code="UGA">
+    <language>Kiga</language>
+    <official>False</official>
+    <percentage>8,30000019073486</percentage>
+  </language>
+  <language code="UGA">
+    <language>Lango</language>
+    <official>False</official>
+    <percentage>5,90000009536743</percentage>
+  </language>
+  <language code="UGA">
+    <language>Lugbara</language>
+    <official>False</official>
+    <percentage>4,69999980926514</percentage>
+  </language>
+  <language code="UGA">
+    <language>Nkole</language>
+    <official>False</official>
+    <percentage>10,6999998092651</percentage>
+  </language>
+  <language code="UGA">
+    <language>Rwanda</language>
+    <official>False</official>
+    <percentage>3,20000004768372</percentage>
+  </language>
+  <language code="UGA">
+    <language>Soga</language>
+    <official>False</official>
+    <percentage>8,19999980926514</percentage>
+  </language>
+  <language code="UGA">
+    <language>Teso</language>
+    <official>False</official>
+    <percentage>6</percentage>
+  </language>
+  <language code="UKR">
+    <language>Belorussian</language>
+    <official>False</official>
+    <percentage>0,300000011920929</percentage>
+  </language>
+  <language code="UKR">
+    <language>Bulgariana</language>
+    <official>False</official>
+    <percentage>0,300000011920929</percentage>
+  </language>
+  <language code="UKR">
+    <language>Hungarian</language>
+    <official>False</official>
+    <percentage>0,300000011920929</percentage>
+  </language>
+  <language code="UKR">
+    <language>Polish</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="UKR">
+    <language>Romanian</language>
+    <official>False</official>
+    <percentage>0,699999988079071</percentage>
+  </language>
+  <language code="UKR">
+    <language>Russian</language>
+    <official>False</official>
+    <percentage>32,9000015258789</percentage>
+  </language>
+  <language code="UKR">
+    <language>Ukrainian</language>
+    <official>True</official>
+    <percentage>64,6999969482422</percentage>
+  </language>
+  <language code="UMI">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="URY">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>95,6999969482422</percentage>
+  </language>
+  <language code="USA">
+    <language>Chinese</language>
+    <official>False</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="USA">
+    <language>English</language>
+    <official>True</official>
+    <percentage>86,1999969482422</percentage>
+  </language>
+  <language code="USA">
+    <language>French</language>
+    <official>False</official>
+    <percentage>0,699999988079071</percentage>
+  </language>
+  <language code="USA">
+    <language>German</language>
+    <official>False</official>
+    <percentage>0,699999988079071</percentage>
+  </language>
+  <language code="USA">
+    <language>Italian</language>
+    <official>False</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="USA">
+    <language>Japanese</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="USA">
+    <language>Korean</language>
+    <official>False</official>
+    <percentage>0,300000011920929</percentage>
+  </language>
+  <language code="USA">
+    <language>Polish</language>
+    <official>False</official>
+    <percentage>0,300000011920929</percentage>
+  </language>
+  <language code="USA">
+    <language>Portuguese</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="USA">
+    <language>Spanish</language>
+    <official>False</official>
+    <percentage>7,5</percentage>
+  </language>
+  <language code="USA">
+    <language>Tagalog</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="USA">
+    <language>Vietnamese</language>
+    <official>False</official>
+    <percentage>0,200000002980232</percentage>
+  </language>
+  <language code="UZB">
+    <language>Karakalpak</language>
+    <official>False</official>
+    <percentage>2</percentage>
+  </language>
+  <language code="UZB">
+    <language>Kazakh</language>
+    <official>False</official>
+    <percentage>3,79999995231628</percentage>
+  </language>
+  <language code="UZB">
+    <language>Russian</language>
+    <official>False</official>
+    <percentage>10,8999996185303</percentage>
+  </language>
+  <language code="UZB">
+    <language>Tadzhik</language>
+    <official>False</official>
+    <percentage>4,40000009536743</percentage>
+  </language>
+  <language code="UZB">
+    <language>Tatar</language>
+    <official>False</official>
+    <percentage>1,79999995231628</percentage>
+  </language>
+  <language code="UZB">
+    <language>Uzbek</language>
+    <official>True</official>
+    <percentage>72,5999984741211</percentage>
+  </language>
+  <language code="VAT">
+    <language>Italian</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="VCT">
+    <language>Creole English</language>
+    <official>False</official>
+    <percentage>99,0999984741211</percentage>
+  </language>
+  <language code="VCT">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="VEN">
+    <language>Goajiro</language>
+    <official>False</official>
+    <percentage>0,400000005960464</percentage>
+  </language>
+  <language code="VEN">
+    <language>Spanish</language>
+    <official>True</official>
+    <percentage>96,9000015258789</percentage>
+  </language>
+  <language code="VEN">
+    <language>Warrau</language>
+    <official>False</official>
+    <percentage>0,100000001490116</percentage>
+  </language>
+  <language code="VGB">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="VIR">
+    <language>English</language>
+    <official>True</official>
+    <percentage>81,6999969482422</percentage>
+  </language>
+  <language code="VIR">
+    <language>French</language>
+    <official>False</official>
+    <percentage>2,5</percentage>
+  </language>
+  <language code="VIR">
+    <language>Spanish</language>
+    <official>False</official>
+    <percentage>13,3000001907349</percentage>
+  </language>
+  <language code="VNM">
+    <language>Chinese</language>
+    <official>False</official>
+    <percentage>1,39999997615814</percentage>
+  </language>
+  <language code="VNM">
+    <language>Khmer</language>
+    <official>False</official>
+    <percentage>1,39999997615814</percentage>
+  </language>
+  <language code="VNM">
+    <language>Man</language>
+    <official>False</official>
+    <percentage>0,699999988079071</percentage>
+  </language>
+  <language code="VNM">
+    <language>Miao</language>
+    <official>False</official>
+    <percentage>0,899999976158142</percentage>
+  </language>
+  <language code="VNM">
+    <language>Muong</language>
+    <official>False</official>
+    <percentage>1,5</percentage>
+  </language>
+  <language code="VNM">
+    <language>Nung</language>
+    <official>False</official>
+    <percentage>1,10000002384186</percentage>
+  </language>
+  <language code="VNM">
+    <language>Thai</language>
+    <official>False</official>
+    <percentage>1,60000002384186</percentage>
+  </language>
+  <language code="VNM">
+    <language>Tho</language>
+    <official>False</official>
+    <percentage>1,79999995231628</percentage>
+  </language>
+  <language code="VNM">
+    <language>Vietnamese</language>
+    <official>True</official>
+    <percentage>86,8000030517578</percentage>
+  </language>
+  <language code="VUT">
+    <language>Bislama</language>
+    <official>True</official>
+    <percentage>56,5999984741211</percentage>
+  </language>
+  <language code="VUT">
+    <language>English</language>
+    <official>True</official>
+    <percentage>28,2999992370605</percentage>
+  </language>
+  <language code="VUT">
+    <language>French</language>
+    <official>True</official>
+    <percentage>14,1999998092651</percentage>
+  </language>
+  <language code="WLF">
+    <language>Futuna</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="WLF">
+    <language>Wallis</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="WSM">
+    <language>English</language>
+    <official>True</official>
+    <percentage>0,600000023841858</percentage>
+  </language>
+  <language code="WSM">
+    <language>Samoan</language>
+    <official>True</official>
+    <percentage>47,5</percentage>
+  </language>
+  <language code="WSM">
+    <language>Samoan-English</language>
+    <official>False</official>
+    <percentage>52</percentage>
+  </language>
+  <language code="YEM">
+    <language>Arabic</language>
+    <official>True</official>
+    <percentage>99,5999984741211</percentage>
+  </language>
+  <language code="YEM">
+    <language>Soqutri</language>
+    <official>False</official>
+    <percentage>0</percentage>
+  </language>
+  <language code="YUG">
+    <language>Albaniana</language>
+    <official>False</official>
+    <percentage>16,5</percentage>
+  </language>
+  <language code="YUG">
+    <language>Hungarian</language>
+    <official>False</official>
+    <percentage>3,40000009536743</percentage>
+  </language>
+  <language code="YUG">
+    <language>Macedonian</language>
+    <official>False</official>
+    <percentage>0,5</percentage>
+  </language>
+  <language code="YUG">
+    <language>Romani</language>
+    <official>False</official>
+    <percentage>1,39999997615814</percentage>
+  </language>
+  <language code="YUG">
+    <language>Serbo-Croatian</language>
+    <official>True</official>
+    <percentage>75,1999969482422</percentage>
+  </language>
+  <language code="YUG">
+    <language>Slovak</language>
+    <official>False</official>
+    <percentage>0,699999988079071</percentage>
+  </language>
+  <language code="ZAF">
+    <language>Afrikaans</language>
+    <official>True</official>
+    <percentage>14,3000001907349</percentage>
+  </language>
+  <language code="ZAF">
+    <language>English</language>
+    <official>True</official>
+    <percentage>8,5</percentage>
+  </language>
+  <language code="ZAF">
+    <language>Ndebele</language>
+    <official>False</official>
+    <percentage>1,5</percentage>
+  </language>
+  <language code="ZAF">
+    <language>Northsotho</language>
+    <official>False</official>
+    <percentage>9,10000038146973</percentage>
+  </language>
+  <language code="ZAF">
+    <language>Southsotho</language>
+    <official>False</official>
+    <percentage>7,59999990463257</percentage>
+  </language>
+  <language code="ZAF">
+    <language>Swazi</language>
+    <official>False</official>
+    <percentage>2,5</percentage>
+  </language>
+  <language code="ZAF">
+    <language>Tsonga</language>
+    <official>False</official>
+    <percentage>4,30000019073486</percentage>
+  </language>
+  <language code="ZAF">
+    <language>Tswana</language>
+    <official>False</official>
+    <percentage>8,10000038146973</percentage>
+  </language>
+  <language code="ZAF">
+    <language>Venda</language>
+    <official>False</official>
+    <percentage>2,20000004768372</percentage>
+  </language>
+  <language code="ZAF">
+    <language>Xhosa</language>
+    <official>True</official>
+    <percentage>17,7000007629395</percentage>
+  </language>
+  <language code="ZAF">
+    <language>Zulu</language>
+    <official>True</official>
+    <percentage>22,7000007629395</percentage>
+  </language>
+  <language code="ZMB">
+    <language>Bemba</language>
+    <official>False</official>
+    <percentage>29,7000007629395</percentage>
+  </language>
+  <language code="ZMB">
+    <language>Chewa</language>
+    <official>False</official>
+    <percentage>5,69999980926514</percentage>
+  </language>
+  <language code="ZMB">
+    <language>Lozi</language>
+    <official>False</official>
+    <percentage>6,40000009536743</percentage>
+  </language>
+  <language code="ZMB">
+    <language>Nsenga</language>
+    <official>False</official>
+    <percentage>4,30000019073486</percentage>
+  </language>
+  <language code="ZMB">
+    <language>Nyanja</language>
+    <official>False</official>
+    <percentage>7,80000019073486</percentage>
+  </language>
+  <language code="ZMB">
+    <language>Tongan</language>
+    <official>False</official>
+    <percentage>11</percentage>
+  </language>
+  <language code="ZWE">
+    <language>English</language>
+    <official>True</official>
+    <percentage>2,20000004768372</percentage>
+  </language>
+  <language code="ZWE">
+    <language>Ndebele</language>
+    <official>False</official>
+    <percentage>16,2000007629395</percentage>
+  </language>
+  <language code="ZWE">
+    <language>Nyanja</language>
+    <official>False</official>
+    <percentage>2,20000004768372</percentage>
+  </language>
+  <language code="ZWE">
+    <language>Shona</language>
+    <official>False</official>
+    <percentage>72,0999984741211</percentage>
+  </language>
+</languages>

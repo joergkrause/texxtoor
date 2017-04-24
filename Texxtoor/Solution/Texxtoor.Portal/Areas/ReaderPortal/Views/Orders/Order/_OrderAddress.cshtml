@@ -1,0 +1,21 @@
+﻿@model Texxtoor.DataModels.Models.Users.AddressBook
+@if (ViewBag.Message != null) {
+  <text>
+  <div class="alert alert-danger">
+    @ViewBag.Message
+  </div>
+  </text>
+}
+<div class="col-sm-12">
+  @using (Html.BtBox(Loc("title", @"Shipping and Invoice Address"), System.Drawing.Color.Red, BtIcon.MailForward, BtBoxOption.Collapse, BtBoxOption.IsCollapsed)) {
+    using (Html.BeginForm()) {
+    @Html.ValidationSummary(true, "")
+      using (Html.BtFieldset(Loc("legend", @"Address Details"))) {
+    @Html.EditorForModel()
+    <div class="formsendButtons">
+      @Create.FormButtonOnClick("btnAddressConfirm", "AddressFormSubmit(" + Model.Id + ", this)", ViewResources.Action_Product_ConfirmAddress)
+    </div>
+      }
+    }
+  }
+</div>

@@ -1,0 +1,15 @@
+﻿@using Texxtoor.Editor.Core.Extensions
+@using Texxtoor.Models
+@model Texxtoor.Models.Document
+@foreach (var item in Model.Children.OrderBy(s => s.OrderNr)) {
+  <li>
+  @Html.ActionLink(item.OrderNr + " " + item.RawContent.Ellipsis(35), "Authoring", new { id = Model.Id, chapterId = item.Id }, new {@class = "actionLink" })
+      @if (item.HasChildren()) {
+        <ul style='background-image:url("/Scripts/author/ribbon/themes/Windows7/images/menu_middle.png")'>
+          @foreach (var child in item.Children.OfType<Section>().OrderBy(s => s.OrderNr)) {
+            <li>@item.OrderNr&nbsp;@child.OrderNr @child.RawContent.Ellipsis(30)</li>
+          }
+        </ul>
+      }
+  </li>
+}

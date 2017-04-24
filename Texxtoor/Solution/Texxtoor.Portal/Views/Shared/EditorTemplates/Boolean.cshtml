@@ -1,0 +1,3 @@
+﻿@model bool?
+@Html.CheckBox("", Model.GetValueOrDefault(), new { @class= "form-control"})
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

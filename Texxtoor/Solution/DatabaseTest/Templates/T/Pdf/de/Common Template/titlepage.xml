@@ -1,0 +1,9 @@
+﻿<div class="titlepage">
+  <h1 class="no-toc">{0}</h1>
+  <h2 class="no-toc">{1}</h2>
+  <h3 class="no-toc">{2}</h3>
+
+  <p class="no-toc">{4}</p>
+  <!-- also, the publisher's name would typically be printed here -->
+  {5}
+</div>

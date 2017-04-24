@@ -1,0 +1,20 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@model IPagedList<Milestone>
+@{
+  var uid = (int)ViewBag.UserId;
+  var tlid = (int)ViewBag.TeamLeadId;
+}
+@Html.Partial("_Pagination", PaginationViewModel<Milestone>.Create(Model, "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});", new Dictionary<string, string> {
+    {"id", "btnAddMilestone"},
+    {"action", "ui.addElement()" },
+    {"text", ViewResources.Action_Opus_CreateNewMilestone},
+    {"cssclass", BtStyle.ButtonPrimary}
+  },
+true, m => m.Name))
+<div class="multilist">
+  @foreach (var item in Model) {
+    <div class="listitem">
+      @Html.Partial("Milestones/_ShowMilestone", item, new ViewDataDictionary { { "CanRemove", true }, { "UserId", uid }, { "TeamLeadId", tlid }, { "CanOrder", Model.Count() > 1 } })
+    </div>
+  }
+</div>

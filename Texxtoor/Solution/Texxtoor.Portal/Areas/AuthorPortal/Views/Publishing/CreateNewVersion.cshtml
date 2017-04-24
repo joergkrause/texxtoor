@@ -1,0 +1,46 @@
+﻿@model Texxtoor.DataModels.Models.Content.Opus
+@{
+  PageData["Title"] = Loc("title", "New Text Version");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+}
+
+<div class="well">
+  @Loc("textPublNew", @"Create a new version (instance) of your currently published text and re-publish under a new name, version and declare the relation. The relation to the previous text shall be an improvement, addition, or so. You can work on the text, then, and re-publish using the update function at any time later.")
+</div>
+@using (Html.BtPanel(Loc("titleProps", "General Content Properties"), "green")) {
+  using (Html.BeginForm("RedirectToNewVersion", "Publishing", new { id = Model.Id }, FormMethod.Post, new { id = "saveOpusForm" })) {
+    @Html.HiddenFor(m => m.Project.Id)
+    @Html.HiddenFor(m => m.Project.Name)
+    @Html.HiddenFor(m => m.Project.Short)
+    using (Html.BtFieldset(Loc("legendOpts", @"Work Options"))) {
+
+      <div class="editor-field">
+        @Html.LabelFor(m => m.Name)
+        @Html.EditorFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+      </div>
+
+      <div class="editor-field">
+        <label>@Loc("lblLang", @"Language")</label>
+        @Create.CultureSelection(Url, "LocaleId", Model.LocaleId)
+        @Create.FieldHelpIcon(Html, m => m.LocaleId)
+        @Html.ValidationMessageFor(m => m.Name)
+      </div>
+
+      <div class="editor-field">
+        @Html.LabelFor(m => m.Variation)
+        @Html.EditorFor(m => m.Variation)
+        @Html.ValidationMessageFor(m => m.Name)
+      </div>
+
+      <div class="editor-field">
+        @Html.LabelFor(m => m.Version)
+        @Html.EditorFor(m => m.Version)
+        @Html.ValidationMessageFor(m => m.Version)
+      </div>
+      <div class="formsendButtons">
+        @Button.Send("btnSaveOpus", ViewResources.Action_Editor_SetOptions, "btn-sm btn-primary")
+      </div>
+    }
+  }
+}

@@ -1,0 +1,21 @@
+﻿@model Texxtoor.DataModels.Models.Users.Role
+
+@{
+    PageData["Title"] = "Delete Role";
+    Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+
+@using(Html.BtFieldset("Role to Delete")) {
+
+    <div class="display-label">RoleName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserRole)
+    </div>
+
+}
+@using (Html.BeginForm()) {
+  <div class="formsendButtons">
+    <button type="submit" class="btn btn-sm btn-danger">Delete Role</button>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-sm btn-default" })
+  </div>
+}

@@ -1,0 +1,24 @@
+﻿@using Gma.QrCodeNet.Encoding.DataEncodation
+@using Texxtoor.DataModels.Models.Content
+@model Texxtoor.DataModels.Models.Content.ResourceFile
+@{
+  var opus = (Opus)ViewData["Parent"];
+  var res = opus.Project.Resources
+    .OfType<ResourceFile>()
+    .Where(r => r.TypesOfResource == TypeOfResource.Content)
+    .ToList()
+    .Where(r => r.IsImage())
+    .ToList();
+}
+@if (res.Any()) {
+  <select name="Resource.@ViewData.ModelMetadata.PropertyName" data-select data-target="@ViewData.ModelMetadata.PropertyName">
+    <option value="">@ViewResources.DropList_Resource_Select</option>
+    @foreach (var option in res) {
+      <option value="@option.Id" @(Model != null && option.Id == Model.Id ? "selected=selected" : "")>@option.Name</option>
+    }
+  </select>
+  @Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)
+} else {
+  <span class="text text-red">@Loc("noRes", "Currently there are no resources in this project.")</span>
+}
+<img data-target="@ViewData.ModelMetadata.PropertyName" src="/Tools/GetImg/@(Model == null ? 0 : Model.Id)/?c=editorresource&nc=false" class="@(Model == null ? "hidden-to-show" : "") opusresource" />

@@ -1,0 +1,73 @@
+﻿<li>
+  <h2>
+    <span>Search</span></h2>
+    <div class="ribbon-list">
+    <div class="ribbon-button" data-command="find">
+      <img src="~/Content/icons/Editor/icon_small_find.png" alt="Find" />
+      <span>Find</span>
+    </div>
+    <div class="ribbon-button" data-command="replace">
+      <img src="~/Content/icons/Editor/icon_small_replace.png" alt="Replace" />
+      <span>Replace</span>
+    </div>
+    <div class="ribbon-button" data-command="format" data-action="selectall">
+      <img src="~/Content/icons/Editor/icon_small_selectall.png" alt="Select all" />
+      <span>Select all</span>
+    </div>
+    </div>
+</li>
+<li>
+  <h2>Move Current Section</h2>
+  <div class="ribbon-list">
+    <div class="ribbon-button" data-command="move" data-action="l">
+      <img src="~/Content/icons/Editor/sort_up_plus_16.png" alt="Increase" />
+      <label>Increase</label>
+    </div>
+    <div class="ribbon-button" data-command="move" data-action="r">
+      <img src="~/Content/icons/Editor/sort_up_minus_16.png" alt="Decrease" />
+      <label>Decrease</label>
+    </div>
+  </div>
+  <div class="ribbon-list">
+    <div class="ribbon-button" data-command="move" data-action="u">
+      <img src="~/Content/icons/Editor/navigate_up_16.png" alt="Up" />
+      <label>Up</label>
+    </div>
+    <div class="ribbon-button" data-command="move" data-action="d">
+      <img src="~/Content/icons/Editor/navigate_down_16.png" alt="Down" />
+      <label>Down</label>
+    </div>
+  </div>
+</li>
+<li>
+  <h2>Orphan and Insert</h2>
+  <div class="ribbon-button" data-command="move" data-action="o">
+    <img src="~/Content/icons/Editor/icon_exit.png" alt="Orphane" />
+    <span>Orphan Snippet</span>
+  </div>
+  <div class="ribbon-list"  onmousedown="return false">
+    <div>
+      <span>Insert orphaned snippets</span>
+      <ul>
+        <li>Snip 1</li>
+        <li>Snip 2</li>
+        <li>Snip 3</li>
+      </ul>
+    </div>
+  </div>
+</li>
+<li>
+  <h2>Options</h2>
+  <div class="ribbon-list">
+    <div>
+      <input type="checkbox" id="navipane" checked="checked" class="ribbon-button" data-command="shownavipane"
+        data-action="naviButton" />
+      <label for="navipane">Show Quick Navi</label>
+    </div>
+    <div>
+      <input type="checkbox" id="flowpane" checked="checked" class="ribbon-button" data-command="shownavipane"
+        data-action="flowButton" />
+      <label for="flowpane">Show Flow Pane</label>
+    </div>
+  </div>
+</li>

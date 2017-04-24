@@ -1,0 +1,93 @@
+﻿@{
+  PageData["Title"] = Loc("title", "My Teams");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("text1", @"See your teams and those you're an active member of currently. Create a new team to become a lead author. You can select your team when you start a new project.");
+}
+@section HeadContent{
+@*<script>
+    $(document).ready(function () {
+        $("#addTeam").css("display", "none");
+    });
+    </script>*@
+  <script type="text/javascript">
+
+  $(function() {
+    ui = new Dialog(
+      {
+        formId: '#addTeamForm',
+        formDivId: '#addTeam',
+        formAction: '@Url.Action("AddTeam")',
+        sendBtnId: '#addTeamSendButton',
+        cancelBtnId: '#addTeamCancelButton',
+        onShow: function () {
+          $('#main').hide();
+        },
+        onClose: function () { $('#main').show(); }
+      },
+      {
+        formId: '#editTeamForm',
+        formDivId: '#editTeam',
+        formAction: '@Url.Action("EditTeam")',
+        sendBtnId: '#editTeamSendButton',
+        cancelBtnId: '#editTeamCancelButton',
+        onShow: function () {
+          $('#main').hide();
+        },
+        onClose: function () { $('#main').show(); }
+      },
+      {
+        formId: '#delTeam',
+        formDivId: '#delTeam',
+        formAction: '@Url.Action("DeleteTeam")',
+        sendBtnId: '#delTeamSendButton',
+        cancelBtnId: '#delTeamCancelButton'
+      },
+      {
+        formId: '#main',
+        formDivId: '#main',
+        formAction: '@Url.Action("ListTeams")',
+        onShow: function() {
+          $(".teamPopupForm").hide();
+        }
+      });
+    ui.updateTable();
+    $(document).on('click', '.teamPopup', function (e) {
+      $(".teamPopupForm").hide();
+      $('.teamPopupForm[data-item=' + $(this).data('item') + ']').show();
+      e.preventDefault();
+      return false;
+    });
+    $(document).on('click', '.teamPopUpClose', function() {
+      $(this).parents('.teamPopupForm').hide();
+    });
+    $(document).on('change', '.projectForums', function() {
+      if (this.selectedIndex > 0) {
+        window.location.href = '@Url.Action("MessageBoard", "Project")/' + this.options[this.selectedIndex].value;
+        }
+      });
+  });
+    function deactivateTeam(teamId) {
+      // in case a team has no longer active projects user can deactivate
+      $.ajax({
+        url: '@Url.Action("DeactivateTeam", "Team")',
+        data: { id: teamId },
+        type: 'GET',
+        success: function(data) {
+          toastr.success(data.msg);
+          ui.updateTable();
+        },
+        error: function(data) {
+          toastr.error(data.msg);
+        }
+      })
+    }
+  </script>
+}
+@using (Html.BtDeleteTemplate(Loc("permDel", "You're about to delete a team permanently. Please confirm."))){
+  @Create.FormButtonOnClick("delTeamSendButton", "", ViewResources.Action_Team_DeleteTeam, BtStyle.ButtonAndDanger)
+  @Create.FormButtonOnClick("delTeamCancelButton", "", ViewResources.Button_Cancel)
+}
+@Create.ContentForm("addTeam", @Html.Action("AddTeam"), "New Team")
+@Create.ContentFormEmpty("editTeam", "Edit Team's Name")
+@Create.MainContentWithLoader()
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)

@@ -1,0 +1,195 @@
+﻿@model Texxtoor.DataModels.Models.Content.Project
+@{
+  PageData["Title"] = Loc("titleTermManagement", @"Term Management");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("textTerms", @"Manage abbreviations, cites, definitions, idioms, variables and common links in one place. Organize all sort of terms in termsets to have them handy while writing.");
+}
+@section HeadContent{
+  <link href="~/Scripts/jquery/ui/css/jquery-ui.css" rel="stylesheet" />
+  <script type="text/javascript">
+    var currentTermset;
+    $(function () {
+      $('#terms').hide();
+      ui = new Dialog(
+        {
+          formId: '#addTermsetForm',
+          formDivId: '#addTermset',
+          formAction: '@Url.Action("AddTermset", new { Model.Id })',
+          sendBtnId: '#addTermsetSendButton',
+          cancelBtnId: '#addTermsetCancelButton',
+          onShow: function () {
+            $('#sets').hide();
+          },
+          onClose: function () {
+            $('#sets').show();
+          }
+        },
+        {
+          formId: '#editTermsetForm',
+          formDivId: '#editTermset',
+          formAction: '@Url.Action("EditTermset")',
+          sendBtnId: '#editTermsetSendButton',
+          cancelBtnId: '#editTermsetCancelButton',
+          onShow: function () {
+            $('#sets').hide();
+          },
+          onClose: function () {
+            $('#sets').show();
+            listPublicTermsets();
+          }
+        },
+        {
+          formId: '#delTemplate',
+          formDivId: '#delTemplate',
+          formAction: '@Url.Action("DeleteTermset")',
+          sendBtnId: '#delTermsetSendButton',
+          cancelBtnId: '#delTermsetCancelButton',
+          onShow: function () {
+            $('#termsets').hide();
+          }
+        },
+        {
+          formId: '#main',
+          formDivId: '#main',
+          formAction: '@Url.Action("ListTermsets", new { Model.Id })'
+        });
+      ui.updateTable();
+      listPublicTermsets();
+      $(document).on('click', '#btnCloseTerms1, #btnCloseTerms2', function () {
+        $('#sets').show();
+        $('#terms').hide();
+      });
+      $(document).on('click', '.manageTermSet', function () {
+        var name = $(this).parent().data('value');
+        var id = $(this).parent().data('item');
+        UpdateTermList(id, name);
+        $('#sets').hide();
+        $('#terms').show();
+      });
+    });
+    var lastsel;
+
+    function listPublicTermsets() {
+      $.ajax({
+        url: '@Url.Action("ListPublicTermsets", new { Model.Id })',
+        cache: false,
+        success: function (data) {
+          $('#defaultTermSetContainer').html(data);
+          ui.setTableBehavior();
+        }
+      });
+    }
+
+    function UpdateTermList(id, name) {
+      currentTermset = id;
+      $('#termsets').GridUnload();
+      $('#termsets').jqGrid({
+        url: '@Url.Action("GetTerms")' + '/' + id,
+        ajaxGridOptions: {
+          cache: false,
+          type: 'POST',
+          datatype: 'json'
+        },
+        hidegrid: false,
+        datatype: 'json',
+        colNames: ['Type',
+          'Key',
+          'Value'],
+        colModel:
+          [
+          { name: 'type', index: 'type', width: 130, search: true, editable: true, stype: 'select', searchoptions: { value: {@Html.Raw(ViewBag.TermTypesAsJsonForSearch) } }, edittype: 'select', editoptions: { value: {@Html.Raw(ViewBag.TermTypesAsJsonForEdit) } } },
+          { name: 'key', index: 'key', width: 200, editable: true, search: true },
+          { name: 'value', index: 'value', width: 530, editable: true, search: true }          
+          ],
+        rowNum: 20,
+        rowList: [10, 20, 50, 100],
+        sortname: 'type',
+        sortorder: 'asc',
+        viewrecords: true,
+        gridview: true,
+        caption: '@Loc("textTermsetManager", @"Manage the content of the selected termset.")',
+        pager: '#pager',
+        onSelectRow: function (idr) {
+          if (idr && idr !== lastsel) {
+            $('#termsets').jqGrid('restoreRow', lastsel);
+            $('#termsets').jqGrid('editRow', idr, true);
+            lastsel = idr;
+          }
+        },
+        editurl: '@Url.Action("ChangeTermForTermset")'
+      });
+      $('#termsets').jqGrid('filterToolbar', { searchOnEnter: true });
+      $('#termsets').jqGrid('navGrid', '#pager', { edit: true, add: true, del: true, editicon: "ui-icon-pencil", saveicon: "ui-icon-disk" },
+        {
+          url: '@Url.Action("ChangeTermForTermset")',
+          editData: { id: currentTermset }
+        },
+        {
+          url: '@Url.Action("AddTermToTermset")',
+          editData: { id: currentTermset }
+        },
+        {
+          url: '@Url.Action("RemoveTermFromTermset")',
+          editData: { id: currentTermset }
+        });
+    }
+  </script>
+  <script src="~/Scripts/jquery/jqgrid/jquery.jqGrid.src.js"></script>
+  <script src="~/Scripts/jquery/jqgrid/i18n/grid.locale-@(new System.Globalization.CultureInfo(Culture).TwoLetterISOLanguageName).js"></script>
+  <link href="~/Scripts/jquery/jqgrid/css/ui.jqgrid.css" rel="stylesheet" />
+}
+@Html.Heading(HtmlHeading.H2, Loc("titleTermset", "Termsets"))
+@using (Html.BtDiv(BtStyle.WellAndSmall)) {
+  @Loc("textTermsets", @"Add, remove, or manage termsets.")
+  @:&nbsp;
+  @Loc("textTermsetFor", @"Changes apply to termsets related to project <em><span data-args='0' data-desc='Project Name'>{0}</span></em>.", Model.Name)
+}
+@using (Html.BtDeleteTemplate(Loc("textDel", @"You're about to delete a termset permanently. Please confirm."))) {
+  @Create.FormButtonOnClick("delTermsetSendButton", "", ViewResources.Action_Termset_DeleteTermset, "btn-warning")
+  @Create.FormButtonOnClick("delTermsetCancelButton", "", ViewResources.Button_Cancel)
+}
+@Create.ContentForm("addTermset", Html.Action("AddTermset"), ViewResources.Action_Termset_CreateTermset)
+@Create.ContentFormEmpty("editTermset", ViewResources.Action_Termset_ChangeTermset)
+<div id="sets">
+  @Html.Heading(HtmlHeading.H3, Loc("titlePTs", "Project Termsets"))
+  @Create.MainContentWithLoader()
+  @Html.Heading(HtmlHeading.H3, Loc("titleGTs", "Global Termsets"))
+  @Create.MainContentWithLoader("defaultTermSetContainer")
+  @using (Html.BtDiv(BtStyle.AlertAndInfo)) {
+    @Loc("textNotSelected", @"From list above select choose a termset and click 'Manage Terms'.")
+  }
+</div>
+<div id="terms">
+  @using (Html.BtBox(Loc("titleTermsFor", @"Terms for termset <em><span id=""currentTermset""></span></em>"), System.Drawing.Color.Green, BtIcon.Book)) {
+    using (Html.BtDiv(BtStyle.WellAndSmall)) {
+       @Create.ActionClick("btnCloseTerms1", true, "", ViewResources.Button_Cancel, BtStyle.ButtonPrimary)
+    }
+    <table id="termsets">
+      <tr>
+        <td />
+      </tr>
+    </table>
+    <div id="pager"></div>
+    using (Html.BtDiv(BtStyle.WellAndSmall)) {
+       @Create.ActionClick("btnCloseTerms2", true, "", ViewResources.Button_Cancel, BtStyle.ButtonPrimary)
+    }
+  }
+</div>
+@Create.ActionTask("manageRes", false, Url.Action("Index", new { id = Model.Id }), ViewResources.TasksButton_FileResources)
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = Model.Id }), ViewResources.LinkButton_ToDashboard)
+
+@section helpSection{
+  <h3>@Loc("titleAbbr", "")</h3>
+  @Loc("help1", "")
+  <h3>@Loc("titleCites", "")</h3>
+  @Loc("help2", "")
+  <h3>@Loc("titleDef", "")</h3>
+  @Loc("help3", "")
+  <h3>@Loc("titleIdioms", "")</h3>
+  @Loc("help4", "")
+  <h3>@Loc("titleVar", "")</h3>
+  @Loc("help5", "")
+  <h3>@Loc("titleLink", "")</h3>
+  @Loc("help6", "")
+}

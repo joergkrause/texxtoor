@@ -1,0 +1,2 @@
+﻿@model Texxtoor.ViewModels.Content.QuickProjectAdvanced
+@Html.EditorForModel()

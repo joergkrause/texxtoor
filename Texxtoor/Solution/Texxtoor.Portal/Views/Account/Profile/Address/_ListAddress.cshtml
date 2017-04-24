@@ -1,0 +1,55 @@
+﻿@model Texxtoor.BaseLibrary.Core.Utilities.Pagination.IPagedList<Texxtoor.DataModels.Models.Users.AddressBook>
+<div class="box box-padding">
+  <div class="box-content">
+    @Html.Partial("_Pagination", Texxtoor.ViewModels.Common.PaginationViewModel<Texxtoor.DataModels.Models.Users.AddressBook>.Create(Model,
+      "javascript:updateAddresses({page}, '{order}', '{dir}', {pagesize});",
+new Dictionary<string, string>() {
+  { "id", "btnAddAddress"},
+  { "action", "showAddAddressForm()"},
+  {"text", ViewResources.Action_Profile_AddAddress},
+  {"cssclass", "btn-primary"}
+},
+true, m => m.Name, m => m.StreetNumber))
+    <div class="multilist">
+      @foreach (var item in Model) {
+        <div class="listitem">
+          <div class="firstRow">
+            @Badges.NewItem(item.Name, item.CreatedAt, TimeSpan.FromDays(5))
+            @if (item.Default) {
+              @BtIcon.IconHtml(BtIcon.Anchor)
+            }
+          </div>
+          <div class="secondRow">
+            @item.StreetNumber,
+            @item.Zip @item.City,
+            @item.Country
+            (@(item.Region ?? ""))
+            <div class="pull-right">
+              @if (item.Invoice) {
+                @BtIcon.IconHtml(BtIcon.CreditCard)
+                @:&nbsp;
+                @ViewResources.Action_Common_Profile_AddressForInvoice
+              } else {
+                @BtIcon.IconHtml(BtIcon.Envelope)
+                @:&nbsp;
+                @ViewResources.Action_Common_Profile_AddressForShipping
+              }
+            </div>
+          </div>
+          <div class="thirdRow">
+            <div class="optionFields" data-item="@item.Id">
+              @Create.FormButtonOnClick("editAddressBtn", "showEditAddressForm(" + item.Id + ")", ViewResources.Action_Profile_EditAddress)
+              @if (item.GetCanDelete()) {
+                @Create.FormButtonOnClick("delAddressBtn", "deleteAddressForm(" + item.Id + ")", ViewResources.Action_Profile_DeleteAddress, BtStyle.ButtonDanger)
+              } else {
+                <span class="alert alert-warning">
+                  @Loc("txtNoDel", "Address cannot be deleted, because it is in use.")
+                </span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+﻿@model Texxtoor.ViewModels.Users.ConfirmAssociation
+
+@{
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+  PageData["Title"] = Loc("title", @"Confirm account association");
+}
+<div class="well">
+    @Loc("textconf", @"The internal and the external account are now associated. Logon with either to access your environment.")
+</div>

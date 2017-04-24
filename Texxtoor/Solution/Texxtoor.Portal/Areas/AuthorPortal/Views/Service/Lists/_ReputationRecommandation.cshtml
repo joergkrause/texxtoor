@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Texxtoor.ViewModels.Users.EditUser>
+@if (Model.Any()) {
+  foreach (var editUser in Model) {
+  @Html.RadioButton("user", editUser.id)
+  @:&nbsp; @editUser.name
+ }
+} else {
+  <div class="alert alert-warning">
+    @Loc("noRec", "We couldn't find anybody here.")
+  </div>
+}

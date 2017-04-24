@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Cms.CmsMenu>
+<ul class="dropdown-menu">
+  @foreach (var cmsMenu in Model) {
+    <li>
+      <a href="@cmsMenu.NavigateUrl">
+        <i class="@cmsMenu.Style icon-fixed-width"></i>
+        @cmsMenu.Title
+      </a>
+    </li>
+  }
+  <li class="divider"></li>
+  @*<li>
+    <a href="@Url.Action("RaiseModeToEasy", "Account", new { area= "" })">
+      @ViewResources.Action_SwitchPlatform_EasyAuthor
+    </a>
+  </li>
+  <li>
+    <a href="@Url.Action("RaiseModeToFull", "Account", new { area = "" })">
+      @ViewResources.Action_SwitchPlatform_Pro
+    </a>
+  </li>*@
+  <li>
+    <a href="@Url.Action("SetCulture", "ThemeSwitcher", new { culture = "de", area = "" })">
+      <i class="icon-cog text-blue icon-fixed-width"></i>
+      @ViewResources.Action_SwitchPlatform_Language_German
+      <small>@ViewResources.Action_Hint_default</small>
+    </a>
+  </li>
+  <li>
+    <a href="@Url.Action("SetCulture", "ThemeSwitcher", new { culture = "en", area = "" })">
+      <i class="icon-cog text-blue icon-fixed-width"></i>
+      @ViewResources.Action_SwitchPlatform_Language_English
+    </a>
+  </li>
+  <li class="divider"></li>
+  <li>
+    <a href="@Url.Action("Logoff", "Account", new { area = "" })">
+      <i class="icon-signout icon-fixed-width"></i>
+      @ViewResources.StaticMenu_SignOut
+    </a>
+  </li>
+</ul>

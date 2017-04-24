@@ -1,0 +1,144 @@
+﻿@using Texxtoor.DataModels.Models.Author
+@model Texxtoor.ViewModels.Author.ContributorShares
+@using (Html.BeginForm("EditShares", "Team", FormMethod.Post, new { id = "editSharesForm" })) {
+  <input type="hidden" value="@Model.Book.Id" name="id" />
+  if (Model.HasPendingConfirmation(User.Identity.Name).HasValue) {
+    if (Model.HasPendingConfirmation(User.Identity.Name).GetValueOrDefault()) {
+      using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+        @Loc("txtPending", @"You have pending confirmations for your work's share. Please confirm the proposal by lead author as shown below.")
+      }
+    }
+  } else {
+    if (Model.IsTeamLead(User.Identity.Name)) {
+      using (Html.BtDiv(BtStyle.AlertAndInfo)) {
+        @Loc("txtLead", @"Please set the shares for your contributors. Contributors get an email and need to confirm. Projects can be published once all contributors agreed to all shares.")
+      }
+    } else {
+      using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+        @Loc("txtNothing", @"There is nothing to do here for you. This sheet is for informational use only.")
+      }
+    }
+  }
+  if (Model.TeamMembers.Count() <= 1) {
+    using (Html.BtDiv(BtStyle.AlertAndError)) {
+      @Loc("txtSolo", @"You're the only member in the team and hence there is nothing to share with anybody.")
+    }
+  } else {
+    using (Html.BtFieldset(Loc("legend", @"Edit Shares for Book <em><span data-args='0' data-desc='Book Name'>{0}</span></em>", Model.Book.Name)))
+    {
+      var anythingtodo = false;
+      var currentTotal = Model.TeamMembers.Sum(m => Model.GetContributorRatio(m.Member.UserName) != null ? Model.GetContributorRatio(m.Member.UserName).ValueOrRatio : 0);
+      foreach (var teamMember in Model.TeamMembers) {
+        var isuser = (teamMember.Member.UserName == User.Identity.Name);
+        var entryIsLeadsOne = Model.IsTeamLead(teamMember.Member.UserName);
+        var userIsTeamLead = Model.IsTeamLead(User.Identity.Name);
+        var cr = Model.GetContributorRatio(teamMember.Member.UserName);
+        var crIsConfirmed = cr != null && cr.Confirmed;
+        var pdn = Model.HasPendingConfirmation(teamMember.Member.UserName);
+        var pending = pdn.GetValueOrDefault() && isuser;
+        var r = (cr == null ? (entryIsLeadsOne ? 100 - currentTotal : 0).ToString("0.#") : cr.ValueOrRatio.ToString("0.#"));
+        <label>
+          <span class="pull-left" style="width: 45px; height: 45px;">
+            <img src="/Tools/GetImg/@(teamMember.Member.Profile.Id)?c=MemberThumbnail&res=45x45&nc=true" style="margin:0 10px 5px 0" />
+          </span>
+          <span style="padding-left: 20px;">
+            @teamMember.Member.UserName
+          </span>
+          <br/>
+          <span style="padding-left: 20px;">
+            <small>@String.Join(", ", teamMember.GetLocalizedContributorRoles())</small>
+          </span>
+        </label>
+        <br />
+        <div class="editor-field">
+          @if (isuser) {
+            <div class="badge badge-important pull-right" style="margin-right: 25px">@Loc("badge", "Your Share!")</div>
+          }
+          <input type="hidden" value="@teamMember.Member.UserName" name="user" />
+          @if (entryIsLeadsOne) {
+            <!-- This is TeamLead: Show nothing but text, as there is nothing to confirm -->
+            <span id="leadShareText" style="@(isuser ? "font-weight:bold" : "")">@r</span>
+            @:% @Loc("txtShare", "Share") &nbsp;@Create.FieldHelpIcon(Loc("txtLaedShare", "lead author's share").ToString(), "", "")
+            <input type="hidden" value="true" name="use" />
+            <input type="hidden" value="@r" id="leadShareValue" name="ratio" />
+            <input type="hidden" value="@(cr == null ? (int)ShareType.Ratio : (int)cr.ShareType)" name="shareType" />
+          } else {
+            if (userIsTeamLead)
+            {
+              anythingtodo = true;
+              /* section editable */
+              if (crIsConfirmed) {
+                <input type="text" value="@r" data-item="@teamMember.Id" class="Width45" name="ratio" disabled="disabled" />
+                var attributes = new Dictionary<string, object> { { "data-item", teamMember.Id }, { "disabled", "disabled" } };
+                @(Html.DropdownForEnum<ShareType>("shareType", "shareType-" + teamMember.Id, cr.ShareType, attributes))
+                <i class="@BtIcon.Check text-green"> </i><small class="text-green">@Loc("txtIsConfrmd", "is confirmed by contributor")</small>
+                <input type="hidden" value="true" name="use" />
+                <input type="hidden" value="@((int)cr.ShareType)" name="shareType" />
+                <input type="hidden" value="@r" name="ratio" />
+              } else {
+                <input type="text" value="@r" data-item="@teamMember.Id" class="Width45" name="ratio" />
+                @(Html.DropdownForEnum<ShareType>("shareType", "shareType-" + teamMember.Id, ShareType.Ratio, new Dictionary<string, object> { { "data-item", teamMember.Id } }))
+                <i class="@BtIcon.Minus text-red"> </i><small class="text-red">@Loc("txtNotCnfrmd", "not yet confirmed")</small>
+                <input type="hidden" value="false" name="use" />
+              }
+            } else {
+              /* section not editable */
+              <input type="hidden" value="@r" name="ratio" />
+              <input type="hidden" value="@(cr == null ? (int)ShareType.Ratio : (int)cr.ShareType)" name="shareType" />
+              /* User has a share to confirm */
+              if (pending && cr != null)
+              {
+                anythingtodo = true;
+                @Loc("txtProposal", "Proposal of type <em><span data-args='0' data-desc='Type'>{0}</span></em> has the ratio <em><span data-args='1' data-desc='Ratio'>{1}</span></em> %",
+                  cr.GetLocalizedShareType(), r)
+                <!-- Contributor: Show checkbox to confirm  -->
+                <br />
+                <input type="checkbox" value="true" checked="checked" name="use" />
+                <span class="text text-red">@Loc("txtCheckPending", "Your membership is still pending. If you confirm the share now, your membership will confirmed too.")</span>
+              } else {
+                @Loc("txtProposal", "Proposal of type <em><span data-args='0' data-desc='Type'>{0}</span></em> has the ratio <em><span data-args='1' data-desc='Ratio'>{1}</span></em> %",
+                  cr.GetLocalizedShareType(), r)
+                <!-- Contributor: Show checkbox to confirm  -->
+                <br />
+                if (cr.Confirmed) {
+                  <input type="checkbox" value="true" disabled="disabled" checked="checked" name="use" />@Loc("txtIdConf", "The share has been confirmed already")
+                } else {
+                  anythingtodo = true;
+                  <input type="checkbox" value="true" checked="checked" name="use" />@Loc("txtCheckConf", "auswählen zum Bestätigen")
+                }
+              }
+              if (!isuser) {
+                if (cr.Confirmed) {
+                  @Loc("txtOtherConfirmedProposal", "User has confirmed <em><span data-args='0' data-desc='Type'>{0}</span></em> <em><span data-args='1' data-desc='Ratio'>{1}</span></em>",
+                         r, cr.GetLocalizedShareType())
+                  <!-- Contributor: Show checkbox to confirm  -->
+                  <input type="hidden" value="false" name="use" />
+                } else {
+                  @Loc("txtOtherProposal", "This user has <em><span data-args='0' data-desc='Type'>{0}</span></em> <em><span data-args='1' data-desc='Ratio'>{1}</span></em> not yet confirmed",
+                         r, cr.GetLocalizedShareType())
+                  <input type="hidden" value="true" name="use" />
+                }
+              }
+            }
+          }
+        </div>
+        <hr />
+      }
+      if (anythingtodo)
+      {
+        @Button.FormSendButtons("editSharesButton", ViewResources.Action_Marketing_ConfirmShares, "FormSubmitEdit()", "cancelEditSharesButton", ViewResources.Button_CancelAndClose)
+        using (Html.BtDiv(BtStyle.AlertAndError))
+        {
+          @Loc("txtExplain", @"Confirmation is irreversible. However, if lead author changes any of these values all confirmation become void and you need to confirm again.")
+        }
+      } else {
+        <div class="formsendButtons">
+          @Create.FormButtonOnClick("cancelEditSharesButton", "", ViewResources.Button_CancelAndClose, BtStyle.ButtonDefault)
+        </div>
+        using (Html.BtDiv(BtStyle.AlertAndInfo)) {
+          @Loc("txtExplainNo", @"You cannot confirm anything because the share has been confirmed already. Consider contacting your team leader if you want to change anything.")
+        }
+      }
+    }
+  }
+}

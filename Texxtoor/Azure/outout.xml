@@ -1,0 +1,968 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Content>
+   <Element Type="Section" Level="1" Name="4    Protokolle des Web">
+4    Protokolle des Web
+<Element Type="Text">Dieses Kapitel bietet einen sehr kompakten Überblick über die Protokolle, die Sie beherrschen sollten, wenn Sie mit ASP.NET aktiv entwickeln. Eine einzige Ausnahme machen die Autoren bei der Wahl der Programmiersprache. Natürlich sind Sie wie bei allen auf .NET basierenden Entwicklungen frei in der Anwendung der bevorzugten Sprache, also meist VB.NET, C# oder F#. In diesem Buch fokussieren die Autoren auf C# in Verbindung mit JavaScript. Da sowohl C# als auch JavaScript sehr umfangreich sind, werden diese zwei Sprachen in Kapitel 5 ausführlich vorgestellt.
+Die Informationen in diesem Kapitel sind grob in folgende Abschnitte unterteilt:
+n  Netzwerkprotokolle wie TCP/IP, DNS und das Referenzmodell
+n  Hypertext Transfer Protokoll (HTTP), FTP usw.
+n  XML, XSLT und XPath
+n  Hilfsklassen des .NET-Frameworks für die Webprogrammierung
+Zuvor erfahren Sie mit einer kurzen Darstellung des ISO/OSI-Referenzmodells etwas über die Einordnung der Protokolle.</Element>
+      <Element Type="Section" Level="2" Name="4.1     Das Referenzmodell">
+4.1     Das Referenzmodell
+<Element Type="Text">Für die Entwicklung und Bewertung von Kommunikationsprozessen wird in der IT-Welt häufig zum ISO/OSI-Referenzmodell Bezug genommen. Dieses Modell wurde im Jahre 1984 von der ISO (<em>International Organization for Standardization</em>) verabschiedet und beschreibt alle wesentlichen Prozesse bei der IT-gestützten Datenübertragung über ein Schichtenmodell. Komplett ausgeschrieben steht die Abkürzung ISO/OSI übrigens für <em>Reference Model for Open Systems Interconnection of the International Organization for Standardization</em>.
+Tabelle 4.1 zeigt die sieben Schichten des ISO/OSI-Referenzmodells und ihre Bedeutungen.
+<strong>Tabelle </strong>
+            <strong>4</strong>
+            <strong>.</strong>
+            <strong>1</strong>
+            <strong>  </strong>Schichten des ISO/OSI-Referenzmodells</Element>
+         <Element Type="Table" Name="Tabelle 4.1  Schichten des ISO/OSI-Referenzmodells">
+            <table> 
+               <thead> 
+                  <tr> 
+                     <td> Nr. </td> 
+                     <td> Bezeichnung </td> 
+                     <td> Aufgabe bzw. Beispielanwendungen </td> 
+                  </tr> 
+               </thead> 
+               <tbody>
+                  <tr> 
+                     <td> 7 </td> 
+                     <td> Anwendung </td> 
+                     <td> Nutzerschnittstelle, Programmschnittstelle </td> 
+                  </tr> 
+                  <tr> 
+                     <td> 6 </td> 
+                     <td> Darstellung </td> 
+                     <td> Kodierung und Dekodierung </td> 
+                  </tr> 
+                  <tr> 
+                     <td> 5 </td> 
+                     <td> Sitzung </td> 
+                     <td> Kommunikationssteuerung </td> 
+                  </tr> 
+                  <tr> 
+                     <td> 4 </td> 
+                     <td> Transport </td> 
+                     <td> Aufbau von Verbindungen,  Datentransport </td> 
+                  </tr> 
+                  <tr> 
+                     <td> 3 </td> 
+                     <td> Vermittlung </td> 
+                     <td> Adressierung und Routing von Datenpaketen </td> 
+                  </tr> 
+                  <tr> 
+                     <td> 2 </td> 
+                     <td> Sicherung </td> 
+                     <td> LLC (Logical Link Control) </td> 
+                     <td> Kontrollfunktionen, Datenfragmentierung </td> 
+                  </tr> 
+                  <tr> 
+                     <td> MAC (Media Access Control) </td> 
+                  </tr> 
+                  <tr> 
+                     <td> 1 </td> 
+                     <td> Bitübertragung </td> 
+                     <td> Physikalischer Netzwerktransport (Kabel, Funk etc.) </td> 
+                  </tr> 
+               </tbody>
+            </table>
+         </Element>
+         <Element Type="Text">Bei einem genau nach diesem Modell entwickelten Übertragungsverfahren arbeitet auf jeder Ebene genau eine Komponente beziehungsweise ein Netzwerkprotokoll. Zwischen zwei Computersystemen werden dann jeweils alle Schichten durchlaufen. Der eigentliche Datenaustausch findet schließlich nur über die Schicht 1, beispielsweise das Netzwerkkabel, statt. Die einzelnen Schichten innerhalb eines Partners „kommunizieren“ damit jeweils nur mit den direkt darüber und darunter liegenden Nachbarn über die Protokolle und technischen Komponenten. Dadurch sind die höheren Schichten unabhängig von den Prozessen, die sich weiter unten abspielen. Ob die Schicht 1 technisch über ein Kupfer- oder ein Glasfaserkabel implementiert ist, ist für die Protokollschicht, die kontrolliert Datenpakete versenden will, irrelevant.
+Das ISO/OSI-Referenzmodell ist ein wenig theoretisch und wird in der Praxis selten konsequent umgesetzt. Das beste Beispiel dafür ist die am meisten verbreitete Netzwerkprotokollfamilie TCP/IP. Die Entwicklung ist hier älter als die für das Referenzmodell, sodass sich die Protokolle der IPS (Internet Protocol Suite) nur teilweise darin abbilden lassen.</Element>
+         <Element Type="Section"
+                  Level="3"
+                  Name="4.2.1     Wichtige Protokolle der Internet Protocol Suite">
+4.2.1     Wichtige Protokolle der Internet Protocol Suite
+<Element Type="Text">Nachfolgend werden die wichtigsten Protokolle der IPS vorgestellt. Die Reihenfolge entspricht dabei der im IPS-4-Schichtenmodell (siehe Abbildung 4.1).</Element>
+            <Element Type="Section" Level="4" Name="Überblick">
+Überblick
+<Element Type="Text">In der Abbildung 4.3 sind die nochmals die wichtigsten Protokolle und ihre Einordnung in das TCP/IP Schichtenmodell sowie in das OSI-Schichtenmodell dargestellt.</Element>
+               <Element Type="Image"
+                        Name="Abbildung 4.3  Der IPS-Stack"
+                        Path="04.Protokolle%20des%20Web-Dateien/image003.png"
+                        Width="303"
+                        Height="184"/>
+               <Element Type="Text">
+                  <strong>Abbildung </strong>
+                  <strong>4</strong>
+                  <strong>.</strong>
+                  <strong>3</strong>  Der IPS-Stack
+Eine besondere Rolle kommt dabei dem ARP Protokoll zu. Da diese sich zwar rein technisch über dem DLCMAC (Ethernet) befindet, aber nicht zu Schicht 3 gehört, wird es oft auch als Schicht 2,5-Protokoll bezeichnet.</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Address Resolution Protocol (ARP)">
+Address Resolution Protocol (ARP)
+<Element Type="Text">Über dieses Protokoll, welches auf einer sehr elementaren Ebene arbeitet, erfolgt die Zuordnung von IP-Adressen zu den physischen MAC-Adressen der Netzwerkadapter der beteiligten Kommunikations-Teilnehmer. MAC steht für <em>Media Access Control</em>. MAC-Adressen sind stets weltweit eindeutig, sodass eine Verwechslung von Teilnehmern an dieser Stelle ausgeschlossen werden kann. Allerdings gibt es Netzwerkadapter, die das Eingeben einer benutzerdefinierten MAC-Adresse zulassen.
+Die Informationen zu den MAC-Adressen der beteiligten Netzwerkcomputer werden bei Windows Server 2003/2008, wie bei anderen Betriebssystemen auch, in einem ARP-Cache gehalten. Damit müssen diese nicht immer wieder neu ermittelt werden. Den ARP-Cache können Sie über die Eingabeaufforderung mit dem Kommando <em>Arp.exe</em> und der Option <code>–a</code> anzeigen lassen:
+<code>n  </code>
+                  <code>Arp -a</code>
+Haben Sie mehrere Netzwerkadapter in Ihrem Computersystem installiert, können Sie den ARP-Cache für einen bestimmten Adapter abfragen, indem Sie dessen IP-Adresse mit der Option <code>–N</code> angeben:
+<code>n  </code>
+                  <code>Arp –a –N 192.168.100.6</code>
+Welche und wie lange Daten in diesem Cache gehalten werden, können Sie anpassen. Dies ist in der Praxis allerdings kaum notwendig.
+Eine genaue Syntaxbeschreibung zum Programm <em>Arp.exe</em> finden Sie in der Online-Hilfe zu Windows Server.</Element>
+            </Element>
+            <Element Type="Section"
+                     Level="4"
+                     Name="Internet Control Messaging Protocol (ICMP)">
+Internet Control Messaging Protocol (ICMP)
+<Element Type="Text">Dieses Protokoll dient vor allem zum Transport von Diagnose-, Kontroll- und Routingdatenpaketen im Netzwerk. Es befindet sich wie das <em>Internet Protocol</em> (IP) auf Schicht 2 des IPS-Schichtenmodells. ICMP wird beispielsweise vom Dienstprogramm <em>Ping.exe</em> benutzt, um Informationen von einem Host zu erfragen.</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Internet Protocol (IP)">
+Internet Protocol (IP)
+<Element Type="Text">IP dient zum eigentlichen Transport der Nutzdaten im Netzwerk. Das Protokoll zeichnet sich durch diese Merkmale aus: 
+n  IP-Adresse
+Jeder Netzwerkknoten kann durch eine eindeutige Adresse, die IP-Adresse, direkt erreicht werden. Die Unterteilung zwischen dem Teilnetzwerk und der konkreten Hostadresse wird mit Hilfe von Subnetzmasken vorgenommen.
+n  Keine Fehlerkorrektur 
+Über IP werden die Daten zwar transportiert, es erfolgt allerdings keine Fehlerkorrektur.
+n  IP-Fragmentierung
+Datenpakete können bei Bedarf über IP in kleinere Einheiten zerlegt werden, wenn beteiligte Netzwerkgeräte auf bestimmte Paketgrößen limitiert sind.
+n  IP-Broadcast
+Datenpakete können mit IP an einen ganz bestimmten Host geschickt werden, indem dessen IP-Adresse verwendet wird. Dies wird Unicast genannt. Über eine entsprechende Adressierung können aber mehrere Hosts auf einmal angesprochen werden. Dies wird mit Multicast bezeichnet und kommt dann zum Einsatz, wenn nicht sitzungsorientiert Daten ausgetauscht werden. Das können beispielsweise UDP- oder ICMP-Datenpakete sein. Ein UDP-(Multimedia-) Datenstrom kann so an mehrere Empfänger gleichzeitig gesendet werden.
+n  IP-Routing
+IP ist ein routingfähiges Protokoll. Das bedeutet, dass der IP-Datenstrom gezielt über IP-Router in voneinander sonst getrennte Teilnetzwerke geleitet werden kann.
+Da das IP Protocol zu den wichtigeren Protokollen im Web gehört, soll an dieser Stelle etwas genauer auf die Zusammensetzung des Kopfes (Headers) eingegangen werden.</Element>
+               <Element Type="Image"
+                        Name="Abbildung 4.4  IP-Header"
+                        Path="04.Protokolle%20des%20Web-Dateien/image004.png"
+                        Width="371"
+                        Height="157"/>
+               <Element Type="Text">
+                  <strong>Abbildung </strong>
+                  <strong>4</strong>
+                  <strong>.</strong>
+                  <strong>4</strong>  IP-Header
+Zwar ist das IP Protokoll in der Version 6 bereits seit langem spezifiziert, jedoch kommt es nur sehr schwer in Gang. Das mag zum Teil an den Providern und zum Teil an den Herstellern von IP-Equipment liegen. Aus diesem Grund steht IPv4 hier im Vordergrund.
+Neben der Version wird die Länge des IP-Kopfes (IP Header Length – IHL) und der Diensttyp angegeben. Auf diese Weise können Geräte den Verkehr anhand der Art der Daten (Type of Service (TOS), eine Art der Priorisierung) priorisieren. 
+Ferner werden noch die gesamte Paketlänge sowie die Felder Identifikation (hilft bei der Erkennung von Fragmenten), Flags (gibt Auskunft, ob das Paket fragmentiert ist) und das FragmentationOffset für das Zusammensetzen fragmentierter Pakete angegeben.
+Die wichtigsten zwei Felder stellen die Quelle (Source) sowie die Ziel (Destination) der Adresse dar. Hier wird die IP Adresse byteweise als 32 Bit (= 4 Byte) Wert abgelegt.
+Des Weiteren werden die Felder Options (Informationen für Router), Time To Live (Anzahl der Hops, über die ein Paket übermittelt wird), Protocol (welches Protokoll sich innerhalb des IP Paketes befindet, TCP = 6 oder UDP = 17) sowie eine Checksumme übermittelt, um Fehler im Kopf zu erkennen.
+Eine Fehlerkorrektur ist im IP selbst nicht vorgesehen. Diese muss über ein Protokoll erfolgen, welches eine Schicht darüber angesiedelt ist. Dies ist beispielsweise das <em>Transmission Control Protocol</em> (TCP). TCP-Datenpakete werden dazu in IP-Pakete „verpackt“. Am Zielsystem erfolgt die Überprüfung der TCP-Pakete. Bei Fehlern können damit die Daten erneut angefordert werden.
+Aus diesem Grund spricht man bei IP auch von einem Transportprotokoll, wogegen TCP ein Absicherungsprotokoll ist. </Element>
+               <Element Type="Image"
+                        Name="Abbildung 4.5  IP-Fragmentierung"
+                        Path="04.Protokolle%20des%20Web-Dateien/image005.png"
+                        Width="265"
+                        Height="264"/>
+               <Element Type="Text">
+                  <strong>Abbildung </strong>
+                  <strong>4</strong>
+                  <strong>.</strong>
+                  <strong>5</strong>  IP-Fragmentierung
+Die maximale IP-Paketgröße wird mit <em>Maximum Transmission Unit</em> (MTU) bezeichnet. Ist die Paketgröße kleiner oder gleich der MTU, muss das Paket nicht zerlegt, sondern fragmentiert werden. Fragmentierte IP-Pakete sind durch ein gesetztes Flag gekennzeichnet und werden über eine entsprechende Nummerierung am Zielsystem wieder zusammengesetzt. Allerdings birgt die IP-Fragmentierung ein potenzielles Sicherheitsrisiko. Geschickte Hacker können beispielsweise IP-Fragmente so bilden, dass sie beim Zusammensetzen das Zielsystem zum Absturz bringen. Deshalb werden IP-Fragmente durch moderne Firewalls in der Standardeinstellung abgewiesen. Die IP-Fragmentierung wird heute meist durch das Verfahren <em>Path MTU Discovery </em>vermieden. Dabei handeln die beteiligten Systeme die MTU-Größe untereinander aus.
+Bei Bedarf können Sie die MTU-Größe per Hand anpassen. Damit sind teilweise moderate Leistungssteigerungen, beispielsweise für Internet-Verbindungen, erreichbar. Sie finden diesen Wert in der Windows-Registrierung an dieser Stelle:
+<code>HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interface</code>
+Unter diesem Zweig befinden sich die einzelnen Netzwerk-Interfaces, in die Sie über die entsprechenden ID-Zweige gelangen. Das richtige Interface erkennen Sie an der IP-Adresse. Wenn Sie die MTU-Größe für eine Modemverbindung anpassen wollen, können Sie die IP-Adresse über den Befehl <em>ipconfig.exe</em> und die Option <code>/all</code> ermitteln. 
+Wenn noch nicht vorhanden, erstellen Sie für das Interface einen neuen REG_DWORD-Wert mit der Bezeichnung <em>MTU</em>. Empfohlene Werte (dezimal) sind:
+n  Modemverbindungen: 576
+n  DSL-Verbindungen: 1492</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Transmission Control Protocol (TCP)">
+Transmission Control Protocol (TCP)
+<Element Type="Text">TCP ist eine Schicht über IP angesiedelt und verfügt gegenüber diesem über einen wirksamen Mechanismus zur Fehlerkorrektur. Neben einer Nummerierung der Datenpakete werden Prüfsummen generiert, mit deren Hilfe die Integrität der Daten sichergestellt wird. Wird ein Fehler erkannt, erfolgt automatisch eine Anforderung des bzw. der defekten Datenpakete, das Gleiche gilt für den Fall, dass ein Paket bis zum Ablauf einer bestimmten Zeit nicht eingetroffen ist. Auch diese Daten werden neu angefordert.
+Da jede Leitung unterschiedliche qualitative Eigenschaften hat, kann TCP die Parameter, wann ein Paket zu wiederholen ist, dynamisch anpassen. Auf diese Weise wird immer eine optimale Performance garantiert.</Element>
+               <Element Type="Image"
+                        Name="Abbildung 4.6  TCP-Header"
+                        Path="04.Protokolle%20des%20Web-Dateien/image006.png"
+                        Width="375"
+                        Height="158"/>
+               <Element Type="Text">
+                  <strong>Abbildung </strong>
+                  <strong>4</strong>
+                  <strong>.</strong>
+                  <strong>6</strong>  TCP-Header
+Zusätzlich zu den IP-Quell und Zieladressen verwendet TCP sogenannte Portnummern. Diese ergeben zusammen mit den IP-Adressen eine eindeutige Verbindung. Jeder Dienst bekommt einen Port zugewiesen, auf dem dieser eingehende Verbindungen entgegennimmt. Da viele Standarddienste immer die gleichen Ports verwenden, werden Ports oft nach den jeweiligen Diensten benannt. Beispiele:
+n  Port 23: TelnetPort
+n  Port 80: HTTPPort
+n  Port 21: FTPPort
+TCP ist ein Datenstrom-Protokoll (stream oriented), man spricht auch von einem verbindungsorientierten Protokoll. Das bedeutet, es werden zwar einzelne Datenpakete gesendet, jedoch gibt eine Verbindung, welche vor der Datenübertragung aufgebaut und danach wieder abgebaut wird, ganz im Gegenteil zu UDP.
+Die Sequenz Number ist eine fortlaufende Nummer, welche ein Paket in dem Datenstrom kennzeichnet. Mit ihrer Hilfe können Pakete, welche in der falschen Reihenfolge eintreffen, wieder sortiert werden.
+Die AcknowledgeNumber wird verwendet, um der Gegenstelle mitzuteilen, bis zum wievielten Datenpaket alle Daten erfolgreich eingetroffen sind. Auf diese Weise kann indirekt eine Neuübertragung ausgelöst werden, wenn beispielsweise nur bis zum vorletzten Paket bestätigt wurde. Der Sender wartet noch, ob das Paket etwas verspätet bestätigt wird (Timeout). Ist das nicht der Fall, werden in der Regel alle Pakete ab dem nicht empfangenen Pakt nochmals übertragen.
+Window ist die Anzahl der Daten-Oktetts (<em>Bytes</em>), beginnend bei dem durch das Acknowledgment<em>-</em>Feld indizierten Daten-Oktett, die der Sender dieses TCP-Paketes bereit ist zu empfangen.  
+Auf weitere Felder soll in diesem Zusammenhang nicht weiter eingegangen werden, da sich mit diesem Thema allein ein Buch füllen ließe. Das TCP-Protokoll ist das meistgenutzte dieser Schicht und dient zum verbindungsorientierten Datentransfer zwischen zwei Hosts.</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="User Datagram Protocol (UDP)">
+User Datagram Protocol (UDP)
+<Element Type="Text">Dieses Protokoll ist der „engste Verwandte“ von TCP. Es unterscheidet sich allerdings in wichtigen Parametern grundlegend und dient damit anderen Zwecken. So ist keine Fehlerkorrektur implementiert. Dies ist nicht für alle Arten von Datentransfers notwendig. Multimedia-Streams werden beispielsweise meist mit UDP übertragen, da es hier vor allem auf eine hohe Performance ankommt. Wenn bei bewegten Bildern einige Frames fehlen, fällt dies nicht unbedingt ins Gewicht. Wichtiger ist dann, dass die Information selbst übertragen wird, also der Inhalt des Films beim Empfänger ankommt. Andauerndes Stocken bei der Übertragung, weil fehlerhafte oder unvollständige Daten neu übertragen werden müssen, stören da mehr.
+UDP kommt standardmäßig bei der Abfrage von DNS-Informationen zum Einsatz. Hier bringt das Protokoll bei den zahlreichen kleinen Datenpaketen, die einen DNS-Server ständig erreichen, einen Performance-Vorteil. Weitere Anwendungen für dieses Protokoll sind Routingprotokolle wie RIP (<em>Routing Information Protocol</em>), TFTP (<em>Trivial File Transfer Protocol</em>) oder SNMP (<em>Simple Network Management Protocol</em>). Aber auch bei Multimedia und anderen Streaming Anwendungen wie VoIP kommt UDP zum Einsatz.
+Zu beachten ist, dass UDP aufgrund der fehlenden Flusskontrolle und Fehlerkorrektur als nicht sehr sicheres Protokoll gilt. Deshalb ist es ein beliebtes Protokoll für Hacker, die beispielsweise mit <em>Denial of Service</em>-Attacken immer wieder von sich reden gemacht haben. Dabei werden Hosts mit einer Unmenge von UDP-Paketen überflutet, was zu deren Überforderung und damit der zeitweisen Lahmlegung führt.</Element>
+            </Element>
+            <Element Type="Section"
+                     Level="4"
+                     Name="Simple Mail Transfer Protocol (SMTP) / Extended SMTP (ESMTP)">
+Simple Mail Transfer Protocol (SMTP) / Extended SMTP (ESMTP)
+<Element Type="Text">SMTP kommt sogar an Clientsystemen für das Versenden sowie bei Mailservern zum Senden und Weiterleiten von E-Mails zum Einsatz. Der Windows Server 2008 bietet nicht nur eine allgemeine Unterstützung dieses Protokolls, sondern einen SMTP-Server. 
+Inzwischen hat sich der ESMTP-Standard auf breiter Front durchgesetzt. Dieser ist in RFC 2821 spezifiziert und bietet erweiterte Funktionen zur Kommunikation zwischen SMTP-Client und -Server.
+Wie viele Protokolle im Web-Umfeld ist auch diese Protokoll ASCII-Text basiert. Alle Nachrichten, welche vom Client zum Server gesendet werden, können dabei sowohl vom Menschen als auch von der Software interpretiert werden.</Element>
+               <Element Type="Text">SERVER  220 smtp.mail.net SMTP Service at 29 Jun 2010 05:17:18 EDT</Element>
+               <Element Type="Text">CLIENT  HELO client.dialin.provider.net</Element>
+               <Element Type="Text">SERVER  250 smtp.mail.net - Hello, client.dialin.provider.net</Element>
+               <Element Type="Text">CLIENT  MAIL From: matthias@mail.net</Element>
+               <Element Type="Text">SERVER  250 MAIL accepted</Element>
+               <Element Type="Text">CLIENT  RCPT To: joerg@mail.net</Element>
+               <Element Type="Text">SERVER  250 Recipient accepted</Element>
+               <Element Type="Text">CLIENT  DATA</Element>
+               <Element Type="Text">SERVER  354 Start mail input; end with .</Element>
+               <Element Type="Text">CLIENT  Date: Sat, 27 Jun 2010 05:26:31 EDT</Element>
+               <Element Type="Text">CLIENT  From: matthias@mail.net</Element>
+               <Element Type="Text">CLIENT  To: joerg@mail.net</Element>
+               <Element Type="Text">CLIENT  Subject: eMail</Element>
+               <Element Type="Text">CLIENT  </Element>
+               <Element Type="Text">CLIENT  Diese eMail wurde mit einem Telnet-Client geschrieben.</Element>
+               <Element Type="Text">CLIENT  .</Element>
+               <Element Type="Text">SERVER  250 OK</Element>
+               <Element Type="Text">CLIENT  QUIT</Element>
+               <Element Type="Text">SERVER  221 smtp.mail.net Service closing transmission channel</Element>
+            </Element>
+            <Element Type="Section"
+                     Level="4"
+                     Name="Post Office Protocol Version 3 (POP3)">
+Post Office Protocol Version 3 (POP3)
+<Element Type="Text">POP3 dient der Kommunikation zwischen einem E-Mail-Client und einem Mailserver. Mit Hilfe dieses Protokolls holen Clients E-Mails vom Server ab und veranlassen gegebenenfalls die Löschung derselben. POP3 ist praktisch in jedem E-Mail-Client wie beispielsweise Outlook integriert. Ähnlich wie das SMTP Protokoll ist auch das POP3 Protokoll ASCII basiert.</Element>
+               <Element Type="Text">SERVER  +OK POP3 server ready &lt;client.dialin.provider.net&gt;</Element>
+               <Element Type="Text">CLIENT  USER matthias@mail.net</Element>
+               <Element Type="Text">SERVER  +OK</Element>
+               <Element Type="Text">CLIENT  PASS geheimesPassword</Element>
+               <Element Type="Text">SERVER  +OK</Element>
+               <Element Type="Text">CLIENT  STAT</Element>
+               <Element Type="Text">SERVER  +OK 2 320</Element>
+               <Element Type="Text">CLIENT  LIST</Element>
+               <Element Type="Text">SERVER  +OK 2 messages (320 octets)</Element>
+               <Element Type="Text">SERVER  1 120</Element>
+               <Element Type="Text">SERVER  2 200</Element>
+               <Element Type="Text">SERVER  .</Element>
+               <Element Type="Text">CLIENT  RETR 1</Element>
+               <Element Type="Text">SERVER  +OK 120 octets</Element>
+               <Element Type="Text">SERVER  &lt;Server übermittelt erste Nachricht&gt;</Element>
+               <Element Type="Text">SERVER  .</Element>
+               <Element Type="Text">CLIENT  DELE 1</Element>
+               <Element Type="Text">SERVER  +OK message 1 deleted</Element>
+               <Element Type="Text">CLIENT  RETR 2</Element>
+               <Element Type="Text">SERVER  +OK 200 octets</Element>
+               <Element Type="Text">SERVER  &lt;Server übermittelt zweite Nachricht&gt;</Element>
+               <Element Type="Text">SERVER  .</Element>
+               <Element Type="Text">CLIENT  DELE 2</Element>
+               <Element Type="Text">SERVER  +OK message 2 deleted</Element>
+               <Element Type="Text">CLIENT  QUIT</Element>
+               <Element Type="Text">SERVER  +OK dewey POP3 server signing off (maildrop empty)</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Session Initiation Protocol (SIP)">
+Session Initiation Protocol (SIP)
+<Element Type="Text">VoIP (<em>Voice over IP</em>) nimmer immer mehr an Bedeutung zu. Auch wenn dieses Buch nicht über Multimedia und Telefonie handelt, darf dieses Protokoll in der Aufzählung der wichtigsten Internetprotokolle nicht fehlen. 
+Wie der Name schon zum Ausdruck bringt, wird dieses Protokoll zum Aufbau und der Steuerung von Kommunikationssession aller Art verwendet. Weitere Informationen finden Sie im RFC 3261.</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Einführung">
+Einführung
+<Element Type="Text">HTTP dient der Kommunikation mit Webservern. Es gibt zwei Versionen, 1.0 und 1.1. Auf Seiten der Browser dominiert inzwischen HTTP 1.1, denn alle Browser ab Version 4 beherrschen dieses Protokoll. Der Internet Information Server ab Version 5.0 beherrscht die Version 1.1 vollständig.
+HTTP 1.0 wurde im Mai 1996 in der RFC 1945 veröffentlicht, schon im August desselben Jahres folgte HTTP 1.1. 
+Bei HTTP handelt es sich um ein verbindungs- oder statusloses Protokoll. Server und Client nehmen also nie einen besonderen Zustand ein, sondern beenden nach jedem Kommando den Prozess vollständig, entweder mit Erfolg oder mit einer Fehlermeldung. Es obliegt dem Kommunikationspartner, darauf in angemessener Weise zu reagieren.
+HTTP-Kommandos werden als ASCII-Text übertragen und können aus mehreren Zeilen bestehen. Die erste Zeile ist immer die Kommandozeile. Daran angehängt kann ein sogenannter Message-Header (Kopf der Nachricht) folgen. Der Nachrichtenkopf enthält weitere Parameter, die das Kommando näher beschreiben. So kann ein Content-Length-Feld enthalten sein. Steht dort ein Wert größer als 0, folgen dem Nachrichtenkopf Daten. Die Daten werden also gleich zusammen mit dem Kommando gesendet, man spricht dann vom Body (Nachrichtenkörper) der Nachricht. HTTP versteht im Gegensatz zu anderen Protokollen den Umgang mit 8-Bit-Werten. Binärdaten, wie Bilder oder Sounds, müssen nicht konvertiert werden. Folgen dem HTTP-Kommando und den Nachrichtenkopf-Zeilen zwei Leerzeilen (Zeilenwechsel), so gilt das Kommando als beendet. Kommandos mit Nachrichtenkörper haben kein spezielles Ende-Zeichen. Das Content-Length-Feld bestimmt, wie viele Bytes als Inhalt der Nachricht betrachtet werden.</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Kommandoaufbau">
+Kommandoaufbau
+<Element Type="Text">Ein HTTP-Kommando hat immer folgenden Aufbau:
+<code>METHODE ID VERSION</code>
+Als METHODE wird das Kommando selbst bezeichnet. Die folgende Tabelle zeigt die HTTP-Kommandos auf einen Blick.</Element>
+               <Element Type="Text">
+                  <strong>Tabelle </strong>
+                  <strong>4</strong>
+                  <strong>.</strong>
+                  <strong>2</strong>
+                  <strong>  </strong>HTTP-Kommandos</Element>
+               <Element Type="Table" Name="Tabelle 4.2  HTTP-Kommandos">
+                  <table> 
+                     <tbody>
+                        <tr> 
+                           <td>  Kommando  </td> 
+                           <td>  Bedeutung  </td> 
+                        </tr> 
+                        <tr> 
+                           <td>  DELETE  </td> 
+                           <td>  Ressource löschen  </td> 
+                        </tr> 
+                        <tr> 
+                           <td>  GET  </td> 
+                           <td>  Ressource anfordern  </td> 
+                        </tr> 
+                        <tr> 
+                           <td>  HEAD  </td> 
+                           <td>  Header der Ressource anfordern  </td> 
+                        </tr> 
+                        <tr> 
+                           <td>  LINK  </td> 
+                           <td>  Verknüpfung zweier Ressourcen beantragen  </td> 
+                        </tr> 
+                        <tr> 
+                           <td>  OPTIONS  </td> 
+                           <td>  Optionen des Webservers erfragen  </td> 
+                        </tr> 
+                        <tr> 
+                           <td>  POST  </td> 
+                           <td>  Formulardaten an einen Serverprozess senden  </td> 
+                        </tr> 
+                        <tr> 
+                           <td>  PUT  </td> 
+                           <td>  Ressource auf dem Webserver ablegen  </td> 
+                        </tr> 
+                        <tr> 
+                           <td>  TRACE  </td> 
+                           <td>  Kommando zurückschicken lassen  </td> 
+                        </tr> 
+                        <tr> 
+                           <td>  UNLINK  </td> 
+                           <td>  Verknüpfung zwischen Ressourcen löschen  </td> 
+                        </tr> 
+                     </tbody>
+                  </table>
+               </Element>
+               <Element Type="Text">Beachten Sie, dass die Kommandos unbedingt in Großbuchstaben geschrieben werden müssen, exakt wie in der Tabelle oben gezeigt. Als Ressource werden all die Objekte bezeichnet, die übertragen werden können – in erster Linie also HTML-Dateien und Bilder.
+Die ID einer Ressource kann beispielsweise eine Adresse oder ein Dateiname sein:
+<code>GET index.htm HTTP/1.0</code>
+Dieses Kommando fordert die Datei <em>INDEX.HTM</em> an.</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Die HTTP-Statuscodes">
+Die HTTP-Statuscodes
+<Element Type="Text">Die Antwort auf ein Kommando besteht im Senden der Daten – wenn dies gefordert wurde – und einem Statuscode. Dem Statuscode folgen optionale Felder und, bei der Übertragung von Ressourcen, die Daten. Die Statuszeile hat folgenden Aufbau:
+<code>VERSION STATUSCODE STATUSTEXT</code>
+Der Statuscode ist eine dreistellige Zahl, von der die erste Ziffer (Hunderterstelle) die Zuordnung zu einer bestimmten Gruppe anzeigt.
+<strong>Tabelle </strong>
+                  <strong>4</strong>
+                  <strong>.</strong>
+                  <strong>3</strong>
+                  <strong>  </strong>HTTP-Antwortcodes (kleine Auswahl)</Element>
+               <Element Type="Table" Name="Tabelle 4.3  HTTP-Antwortcodes (kleine Auswahl)">
+                  <table> 
+                     <thead> 
+                        <tr> 
+                           <td> Gruppe </td> 
+                           <td> Code  </td> 
+                           <td> Name </td> 
+                           <td>  Bedeutung  </td> 
+                        </tr> 
+                     </thead> 
+                     <tbody>
+                        <tr> 
+                           <td> 1 </td> 
+                           <td> 100 </td> 
+                           <td> Continue </td> 
+                           <td> Weiter fortfahren </td> 
+                        </tr> 
+                        <tr> 
+                           <td> 1 </td> 
+                           <td> 101 </td> 
+                           <td> Switching Protocols </td> 
+                           <td> Protokollwechsel erforderlich, z.B. von HTTP 1.0 auf 1.1 </td> 
+                        </tr> 
+                        <tr> 
+                           <td> 1 </td> 
+                           <td> 102 </td> 
+                           <td> Processing </td> 
+                           <td> Server bearbeitet die Anfrage, verhindert ggf. Timeout bei längere Verarbeitungszeit </td> 
+                        </tr> 
+                        <tr> 
+                           <td> 2 </td> 
+                           <td>  200  </td> 
+                           <td> OK </td> 
+                           <td> Kommando erfolgreich (nach GET/POST) </td> 
+                        </tr> 
+                        <tr> 
+                           <td> 2 </td> 
+                           <td>  201  </td> 
+                           <td> Created </td> 
+                           <td> Ressource wurde erstellt (nach PUT) </td> 
+                        </tr> 
+                        <tr> 
+                           <td> 2 </td> 
+                           <td>  202  </td> 
+                           <td> Accepted </td> 
+                           <td> Authentifizierung akzeptiert (nach GET) </td> 
+                        </tr> 
+                        <tr> 
+                           <td> 2 </td> 
+                           <td>  204  </td> 
+                           <td> No Content </td> 
+                           <td> Kein Inhalt oder nicht angefordert (GET)  </td> 
+                        </tr> 
+                        <tr> 
+                           <td> 3 </td> 
+                           <td>  301  </td> 
+                           <td> Moved Permanently </td> 
+                           <td> Ressource am anderen Ort  </td> 
+                        </tr> 
+                        <tr> 
+                           <td> 3 </td> 
+                           <td>  302  </td> 
+                           <td> Found </td> 
+                           <td> Ressource zeitweilig an anderem Ort (dies ist ein temporärer Zustand)  </td> 
+                        </tr> 
+                        <tr> 
+                           <td> 3 </td> 
+                           <td>  304  </td> 
+                           <td> Not Modified </td> 
+                           <td> Ressource wurde nicht verändert (steuert Proxy)  </td> 
+                        </tr> 
+                        <tr> 
+                           <td> 4 </td> 
+                           <td>  400  </td> 
+                           <td> Bad Request </td> 
+                           <td> Syntaxfehler (alle Kommandos)  </td> 
+                        </tr> 
+                        <tr> 
+                           <td> 4 </td> 
+                           <td>  401  </td> 
+                           <td> Unauthorized </td> 
+                           <td> Keine Autorisierung  </td> 
+                        </tr> 
+                        <tr> 
+                           <td> 4 </td> 
+                           <td>  403  </td> 
+                           <td> Forbidden </td> 
+                           <td> Nicht öffentlicher Bereich, Anfrage unzulässig </td> 
+                        </tr> 
+                        <tr> 
+                           <td> 4 </td> 
+                           <td>  404  </td> 
+                           <td> Not Found </td> 
+                           <td> Ressource nicht gefunden  </td> 
+                        </tr> 
+                        <tr> 
+                           <td> 5 </td> 
+                           <td>  500  </td> 
+                           <td> Internal Server Error </td> 
+                           <td> Serverfehler, Fehlfunktion der Serversoftware oder -applikation </td> 
+                        </tr> 
+                        <tr> 
+                           <td> 5 </td> 
+                           <td>  503  </td> 
+                           <td> Service Unavailable </td> 
+                           <td> Dienst nicht verfügbar </td> 
+                        </tr> 
+                     </tbody>
+                  </table>
+               </Element>
+               <Element Type="Text">Sie werden den Fehler 404 sicher kennen. Kennenlernen werden Sie auch den Fehler Nummer 500, der erzeugt wird, wenn ein Programm nicht funktioniert, das Sie in ASP.NET geschrieben haben.</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Die HTTP-Message-Header">
+Die HTTP-Message-Header
+<Element Type="Text">An ein Kommando oder an die Statuszeile können weitere Felder angehängt werden. Der Aufbau lehnt an den MIME-Standard an:
+<code>Feldname Wert; Wert</code>
+Die Nachrichtenkopffelder können in drei Hauptgruppen aufgeteilt werden:
+n  F
+Frage-Felder (Request-Header-Fields), die nur in Kommandos erlaubt sind.
+n  A
+Antwort-Felder (Response-Header-Fields), die Statusnachrichten vorbehalten sind.
+n  I
+Informationsfelder (General-Header-Fields), dienen der Übertragung aller anderen Nachrichten in die eine oder andere Richtung.
+Eine typische Anwendung, die bei der ASP.NET-Programmierung auftreten kann, ist die Übergabe eines Nachrichtenkopfes, der einen besonderen Dateityp angibt:
+<code>Content-Type: application/pdf; name=aspnet.pdf</code>
+Freilich bietet dafür ASP.NET eine Methode innerhalb der entsprechenden Klasse an. Wenn diese Möglichkeiten aber nicht ausreichen, sind die Kenntnisse der Protokolle wichtig. Ebenso ist es hilfreich, die Begriffe zu kennen, um in der großen Zahl von Klassen die Passende zu finden.
+Im Gegensatz zu anderen Protokollen ist die Länge eines Datenblocks im <code>Content-Length</code> festgelegt, irgendwelche Begrenzungszeichen gibt es nicht. Wichtig ist auch, dass der Server nach dem Verbindungsaufbau keine Antwort sendet. Nur das erste eintreffende Kommando löst eine Reaktion aus. Darin ist die Ursache zu sehen, wenn der Browser nach der Anforderung eines unerreichbaren Servers lange Zeit nicht reagiert. Als „Totsignal“ wird einfach eine vorgegebene Zeitspanne gewartet, in welcher der Server auf das erste Kommando reagieren sollte.</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Verbindungsablauf">
+Verbindungsablauf
+<Element Type="Text">Eine einfache HTTP-Verbindung könnte also folgendermaßen aussehen:</Element>
+               <Element Type="Listing" Name="Ablauf einer einfachen HTTP-Verbindung">
+                  <pre/>
+               </Element>
+            </Element>
+            <Element Type="Section"
+                     Level="4"
+                     Name="Aufbau und Merkmale eines XML-Dokuments">
+Aufbau und Merkmale eines XML-Dokuments
+<Element Type="Text">XML-Dokumente gehorchen in ihrem Aufbau festen Regeln. Erst durch diese Regeln kann eine automatisierte Verarbeitung in derart umfassender Form stattfinden, wie sie erforderlich ist. Auf der anderen Seite sollte der Einsatz so universell wie möglich sein, wie der Name „Extensible Markup Language“ suggeriert.
+Die Regeln erlauben die Prüfung der Wohlgeformtheit von Dokumenten durch das verarbeitende Programm ohne Kenntnis der Grammatik der von Ihnen konkret eingesetzten Sprache. Der Begriff Wohlgeformtheit, im englischen „well formed“ genannt, ist ein Basismerkmal von Markup-Sprachen. Als wohlgeformt gilt ein Dokument, wenn folgende Merkmale zutreffen:
+n  Alle Tags sind syntaktisch korrekt
+Dazu gehört, dass das Anfangs- und Endtag übereinstimmen, wobei Groß- und Kleinschreibung zu beachten ist (<code>&lt;tag&gt;&lt;/Tag&gt;</code> wäre unzulässig). Zu jedem öffnenden Tag muss ein schließendes existieren (<code>&lt;tag&gt;&lt;/tag&gt;</code>). Alternativ kann ein Tag direkt geschlossen werden (<code>&lt;tag/&gt;</code>).
+n  Alle Attribute sind syntaktisch korrekt
+Parameter der Attribute müssen immer in Anführungszeichen stehen (<code>&lt;tag attr="param"&gt;</code>). Außerdem sind verkürzte Attribute – also solche ohne Parameter – nicht erlaubt. Das HTML-Tag <code>&lt;hr noshade&gt;</code> würde in XHTML – der Entsprechung von HTML in XML – folgendermaßen aussehen:
+<code>&lt;hr noshade="noshade"/&gt;</code>
+n  Eine korrekte Verschachtelung ist erforderlich
+Tags müssen korrekt verschachtelt sein. Die folgende Sequenz ist falsch:
+<code>&lt;b&gt;&lt;i&gt;&lt;/b&gt;&lt;/i&gt;</code>
+Stattdessen müsste es folgendermaßen geschrieben werden:
+<code>&lt;b&gt;&lt;i&gt;&lt;/i&gt;&lt;/b&gt;</code>
+Bei der Verarbeitung der Daten gibt es verschiedene Strategien. Eine davon bildet das Dokument als Objektmodell in einer Hierarchie ab. Falsch verschachtelte Tags lassen die Darstellung als Hierarchie nicht zu.
+In einem zweiten Verarbeitungsschritt muss dann natürlich die Grammatik geprüft werden. Dabei geht es um erlaubte Tags, deren Beziehungen zueinander und die möglicherweise einsetzbaren Attribute. Dieser Schritt wird als Validierung bezeichnet. Ein Dokument muss vor der Verarbeitung als „valide“ oder gültig erkennbar sein. Nun muss zur Validierung natürlich eine Vorschrift existieren, aus der der Parser die Gültigkeit ableiten kann. Dafür gibt es mehrere Verfahren.</Element>
+            </Element>
+            <Element Type="Section"
+                     Level="4"
+                     Name="Hinweise zum Entwurf einer eigenen Grammatik">
+Hinweise zum Entwurf einer eigenen Grammatik
+<Element Type="Text">Für kleinere Applikationen mag es durchaus praktikabel erscheinen, eine eigene Grammatik zu entwerfen. Vor allem im Hinblick auf die spätere Transformation können Sie sich viel Arbeit ersparen, wenn der Entwurf geradlinig und elegant ist.
+XML-Dokumente beschreiben Struktur und Inhalt von Daten. Dabei wird der Inhalt durch die Namen der Tags beschrieben, die Struktur dagegen durch deren Anordnung. Da die Strukturbeschreibung zu den signifikanten Merkmalen gehört, sollten sie ihr zuerst Ihre Aufmerksamkeit schenken. Generell sollte jede Datenebene eine eigene Struktur enthalten. Betrachten Sie beispielsweise ein Telefonbuch. Naheliegend wäre folgender Entwurf für einen Eintrag:
+<code>&lt;eintrag&gt;   Lieschen Müller   &lt;telefon&gt;030–12345678&lt;/telefon&gt;   &lt;handy&gt;0177–9876543&lt;/handy&gt; &lt;/eintrag&gt;</code>
+Diese Variante kann man bestenfalls als unglücklich bezeichnen. Warum? Als erstes ist das Vorhandensein zweier Knotentypen als Unterknoten nicht leicht zu verarbeiten. Beim datenorientierten Ansatz ist diese Methode störend. Unterhalb von <code>&lt;eintrag&gt;</code> finden Sie sowohl den Textknoten „Lieschen Müller“ als auch zwei normale Knoten <code>&lt;telefon&gt;</code> und <code>&lt;handy&gt;</code>.
+Die Auswahl mit XPath bereitet hier Schwierigkeiten, weil Textknoten immer Endpunkte eines Pfades sein sollten. Konsequenter wäre die folgende Variante:
+<code>&lt;eintrag&gt;   &lt;name&gt;Lieschen Müller&lt;/name&gt;   &lt;telefon&gt;030–12345678&lt;/telefon&gt;   &lt;handy&gt;0177–9876543&lt;/handy&gt; &lt;/eintrag&gt;</code>
+Je feiner Sie die Struktur beschreiben, umso einfacher wird die Auswahl von Teilen bei der Transformation und Darstellung. Übertriebene Feinheit kann jedoch zu unübersichtlichen und schwer handhabbaren Dokumenten führen.
+Nun ist auch dies noch nicht perfekt, denn eine Abfrage bestimmter Teilmerkmale bereitet immer noch Probleme. Die Auswahl des Nachnamens ist kaum zuverlässig möglich und eine Liste aller Telefontypen, unabhängig davon, ob es sich um Festnetz- oder Mobiltelefone handelt, ist nur schwer möglich. Durchaus denkbar ist, dass sich die Anzahl an Typen später erhöht, was massive Änderungen in Transformationsanweisungen zur Folge hätte. Eine bessere Basis für den nächsten Schritt wäre folgende Version:
+<code>&lt;eintrag&gt;   &lt;name&gt;     &lt;vorname&gt;Lieschen&lt;/vorname&gt;     &lt;nachname&gt;Müller&lt;/nachname&gt;   &lt;/name&gt;   &lt;telefon&gt;030–12345678&lt;/telefon&gt;   &lt;telefon&gt;0177–9876543&lt;/telefon&gt; &lt;/eintrag&gt;</code>
+Eine exakte Beschreibung des Inhalts vermeidet Fehler und verbessert die automatisierte Verarbeitung. Der Computer „lernt“ anhand der Auszeichnung der Inhalte mit Tags deren Bedeutung kennen. Je feiner die Inhaltsbeschreibung, umso häufiger können Informationen direkt abgerufen werden. Übertriebene Markierung kann zu komplizierteren Transformationsprogrammen führen.
+Für die Unterscheidung von Merkmalen vergleichbarer Inhalte werden Attribute verwendet. Der Inhaltstyp „Telefon“ kann nach der Zugehörigkeit zu einem Netz eingeteilt werden. Hier ist der Einsatz von Attributen angeraten, was zu folgendem Code führt:
+<code>&lt;eintrag&gt;   &lt;name&gt;     &lt;vorname&gt;Lieschen&lt;/vorname&gt;     &lt;nachname&gt;Müller&lt;/nachname&gt;   &lt;/name&gt;   &lt;telefon type="telekom"&gt;030–12345678&lt;/telefon&gt;   &lt;telefon type="eplus"&gt;0177–9876543&lt;/telefon&gt; &lt;/eintrag&gt;</code>
+Jetzt kann jedes Element direkt mittels XPath – später folgt mehr dazu – aus dem Datenstrom extrahiert werden. Durch die Attribute lassen sich Daten gut filtern. Attribute beschreiben Zustände oder definieren Modifikationen. Sie sollten eindeutig, einmalig und in geringer Zahl vorhanden sein. Folgende Definition ist nicht zu empfehlen:
+<code>&lt;tag a1="n1" a2="n2" a3="n3" .../&gt;</code>
+Es ist absehbar, dass es weitere Attribute „a4“ usw. geben wird. Vermutlich sind dann auch Kombinationen daraus zulässig. Das ist besser mit Tags zu erledigen:
+<code>&lt;tag&gt;   &lt;a1&gt;n1&lt;/a1&gt;   ...</code>
+Dies erscheint zwar umständlicher, ist aber einfacher zu verarbeiten. Die konkrete Größe eines XML-Dokuments spielt meist keine Rolle. Ob es am Ende 50 KB oder 80 KB sind, ist uninteressant. Viel schwerer wiegt der Aufwand, der zur Transformation getrieben werden muss.
+Attribute sind kein Ersatz für Struktur- und Inhaltsbeschreibung, sondern dienen der Modifikation einer bereits aufgelösten Struktur. Sie beschreiben Zustände des Inhalts, nicht der Struktur. Attribute verhalten sich bei der Auswahl mit XPath wie Knoten. Wenn eine größere Anzahl Attribute pro Tag notwendig erscheint, sind jedoch reguläre Subknoten – mit eigenen Tags – besser lesbar und meist auch einfacher zu verarbeiten.
+Das, was beim Entwurf einer XML-Definition herauskommt, wird als „Grammatik“ bezeichnet. Was auf dem Papier lesbar ist, muss nun für den Computer verständlich definiert werden.</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Das Format ATOM">
+Das Format ATOM
+<Element Type="Text">ATOM steht für <em>Atom Syndication Format</em>, ein plattformunabhängiges Format zum Austausch von Feeds. Es hat damit denselben Zweck wie das bekanntere RSS, das in der neuesten Version 2.0 für <em>Really Simple Syndication</em> steht. ATOM gilt als designierter Nachfolger von RSS 2.0. ATOM selbst ist für verschiedene Zwecke definiert, wobei hier auf ASF (<em>ATOM Syndication Format</em>) Bezug genommen wird. Neben der reinen Feed-Verteilung kann ATOM für Newsletter und ähnliche Zwecke eingesetzt werden. ATOM wurde in der RFC 4278 veröffentlicht. Der MIME-Typ ist <code>application/atom+xml</code>.</Element>
+               <Element Type="Listing" Name="Typischer ATOM-Block">
+                  <pre/>
+               </Element>
+            </Element>
+            <Element Type="Section"
+                     Level="4"
+                     Name="Die Unterstützung der Standards in .NET">
+Die Unterstützung der Standards in .NET
+<Element Type="Text">Der Fokus in .NET liegt inzwischen eindeutig auf XSD. Es gibt nur sehr selten handfeste Gründe, DTDs oder gar XDR zu verwenden. Der Weg, den Visual Studio vorgibt, ist dann eindeutig. Direkt – auf der grafischen Oberfläche – wird nur XSD angeboten. Mit DTDs ist das nicht ganz so einfach, weil eine DTD viele Informationen vermissen lässt, die XSD benötigt. Auf der anderen Seite enthält es solche (beispielsweise Entitäten), die mit XSD nicht mehr definiert werden, weil sie nun Bestandteil des Dokuments sind.</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Eine sehr kurze Einführung in XSD">
+Eine sehr kurze Einführung in XSD
+<Element Type="Text">Die Beschäftigung mit XSD hat praktische Vorteile. Sie können damit die Struktur eines XML-Dokuments beschreiben, wenn Sie eine eigene Grammatik entwerfen und einsetzen. .NET kann diese Schemata lesen und als Tabellen in <code>DataSet</code>-Objekten abbilden. Damit können Sie mit den von ADO.NET bekannten Techniken auf die Daten zugreifen. XSD kann also Abhängigkeiten definieren, Datentypen festlegen und damit komplexe Grammatiken vollkommen beschreiben.
+Prinzipiell ist ein Schema ein XML-Dokument, das folgenden Grundaufbau hat:
+<code>&lt;?xml version="1.0" encoding="utf-8" ?&gt; &lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;    ... &lt;/xs:schema&gt;</code>
+Darin eingebettet sind die Element- und Typdefinitionen. Der Namensraum, der verwendet wird, heißt bei Visual Studio  „xs“, bei der W3C-Empfehlung ist „xsd“ im Einsatz. Allerdings ist der Namensraum ohnehin wählbar.
+Elemente werden folgendermaßen definiert:
+<code>&lt;xs:element name="elementname"&gt;&lt;/xs:element&gt;</code>
+Innerhalb des Elements können weitere Elemente folgen – wenn Ihre Grammatik dies erfordert – oder eine komplexere Typdefinition. Allerdings verfügt XSD bereits über eine hervorragende Liste von Standardtypen. Zeichenketten definieren Sie folgendermaßen:
+<code>&lt;xs:element name="elementname" type="xs:string"&gt;</code>
+Komplexe Typen setzen sich aus Standardtypen zusammen. Wenn Sie innerhalb eines Tags ganz bestimmte andere Elemente erlauben möchten, definieren Sie einen entsprechenden Typ:
+<code>&lt;xs:complexType name="newscontenttype"&gt;    &lt;xs:sequence&gt;       &lt;xs:element name="title" type="xs:string" /&gt;       &lt;xs:element name="text" type="xs:string" /&gt;    &lt;/xs:sequence&gt;    &lt;xs:attribute name="date" type="xs:date" /&gt; &lt;/xs:complexType&gt;</code>
+Dieser Typ definiert einen Datentyp mit dem Namen „newscontenttype“. Enthalten darf ein Tag, das diesen Datentyp trägt, eine unbegrenzte Folge (<code>xs:sequence</code>) der Elemente <code>&lt;title&gt;</code> und <code>&lt;text&gt;</code>. Außerdem trägt das Tag ein Attribut mit dem Namen <code>date</code> und dem Datentype <code>xs:data</code>. Ein XML-Dokument, das dieser Grammatik entspricht, kann also folgende Strukturen enthalten:
+<code>&lt;newscontent date="13.4.2002"&gt;    &lt;title&gt;Titel steht hier&lt;/title&gt;    &lt;text&gt;Hier folgt der Text&lt;/text&gt; &lt;/newscontent&gt;</code>
+Die Nutzung des komplexen Typs ist auf zwei Wegen möglich. Zum einen kann die Definition abstrakt erfolgen, außerhalb aller Elementdefinitionen. Dann wird auf den Typ an der Stelle verwiesen, an der der Datentyp festgelegt wird:
+<code>&lt;xs:element name="news" type="newscontenttype"&gt;</code>
+Alternativ wird die Definition direkt eingebettet. Das ist vor allem dann sinnvoll, wenn der Typ nur an dieser einen Stelle verwendet wird:
+<code>&lt;xs:element name="news"&gt;   &lt;xs:complexType name="newscontenttype"&gt;      &lt;xs:sequence&gt;         &lt;xs:element name="title" type="xs:string" /&gt;         &lt;xs:element name="text" type="xs:string" /&gt;     &lt;/xs:sequence&gt;     &lt;xs:attribut name="date" type="xs:date" /&gt;   &lt;/xs:complexType&gt; &lt;/exs:element&gt;</code>
+Damit sind die Reihenfolge und das Auftreten der Elemente starr festgelegt. Möchten Sie eine beliebige Folge definieren, hilft <code>xs:choice</code>:
+<code>  &lt;xs:complexType name="newscontenttype"&gt;      &lt;xs:choice&gt;         &lt;xs:element name="title" type="xs:string" /&gt;         &lt;xs:element name="text" type="xs:string" /&gt;     &lt;/xs:choice&gt;   &lt;/xs:complexType&gt;</code>
+Die Anzahl der Elemente kann ebenso einfach festgelegt werden. Dazu wird die Elementdefinition um die Attribute <code>minOccurs</code> und <code>maxOccurs</code> ergänzt:
+<code>&lt;xs:element name="title" type="xs:string"              minOccurs="1" maxOccurs="1"/&gt;</code>
+                  <code>&lt;xs:element name="text" type="xs:string"              minOccurs="0" maxOccurs="unbounded"/&gt;</code>
+Hier wird festgelegt, dass der Titel (<code>&lt;title&gt;</code>) genau ein Mal auftreten darf, während der Textblock <code>&lt;text&gt;</code> optional ist und unbegrenzt wiederholt werden kann.
+Der Einsatz kann auch in <code>xs:choice</code> erfolgen. Da die Elemente in genau der Folge auftreten müssen, wie sie definiert wurden, ist dies ein häufig eingesetztes Mittel, um die Reihenfolge wieder freizustellen. Denn wenn Sie <code>minOccurs</code> auf 0 setzen, kann ein Element entfallen. Damit rückt aber das Nachstehende in der Folge nach vorn, was einer Aufgabe der Reihenfolge gleichkommt. Soll ein Tag in einer Sequenz von Tags genau ein Mal auftreten und ist die Reihenfolge nicht von Belang, ist dies mit <code>xs:all</code> einfacher zu bewerkstelligen:
+<code>&lt;xs:all&gt;   &lt;xs:element name="text" type="xs:string"/&gt;   &lt;xs:element name="picture" type="xs:href"/&gt; &lt;/xs:all&gt;</code>
+Attribute wurden bereits kurz angesprochen. Sie werden wie Elemente definiert, stehen aber in komplexen Definitionen immer nach allen <code>xs:sequence</code>-, <code>xs:choice</code>- oder <code>xs:all</code>-Definitionen.
+In Attributen kommen häufig feste Parameterlisten zum Einsatz, beispielsweise <code>"on"</code> und <code>"off"</code>. Diese werden als einfache, selbstdefinierte Datentypen deklariert. Die folgende Definition zeigt ein solches Attribut:
+<code>&lt;xs:attribute name="encoding" use="required"&gt;   &lt;xs:simpleType&gt;     &lt;xs:restriction base="xs:string"&gt;       &lt;xs:enumaration value="on"/&gt;       &lt;xs:enumaration value="off"/&gt;     &lt;/xs:restriction&gt;   &lt;/xs:simpleType&gt; &lt;/xs:attribute&gt;</code>
+Das Attribut <code>use</code> wird hier verwendet, um die Angabe eines Attributes „encoding“ im Tag zu erzwingen. Mit <code>base</code> wird der Basistyp festgelegt, auf dem die zulässigen Parameter basieren. Bei <code>"on"</code> und <code>"off"</code> handelt es sich zwangsläufig um Zeichenketten.
+<code>xs:restriction</code> ist das Mittel, den Wertebereich von Datentypen allgemein einzuschränken. Dazu dienen folgende Definitionen:
+<code>n  </code>
+                  <code>&lt;xs:minInclusive  value="1"&gt;</code>
+Diese Definition ist für Zahlenwerte interessant und definiert den kleinsten Wert eines Ganzzahlbereiches.
+<code>n  </code>
+                  <code>&lt;xs:maxInclusive value="100"&gt;</code>
+Mit dieser Definition wird der maximale Wert eines Ganzzahlbereiches festgelegt.
+<code>n  </code>
+                  <code>&lt;xs:length value="5"/&gt;</code>
+Bei Zeichenketten kann die Länge begrenzt werden, die die Zeichenkette annehmen darf.
+<code>n  </code>
+                  <code>&lt;xs:pattern value="[a-z._]+@[a-z.]\.[a-z]{2,4}"/&gt;</code>
+Komplexere Bedingungen lassen sich mit regulären Ausdrücken festlegen.
+Entitäten sind mit DTDs leicht zu definieren. Dabei werden Folgen der Art <code>&amp;euro;</code> durch feste Zeichen oder Zeichenketten ersetzt. Das steht prinzipiell im Widerspruch zur Art der XML-Darstellung. Im Zusammenhang mit XSD sieht eine solche Definition dann so aus:
+<code>&lt;xsd:element name="euro" type="xsd:token" fixed="&amp;#8364;"/&gt;</code>
+               </Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Eine Einführung in XPath">
+Eine Einführung in XPath
+<Element Type="Text">XPath realisiert die Abfrage durch Beschreibung eines Pfades und verzichtet dabei auf Schleifen oder andere zyklische Elemente. Damit ist die Konstruktion zur Laufzeit und in Abhängigkeit vom aktuellen Auftreten von Knoten zueinander möglich. Wie der Name der Sprache andeutet, ähnelt die Auswahl von Knoten den Pfadangaben im Dateisystem eines Betriebssystems. Das ist naheliegend, weil dort Daten hierarchisch angeordnet sind. Eine typische XPath-Anweisung könnte also folgendermaßen aussehen:
+<code>eintrag/name/vorname</code>
+Sie adressiert einen Knoten <code>&lt;vorname&gt;</code>, der Kindelement von <code>&lt;name&gt;</code> ist, was wiederum Kindelement von <code>&lt;eintrag&gt;</code> sein muss:
+<code>&lt;eintrag&gt;   &lt;name&gt;     &lt;vorname&gt;</code>
+Es gibt verschiedene Knotentypen in XML, die XPath adressieren kann. Konkret unterschieden werden die in Tabelle 4.4 dargestellten Typen:
+<strong>Tabelle </strong>
+                  <strong>4</strong>
+                  <strong>.</strong>
+                  <strong>4</strong>
+                  <strong>  </strong>Knotentypen in XPath</Element>
+               <Element Type="Table" Name="Tabelle 4.4  Knotentypen in XPath">
+                  <table> 
+                     <thead> 
+                        <tr> 
+                           <td> XPath-Knoten </td> 
+                           <td> Darstellung </td> 
+                        </tr> 
+                     </thead> 
+                     <tbody>
+                        <tr> 
+                           <td> Wurzelknoten </td> 
+                           <td> / </td> 
+                        </tr> 
+                        <tr> 
+                           <td> Elementknoten </td> 
+                           <td> ElementName </td> 
+                        </tr> 
+                        <tr> 
+                           <td> Attributknoten </td> 
+                           <td> @Attribut </td> 
+                        </tr> 
+                        <tr> 
+                           <td> Textknoten </td> 
+                           <td> ., text() </td> 
+                        </tr> 
+                        <tr> 
+                           <td> Prozessinformation </td> 
+                           <td> Nicht darstellbar </td> 
+                        </tr> 
+                        <tr> 
+                           <td> Namensraum </td> 
+                           <td> alias: </td> 
+                        </tr> 
+                     </tbody>
+                  </table>
+               </Element>
+            </Element>
+            <Element Type="Section"
+                     Level="4"
+                     Name="Grundlagen für die Entwicklung von Ausdrücken">
+Grundlagen für die Entwicklung von Ausdrücken
+<Element Type="Text">XPath basiert auf Ausdrücken, die den Weg zu einem Knoten beschreiben. Der Weg kann – ebenso wie beim Dateisystem – durch absolute oder relative Pfadangaben beschrieben werden. Absolute Angaben beginnen immer an der Dokumentenwurzel. Wenn der Ausdruck einen Pfad über mehrere Knoten hinweg beschreibt, werden die Elemente durch Schrägstriche getrennt:
+<code>dirlist/directory/file</code>
+Jedes dieser Elemente wird allgemein als Lokalisierungsschritt bezeichnet. Die eben gezeigte und häufig verwendete Darstellung durch einen Knotennamen ist eine verkürzte Form. Tatsächlich kann jeder Schritt aus drei Teilen bestehen:
+n  Achsenbezeichner
+n  Knotentest
+n  Prädikate
+Der Achsenbezeichner modifiziert die Auswahl des Knotens auf der Grundlage seiner Position im Baum. Als Trennzeichen zwischen dem Achsenbezeichner und dem nächsten Teil des Ausdrucks werden zwei Doppelpunkte geschrieben „::“. Dies wird im nächsten Abschnitt noch weiter erläutert. Der Knotentest beschreibt den Knoten selbst, beispielsweise eine direkte Auswahl durch Nennung des Tagnamens. Die Prädikate stehen in eckigen Klammern und werden meist zur Auswahl von Attributen verwendet.
+Insgesamt ergibt sich beispielsweise folgender Ausdruck:
+<code>child::directory[attribute::hasfiles='true']</code>
+                  <code>child::</code> ist der Achsenbezeichner, hier wird also beginnend von der aktuellen Position das nächste Kindelement gesucht. Dann wird das Element selbst benannt: <code>directory</code>. Es wird also das nächste Kindelement mit dem Namen „directory“ gesucht. Das Prädikat schränkt die Suche weiter ein; hier auf das Vorhandensein eines Attributs <code>hasfile</code> mit dem Parameter <code>'true'</code>. Um solche Ausdrücke nun entwickeln zu können, ist in erster Linie eine Kenntnis der Achsenbezeichner notwendig.</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Die XPath-Achsenbezeichner">
+Die XPath-Achsenbezeichner
+<Element Type="Text">Achsenbezeichner können einen oder mehrere Knoten auswählen. Die konkrete Auswahl hängt vom aktuellen Knoten ab. Dies ist zutreffend, wenn ein Dokument sequenziell durchlaufen wird. Die folgende Tabelle zeigt alle Achsenbezeichner für Elemente auf einen Blick. Elemente sind Tagnamen, also keine Attribute und keine Namensraumbezeichnungen:
+<strong>Tabelle </strong>
+                  <strong>4</strong>
+                  <strong>.</strong>
+                  <strong>5</strong>
+                  <strong/> Die Achsenbezeichner </Element>
+               <Element Type="Table" Name="Tabelle 4.5 Die Achsenbezeichner">
+                  <table> 
+                     <thead> 
+                        <tr> 
+                           <td> Achsenname </td> 
+                           <td> Suchrichtung </td> 
+                           <td> Hinweise </td> 
+                        </tr> 
+                     </thead> 
+                     <tbody>
+                        <tr> 
+                           <td> self </td> 
+                           <td>   </td> 
+                           <td> Der Knoten selbst </td> 
+                        </tr> 
+                        <tr> 
+                           <td> child </td> 
+                           <td> vor à </td> 
+                           <td> Kinder des Knotens </td> 
+                        </tr> 
+                        <tr> 
+                           <td> parent </td> 
+                           <td> rück ß </td> 
+                           <td> Der Elternknoten </td> 
+                        </tr> 
+                        <tr> 
+                           <td> descendant </td> 
+                           <td> vor à </td> 
+                           <td> Alle Nachfahren (Kinder und Kindeskinder)  </td> 
+                        </tr> 
+                        <tr> 
+                           <td> descendant-or-self </td> 
+                           <td> vor à </td> 
+                           <td> Alle Nachfahren und der Knoten selbst  </td> 
+                        </tr> 
+                        <tr> 
+                           <td> ancestor </td> 
+                           <td> rück ß </td> 
+                           <td> Alle Vorfahren (Eltern und deren Eltern) </td> 
+                        </tr> 
+                        <tr> 
+                           <td> ancestor-or-self </td> 
+                           <td> rück ß </td> 
+                           <td> Alle Vorfahren und der Knoten selbst </td> 
+                        </tr> 
+                        <tr> 
+                           <td> following </td> 
+                           <td> vor à </td> 
+                           <td> Alle folgenden Knoten im Dokument, die nicht direkte Nachfahren sind </td> 
+                        </tr> 
+                        <tr> 
+                           <td> following-sibling </td> 
+                           <td> vor à </td> 
+                           <td> Alle folgenden Geschwister </td> 
+                        </tr> 
+                        <tr> 
+                           <td> preceding </td> 
+                           <td> rück ß </td> 
+                           <td> Alle vorhergehenden Knoten, die nicht Eltern sind </td> 
+                        </tr> 
+                        <tr> 
+                           <td> preceding-sibling </td> 
+                           <td> rück ß </td> 
+                           <td> Alle vorhergehenden Geschwister </td> 
+                        </tr> 
+                     </tbody>
+                  </table>
+               </Element>
+               <Element Type="Text">Neben den Achsenbezeichnern für Elemente gibt es noch zwei spezielle: <code>attribute</code> zur Auswahl von Attributen und <code>namespace</code> zur Lokalisierung von Namensräumen.
+Es bietet sich an dieser Stelle an, die Wirkung der Achsenbezeichner mit einem Testprogramm zu lernen. Damit alle erdenklichen Kombinationen getestet werden können, wird eine XML-Datei entworfen, die entsprechende Achsen aufweist:</Element>
+               <Element Type="Image"
+                        Name="Abbildung 4.8 Eine Muster-XML-Datei zum Testen von XPath-Ausdrücken"
+                        Path="04.Protokolle%20des%20Web-Dateien/image008.jpg"
+                        Width="211"
+                        Height="192"/> 
+<Element Type="Text">
+                  <strong>Abbildung </strong>
+                  <strong>4</strong>
+                  <strong>.</strong>
+                  <strong>8</strong>
+                  <strong/> Eine Muster-XML-Datei zum Testen von XPath-Ausdrücken
+Diese Datei dient im folgenden Beispiel als Basis für die ersten Programmierversuche. </Element>
+            </Element>
+            <Element Type="Section"
+                     Level="4"
+                     Name="Mit .NET XPath-Ausdrücke verarbeiten">
+Mit .NET XPath-Ausdrücke verarbeiten
+<Element Type="Text">Die bereits besprochene Klasse <code>XmlTextReader</code> kann mit XPath-Ausdrücken nicht umgehen. Die hohe Zugriffsgeschwindigkeit geht mit eingeschränkter Funktionalität einher. Universeller ist die Klasse <code>XmlDocument</code>, von der weitere Klassen abgeleitet werden können, die Zugriff auf <code>XPath</code> und die Resultate einer Abfrage erlauben.
+<code>XmlDocument</code> erlaubt den Zugriff auf XML über dessen DOM-Struktur. Damit das Dokument entsprechend bereit gestellt wird, schreiben Sie im Code folgende Zeilen:
+<code>XmlDocument xDoc = new XmlDocument ();</code>
+                  <code>xDoc.Load (Server.MapPath("data/axischeck.xml"));</code>
+Die Datei <em>axischeck.xml</em> ist die in Abbildung 4.8 gezeigte XML-Datei. Nun kann mit der Methode <code>SelectNodes</code> eine Liste von Knoten mit Hilfe eines XPath-Ausdrucks ermittelt werden. Ist der Ausdruck erfolglos, wird <code>null</code> zurückgegeben. Die folgende Methode aus <em>axischeck.aspx.cs</em> zeigt die Ausgabe einer Knotenhierarchie als kommaseparierte Liste:</Element>
+               <Element Type="Listing" Name="  Ermittlung von Knoten">
+                  <pre/>
+               </Element>
+               <Element Type="Text">private void GetAxis(XmlNodeList xNodes, Label currentLabel)</Element>
+               <Element Type="Text">{</Element>
+               <Element Type="Text">   int iNodes = xNodes.Count; Œ</Element>
+               <Element Type="Text">   int i = 0;</Element>
+               <Element Type="Text">   currentLabel.Text += iNodes.ToString() + " Knoten: ";</Element>
+               <Element Type="Text">   string[] sa = new string[iNodes];</Element>
+               <Element Type="Text">   foreach (XmlNode xNode in xNodes)</Element>
+               <Element Type="Text">   {</Element>
+               <Element Type="Text">      sa.SetValue(xNode.LocalName, i++); &#x8d;</Element>
+               <Element Type="Text">   }</Element>
+               <Element Type="Text">   currentLabel.Text += String.Join (", ", sa);</Element>
+               <Element Type="Text">}</Element>
+               <Element Type="Text">Eine solche Liste ist ein Objekt der Klasse <code>XmlNodeList</code>. Hier wird zuerst die Anzahl der Elemente mit Count ermittelt Œ. Die Methode zeigt die Ausdrücke jeweils gezielt in einem bestimmten <code>&lt;asp:Label&gt;</code>-Steuerelement auf der Seite an. Die Elemente werden dann mit einer <code>foreach</code>-Schleife durchlaufen und einem Array hinzugefügt &#x8d;. Dieses Array wird dann mit <code>Join</code> in die Liste umgewandelt und dem <code>Label</code>-Steuerelement hinzugefügt. Nun ist natürlich noch der Aufruf interessant, der <code>SelectNodes</code> anwendet:
+<code>GetAxis (xDoc.SelectNodes(sPath + "child::*"), child);</code>
+In der WebForm ist die Ausgabe in eine Tabelle eingebettet, die die <code>Label</code> entsprechend enthält (vollständig in der Datei <em>axischeck.aspx</em>):
+<code>&lt;asp:Label Runat="server" ID="child"/&gt;</code>
+Führt man diese Schritte für alle XPath-Standardanweisungen aus, bezogen auf den Knoten „C“ als Startknoten, ergibt sich Abbildung 4.9.
+Das Mitglied <code>sPath</code> enthielt die Zeichenfolge „/A/C“, also einen einfachen XPath-Ausdruck, der zum Element <code>&lt;C&gt;</code> hinführt, damit dieses als Ausgangspunkt dienen kann. Der Ausdruck selektiert lediglich die Achse (<code>achsenbezeichner::*</code>), wobei das <code>*</code> zur Auswahl aller Elemente der Achse führt. In der Praxis könnten sich hier Elementnamen anschließen, um die Auswahl einzuschränken, sowie eines oder mehrere Attribute, die entweder auftreten oder bestimmte Parameter aufweisen müssen.</Element>
+               <Element Type="Image"
+                        Name="Abbildung 4.9  Knotenmengen, die verschiedene XPath-Ausdrücke zurückgeben"
+                        Path="04.Protokolle%20des%20Web-Dateien/image009.png"
+                        Width="375"
+                        Height="271"/>
+               <Element Type="Text">
+                  <strong>Abbildung </strong>
+                  <strong>4</strong>
+                  <strong>.</strong>
+                  <strong>9</strong>  Knotenmengen, die verschiedene XPath-Ausdrücke zurückgeben
+<code>XmlDocument</code> erlaubt den Zugriff auf das gesamte Dokument. Die enthaltenen Daten können mit Hilfe der Create-Methode zur Laufzeit erzeugt werden. Liegen die Daten bereits vor – wie im letzten Beispiel – werden diese mit <code>Load</code> auf einer Datei oder mit <code>LoadXml</code> aus einer Zeichenkette in das Objekt kopiert. Das Lesen der Daten kann dann mit zwei Methoden erfolgen:
+<code>n  </code>
+                  <code>SelectNodes</code>
+Diese Methode gibt Knotenlisten aufgrund eines XPath-Ausdrucks zurück. Der Rückgabetyp ist <code>XmlNodeList</code>.
+<code>n  </code>
+                  <code>SelectSingleNode </code>
+Diese Methode gibt nur den ersten Knoten der durch XPath ermittelten Knotenmenge zurück. Der Rückgabetyp für einen Knoten ist <code>XmlNode</code>.
+Alternativ zu XPath kann die Auswahl eines Elements über die ID erfolgen – wenn die Daten entsprechend enthalten sind. Dazu nutzen Sie die Methode  <code>Get­ElementById</code>. Sind die Namen ein sicheres Auswahlkriterium, kann <code>GetElement­ByTagName</code> verwendet werden. Diese Methode gibt ein Objekt vom Typ <code>XmlNodeList</code> zurück.
+Da <code>XmlDocument</code> bereits XPath kennt, sind einige elementare Operationen bereits durch fertige Eigenschaften hinterlegt. So ist <code>child::*</code> äquivalent zur Eigenschaft <code>ChildNodes</code>. Wenn Sie diese Eigenschaften direkt nach dem Laden des Dokuments anwenden, startet die Auswahl immer an der Wurzel. Sie können jedoch in jeder Situation Knotenlisten mit <code>ChildNodes</code> abtrennen und diese dann mit denselben Eigenschaften durchsuchen. Dies liegt an der Vererbung der XML-Klassen. Denn als Basis für Knotenlisten dient die Klasse <code>XmlNodeList</code>, deren<code/>Instanz mehrere Knoten enthalten kann und <code>XmlNode</code>, die Repräsentanz<code/>eines Knotens. Die letzte Klasse liefert die Navigationseigenschaften an <code>XmlDocument</code>.
+Neben <code>ChildNodes</code> kann mit <code>FirstChild</code> und <code>LastChild</code> sowie <code>NextSibling</code> und <code>PreviousSibling</code> operiert werden. Unter Umständen sparen Sie damit XPath-Anweisungen.
+Das folgende Beispiel verwendet <code>ChildNodes</code>, um ein Dokument rekursiv zu durchlaufen.</Element>
+               <Element Type="Listing" Name="  Rekursive Ausgabe des gesamten XML-Dokuments">
+                  <pre/>
+               </Element>
+               <Element Type="Text">public class XmlDocumentNodes : System.Web.UI.Page</Element>
+               <Element Type="Text">{</Element>
+               <Element Type="Text">   protected Label name;</Element>
+               <Element Type="Text">   static int indent;</Element>
+               <Element Type="Text"> </Element>
+               <Element Type="Text">   private void GetNode(XmlNodeList xNodes)</Element>
+               <Element Type="Text">   {</Element>
+               <Element Type="Text">      foreach (XmlNode xn in xNodes)</Element>
+               <Element Type="Text">      {</Element>
+               <Element Type="Text">         indent++;</Element>
+               <Element Type="Text">         name.Text += (xn.Name).PadLeft(indent*3, Ã</Element>
+               <Element Type="Text">                       Convert.ToChar(0xA0)) + "&lt;br/&gt;";</Element>
+               <Element Type="Text">         if (xn.HasChildNodes)</Element>
+               <Element Type="Text">         {</Element>
+               <Element Type="Text">            GetNode (xn.ChildNodes);</Element>
+               <Element Type="Text">         }</Element>
+               <Element Type="Text">         indent--;</Element>
+               <Element Type="Text">      }</Element>
+               <Element Type="Text">   }</Element>
+               <Element Type="Text"> </Element>
+               <Element Type="Text">   private void Page_Load(object sender, System.EventArgs e)</Element>
+               <Element Type="Text">   {</Element>
+               <Element Type="Text">      XmlDocument xDoc = new XmlDocument ();</Element>
+               <Element Type="Text">      xDoc.Load(Server.MapPath("data/axischeck.xml"));</Element>
+               <Element Type="Text">      indent = 0;</Element>
+               <Element Type="Text">      GetNode (xDoc.ChildNodes);</Element>
+               <Element Type="Text">   }</Element>
+               <Element Type="Text">}</Element>
+               <Element Type="Text">Um den rekursiven Aufruf zu steuern, wird die Eigenschaft <code>HasChildNodes</code> für jeden einzelnen Knoten untersucht. Außerdem wird für die übersichtliche Ausgabe die Einrückung gesteuert, indem entsprechend dem Inhalt des statischen Feldes <code>indent</code> eine Anzahl Leerzeichen geschrieben wird. Der Code „0xA0“ entspricht der HTML-Entität <code>&amp;nbsp;</code> im Unicode-Zeichenraum.</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Eine kompakte Einführung in XSLT">
+Eine kompakte Einführung in XSLT
+<Element Type="Text">XSLT ist eine funktionale Sprache. Das Prinzip unterscheidet sich grundlegend von den imperativen oder objektorientierten Sprachen, wie beispielsweise C#. Der Programmfluss selbst wird in erster Linie durch Automatismen initiiert, in zweiter Linie dann durch Regeln. Regeln definieren Sie, um bestimmte Effekte beim Auftreten von bestimmten Daten zu erreichen. Vorteil derartiger Systeme ist die weitgehende – bei XSLT per Definition die vollkommene – Befreiung von Seiteneffekten. Wenn eine Regel gilt, dann wird diese und nur diese ausgeführt und zwar in immer der gleichen Art und Weise. Dazu gehört auch, dass Variablen zwar verfügbar sind, beispielsweise um einer Regel einen Wert zu übergeben, ihren Inhalt aber nachträglich nicht ändern können. Sie verhalten sich also eher wie Konstanten in imperativen Sprachen. Nachträgliche Änderungen könnten Seiteneffekte erzeugen, was nicht erlaubt ist.
+Dennoch kann man damit erstaunlich effektiv programmieren und verblüffende Resultate erzielen. Nicht immer ist XSLT die perfekte Sprache. Richtig leistungsfähig wird sie erst in Kombination mit einer modernen objektorientierten Sprache, die hinreichende imperative Merkmale aufweist. Es ist nahliegend, Transformation und Programm mit .NET in einen Kontext zu überführen. Zuvor sind jedoch wenigstens elementare Kenntnisse von XSLT notwendig.</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Die Basisregeln in XSL">
+Die Basisregeln in XSL
+<Element Type="Text">XSLT basiert auf XML, weshalb jede Datei durch die entsprechende Deklaration eingeleitet wird. Dann folgt das Wurzelelement <code>&lt;stylesheet&gt;</code>. Das W3C empfiehlt als Standardnamensraumalias <code>xsl</code>. Diese Angabe ist aber im Prinzip freiwillig. Visual Studio erstellt neue XSLT-Dateien ohne eigenen Namensraum. Solange Sie diese nur in eigenen Projekten verwenden und nicht weitergeben, mag das akzeptabel sein. Es ist jedoch empfehlenswert, generell den Standardnamensraum zu verwenden. Daraus ergibt sich folgendes Grundgerüst für XSLT:
+<code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt; &lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt; &lt;/xsl:stylesheet&gt;</code>
+Durch die Erweiterung des Attributes <code>xmlns</code> wird der Namensraumalias festgelegt.
+Zwischen den Wurzelelementen wird nun das Regelwerk aufgebaut. Eine zentrale Rolle spielt das Element <code>&lt;xsl:template&gt;</code>. Templates bilden die Stufen der eigentlichen Transformation. Dabei gibt es zwei Arten von Templates. Zum einen können sie durch eine XPath-Anweisung in ihrer Zuständigkeit programmiert werden. Die folgende Regel zeigt, wie jedes Element <code>&lt;name&gt;</code> zu einer Ausgabe im Ausgabedatenstrom führt:
+<code>&lt;xsl:template match="name"&gt;   &lt;h1&gt;NAME&lt;/h1&gt; &lt;/xsl:template&gt;</code>
+Eine andere Methode ist der Aufruf benannter Vorlagen, dazu später mehr. Der Inhalt des Elements findet hier freilich noch keine Berücksichtigung. Text kann, wie gezeigt, direkt ausgegeben werden. Beachten Sie dabei, dass es sich hier um wohlgeformtes XML handeln muss; HTML muss also gegebenenfalls den Regeln von XHTML 1.0 entsprechend modifiziert werden.
+Wenn Sie eine Vorlage mit <code>&lt;xsl:template select="regelname"&gt;</code> benennen, können Sie diese folgendermaßen aufrufen:
+<code>&lt;xsl:call-template name="regelname"/&gt;</code>
+Soll explizit Text ausgegeben werden, der mit dem Editor nicht darstellbar ist, muss das <code>&lt;xsl:text&gt;</code>-Element eingesetzt werden. Das ist eigentlich – nach der Spezifikation – immer notwendig. Die direkte Angabe von Text oder Tags ist eine Vereinfachung.
+<code>&lt;xsl:template match="name"&gt;   Hier folgt ein Zeilenumbruch:&lt;xsl:text&gt;0x0A&lt;/xsl:text&gt; &lt;/xsl:template&gt;</code>
+Wo Text ist, sind Kommentare nicht weit. Diese entsprechen, XML-konform, denen aus HTML bekannten und werden nicht in den Ausgabedatenstrom übernommen:
+<code>&lt;!-- Ein Kommentar in XSLT sieht aus wie in HTML --&gt;</code>
+Vorlagen werden meist verschachtelt angewendet. Das folgende Beispiel zeigt das Grundgerüst einer HTML-Seite, wie sie mit XSLT erzeugt wird:
+<code>&lt;xsl:template match="/"&gt;   &lt;html&gt;     &lt;body&gt;       &lt;xsl:apply-templates /&gt;     &lt;/body&gt;   &lt;/html&gt; &lt;/xsl:template&gt;</code>
+Zuerst erkennt der XSLT-Prozessor hier, dass die Vorlage das Wurzelelement der XML-Quelle verarbeitet. Dann wird das Grundgerüst der HTML-Seite erstellt. Innerhalb des Body-Tags wird versucht, alle übrigen Elemente durch Aufruf der passenden Vorlagen zu verarbeiten. Dass das Tag <code>&lt;xsl:apply-template&gt;</code> keine Parameter hat, ist ein spezieller Fall. Er setzt voraus, dass alle Elemente irgendwo auf eine passende Vorlage stoßen, wobei der Prozessor den besten Treffer auswählt und diesen – und nur diesen – ausführt.
+Allerdings besitzt der Prozessor eine Fallback-Funktion. Wenn kein Template zutrifft, wird der Inhalt des aktuellen Tags genommen und als gültigen Ausgabewert betrachtet. Voraussetzung ist aber, dass wenigstens an einer Stelle <code>&lt;xsl:apply-template&gt; </code>steht, um die Ausgabe auszulösen.
+Sollen Inhalte von Tags gezielt ausgegeben werden, was sicher der häufigste Weg ist, findet <code>&lt;xsl:value-of&gt;</code> Verwendung. Das Attribut <code>select</code> wählt den Inhalt des durch eine XPath-Anweisung ermittelten Knotens und die gesamte Anweisung gibt diesen als Zeichenkette aus.
+<code>&lt;xsl:template match="B"&gt;   &lt;xsl:value-of select="."/&gt;</code>
+                  <code>&lt;/xsl:template&gt;</code>
+Beim Einsatz innerhalb einer Vorlage bezieht sich der Pfad, den <code>select</code> akzeptiert, auf den übergebenen Knoten, ist also relativ. Sie können aber absolute Angaben verwenden. Der alleinstehende Punkt reflektiert in XPath den aktuellen Knoten, im Beispiel also den Inhalt des Tags <code>&lt;B&gt;</code>. Auf eben diesem Wege werden auch Attribute gelesen. Das folgende Beispiel sucht nach Elementen vom Typ <code>&lt;a&gt;</code> und gibt den Inhalt des Attributes <code>href</code> aus:
+<code>&lt;xsl:template match="a"&gt;   &lt;xsl:value-of select="@href"/&gt; &lt;/xsl:template&gt;</code>
+Der direkte Zugriff mit einer absoluten XPath-Anweisung wäre <code>a/@href</code>.
+Sie können auf den Parameter eines Attributes direkt zugreifen. Ein <code>&lt;a href&gt;</code>-Tag wird folgendermaßen in <code>&lt;img src&gt;</code> transformiert:
+<code>&lt;xsl:template match="a"&gt;   &lt;img src="{@href}" /&gt; &lt;/xsl:template&gt;</code>
+Die Schreibweise mit den geschweiften Klammern ist immer dann angebracht, wenn der Einsatz eines Tags aufgrund der Syntax nicht möglich ist. Andererseits ist es mit <code>&lt;xsl:element&gt;</code> und <code>&lt;xsl:attribute&gt;</code> möglich, beliebige Tags indirekt zu erzeugen.</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Mit XSLT programmieren">
+Mit XSLT programmieren
+<Element Type="Text">Bei XSLT spricht man von einer funktionalen Programmiersprache. Zum Programmieren gehören jedoch nicht nur Regeln, wie sie in XSLT durch die Vorlagen gebildet werden, sondern auch Programmanweisungen.
+Zuerst eine einfache Verzweigung mit <code>&lt;xsl:if&gt;</code>:
+<code>&lt;xsl:if test="@directory='hasfiles'"&gt;   Dieses Verzeichnis enthält Dateien &lt;/xsl:if&gt;</code>
+Der Test kann verschiedene Operatoren und Funktionen verwenden, um Knoten nach allerhand Kriterien zu untersuchen. Eine Else-Anweisung gibt es übrigens nicht, hierfür ist die Mehrfachverzweigung <code>&lt;xsl:choose&gt;</code> gedacht.
+<code>&lt;xsl:choose&gt;   &lt;xsl:when test="attribute='archive'"&gt;Archiv&lt;/xsl:when&gt;   &lt;xsl:when test="attribute='compressed'"&gt;Compressed&lt;/xsl:when&gt;   &lt;xsl:when test="attribute='hidden'"&gt;Hidden&lt;/xsl:when&gt;   &lt;xsl:otherwise&gt;     Unknown   &lt;/xsl:otherwise&gt; &lt;/xsl:choose&gt;</code>
+Wollen Sie Listen von bestimmten Tags an einer Stelle ausgeben, ist <code>&lt;xsl:for-each&gt;</code> sehr praktisch. Schleifen im Sinne imperativer Programmierung gibt es jedoch nicht, weil veränderliche Zustände nicht erlaubt sind.
+<code>&lt;xsl:for-each select="name"&gt;    &lt;a href="{.}"&gt;&lt;xsl:value-of select="."/&gt;&lt;/a&gt;&lt;br/&gt; &lt;/xsl:for-each&gt;</code>
+Die <code>&lt;xsl:for-each&gt;</code>-Anweisung gibt, wie <code>&lt;xsl:template&gt;</code> auch, jeweils einen aktuellen Knoten für jedes Element aus, das gefunden wurde. Deshalb funktioniert hier der verkürzte Zugriff auf den Inhalt mit dem Punkt-Alias.
+Von Interesse ist oft eine Sortiermöglichkeit. Sie können dazu innerhalb einer Schleife mit <code>&lt;xsl:sort&gt;</code> eine Anweisung platzieren, die das zuverlässig erledigt:
+<code>&lt;xsl:for-each select="name"&gt;    &lt;xsl:sort select="." order="descending"/&gt;    &lt;a href="{.}"&gt;&lt;xsl:value-of select="."/&gt;&lt;/a&gt;    &lt;br/&gt; &lt;/xsl:for-each&gt;</code>
+Das Element <code>&lt;xsl:sort&gt;&lt;xsl:sort&gt;</code> ist übrigens auch in <code>&lt;xsl:apply-templates&gt;</code> anwendbar. Es versteht freilich einige Attribute mehr, mit denen die Steuerung der Sortierung erfolgen kann. 
+Variablen sind verwendbar, sie verhalten sich aber ähnlich den Konstanten in anderen Sprachen. Sie können Werte, Knoten oder Knotenbäume speichern:
+<code>&lt;xsl:variable name="fieldata" select="attribute"/&gt;</code>
+Variable können natürlich auch komplexere Inhalte aufnehmen:
+<code>&lt;xsl:variable name="alldata"&gt;   &lt;xsl:if test="position()=last()"&gt;     TRUE   &lt;/xsl:if&gt;   &lt;xsl:if test="position()=1"&gt;     FALSE   &lt;/xsl:if&gt; &lt;/xsl:variable&gt;</code>
+Sie sehen im letzten Beispiel die Verwendung von XPath-Funktionen. Variablen gelten nur innerhalb der Vorlage oder der Schleife, in der sie definiert wurden. Dieses Verhalten ist nicht modifizierbar, das heißt, es gibt keine Modifikatoren wie public oder private, wie sie beispielsweise C# kennt.
+Ähnlich wie Variablen werden Parameter verwendet. Damit können Sie einer Vorlage verschiedene Werte übergeben, damit diese sich je nach Art des Aufrufes unterschiedlich verhält. Der Aufruf sieht folgendermaßen aus (am Beispiel einer benannten Vorlage):
+<code>&lt;xsl:call-template name="show.files"&gt;     &lt;xsl:with-param name="handler"&gt;no&lt;/xsl:with-param&gt; &lt;/xsl:call-template&gt;</code>
+Innerhalb der Vorlage werden die übergebenen Parameter dann so verwendet:
+<code>&lt;xsl:template name="show.files"&gt;   &lt;xsl:param name="handler" select=""/&gt;   ...</code>
+Das <code>select</code>-Attribut in <code>&lt;xsl:param&gt;</code> bestimmt einen Standardwert, wenn der Parameter nicht übergeben wurde.</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="XSLT praktisch">
+XSLT praktisch
+<Element Type="Text">XSLT verfügt über einige komplexere Anweisungen, die für größere Projekte von Bedeutung sind. Dazu gehört <code>&lt;xsl:number&gt;</code> zum Erzeugen fortlaufender Nummern oder Buchstabenfolgen.
+Oft ist der Umgang mit ganzen Knoten notwendig, statt dem Textinhalt des Knotens. Dann findet <code>&lt;xsl:copy-of&gt;</code> Verwendung. Sollen Knoten und Attribute kopiert werden, können mehrere Anweisungen mit <code>&lt;xsl:copy&gt;</code> zusammengefasst werden. Das folgende Beispiel kopiert ein XML-Dokument vollständig in ein anderes:
+<code>&lt;xsl:template match="*"&gt;   &lt;xsl:copy&gt;     &lt;xsl:copy-of select="@*"&gt;     &lt;xsl:apply-templates/&gt;   &lt;/xsl:copy&gt; &lt;/xsl:template&gt;</code>
+Da sich hier die Frage stellt, warum ein Dokument ausgerechnet mit XSLT unverändert kopiert werden sollte, ist ein Blick auf <code>&lt;xsl:output&gt;</code> angebracht. Mit dieser Anweisung, die immer am Anfang des Dokumentes steht, kann die Kodierung des Ausgabestromes gesteuert werden. Wenn Ihr XML-Dokument UTF-8 kodiert ist, können Sie es mit der Kopiervorlage des letzten Beispiels leicht in ein anderes Format bringen, nebenbei auch ins HTML 4.0-Format:
+<code>&lt;xsl:output encoding="ISO-8859-1" method="html"/&gt;</code>
+Für größere Projekte können Sie XSLT-Dateien mit Hilfe der Anweisungen <code>&lt;xsl:output&gt;</code> und <code>&lt;xsl:include&gt;</code> importieren. Mit Hilfe von <code>&lt;xsl:include&gt;</code> kann ein Dokument so eingefügt werden, als wäre der Inhalt an dieser Stelle geschrieben worden. Der Import hat eine geringere Priorität; stehen Regeln miteinander im Konflikt, unterliegen die importierten.</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="XSLT-Funktionen">
+XSLT-Funktionen
+<Element Type="Text">Da Transformationen oft in Abhängigkeit von konkreten Daten ablaufen, stellt XSLT einige elementare Funktionen zur Verfügung, die vor allem in <code>select</code>- und <code>test</code>-Attributen Anwendung finden.</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Aufbau eines URI">
+Aufbau eines URI
+<Element Type="Text">Der erste Teil eines URI (vor dem Doppelpunkt) gibt den Typ an, der die Interpretation des folgenden Teils festlegt:
+<code>Schema:schemaabhängiger Teil</code>
+Einige URI-Schemata wie HTTP oder FTP besitzen einen hierarchischen Aufbau:
+<code>Schema://[Benutzer[:Passwort]@]Server[:Port][/Pfad][?Anfrage][#Ziel]</code>
+                  <code>Server</code> gibt hierbei bei Schemata, die ein TCP- oder UDP-basiertes Protokoll verwenden, den Domainnamen oder die IP-Adresse des Servers an; Port den TCP-Port (optional und nur anzugeben, wenn vom Standardport des Protokolls abweichend). Benutzername und Kennwort werden meistens nicht angegeben, nur bei FTP werden sie gelegentlich zur Authentifizierung benutzt. Das be­kannteste Schema ist HTTP für das Hypertext Transfer Protocol. Hierarchische URIs können ferner relativ zu einem Basis-URI angegeben werden. Dabei werden Schema, Server und Port sowie gegebenenfalls Teile des Pfades weggelassen. Das letzte Element der URI kann, abgetrennt durch ein #, ein Zielbezeichner sein. In HTML-Seiten wird dies zur Adressierung von Hyperlinks innerhalb der Seite benutzt.
+<code>http://www.hanser.de</code>
+                  <code>ftp://ftp.is.co.za/rfc/rfc1630.txt</code>
+                  <code>file://D:\MyBooks\Projects\Hanser\ASPNET\Hauptband_001.docx</code>
+                  <code>ldap://[2010:dbcc]/c=DE?computacenter?www</code>
+                  <code>mailto:joerg@krause.net</code>
+               </Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Verfügbare Schemata">
+Verfügbare Schemata
+<Element Type="Text">Viele Schemata sind fest definiert, viele weitere werden nach Bedarf benutzt. Einige Beispiele der bekanntesten zeigt die nachfolgende Liste:
+n  <code>data</code> – direkt eingebettete Daten 
+n  <code>doi</code> – Digital Object Identifier 
+n  <code>file</code> – Dateien im lokalen Dateisystem 
+n  <code>ftp</code> – File Transfer Protocol 
+n  <code>http</code> – Hypertext Transfer Protocol 
+n  <code>ldap</code> – Lightweight Directory Access Protocol 
+n  <code>mailto</code> – E-Mail-Adresse 
+n  <code>news</code> – Newsgroup oder Newsartikel 
+n  <code>sip</code> – SIP-gestützter Sitzungsaufbau, beispielsweise für IP-Telefonie 
+n  <code>tel</code> – Telefonnummer 
+n  <code>urn</code> – Uniform Resource Names (URNs) 
+n  <code>xmpp</code> – Extensible Messaging and Presence Protocol für Jabber Identifier 
+n  <code>pop</code> – Mailbox-Zugriff über POP3 
+Auf der Website der IANA befindet sich eine vollständige Liste:
+<code>n  </code>http://www.iana.org/assignments/uri-schemes.html</Element>
+            </Element>
+            <Element Type="Section" Level="4" Name="Unterarten ">
+Unterarten 
+<Element Type="Text">Es gibt einige Unterarten von URIs. Damit wird klar, wo sich die möglicherweise bekannteren Bezeichnungen einordnen:
+n  Uniform Resource Locators (URLs) 
+URLs identifizieren eine Ressource über ihren primären Zugriffsmechanismus, geben also den Ort (Location) der Ressource im Netz an. Beispiele hierfür sind <code>http</code> oder <code>ftp</code>. URLs waren ursprünglich die einzige Art von URIs, weshalb der Begriff URL oft gleichbedeutend mit URI verwendet wird. 
+n  Uniform Resource Names (URNs)
+Mit dem URI-Schema <code>urn</code> wird eine Ressource mittels eines vorhandenen oder frei zu vergebenden Namens, wie beispielsweise <code>urn:isbn</code> oder <code>urn:sh­a1</code>, identifiziert. 
+Die Aufteilung wird nicht konsequent umgesetzt, weil einige Schemata wie <code>data</code> oder <code>mailto</code> in keine der beiden Klassen passen.</Element>
+            </Element>
+         </Element>
+         <Element Type="Section"
+                  Level="3"
+                  Name="4.3.1      File Transfer Protocol (FTP)">
+4.3.1      File Transfer Protocol (FTP)
+<Element Type="Text">Neben HTTP ist dieses Protokoll das Wichtigste beim tagtäglichen Einsatz im Internet. Es dient dem Datenaustausch zwischen FTP-Server und –Client, wobei der Client sogar auf eine genau definierte Art und Weise Zugriff auf das Dateisystem des Servers erhalten kann.
+Für den Zugriff auf einen FTP-Server bieten alle modernen Windows-Betriebssysteme zwei verschiedene Arten von Clients: Das einfache Programm <em>Ftp.exe</em> dient zur Kommunikation über die Eingabeaufforderung. Als grafischer FTP-Client kann der in das Betriebssystem integrierte Internet Explorer genutzt werden. Darüber hinaus gibt es noch jede Menge Freeware und kommerzielle Clientprogramme.</Element>
+         </Element>
+         <Element Type="Section"
+                  Level="3"
+                  Name="4.3.2      Network News Transfer Protocol (NNTP)">
+4.3.2      Network News Transfer Protocol (NNTP)
+<Element Type="Text">Dieses Protokoll dient zum Nachrichtenaustausch zwischen sogenannten News-Servern und entsprechenden Clients. Es ist historisch gesehen eines der ältesten Protokolle, welches noch weit vor dem Einzug des Internets in den Alltag genutzt wurde.
+Das Protokoll arbeitet, anders als HTTP, nicht statuslos, sondern führt einen <em>Message Pointer</em>. Für die Kommunikation mit einem News-Server ist eine Anmeldung erforderlich.
+Das Protokoll gilt inzwischen als veraltet. Nachrichtengruppen werden zunehmen durch Web-basierte Foren verdrängt, die mehr Gestaltungsspielraum ermöglichen.</Element>
+         </Element>
+         <Element Type="Section"
+                  Level="3"
+                  Name="4.3.3      Hypertext Transfer Protocol (HTTP)">
+4.3.3      Hypertext Transfer Protocol (HTTP)
+<Element Type="Text">In diesem Abschnitt erfahren Sie das Wichtigste über HTTP, das in der Webserver-Programmierung die herausragende Rolle spielt.</Element>
+         </Element>
+      </Element>
+      <Element Type="Section"
+               Level="2"
+               Name="4.2     Die Internet-Protokollfamilie">
+4.2     Die Internet-Protokollfamilie
+<Element Type="Text">Die IPS kann in vier Schichten eingeteilt werden, die allerdings ähnlich wie die des Referenzmodells strukturiert sind. Ab Schicht 2 übernehmen verschiedene Protokolle jeweils spezifische Aufgaben. Diese werden in den nächsten Abschnitten noch näher vorgestellt.</Element>
+         <Element Type="Image"
+                  Name="Abbildung 4.1  Die Schichten der Internet-Protokollfamilie im Vergleich zum ISO/OSI-Referenzmodell"
+                  Path="04.Protokolle%20des%20Web-Dateien/image001.png"
+                  Width="358"
+                  Height="292"/>
+         <Element Type="Text">
+            <strong>Abbildung </strong>
+            <strong>4</strong>
+            <strong>.</strong>
+            <strong>1</strong>  Die Schichten der Internet-Protokollfamilie im Vergleich zum ISO/OSI-Referenzmodell</Element>
+      </Element>
+      <Element Type="Section" Level="2" Name="4.3     Die Hochsprachenprotokolle">
+4.3     Die Hochsprachenprotokolle
+<Element Type="Text">Die Hochsprachenprotokolle arbeiten auf Schicht 7 des Referenzmodells. Sie sind in der Regel textbasiert und übermitteln einfache Kommandos. Für die Arbeit mit ASP.NET ist das <em>Hypertext Transfer Protocol</em> HTTP ausnahmslos das Wichtigste. Sie finden eine ausführliche Darstellung in diesem Abschnitt. Wichtig sind daneben auch das <em>File Transfer Protocol</em> FTP, das <em>Network News Transfer Protocol</em> NNTP und das <em>Simple Mail Transfer Protocol</em> SMTP, die kurz im Überblick vorgestellt werden.</Element>
+      </Element>
+   </Element>
+</Content>

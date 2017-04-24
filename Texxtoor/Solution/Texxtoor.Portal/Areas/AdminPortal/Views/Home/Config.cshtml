@@ -1,0 +1,66 @@
+﻿@model IDictionary<string, System.Linq.IGrouping<string, KeyValuePair<string, object>>>
+@{
+  PageData["Title"] = "Configuration";
+  Layout = Url.GetGlobalLayout("_LayoutConfig", "AdminPortal");
+  PageData["ShortHelp"] = "This page shows the current system settings. Change values needed. Saving has immediate effect and will recycle the App Pool and abandon all sessions. Use with caution!";
+}
+@section HeadContent {
+  <script>
+    $(function () {
+      $('tr:nth-child(odd)').each(function () {
+        $(this).css('background-color', '#efefef');
+      });
+      $('.moreValuesBtn').click(function () {
+        var container = $(this).prev('.moreValues');
+        var elm = $(container.children('input').first().clone()).appendTo(container);
+        elm.css('display', 'block');
+        return false;
+      });
+    });
+  </script>
+}
+@using (Html.BeginForm()) {
+  <table class="table table-bordered table-striped">
+    @foreach (var group in Model) {
+      <tr>
+        <td colspan="2"><span class="badge badge-info">@group.Key.First().ToString().ToUpper()@group.Key.Substring(1)</span></td>
+      </tr>
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+      </tr>
+      foreach (var item in group.Value) {
+        <tr>
+          <td class="VerticalTop">@item.Key.Replace(group.Key + ":", "")</td>
+          <td class="VerticalTop">
+            @do {
+              if (item.Value.ToString().Contains(",")) {
+                var values = item.Value.ToString().Split(',');
+                foreach (var option in values) {
+                  <input type="text" name="@item.Key" value="@option" style="width: @(Math.Min(400, Math.Max(100, option.Length*10)))px" />
+                  <br />
+                }
+                <div class="moreValues">
+                  <input type="text" name="@item.Key" value="" class="configinput" />
+                </div>
+                <button class="moreValuesBtn">Add Value Field</button>
+                break;
+              }
+              if (item.Value.ToString().Contains("true") || item.Value.ToString().Contains("false")) {
+                <span data-for="@item.Key">YES</span>
+                <input type="radio" name="@item.Key" value="true" @(Boolean.Parse(item.Value.ToString()) ? "checked" : "") />
+                <span data-for="@item.Key">NO</span>
+                <input type="radio" name="@item.Key" value="false" @(Boolean.Parse(item.Value.ToString()) ? "" : "checked") />
+                break;
+              }
+              <input type="text" name="@item.Key" value="@item.Value" style="width: @(Math.Min(600, Math.Max(200, item.Value.ToString().Length*10)))px" />
+              break;
+            } while (true);
+
+          </td>
+        </tr>
+      }
+    }
+  </table>
+  @Button.Submit("Save Values to Config", BtStyle.ButtonPrimary)
+}

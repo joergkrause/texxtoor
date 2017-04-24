@@ -1,0 +1,627 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@model Texxtoor.DataModels.Models.Content.Project
+@{
+  PageData["Title"] = Loc("titleResources", @"Resources for Project");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("textResources", @"On this page you can manage all files and logocal resources you and your team needs to create the books of the project <em><span data-args='0' data-desc='Project Name'>{0}</span></em>.", Model.Name);
+  var isoCulture = new System.Globalization.CultureInfo(Culture).TwoLetterISOLanguageName;
+}
+@section HeadContent{
+  <script src="~/Scripts/bootstrap/bootstrap-file-input.js"></script>
+  <script src="~/Scripts/jquery/jupload/js/vendor/jquery.ui.widget.js"></script>
+  <script src="~/Scripts/jquery/jupload/js/jquery.iframe-transport.js"></script>
+  <script src="~/Scripts/jquery/jupload/js/jquery.fileupload.js"></script>
+  <style>
+    .txtpos {
+      width: 50px;
+    }
+
+    .file-input-name {
+      font-weight: bold;
+      display: inline-block;
+      min-width: 10px;
+      padding: 3px 7px;
+      line-height: 14px;
+      vertical-align: baseline;
+      white-space: nowrap;
+      text-align: center;
+      color: white;
+      background-color: #006633;
+      border-radius: 3px;
+    }
+
+    #custom-menu {
+      z-index: 1000;
+      position: absolute;
+      border: solid 2px black;
+      background-color: white;
+      padding: 5px 0;
+      display: none;
+    }
+
+      #custom-menu ol {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        min-width: 130px;
+        width: auto;
+        max-width: 200px;
+        font-family: Verdana;
+        font-size: 12px;
+      }
+
+        #custom-menu ol li {
+          margin: 0;
+          display: block;
+          list-style: none;
+          padding: 5px 5px;
+        }
+
+          #custom-menu ol li:hover {
+            background-color: #efefef;
+          }
+
+          #custom-menu ol li:active {
+            color: White;
+            background-color: #000;
+          }
+  </style>
+  <script>
+    $(function () {
+      $(document).on('change', 'select[data-action]', function (e) {
+        processCommand(this, e);
+        e.preventDefault();
+      });
+      $(document).on('click', 'a[data-action],button[data-action],input[data-action],span[data-action]', function (e) {
+        processCommand(this, e);
+        e.preventDefault();
+      });
+      loadTab('default-content');
+      loadTab('project-content');
+      loadTab('import-content');
+      loadTab('trash-content');
+      $(document).on('change', '[type=file]', prepareUpload);
+    });
+
+    function emptyTrash() {
+      $('#trash-content').attr("disabled", "disabled");
+      $.ajax({
+        url: '@Url.Action("EmptyTrash", "Resource")',
+        data: { id: @Model.Id },
+        type: 'GET',
+        dataType: 'json',
+        cache: false,
+        success: function(data) {
+          toastr.success(data.msg);
+          loadTab('trash-content');
+        },
+        error: function(data) {
+          toastr.error(data.responseText);
+        }
+      });
+    }
+
+    function processCommand($this, e) {
+      var action = $($this).data('action');
+      var option = $($this).data('option');
+      var id = $($this).parents('[data-item]').data('item');
+      var tab = $($this).parents('[data-group]').data('tab');
+      var formData = new FormData();
+      var vol = tab.split("-")[0].replace("default", "content"); // a hack because we can't use "content" as ID for tab control
+      window.SelectedID = id;
+      var label = '';
+      var newlabel = '';
+      //$.mynamespace = {
+      //    CropID:id
+      //};
+
+      switch (action) {
+        case "emptyTrash":
+          emptyTrash();
+          break;
+        case "show":
+          $('#fullsizeimage').attr('src', '@Url.Action("RawImage", "Resource")' + '/' + id);
+          $.ajax({
+            url: '@Url.Action("ImageData", "Resource")',
+            data: { id: id },
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+              $('#imgWidth').text(data.w);
+              $('#imgHeight').text(data.h);
+              $('#imgDpiV').text(data.dpiv);
+              $('#imgDpiH').text(data.dpih);
+              $('#imgPx').text(data.px);
+              $('#imgWarn').text(data.warn);
+              $('#pictureshow').modal();
+            }
+          });
+          break;
+        case "crop":
+          $('#fullsizeimageCrop').attr('src', '/tools/getimg/' + id + '?c=editorresource&nc=true&res=525x328');
+          $('#pictureshowCrop').modal();
+          var jcrop_api;
+          $('#fullsizeimageCrop').Jcrop({
+            onChange: showCoords,
+            onSelect: showCoords
+          }, function () {
+            jcrop_api = this;
+            window.jcropVar = jcrop_api;
+          });
+          break;
+        case "delete":
+          $.ajax({
+            url: '@Url.Action("DeleteResource")',
+            data: { id: id },
+            type: 'POST',
+            success: function (data) {
+              loadTab(tab);
+
+              toastr.success(data.msg);
+            },
+            error: function (data) {
+              toastr.error(data);
+            }
+          });
+          break;
+        case "download":
+          window.location.href = '@Url.Action("GetResource", "Resource")' + '/' + id;
+          break;
+        case "upload":
+          var form = $($this).parents('form');
+          var opmlFile = form[0][1].files;
+          formData.append("file", opmlFile[0]);
+          formData.append("volume", vol);
+          newlabel = form.find("[name='newlabel']").val();
+          formData.append("label", newlabel || form.find("[name='label']").val());
+          $.ajax({
+            type: 'POST',
+            contentType: false, //'multipart/form-data',
+            url: '@Url.Action("UploadResourcePortal", "Resource", new {id = Model.Id})',
+            data: formData,
+            processData: false,
+            cache: false,
+            success: function (data) {
+              $('span.file-input-name').empty();
+              loadTabwithLabel(tab, data.fileName);
+            },
+            error: function (data) {
+              toastr.error(data);
+            }
+          });
+
+          break;
+        case "rename":
+          var name = $($this).parents('[data-item]').find('[name="name"]').val();
+          newlabel = $($this).parents('[data-item]').find("[name='newlabel']").val();
+          $.ajax({
+            url: '@Url.Action("RenameResource")',
+            data: { id: id, name: name, label: newlabel, volume: vol },
+            type: 'POST',
+            success: function (data) {
+              loadTab(tab);
+              toastr.success(data.msg);
+            },
+            error: function (data) {
+              toastr.error(data);
+            }
+          });
+          break;
+        case "recover":
+          $.ajax({
+            url: '@Url.Action("MoveResource")',
+            data: { id: id, label: null, volume: option }, // the new volume is the target, regardless the label
+            type: 'POST',
+            success: function (data) {
+              loadTab(tab);
+              loadTab('trash-content');
+              toastr.success(data.msg);
+            },
+            error: function (data) {
+              toastr.error(data);
+            }
+          });
+        case "label":
+          newlabel = $($this).parents('[data-item]').find("[name='newlabel']").val();
+          label = newlabel || $($this).parents('[data-item]').find('[name="label"]').val(); //label of the record
+          $.ajax({
+            url: '@Url.Action("LabelResource")',
+            data: { id: id, label: label, volume: vol },
+            type: 'POST',
+            success: function (data) {
+              loadTab('default-content');
+              loadTab('project-content');
+            },
+            error: function (data) {
+              toastr.error(data);
+            }
+          });
+          break;
+        case "move":
+          newlabel = $($this).parents('[data-item]').find("[name='newlabel']").val();
+          label = newlabel || $($this).parents('[data-item]').find('[name="label"]').val(); //label of the record
+          $.ajax({
+            url: '@Url.Action("MoveResource")',
+            data: { id: id, label: label, volume: option },
+            type: 'POST',
+            success: function (data) {
+              loadTab('default-content');
+              loadTab('project-content');
+            },
+            error: function (data) {
+              toastr.error(data);
+            }
+          });
+          break;
+        case "duplicate":
+          formData.append("volume", vol);
+          formData.append("label", $("#UploadPreview").text());
+          formData.append("id", window.SelectedID);
+          debugger;
+          $.ajax({
+            url: '@Url.Action("DuplicateResource", "Resource", new {projID = Model.Id})',
+            data: formData,
+            type: 'POST',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+              loadTab(tab);
+            },
+            error: function (data) {
+              debugger;
+              toastr.error(data);
+            }
+          });
+          break;
+        case "order":
+          $.ajax({
+            url: '@Url.Action("LoadOrderedResources", "Resource", new {id = Model.Id})',
+            data: { tab: tab, dir: option },
+            dataType: 'html',
+            type: 'GET',
+            success: function (data) {
+              setTableBehavior(tab, data);
+            }
+          });
+          break;
+        case "manipulate":
+          $('#txtSaturation').val(0);
+          $('#txtBrightness').val(0);
+          $('#txtColor').val(0);
+          $("#ddlManipulateOptions").val("");
+          $('#fullsizeimageManipulatePreview').attr('src', '/tools/getimg/' + id + '?c=editorresource&nc=true&res=525x328');
+          $('#fullsizeimageManipulate').attr('src', '/tools/getimg/' + id + '?c=editorresource' +
+            '&nc=true&res=525x328');
+          $('#pictureshowManipulate').modal();
+      }
+    }
+
+    function loadTab(tabName) {
+      $('#' + tabName).html($('<img src="/Content/loading.gif" alt="Loading..." />'));
+      $.ajax({
+        url: '@Url.Action("LoadResourceTab", "Resource", new {id = Model.Id})',
+        data: { tab: tabName },
+        dataType: 'html',
+        type: 'GET',
+        cache: false,
+        success: function (data) {
+          setTableBehavior(tabName, data);
+        }
+      });
+    }
+
+    function loadTabwithLabel(tabName, selecteditem) {
+      $('#' + tabName).html($('<img src="/Content/loading.gif" alt="Loading..." />'));
+      $.ajax({
+        url: '@Url.Action("LoadResourceTab", "Resource", new {id = Model.Id})',
+        data: { tab: tabName },
+        dataType: 'html',
+        type: 'GET',
+        cache: false,
+        success: function (data) {
+          setTableBehavior(tabName, data);
+          $('#' + tabName).children().last().find('select').val(selecteditem);
+        }
+      });
+    }
+
+    function setTableBehavior(tabName, data) {
+      $('#' + tabName).html(data);
+      $('#' + tabName + ' [data-options]').each(function () {
+        $(this).css('opacity', '0.2');
+      });
+      $('#' + tabName + ' [data-group]').each(function () {
+        $(this).hover(function () {
+          $('[data-options]').css('opacity', '0.2');
+          $(this).find('[data-options]').css('opacity', '1.0');
+        });
+      });
+    }
+
+    function prepareUpload(event) {
+      files = event.target.files[0];
+      $("#UploadPreview").text(files.name);
+    }
+
+    var update = function (coords) {
+      alert(coords.x);
+    }
+    $(document).ready(function () {
+      $('#cropSave').click(function () {
+        debugger;
+        var width = $('.jcrop-tracker').width();
+        var height = $('.jcrop-tracker').height();
+        //var position = $('.jcrop-tracker').offset();
+        //var xpoypo = getPositions();
+        //var xpo = position.left;
+        //var ypo = position.top;
+        var element = $('.jcrop-tracker');
+        var cropid = window.SelectedID;
+        debugger;
+        $.ajax({
+          url: '@Url.Action("ImageCropManipulation")',
+          data: JSON.stringify({ id: cropid, height: window.Jheight, width: window.Jwidth, xpos: window.Jxposition, ypos: window.Jyposition }),
+          type: 'POST',
+          contentType: 'application/json',
+          success: function (data) {
+            debugger;
+            destroyCropData();
+          },
+          error: function (data) {
+
+            toastr.error(data);
+          }
+
+
+        });
+
+      });
+      $('#mdlClose').click(function () {
+        destroyCropData();
+
+      });
+      $(".close").click(function () {
+        debugger;
+        $('#mdlCancel').click();
+        destroyCropData();
+
+      });
+      $('#btnManipulate').click(function () {
+
+        var imgId = window.SelectedID;
+        var manipulateOption = $('#ddlManipulateOptions').val();
+        $.ajax({
+          url: '@Url.Action("ImageColorManipulation")',
+          data: JSON.stringify({ imgId: imgId, option: manipulateOption, isPreview: false }),
+          type: 'POST',
+          contentType: 'application/json',
+          success: function (data) {
+
+          },
+          error: function (data) {
+
+          }
+
+
+        });
+      });
+      $('#ddlManipulateOptions').change(function () {
+        var imgId = window.SelectedID;
+        var manipulateOption = $('#ddlManipulateOptions').val();
+        $.ajax({
+          url: '@Url.Action("ImageColorManipulation")',
+          data: JSON.stringify({ imgId: imgId, option: manipulateOption }),
+          type: 'POST',
+          contentType: 'application/json',
+          success: function (data) {
+            debugger;
+            $('#fullsizeimageManipulatePreview').attr('src', '/tools/getimg/' + imgId + '?c=editorresource&nc=true&res=525x328');
+          },
+          error: function (data) {
+
+          }
+
+
+        });
+      });
+      $('#mdlCancel').click(function () {
+        var imgId = window.SelectedID;
+        var manipulateOption = $('#ddlManipulateOptions').val();
+        $.ajax({
+          url: '@Url.Action("RevertBackToOriginal")',
+          data: JSON.stringify({ imgId: imgId }),
+          type: 'POST',
+          contentType: 'application/json',
+          success: function (data) {
+          },
+          error: function (data) {
+          }
+
+
+        });
+      });
+      $('#txtSaturation, #txtBrightness').change(function () {
+        debugger;
+        var vImgId = window.SelectedID;
+        var vSaturation = $("#txtSaturation").val();
+        var vBrightness = $('#txtBrightness').val();
+        $.ajax({
+          url: '@Url.Action("ImageBrightSatHueManipulation")',
+          data: JSON.stringify({ imgId: vImgId, saturation: vSaturation, brightness: vBrightness }),
+          type: 'POST',
+          contentType: 'application/json',
+          success: function (data) {
+            debugger;
+            $('#fullsizeimageManipulatePreview').attr('src', '/tools/getimg/' + vImgId + '?c=editorresource&nc=true&res=525x328');
+          },
+          error: function (data) {
+
+          }
+
+
+        });
+      });
+
+    });
+
+    function destroyCropData() {
+      debugger;
+      var test = window.jcropVar;
+      test.destroy();
+      $("#txtHeight").val("");
+      $("#txtWidth").val("");
+      $("#txtXpos").val("");
+      $("#txtYpos").val("");
+    }
+
+    function showCoords(c) {
+      debugger;
+      window.Jxposition = c.x;
+      window.Jyposition = c.y;
+      window.Jwidth = c.w;
+      window.Jheight = c.h;
+      $("#txtHeight").val(c.h);
+      $("#txtWidth").val(c.w);
+      $("#txtXpos").val(c.x);
+      $("#txtYpos").val(c.y);
+
+
+    };
+
+    $(document).keyup(function (e) {
+
+      if (e.keyCode == 27) {
+        debugger;
+        $('#mdlCancel').click();
+        destroyCropData();
+
+
+      }
+    });
+
+
+  </script>
+}
+
+<h2>@Loc("title2", @"File Based Resources")</h2>
+<ul class="nav nav-tabs" id="resNav">
+  <li class="active"><a href="#default" data-toggle="tab">@Loc("headerContent", "Content")</a></li>
+  <li><a href="#project" data-toggle="tab">@Loc("headerProject", "Project")</a></li>
+  <li><a href="#import" data-toggle="tab">@Loc("headerImport", "Import")</a></li>
+  <li><a href="#trash" data-toggle="tab">@Loc("headerTrash", "Trash")</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="default">
+    @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+      @Loc("textContent", @"<i>Content</i>: This container stores all stuff needed to be embedded into the content. All files here are dirtectly
+accessible to the authors and they are able to add them in any of the active Opus' of the project")
+    }
+    @using (Html.BtDiv(BtStyle.AlertAndSuccess)) {
+      @Loc("textTipp", @"<i>Hint</i>: Rename files and replace the file name with a figure caption. The caption will be applied when you insert the figure into your text.")
+    }
+    <label data-group data-tab="default-content">
+      @Loc("name", "Name")
+      <span data-action="order" data-option="down"> @BtIcon.IconHtml(BtIcon.ArrowDown) </span>
+      <span data-action="order" data-option="up"> @BtIcon.IconHtml(BtIcon.ArrowUp) </span>
+    </label>
+    <label style="margin-left: 65px">
+      Define New or Select Existing Label
+    </label>
+    <label style="float:right">
+      File Actions and Preview
+    </label>
+    <div id="default-content">
+      <img src="/Content/loading.gif" alt="Loading..." />
+    </div>
+
+    <hr />
+    <form enctype="multipart/form-data" id="formResource">
+      <input type="hidden" value="content" name="volume" />
+      <div class="form-horizontal" style="width:100%" data-group data-tab="default-content">
+        <input id="file-content" type="file" name="files[]" multiple title="@Loc("addFile", "Select a file")">
+        @Loc("andUpload", "and upload")
+        @Loc("withLbl", "with the label")
+        @Html.Partial("Finder/_SelectLabel", null, new ViewDataDictionary { { "Labels", Model.Resources.OfType<ResourceFolder>().Where(r => r.TypesOfResource == TypeOfResource.Content) } })
+        <input type="submit" class="btn btn-sm btn-danger" data-action="upload" data-tab="project" value="@ViewResources.Action_Reader_Library_Upload" style="margin-left: 15px; " />
+      </div>
+      <div id="progress">
+        <div class="bar" style="width: 0%;"></div>
+      </div>
+    </form>
+  </div>
+  <div class="tab-pane" id="project" data-orderlist data-order="project-content">
+    @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+      @Loc("textProject", @"<i>Project</i>: The project container stores all files that support the team members. There are no restrictions using these folders,
+but authors cannot access these files from editor to include the stuff in publishable content. To make drafts created here finally available
+in the project's output, move or copy the file to the <i>Content</i> container.")
+    }
+    <label data-group data-tab="project-content">
+      Name
+      <span data-action="order" data-option="down"> @BtIcon.IconHtml(BtIcon.ArrowDown) </span>
+      <span data-action="order" data-option="up"> @BtIcon.IconHtml(BtIcon.ArrowUp) </span>
+    </label>
+    <label style="margin-left: 65px">
+      Define New or Select Existing Label
+    </label>
+    <label style="float:right">
+      File Actions and Preview
+    </label>
+    <div id="project-content">
+      <img src="/Content/loading.gif" alt="Loading..." />
+    </div>
+    <hr />
+    <form enctype="multipart/form-data">
+      <input type="hidden" value="project" name="volume" />
+      <div class="form-horizontal" style="width:100%" data-group data-tab="project-content">
+        <input id="file-content" type="file" name="files[]" multiple title="@Loc("addFile", "Select a file")">
+        @Loc("andUpload", "and upload")
+        @Loc("withLbl", "with the label")
+        @Html.Partial("Finder/_SelectLabel", null, new ViewDataDictionary { { "Labels", Model.Resources.OfType<ResourceFolder>().Where(r => r.TypesOfResource == TypeOfResource.Project) } })
+        <input type="submit" class="btn btn-sm btn-danger" data-action="upload" data-tab="project" value="@ViewResources.Action_Reader_Library_Upload" style="margin-left: 15px; " />
+      </div>
+      <div id="progress">
+        <div class="bar" style="width: 0%;"></div>
+      </div>
+    </form>
+
+  </div>
+  <div class="tab-pane" id="import">
+    @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+      @Loc("textImport", @"<i>Import</i>: Store all files and resources you wish to import from here. Typically these are MS Word files and images.")
+      @Loc("nouploadImport", "You cannot upload files here. To import use the 'Import Word' function. Imported files appear here for reference purpose.")    }
+    <div id="import-content">
+      <img src="/Content/loading.gif" alt="Loading..." />
+    </div>
+  </div>
+  <div class="tab-pane" id="trash" data-group data-tab="trash-content">
+    @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+      @Loc("textTrash", @"<i>Trash</i>: The trash container stores all files no longer needed.")
+      @Loc("nouploadTrash", "You cannot upload files here. The trash bin holds files deleted on other tabs.")
+    }
+    @if (Model.Resources.Any(r => r.TypesOfResource == TypeOfResource.Trash)) {
+      using (Html.BtDiv(BtStyle.AlertAndError)) {
+        <button id="emptyTrash" data-action="emptyTrash" class="btn btn-warning btn-sm pull-right">@Loc("trashBtn", "Empty Trash (this cannot be undone)")</button>
+        <div style="width: 50%">
+          @Loc("textTEmpty", @"Emptying trashes removes files physically. This cannot be undone. Function applies to all items.")
+        </div>
+      }
+    } else {
+      using (Html.BtDiv(BtStyle.AlertAndError)) {
+        @Loc("textIsEmpty", @"The trash bin is empty.")
+      }
+    }
+    <div id="trash-content">
+      <img src="/Content/loading.gif" alt="Loading..." />
+    </div>
+  </div>
+</div>
+@Create.ActionTask("manageRes", true, Url.Action("Termsets", new { id = Model.Id }), ViewResources.TasksButton_SemanticData)
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = Model.Id }), ViewResources.LinkButton_ToDashboard)
+@Create.ActionTask("", false, Url.Action("Index", "Publishing", new { id = Model.Id }), ViewResources.LinkButton_Publishing)
+@Create.ActionTask("", false, Url.Action("Import", "Project", new { id = Model.Id }), ViewResources.LinkButton_ToImport)
+
+@Html.Partial("Finder/_PictureShowDialog")
+@Html.Partial("Finder/_PictureCropDialog")
+@Html.Partial("Finder/_PicturePropertiesDialog")

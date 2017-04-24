@@ -1,0 +1,33 @@
+﻿<div class="modal fade hidden-to-show" id="pictureshow" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+        <h4 class="modal-title" id="myModalLabel">@Loc("show", "Show Picture")</h4>
+      </div>
+      <div class="modal-body image-container">
+        <img src="" id="fullsizeimage" class="image" style="border: 1px solid silver; padding: 10px; max-width: 528px" />
+        <hr />
+        <label style="width: 100px">@Loc("w", "Width"):</label><span class="editor-field" id="imgWidth"></span> @Loc("px", "px")<br />
+        <label style="width: 100px">@Loc("h", "Height"):</label><span class="editor-field" id="imgHeight"></span> @Loc("px", "px")<br />
+        <label style="width: 100px">@Loc("rv", "Res V"):</label><span class="editor-field" id="imgDpiV"></span> @Loc("dpi", "dots/inch")<br />
+        <label style="width: 100px">@Loc("rh", "Res H"):</label><span class="editor-field" id="imgDpiH"></span> @Loc("dpi", "dots/inch")<br />
+        <label style="width: 100px">@Loc("f", "Format"):</label><span class="editor-field" id="imgPx"></span><br />
+        <label style="width: 100px">@Loc("wrn", "Warning"):</label><span class="editor-field" id="imgWarn"></span>
+      </div>
+      <div class="modal-footer">
+        <div class="btn-group dropdown ">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            @ViewResources.Finder_Action <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" style="top: 30px !important">
+            <li><a href="#" data-action="crop">@ViewResources.Finder_Resize &amp; @ViewResources.Finder_Crop</a></li>
+            <li class="hidden"><a href="#" data-action="rotate">@ViewResources.Finder_Rotate</a></li>
+            <li><a href="#" data-action="manipulate">Manipulate Image</a></li>
+          </ul>
+        </div>
+        <button class="btn btn-default" data-dismiss="modal" type="button">@ViewResources.Button_CancelAndClose</button>
+      </div>
+    </div>
+  </div>
+</div>

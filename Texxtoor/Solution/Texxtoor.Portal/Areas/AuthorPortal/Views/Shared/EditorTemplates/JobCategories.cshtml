@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.JobPortal.JobCategory>
+@{
+  var allCategories = JobPortalManager.Instance.GetAllCategories();
+}
+<script>
+  
+</script>
+<select multiple="multiple" id="Categories" name="Categories">
+  @foreach (var item in allCategories) {
+    <option value="@item.Id" @(Model != null && Model.Contains(item) ? "selected='selected'" : "")>@item.Name</option>
+  }
+</select>
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

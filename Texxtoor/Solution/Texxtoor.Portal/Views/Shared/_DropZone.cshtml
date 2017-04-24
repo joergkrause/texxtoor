@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Texxtoor.ViewModels.Common.DropCommand>
+<script src="~/Scripts/jquery/jgridster/jquery.gridster.js"></script>
+<link href="~/Scripts/jquery/jgridster/jquery.gridster.css" rel="stylesheet" />
+@foreach (var command in Model.Take(8)) {
+  <div class="dropzone-tile @(command.HasAction ? "dropzone-droppable" : "") dropzone-droppable @(command.IsLast ? "last" : "")" data-command-key="@command.ItemKey" data-command-action="@command.Action" data-command-controller="@command.Controller" data-command-type="@command.ResultType" data-command-update="@command.UpdateTable">
+    <div>@command.Title</div>
+    <span><small>@command.Description</small></span>
+    <div class="dropzone-info">@command.Value</div>
+  </div>  
+}

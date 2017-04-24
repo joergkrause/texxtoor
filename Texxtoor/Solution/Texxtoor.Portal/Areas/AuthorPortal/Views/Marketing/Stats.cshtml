@@ -1,0 +1,57 @@
+﻿@model object
+
+@{
+  PageData["Title"] = Loc("title", "Numbers and Charts");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("text2", @"This chart shows all sales of all projects made in the past 30 days.");
+}
+
+@section HeadContent{
+   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', { 'packages': ['corechart'] });
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table, 
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Werk');
+        data.addColumn('number', 'Umsatz');
+        data.addRows([
+        ['ASP.NET 4.0', 32500],
+        ['PHP Basics', 10269],
+        ['IT Contracts', 7589],
+        ['MySQL for Beginners', 8694],
+        ['Web 2.0 Tips and Tricks', 49227]
+      ]);
+
+        // Set chart options
+        var options = { 'title': 'Revenues in EUR',
+          'width': 800,
+          'height': 300
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+}
+<h2>@Loc("title2", @"Sales of last 30 days")</h2>
+@using(Html.BtDiv(BtStyle.WellSmall)) {
+@Loc("textMove", @"Move mouse over segments to view details.")
+}
+<div id="chart_div"></div>
+@if (User.IsInRole("Author")) {
+  @Create.ActionTask("btnRev", true, Url.Action("Index", "Payment", new { area = "AuthorPortal" }), ViewResources.Action_Common_Payment_WithDraw)
+  @Create.ActionTask("btnStat", true, Url.Action("Revenues", "Marketing", new { area = "AuthorPortal" }), ViewResources.LinkButton_Common_Revenues)
+}
+@Create.ActionTask("btnMsg", false, Url.Action("Index", "Messaging", new { area = "" }), ViewResources.LinkButton_Common_Mail)

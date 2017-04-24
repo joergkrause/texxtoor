@@ -1,0 +1,69 @@
+﻿@using Texxtoor.DataModels.Models.Reader.Content
+@model IPagedList<Work>
+<div class="box box-padding">
+  <div class="box-content">
+    @if (Model == null || !Model.Any()) {
+      <div class="alert alert-warning">
+        @Loc("textNoWorks", @"There is nothing shared with you.")
+      </div>
+      <div class="formsendButtons">
+        @Create.FormButtonOnClick("closeSharedWorkButton", "", ViewResources.Button_CancelAndClose, BtStyle.ButtonDefault)
+      </div>
+    } else {
+      <div class="alert alert-info">
+        @Loc("bookCountPrefix", "There are")
+        &nbsp;<em>
+          @Html.Pluralize((int)ViewBag.TotalCount, Loc("WorkCountSing", "{0} copy").ToHtmlString(), Loc("bookCountPlur", "{0} copies").ToHtmlString(), Loc("bookCountNone", "no").ToHtmlString())
+          &nbsp;</em>
+        @Loc("bookCountSuffix", "shared texts")
+        @Loc("text", @"Your group members share these texts with you.")
+        <div class="pull-right">
+          @Create.FormButtonOnClick("closeSharedWorkButton", "", ViewResources.Button_CancelAndClose, BtStyle.ButtonDefault)
+        </div>
+      </div>
+      @Html.Partial("_Pagination", PaginationViewModel<Work>.Create(Model, "javascript:GetSharedWorks({page}, '{order}', '{dir}', {pagesize});", true, m => m.Name, m => m.CreatedAt, m => m.Extern))
+      <div class="multilist">
+        @foreach (var item in Model) {
+          <div class="listitem">
+            <div class="firstRow">
+              @Badges.NewItem(item.Name, item.CreatedAt, TimeSpan.FromDays(5))
+              @if (item.Extern == WorkType.Published) {
+                <div class="sharedcontentdiv">P</div>
+              }
+              @if (item.Extern == WorkType.Custom) {
+                <div class="sharedcontentdiv">C</div>
+              }
+            </div>
+            <div class="secondRow">
+              <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+              <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+
+                <div class="alert alert-success">@item.Note</div>
+                @Loc("txtTbl", "<em><span data-args='0' data-desc='Name'>{0}</span></em> was created at <em><span data-args='1' data-desc='Date'>{1}</span></em>, owned by <em><span data-args='2' data-desc='Date'>{2}</span></em>",
+                  item.Name, item.CreatedAt.ToLongDateString(), item.Owner.UserName)
+              </div>
+            </div>
+            <div class="thirdRow">
+              <div class="optionFields" data-item="@item.Id">
+                @if (item.Extern == WorkType.Published && item.Published != null) {
+                  @Loc("opt", "Titles this work derives from")@: <em>@item.Published.Title</em><br/>
+                  @Create.ActionClick("btnPublished", true, "lib.showDetails(" + item.Published.Id + ")", ViewResources.Action_Reader_Overview)
+                }
+                @if (item.Extern == WorkType.Custom) {
+                  @Create.ActionClick("btnDetails", true, "lib.showWorkDetails(" + item.Id + ")", ViewResources.Action_Reader_Overview)
+                }
+                @if (item.Extern != WorkType.External) {
+                  @Create.ActionLink("createCopy", false, Url.Action("CopyWork", "Reader", new { id = item.Id }), ViewResources.Action_Reader_Library_CreateCopy)
+                }
+                @Create.ActionLink("btnBuy", true, Url.Action("BuyWork", "Products", new { id = item.Id }), ViewResources.Action_Reader_Library_Order)
+                @if (item.Fragments != null && item.Fragments.Any()) {
+                  @Create.ActionLink("btnRead", true, Url.Action("ReaderApp", "Reader", new { id = item.Id }), ViewResources.Action_Reader_ReadAndWork)
+                }
+              </div>
+            </div>
+          </div>
+        }
+      </div>  
+    }
+  </div>
+</div>

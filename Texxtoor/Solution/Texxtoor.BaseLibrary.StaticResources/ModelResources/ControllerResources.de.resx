@@ -1,0 +1,750 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountController_LogOn_The_user_name_or_password_provided_is_incorrect" xml:space="preserve">
+    <value>Nutzername oder Kennwort ist falsch</value>
+  </data>
+  <data name="AccountController_ChangePassword_The_current_password_is_incorrect_or_the_new_password_is_invalid_" xml:space="preserve">
+    <value>Falsches Passwort</value>
+  </data>
+  <data name="AccountController_RetrievePassword_The_current_password_is_incorrect_or_the_new_password_is_invalid_" xml:space="preserve">
+    <value>Falsches Passwort</value>
+  </data>
+  <data name="UserManager_ValidateUser_Value_cannot_be_null_or_empty_" xml:space="preserve">
+    <value>Hier etwas eingeben</value>
+  </data>
+  <data name="ProjectController_AddProject___Create_new_Team__" xml:space="preserve">
+    <value>* Neues Team erstellen *</value>
+  </data>
+  <data name="AccountController_Matrix_Added" xml:space="preserve">
+    <value>Der Matrix-Wert wurde der Liste hinzugefügt</value>
+  </data>
+  <data name="AccountController_Matrix_Changed" xml:space="preserve">
+    <value>Der Matrix-Wert wurde geändert</value>
+  </data>
+  <data name="AccountController_Matrix_Removed" xml:space="preserve">
+    <value>Der Matrix-Wert wurde entfernt</value>
+  </data>
+  <data name="AccountController_Userprofile_Saved" xml:space="preserve">
+    <value>Benutzerprofil gespeichert</value>
+  </data>
+  <data name="AccountController_Userprofile_SavedError" xml:space="preserve">
+    <value>Fehler beim Speichern, versuche es später noch einmal</value>
+  </data>
+  <data name="EditorController_Editor_CommentSaved" xml:space="preserve">
+    <value>Kommentar gespeichert</value>
+  </data>
+  <data name="EditorController_Editor_PropertiesSaved" xml:space="preserve">
+    <value>Eigenschaften gespeichert</value>
+  </data>
+  <data name="MarketingController_Add_MarketingPackage" xml:space="preserve">
+    <value>Das Marketingpaket wurde hinzugefügt</value>
+  </data>
+  <data name="MarketingController_Delete_MarketingPackage_Cannot" xml:space="preserve">
+    <value>Das Paket kann nicht gelöscht werden</value>
+  </data>
+  <data name="MarketingController_Delete_MarketingPackage_InUse" xml:space="preserve">
+    <value>Das Paket kann nicht gelöscht werden, weil es in Benutzung ist</value>
+  </data>
+  <data name="MarketingController_Delete_MarketingPackage_Success" xml:space="preserve">
+    <value>Paket gelöscht</value>
+  </data>
+  <data name="MarketingController_Edit_MarketingPackage" xml:space="preserve">
+    <value>Das Marketingpaket wurde geändert</value>
+  </data>
+  <data name="MarketingController_Saved_BasePrice" xml:space="preserve">
+    <value>Preis gespeichert</value>
+  </data>
+  <data name="MarketingController_Saved_BasePrice_Error" xml:space="preserve">
+    <value>Der Preis kann nicht gespeichert werden, weil der Betrag ungültig ist</value>
+  </data>
+  <data name="MarketingController_Saved_Shares" xml:space="preserve">
+    <value>Anteile gespeichert</value>
+  </data>
+  <data name="MarketingController_Saved_Shares_Error" xml:space="preserve">
+    <value>Speichern der Anteile nicht möglich, weil die Summe &gt; 100% ist</value>
+  </data>
+  <data name="MarketingController_Set_MarketingPackage" xml:space="preserve">
+    <value>Das Marketingpaket '{0}' wurde dem Projekt '{1}' zugewiesen</value>
+  </data>
+  <data name="OpusController_Audience_Added" xml:space="preserve">
+    <value>Zielgruppenmerkmal hinzugefügt</value>
+  </data>
+  <data name="OpusController_Audience_Changed" xml:space="preserve">
+    <value>Zielgruppenmerkmal geändert</value>
+  </data>
+  <data name="OpusController_Audience_Removed" xml:space="preserve">
+    <value>Zielgruppenmerkmal entfernt</value>
+  </data>
+  <data name="OpusController_Document_HistoryDeleted" xml:space="preserve">
+    <value>Änderungsvergangenheit gelöscht</value>
+  </data>
+  <data name="OpusController_Document_Restored" xml:space="preserve">
+    <value>Der Text wurde wiederhergestellt</value>
+  </data>
+  <data name="OpusController_Milestone_Added" xml:space="preserve">
+    <value>Meilenstein hinzugefügt</value>
+  </data>
+  <data name="OpusController_Milestone_CannotAdd_NameInvalid" xml:space="preserve">
+    <value>Kann Meilenstein nicht hinzufügen, weil der Name leer oder ungültig ist</value>
+  </data>
+  <data name="OpusController_Milestone_Changed" xml:space="preserve">
+    <value>Meilenstein geändert</value>
+  </data>
+  <data name="OpusController_Milestone_Deleted" xml:space="preserve">
+    <value>Meilenstein entfernt</value>
+  </data>
+  <data name="OpusController_Milestone_DeleteError" xml:space="preserve">
+    <value>Meilenstein kann nicht entfernt werden</value>
+  </data>
+  <data name="OpusController_Milestone_Edited" xml:space="preserve">
+    <value>Meilenstein umbenannt</value>
+  </data>
+  <data name="OpusController_Milestone_Edited_InvalidName" xml:space="preserve">
+    <value>Meilenstein kann nicht umbenannt werden, weil der Name unzulässig ist</value>
+  </data>
+  <data name="OpusController_Milestone_Moved" xml:space="preserve">
+    <value>Meilenstein neu angeordnet</value>
+  </data>
+  <data name="OpusController_Review_Added" xml:space="preserve">
+    <value>Gutachten hinzugefügt</value>
+  </data>
+  <data name="OpusController_Review_Changed" xml:space="preserve">
+    <value>Gutachten geändert</value>
+  </data>
+  <data name="OpusController_Review_Deleted" xml:space="preserve">
+    <value>Gutachten entfernt</value>
+  </data>
+  <data name="PaymentController_WithdrawAmount_AmountInvalid" xml:space="preserve">
+    <value>Der Betrag war nicht gültig oder nicht vorhanden</value>
+  </data>
+  <data name="PaymentController_WithdrawAmount_ErrorOccured" xml:space="preserve">
+    <value>Es ist ein Fehler beim Übertrag aufgetreten</value>
+  </data>
+  <data name="PaymentController_WithdrawAmount_NoAccount" xml:space="preserve">
+    <value>Du hast keine Paypal-Id in deinem Profil hinterlegt. Ergänze diese Daten und versuche es dann erneut.</value>
+  </data>
+  <data name="PaymentController_WithdrawAmount_SuccessTransfer" xml:space="preserve">
+    <value>Der Betrag wurde auf dein Paypal-Konto übertragen</value>
+  </data>
+  <data name="ProjectController_Message_Created" xml:space="preserve">
+    <value>Nachricht erzeugt und gesendet</value>
+  </data>
+  <data name="ProjectController_Project_Activated" xml:space="preserve">
+    <value>Projekt aktiviert</value>
+  </data>
+  <data name="ProjectController_Project_Deactivated" xml:space="preserve">
+    <value>Projekt deaktiviert</value>
+  </data>
+  <data name="ProjectController_Project_NotActivated" xml:space="preserve">
+    <value>Projekt kann wegen fehlender Rechte nicht aktiviert werden</value>
+  </data>
+  <data name="ProjectController_Project_NotDeactivated" xml:space="preserve">
+    <value>Projekt kann nicht deaktiviert werden wegen seines aktuellen Zustands</value>
+  </data>
+  <data name="PublishingController_Processing_EPUB" xml:space="preserve">
+    <value>Erstellen als EPUB fertig</value>
+  </data>
+  <data name="PublishingController_Processing_EPUBText" xml:space="preserve">
+    <value>Klicke hier, um die EPUB-Datei herunterzuladen.</value>
+  </data>
+  <data name="PublishingController_Processing_HTML" xml:space="preserve">
+    <value>Erstellen als HTML fertig</value>
+  </data>
+  <data name="PublishingController_Processing_PDF" xml:space="preserve">
+    <value>Erstellen der PDF fertig</value>
+  </data>
+  <data name="PublishingController_Processing_PDFText" xml:space="preserve">
+    <value>Klicke hier, um die PDF-Datei herunterzuladen.</value>
+  </data>
+  <data name="PublishingController_Processing_RSS" xml:space="preserve">
+    <value>RSS Erstellen</value>
+  </data>
+  <data name="ResourceController_Termset_Added" xml:space="preserve">
+    <value>Begriffssammlung hinzugefügt</value>
+  </data>
+  <data name="ResourceController_Termset_AddedError" xml:space="preserve">
+    <value>Fehler beim Erstellen der Begriffssammlung ({0})</value>
+  </data>
+  <data name="ResourceController_Termset_Changed" xml:space="preserve">
+    <value>Begriffssammlung geändert</value>
+  </data>
+  <data name="ResourceController_Termset_ChangedError" xml:space="preserve">
+    <value>Fehler beim Ändern der Begriffssammlung  ({0})</value>
+  </data>
+  <data name="ResourceController_Termset_Removed" xml:space="preserve">
+    <value>Begriffssammlung entfernt</value>
+  </data>
+  <data name="ResourceController_Termset_RemovedError" xml:space="preserve">
+    <value>Fehler beim Entfernen der Begriffssammlung ({0})</value>
+  </data>
+  <data name="ResourceController_Term_Added" xml:space="preserve">
+    <value>Begriff hinzugefügt</value>
+  </data>
+  <data name="ResourceController_Term_Changed" xml:space="preserve">
+    <value>Begriff geändert</value>
+  </data>
+  <data name="ResourceController_Term_Removed" xml:space="preserve">
+    <value>Begriff entfernt</value>
+  </data>
+  <data name="AccountValidation_ErrorCodeToString_An_unknown_error_occurred" xml:space="preserve">
+    <value>Ein unbekannter Fehler ist aufgetreten. Prüfe alle Werte und versuche es erneut. Wende dich dann an den Administrator (admin@texxtoor.com).</value>
+  </data>
+  <data name="AccountValidation_ErrorCodeToString_A_username_for_that_e_mail_address_already_exists" xml:space="preserve">
+    <value>Der Benutzername für diese E-Mail-Adresse existiert bereits. Melde dich damit an oder wähle einen anderen Namen.</value>
+  </data>
+  <data name="AccountValidation_ErrorCodeToString_The_authentication_provider_returned_an_error" xml:space="preserve">
+    <value>Ein Fehler im Authentifizierungsprovider ist aufgetreten. Prüfe alle Werte und versuche es erneut. Wende dich dann an den Administrator (admin@texxtoor.com).</value>
+  </data>
+  <data name="AccountValidation_ErrorCodeToString_The_e_mail_address_provided_is_invalid" xml:space="preserve">
+    <value>Die E-Mail-Adresse ist ungültig. Gib einen gültigen Werte ein und versuche es erneut.</value>
+  </data>
+  <data name="AccountValidation_ErrorCodeToString_The_password_provided_is_invalid" xml:space="preserve">
+    <value>Das Kennwort ist ungültig. Gib einen gültigen Werte ein und versuche es erneut.</value>
+  </data>
+  <data name="AccountValidation_ErrorCodeToString_The_password_retrieval_answer_provided_is_invalid" xml:space="preserve">
+    <value>Die Frage zur Wiederherstellung des Kennworts ist ungültig. Gib einen gültigen Werte ein und versuche es erneut.</value>
+  </data>
+  <data name="AccountValidation_ErrorCodeToString_The_password_retrieval_question_provided_is_invalid" xml:space="preserve">
+    <value>Die Antwort zur Wiederherstellungsfrage ist ungültig. Gib einen gültigen Werte ein und versuche es erneut.</value>
+  </data>
+  <data name="AccountValidation_ErrorCodeToString_The_user_creation_request_has_been_canceled" xml:space="preserve">
+    <value>Die Anforderung wurde abgebrochen. Versuche es später erneut.</value>
+  </data>
+  <data name="AccountValidation_ErrorCodeToString_The_user_name_provided_is_invalid" xml:space="preserve">
+    <value>Der Benutzername ist ungültig. Bitte einen anderen wählen und erneut versuchen.</value>
+  </data>
+  <data name="AccountValidation_ErrorCodeToString_Username_already_exists" xml:space="preserve">
+    <value>Der Benutzername existiert bereits. Bitte einen anderen wählen und erneut versuchen.</value>
+  </data>
+  <data name="ValidatePasswordLengthAttribute_DefaultErrorMessage" xml:space="preserve">
+    <value>'{0}' muss wenigstens {1} Zeichen enthalten.</value>
+  </data>
+  <data name="ProjectController_ImportSimple_DOC_DOCX_is_currently_not_supported" xml:space="preserve">
+    <value>DOC/DOCX wird noch nicht unterstützt.</value>
+  </data>
+  <data name="ProjectController_ImportSimple_Could_not_process_this_file_properly" xml:space="preserve">
+    <value>Diese Datei konnte nicht verarbeitet werden.</value>
+  </data>
+  <data name="ProjectController_ImportSimple_ZIP_file_has_been_processed__Return_to_Dashboard_to_view_results" xml:space="preserve">
+    <value>ZIP-Datei wurde verarbeitet. Gehe ins Cockpit, um die Ergebnisse zu prüfen.</value>
+  </data>
+  <data name="ProjectController_ImportSimple_Data_read_but_invalid_zip_file" xml:space="preserve">
+    <value>Daten gelesen, aber die ZIP-Datei war ungültig.</value>
+  </data>
+  <data name="ProjectController_ImportSimple_ZIP_loaded_but_entries_invalid" xml:space="preserve">
+    <value>ZIP gelesen, aber Einträge waren unlesbar.</value>
+  </data>
+  <data name="ProjectController_ImportSimple_ZIP_file_extracted_but_couldn_t_parse" xml:space="preserve">
+    <value>ZIP entpackt, aber Inhalt nicht lesbar.</value>
+  </data>
+  <data name="ProjectController_ProcessSingleHtml_ZIP_file_extracted_but_content_not_convertable" xml:space="preserve">
+    <value>ZIP entpackt, aber Inhalt nicht konvertierbar.</value>
+  </data>
+  <data name="ProjectController_ProcessSingleHtml_ZIP_processed_and_content_written_to_project" xml:space="preserve">
+    <value>ZIP entpackt und ins Projekt geschrieben.</value>
+  </data>
+  <data name="ProjectController_ImportSimple__br_Internal_Error" xml:space="preserve">
+    <value>&lt;br&gt;Interner Fehler: {0}</value>
+  </data>
+  <data name="ProductionManager_CreatePdf_Author_s_Preview" xml:space="preserve">
+    <value>Vorschau für Autoren</value>
+  </data>
+  <data name="ProductionManager_CreatePdf_This_is_a_preview_that_shows_the_final_appearance_of_the_printed_book" xml:space="preserve">
+    <value>Dies ist eine Vorschau die zeigt, wie das Buch endgültig aussehen kann.</value>
+  </data>
+  <data name="ProductionController_ProduceMedia_An_error_occured_while_creating_the_file" xml:space="preserve">
+    <value>Beim Erstellen der Datei ist ein Fehler aufgetreten</value>
+  </data>
+  <data name="ProductionController_ProduceMedia_The_file__0__has_been_created" xml:space="preserve">
+    <value>Die Datei {0} wurde erzeugt. Du kannst sie aus deinem Archiv (Dein Menü --&gt; Archiv) herunterladen.</value>
+  </data>
+  <data name="PublishingController_SetCover_Click_Image_to_upload_custom" xml:space="preserve">
+    <value>Klicke auf das Bild um ein anderes hochzuladen.</value>
+  </data>
+  <data name="ReaderManager_GetFragmentNavigation_Automatic_Collection" xml:space="preserve">
+    <value>Automatische Sammlung</value>
+  </data>
+  <data name="ReaderManager_GetFragmentTree_Empty_Book" xml:space="preserve">
+    <value>Leerer Text</value>
+  </data>
+  <data name="ReaderManager_CreateAutoNameForUser_New_Collection" xml:space="preserve">
+    <value>Neue Sammlung</value>
+  </data>
+  <data name="UserManager_AddContributorMatrixToProfile_I_can_write" xml:space="preserve">
+    <value>Ich kann schreiben</value>
+  </data>
+  <data name="UserManager_AddConsumerMatrixToProfile_New" xml:space="preserve">
+    <value>Neu</value>
+  </data>
+  <data name="UserManager_GetProfile_User_has_no_wall_profile" xml:space="preserve">
+    <value>Benutzer hat kein öffentlichen Profiltext</value>
+  </data>
+  <data name="ProjectManager_DeleteTeam_Cannot_delete__team_runs_active_projects" xml:space="preserve">
+    <value>Kann das Team nicht entfernen, es hat aktive Projekte</value>
+  </data>
+  <data name="ProjectManager_DeleteTeam_Only_the_team_leader_can_delete_a_team" xml:space="preserve">
+    <value>Nur der Teamleiter kann das Team entfernen</value>
+  </data>
+  <data name="ProjectManager_DeleteTeam_Team_deleted" xml:space="preserve">
+    <value>Team entfernt</value>
+  </data>
+  <data name="ProjectManager_DeleteTeam_Team_not_found" xml:space="preserve">
+    <value>Team nicht gefunden</value>
+  </data>
+  <data name="OrdersController_DeletePreOrder_Product_cannot_be_removed_" xml:space="preserve">
+    <value>Product kann nicht entfernt werden.</value>
+  </data>
+  <data name="OrdersController_DeletePreOrder_Product___0___has_been_removed_" xml:space="preserve">
+    <value>Produkt '{0}' wurde entfernt.</value>
+  </data>
+  <data name="OrdersController_OrderAddress_Address_changed_" xml:space="preserve">
+    <value>Adresse geändert.</value>
+  </data>
+  <data name="OrdersController_OrderAddress_No_user_profile__purchase_cannot_be_stored_permanently_" xml:space="preserve">
+    <value>Es gibt kein Benutzerprofil, deshalb kann die Bestellung nicht permanent gespeichert werden.</value>
+  </data>
+  <data name="OrdersController_OrderMedia_Product_has_been_set_to_types___0___" xml:space="preserve">
+    <value>Produkt wurde auf Typ '{0}' gesetzt.</value>
+  </data>
+  <data name="MessagingController_AddMessage_Successfully_send__" xml:space="preserve">
+    <value>Nachricht erfolgreich gesendet!</value>
+  </data>
+  <data name="MessagingController_DeleteMessage_Message_deleted__" xml:space="preserve">
+    <value>Nachricht gelöscht.</value>
+  </data>
+  <data name="AccountController_ResendActivationMail_The_name_provided_has_not_been_found" xml:space="preserve">
+    <value>Der Name wurde weder als Benutzername noch als E-Mail gefunden. Rufe unter 0700-texxtoor an, um weitere Hilfe zu erhalten.</value>
+  </data>
+  <data name="OpusController_Edit_Text_information_saved" xml:space="preserve">
+    <value>Text-Informationen wurden gespeichert.</value>
+  </data>
+  <data name="OpusController_Edit_An_error_occured_sending_data__Please_check_the_form_" xml:space="preserve">
+    <value>Es trat ein Fehler beim Senden auf. Bitte prüfe die Formulardaten.</value>
+  </data>
+  <data name="OpusController_Merge_Text_Ok" xml:space="preserve">
+    <value>Kapitel auf Zieltext übertragen</value>
+  </data>
+  <data name="ProductionManager_Div_Figure" xml:space="preserve">
+    <value>:</value>
+  </data>
+  <data name="ProductionManager_Div_Listing" xml:space="preserve">
+    <value>:</value>
+  </data>
+  <data name="ProductionManager_Div_Sec1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ProductionManager_Div_Sec2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ProductionManager_Div_Sec3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ProductionManager_Div_Sec4" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ProductionManager_Div_Table" xml:space="preserve">
+    <value>:</value>
+  </data>
+  <data name="ProductionManager_Label_Figure" xml:space="preserve">
+    <value>Abbildung</value>
+  </data>
+  <data name="ProductionManager_Label_Listing" xml:space="preserve">
+    <value>Listing</value>
+  </data>
+  <data name="ProductionManager_Label_Sec1" xml:space="preserve">
+    <value>&amp;#160;&amp;#160;</value>
+  </data>
+  <data name="ProductionManager_Label_Sec2" xml:space="preserve">
+    <value>&amp;#160;&amp;#160;</value>
+  </data>
+  <data name="ProductionManager_Label_Sec3" xml:space="preserve">
+    <value>&amp;#160;&amp;#160;</value>
+  </data>
+  <data name="ProductionManager_Label_Sec4" xml:space="preserve">
+    <value>&amp;#160;&amp;#160;</value>
+  </data>
+  <data name="ProductionManager_Label_Table" xml:space="preserve">
+    <value>Tabelle</value>
+  </data>
+  <data name="ProductionManager_Sep_Figure" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="ProductionManager_Sep_Listing" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="ProductionManager_Sep_Sec1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ProductionManager_Sep_Sec2" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="ProductionManager_Sep_Sec3" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="ProductionManager_Sep_Sec4" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="ProductionManager_Sep_Table" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="ReaderManager_CopyWork_Copy_from" xml:space="preserve">
+    <value>Kopiert von '{0}'</value>
+  </data>
+  <data name="ReaderController_DeleteWork_Work_deleted" xml:space="preserve">
+    <value>Text {0} wird gelöscht.</value>
+  </data>
+  <data name="ReaderController_EditWork_Work_changed" xml:space="preserve">
+    <value>Text {0} geändert</value>
+  </data>
+  <data name="ReaderManager_GatOrAddProductForWork_Product_" xml:space="preserve">
+    <value>Produkt </value>
+  </data>
+  <data name="OrdersController_QuickMedia_There_are_no_media_selected__Select_at_least_one_" xml:space="preserve">
+    <value>Es wurde kein Medium ausgewählt. Wähle mindestens eines.</value>
+  </data>
+  <data name="ProjectManager_GetOrCreatePublished_Article_Title" xml:space="preserve">
+    <value>Artikel {0} wurde von {1} am {2} veröffentlicht</value>
+  </data>
+  <data name="ProjectManager_AddCommentForWorkitem_WorkItem_Comment" xml:space="preserve">
+    <value>Kommentar zum Element</value>
+  </data>
+  <data name="ProjectManager_AddCommentForWorkitem_WorkItem_Name" xml:space="preserve">
+    <value>Elementkommentar</value>
+  </data>
+  <data name="ProjectManager_GetPublishedAndLoad_Default_Package" xml:space="preserve">
+    <value>Standardpaket</value>
+  </data>
+  <data name="ProjectManager_GetPublishedAndLoad_Generated_Package" xml:space="preserve">
+    <value>Paket wurde generiert</value>
+  </data>
+  <data name="ProjectManager_CreateProject_Primary_Marketing_Package_for_project_" xml:space="preserve">
+    <value>Erstes Marketingpaket für das Projekt {0}</value>
+  </data>
+  <data name="ProjectManager_CreateProject__Package" xml:space="preserve">
+    <value>Paket</value>
+  </data>
+  <data name="ProjectManager_CreateProject_Chapter" xml:space="preserve">
+    <value>Kapitel</value>
+  </data>
+  <data name="ProjectManager_CreateDefaultMileStones_Writing" xml:space="preserve">
+    <value>Schreiben</value>
+  </data>
+  <data name="ProjectManager_CreateDefaultMileStones_Illustrations" xml:space="preserve">
+    <value>Illustrationen</value>
+  </data>
+  <data name="ProjectManager_CreateDefaultMileStones_CopyEditing" xml:space="preserve">
+    <value>Korrekturlesen</value>
+  </data>
+  <data name="ProjectManager_CreateDefaultMileStones_Proof" xml:space="preserve">
+    <value>Fachliche Kontrolle</value>
+  </data>
+  <data name="ProjectManager_CreateDefaultMileStones_Marketing" xml:space="preserve">
+    <value>Marketing</value>
+  </data>
+  <data name="ProjectManager_CreateDefaultMileStones_Create_Content" xml:space="preserve">
+    <value>Inhalte erstellen</value>
+  </data>
+  <data name="ProjectManager_CreateDefaultMileStones_Create_Illustrations" xml:space="preserve">
+    <value>Illustrationen erstellen</value>
+  </data>
+  <data name="ProjectManager_CreateDefaultMileStones_Copy_Editing" xml:space="preserve">
+    <value>Text auf Rechtschreibung kontrollieren</value>
+  </data>
+  <data name="ProjectManager_CreateDefaultMileStones_Proof_Read" xml:space="preserve">
+    <value>Fachlektorat und Qualitätskontrolle</value>
+  </data>
+  <data name="ProjectManager_CreateDefaultMileStones_Create_Marketing_Package" xml:space="preserve">
+    <value>Marketingpaket erzeugen</value>
+  </data>
+  <data name="ProjectManager_CreateProject__0__Team" xml:space="preserve">
+    <value>Team {0}</value>
+  </data>
+  <data name="ProjectManager_CreateFromTemplate_First_Chapter" xml:space="preserve">
+    <value>Erstes Kapitel</value>
+  </data>
+  <data name="ProjectManager_CreateFromTemplate_Preface" xml:space="preserve">
+    <value>Vorwort</value>
+  </data>
+  <data name="ProjectManager_CreateFromTemplate_Chapter_" xml:space="preserve">
+    <value>Kapitel </value>
+  </data>
+  <data name="ProjectManager_CreateFromTemplate_Index" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="OpusController_CreateFromTemplateSimple__0_s_Team" xml:space="preserve">
+    <value>{0}s Team</value>
+  </data>
+  <data name="OpusController_CreateFromTemplateSimple__0_s_Team_for_a_simple_project" xml:space="preserve">
+    <value>{0}s Team für ein einfaches Projekt</value>
+  </data>
+  <data name="OpusController_CreateFromTemplateSimple_Simple_Project" xml:space="preserve">
+    <value>Einfaches Projekt</value>
+  </data>
+  <data name="OpusController_CreateFromTemplateSimple_A_simple_project_created_implicitly" xml:space="preserve">
+    <value>Ein einfacher Text, imlizit erstellt</value>
+  </data>
+  <data name="OpusController_CreateFromTemplateSimple_New_Book" xml:space="preserve">
+    <value>Neuer Text</value>
+  </data>
+  <data name="CommunityController_SaveProfile_Profil_gespeichert" xml:space="preserve">
+    <value>Profil gespeichert</value>
+  </data>
+  <data name="CommunityController_SaveProfile_Fehler_" xml:space="preserve">
+    <value>Fehler:</value>
+  </data>
+  <data name="MenuService_CreatePropertyBag_No_Profile" xml:space="preserve">
+    <value>Kein Profil</value>
+  </data>
+  <data name="MenuService_CreatePropertyBag_Profile_Exists" xml:space="preserve">
+    <value>Profil vorhanden</value>
+  </data>
+  <data name="AccountController_QuickForm_Fehler_beim_Ausfüllen_der_Form_" xml:space="preserve">
+    <value>Fehler beim Ausfüllen der Form.</value>
+  </data>
+  <data name="AccountController_DeleteUserFile_File_moved_to_recycle_bin_" xml:space="preserve">
+    <value>Datei in Papierkorb verschoben.</value>
+  </data>
+  <data name="AccountController_DeleteUserFilePermanently_File_removed_from_recycle_bin_" xml:space="preserve">
+    <value>Datei aus dem Papierkorb zurückgeholt.</value>
+  </data>
+  <data name="AccountController_RecoverUserFile_File_is_active_now_" xml:space="preserve">
+    <value>Datei ist jetzt aktiv.</value>
+  </data>
+  <data name="GroupsController_AddGroup_Group_created" xml:space="preserve">
+    <value>Gruppe angelegt</value>
+  </data>
+  <data name="GroupsController_AddQuestion_Question_created" xml:space="preserve">
+    <value>Frage gestellt</value>
+  </data>
+  <data name="GroupsController_AddAnswer_Answer_added" xml:space="preserve">
+    <value>Antwort hinzugefügt</value>
+  </data>
+  <data name="GroupsController_EditQuestion_Question_changed" xml:space="preserve">
+    <value>Frage geändert</value>
+  </data>
+  <data name="GroupsController_DeleteGroup_Group_deleted" xml:space="preserve">
+    <value>Gruppe gelöscht</value>
+  </data>
+  <data name="GroupsController_EditGroup_Group_changed" xml:space="preserve">
+    <value>Gruppe geändert</value>
+  </data>
+  <data name="ProjectController_AddProject__0__Project_successfully_created_" xml:space="preserve">
+    <value>Projekt {0} wurde erstellt.</value>
+  </data>
+  <data name="ProjectManager_GetTermSetsForProject_Default_Termset" xml:space="preserve">
+    <value>Standardbegriffe</value>
+  </data>
+  <data name="ProjectManager_GetTermSetsForProject_This_is_the_default_termset_that_keeps_all_terms_not_defined_in_specific_termsets" xml:space="preserve">
+    <value>Die Standardliste für alle Begriffe, die keinem bestimmten Projekt zugeordnet sind.</value>
+  </data>
+  <data name="ReaderController_DeleteComments__0__comments_deleted" xml:space="preserve">
+    <value>{0} Kommentare entfernt</value>
+  </data>
+  <data name="ReaderController_DeleteComment__0__comment_deleted" xml:space="preserve">
+    <value>{0} Kommentar entfernt</value>
+  </data>
+  <data name="AccountingManager_HandleRevenueShare_Your_share_amount_for__0_" xml:space="preserve">
+    <value>Dein Anteil für {0}</value>
+  </data>
+  <data name="OrderManager_CreateOrderProductInternal_Order_for__0_" xml:space="preserve">
+    <value>Bestellung für {0}</value>
+  </data>
+  <data name="PublishingController_Processing_HTMLText" xml:space="preserve">
+    <value>Zeige HTML an oder lade herunter</value>
+  </data>
+  <data name="HomeController_AddFavorite_Already_There" xml:space="preserve">
+    <value>Das Element ist bereits in der Liste</value>
+  </data>
+  <data name="HomeController_AddFavorite_Favorite_added" xml:space="preserve">
+    <value>Favorit hinzugefügt</value>
+  </data>
+  <data name="HomeController_QuickFormAuthor_Quickstart_project__0__created_at__1_" xml:space="preserve">
+    <value>Schnellstartprojekt {0} wurde am {1} erstellt</value>
+  </data>
+  <data name="HomeController_QuickFormAuthor_Team_for_project__0___Quick_Start_" xml:space="preserve">
+    <value>Team für Projekt {0} (Schnellstart)</value>
+  </data>
+  <data name="HomeController_QuickFormAuthor_The_project__0___created_at__1__was_build" xml:space="preserve">
+    <value>Das Projekt {0} wurde am {1} mit der Schnellstartfunktion erstellt. Der Beschreibungstext sollte geändert werden, damit die anderen Teammitglieder mehr über dieses Projekt erfahren.</value>
+  </data>
+  <data name="ProjectManager_GetTermSetsForProject_First_public_termset_for_the_specific_project_" xml:space="preserve">
+    <value>Erste öffentliche Begriffsliste für das ausgewählte Projekt.</value>
+  </data>
+  <data name="ProductionManager_Div_Sec5" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ProductionManager_Div_Sec6" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ProductionManager_Label_Sec5" xml:space="preserve">
+    <value>&amp;#160;&amp;#160;</value>
+  </data>
+  <data name="ProductionManager_Label_Sec6" xml:space="preserve">
+    <value>&amp;#160;&amp;#160;</value>
+  </data>
+  <data name="ProductionManager_Sep_Sec5" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="ProductionManager_Sep_Sec6" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="PublishingController_AuthorPreview_Not_Set" xml:space="preserve">
+    <value>Nicht festgelegt</value>
+  </data>
+  <data name="AccountController_Register_An_account_with_this_email_already_exists_" xml:space="preserve">
+    <value>Ein Konto mit dieser E-Mail ist bereits vorhanden</value>
+  </data>
+  <data name="AccountController_ConfirmAssociation_You_are_not_authorized" xml:space="preserve">
+    <value>Es ist keine Berechtigung zum Zugriff vorhanden</value>
+  </data>
+  <data name="AccountController_ExternalLoginAssociation_This_email_is_not_registered_with_us" xml:space="preserve">
+    <value>Diese E-Mail wird nicht bei uns registriert.</value>
+  </data>
+  <data name="TeamController_EditTeam_Team_name_changed_to" xml:space="preserve">
+    <value>Teamname geändert in '{0}'.</value>
+  </data>
+  <data name="ResourceController_EmptyTrash_Files_deleted" xml:space="preserve">
+    <value>Dateien gelöscht</value>
+  </data>
+  <data name="ResourceController_EmptyTrash_No_files_deleted" xml:space="preserve">
+    <value>Keine Dateien gelöscht. Du kannst nur deine eigenen Dateien endgültig löschen.</value>
+  </data>
+  <data name="TeamController_AddMember_Member_added" xml:space="preserve">
+    <value>Mitglied hinzugefügt</value>
+  </data>
+  <data name="TeamController_RemoveMember_Member_removed" xml:space="preserve">
+    <value>Mitglied entfernt</value>
+  </data>
+  <data name="TeamController_RemoveMember_Cannot_remove_member" xml:space="preserve">
+    <value>Mitglied konnte nicht entfernt werden</value>
+  </data>
+  <data name="TeamController_AssignRole_Role_for_team_member_assigned" xml:space="preserve">
+    <value>Rolle wurde dem Mitglied zugewiesen</value>
+  </data>
+  <data name="HomeController_RemoveFavorite_Favorite_entry_removed" xml:space="preserve">
+    <value>Der Favoriteneintrag wurde entfernt </value>
+  </data>
+  <data name="TeamController_AddTeam__0__Team_successfully_created_" xml:space="preserve">
+    <value>Team '{0}' wurde angelegt.</value>
+  </data>
+  <data name="MessagingController_SendMessage_You_must_at_least_select_one_user" xml:space="preserve">
+    <value>Es muss wenigstens ein Empfänger angegeben werden</value>
+  </data>
+</root>

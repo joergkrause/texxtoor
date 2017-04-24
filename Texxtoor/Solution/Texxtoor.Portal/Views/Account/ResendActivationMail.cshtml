@@ -1,0 +1,24 @@
+﻿@model Texxtoor.ViewModels.Users.ResendMail
+@{
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+  PageData["Title"] = Loc("title1", "Send Activation Email");
+}
+@using (Html.BtDiv(BtStyle.Well)) {
+  if (Model != null && ViewBag.SendError == null) {
+    @Loc("text1", "This confirms resending the activation mail. Welcome to texxtoor. After you get the mail click on the link provided to verify the address.")
+  } else {
+    if (ViewBag.SendError != null) {
+      <div class="alert alert-warning">
+        @ViewBag.SendError
+      </div>
+    }
+    using (Html.BeginForm()) {
+      using (Html.BtFieldset(Loc("text2", "You must at least provide a username or an email address to get access to your account."))) {
+        @Html.EditorForModel()
+        <div class="formsendButtons">
+          <input type="submit" value="@ViewResources.Action_Common_Mail_Send" class="btn btn-primary" />
+        </div>
+      }
+    }
+  }
+}

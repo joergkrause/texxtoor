@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mail locale="en" name="texxtoor">
+  <template name="QuickForm">
+    <![CDATA[
+    <subject>Mail Quickform</subject>
+    <body>
+      User {Name}, Phone {Phone}, has following project proposal: {ProjectName}.
+    </body>
+    ]]>
+  </template>
+  <template name="QuickForm-Sender" >
+    <![CDATA[
+    <subject>Thanks for your inquery</subject>
+    <body>
+      Dear Author,
+      
+      thanks for your interest in our platform. We'll contact you shortly.
+      
+      Your texxtoor Team
+      
+      User {Name}, Phone {Phone}, Project Proposal: {ProjectName}.
+    </body>
+    ]]>
+  </template>
+  <template name="WelcomeUser" >
+    <![CDATA[
+    <subject>{UserName} has been registred at texxtoor!</subject>
+    <body>
+      Welcome to texxtoor, {UserName}!
+      
+      texxtoor provides a ubiquitos platform for publishing of non-fiction texts on all devices and for traditional print.
+      
+      For perfect communication with you, your team, your contributors and to the production process we need a reliable communication channel. Hence
+      we check the provided e-mail. Please, confirm by clicking the link below and you can use all functions immediately.
+      
+      <a href="{ConfirmLink}">{ConfirmLink}</a>
+      
+      You has been registered as: {UserName}.
+
+      Kind regards, your texxtoor team
+      
+    </body>
+    ]]>
+  </template>
+  <template name="ConfirmAssociation" >
+    <![CDATA[
+    <subject>Confirmation of social network account association!</subject>
+    <body>
+     Dear {UserName}!
+      
+      Your Confirmation code is {ConfirmCode}
+      
+    </body>
+    ]]>
+  </template>
+</mail>

@@ -1,0 +1,809 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1CE8BAD2-395A-4393-A3D9-6F82C14B519A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Texxtoor.Database.Initializer</RootNamespace>
+    <AssemblyName>Texxtoor.Database.Initializer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\Apps\StudioApps\AugmentedBooks\TexxtoorPortal\uwe-nb732-setup\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>88E4A73EDB8F8551A62C4EFCE64D6992D06A9831</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Texxtoor.DataBase.Initializer_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Open XML SDK\V2.0\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.0.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PortalDbDataInitializer.cs" />
+    <Compile Include="Program.cs" />
+    <Content Include="catalog\MM\Catalog.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="localize\MM\Localization.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="localize\MM\Localization.de.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PortalContent.MM.en.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PortalContent.MM.de.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="projects\aspnet.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="projects\IIS 8.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="projects\iis8.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="projects\projects.xml">
+      <SubType>Form</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\ASPNETEXT_jkrause.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0101.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0102.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0103.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0104.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0105.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0106.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0107.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0108.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0109.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0110.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0111.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0112.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0202.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0203.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0204.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0205.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0206.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0207.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0208.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0209.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0210.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0211.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0300.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0301.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0302.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0303.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0304.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0305.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0306.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0307.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0308.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0309.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0310.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0311.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0312.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0313.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0314.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0315.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0316.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0317.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0318.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0319.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0320.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0501.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0502.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0503.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0504.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0505.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0700.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0701.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\19835f0702.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\WinArticle1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\WindowsCE7.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\Windows_3.0_workspace.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\Windows_8-Metro_Screen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\images\Windows_95_Desktop_screenshot.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\ASPNETEXT_jkrause_2.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\ASPNETEXT_jkrause_3.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\ASPNETEXT_jkrause_4.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\ASPNETEXT_jkrause_5.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\ASPNETEXT_jkrause_6.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\ASPNETEXT_jkrause_7.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\ASPNETEXT_jkrause_1.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PortalContent.AC2.en.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="epubs\de\Published.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="epubs\en\Published.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="isbn\isbn.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="jobs\jobcategories.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lang\cities.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lang\countries.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lang\countrylanguages.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="localize\T\Localization.de.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="localize\T\Localization.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MessagingText.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PortalContent.AC2.de.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PortalContent.T.de.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PortalContent.T.en.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resfiles\ASP.NET 4.0.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resfiles\ASP.NET 3.5.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resfiles\NET 3.5.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resfiles\WCF 4.0.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resfiles\WCF 3.5.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\MM\Epub\de\EBook\cover.jpg" />
+    <Content Include="Templates\MM\Epub\de\EBook\frontcover.xml" />
+    <Content Include="Templates\MM\Epub\de\EBook\document.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Templates\MM\Epub\de\EBook\stylesheet.css" />
+    <Content Include="Templates\MM\Epub\en\EBook\cover.jpg" />
+    <Content Include="Templates\MM\Epub\en\EBook\frontcover.xml" />
+    <Content Include="Templates\MM\Epub\en\EBook\document.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Templates\MM\Epub\en\EBook\stylesheet.css" />
+    <Content Include="Templates\MM\Html\de\Default\document.xml" />
+    <Content Include="Templates\MM\Html\de\Default\stylesheet.css" />
+    <Content Include="Templates\MM\Html\en\Default\document.xml" />
+    <Content Include="Templates\MM\Html\en\Default\stylesheet.css" />
+    <Content Include="Templates\MM\Mail\templates-de.xml" />
+    <Content Include="Templates\MM\Mail\templates-en.xml" />
+    <Content Include="Templates\MM\Pdf\de\CoachScript\document.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Templates\MM\Pdf\de\CoachScript\Fonts\UFL.txt" />
+    <Content Include="Templates\MM\Pdf\de\CoachScript\frontcover.xml" />
+    <Content Include="Templates\MM\Pdf\de\CoachScript\print.css" />
+    <Content Include="Templates\MM\Pdf\de\CoachScript\toc.xml" />
+    <Content Include="Templates\MM\Pdf\de\Common Template\about.xml" />
+    <Content Include="Templates\MM\Pdf\de\Common Template\cover.png" />
+    <Content Include="Templates\MM\Pdf\de\Common Template\cover.xml" />
+    <Content Include="Templates\MM\Pdf\de\Common Template\document.xml" />
+    <Content Include="Templates\MM\Pdf\de\Common Template\frontcover.xml" />
+    <Content Include="Templates\MM\Pdf\de\Common Template\imprint.xml" />
+    <Content Include="Templates\MM\Pdf\de\Common Template\index.xml" />
+    <Content Include="Templates\MM\Pdf\de\Common Template\print.css" />
+    <Content Include="Templates\MM\Pdf\de\Common Template\toc.xml" />
+    <Content Include="Templates\MM\Pdf\en\CoachScript\document.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Templates\MM\Pdf\en\CoachScript\frontcover.xml" />
+    <Content Include="Templates\MM\Pdf\en\CoachScript\print.css" />
+    <Content Include="Templates\MM\Pdf\en\CoachScript\toc.xml" />
+    <Content Include="Templates\T\Epub\de\EBook\document.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Templates\T\Epub\en\EBook\document.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Templates\T\Html\de\Default\document.xml" />
+    <Content Include="Templates\T\Html\de\Default\stylesheet.css" />
+    <Content Include="Templates\T\Html\en\Default\document.xml" />
+    <Content Include="Templates\T\Html\en\Default\stylesheet.css" />
+    <Content Include="Templates\T\Epub\de\EBook\frontcover.xml" />
+    <Content Include="Templates\T\Epub\de\EBook\cover.jpg" />
+    <Content Include="Templates\T\Epub\en\EBook\frontcover.xml" />
+    <Content Include="Templates\T\Epub\en\EBook\cover.jpg" />
+    <Content Include="Templates\T\Epub\en\EBook\stylesheet.css" />
+    <Content Include="Templates\T\Epub\de\EBook\stylesheet.css" />
+    <Content Include="Templates\T\Mail\templates-en.xml" />
+    <Content Include="Templates\T\Mail\templates-de.xml" />
+    <Content Include="Templates\T\Pdf\de\CoachScript\document.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Templates\T\Pdf\de\CoachScript\Fonts\UFL.txt" />
+    <Content Include="Templates\T\Pdf\de\CoachScript\frontcover.xml" />
+    <Content Include="Templates\T\Pdf\de\CoachScript\print.css" />
+    <Content Include="Templates\T\Pdf\de\CoachScript\toc.xml" />
+    <Content Include="Templates\T\Pdf\de\Common Template\about.xml" />
+    <Content Include="Templates\T\Pdf\de\Common Template\cover.xml" />
+    <Content Include="Templates\T\Pdf\de\Common Template\cover.png" />
+    <Content Include="Templates\T\Pdf\de\Common Template\document.xml" />
+    <Content Include="Templates\T\Pdf\de\Common Template\frontcover.html" />
+    <Content Include="Templates\T\Pdf\de\Common Template\imprint.xml" />
+    <Content Include="Templates\T\Pdf\de\Common Template\index.xml" />
+    <Content Include="Templates\T\Pdf\de\Common Template\print.css" />
+    <Content Include="Templates\T\Pdf\de\Common Template\titlepage.xml" />
+    <Content Include="Templates\T\Pdf\de\Common Template\toc.xml" />
+    <Content Include="Templates\T\Pdf\en\CoachScript\document.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Templates\T\Pdf\en\CoachScript\frontcover.xml" />
+    <Content Include="Templates\T\Pdf\en\CoachScript\print.css" />
+    <Content Include="Templates\T\Pdf\en\CoachScript\toc.xml" />
+    <Content Include="users\%28V%29eister.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\2Giro4U.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\achimwetzler.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\Admin.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\author.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\bioalbert.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\bioarash.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\bioaston.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\biodrew.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\bionagy.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\bioteresa.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\Burk-Hart.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\CarlosNivi.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\ClaudiaFun.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\DaniK.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\Dieter1Mais.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\Ehrenfried.Stil.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\Gisi.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\HBubbak.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\HeinerFan.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\HMetzer.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\HyonLi.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\IcePlant.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\Jenny4ever.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\JessyWayne.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\JoergK.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\KaiAppelt.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\KaiserMen.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\Karin2Web.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\KesslerJan.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\KH-Mölders.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\KlausGrau.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\KM81.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\LudgerSieger.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\Melle22.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\Michi85.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\MM\Roles.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\MM\UserProfiles.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\MM\Users.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\Moritz2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\Pusteblume.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\reader1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\reader2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\reader3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\reader4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\RosMeißner.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\Schreiberline.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\Starlet_Moni.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\teamlead.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\TheAuthor.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\Tina92.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\WallE.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\Wheely.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\XavierFell.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Workflows.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="images\team_128.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OrderMedia.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ReaderGroups.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="PortalContent.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\app.manifest" />
+    <None Include="Templates\MM\Epub\de\EBook\Arial.otf" />
+    <None Include="Templates\MM\Epub\de\EBook\KDepubPI-Regular.otf" />
+    <None Include="Templates\MM\Epub\de\EBook\NotCourierSans-Bold.otf" />
+    <None Include="Templates\MM\Epub\de\EBook\NotCourierSans.otf" />
+    <None Include="Templates\MM\Epub\en\EBook\Arial.otf" />
+    <None Include="Templates\MM\Epub\en\EBook\KDepubPI-Regular.otf" />
+    <None Include="Templates\MM\Epub\en\EBook\NotCourierSans-Bold.otf" />
+    <None Include="Templates\MM\Epub\en\EBook\NotCourierSans.otf" />
+    <None Include="Templates\MM\Pdf\de\CoachScript\Fonts\Ubuntu-Bold.ttf" />
+    <None Include="Templates\MM\Pdf\de\CoachScript\Fonts\Ubuntu-BoldItalic.ttf" />
+    <None Include="Templates\MM\Pdf\de\CoachScript\Fonts\Ubuntu-Italic.ttf" />
+    <None Include="Templates\MM\Pdf\de\CoachScript\Fonts\Ubuntu-Light.ttf" />
+    <None Include="Templates\MM\Pdf\de\CoachScript\Fonts\Ubuntu-LightItalic.ttf" />
+    <None Include="Templates\MM\Pdf\de\CoachScript\Fonts\Ubuntu-Medium.ttf" />
+    <None Include="Templates\MM\Pdf\de\CoachScript\Fonts\Ubuntu-MediumItalic.ttf" />
+    <None Include="Templates\MM\Pdf\de\CoachScript\Fonts\Ubuntu-Regular.ttf" />
+    <None Include="Templates\MM\Pdf\de\Common Template\Fonts\Georgia.ttf" />
+    <None Include="Templates\T\Epub\de\EBook\Arial.otf" />
+    <None Include="Templates\T\Epub\en\EBook\Arial.otf" />
+    <None Include="Templates\T\Epub\en\EBook\KDepubPI-Regular.otf" />
+    <None Include="Templates\T\Epub\en\EBook\NotCourierSans-Bold.otf" />
+    <None Include="Templates\T\Epub\en\EBook\NotCourierSans.otf" />
+    <None Include="Templates\T\Epub\de\EBook\KDepubPI-Regular.otf" />
+    <None Include="Templates\T\Epub\de\EBook\NotCourierSans-Bold.otf" />
+    <None Include="Templates\T\Epub\de\EBook\NotCourierSans.otf" />
+    <None Include="Templates\T\Pdf\de\CoachScript\Fonts\Ubuntu-Bold.ttf" />
+    <None Include="Templates\T\Pdf\de\CoachScript\Fonts\Ubuntu-BoldItalic.ttf" />
+    <None Include="Templates\T\Pdf\de\CoachScript\Fonts\Ubuntu-Italic.ttf" />
+    <None Include="Templates\T\Pdf\de\CoachScript\Fonts\Ubuntu-Light.ttf" />
+    <None Include="Templates\T\Pdf\de\CoachScript\Fonts\Ubuntu-LightItalic.ttf" />
+    <None Include="Templates\T\Pdf\de\CoachScript\Fonts\Ubuntu-Medium.ttf" />
+    <None Include="Templates\T\Pdf\de\CoachScript\Fonts\Ubuntu-MediumItalic.ttf" />
+    <None Include="Templates\T\Pdf\de\CoachScript\Fonts\Ubuntu-Regular.ttf" />
+    <None Include="Templates\T\Pdf\de\Common Template\Fonts\Georgia.ttf" />
+    <None Include="Texxtoor.DataBase.Initializer_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="catalog\T\Catalog.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="content\Microsoft Windows.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="epubs\covers\Dracula.jpg" />
+    <Content Include="epubs\covers\Fannie.jpg" />
+    <Content Include="epubs\covers\Fauna.jpg" />
+    <Content Include="epubs\covers\Flatland.jpg" />
+    <Content Include="epubs\covers\Gulliver.jpg" />
+    <Content Include="epubs\covers\Huck.jpg" />
+    <Content Include="epubs\covers\Joyce.jpg" />
+    <Content Include="epubs\covers\Pied_piper.jpg" />
+    <Content Include="epubs\covers\Shelley.jpg" />
+    <Content Include="epubs\covers\warandpeace.jpg" />
+    <Content Include="epubs\covers\WarOfWorlds.jpg" />
+    <Content Include="epubs\covers\WizardOfOz.jpg" />
+    <Content Include="users\T\Roles.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Themes.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users\T\UserProfiles.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="users\T\Users.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Texxtoor.BaseLibrary.Core\Texxtoor.BaseLibrary.Core.csproj">
+      <Project>{307FEABA-C5A1-47B8-A0B5-0B56D982F570}</Project>
+      <Name>Texxtoor.BaseLibrary.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Texxtoor.BaseLibrary.EBookReader\Texxtoor.BaseLibrary.EPub.csproj">
+      <Project>{9B39F2CE-1D0F-4E23-A179-827DD0F39214}</Project>
+      <Name>Texxtoor.BaseLibrary.EPub</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Texxtoor.BusinessLayer\Texxtoor.BusinessLayer.csproj">
+      <Project>{280A2C48-203E-4C66-A63B-7AA571BD3D7E}</Project>
+      <Name>Texxtoor.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Texxtoor.DataLayer\Texxtoor.DataLayer.csproj">
+      <Project>{dd4e4b0b-7b5c-43f8-b47f-6c36d20283a9}</Project>
+      <Name>Texxtoor.DataLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\Blobs\Resources\" />
+    <Folder Include="Templates\MM\Editor\" />
+    <Folder Include="Templates\MM\Pdf\en\Common Template\" />
+    <Folder Include="Templates\T\Editor\" />
+    <Folder Include="Templates\T\Pdf\en\Common Template\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

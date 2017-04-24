@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<jobcategories>
+  <category name="Lektoren" locale="de">
+    Lektoren und Autorenbetreuer
+  </category>
+  <category name="Editor" locale="de">
+    Editor
+  </category>
+  <category name="Marketing" locale="de">
+    Marketing
+  </category>
+  <category name="Editor" locale="en">
+    Editor
+  </category>
+  <category name="Copy-Editor" locale="en">
+    Copy-Editor
+  </category>
+  <category name="Marketing" locale="en">
+    Marketing
+  </category>
+</jobcategories>

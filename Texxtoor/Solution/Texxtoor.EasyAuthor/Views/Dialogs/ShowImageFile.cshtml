@@ -1,0 +1,25 @@
+﻿<div ng-controller="showImageFileCtrl">
+  <div class="modal fade hidden-to-show" id="pictureshow" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <i class="icon-times pull-right" ng-click="close()"></i>
+          <h4 class="modal-title" id="myModalLabel">Show Picture</h4>
+        </div>
+        <div class="modal-body image-container">
+          <img ng-src="{{image.src}}" id="fullsizeimage" class="image" style="border: 1px solid silver; padding: 10px; max-width: 528px" />
+          <hr />
+          <label style="width: 100px">Width:</label><span class="editor-field" id="imgWidth">{{image.Width}}</span> px<br />
+          <label style="width: 100px">Height:</label><span class="editor-field" id="imgHeight">{{image.Height}}</span> px<br />
+          <label style="width: 100px">Res V:</label><span class="editor-field" id="imgDpiV">{{image.ResV}}</span> dots/inch<br />
+          <label style="width: 100px">Res H:</label><span class="editor-field" id="imgDpiH">{{image.ResH}}</span> dots/inch<br />
+          <label style="width: 100px">Format:</label><span class="editor-field" id="imgPx">{{image.Px}}</span><br />
+          <label style="width: 100px">Warning:</label><span class="editor-field" id="imgWarn">{{image.Warn}}</span>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@model IPagedList<Opus>
+@if (ViewBag.ProjectId != null && !(bool) ViewBag.Closed) {
+  if ((bool) ViewBag.UserIsLead) {
+    @Html.Partial("_Pagination", PaginationViewModel<Opus>.Create(Model, "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});",
+      new Dictionary<string, string> {
+        {"id", "createNewButton"},
+        {"href", Url.Action("CreateFromTemplate", "Opus", new {id = (int) ViewBag.ProjectId})},
+        {"text", ViewResources.TasksButton_CreateNewWork},
+        {"cssclass", BtStyle.ButtonPrimary}
+      },
+      true, m => m.Name, m => m.Version, m => m.ModifiedAt))
+  } else {
+    @Html.Partial("_Pagination", PaginationViewModel<Opus>.Create(Model, "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});", true, m => m.Name, m => m.Version, m => m.ModifiedAt))
+  }
+}
+@if ((bool) ViewBag.Closed && !Model.Any()) {
+  <div class="alert alert-warning">
+    @Loc("empty", "This list is empty. There is nothing to show. Choose a task to proceed.")
+  </div>
+}
+else {
+  <div class="multilist">
+    @foreach (var item in Model) {
+      <div class="listitem draggable" data-drop-item="@item.Id" data-title="@item.Name (@ViewResources.Action_Opus_WorkOnIt)" data-model="/AuthorPortal/Opus/Edit">
+        @Html.Partial("Opus/_Item", item)
+      </div>
+    }
+  </div>
+}

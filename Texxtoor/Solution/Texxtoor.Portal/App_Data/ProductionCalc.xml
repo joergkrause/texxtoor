@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<production>
+  <type name="Web">
+    <base>0</base>
+    <cover>0</cover>
+    <factorvolume>false</factorvolume>
+    <subscriptiondiscount>0.5</subscriptiondiscount>
+    <factorcolor>1</factorcolor>
+    <distributor>1</distributor>
+  </type>
+  <type name="iBook">
+    <base>100</base>
+    <cover>0</cover>
+    <factorvolume>false</factorvolume>
+    <subscriptiondiscount>0.5</subscriptiondiscount>
+    <factorcolor>1</factorcolor>
+    <distributor>1.3</distributor>
+  </type>
+  <type name="ePub">
+    <base>0</base>
+    <cover>0</cover>
+    <factorvolume>false</factorvolume>
+    <subscriptiondiscount>0.5</subscriptiondiscount>
+    <factorcolor>1</factorcolor>
+    <distributor>1</distributor>
+  </type>
+  <type name="Kindle">
+    <base>200</base>
+    <cover>0</cover>
+    <factorvolume>false</factorvolume>
+    <subscriptiondiscount>0.5</subscriptiondiscount>
+    <factorcolor>1</factorcolor>
+    <distributor>1.3</distributor>
+  </type>
+  <type name="AndroidApp">
+    <base>100</base>
+    <cover>0</cover>
+    <factorvolume>false</factorvolume>
+    <subscriptiondiscount>0.5</subscriptiondiscount>
+    <factorcolor>1</factorcolor>
+    <distributor>1.3</distributor>
+  </type>
+  <type name="Phone7App">
+    <base>100</base>
+    <cover>0</cover>
+    <factorvolume>false</factorvolume>
+    <subscriptiondiscount>0.5</subscriptiondiscount>
+    <factorcolor>1</factorcolor>
+    <distributor>1.3</distributor>
+  </type>
+  <type name="iPadApp">
+    <base>100</base>
+    <cover>0</cover>
+    <factorvolume>false</factorvolume>
+    <subscriptiondiscount>0.5</subscriptiondiscount>
+    <factorcolor>1</factorcolor>
+    <distributor>1.3</distributor>
+  </type>
+  <type name="Print">
+    <base>500</base>
+    <cover>250</cover>
+    <factorvolume>true</factorvolume>
+    <subscriptiondiscount>0.8</subscriptiondiscount>
+    <factorcolor>1</factorcolor>
+    <distributor>1.2</distributor>
+  </type>
+  <type name="PDF">
+    <base>100</base>
+    <cover>50</cover>
+    <factorvolume>false</factorvolume>
+    <subscriptiondiscount>0.6</subscriptiondiscount>
+    <factorcolor>1</factorcolor>
+    <distributor>1.0</distributor>
+  </type>
+</production>

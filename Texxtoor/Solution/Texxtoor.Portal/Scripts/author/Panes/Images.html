@@ -1,0 +1,61 @@
+﻿<li id="documentImages"></li>
+<li>
+  <h2 data-lc="Panes" data-p="Images_Insert"></h2>
+  <div class="ribbon-button" data-command="figure" data-action="upload">
+    <i class="icon-cloud-upload icon-2x block blue" title="Upload" ></i>
+    <span data-lc="Panes" data-p="Images_Upload"></span>
+  </div>
+  <div class="ribbon-button" data-command="figure" data-action="select">
+    <i class="icon-picture-o icon-2x block" title="Select"></i>
+    <span data-lc="Panes" data-p="Images_Images"></span>
+  </div>
+</li>
+<li>
+  <h2 data-lc="Panes" data-p="Images_Tools"></h2>
+  <div class="ribbon-list">
+    <div class="ribbon-button cmd-button isImage" data-command="figure" data-action="colors">
+      <i class="icon-camera" title="" ></i>
+      <span class="ribbon-smallicon" data-lc="Panes" data-p="Images_Tools_Colors"></span>
+    </div>
+    <div class="ribbon-button cmd-button isImage" data-command="figure" data-action="crop">
+      <i class="icon-crop" title="" ></i>
+      <span class="ribbon-smallicon" data-lc="Panes" data-p="Images_Tools_Crop"></span>
+    </div>
+  </div>
+</li>
+<li>
+  <h2 data-lc="Panes" data-p="Images_Measures"></h2>
+  <div class="ribbon-list">
+    <div>
+      <input style="margin-left: 10px; vertical-align: middle;" id="keepsize" class="ribbon-button cmd-button isImage" data-command="figure" checked="checked" data-action="keepsize"
+        type="checkbox" /><label style="vertical-align: middle;" data-lc="Panes" data-p="Image_Keep_Size"></label>
+    </div>
+    <table>
+      <tr>
+        <td rowspan="2">
+          <img id="keepratio1" data-state="disable" class="ribbon-button Editor_ratio1_png isImage"
+            style="display: none; margin-left: -10px; position: absolute; top: 33px; padding: 0" data-command="figure"
+            data-action="setratio" title="" />
+          <img id="keepratio2" data-state="disable" class="ribbon-button Editor_ratio2_png isImage"
+            style="margin-left: -10px; position: absolute; top: 33px; padding: 0" data-command="figure"
+            data-action="setratio" title="" />
+        </td>
+        <td><span data-lc="Panes" data-p="Images_Measures_Width"></span></td>
+        <td>
+          <input type="text" maxlength="4" class="isImage" style="width: 35px !important; height: 19px !important;" name="width" value="200" /></td>
+      </tr>
+      <tr>
+        <td><span data-lc="Panes" data-p="Images_Measures_Height"></span></td>
+        <td>
+          <input type="text" maxlength="4" class="isImage" style="width: 35px !important; height: 19px !important;" name="height" value="100" /></td>
+      </tr>
+    </table>
+  </div>
+</li>
+<li>
+  <h2 data-lc="Panes" data-p="Images_Delete"></h2>
+  <div class="ribbon-button isImage" data-command="delete" data-action="snippet">
+    <i class="icon-trash-o icon-2x block red" title="Delete" />
+    <span data-lc="Panes" data-p="Images_DeleteImage"></span>
+  </div>
+</li>

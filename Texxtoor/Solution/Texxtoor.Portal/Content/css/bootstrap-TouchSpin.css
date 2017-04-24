@@ -1,0 +1,24 @@
+﻿.bootstrap-touchspin {
+  display: inline-block !important;
+}
+
+  .bootstrap-touchspin > span {
+    display: inline;
+  }
+
+  .bootstrap-touchspin > input {
+    display: inline !important;
+  }
+
+  .bootstrap-touchspin > .input-group-btn {
+    width: initial !important;
+    display: inline-table !important;
+  }
+
+.bootstrap-touchspin-down {
+  min-width: initial !important;
+}
+
+.bootstrap-touchspin-up {
+  min-width: initial !important;
+}

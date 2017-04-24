@@ -1,0 +1,41 @@
+﻿@model Texxtoor.DataModels.Models.Content.Opus
+<form>
+  @using (Html.BtFieldset(Loc("lblHistory", "Document History and Relations"))) {
+    using (Html.BtDiv(BtStyle.WellAndSmall)) {
+      @Loc("textVer", @"This is version <em><span data-args='0' data-desc='Version'>{0}</span></em>.", Model.Version + " / " + Model.VariationName)
+      <div class="pull-right">@Model.CreatedAt.ToShortDateString()</div>
+    }
+    <h3>@Loc("titleRelation", "Connected Texts")</h3>
+    var parent = (Texxtoor.DataModels.Models.Content.Opus)Model.PreviousVersion;
+    <ul class="sidemenu">
+      @while (parent != null) {
+        <li>
+          @Loc("derivedFrom", "Derived from text <em>{0} ({1} / {2})</em>", parent.Name, parent.Version, parent.VariationName)
+          <div class="pull-right">@parent.CreatedAt.ToShortDateString()</div>
+          <a href="@Url.Action("Edit", new {id = parent.Id})" class="btn btn-sm btn-link">@Loc("lnkOpus", "Edit this issue")</a>
+        </li>
+        parent = (Texxtoor.DataModels.Models.Content.Opus)parent.PreviousVersion;
+      }
+    </ul>
+      var connections = Model.Project.Opuses.Where(o => o.PreviousVersion != null && o.PreviousVersion.Id == Model.Id && o.Active).ToList();
+      if (connections.Any()) {
+        using (Html.BtDiv(BtStyle.WellAndSmall)) {
+          @Loc("derivredTo", "This version has {0} active offsprings.", connections.Count())
+        }
+        <ul class="sidemenu">
+          @foreach (var connection in connections) {
+            <li>
+              @connection.Name (@connection.Version / @connection.VariationName)
+              <div class="pull-right">@connection.CreatedAt.ToShortDateString()</div>
+              &nbsp;<a href="@Url.Action("Edit", new {id = connection.Id})" class="btn btn-sm btn-link">@Loc("lnkOpus", "Edit this issue")</a>
+            </li>
+          }
+        </ul>
+      } else {
+        using (Html.BtDiv(BtStyle.WellAndSmall & BtStyle.AlertSuccess)) {
+          @:Version <em>@Model.Version / @Model.VariationName</em>:
+          @Loc("derivredNo", "This version has no active offsprings. It is the current issue.")
+        }
+      }
+  }
+</form>

@@ -1,0 +1,31 @@
+﻿@model Texxtoor.DataModels.Models.Content.Project
+<div class="well well-sm">
+  @Loc("textRes", @"See resources data or switch to resource management.")
+  @Loc("textSem", @"Manage semantic data for the project, such as dynamic variables, cites, and abbreviations.")
+</div>
+<ul class="sidemenu">
+  <li>
+    <em>@(Model.Resources.OfType<Texxtoor.DataModels.Models.Content.ResourceFile>().Count())</em>
+    @Loc("textTotal", @"files total in the resource manager.")
+  </li>
+  <li>
+    <em>@(Model.Resources.OfType<Texxtoor.DataModels.Models.Content.ResourceFile>().Count(f => f.TypesOfResource == Texxtoor.DataModels.Models.Content.TypeOfResource.Content))</em>
+    @Loc("textContent", @"files are available for Content.")
+  </li>
+  <li>
+    <em>@(Model.Resources.OfType<Texxtoor.DataModels.Models.Content.ResourceFile>().Count(f => f.TypesOfResource == Texxtoor.DataModels.Models.Content.TypeOfResource.Project))</em>
+    @Loc("textProject", @"files are available as project support files.")
+    <em>@(Model.Resources.OfType<Texxtoor.DataModels.Models.Content.ResourceFile>().Count(f => f.TypesOfResource == Texxtoor.DataModels.Models.Content.TypeOfResource.Project && f.Published != null && f.Published.Any()))</em>
+    @Loc("textProjectPublished", @"of these files have been assigned to published texts.")
+  </li>
+  <li>
+    <em>@(Model.Resources.OfType<Texxtoor.DataModels.Models.Content.ResourceFile>().Count(f => f.TypesOfResource == Texxtoor.DataModels.Models.Content.TypeOfResource.Trash))</em>
+    @Loc("textDeleted", @"files are deleted.")
+  </li>
+  <li>
+    <em>@(Model.Resources.OfType<Texxtoor.DataModels.Models.Content.ResourceFile>().Count(f => f.TypesOfResource == Texxtoor.DataModels.Models.Content.TypeOfResource.Import))</em>
+    @Loc("textImported", @"files have been imported.")
+  </li>
+</ul>
+@Create.ActionTask("", false, Url.Action("Termsets", "Resource", new { id = Model.Id }), ViewResources.TasksButton_SemanticData)
+@Create.ActionTask("", false, Url.Action("Index", "Resource", new { id = Model.Id }), ViewResources.TasksButton_FileResources)

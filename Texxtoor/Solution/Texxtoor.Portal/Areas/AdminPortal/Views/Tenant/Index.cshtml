@@ -1,0 +1,14 @@
+﻿@{
+  PageData["Title"] = "Index";
+  Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+
+<h1>Tenant Management
+  @Html.ActionLink("Create New", "Create", "Tenant", new { @class = "backNavButton btn btn-primary backArrowBlack" })
+</h1>
+<p>
+  Use this application to create and manage tenants.
+</p>
+<p>
+  @Html.Action("ShowTenants")
+</p>

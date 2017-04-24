@@ -1,0 +1,208 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@model IEnumerable<TemplateGroup>
+@{
+  PageData["Title"] = Loc("title1", "Preview Your Work");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("textPrev1", @"While your content appears in multiple ways on texxtoor, the preview given here shows it 'as is'.");
+  if (ViewBag.PresetType == null) {
+    ViewBag.PresetType = "pdf";
+  }
+}
+@{
+  var pdfTemplates = Model.Where(t => t.Group == GroupKind.Pdf).OrderBy(t => t.Name).ToList();
+  var epubTemplates = Model.Where(t => t.Group == GroupKind.Epub).OrderBy(t => t.Name).ToList();
+  var htmlTemplates = Model.Where(t => t.Group == GroupKind.Html).OrderBy(t => t.Name).ToList();
+}
+@section HeadContent{
+  <script>
+    $(function () {
+      $('#productionProgress').progressbar({
+        max: 100,
+        value: 0
+      });
+      var hideAll = function () {
+        $('li').removeClass('processing');
+        $('#message').parent().hide();
+        $('#result').parent().hide();
+        $('#message').text('');
+        $('#result').text('');
+      };
+      hideAll();
+      $('button[data-type]').on('click', function () {
+        var li = $(this);
+        var type = $(li).data('type');
+        if (li.hasClass('processing'))
+          return false;
+        hideAll();
+        $(li).addClass('processing');
+        $.ajax({
+          url: '@Url.Action("AuthorPreviewProduction")',
+          data: {
+            id: '@ViewBag.OpusId',
+            type: type,
+            templateGroupId: $(li).data('value')
+          },
+          type: 'POST',
+          success: function (data) {
+            $(li).removeClass('processing');
+            $('#message').text(data.msg);
+            var report = $('<ul>');
+            if (data.report) {
+              $.each(data.report, function (i, e) {
+                var clr = '#000';
+                switch (i) {
+                  case "Information":
+                    clr = "green";
+                    break;
+                  case "Warning":
+                    clr = "orange";
+                    break;
+                  case "Error":
+                    clr = "red";
+                    break;
+                }
+                report
+                  .append($('<li>')
+                    .append($('<span>' + i.toUpperCase() + '</span>')
+                      .css({ color: clr }))
+                    .append(": " + data.report[i]));
+              });
+            }
+            $('#message').append(report);
+            $('#message').parent().show();
+            $('#result').html("<a class='btn btn-warning btn-sm' href='" + data.href + "'>" + data.link + "</a>");
+            $('#result').parent().show();
+          }
+        });
+        return false;
+      });
+    });
+
+  </script>
+}
+<div id="productionProgress"></div>
+<div id="productionProgressMessage" style="display:none">@Loc("notStarted", "Not Started")</div>
+@using (Html.BtDiv(BtStyle.AlertAndSuccess & BtStyle.Hidden)) {
+  <span id="message"></span>
+}
+@using (Html.BtDiv(BtStyle.AlertAndInfo & BtStyle.Hidden)) {
+  <a href="#" id="result"></a>
+}
+<ul class="nav nav-tabs" id="resNav">
+  <li class="@(ViewBag.PresetType == "pdf" ? "active": "")"><a href="#pdf" data-toggle="tab">@Loc("titlePdfTemplates", "Select a Template for PDF Output")</a></li>
+  <li class="@(ViewBag.PresetType == "epub" ? "active": "")"><a href="#epub" data-toggle="tab">@Loc("titleEpubTemplate", "Select a Template for EPUB Output")</a></li>
+  <li class="@(ViewBag.PresetType == "html" ? "active": "")"><a href="#html" data-toggle="tab">@Loc("titleHtml", "Get Preview as plain HTML")</a></li>
+  <li class="@(ViewBag.PresetType == "rss" ? "active": "")"><a href="#rss" data-toggle="tab">@Loc("titleRSS", "Get Preview as RSS Feed")</a></li>
+  <li class="@(ViewBag.PresetType == "app" ? "active": "")"><a href="#app" data-toggle="tab">@Loc("titleApp", "Get an App Preview ")</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane @(ViewBag.PresetType == "pdf" ? "active": "")" id="pdf">
+    @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+      @Loc("textPdfTemplates", "Click a template name. The file will be created in the background. You can choose any template to see different results.")
+    }
+    @if (pdfTemplates.Any()) {
+      <div class="container">
+        @foreach (var item in pdfTemplates) {
+          <div class="row">
+            <div class="col-md-3 ">
+              <button data-type="pdf" data-value="@item.Id" class="@BtStyle.ButtonAndPrimary btn btn-block" style="margin-right: 20px;">@item.Name</button>
+              <br />
+              <div class="badge badge-info">@item.Culture.NativeName</div>
+            </div>
+            <div class="col-md-9">
+              @if (item.Description != null) {
+                <div class="alert alert-info">@item.Description </div>
+              } else {
+                <div class="alert alert-info">@Loc("nodesc", "No description provided")</div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+      <br />
+      using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+        @Loc("textPdfLang", String.Format(@"The texts language setting is being used to determine the templates base language, which currently is <em>{0}</em>. If it is not set it falls back to your global language settings, which currently is <em>{1}</em>", (string)ViewBag.OpusLang, (string)ViewBag.UserLang))
+      }
+    } else {
+      using (Html.BtDiv(BtStyle.AlertAndError)) {
+        @Loc("txtNoPdf", "There are no templates for PDF production.")
+      }
+    }
+  </div>
+  <div class="tab-pane @(ViewBag.PresetType == "epub" ? "active": "")" id="epub">
+    @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+      @Loc("textEpubTemplates", "Click a template name. The file will be created in the background. You can choose any template to see different results.")
+    }
+    @if (epubTemplates.Any()) {
+      <div class="container">
+        @foreach (var item in epubTemplates) {
+          <div class="row">
+            <div class="col-md-3 ">
+              <button data-type="epub" data-value="@item.Id" class="@BtStyle.ButtonAndPrimary btn btn-block " style="margin-right: 20px;">@item.Name</button>
+              <br />
+              <div class="badge badge-info">@item.Culture.NativeName</div>
+            </div>
+            <div class="col-md-9">
+              @if (item.Description != null) {
+                <div class="alert alert-info">@item.Description </div>
+              } else {
+                <div class="alert alert-info">@Loc("nodesc", "No description provided")</div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    } else {
+      using (Html.BtDiv(BtStyle.AlertAndError)) {
+        @Loc("txtNoEpub", "There are no templates for EPUB production.")
+      }
+    }
+  </div>
+  <div class="tab-pane @(ViewBag.PresetType == "html" ? "active": "")" id="html">
+    @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+      @Loc("txtHtml", "Shows the content of work as plain HTML in a window.")
+    }
+    @if (htmlTemplates.Any()) {
+      <div class="container">
+        @foreach (var item in htmlTemplates) {
+          <div class="row">
+            <div class="col-md-3 ">
+              <button data-type="html" data-value="@item.Id" class="@BtStyle.ButtonAndPrimary btn btn-block" style="margin-right: 20px;">@item.Name</button>
+              <br />
+              <div class="badge badge-info">@item.Culture.NativeName</div>
+            </div>
+            <div class="col-md-9">
+              @if (item.Description != null) {
+                <div class="alert alert-info">@item.Description </div>
+              } else {
+                <div class="alert alert-info">@Loc("nodesc", "No description provided")</div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    } else {
+      using (Html.BtDiv(BtStyle.AlertAndError)) {
+        @Loc("txtNoHtml", "There are no templates for HTML output. ")
+      }
+    }
+  </div>
+  <div class="tab-pane @(ViewBag.PresetType == "rss" ? "active": "")" id="rss">
+    @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+      @Loc("txtRss", "Shows the content of work formatted in AtomPub as used for RSS in a window.")
+    }
+    <div class="btn-toolbar">
+      <button data-type="rss" class="@BtStyle.ButtonAndPrimary">@Loc("txtRssBullet", "RSS Feed (AtomPub)")</button>
+    </div>
+  </div>
+  <div class="tab-pane @(ViewBag.PresetType == "app" ? "active": "")" id="app">
+    @using (Html.BtDiv(BtStyle.WellAndSmall)) {
+      @Loc("txtApp", @"You have to activate the app module to get a live preview oin your apps. Once activated, the app will provide the
+    preview feature. App support is currently in closed Alpha.")
+    }
+  </div>
+</div>
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = ViewBag.ProjectId }), ViewResources.LinkButton_ToDashboard)
+@Create.ActionTask("", true, Url.Action("Index", "Publishing", new { id = ViewBag.ProjectId }), ViewResources.LinkButton_Publishing)
+@Create.ActionTask("", true, Url.Action("AuthorRoom", "Editor", new { id = ViewBag.OpusId }), ViewResources.LinkButton_EditorRoom)

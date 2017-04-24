@@ -1,0 +1,75 @@
+﻿@using Gma.QrCodeNet.Encoding.DataEncodation
+@model Texxtoor.DataModels.Models.Content.Project
+@{
+  PageData["Title"] = Loc("title1", "Set Base Price");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("text1", @"Set and adjust the pricing for the books created within the project <em><span data-args='0' data-desc='Project Name'>{0}</span></em>.", Model.Name);
+}
+@section HeadContent{
+  <script>
+    $(function () {
+      $(document).on('click', '#editPriceButton', function () {
+        $.ajax({
+          url: '@Url.Action("SetBasePrice")',
+          data: { id: '@Model.Id' },
+          type: 'POST',
+          success: function (data) {
+            toastr.success(data.msg);
+          },
+          error: function (data) {
+            toastr.error(data.statusText);
+          }
+        });
+      });
+    });
+
+  </script>
+  @Script.SetTableBehavior()
+}
+<h2>@Loc("titleBase", "Base Price")</h2>
+  using (Html.BtDiv(BtStyle.WellAndSmall)) {
+@Loc("text2", @"As the project's owner you can set a base price tag. This is what you will get from each sale. The final pricing for those who buy will be different.
+  Cost of production, shipping (if applicable), media conversion, and other related variable cost will be added automatically.")
+  }
+  if (Model.Marketing != null) {
+    using (Html.BtDiv(BtStyle.WellAndLarge)) {
+      using (Html.BtDiv(BtStyle.WellAndSmall)) {
+<input class="manageShareInput" type="text" name="basePrice" id="basePrice" value="@Model.Marketing.BasePrice" />
+@Create.FormButtonOnClick("editPriceButton", "", Loc("btnPrice", "Set Base Price").ToHtmlString())
+<span class="manageShareInput" id="currentBasePrice">@Model.Marketing.BasePrice</span>
+      }
+@Loc("textPricing", @"For this base price the final pricing for end users estimates like this (may vary
+    by country and currency):")
+<ul class="nav nav-pills nav-stacked">
+  <li class="active">
+    <a href="#" class="green-background" onclick="return false;">
+      <span class="badge pull-right"><span id="estimatePricePrint"></span> &euro;</span>
+      @Loc("Print", "Printed Copy (shipping included)")
+    </a>
+  </li>
+  <li class="active">
+    <a href="#" class="blue-background" onclick="return false;">
+      <span class="badge pull-right"><span id="estimatePriceEPub"></span> &euro;</span>
+      @Loc("eBook", "E-Book (texxtoor only)")
+    </a>
+  </li>
+  <li class="active">
+    <a href="#" class="brown-background" onclick="return false;">
+      <span class="badge pull-right"><span id="estimatePriceiBook"></span> &euro;</span>
+      @Loc("iBook", "iBook &amp; e-book in external shops")
+    </a>
+  </li>
+</ul>
+      using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+@Loc("textValues", @"These values can be slightly different on real checkouts due to production tasks,
+    currency exchange issues, personal rabates, and so on.")
+      }
+    }
+  } else {
+<span class="ColorRed">@Loc("textNoPackg", @"There is no marketing package and hence no price tag.")</span>
+  }
+@Create.ActionTask("btnMarketing", false, Url.Action("MarketingPackage", "Marketing", new { id = Model.Id }), ViewResources.TasksButton_ManageMarketingPackages)
+@Create.ActionTask("btnRev", true, Url.Action("Revenues", "Marketing", null), ViewResources.LinkButton_Common_Revenues)
+@Create.ActionTask("btnStats", true, Url.Action("Stats", "Marketing", null), ViewResources.LinkButton_Common_Stats)
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = Model.Id }), ViewResources.LinkButton_ToDashboard)

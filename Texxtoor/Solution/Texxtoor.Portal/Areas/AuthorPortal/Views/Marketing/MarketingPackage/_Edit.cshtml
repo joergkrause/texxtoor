@@ -1,0 +1,7 @@
+﻿@model Texxtoor.DataModels.Models.Marketing.MarketingPackage
+@using (Html.BeginForm("EditMarketingPackage", "Marketing", new { id = Model.Id, area = "AuthorPortal" }, FormMethod.Post, new { id = "editMarketingPackageForm" })) {
+  using (Html.BtFieldset(Loc("legend", @"Edit Package <span data-args='0' data-desc='Package Name'>{0}</span>", Model.Name))){
+    @Html.EditorForModel()
+    @Button.FormSendButtons("editMarketingPackageSendButton", ViewResources.Action_Marketing_EditPackage, "editMarketingPackageCancelButton", ViewResources.Button_CancelAndClose)
+  }
+}

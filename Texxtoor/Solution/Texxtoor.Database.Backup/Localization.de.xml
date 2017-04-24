@@ -1,0 +1,2378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<localization>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage.cshtml">
+    <data>
+      Diese Einstellungen sind vordefiniert, um die Veröffentlichung zu vereinfachen.
+      Du kannst die Einstellungen jederzeit verändern. Sie haben Einfluss auf die Sichtbarkeit
+      des Werkes nach der Veröffentlichung, auf den Weg, wie du damit Geld verdienst und
+      wie es in der Community wahrgenommen wird.
+      Je weniger du dies beschränkst, je besser ist das Werk sichtbar, und je mehr kannst
+      du damit verdienen.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title2" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage.cshtml">
+    <data>Allgemeine Einstellungen für '&lt;span data-args='0' data-desc='Project Name'&gt;{0}&lt;/span&gt;'</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title3" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage.cshtml">
+    <data>Deine Marketingpakete</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titlePckgs" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage.cshtml">
+    <data>Marketing Pakete</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblAdSupported" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Add.cshtml">
+    <data>Inhalt frei (mit Werbung)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblAssignIsbn" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Add.cshtml">
+    <data>ISBN zuweisen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblBasePrice" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Add.cshtml">
+    <data>Basispreis</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblClosedPriv" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Add.cshtml">
+    <data>Geschlossen (privat)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblCreateFeed" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Add.cshtml">
+    <data>RSS Feed erzeugen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblCreativeCommon" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Add.cshtml">
+    <data>Inhalt ist frei (Creative Common)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblCustomLvl" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Add.cshtml">
+    <data>Eigene Einstellungen </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblDesc" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Add.cshtml">
+    <data>Beschreibung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblLimitCountry" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Add.cshtml">
+    <data>Verfügbar in diesen Ländern</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblName" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Add.cshtml">
+    <data>Name</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPublicDomain" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Add.cshtml">
+    <data>Inhalt ist frei (Public Domain)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblRegister" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Add.cshtml">
+    <data>Bei Bibliotheken melden</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblRegularSale" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Add.cshtml">
+    <data>Verkauf pro Stück</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblShareContent" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Add.cshtml">
+    <data>Geteilter Inhalt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblSubscr" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Add.cshtml">
+    <data>Abo akzeptiert</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Add.cshtml">
+    <data>Neues Paket erzeugen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblAdSupported" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Edit.cshtml">
+    <data>Inhalt ist frei (Werbung)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblAssignIsbn" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Edit.cshtml">
+    <data>Assign ISBN</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblBasePrice" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Edit.cshtml">
+    <data>Basispreis</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblClosed" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Edit.cshtml">
+    <data>Geschlossen (privat)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblCreateFeed" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Edit.cshtml">
+    <data>RSS Feed erzeugen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblCreateSocial" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Edit.cshtml">
+    <data>Instanz auf sozialer Plattform</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblCreativeCommon" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Edit.cshtml">
+    <data>Inhalt ist frei (Creative Common)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblCustom" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Edit.cshtml">
+    <data>Eigene Einstellungen </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblDesc" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Edit.cshtml">
+    <data>Beschreibung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblLimitCountry" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Edit.cshtml">
+    <data>In diesen Ländern verfügbar</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblName" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Edit.cshtml">
+    <data>Name</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPublicDomain" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Edit.cshtml">
+    <data>Inhalt ist frei (Public Domain)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblRegister" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Edit.cshtml">
+    <data>Bibliotheken melden</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblRegularSale" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Edit.cshtml">
+    <data>Verkauf pro Stück</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblShareContent" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Edit.cshtml">
+    <data>Geteilter Inhalt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblSubscription" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Edit.cshtml">
+    <data>Abo akzeptiert</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_Edit.cshtml">
+    <data>Paket &lt;span data-args='0' data-desc='Package Name'&gt;{0}&lt;/span&gt; bearbeiten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textAssign" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_List.cshtml">
+    <data>Paket auswählen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNoContent" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_List.cshtml">
+    <data>Dieses Projekt hat kein Paket</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNoMarketing" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_MarketingState.cshtml">
+    <data>Dieses Projekt hat kein Paket. Wählen eines aus der Liste aus oder erzeuge ein passendes.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textYesMarketing" set="~/Areas/AuthorPortal/Views/Marketing/MarketingPackage/_MarketingState.cshtml">
+    <data>Diesem Projekt wurde das Paket &lt;em&gt;&lt;span data-args='0' data-desc='Package'&gt;{0}&lt;/span&gt;&lt;/em&gt; zugewiesen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/AuthorPortal/Views/Marketing/Pricing.cshtml">
+    <data>Stelle das Preismodell für Werke aus dem Projekt &lt;em&gt;&lt;span data-args='0' data-desc='Project Name'&gt;{0}&lt;/span&gt;&lt;/em&gt; ein.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text2" set="~/Areas/AuthorPortal/Views/Marketing/Pricing.cshtml">
+    <data>
+      Als Projektinhaber kannst du den Basispreis festlegen. Du bekommst 100% davon mit jedem Verkauf. Der finale Preis kann davon abweichen.
+      Kosten für die Herstellung, Versand (falls zutreffend), Aufbereitung der Medien und andere variable Kosten werden automatisch hinzugefügt.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text3" set="~/Areas/AuthorPortal/Views/Marketing/Pricing.cshtml">
+    <data>
+      Basierend auf den Basispreis können Autor und Mitarbeiter ihre Anteile aushandeln. Wenn der Autor den Mitarbeitern einen festen Satz zahlt oder
+      stundenweise abrechnet, ist diese Festlegung nicht erforderlich. Mitarbeiter müssen ihren Anteil bestätigen, damit ein Projekt veröffentlicht werden kann.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text4" set="~/Areas/AuthorPortal/Views/Marketing/Pricing.cshtml">
+    <data>Ein Projekt kann aus einem oder aus mehreren Büchern bestehen. Jedes Teammitglied bekommt die vorher festgelegten Anteile ausgezahlt.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/AuthorPortal/Views/Marketing/Pricing.cshtml">
+    <data>Preise</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleBase" set="~/Areas/AuthorPortal/Views/Marketing/Pricing.cshtml">
+    <data>Grundpreis</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleContrib" set="~/Areas/AuthorPortal/Views/Marketing/Pricing.cshtml">
+    <data>Mitarbeiter Anteil</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/AuthorPortal/Views/Marketing/Revenues.cshtml">
+    <data>Hier siehst du deine Erlöse.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblCopyFromWs" set="~/Areas/AuthorPortal/Views/Opus/CreateOpus.cshtml">
+    <data>Kopien von existierenden Büchern</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblCopyWs" set="~/Areas/AuthorPortal/Views/Opus/CreateOpus.cshtml">
+    <data>Existierende Bücher</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblName" set="~/Areas/AuthorPortal/Views/Opus/CreateOpus.cshtml">
+    <data>Name</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legendWs" set="~/Areas/AuthorPortal/Views/Opus/CreateOpus.cshtml">
+    <data>Erstelle neuen Inhalt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="option" set="~/Areas/AuthorPortal/Views/Opus/CreateOpus.cshtml">
+    <data>Wähle Inhalte, aus denen du zitieren möchtest</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblLang" set="~/Areas/AuthorPortal/Views/Opus/Edit.cshtml">
+    <data>Sprache</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblName" set="~/Areas/AuthorPortal/Views/Opus/Edit.cshtml">
+    <data>Name</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblVer" set="~/Areas/AuthorPortal/Views/Opus/Edit.cshtml">
+    <data>Version</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legendOpts" set="~/Areas/AuthorPortal/Views/Opus/Edit.cshtml">
+    <data>Einstellungen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textBookEdit" set="~/Areas/AuthorPortal/Views/Opus/Edit.cshtml">
+    <data>
+      Für dieses Projekt gibt es verschiedene Arbeitsräume. Wähle den passenden für deine Aufgabe. Du bearbeitest &lt;em&gt;&lt;span data-args='0' data-desc='Work Name'&gt;{0}&lt;/span&gt;&lt;/em&gt;
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textMiss" set="~/Areas/AuthorPortal/Views/Opus/Edit.cshtml">
+    <data>Dir fehlt das passende Werkzeug? Füge einfach ein neues Aufgabengebiet zu deinem Profil hinzu.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textProps" set="~/Areas/AuthorPortal/Views/Opus/Edit.cshtml">
+    <data>Diese Einstellungen beeinflussen die globale Textsuche. Autoren können diese frei editieren.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleEdit" set="~/Areas/AuthorPortal/Views/Opus/Edit.cshtml">
+    <data>Erstelle deine Inhalte</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleProps" set="~/Areas/AuthorPortal/Views/Opus/Edit.cshtml">
+    <data>Allgemeine Einstellungen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleTools" set="~/Areas/AuthorPortal/Views/Opus/Edit.cshtml">
+    <data>Deine Werkzeuge</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Abbreviations" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Abkürzungsverzeichnis</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Actions" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Aktionen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="AppendChapter" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Kapitel hinzufügen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="AppendColumn" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Spalte hinzufügen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="AppendRow" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Zeile hinzufügen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Bold" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>fettgedruckt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Bullets" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Bullets</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Chapter" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Kapitel</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Cites" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Cites</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Clipboard" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Clipboard</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Close" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Schließen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Comments" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Kommentare</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Content" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Inhalte einfügen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Copy" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>kopieren</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Cut" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>ausschneiden</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Decrease" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>verringern</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Definitions" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Definition</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Delete" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>löschen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="DeleteColumn" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Spalte löschen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="DeleteRow" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Zeile löschen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Dim" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>1. Format wählem</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Down" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>runter</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Editing" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Bearbeiten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="EditTable" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Tabelle bearbeiten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="EPub" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>EPub</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Equation" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Formel</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Figure" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Bild</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Find" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Finden</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Flow" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Ausschnitt anzeigen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Font" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Schrift</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Format" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Format</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="iBook" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>iBook</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Idiom" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Idiom</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Increase" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Erhöhen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Ins" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>2. Formatierte Tabelle einfügen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="InsEl" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Einfügen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Insert" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Absatz einfügen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="InsertColumn" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Spalte einfügen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="InsertRow" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Zeile einfügen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="IntLnk" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>internen Link hinzufügen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Italic" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Kursivdruck</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Links" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Links</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Listing" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Listen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Menu" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Menu</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="MergeCells" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Zellen sortieren</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Meta" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Meta Information</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Move" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Absatz verschieben</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Navigate" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Navigieren</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Numbers" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Nummern</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Online" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Online</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Options" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Optionen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Orphan" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Orphan and Insert</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="OrphSnippet" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Orphan Snippet</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Paste" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Einfügen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Preview" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Vorschau</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Quick" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Schnellnavigation</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Replace" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>ersetzen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Resources" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Resourcen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Search" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Suchen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="SelectAll" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Alle auswählen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="SelSnippet" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Schnipsel löschen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Semantic" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Semantisch</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Sidebar" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Seitenleiste</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Social" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Interaktionen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="SplittCells" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Zellen teilen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Sub" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Unterabsatz</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Sup" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>m&lt;sup&gt;2&lt;/sup&gt;</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Table" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Tabelle</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Team" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Team Raum</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Text" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Text</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="TOC" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Inhaltsverzeichnis</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Tools" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Tabellenwerkzeuge</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Underline" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Unterstreichen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Undo" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Zurück</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Up" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Hoch</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Variables" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Variablen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Widget" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Widget-Leiste anzeigen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Write" set="~/Areas/AuthorPortal/Views/Opus/Editor/_ToolSet.cshtml">
+    <data>Schreiben</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Colors" set="~/Areas/AuthorPortal/Views/Opus/Editor/Panes/_Images.cshtml">
+    <data>Farben</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Crop" set="~/Areas/AuthorPortal/Views/Opus/Editor/Panes/_Images.cshtml">
+    <data>Crop</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Height" set="~/Areas/AuthorPortal/Views/Opus/Editor/Panes/_Images.cshtml">
+    <data>Höhe</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Images" set="~/Areas/AuthorPortal/Views/Opus/Editor/Panes/_Images.cshtml">
+    <data>Bilder</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Keep" set="~/Areas/AuthorPortal/Views/Opus/Editor/Panes/_Images.cshtml">
+    <data>Größe beibehalten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Measures" set="~/Areas/AuthorPortal/Views/Opus/Editor/Panes/_Images.cshtml">
+    <data>Optionen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="ResMan" set="~/Areas/AuthorPortal/Views/Opus/Editor/Panes/_Images.cshtml">
+    <data>Manager (Editor verlassen)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Tools" set="~/Areas/AuthorPortal/Views/Opus/Editor/Panes/_Images.cshtml">
+    <data>Werkzeuge</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="Width" set="~/Areas/AuthorPortal/Views/Opus/Editor/Panes/_Images.cshtml">
+    <data>Breite</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legendGrp" set="~/Areas/AuthorPortal/Views/Opus/Milestones/_AddMilestone.cshtml">
+    <data>Neuen Meilenstein erstellen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textToggleBar" set="~/Areas/AuthorPortal/Views/Opus/Milestones/_ListOpusMilestones.cshtml">
+    <data>Klicke auf das Icon für weite Informationen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textOptions" set="~/Areas/AuthorPortal/Views/Opus/Milestones/_ListOpusMilestonesForFinish.cshtml">
+    <data>Wähle eine Option für diesen Meilenstein</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textOptions" set="~/Areas/AuthorPortal/Views/Opus/Milestones/_ListOpusMilestonesForManager.cshtml">
+    <data>Wähle eine Option für diesen Meilenstein</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/AuthorPortal/Views/Opus/Milestones/FinishMilestone.cshtml">
+    <data>
+      Du arbeitest mit Workroom &lt;em&gt;&lt;span data-args='0' data-desc='Work Name'&gt;{0}&lt;/span&gt;&lt;/em&gt;.
+      Die Liste zeigt alle Meilensteine. Hier kannst du deine Fortschritte eintragen. Als Teamleiter kannst du hier Aufgaben an deine Teammitglieder verteilen
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title1" set="~/Areas/AuthorPortal/Views/Opus/Milestones/FinishMilestone.cshtml">
+    <data>Meilenstein beenden oder hinzufügen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/AuthorPortal/Views/Opus/Milestones/ManageMilestones.cshtml">
+    <data>
+      Du arbeitest mit Workroom &lt;em&gt;&lt;span data-args='0' data-desc='Work Name'&gt;{0}&lt;/span&gt;&lt;/em&gt;.
+      Die Liste zeigt alle Meilensteine. Hier kannst du deine Fortschritte eintragen. Als Teamleiter kannst du hier Aufgaben an deine Teammitglieder verteilen
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/AuthorPortal/Views/Opus/Milestones/ManageMilestones.cshtml">
+    <data>Meilensteine verwalten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textTlOptions" set="~/Areas/AuthorPortal/Views/Opus/Opus/_List.cshtml">
+    <data>Optionen für leitende Autoren:</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblApprTerms" set="~/Areas/AuthorPortal/Views/Project/_CreateProject.cshtml">
+    <data>Die AGB's müssen bestätigt werden</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblDesc" set="~/Areas/AuthorPortal/Views/Project/_CreateProject.cshtml">
+    <data>Beschreibung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblImport" set="~/Areas/AuthorPortal/Views/Project/_CreateProject.cshtml">
+    <data>MS Word importieren</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblName" set="~/Areas/AuthorPortal/Views/Project/_CreateProject.cshtml">
+    <data>Name</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblShort" set="~/Areas/AuthorPortal/Views/Project/_CreateProject.cshtml">
+    <data>Kurzbeschreibung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblTeam" set="~/Areas/AuthorPortal/Views/Project/_CreateProject.cshtml">
+    <data>Team</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblTemplates" set="~/Areas/AuthorPortal/Views/Project/_CreateProject.cshtml">
+    <data>Template fr erste Arbeit</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblTerms" set="~/Areas/AuthorPortal/Views/Project/_CreateProject.cshtml">
+    <data>Allgemeine Geschäftsbedingungen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/AuthorPortal/Views/Project/_CreateProject.cshtml">
+    <data>Neues Projekt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkBooks" set="~/Areas/AuthorPortal/Views/Project/_List.cshtml">
+    <data>&lt;em&gt;&lt;span data-args='0' data-desc='Opus Count'&gt;{0}&lt;/span&gt;&lt;/em&gt; aktive Bücher in diesem Projekt.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkTeam" set="~/Areas/AuthorPortal/Views/Project/_List.cshtml">
+    <data>&lt;em&gt;&lt;span data-args='0' data-desc='Team Member Count'&gt;{0}&lt;/span&gt;&lt;/em&gt; Members in the &lt;span data-args='1' data-desc='Team Id'&gt;{1}&lt;/span&gt;</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNoModel" set="~/Areas/AuthorPortal/Views/Project/_List.cshtml">
+    <data>Es sind keine Projekte verfügbar. Vielleicht solltest du eines erstellen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textTabCellInfo" set="~/Areas/AuthorPortal/Views/Project/_List.cshtml">
+    <data>Project &lt;em&gt;&lt;span data-args='0' data-desc='Project Count'&gt;{0}&lt;/span&gt;&lt;/em&gt;, aktiv seit &lt;em&gt;&lt;span data-args='1' data-desc='CreatedAt'&gt;{1}&lt;/span&gt;&lt;/em&gt;</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleNoModel" set="~/Areas/AuthorPortal/Views/Project/_List.cshtml">
+    <data>Kein Model</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="growlError" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Fehler beim löschen der Datei</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Auf dieser Seite kannst du alle Information zu diesem Projekt sehen. Als Teamleiter kannst du diese Informationen hier bearbeiten.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textAlert" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Hier findest du alle Neuigkeiten zu diesem Projekt.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textApproveNo" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Die AGB's wurden bereits bestätigt.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textIsPckg" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Das Paket &lt;em&gt;{0}&lt;/em&gt; wurde hinzugefügt.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textMrktg" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Besuche die Markteingeinstellung um die Veröffentlichung zu unterstützen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNoPckg" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Es wurden noch keine Marketingmaßnahmen hinzugefügt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNoWorkCreation" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Nur der leitende Autor kann neue Arbeitsräume erstellen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textPricingAndSharing" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Lege einen Grundpreis für deine Werke fest. Die eventuell anfallenden Produktionskosten werden automatisch hinzugefügt.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textRes" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Hier werden alle hochgeladenen Ressourcen angezeigt.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textRoom" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Hier findest du das Team Forum.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textSem" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Bearbeite die semantischen Informationen dieses Projektes.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textTerms" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>
+      Diese Geschäftsbedingungen sind zusätzlich zu dem herkömmlichen AGB's zwischen leitendem Autor und Mitarbeitern. Jeder muss sie besträtigen, ansonsten kann das Projekt nicht veröffentlicht werden.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textWorkspace" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Hier beginnt der Weg jeden Inhalts. Beginne gleich jetzt zu schreiben oder lade bereits bestehnde Inhalte hoch.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Projekt Übersicht</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleAlert" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Neuigkeiten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleBookProgress" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Fortschritte (&lt;span data-args='0' data-desc='Work Count'&gt;{0}&lt;/span&gt; Books)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleDashboard" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Projekt Übersicht</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleHasPckg" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Es wurde bereits das Marketingpaket &lt;em&gt;&lt;span data-args='0' data-desc='Package Name'&gt;{0}&lt;/span&gt;&lt;/em&gt; gebucht.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleIsLead" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Du bist der leitende Autor.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleNoLead" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Du bist eine Mitarbeiter dieses Projekts.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleNoMrktng" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Marketing und Preise (noch keine Pakete hinzugefügt)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleNoPckg" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Es wurden noch keine Marketingpaket gebucht. Das Projekt wurde noch nicht veröffentlicht.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleNoPublish" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Dieses Projekt enthält keine veröffentlichten Werke.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titlePricing" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Preise</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titlePublish" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data> &lt;em&gt;&lt;span data-args='0' data-desc='Book Count'&gt;{0}&lt;/span&gt;&lt;/em&gt; Werke können veröffentlicht werden.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleResources" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Projektressourcen (&lt;span data-args='0' data-desc='Res Count'&gt;{0}&lt;/span&gt; resources)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleRoom" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Arbeitsraum und Forum</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleSummary" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Projekt Zusammenfassung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleTeams" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Team, Jobs und Status (&lt;span data-args='0' data-desc='User Count'&gt;{0}&lt;/span&gt; Team Members)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleTerms" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Allgemeine Geschäftsbedingungen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleYesMrktng" set="~/Areas/AuthorPortal/Views/Project/Dashboard.cshtml">
+    <data>Marketing und Preise (Paket '&lt;span data-args='0' data-desc='Has Package'&gt;{0}&lt;/span&gt;' gebucht)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textTeamSummary" set="~/Areas/AuthorPortal/Views/Project/Dashboard/_Team.cshtml">
+    <data>
+      Projektteam &lt;em&gt;&lt;span data-args='0' data-desc='Team Name'&gt;{0}&lt;/span&gt;&lt;/em&gt;.
+      Dieses Team hat noch &lt;em&gt;&lt;span data-args='1' data-desc='Other projects'&gt;{1}&lt;/span&gt;&lt;/em&gt; weitere Projekte.
+      Das Team hat &lt;em&gt;&lt;span data-args='2' data-desc='Member Count'&gt;{2}&lt;/span&gt;&lt;/em&gt; Mitglieder.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="growlError" set="~/Areas/AuthorPortal/Views/Project/DeactivatedProjects.cshtml">
+    <data>Fehler beim löschen aufgetreten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/AuthorPortal/Views/Project/DeactivatedProjects.cshtml">
+    <data>
+      Das sind inaktive Projekte. Du kannst sie wieder aktivieren oder sie entgültig löschen.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/AuthorPortal/Views/Project/DeactivatedProjects.cshtml">
+    <data>Ältere Inhalts-Projekte</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleSub1" set="~/Areas/AuthorPortal/Views/Project/DeactivatedProjects.cshtml">
+    <data>Deaktivierte Projekte</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="growlError" set="~/Areas/AuthorPortal/Views/Project/Index.cshtml">
+    <data>Fehler beim löschen der Datei</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/AuthorPortal/Views/Project/Index.cshtml">
+    <data>
+      Hier siehst du alle Projekte, an welchen du mitwirkst oder die du leitest. Du kannst jederzeit ein neues Projekt erstellen.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text2" set="~/Areas/AuthorPortal/Views/Project/Index.cshtml">
+    <data>
+      Wenn du ein Projekt erstellt hast, bist du der leitende Autor. Du kannst weitere Mitglieder einladen oder einfach nur deine Inhalte erstellen.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text3" set="~/Areas/AuthorPortal/Views/Project/Index.cshtml">
+    <data>
+      Ein Projekt besteht aus Inhalten (Text, Video, Grafiken, Tabellen, Formeln, Listings oder Skripts). Diese Inhalte werden automatisch in
+      eine App konvertiert, die der Nutzer auf jedem Gerät zur Verfügung steht.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/AuthorPortal/Views/Project/Index.cshtml">
+    <data>Deine App-Projekte</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleSub1" set="~/Areas/AuthorPortal/Views/Project/Index.cshtml">
+    <data>Deine aktuellen Projekte</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblApprTerms" set="~/Areas/AuthorPortal/Views/Project/Projects/_AddProject.cshtml">
+    <data>Einverständniss erforderlich</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblDesc" set="~/Areas/AuthorPortal/Views/Project/Projects/_AddProject.cshtml">
+    <data>Lange Beschreibung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblImport" set="~/Areas/AuthorPortal/Views/Project/Projects/_AddProject.cshtml">
+    <data>Inhalte aus MS Word</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblShort" set="~/Areas/AuthorPortal/Views/Project/Projects/_AddProject.cshtml">
+    <data>Kurze Beschreibung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblTemplates" set="~/Areas/AuthorPortal/Views/Project/Projects/_AddProject.cshtml">
+    <data>Vorlage für das erste Werk</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblTerms" set="~/Areas/AuthorPortal/Views/Project/Projects/_AddProject.cshtml">
+    <data>Bedingungen für Mitarbeiter</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/AuthorPortal/Views/Project/Projects/_AddProject.cshtml">
+    <data>Neues Inhalts-Projekt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNoModel" set="~/Areas/AuthorPortal/Views/Project/Projects/_List.cshtml">
+    <data>Keine Projekte vorhanden.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNothing" set="~/Areas/AuthorPortal/Views/Project/Publishing/_RecentlyPublished.cshtml">
+    <data>Es wurden noch keine Werke dieses Projektes veröffentlicht.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/AuthorPortal/Views/Project/Publishing/ConfirmPublished.cshtml">
+    <data>Einstellungen um die Werke bei Google oder Facebook zu finden.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textPubl1" set="~/Areas/AuthorPortal/Views/Project/Publishing/ConfirmPublished.cshtml">
+    <data>
+      Deine Arbeit wird veröffentlicht. Ergänze die Angaben zu deinen Werken damit die Leser dich finden und um so deinen Erfolg zu vergrößern.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textPublCore" set="~/Areas/AuthorPortal/Views/Project/Publishing/ConfirmPublished.cshtml">
+    <data>
+      Eine Funktion unserer Plattform ist das verarbeiten von Werken. Gib deine Werke zum weiterverarbeiten frei damit andere Autoren sie zitieren und du an den Gewinnen beteiligt wirst.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/AuthorPortal/Views/Project/Publishing/ConfirmPublished.cshtml">
+    <data>Zusätzliche Optionen für veröffentlichte Bücher</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titlePrev" set="~/Areas/AuthorPortal/Views/Project/Publishing/ConfirmPublished.cshtml">
+    <data>App-Vorschau</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleSub1" set="~/Areas/AuthorPortal/Views/Project/Publishing/ConfirmPublished.cshtml">
+    <data>Plattform Marketing</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text3" set="~/Areas/AuthorPortal/Views/Project/Publishing/Publish.cshtml">
+    <data>Hier siehst du alle veröffentliche Werke</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textPubl" set="~/Areas/AuthorPortal/Views/Project/Publishing/Publish.cshtml">
+    <data>
+      Sind deine Inhalte einmal veröffentlicht sind sie permantent verfügbar. Das Marketing beginnt sobald den Inhalt veröffentlicht wurde. Das Veröffentlichen kann ein wenig Zeit beanspruchen. Den Status kannst du hier jederzeit nachvollziehen.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title2" set="~/Areas/AuthorPortal/Views/Project/Publishing/Publish.cshtml">
+    <data>Alle veröffentliche Werke</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleCanPublish" set="~/Areas/AuthorPortal/Views/Project/Publishing/Publish.cshtml">
+    <data>Folgende Werke können in diesem Projekt veröffentlicht werden:</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titlePublishing" set="~/Areas/AuthorPortal/Views/Project/Publishing/Publish.cshtml">
+    <data>Veröffentlichungsfortschritt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titlePublMain" set="~/Areas/AuthorPortal/Views/Project/Publishing/Publish.cshtml">
+    <data>Inhalte veröffentlichen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="genCover" set="~/Areas/AuthorPortal/Views/Project/Publishing/PublishedMarketing.cshtml">
+    <data>Stelle hier das Cover ein</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="labelMarketing" set="~/Areas/AuthorPortal/Views/Project/Publishing/PublishedMarketing.cshtml">
+    <data>Marketing Paket</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblCat" set="~/Areas/AuthorPortal/Views/Project/Publishing/PublishedMarketing.cshtml">
+    <data>Katalog</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/AuthorPortal/Views/Project/Publishing/PublishedMarketing.cshtml">
+    <data>Katalog Einträge</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="selPckg" set="~/Areas/AuthorPortal/Views/Project/Publishing/PublishedMarketing.cshtml">
+    <data>Pakat &lt;em&gt;&lt;span data-args='0' data-desc='Marketing Name'&gt;{0}&lt;/span&gt;&lt;/em&gt; wurde ausgewählt.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/AuthorPortal/Views/Project/Publishing/PublishedMarketing.cshtml">
+    <data>
+      Beschreibe deine Inhalte, um dem Nutzer einen ersten Eindruck zu verschaffen.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textCover" set="~/Areas/AuthorPortal/Views/Project/Publishing/PublishedMarketing.cshtml">
+    <data>Ein neues generieren.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textCoverHelp" set="~/Areas/AuthorPortal/Views/Project/Publishing/PublishedMarketing.cshtml">
+    <data>Lade ein neues Cover hoch</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNavLevel" set="~/Areas/AuthorPortal/Views/Project/Publishing/PublishedMarketing.cshtml">
+    <data>Verfeinere die Navigation indem du neue Ebenen einfügst.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNoCat" set="~/Areas/AuthorPortal/Views/Project/Publishing/PublishedMarketing.cshtml">
+    <data>Es wurden noch keine Katalogeinträge angelegt. </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNoImg" set="~/Areas/AuthorPortal/Views/Project/Publishing/PublishedMarketing.cshtml">
+    <data>Es wurde noch kein Cover hinzugefügt.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textUpload" set="~/Areas/AuthorPortal/Views/Project/Publishing/PublishedMarketing.cshtml">
+    <data>Lade eine neues Cover hoch.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titlePublMain" set="~/Areas/AuthorPortal/Views/Project/Publishing/PublishedMarketing.cshtml">
+    <data>Veröffentlichen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="undone" set="~/Areas/AuthorPortal/Views/Project/Publishing/PublishedMarketing.cshtml">
+    <data>(eine Veröffentlichung kann nicht rückgängig gemacht werden)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textContent" set="~/Areas/AuthorPortal/Views/Resource/Index.cshtml">
+    <data>
+      &lt;i&gt;Content&lt;/i&gt;: Hier werden alle Daten angezeigt und es kann direkt darauf zugegriffen werden.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textImport" set="~/Areas/AuthorPortal/Views/Resource/Index.cshtml">
+    <data>&lt;i&gt;Import&lt;/i&gt;: Hier werden alle Ressourcen gespeichert. Normalerweise handelt es sich um MS Word Dokumente oder Bilder.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textProject" set="~/Areas/AuthorPortal/Views/Resource/Index.cshtml">
+    <data>
+      &lt;i&gt;Project&lt;/i&gt;: Hier werden alle Daten angezeigt welche deine Team nutzt.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textResources" set="~/Areas/AuthorPortal/Views/Resource/Index.cshtml">
+    <data>Hier werden alle Daten angezeigt die für dich und dein Team für das Projekt &lt;em&gt;&lt;span data-args='0' data-desc='Project Name'&gt;{0}&lt;/span&gt;&lt;/em&gt; benötigt werden.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textTrash" set="~/Areas/AuthorPortal/Views/Resource/Index.cshtml">
+    <data>&lt;i&gt;Trash&lt;/i&gt;: Gelöschte Daten werden hier angezeigt.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleResources" set="~/Areas/AuthorPortal/Views/Resource/Index.cshtml">
+    <data>Resourcen für das Projekt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblActive" set="~/Areas/AuthorPortal/Views/Resource/Termset/_Create.cshtml">
+    <data>Sofort aktivieren</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblDesc" set="~/Areas/AuthorPortal/Views/Resource/Termset/_Create.cshtml">
+    <data>Beschreibung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblName" set="~/Areas/AuthorPortal/Views/Resource/Termset/_Create.cshtml">
+    <data>Name</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblSharedTerms" set="~/Areas/AuthorPortal/Views/Resource/Termset/_Create.cshtml">
+    <data>Shared Termset</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/AuthorPortal/Views/Resource/Termset/_Create.cshtml">
+    <data>New Termset</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblActive" set="~/Areas/AuthorPortal/Views/Resource/Termset/_Edit.cshtml">
+    <data>Sofort aktivieren</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblDesc" set="~/Areas/AuthorPortal/Views/Resource/Termset/_Edit.cshtml">
+    <data>Beschreibung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblName" set="~/Areas/AuthorPortal/Views/Resource/Termset/_Edit.cshtml">
+    <data>Name</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblSharedTerms" set="~/Areas/AuthorPortal/Views/Resource/Termset/_Edit.cshtml">
+    <data>Gemeinsame Begriffssammlungen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/AuthorPortal/Views/Resource/Termset/_Edit.cshtml">
+    <data>Begriffssammlung bearbeiten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textAssign" set="~/Areas/AuthorPortal/Views/Resource/Termset/_List.cshtml">
+    <data>Begriffssammlung verwalten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textTerms" set="~/Areas/AuthorPortal/Views/Resource/Termsets.cshtml">
+    <data>
+      Verwalte Abkürzungen, Zitate, Definitionen, Idiome, Variablen und allgemeine Links an einem Ort.
+      Organisiere alle Begriffe in Begriffssammlungen, um sie jederzeit bereit zu haben.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textTermsetManager" set="~/Areas/AuthorPortal/Views/Resource/Termsets.cshtml">
+    <data>Vewalte den Inhalt der Begriffssammlung.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textTermsets" set="~/Areas/AuthorPortal/Views/Resource/Termsets.cshtml">
+    <data>Begriffssammlung hinzufügen oder entfernen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleTerms" set="~/Areas/AuthorPortal/Views/Resource/Termsets.cshtml">
+    <data>Geschäftsbedingungen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleTermset" set="~/Areas/AuthorPortal/Views/Resource/Termsets.cshtml">
+    <data>Begriffssammlungen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleTermsFor" set="~/Areas/AuthorPortal/Views/Resource/Termsets.cshtml">
+    <data>Begriffe für Begriffssammlung &lt;em&gt;&lt;span id="currentTermset"&gt;&lt;/span&gt;&lt;/em&gt;</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="acc" set="~/Areas/AuthorPortal/Views/Team/AddMember.cshtml">
+    <data>Wieviele Stunden kannst du investieren:</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblAvail" set="~/Areas/AuthorPortal/Views/Team/AddMember.cshtml">
+    <data>Maximaler Verfügbarkeit</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblHourly" set="~/Areas/AuthorPortal/Views/Team/AddMember.cshtml">
+    <data>Benötigt Arbeit auf Stundenbasis</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblShared" set="~/Areas/AuthorPortal/Views/Team/AddMember.cshtml">
+    <data>Aktzeptiert geteilte Erlöse</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblSkills" set="~/Areas/AuthorPortal/Views/Team/AddMember.cshtml">
+    <data>Folgende Fähigkeiten werden benötigt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblUser" set="~/Areas/AuthorPortal/Views/Team/AddMember.cshtml">
+    <data>Auswahl über Nutzernamen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legendAdd" set="~/Areas/AuthorPortal/Views/Team/AddMember.cshtml">
+    <data>Teammitglieder hinzufügen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legendSearch" set="~/Areas/AuthorPortal/Views/Team/AddMember.cshtml">
+    <data>Teammitglieder suchen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="rec" set="~/Areas/AuthorPortal/Views/Team/AddMember.cshtml">
+    <data>empfohlen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textAdd" set="~/Areas/AuthorPortal/Views/Team/AddMember.cshtml">
+    <data>
+      Füge neue Mitarbeiter zu dem Team &lt;em&gt;&lt;span data-args='0' data-desc='Team Name'&gt;{0}&lt;/span&gt;&lt;/em&gt; hinzu. Nutzer ohne passende Fähigkeiten werden nicht angezeigt.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNew" set="~/Areas/AuthorPortal/Views/Team/AddMember.cshtml">
+    <data>
+      Diese Nutzer werden zum Team hinzugefügt.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textResult" set="~/Areas/AuthorPortal/Views/Team/AddMember.cshtml">
+    <data>Klicke auf Suche um Ergebnisse zu sehen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/AuthorPortal/Views/Team/AddMember.cshtml">
+    <data>Mitarbeiter suchen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblIn" set="~/Areas/AuthorPortal/Views/Team/Billing/Billing.cshtml">
+    <data>Eingegangene Rechnungen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblOut" set="~/Areas/AuthorPortal/Views/Team/Billing/Billing.cshtml">
+    <data>Ausgehende Rechnungen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legendSum" set="~/Areas/AuthorPortal/Views/Team/Billing/Billing.cshtml">
+    <data>Zusammenfassung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/AuthorPortal/Views/Team/Billing/Billing.cshtml">
+    <data>Hier kannst du deine Rechnungen an den leitenden Aturo verschicken.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textBal1" set="~/Areas/AuthorPortal/Views/Team/Billing/Billing.cshtml">
+    <data>Hier siehst du alle offnen Bezahlungen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/AuthorPortal/Views/Team/Billing/Billing.cshtml">
+    <data>Abrechnung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleBal" set="~/Areas/AuthorPortal/Views/Team/Billing/Billing.cshtml">
+    <data>Zusammenfassung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/AuthorPortal/Views/Team/Billing/InvoicesIncoming.cshtml">
+    <data>Hier kannst du deine Rechnungen bearbeiten, verwalten oder erneut versenden.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/AuthorPortal/Views/Team/Billing/InvoicesIncoming.cshtml">
+    <data>Eingehende Rechnungen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/AuthorPortal/Views/Team/Billing/InvoicesOutgoing.cshtml">
+    <data>Hier kannst du deine Rechnungen bearbeiten, verwalten oder erneut versenden.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/AuthorPortal/Views/Team/Billing/InvoicesOutgoing.cshtml">
+    <data>Ausgehende Rechnungen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textHlp" set="~/Areas/AuthorPortal/Views/Team/Details.cshtml">
+    <data>Verwalte dein Team.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textPrjHeader" set="~/Areas/AuthorPortal/Views/Team/Details.cshtml">
+    <data>Projekte</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textTeam" set="~/Areas/AuthorPortal/Views/Team/Details.cshtml">
+    <data>Das ist die Übersichtsseite des Teams &lt;em&gt;&lt;span data-args='0' data-desc='Team Name'&gt;{0}&lt;/span&gt;&lt;/em&gt;.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleTeamRoom" set="~/Areas/AuthorPortal/Views/Team/Details.cshtml">
+    <data>Team Raum</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="fldDesc" set="~/Areas/AuthorPortal/Views/Team/Index.cshtml">
+    <data>Beschreibung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="fldName" set="~/Areas/AuthorPortal/Views/Team/Index.cshtml">
+    <data>Name</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/AuthorPortal/Views/Team/Index.cshtml">
+    <data>Neues Team</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/AuthorPortal/Views/Team/Index.cshtml">
+    <data>Teamübersicht</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/AuthorPortal/Views/Team/Index.cshtml">
+    <data>Meine Teams</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblRole" set="~/Areas/AuthorPortal/Views/Team/Members/_Edit.cshtml">
+    <data>Ändere deine Rolle innerhalb des Teams</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/AuthorPortal/Views/Team/Members/_Edit.cshtml">
+    <data>Bearbeite die Teammitglieder</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textInfo" set="~/Areas/AuthorPortal/Views/Team/Members/_List.cshtml">
+    <data>
+      Das Team ist &lt;em&gt;&lt;span data-args='0' data-desc='Active'&gt;{0}&lt;/span&gt;&lt;/em&gt;.
+      Es beginnt am &lt;em&gt;&lt;span data-args='1' data-desc='Date'&gt;{1}&lt;/span&gt;&lt;/em&gt;.
+      hat &lt;em&gt;&lt;span data-args='2' data-desc='Member Count'&gt;{2}&lt;/span&gt;&lt;/em&gt; Mitlgieder, und
+      &lt;em&gt;&lt;span data-args='3' data-desc='Project Count'&gt;{3}&lt;/span&gt;&lt;/em&gt; Projekte.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textIsLead" set="~/Areas/AuthorPortal/Views/Team/Members/_List.cshtml">
+    <data>Du bist der leitende Autor.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textMembersCount" set="~/Areas/AuthorPortal/Views/Team/Members/_List.cshtml">
+    <data>&lt;em&gt;&lt;span data-args='0' data-desc='Member Name'&gt;{0}&lt;/span&gt;&lt;/em&gt; Mitglieder in diesem Team:</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textTeamName" set="~/Areas/AuthorPortal/Views/Team/Members/_List.cshtml">
+    <data>Das ist Team &lt;em&gt;&lt;span data-args='0' data-desc='Team Name'&gt;{0}&lt;/span&gt;&lt;/em&gt;.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="rating" set="~/Areas/AuthorPortal/Views/Team/Members/_ListMembers.cshtml">
+    <data>Bewertung: &lt;em&gt;&lt;span data-args='0' data-desc='Global Rating'&gt;{0}&lt;/span&gt;&lt;/em&gt;</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/AuthorPortal/Views/Team/Members/_ListMembers.cshtml">
+    <data>Neues Mitglied</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="add" set="~/Areas/AuthorPortal/Views/Team/Members/_SearchResults.cshtml">
+    <data>Hinzufügen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="clickName" set="~/Areas/AuthorPortal/Views/Team/Members/_SearchResults.cshtml">
+    <data>Klicke auf den Namen um hinzuzufügen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="hComm" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Kommunikation</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="hDesc" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Kommentar (optional)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="hFriend" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Freudlichkeit</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="hPunc" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Pünktlichkeit</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="hQual" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Qualität</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="hRel" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Beständigkeit</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="label" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Bei welchem Projekt habt ihr zusammen gearbeitet?</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="li1" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Schade, keine verwertbare Arbeit</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="li10" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Perfekt, weit über dem Durchschnitt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="li2" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Befriedigende Arbeit</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="li3" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Verwertbare Arbeit</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="li4" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Schlechte Qualität aber vollständig</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="li5" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Gute Qualität</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="li6" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Sehr gute Arbeit</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="li7" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Sehr gut, wie erwartet</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="li8" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Experte, sehr professionell</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="li9" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Über den Erwartungen, sehr professionell</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="tComm" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Kommunikationsfähigkeiten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Es wird ein einfaches Zahlensystem verwendet:</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textF" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>
+      Wie wurde kommuniziert? (Wie schnell wurde wie geantwortet?)
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Bewerte die Mitglieder</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="tQual" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>Die Gesamtqualität im Vergleich zu deinen Erwartungen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="tRel" set="~/Areas/AuthorPortal/Views/Team/RateMember.cshtml">
+    <data>
+      Die Beständigkeit der Arbeit.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblColored" set="~/Areas/ReaderPortal/Views/Assembler/Product/_AddProduct.cshtml">
+    <data>Ist farbig</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblDedication" set="~/Areas/ReaderPortal/Views/Assembler/Product/_AddProduct.cshtml">
+    <data>Hat einen Umschlag</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblIdx" set="~/Areas/ReaderPortal/Views/Assembler/Product/_AddProduct.cshtml">
+    <data>Hat einen Index</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblIssue" set="~/Areas/ReaderPortal/Views/Assembler/Product/_AddProduct.cshtml">
+    <data>Ausgabe (Version)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblName" set="~/Areas/ReaderPortal/Views/Assembler/Product/_AddProduct.cshtml">
+    <data>Name</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblSubtitle" set="~/Areas/ReaderPortal/Views/Assembler/Product/_AddProduct.cshtml">
+    <data>Untertitel (optional)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblTitle" set="~/Areas/ReaderPortal/Views/Assembler/Product/_AddProduct.cshtml">
+    <data>Titel</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblToc" set="~/Areas/ReaderPortal/Views/Assembler/Product/_AddProduct.cshtml">
+    <data>Hat ein Inhaltsverzeichnis</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="tblHeadName" set="~/Areas/ReaderPortal/Views/Assembler/Product/_AddProduct.cshtml">
+    <data>Füge '&lt;span data-args='0' data-desc='Model Name'&gt;{0}&lt;/span&gt;' hinzu</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblColored" set="~/Areas/ReaderPortal/Views/Assembler/Product/_EditProduct.cshtml">
+    <data>Ist farbig</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblDedication" set="~/Areas/ReaderPortal/Views/Assembler/Product/_EditProduct.cshtml">
+    <data>Hat einen Umschlag</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblIdx" set="~/Areas/ReaderPortal/Views/Assembler/Product/_EditProduct.cshtml">
+    <data>Hat einen Index</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblIssue" set="~/Areas/ReaderPortal/Views/Assembler/Product/_EditProduct.cshtml">
+    <data>Ausgabe (Version)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblName" set="~/Areas/ReaderPortal/Views/Assembler/Product/_EditProduct.cshtml">
+    <data>Name</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblSubtitle" set="~/Areas/ReaderPortal/Views/Assembler/Product/_EditProduct.cshtml">
+    <data>Untertitel (optional)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblTitle" set="~/Areas/ReaderPortal/Views/Assembler/Product/_EditProduct.cshtml">
+    <data>Titel</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblToc" set="~/Areas/ReaderPortal/Views/Assembler/Product/_EditProduct.cshtml">
+    <data>Hat ein Inhaltsverzeichnis</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="tblHeadName" set="~/Areas/ReaderPortal/Views/Assembler/Product/_EditProduct.cshtml">
+    <data>Bearbeite '&lt;span data-args='0' data-desc='Model Name'&gt;{0}&lt;/span&gt;'</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkCpyEdt" set="~/Areas/ReaderPortal/Views/Assembler/Product/_ListProducts.cshtml">
+    <data>Produkt kopieren und bearbeiten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkModify" set="~/Areas/ReaderPortal/Views/Assembler/Product/_ListProducts.cshtml">
+    <data>Modifizieren</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkRemove" set="~/Areas/ReaderPortal/Views/Assembler/Product/_ListProducts.cshtml">
+    <data>Entfernen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textrel" set="~/Areas/ReaderPortal/Views/Assembler/Product/_ListProducts.cshtml">
+    <data>verbunden.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textRelto" set="~/Areas/ReaderPortal/Views/Assembler/Product/_ListProducts.cshtml">
+    <data>mit</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkRemove" set="~/Areas/ReaderPortal/Views/Assembler/Product/_PreOrders.cshtml">
+    <data>Entfernen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="pagNext" set="~/Areas/ReaderPortal/Views/Assembler/Product/_PreOrders.cshtml">
+    <data>Nächstes</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="pagPrev" set="~/Areas/ReaderPortal/Views/Assembler/Product/_PreOrders.cshtml">
+    <data>Vorheriges</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/ReaderPortal/Views/Assembler/Products.cshtml">
+    <data>Verwaltet die Inhalte deiner privaten Apps hier.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textrel" set="~/Areas/ReaderPortal/Views/Assembler/Products.cshtml">
+    <data>verbunden</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textRelto" set="~/Areas/ReaderPortal/Views/Assembler/Products.cshtml">
+    <data>mit</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/ReaderPortal/Views/Assembler/Products.cshtml">
+    <data>Private Apps</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/ReaderPortal/Views/Community/EditProfile.cshtml">
+    <data>Profil Editor (Klicke in den Text um ihn zu bearbeiten)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textAthor" set="~/Areas/ReaderPortal/Views/Community/EditProfile.cshtml">
+    <data>
+      Es ist wichtig die Aufgaben klar zu verteilen.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textProfile" set="~/Areas/ReaderPortal/Views/Community/EditProfile.cshtml">
+    <data>&lt;strong&gt;texxtoor&lt;/strong&gt; ist eine social community mit schnittstellen zu Xing, Friendster, Facebook, und vielen mehr.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textProfileData" set="~/Areas/ReaderPortal/Views/Community/EditProfile.cshtml">
+    <data>
+      Hier hast du die Möglichkeit dich selbst zu präsentieren. Wer dein Profil sehen kann bestimmst du.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/ReaderPortal/Views/Community/EditProfile.cshtml">
+    <data>Mein Profil</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textHead" set="~/Areas/ReaderPortal/Views/Community/Index.cshtml">
+    <data>
+      &lt;strong&gt;texxtoor&lt;/strong&gt; ist eine social community für jeden der Wissen erwerben oder teilen möchte oder einfach nur sein Können beisteuern möchte.
+      Baue dir dein eigenes Netzwerk aus deinen Mitarbeitern, Lesern oder anderen Autoren auf.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textSoc" set="~/Areas/ReaderPortal/Views/Community/Index.cshtml">
+    <data>
+      &lt;h3&gt;Doch nur ein anderes soziales Netzwerk?&lt;/h3&gt;
+      &lt;p&gt;
+      Jein. Es gibt Besonderheiten, die neu sind. Du brauchst nicht mehr viele verschiedene Profile &lt;strong&gt;texxtoor&lt;/strong&gt; or even enter everything again something. We pull or your profiles
+      together, whatever you have already in the Web&amp;mdash;where you're at home.
+      &lt;/p&gt;
+      &lt;p&gt;
+      Was ist damit gemeint?
+      &lt;/p&gt;
+      &lt;p&gt;
+      Bis du Mitglied bei Facebook, MySpace, StudiVZ, Friendster, LinkedIn oder auch Xing, dann bist du bereits
+      Teil der &lt;strong&gt;texxtoor&lt;/strong&gt; Community. Gib einfach den Link zu deinem öffentlichen Profil
+      ein. Alles was sowieso öffentlicdh ist wird auf &lt;strong&gt;texxtoor&lt;/strong&gt; sichtbar,
+      alles was privat ist, bleibt privat.
+      &lt;/p&gt;
+      &lt;h3&gt;Was kann ich mit meinen Kontakten tun?&lt;/h3&gt;
+      &lt;p&gt;
+      Die Daten aus den sozialen Netzwerken fließen in dein Profil ein. &lt;strong&gt;texxtoor&lt;/strong&gt; 
+      kopiert keine Daten, sondern verlinkt nur auf diese. Wenn du keine Profile hast oder verlinken willst, 
+      kannst du lokal eins erzeugen.
+      &lt;/p&gt;
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/ReaderPortal/Views/Community/Index.cshtml">
+    <data>Netzwerken</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleProfile" set="~/Areas/ReaderPortal/Views/Community/Index.cshtml">
+    <data>Profil bearbeiten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/ReaderPortal/Views/Community/ShowProfile.cshtml">
+    <data>&lt;span data-args='0' data-desc='User Name'&gt;{0}&lt;/span&gt;'s öffentliches Profil</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/ReaderPortal/Views/Groups/Groups.cshtml">
+    <data>Hier findest du Gruppen welche zu deine Interessen passen könnten. Füge Interessen zu deinem Profil hinzu um weite Vorschläge angezeigt zu bekommen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/ReaderPortal/Views/Groups/Groups.cshtml">
+    <data>Öffentliche Gruppen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legendGrp" set="~/Areas/ReaderPortal/Views/Groups/Groups/_AddGroup.cshtml">
+    <data>Neue Gruppe erstellen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNoModel" set="~/Areas/ReaderPortal/Views/Groups/Groups/_ListGroups.cshtml">
+    <data>Leider bist du in noch keiner Gruppe.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/ReaderPortal/Views/Groups/Member.cshtml">
+    <data>Hier kannst du Mitglieder in deine Gruppe aufnehmen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textGrouptxt" set="~/Areas/ReaderPortal/Views/Groups/Member.cshtml">
+    <data>&lt;em&gt;&lt;span data-args='0' data-desc='Group Name'&gt;{0}&lt;/span&gt;&lt;/em&gt; hat &lt;em&gt;&lt;span data-args='1' data-desc='Members Count'&gt;{1}&lt;/span&gt;&lt;/em&gt; Mitglieder.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNoGroup" set="~/Areas/ReaderPortal/Views/Groups/Member.cshtml">
+    <data>Du bist in keiner Gruppe Administrator.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textPublic" set="~/Areas/ReaderPortal/Views/Groups/Member.cshtml">
+    <data>Diese Gruppe ist öffentlich</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/ReaderPortal/Views/Groups/Member.cshtml">
+    <data>Verwalte deine Gruppe</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textMyGrp" set="~/Areas/ReaderPortal/Views/Groups/MyGroups.cshtml">
+    <data>Das sind die privaten Gruppen in denen du Administrator bist.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textMyGrpExpl" set="~/Areas/ReaderPortal/Views/Groups/MyGroups.cshtml">
+    <data>
+      Die Besonderheit von privaten Gruppen ist, dass Inhalte nur einmal für dies gesamte Gruppe erworben werden müssen. 
+      Du kannst deine Lesezeichen, Kommentar und zugehörigen Ressourcen mit der gesamten Gruppe teilen.
+      Natürlich kannst du hier auch mit den anderen Mitglieder in Kontakt treten und Inhalte hochladen.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleMyGrp" set="~/Areas/ReaderPortal/Views/Groups/MyGroups.cshtml">
+    <data>Meine Gruppen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNo" set="~/Areas/ReaderPortal/Views/Groups/Questions.cshtml">
+    <data>Folgende Fragen warten auf deine Antwort.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/ReaderPortal/Views/Groups/Questions.cshtml">
+    <data>Fragen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textPts" set="~/Areas/ReaderPortal/Views/Home/_BrowseCatalog.cshtml">
+    <data>Punkte</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textSummary" set="~/Areas/ReaderPortal/Views/Home/_BrowseCatalog.cshtml">
+    <data>&lt;span data-args='0' data-desc='Book Count'&gt;{0}&lt;/span&gt; Apps gefunden.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="btnSearch" set="~/Areas/ReaderPortal/Views/Home/_GlobalSearch.cshtml">
+    <data>Suchen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblArea" set="~/Areas/ReaderPortal/Views/Home/_GlobalSearch.cshtml">
+    <data>Kategorie</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblRating" set="~/Areas/ReaderPortal/Views/Home/_GlobalSearch.cshtml">
+    <data>Bewertung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblReviewed" set="~/Areas/ReaderPortal/Views/Home/_GlobalSearch.cshtml">
+    <data>Reviewed only?</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblReviewMin" set="~/Areas/ReaderPortal/Views/Home/_GlobalSearch.cshtml">
+    <data>At least reviewed with level</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblSearch" set="~/Areas/ReaderPortal/Views/Home/_GlobalSearch.cshtml">
+    <data>Suchen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legendA" set="~/Areas/ReaderPortal/Views/Home/_GlobalSearch.cshtml">
+    <data>Erweiterte Suche</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legendQ" set="~/Areas/ReaderPortal/Views/Home/_GlobalSearch.cshtml">
+    <data>Schnellsuche</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="optionAll" set="~/Areas/ReaderPortal/Views/Home/_GlobalSearch.cshtml">
+    <data>Alle Kategorien</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textHlp1" set="~/Areas/ReaderPortal/Views/Home/_GlobalSearch.cshtml">
+    <data>Was ist das?</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textHlp2" set="~/Areas/ReaderPortal/Views/Home/_GlobalSearch.cshtml">
+    <data>Was ist das?</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/ReaderPortal/Views/Home/_Recommendations.cshtml">
+    <data>Empfehlungen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/ReaderPortal/Views/Home/Index.cshtml">
+    <data>
+      Unsere Empfehlungen basieren auf deinem Profil.
+      &lt;br /&gt;&lt;br /&gt;
+      Durchsuche die gesamte Bibliothek. Gib einfach deine Stichworte ein.
+      &lt;br /&gt;&lt;br /&gt;
+      Deine Suchergebnisse kannst du sehen und direkt benutzen.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/ReaderPortal/Views/Home/Index.cshtml">
+    <data>Suchen und Finden</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title1" set="~/Areas/ReaderPortal/Views/Home/Index.cshtml">
+    <data>Suchen und finden</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title2" set="~/Areas/ReaderPortal/Views/Home/Index.cshtml">
+    <data>Katalog</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleContent" set="~/Areas/ReaderPortal/Views/Home/Index.cshtml">
+    <data>Inhalt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="button" set="~/Areas/ReaderPortal/Views/Home/Matrix.cshtml">
+    <data>Hinzufügen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="h11" set="~/Areas/ReaderPortal/Views/Home/Matrix.cshtml">
+    <data>Lesers Zuhause</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="h12" set="~/Areas/ReaderPortal/Views/Home/Matrix.cshtml">
+    <data>Zum Kataloig</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="h13" set="~/Areas/ReaderPortal/Views/Home/Matrix.cshtml">
+    <data>Suchen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="label" set="~/Areas/ReaderPortal/Views/Home/Matrix.cshtml">
+    <data>Schlüsselwort</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblLevel" set="~/Areas/ReaderPortal/Views/Home/Matrix.cshtml">
+    <data>Niveau</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPrivateKey" set="~/Areas/ReaderPortal/Views/Home/Matrix.cshtml">
+    <data>Schlüsselworte</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPublicKey" set="~/Areas/ReaderPortal/Views/Home/Matrix.cshtml">
+    <data>Begriffe aus dem Profil</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblUsage" set="~/Areas/ReaderPortal/Views/Home/Matrix.cshtml">
+    <data>Benutzung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/ReaderPortal/Views/Home/Matrix.cshtml">
+    <data>Deine Auswahl</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend2" set="~/Areas/ReaderPortal/Views/Home/Matrix.cshtml">
+    <data>Deine Schlüsselworte</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/ReaderPortal/Views/Home/Matrix.cshtml">
+    <data>
+      Unsere Empfehlungen basieren auf deinem Profil.
+      &lt;br /&gt;&lt;br /&gt;
+      Durchsuche die gesamte Bibliothek. Gib einfach deine Stichworte ein.
+      &lt;br /&gt;&lt;br /&gt;
+      Deine Suchergebnisse kannst du sehen und direkt benutzen.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text2" set="~/Areas/ReaderPortal/Views/Home/Matrix.cshtml">
+    <data>Wähle einfach&amp;nbsp;nach den&amp;nbsp;Schlüsselworten in deinem Profile aus oder lege hier temporär neue an.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textExMatrix" set="~/Areas/ReaderPortal/Views/Home/Matrix.cshtml">
+    <data>
+      &lt;strong&gt;texxtoor&lt;/strong&gt; hat nicht nur ein paar Apps aus denen du wählen kannst. &lt;strong&gt;texxtoor&lt;/strong&gt;
+      hat Millionen Variationen, gebaut nach deinen Anforderungen, perfekt. an deine Bedürfnisse angepasst.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNoProfile" set="~/Areas/ReaderPortal/Views/Home/Matrix.cshtml">
+    <data>Keine Profildaten vorhanden. Nutze dein Profil, um angepasste Informationen zu erhalten.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/ReaderPortal/Views/Home/Matrix.cshtml">
+    <data>Finde deine App</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title1" set="~/Areas/ReaderPortal/Views/Home/Matrix.cshtml">
+    <data>Suchen und finden</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/ReaderPortal/Views/Home/Search.cshtml">
+    <data>Ergebnisse der globalen Suche</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text2" set="~/Areas/ReaderPortal/Views/Home/Search.cshtml">
+    <data>Suchergebnisse.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text3" set="~/Areas/ReaderPortal/Views/Home/Search.cshtml">
+    <data>Zeige alle Ergebnisse der Suche an.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title1" set="~/Areas/ReaderPortal/Views/Home/Search.cshtml">
+    <data>Suchen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title2" set="~/Areas/ReaderPortal/Views/Home/Search.cshtml">
+    <data>Suchen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="btnSearch" set="~/Areas/ReaderPortal/Views/Home/Themes/Metro/_GlobalSearch.cshtml">
+    <data>Suchen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblArea" set="~/Areas/ReaderPortal/Views/Home/Themes/Metro/_GlobalSearch.cshtml">
+    <data>Kategorien</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblRating" set="~/Areas/ReaderPortal/Views/Home/Themes/Metro/_GlobalSearch.cshtml">
+    <data>Bewertung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblReviewed" set="~/Areas/ReaderPortal/Views/Home/Themes/Metro/_GlobalSearch.cshtml">
+    <data>Reviewed only?</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblReviewMin" set="~/Areas/ReaderPortal/Views/Home/Themes/Metro/_GlobalSearch.cshtml">
+    <data>At least reviewed with level</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblSearch" set="~/Areas/ReaderPortal/Views/Home/Themes/Metro/_GlobalSearch.cshtml">
+    <data>Suchen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legendA" set="~/Areas/ReaderPortal/Views/Home/Themes/Metro/_GlobalSearch.cshtml">
+    <data>Erweiterte Suche</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legendQ" set="~/Areas/ReaderPortal/Views/Home/Themes/Metro/_GlobalSearch.cshtml">
+    <data>Schnellsuche</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="optionAll" set="~/Areas/ReaderPortal/Views/Home/Themes/Metro/_GlobalSearch.cshtml">
+    <data>Alle Kategorien</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textHlp1" set="~/Areas/ReaderPortal/Views/Home/Themes/Metro/_GlobalSearch.cshtml">
+    <data>Was ist das?</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textHlp2" set="~/Areas/ReaderPortal/Views/Home/Themes/Metro/_GlobalSearch.cshtml">
+    <data>Was ist das?</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblCity" set="~/Areas/ReaderPortal/Views/Orders/_OrderAddress.cshtml">
+    <data>Stadt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblName" set="~/Areas/ReaderPortal/Views/Orders/_OrderAddress.cshtml">
+    <data>Name</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblStreet" set="~/Areas/ReaderPortal/Views/Orders/_OrderAddress.cshtml">
+    <data>Strasse und Hausnummer</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblZip" set="~/Areas/ReaderPortal/Views/Orders/_OrderAddress.cshtml">
+    <data>Postleitzahl</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblMedia" set="~/Areas/ReaderPortal/Views/Orders/_OrderMedia.cshtml">
+    <data>Welche Medien nutzt du?</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPriceSale" set="~/Areas/ReaderPortal/Views/Orders/_OrderMedia.cshtml">
+    <data>Endpreis</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPriceSubscription" set="~/Areas/ReaderPortal/Views/Orders/_OrderMedia.cshtml">
+    <data>Endpreis (Bestellung)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legendMedia" set="~/Areas/ReaderPortal/Views/Orders/_OrderMedia.cshtml">
+    <data>Medien und Preis</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/ReaderPortal/Views/Orders/_OrderMedia.cshtml">
+    <data>Für manche Medien(Formate) müssen wir leider eine Gebühr erheben.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblCol" set="~/Areas/ReaderPortal/Views/Orders/_OrderProduct.cshtml">
+    <data>Farbig</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblDed" set="~/Areas/ReaderPortal/Views/Orders/_OrderProduct.cshtml">
+    <data>Hat einen Umschlag</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblIdx" set="~/Areas/ReaderPortal/Views/Orders/_OrderProduct.cshtml">
+    <data>Hat einen Index</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblSubTitle" set="~/Areas/ReaderPortal/Views/Orders/_OrderProduct.cshtml">
+    <data>Untertitel</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblTitle" set="~/Areas/ReaderPortal/Views/Orders/_OrderProduct.cshtml">
+    <data>Titel</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblTOc" set="~/Areas/ReaderPortal/Views/Orders/_OrderProduct.cshtml">
+    <data>Hat ein Inhaltsverzeichnis</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/ReaderPortal/Views/Orders/_OrderProduct.cshtml">
+    <data>Dein Produkt '&lt;span data-args='0' data-desc='Product Title'&gt;{0}&lt;/span&gt;'</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/ReaderPortal/Views/Orders/Order.cshtml">
+    <data>Bestelle deine App</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblDelivery" set="~/Areas/ReaderPortal/Views/Orders/Payment.cshtml">
+    <data>Digitale Lieferung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblMedia" set="~/Areas/ReaderPortal/Views/Orders/Payment.cshtml">
+    <data>Medienformate</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPara" set="~/Areas/ReaderPortal/Views/Orders/Payment.cshtml">
+    <data>Wenn du mit Paypal zahlst benötigen wir keine weiteren privaten Daten von dir.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPrice" set="~/Areas/ReaderPortal/Views/Orders/Payment.cshtml">
+    <data>Im Endpreis sind sämtliche Kosten enthalten(Mehrwertsteuer, Versand,...)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblShipping" set="~/Areas/ReaderPortal/Views/Orders/Payment.cshtml">
+    <data>Versandkosten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/ReaderPortal/Views/Orders/Payment.cshtml">
+    <data>Bestellinformationen &lt;span&gt;{0}&lt;/span&gt;</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="pArchive" set="~/Areas/ReaderPortal/Views/Orders/Payment.cshtml">
+    <data>Nutze das Archiv um deine digitalen Bücher jederzeit herunterzuladen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textImmediate" set="~/Areas/ReaderPortal/Views/Orders/Payment.cshtml">
+    <data>Diese Inhalte kannst du jederzeit über dein privates Archiv herunterladen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title1" set="~/Areas/ReaderPortal/Views/Orders/Payment.cshtml">
+    <data>Checkout</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleImmediate" set="~/Areas/ReaderPortal/Views/Orders/Payment.cshtml">
+    <data>Direkter Datenzugriff</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titlePayment" set="~/Areas/ReaderPortal/Views/Orders/Payment.cshtml">
+    <data>Bezahlung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/ReaderPortal/Views/Orders/ReOrder.cshtml">
+    <data>Bestelle deine App</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/ReaderPortal/Views/Reader/Bookmarks/Bookmarks.cshtml">
+    <data>Auf dieser Seite kannst du alle Lesezeichen in dieser App ansehen und bearbeiten.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNoData" set="~/Areas/ReaderPortal/Views/Reader/Bookmarks/Bookmarks.cshtml">
+    <data>Für diese App sind keine Lesezeichen hinterlegt.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title1" set="~/Areas/ReaderPortal/Views/Reader/Bookmarks/Bookmarks.cshtml">
+    <data>Verwalte deine Lesezeichen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblName" set="~/Areas/ReaderPortal/Views/Reader/Collections/_AddCollection.cshtml">
+    <data>Name</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblNote" set="~/Areas/ReaderPortal/Views/Reader/Collections/_AddCollection.cshtml">
+    <data>Hinweis</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPublic" set="~/Areas/ReaderPortal/Views/Reader/Collections/_AddCollection.cshtml">
+    <data>Ist öffentlich</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblShared" set="~/Areas/ReaderPortal/Views/Reader/Collections/_AddCollection.cshtml">
+    <data>Ist geteilt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/ReaderPortal/Views/Reader/Collections/_AddCollection.cshtml">
+    <data>Neue Sammlung anlegen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textSelCnt" set="~/Areas/ReaderPortal/Views/Reader/Collections/_ChangeCollection.cshtml">
+    <data>Wähle Inhalte aus anderen Sammlungen oder Büchern.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblName" set="~/Areas/ReaderPortal/Views/Reader/Collections/_EditCollection.cshtml">
+    <data>Name</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblNote" set="~/Areas/ReaderPortal/Views/Reader/Collections/_EditCollection.cshtml">
+    <data>Hinweis</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPublic" set="~/Areas/ReaderPortal/Views/Reader/Collections/_EditCollection.cshtml">
+    <data>Ist öffentlich</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblShared" set="~/Areas/ReaderPortal/Views/Reader/Collections/_EditCollection.cshtml">
+    <data>Ist geteilt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/ReaderPortal/Views/Reader/Collections/_EditCollection.cshtml">
+    <data>Sammlung bearbeiten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkChange" set="~/Areas/ReaderPortal/Views/Reader/Collections/_ListCollections.cshtml">
+    <data>Verwalten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkModify" set="~/Areas/ReaderPortal/Views/Reader/Collections/_ListCollections.cshtml">
+    <data>Modifizieren</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkRemove" set="~/Areas/ReaderPortal/Views/Reader/Collections/_ListCollections.cshtml">
+    <data>Löschen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text2" set="~/Areas/ReaderPortal/Views/Reader/Collections/Collections.cshtml">
+    <data>Es ist noch keine Sammlung vorhanden. Erstelle gleich deine eigene.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textCollection" set="~/Areas/ReaderPortal/Views/Reader/Collections/Collections.cshtml">
+    <data>
+      Deine eigenen Inhalte sind in Sammlungen organisiert. Du kannst beliebig viele Sammlungen erstellen und jederzeit und überall auf diese zugreifen. Nutze gesammelte Inhalte, um deine Apps anzupassen, zu erweitern oder eigene zu erstellen.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleMyCnt" set="~/Areas/ReaderPortal/Views/Reader/Collections/Collections.cshtml">
+    <data>Meine Inhalte</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/ReaderPortal/Views/Reader/Comments/Comments.cshtml">
+    <data>Hier kannst du Kommentare ansehen, bearbeiten oder löschen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNoData" set="~/Areas/ReaderPortal/Views/Reader/Comments/Comments.cshtml">
+    <data>In diesem Werk sind keine Kommentare vorhanden.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title1" set="~/Areas/ReaderPortal/Views/Reader/Comments/Comments.cshtml">
+    <data>Meine Kommentare verwalten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="linkDet" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Bewertungen anzeigen...</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="liRev" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Es sind &lt;span data-args='0' data-desc='Review Count'&gt;{0}&lt;/span&gt; Bewertungen vorhanden.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text4Authors" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Informationen zum Autor, Team anzeigen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textAndRated" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data> und bewertet &lt;em&gt;&lt;span data-args='0' data-desc='Rated'&gt;{0}&lt;/span&gt;&lt;/em&gt; Punkten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textBooksCount" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Du hast &lt;span data-args='0' data-desc='Books Count'&gt;{0}&lt;/span&gt; selbsterstellte Bücher in deine Bibliothek.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textBuy" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Lies auf deinem Endgerät oder druck es dir einfach aus.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textCopy" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Frei Inhalte kannst du kostenfrei lesen. Füge sie zu deiner Bibliothek hinzu um Lesezeichen und Kommentare anzulegen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textDiscuss" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Diskutiere mit anderen und lerne von ihnen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textFrontMatter" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Geschrieben von &lt;em&gt;&lt;span data-args='0' data-desc='Book Author'&gt;{0}&lt;/span&gt;&lt;/em&gt;</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textInfoMoreRating" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>(Finde mehr heraus über unser &lt;a href='/Home/Page/ranking'&gt;rating system&lt;/a&gt;.)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textPutInLib" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>In die Bibliothek</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textRating" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>
+      Jedes Werk auf &lt;strong&gt;texxtoor&lt;/strong&gt; Kann bewertet werden.. Der Titel &lt;em&gt;&lt;span data-args='0' data-desc='Book Title'&gt;{0}&lt;/span&gt;&lt;/em&gt;
+      hat &lt;strong style="color: Green" data-args='1' data-desc='Points'&gt;{1}&lt;/strong&gt; Punkte. Die Zusammenfassung der Bewertrungen ist: &lt;span&gt;
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textRead" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Du kannst diese Werk jetzt verwenden.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textStarred" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Starred&amp;nbsp;</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title1" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Informationen über '&lt;span data-args='0' data-desc='Book Title'&gt;{0}&lt;/span&gt;'</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title2" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Lies aus unserem Katalog</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title3" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Informationen über '&lt;span data-args='0' data-desc='Book Title'&gt;{0}&lt;/span&gt;'</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title4" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Bewertungen und Punkte</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title5" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Actionen für '&lt;span data-args='0' data-desc='Book Title'&gt;{0}&lt;/span&gt;'</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title6" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Autoren</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleAbstract" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Abstrakt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleAbstracts" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Abstrakt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleAuthors" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Autoren</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleInfo" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Titelinformationen und Bewertungen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titlePeer" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Bewertungen von Kollegen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleRating" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Wertung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleTitle" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Titel</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleToc" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>Inhaltsverzeichnis</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleWorkTitle" set="~/Areas/ReaderPortal/Views/Reader/Published.cshtml">
+    <data>&lt;span data-args='0' data-desc='Work Title'&gt;{0}&lt;/span&gt;</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblColl" set="~/Areas/ReaderPortal/Views/Reader/Library/_AddBook.cshtml">
+    <data>Hauptsammlung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblName" set="~/Areas/ReaderPortal/Views/Reader/Library/_AddBook.cshtml">
+    <data>Name</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblNote" set="~/Areas/ReaderPortal/Views/Reader/Library/_AddBook.cshtml">
+    <data>Hinweis</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/ReaderPortal/Views/Reader/Library/_AddBook.cshtml">
+    <data>Private App erstellen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblColl" set="~/Areas/ReaderPortal/Views/Reader/Library/_AddBookToShelf.cshtml">
+    <data>Hauptsammlung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblName" set="~/Areas/ReaderPortal/Views/Reader/Library/_AddBookToShelf.cshtml">
+    <data>Name</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblNote" set="~/Areas/ReaderPortal/Views/Reader/Library/_AddBookToShelf.cshtml">
+    <data>Hinweis</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/ReaderPortal/Views/Reader/Library/_AddBookToShelf.cshtml">
+    <data>Private App erstellen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/ReaderPortal/Views/Reader/Library/_EditBook.cshtml">
+    <data>Arbeit ändern</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblName" set="~/Areas/ReaderPortal/Views/Reader/Library/_EditBookInShelf.cshtml">
+    <data>Name</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblNote" set="~/Areas/ReaderPortal/Views/Reader/Library/_EditBookInShelf.cshtml">
+    <data>Hinweis</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Areas/ReaderPortal/Views/Reader/Library/_EditBookInShelf.cshtml">
+    <data>Arbeit ändern</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="bookCountPlur" set="~/Areas/ReaderPortal/Views/Reader/Library/_ListBooks.cshtml">
+    <data>{0} Kopien</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="bookCountPrefix" set="~/Areas/ReaderPortal/Views/Reader/Library/_ListBooks.cshtml">
+    <data>Du hast</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="bookCountSuffix" set="~/Areas/ReaderPortal/Views/Reader/Library/_ListBooks.cshtml">
+    <data>in deiner Bibliothek</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblIsProduct" set="~/Areas/ReaderPortal/Views/Reader/Library/_ListBooks.cshtml">
+    <data>Diese App kann nicht entfernt werden, da noch Bestellungen offen sind.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblNoProduct" set="~/Areas/ReaderPortal/Views/Reader/Library/_ListBooks.cshtml">
+    <data>Dieses Werk wurde noch nicht bestellt.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkBookmark" set="~/Areas/ReaderPortal/Views/Reader/Library/_ListBooks.cshtml">
+    <data>Lesezeichen...</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkComments" set="~/Areas/ReaderPortal/Views/Reader/Library/_ListBooks.cshtml">
+    <data>Kommentare...</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkCreateCopy" set="~/Areas/ReaderPortal/Views/Reader/Library/_ListBooks.cshtml">
+    <data>Kopie erstellen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkModify" set="~/Areas/ReaderPortal/Views/Reader/Library/_ListBooks.cshtml">
+    <data>Modifizieren</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkOrder" set="~/Areas/ReaderPortal/Views/Reader/Library/_ListBooks.cshtml">
+    <data>Bestellen!</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkRead" set="~/Areas/ReaderPortal/Views/Reader/Library/_ListBooks.cshtml">
+    <data>Lesen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkRemove" set="~/Areas/ReaderPortal/Views/Reader/Library/_ListBooks.cshtml">
+    <data>Entfernen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNoWorks" set="~/Areas/ReaderPortal/Views/Reader/Library/_ListBooks.cshtml">
+    <data>Dein App Store ist noch leer.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="WorkCountSing" set="~/Areas/ReaderPortal/Views/Reader/Library/_ListBooks.cshtml">
+    <data>{0} Kopien</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkCancel" set="~/Areas/ReaderPortal/Views/Reader/Library/Books.cshtml">
+    <data>Abbrechen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkUpload" set="~/Areas/ReaderPortal/Views/Reader/Library/Books.cshtml">
+    <data>Hochladen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/ReaderPortal/Views/Reader/Library/Books.cshtml">
+    <data>Dein privater&amp;nbsp;App Store&amp;nbsp;enthält alle Apps, die du gelesen hast, eigene Inhalte&amp;nbsp;aus privaten Uploads. Du kannst diese Daten für jedes Medium herunterladen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text2" set="~/Areas/ReaderPortal/Views/Reader/Library/Books.cshtml">
+    <data>Erstelle hier einfach eine neue, private&amp;nbsp;App nur für dich, um deine Inhalte perfekt zu organisieren.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textDropBox" set="~/Areas/ReaderPortal/Views/Reader/Library/Books.cshtml">
+    <data>Du hast ein Dropbox-Konto? Lade alle deine EPUBs  in einem Schritt hoch und mache sie damit sofort verfügbar.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textOtherSources" set="~/Areas/ReaderPortal/Views/Reader/Library/Books.cshtml">
+    <data>Du kannst&amp;nbsp;Inhalte hochladen, welche das EPUB 2- oder EPUB 3-Format enthalten. Diese&amp;nbsp;Inhalte sind dann nur für dich sichtbar und verwendbar. Sie werden automatisch in eine texxtoor-App konvertiert und können jederzeit überall benutzt werden.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title2" set="~/Areas/ReaderPortal/Views/Reader/Library/Books.cshtml">
+    <data>Mein App Store</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleOtherSources" set="~/Areas/ReaderPortal/Views/Reader/Library/Books.cshtml">
+    <data>Arbeite mit anderen Quellen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="bookCountPlur" set="~/Areas/ReaderPortal/Views/Reader/Library/BookShelf.cshtml">
+    <data>{0} Kopien</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="bookCountPrefix" set="~/Areas/ReaderPortal/Views/Reader/Library/BookShelf.cshtml">
+    <data>Du hast</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="bookCountSuffix" set="~/Areas/ReaderPortal/Views/Reader/Library/BookShelf.cshtml">
+    <data>in deiner Bibliothek</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkCancel" set="~/Areas/ReaderPortal/Views/Reader/Library/BookShelf.cshtml">
+    <data>Abbrechen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lnkUpload" set="~/Areas/ReaderPortal/Views/Reader/Library/BookShelf.cshtml">
+    <data>Hochladen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/ReaderPortal/Views/Reader/Library/BookShelf.cshtml">
+    <data>Deine private Bibliothek enthält alle Bücher die du gelsen hast, eigene Werke sowie deine privaten Uploads. Du kannst diese Daten für jedes Medium herunterladen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text2" set="~/Areas/ReaderPortal/Views/Reader/Library/BookShelf.cshtml">
+    <data>If you work with a book personally start by creating a private issue.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textDropBox" set="~/Areas/ReaderPortal/Views/Reader/Library/BookShelf.cshtml">
+    <data>Du kannst alle Werke hochladen welche das EPUB 2- oder EPUB 3-Format enthalten. Diese Werke sind dann nur für dich sichtbar und verwendbar.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textOtherSources" set="~/Areas/ReaderPortal/Views/Reader/Library/BookShelf.cshtml">
+    <data>Du kannst alle Werke hochladen welche das EPUB 2- oder EPUB 3-Format enthalten. Diese Werke sind dann nur für dich sichtbar und verwendbar.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title2" set="~/Areas/ReaderPortal/Views/Reader/Library/BookShelf.cshtml">
+    <data>Meine Bibliothek</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleOtherSources" set="~/Areas/ReaderPortal/Views/Reader/Library/BookShelf.cshtml">
+    <data>Arbeite mit anderen Quellen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="WorkCountSing" set="~/Areas/ReaderPortal/Views/Reader/Library/BookShelf.cshtml">
+    <data>{0} Kopien</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblClosed" set="~/Areas/ReaderPortal/Views/Reader/MessageBoard/_CreateMessage.cshtml">
+    <data>Stellungnahmen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblMood" set="~/Areas/ReaderPortal/Views/Reader/MessageBoard/_CreateMessage.cshtml">
+    <data>Meine Laune heute</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblMsg" set="~/Areas/ReaderPortal/Views/Reader/MessageBoard/_CreateMessage.cshtml">
+    <data>Nachricht</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblOpusName" set="~/Areas/ReaderPortal/Views/Reader/MessageBoard/_CreateMessage.cshtml">
+    <data>Werk auf welches sich die Nachricht bezieht</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblSubject" set="~/Areas/ReaderPortal/Views/Reader/MessageBoard/_CreateMessage.cshtml">
+    <data>Betreff</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legendMsg" set="~/Areas/ReaderPortal/Views/Reader/MessageBoard/_CreateMessage.cshtml">
+    <data>Neue Nachricht an die Leser</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/ReaderPortal/Views/Reader/MessageBoard/MessageBoard.cshtml">
+    <data>Benutze dieses Board, um dein Werk als ganzes zu diskutieren. In den Kommentaren werden einzelne Stellen innerhalb des Werkes diskutieret.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textMsg" set="~/Areas/ReaderPortal/Views/Reader/MessageBoard/MessageBoard.cshtml">
+    <data>Hier kannst du etwas mit deinen Lesern teilen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textMsg1" set="~/Areas/ReaderPortal/Views/Reader/MessageBoard/MessageBoard.cshtml">
+    <data>Öffentliches Board für &lt;span data-args='0' data-desc='Work Name'&gt;{0}&lt;/span&gt;.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textMsg2" set="~/Areas/ReaderPortal/Views/Reader/MessageBoard/MessageBoard.cshtml">
+    <data>Hier kannst du etwas mit deinen Lesern teilen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/ReaderPortal/Views/Reader/MessageBoard/MessageBoard.cshtml">
+    <data>Board</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleMsg" set="~/Areas/ReaderPortal/Views/Reader/MessageBoard/MessageBoard.cshtml">
+    <data>Öffentliches Board for &lt;span data-args='0' data-desc='Work Name'&gt;{0}&lt;/span&gt;</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="linkDet" set="~/Areas/ReaderPortal/Views/Reader/WorkDetails.cshtml">
+    <data>Bewertungen anzeigen...</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="liRev" set="~/Areas/ReaderPortal/Views/Reader/WorkDetails.cshtml">
+    <data>Es sind &lt;span data-args='0' data-desc='Review Count'&gt;{0}&lt;/span&gt; Bewertungen verfügbar.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Areas/ReaderPortal/Views/Reader/WorkDetails.cshtml">
+    <data>Hier kannst Details zu diesem Werk erfahren.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text4Authors" set="~/Areas/ReaderPortal/Views/Reader/WorkDetails.cshtml">
+    <data>Finde mehr über den Autor, das Team heraus.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textAndRated" set="~/Areas/ReaderPortal/Views/Reader/WorkDetails.cshtml">
+    <data> und bewerte es mit &lt;em&gt;&lt;span data-args='0' data-desc='Rated'&gt;{0}&lt;/span&gt;&lt;/em&gt; Punkten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textFrontMatter" set="~/Areas/ReaderPortal/Views/Reader/WorkDetails.cshtml">
+    <data>Geschrieben von &lt;em&gt;&lt;span data-args='0' data-desc='Book Author'&gt;{0}&lt;/span&gt;&lt;/em&gt;</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textStarred" set="~/Areas/ReaderPortal/Views/Reader/WorkDetails.cshtml">
+    <data>Starred&amp;nbsp;</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Areas/ReaderPortal/Views/Reader/WorkDetails.cshtml">
+    <data>Details zu der Arbeit</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleAbstracts" set="~/Areas/ReaderPortal/Views/Reader/WorkDetails.cshtml">
+    <data>Abstrakt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleAuthors" set="~/Areas/ReaderPortal/Views/Reader/WorkDetails.cshtml">
+    <data>Autoren</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleRating" set="~/Areas/ReaderPortal/Views/Reader/WorkDetails.cshtml">
+    <data>Wertung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleTitle" set="~/Areas/ReaderPortal/Views/Reader/WorkDetails.cshtml">
+    <data>Titel</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleToc" set="~/Areas/ReaderPortal/Views/Reader/WorkDetails.cshtml">
+    <data>Inhaltsverzeichnis</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleWorkTitle" set="~/Areas/ReaderPortal/Views/Reader/WorkDetails.cshtml">
+    <data>&lt;span data-args='0' data-desc='Work Title'&gt;{0}&lt;/span&gt;</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Views/Account/Archive.cshtml">
+    <data>Hier siehst du alle Inhalte, welche du bisher bestellt hast. Von hier kannst du sie auch jederzeit herunterladen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Views/Account/Archive.cshtml">
+    <data>Dein Informationsarchiv</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleDownload" set="~/Views/Account/Archive.cshtml">
+    <data>Downloads</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNothing" set="~/Views/Account/Archive/_ListUserFiles.cshtml">
+    <data>Dein Archiv ist noch leer.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="btnLogon" set="~/Views/Account/LogOn.cshtml">
+    <data>Anmelden</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblName" set="~/Views/Account/LogOn.cshtml">
+    <data>Name</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPw" set="~/Views/Account/LogOn.cshtml">
+    <data>Passwort</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblRem" set="~/Views/Account/LogOn.cshtml">
+    <data>Name merken?</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Views/Account/LogOn.cshtml">
+    <data>Zugangsdaten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Views/Account/LogOn.cshtml">
+    <data>Gibt bitte deinen Namen und dein Kennwort ein.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text2" set="~/Views/Account/LogOn.cshtml">
+    <data>, wenn du noch keine Account bei uns hast.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Views/Account/LogOn.cshtml">
+    <data>Anmelden</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Views/Account/Payments.cshtml">
+    <data>Hier siehst du alle Zahlungen zu deinen Projekten.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Views/Account/Payments.cshtml">
+    <data>Zahlungen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleTransactionDetails" set="~/Views/Account/Payments.cshtml">
+    <data>Deine Transaktionsdetails </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Views/Account/Private.cshtml">
+    <data>Hier findest du alle Bücher welche du bestellt hast. Von hier kannst du diese jederzeit herunterladen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNews" set="~/Views/Account/Private.cshtml">
+    <data>Keine Neuigkeiten vorhanden.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textNothing" set="~/Views/Account/Private.cshtml">
+    <data> Dein Archiv ist noch leer.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Views/Account/Private.cshtml">
+    <data>Dein Informationsarchiv</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleDownload" set="~/Views/Account/Private.cshtml">
+    <data>Downloads</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleNews" set="~/Views/Account/Private.cshtml">
+    <data>Neuigkeiten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Views/Account/Profile/Address/_AddAddress.cshtml">
+    <data>Adresse hinzugügen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="btnSubmit" set="~/Views/Account/Register.cshtml">
+    <data>Registrieren</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblMail" set="~/Views/Account/Register.cshtml">
+    <data>e-Mail</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPassConfirm" set="~/Views/Account/Register.cshtml">
+    <data>Passwort bestätigen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPassword" set="~/Views/Account/Register.cshtml">
+    <data>Passwort</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPrimRole" set="~/Views/Account/Register.cshtml">
+    <data>Ich bin...</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPrimRoleAuthor" set="~/Views/Account/Register.cshtml">
+    <data>ein Autor</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPrimRoleContrib" set="~/Views/Account/Register.cshtml">
+    <data>ein Mitarbieter</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPrimRoleReader" set="~/Views/Account/Register.cshtml">
+    <data>ein Leser</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblUsername" set="~/Views/Account/Register.cshtml">
+    <data>Nutzername</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend1" set="~/Views/Account/Register.cshtml">
+    <data>Anmeldedetails</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Views/Account/Register.cshtml">
+    <data>Hier kannst du einen neuen Account anlegen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text2" set="~/Views/Account/Register.cshtml">
+    <data>Das Kennwort muss aus mindestens {0} Zeichen bestehen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title1" set="~/Views/Account/Register.cshtml">
+    <data>Neuen Account anlegen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="txtBottom" set="~/Views/Account/Register.cshtml">
+    <data>Nach der Registrierung bekommst du von uns eine Bestätigungsmail. Hast du deinen Account bestätigt, kannst du ihn im vollen Umfang nutzen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="valsum1" set="~/Views/Account/Register.cshtml">
+    <data>Fehler beim erstellen des Accounts.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="366FDE8BC8F14DD45A8419BC62243FBD" set="~/Views/Account/Social/_LogOnInternal.cshtml">
+    <data>Fehler beim Anmelden. Bitte überprüfe Nutzernamen und Passwort.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="btnLogon" set="~/Views/Account/Social/_LogOnInternal.cshtml">
+    <data>Anmelden</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblName" set="~/Views/Account/Social/_LogOnInternal.cshtml">
+    <data>Name</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPw" set="~/Views/Account/Social/_LogOnInternal.cshtml">
+    <data>Passwort</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblRem" set="~/Views/Account/Social/_LogOnInternal.cshtml">
+    <data>Namen merken?</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Views/Account/Social/_LogOnInternal.cshtml">
+    <data>Zugangsdaten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Views/Account/Social/_LogOnInternal.cshtml">
+    <data>Melde dich über ein social Network an oder</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Views/Account/Social/_LogOnInternal.cshtml">
+    <data>Noch keinen Account?</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="39A93FA4B16DB1AEE73AAEFEBBD3797E" set="~/Views/Account/UserProfile.cshtml">
+    <data>Deine Abrechnung</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="516DBB06DF7A78846FE04FEA78FF4CC8" set="~/Views/Account/UserProfile.cshtml">
+    <data>Bearbeite deine Abrechnungen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="btnSaveSettings" set="~/Views/Account/UserProfile.cshtml">
+    <data>Einstellungen speichern</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblBio" set="~/Views/Account/UserProfile.cshtml">
+    <data>Bio</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblBirthday" set="~/Views/Account/UserProfile.cshtml">
+    <data>Geburtstag</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblFacebook" set="~/Views/Account/UserProfile.cshtml">
+    <data>URL deines Facebookaccounts</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblFirstname" set="~/Views/Account/UserProfile.cshtml">
+    <data>Vorname</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblGender" set="~/Views/Account/UserProfile.cshtml">
+    <data>Geschlecht</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblLastname" set="~/Views/Account/UserProfile.cshtml">
+    <data>Nachname</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblMidname" set="~/Views/Account/UserProfile.cshtml">
+    <data>Zweitname</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblNewsletter" set="~/Views/Account/UserProfile.cshtml">
+    <data>Newsletter</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblNotes" set="~/Views/Account/UserProfile.cshtml">
+    <data>Hinweise</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblOther" set="~/Views/Account/UserProfile.cshtml">
+    <data>URL von weiteren Profilen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblPayPalUserId" set="~/Views/Account/UserProfile.cshtml">
+    <data>PayPal Email Id</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblStatement" set="~/Views/Account/UserProfile.cshtml">
+    <data>Statement of Taste</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblWalltext" set="~/Views/Account/UserProfile.cshtml">
+    <data>Profiltext</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblXing" set="~/Views/Account/UserProfile.cshtml">
+    <data>URL deines Xing-Accounts</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Views/Account/UserProfile.cshtml">
+    <data>Weitere PRofil Informationen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Views/Account/UserProfile.cshtml">
+    <data>Arbeit auf Stundenbasis aktzeptiert</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text2" set="~/Views/Account/UserProfile.cshtml">
+    <data>Teilen der Erlöse aktzeptiert (empfohlen)</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textBusinessData" set="~/Views/Account/UserProfile.cshtml">
+    <data>
+      Du kannst jederzeit sämtlich Daten bearbeiten und oder löschen. Bedenke jedoch das jede Information die Möglichkeit erhöht ein Angebot zu bekommen, zusätzlich wird dein Leseergebnis verbessert.
+      &lt;br /&gt;
+      Autorn welche ein Projekt starten möchten und dazu ein Team zusammenstellen werden diese Informationen nutzen um passende Mitglieder zu finden.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textConfDel" set="~/Views/Account/UserProfile.cshtml">
+    <data>Diese Adresse wirklich löschen?</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textWallYes" set="~/Views/Account/UserProfile.cshtml">
+    <data>Du besitzt bereits ein öffentliches Profil.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleProfile" set="~/Views/Account/UserProfile.cshtml">
+    <data>Meine Daten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Views/Account/WelcomeNewUser.cshtml">
+    <data>Willkommen bei texxtoor. Dein Account ist aktiviert und kann genutzt werden.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title1" set="~/Views/Account/WelcomeNewUser.cshtml">
+    <data>Willkommen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Views/Home/Authors.cshtml">
+    <data>
+      Als Autor ist das Arbeiten mit &lt;strong&gt;texxtoor&lt;/strong&gt; so einfach wie 1—2—3. Erstellen—Vermarkten—Verkaufen. 
+      Als Experte erstellst du Inhalte, aber vermarkten und verkaufen ist unsere Aufgabe. Du kannst jedoch immer alles beeinflussen.
+      Du bist der Meister und du profitierst von deiner Arbeit direkt.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text11" set="~/Views/Home/Authors.cshtml">
+    <data>
+      Create your text, figures, and&amp;nbsp;interactive content&amp;nbsp;to make an App. With our outstanding editor
+      you can easily create the final content. No software required and for free.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text13" set="~/Views/Home/Authors.cshtml">
+    <data>Enhance your work with our sophisticated augmentation technology and optimize the content for PC, Mac, iPad, or Android devices. Even print is supported (in ancient times this was called a 'book').</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Views/Home/Authors.cshtml">
+    <data>Authors – Create Textbooks as an App</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="3E9B3AC6F082EC46A2D1D3F1F1647456" set="~/Views/Home/Default.cshtml">
+    <data>Portal</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Views/Home/Default.cshtml">
+    <data>
+      Als Autor auf &lt;strong&gt;texxtoor&lt;/strong&gt; zu arbeiten ist so einfach wie 1&amp;mdash;2&amp;mdash;3. Create&amp;mdash;Market&amp;mdash;Sell. Du schreibst und wir unterstützen dich beim Vertrieb sowie im Marketing.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text11" set="~/Views/Home/Default.cshtml">
+    <data>Erstelle deine&amp;nbsp;App in unserem Editor, kostenfrei und ohne Installation nutzbar. Füge Texte, Bilder und interaktive Inhalte ein.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text12" set="~/Views/Home/Default.cshtml">
+    <data>Erstelle ein Team aus Autoren, Illustratoren, Editoren sowie Übersetzern und das für jedes Projekt massgeschneidert.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text13" set="~/Views/Home/Default.cshtml">
+    <data>Verbessere deine Werke mit neuster Technologie und optimiere sie für alle Mobilen Endgeräte. Du kannst dein App auch drucken - früher nannte man das dann "Buch".</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text21" set="~/Views/Home/Default.cshtml">
+    <data>Jedes Werk bekommst eine Facebook-Fanpage und einen Twitteraccount.&amp;nbsp;Du kannst&amp;nbsp;auch einen Blog integrieren oder neu erstellen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text22" set="~/Views/Home/Default.cshtml">
+    <data>Jede&amp;nbsp;App ist online verfügbar und besitzt ein eigens Forum als direkten Draht zwischen Autor und Leser.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text23" set="~/Views/Home/Default.cshtml">
+    <data>Jede&amp;nbsp;App ist für alle Medien/Formate verfügbar.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text31" set="~/Views/Home/Default.cshtml">
+    <data>Jedes Werk wird auch bei Amazon und vielen weiteren digitalen Läden verfügbar sein.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text32" set="~/Views/Home/Default.cshtml">
+    <data>&lt;strong&gt;texxtoor&lt;/strong&gt; verfügt über ein einzigartiges und für bei Seiten faires Erlöskonzept.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text33" set="~/Views/Home/Default.cshtml">
+    <data>&lt;strong&gt;texxtoor&lt;/strong&gt; Autoren bekommen 100% der Einnahmen, die sie sich wünschen.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textContr1" set="~/Views/Home/Default.cshtml">
+    <data>
+      Autoren bekommen jeden Support der benötigt wird um, erfolgreich zu sein. Sei es von Koautoren oder Übersetzern, und vielen weiteren. Nimm diese Unterstützung in Anspruch oder sei Teil der Unterstützung.
+      Verdiene Geld, indem du als Experte an der Entwicklung neuer Apps teilnimmst.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textContr2" set="~/Views/Home/Default.cshtml">
+    <data>
+      Manche Projekte können sehr erfolgreich werden. Bei texxtoor erhält jeder seinen Anteil am Gewinn. Stelle dich noch heute zur Verfügung oder starte dein eigenes Projekt - erstelle deine erste App.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textContr3" set="~/Views/Home/Default.cshtml">
+    <data>
+      &lt;strong&gt;texxtoor&lt;/strong&gt; ist viel mehr als nur "Buch". Hier werden interaktive Lernanwendungen geschaffen - die Apps.
+      Du kennst ein Buch mit zu viel Text,&amp;nbsp; das inhaltlich sehr gut ist? Du bist Illustrator und kannst passende und ergänzende Grafiken oder Videos erstellen?
+      Verbessere&amp;nbsp;eine&amp;nbsp;App nach deinen Vorstellungen&amp;nbsp;und werde am Gewinn beteiligt.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textReader1" set="~/Views/Home/Default.cshtml">
+    <data>
+      Inhalte werden auf alle Geräten als angepasste, private App geliefert. Wir unterstützen jedes Endgerät. 
+      Egal ob Kindle, Andorid, iOS, PC oder Windows. Du kannst alles gedruckt bekommen und bist dennoch verbunden. 
+      Das einzigartige Konzept der texxtoor-Apps macht es möglich.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textReader2" set="~/Views/Home/Default.cshtml">
+    <data>
+      Zusammen lernen macht Spass und ist sehr effektiv, bei texxtoor spart es zusätzlich noch bares Geld. Es muss nur einmal pro Lerngruppe für ein Werk bezahlt werden und alle können darauf zu greifen und damit arbeiten.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textReader3" set="~/Views/Home/Default.cshtml">
+    <data>
+      &lt;strong&gt;texxtoor&lt;/strong&gt; ist viel mehr als nur ein Buch. Hier werden interaktive Lernanwendungen geschaffen - die texxtoor App. Jede&amp;nbsp;App ist perfekt auf dich angepasst und enthält nur dass, was du wirklich wissen willst.
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Sie ist immer und überall auf jedem Endgerät verfügbar.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textTeam1" set="~/Views/Home/Default.cshtml">
+    <data>Teile Lesezeichen, Kommentare und private Inhalte. Baue dir ein Netzwerk auf und bleibe in Kontakt. Arbeitet zusammen an neuen Projekten.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textTeam2" set="~/Views/Home/Default.cshtml">
+    <data>
+      Lernt im Team. Kostengünstig, legal und in Echtzeit auf eine riesige Mengen Wissen zugreifen und effektiv damit arbeiten und das alles im Team.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textTeam3" set="~/Views/Home/Default.cshtml">
+    <data>
+      &lt;strong&gt;texxtoor&lt;/strong&gt; ist viel mehr als nur ein Inhalt. Hier werden interaktive Lernanwendungen geschaffen. Das Buch wird augmentiert.
+      Nutze unsere Technologie um deinem Kurs, deinen Kollegen oder den Lehrgangsteilnhemen alle Inhalte schnell, einfach und permanent zugänglich zu machen.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Views/Home/Default.cshtml">
+    <data>Autoren – Die Zukunft des Fachbuchs ist eine App.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title1" set="~/Views/Home/Default.cshtml">
+    <data>1. Erstelle</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title2" set="~/Views/Home/Default.cshtml">
+    <data>2. Markt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title3" set="~/Views/Home/Default.cshtml">
+    <data>3. Verkaufe</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleContr1" set="~/Views/Home/Default.cshtml">
+    <data>Erhalte&amp;nbsp;eine Aufgabe</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleContr2" set="~/Views/Home/Default.cshtml">
+    <data>Dein Arbeitsstil passt</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleContr3" set="~/Views/Home/Default.cshtml">
+    <data>Sei kreativ!</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleContrib" set="~/Views/Home/Default.cshtml">
+    <data>Werde Teil der Autorengemeinschaft</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleReader1" set="~/Views/Home/Default.cshtml">
+    <data>Alle Inhalte immer als private App verfügbar</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleReader2" set="~/Views/Home/Default.cshtml">
+    <data>Nutzt und lernt gemeinsam</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleReader3" set="~/Views/Home/Default.cshtml">
+    <data>Interaktiv und persönlich</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleReaders" set="~/Views/Home/Default.cshtml">
+    <data>Lesen und Lernen neu definiert</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleTeam1" set="~/Views/Home/Default.cshtml">
+    <data>Lernt und arbeitet zusammen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleTeam2" set="~/Views/Home/Default.cshtml">
+    <data>Spart Geld durch das teilen von Inhaddlten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleTeam3" set="~/Views/Home/Default.cshtml">
+    <data>Bekomme die Werkzeuge</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleTeams" set="~/Views/Home/Default.cshtml">
+    <data>Teams und Gruppen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textImp" set="~/Views/Home/DemoWizard.cshtml">
+    <data>Wichtig: Während der Demo wirst du mit einem Demo-Konto angemeldet</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textStop" set="~/Views/Home/DemoWizard.cshtml">
+    <data>Drücke den STOP-Knopf um die Demo zu beenden. Melde dich anschließend wieder an.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="3E9B3AC6F082EC46A2D1D3F1F1647456" set="~/Views/Home/Index.cshtml">
+    <data>Portal</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Views/Home/Index.cshtml">
+    <data>Die führende Plattform für...</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text2" set="~/Views/Home/Index.cshtml">
+    <data>...Apps für Fachinhalte</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text3" set="~/Views/Home/Index.cshtml">
+    <data>...Nutzer von Fach-Apps</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text4" set="~/Views/Home/Index.cshtml">
+    <data>...das Mitarbeiten an Apps</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text5" set="~/Views/Home/Index.cshtml">
+    <data>...das gemeinsam lernen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textWobble" set="~/Views/Home/Index.cshtml">
+    <data>Klicke auf eine der wackelnden Kugeln</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title1" set="~/Views/Home/Index.cshtml">
+    <data>Autoren</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title2" set="~/Views/Home/Index.cshtml">
+    <data>Leser</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title3" set="~/Views/Home/Index.cshtml">
+    <data>Mitarbeiter</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title4" set="~/Views/Home/Index.cshtml">
+    <data>Teams</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="3E9B3AC6F082EC46A2D1D3F1F1647456" set="~/Views/Home/Page.cshtml">
+    <data>Portal</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textReader1" set="~/Views/Home/Readers.cshtml">
+    <data>
+      Inhalte werden auf alle Geräten als angepasste, private App geliefert. Wir unterstützen jedes Endgerät.
+      Egal ob Kindle, Andorid, iOS, PC oder Windows. Du kannst alles gedruckt bekommen und bist dennoch verbunden.
+      Das einzigartige Konzept der texxtoor-Apps macht es möglich.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textReader2" set="~/Views/Home/Readers.cshtml">
+    <data>
+      Zusammen lernen macht Spass und ist sehr effektiv, bei texxtoor spart es zusätzlich noch bares Geld. Es muss nur einmal pro Lerngruppe für ein Werk bezahlt werden und alle können darauf zu greifen und damit arbeiten.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="textReader3" set="~/Views/Home/Readers.cshtml">
+    <data>
+      &lt;strong&gt;texxtoor&lt;/strong&gt; ist viel mehr als nur ein Buch. Hier werden interaktive Lernanwendungen geschaffen. Das Buch wird augmentiert. Jedes Buch ist perfekt auf dich angepasst und entrhält nur was du wirklich wissen willst.
+      Es ist immer und überall auf jedem Endgerät verfügbar.
+    </data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleReader1" set="~/Views/Home/Readers.cshtml">
+    <data>Alle Inhalt immer und überall verfügbar</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleReader2" set="~/Views/Home/Readers.cshtml">
+    <data>Zusammen nutzen und lernen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleReader3" set="~/Views/Home/Readers.cshtml">
+    <data>Interaktiv und persönlich</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="titleReaders" set="~/Views/Home/Readers.cshtml">
+    <data>Lesen und lernen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="legend" set="~/Views/Messaging/Mail/_AddMessage.cshtml">
+    <data>Neue Nachricht erstellen</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="text1" set="~/Views/Messaging/Mail/Index.cshtml">
+    <data>Das ist dein Postkasten. Bleibe mit anderen in Kontakt, ohne deine private E-Mail-Adresse weiterzugeben.</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="title" set="~/Views/Messaging/Mail/Index.cshtml">
+    <data>Postkasten</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblAuthors" set="~/Views/Shared/_Stat.cshtml">
+    <data>{0} Autoren</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblOnline" set="~/Views/Shared/_Stat.cshtml">
+    <data>Momentan online:</data>
+  </loc>
+  <loc type="StringResource" localeid="de" resid="lblWorks" set="~/Views/Shared/_Stat.cshtml">
+    <data>{0} Werke</data>
+  </loc>
+</localization>

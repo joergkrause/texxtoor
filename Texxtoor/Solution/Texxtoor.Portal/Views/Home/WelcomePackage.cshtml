@@ -1,0 +1,16 @@
+﻿@model IDictionary<string, string>
+@{
+  PageData["Title"] = Loc("title1", "Welcome Package");
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+}
+<div  class="well">
+  @Loc("text1", "Each author will get a welcome package, that helps to get started immediately. It's free and easy to use.")
+</div>
+<div class="btn-group">
+  <a href="~/Download/Package.zip" class="btn btn-lg btn-primary">@Loc("download", "Download Package here (ZIP)")</a>
+  <a href="~/Download/setup.exe" class="btn btn-lg btn-primary">@Loc("downloadWord", "MS Word Add-In (Click Once Executable)")</a>
+</div>
+
+@section FooterContent {
+  @Html.Action("Show", "Navigation", new { menuName = "footer", area = "" })
+}

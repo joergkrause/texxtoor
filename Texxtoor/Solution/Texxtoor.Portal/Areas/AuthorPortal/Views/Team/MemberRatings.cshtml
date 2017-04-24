@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Texxtoor.ViewModels.Users.AverageUserRating>
+@{
+  PageData["Title"] = Loc("title", "Member Ratings");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("text", "This page shows the member's current rating for each project and an average over all projects.");
+}
+<table>
+  @foreach (var rating in Model) {
+    <tr>
+      <th>@Loc("head1", "Average rating for project")</th>
+      <th>@Loc("head2", "Friendlyness")</th>
+      <th>@Loc("head3", "Communication")</th>
+      <th>@Loc("head4", "Punctuality")</th>
+      <th>@Loc("head5", "Quality")</th>
+      <th>@Loc("head6", "Reliability")</th>
+    </tr>
+    <tr>
+      <td>@rating.ProjectName</td>
+      <td class="text-center">@rating.Friendlyness</td>
+      <td class="text-center">@rating.Communication</td>
+      <td class="text-center">@rating.Punctuality</td>
+      <td class="text-center">@rating.Quality</td>
+      <td class="text-center">@rating.Reliability</td>
+    </tr>
+  }
+</table>
+@Create.ActionTask("btnTeam", false, Url.Action("Index", "Team", new { id = Request["teamId"] }), ViewResources.TasksButton_ToTeam)
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)

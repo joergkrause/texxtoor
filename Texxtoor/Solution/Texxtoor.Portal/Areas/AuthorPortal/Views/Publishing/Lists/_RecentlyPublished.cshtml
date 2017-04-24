@@ -1,0 +1,48 @@
+﻿@model IPagedList<Texxtoor.DataModels.Models.Reader.Content.Published>
+@Html.Partial("_Pagination", PaginationViewModel<Texxtoor.DataModels.Models.Reader.Content.Published>.Create(Model, "javascript:RecentlyPublished({page}, '{order}', '{dir}', {pagesize});", true, m => m.Title, m => m.CreatedAt, m => m.IsPublished))
+@if (!Model.Any()) {
+  <div class="alert alert-danger">
+    @Loc("textNothing", @"There are no published works from this project.")
+  </div>
+} else {
+  <div class="multilist">
+    @foreach (var item in Model) {
+      <div class="listitem">
+        <div class="firstRow">
+          @Badges.NewItem(item.Title, item.ModifiedAt, TimeSpan.FromDays(5))
+        </div>
+        <div class="secondRow">
+          @if (item.IsPublished) {
+            @Loc("txtTbl", @"The text <em><span data-args='0' data-desc='Name'>{0}</span></em> 
+                was published at <em><span data-args='1' data-desc='Date'>{1}</span></em> under the title 
+                <em><span data-args='2' data-desc='Title'>{2}</span> (<span data-args='3' data-desc='Subtitle'>{3}</span>)</em>.",
+                item.SourceOpus.Name,
+                item.CreatedAt.ToShortDateString(),
+                item.Title,
+                item.SubTitle)
+          } else {
+            @Loc("txtNoTbl", "The text <em><span data-args='0' data-desc='Name'>{0}</span></em> was not yet finally published. A publish procedure has been created already. ",
+                item.SourceOpus.Name)
+          }
+        </div>
+        <div class="thirdRow">
+          <div class="optionFields">
+            @if (!item.IsPublished) {
+              @Create.ActionLink("republish", true, Url.Action("PublishedMarketing", new { id = item.SourceOpus.Id }), ViewResources.Action_Publish_PublishSettings)
+              @Create.ActionLink("finpublish", true, Url.Action("ConfirmPublished", new { id = item.Id, opusId = item.SourceOpus.Id }), ViewResources.Action_Publish_FinishPublishing)
+            } else {
+              if (item.Owner.UserName == User.Identity.Name) {
+              <div class="RecentPublishDiv">
+                @Create.ActionLink("covPreview", true, Url.Action("CreateCoverPreview", new { id = item.Id, opusId = item.SourceOpus.Id }), ViewResources.Action_Publish_CreateCoverPreview)
+                @Create.ActionLink("cntPreview", true, Url.Action("CreateContentPreview", new { id = item.Id, opusId = item.SourceOpus.Id }), ViewResources.Action_Publish_CreateContentPreview)
+              </div>
+              } else {
+              <div class="alert alert-warning">@Loc("txtNoOption", @"There are currently no options for finally published texts.")</div>
+              }
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Texxtoor.WordImport.dll" version="1.0.0.16" publicKeyToken="8d733698ec3484c0" language="neutral" processorArchitecture="msil" type="win32" />
+  <description xmlns="urn:schemas-microsoft-com:asm.v1">This editor allows the creation of document you can directly upload to the texxtoor platform for publishing.</description>
+  <application />
+  <entryPoint>
+    <co.v1:customHostSpecified />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.CSharp" version="4.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Office.Tools.v4.0.Framework" version="10.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.VisualStudio.Tools.Applications.Runtime" version="10.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="HtmlAgilityPack.dll" size="134656">
+      <assemblyIdentity name="HtmlAgilityPack" version="1.4.6.0" publicKeyToken="BD319B19EAF3B43A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>Aii6z51Cj0L1hu9gs76jxK8idcI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Office.Tools.Common.v4.0.Utilities.dll" size="32664">
+      <assemblyIdentity name="Microsoft.Office.Tools.Common.v4.0.Utilities" version="10.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>CtnCtseaMyfROIGe0ENdGO6arHg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="407776">
+      <assemblyIdentity name="Newtonsoft.Json" version="4.5.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>26XWCEinwkzoNyJXCdniNpC7XLM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Texxtoor.WordImport.dll" size="395264">
+      <assemblyIdentity name="Texxtoor.WordImport" version="1.0.2014.426" publicKeyToken="9FB3D41E59E87D77" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>N1ZiqrGnj0wjG88+4QbQI3NVnzk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="de\Texxtoor.WordImport.resources.dll" size="34304">
+      <assemblyIdentity name="Texxtoor.WordImport.resources" version="1.0.2014.426" publicKeyToken="9FB3D41E59E87D77" language="de" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>vHKO11BdSViXaNJ0KlBPP2+C53k=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Resources\Bold.ico" size="15086">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>DBcK3dWpfFsYu4JyHy3idxzc024=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\BulletList.ico" size="102584">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>9aAuVq34VazMnZGf4TglIdjmFhY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Centre.ico" size="100281">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Tow3gjdEen+qrwHsZDU+zfCGObI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\check_spelling.png" size="18770">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>JIx6pyiBNsOVQUhSpbEWeYZj06Q=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Commentare1.ico" size="94254">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>6zmfRewLfgDbKdrQmEbLddeQFB4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Commentare11.ico" size="94254">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>6zmfRewLfgDbKdrQmEbLddeQFB4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Copy.ico" size="88155">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>I5QqnZxbxGv9xGJ/eU9kPE4khqE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Cut.ico" size="29070">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>UWou34jl+umzr1yRNylRrQ/STbA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\h1.jpg" size="1656">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>U2QIX5CFPqAy0Hj159OG7WfRIWY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\h11.jpg" size="1656">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>U2QIX5CFPqAy0Hj159OG7WfRIWY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\h2.jpg" size="1533">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>1cGuY57VKxTtXeUCGXkavlu/BQo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\h21.jpg" size="1533">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>1cGuY57VKxTtXeUCGXkavlu/BQo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\h3.jpg" size="1508">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>FSeAgPssK8Mnv03Bf6C9ZN9rr7A=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\h31.jpg" size="1508">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>FSeAgPssK8Mnv03Bf6C9ZN9rr7A=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\h4.jpg" size="1383">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>OVGWkSkyhmM0ushn2uEm35Gw57g=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\h41.jpg" size="1383">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>OVGWkSkyhmM0ushn2uEm35Gw57g=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\h5.jpg" size="1309">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>UePt2D0vnjlyHtus5UbVKLNuzlE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\h51.jpg" size="1309">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>UePt2D0vnjlyHtus5UbVKLNuzlE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Home.ico" size="101758">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Ug/3xluKTz/vjMmJm2v0PG4iCxA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Italic.ico" size="29070">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>PI89rqMVBkc877A1PlQVhYEnyHA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Left.ico" size="100276">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>xlXA7IAyKNFiMsmWV5scrlBwMVM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\LeftIndent.ico" size="9662">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>KBJfAcsd3c9lR05kZGqAW+cT3HI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Manage.ico" size="106336">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Huu09T00MKpEWWTsuv85Jru2njQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Normal.jpg" size="2593">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>0I3ZxsSBI322NBKZo3Bq7BBchas=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Normal1.jpg" size="2593">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>0I3ZxsSBI322NBKZo3Bq7BBchas=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\NumberList.ico" size="15086">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>MZ6hRp/FDa0ZmaBTYekqtwf8pzw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Open.ico" size="108918">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>1cDT2BN49Bz4H1cEOTTtvAIMBDo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Paste.ico" size="93152">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>IIYUSbbsbsajlaAXPG8qe+PJpw0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Publish.ico" size="111694">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>K3MuE9KJgyjdjQMgUu+R1CiI44w=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Right.ico" size="100281">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>VcfW7sVXDby8RlMHbNUKuYghoQs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\RightIndent.ico" size="9662">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>FCdUiYsHvmmV+ydiwRO5UcldHJM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Text.jpg" size="1406">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Gia32otXnJ5duQ9gDbCOanbhaFU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Text1.jpg" size="1406">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Gia32otXnJ5duQ9gDbCOanbhaFU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\TexxtoorTemplate1.dotx" size="16142">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>QsLkX92E/9eP4WPVxujKUJW5wLg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Underline.ico" size="102159">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>BAjelgyYukIIx4eLJeHfbdsW9RE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Texxtoor.WordImport.dll.config" size="1920">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>dy8pQ9U4XmrD4uGVpmUfH5pnzJg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <vstav3:addIn xmlns:vstav3="urn:schemas-microsoft-com:vsta.v3">
+    <vstav3:entryPointsCollection>
+      <vstav3:entryPoints>
+        <vstav3:entryPoint class="TEXXTOOR.ThisAddIn">
+          <assemblyIdentity name="Texxtoor.WordImport" version="1.0.2014.426" publicKeyToken="9FB3D41E59E87D77" language="neutral" processorArchitecture="msil" />
+        </vstav3:entryPoint>
+      </vstav3:entryPoints>
+    </vstav3:entryPointsCollection>
+    <vstav3:update enabled="true">
+      <vstav3:expiration maximumAge="30" unit="days" />
+    </vstav3:update>
+    <vstav3:application>
+      <vstov4:customizations xmlns:vstov4="urn:schemas-microsoft-com:vsto.v4">
+        <vstov4:customization>
+          <vstov4:appAddIn application="Word" loadBehavior="3" keyName="Texxtoor.WordImport">
+            <vstov4:friendlyName>texxtoor Editor</vstov4:friendlyName>
+            <vstov4:description>This editor allows the creation of document you can directly upload to the texxtoor platform for publishing.</vstov4:description>
+            <vstov4.1:ribbonTypes xmlns:vstov4.1="urn:schemas-microsoft-com:vsto.v4.1" />
+          </vstov4:appAddIn>
+        </vstov4:customization>
+      </vstov4:customizations>
+    </vstav3:application>
+  </vstav3:addIn>
+<publisherIdentity name="CN=Augmented Content GmbH, OU=texxtoor, O=Augmented Content GmbH, L=Berlin, S=Germany, C=DE" issuerKeyHash="d40d653f7abd34c6fe47e74c0dc0bdf2de15ab71" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>sBKybIAw79oVqbV2sVq0Mcv+t74=</DigestValue></Reference></SignedInfo><SignatureValue>A36b6GjxtmX1msxkKdTc6SAm4w8ojOzeP/6PoYQet7DkH0mnfI6aFR4ZJIoXSDLIlOVID18LZnPXhVspTx8G8cqBFd4P3Y8TJ51X5z0hZ+374CCU7XUFxfoeu1QLPqsfqhYT+U+InE7wXdg/UBpBb79rT3oHP7qcZs4LtpjNqvcDaanKiCQyf5lKgm86dgjHMGzzxijF1z2ImymuFocJJmXIfOSesbUb0Fqr459aykd0Qi0lpq0MtBsaBzOh6Eo6B1dthsI0GyA8kLZKG7C6EkaOTATNRASCiLBuK7cOBb9BHHlL+7VvhXxAAePof90c3y3HccK4IOd3ze8YxIWngw==</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>mZSPKjxgnWak0N0Bup5Dvo6GX2zfKXfMxv3ldAeQiCElTq4LoLJ6nmxS0OVkMH4xHGPDxlsG0WajpJngdPRRk1bgesr2vxlWCoJgsNyohoV3IS43v8GGE4k2TfHRTQosbL/FVfY6UaO3j76cEeTmO9rfiSfFK5u+z9kf3qJEuTs2qgUgNsVEdoUwwlzuX3rij9PfRV0WVj5AZf0zOxUL5nlODmhXCbnaINi+pJkSqb8MwmG0zg9IQF7m42OS5WrgYdRPNMnN0PJ2Ht65CagTyHR2ZqTf90Fnw1LDs+crN58pF0zX4rtm0UgAYgaj6rW5juCt7xa2CuIqG2o5oTG0XQ==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="beb7fecb31b45ab176b5a915daef30806cb212b0" Description="" Url=""><as:assemblyIdentity name="Texxtoor.WordImport.dll" version="1.0.0.16" publicKeyToken="8d733698ec3484c0" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=Augmented Content GmbH, OU=texxtoor, O=Augmented Content GmbH, L=Berlin, S=Germany, C=DE</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>74YxWdWSkIODTyokrrWkTcjgUsg=</DigestValue></Reference></SignedInfo><SignatureValue>Y3cqWdhE/aQokwgKYYY/kAWtogNxpXFjlTm9F/kGaF+w1VnhQalzSGt750Xo/ATOhJt3na7+5cIu3Y15PVcu5txEMeWsts5k33490YDBkLlZOSSdm/wJUlqmJA8FqrjyIUQm/v/RuBfzqTdi4l4H8jg/oIh9EKmUiKr3qLZUXd9G+DqbCYdGaNoztXiD25FWa7r7F17ylI9s6rUcLZ4HUraeyPE7ZrRjFGvE2jCdfkDnNgqhOZxWXyNKQm/RsiFw6HrcMxgFcLsyEOiJS36sgE7N6IUrX2EMadrAOS1LRxRH4xVtDRZWJdXGdxIcoOzX6i28EKFkxj9r6b6aunuD3Q==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>mZSPKjxgnWak0N0Bup5Dvo6GX2zfKXfMxv3ldAeQiCElTq4LoLJ6nmxS0OVkMH4xHGPDxlsG0WajpJngdPRRk1bgesr2vxlWCoJgsNyohoV3IS43v8GGE4k2TfHRTQosbL/FVfY6UaO3j76cEeTmO9rfiSfFK5u+z9kf3qJEuTs2qgUgNsVEdoUwwlzuX3rij9PfRV0WVj5AZf0zOxUL5nlODmhXCbnaINi+pJkSqb8MwmG0zg9IQF7m42OS5WrgYdRPNMnN0PJ2Ht65CagTyHR2ZqTf90Fnw1LDs+crN58pF0zX4rtm0UgAYgaj6rW5juCt7xa2CuIqG2o5oTG0XQ==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIEMDCCAxigAwIBAgIQS3xIxfLxkJsxsHyiUG3e5DANBgkqhkiG9w0BAQUFADBKMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMVGhhd3RlLCBJbmMuMSQwIgYDVQQDExtUaGF3dGUgQ29kZSBTaWduaW5nIENBIC0gRzIwHhcNMTQwMjI0MDAwMDAwWhcNMTUwMjA2MjM1OTU5WjCBhTELMAkGA1UEBhMCREUxEDAOBgNVBAgTB0dlcm1hbnkxDzANBgNVBAcUBkJlcmxpbjEfMB0GA1UEChQWQXVnbWVudGVkIENvbnRlbnQgR21iSDERMA8GA1UECxQIdGV4eHRvb3IxHzAdBgNVBAMUFkF1Z21lbnRlZCBDb250ZW50IEdtYkgwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCZlI8qPGCdZqTQ3QG6nkO+joZfbN8pd8zG/eV0B5CIISVOrgugsnqebFLQ5WQwfjEcY8PGWwbRZqOkmeB09FGTVuB6yva/GVYKgmCw3KiGhXchLje/wYYTiTZN8dFNCixsv8VV9jpRo7ePvpwR5OY72t+JJ8Urm77P2R/eokS5OzaqBSA2xUR2hTDCXO5feuKP099FXRZWPkBl/TM7FQvmeU4OaFcJudog2L6kmRKpvwzCYbTOD0hAXubjY5LlauBh1E80yc3Q8nYe3rkJqBPIdHZmpN/3QWfDUsOz5ys3nykXTNfiu2bRSABiBqPqtbmO4K3vFrYK4iobajmhMbRdAgMBAAGjgdUwgdIwDAYDVR0TAQH/BAIwADA7BgNVHR8ENDAyMDCgLqAshipodHRwOi8vY3MtZzItY3JsLnRoYXd0ZS5jb20vVGhhd3RlQ1NHMi5jcmwwHwYDVR0lBBgwFgYIKwYBBQUHAwMGCisGAQQBgjcCARYwHQYDVR0EBBYwFDAOMAwGCisGAQQBgjcCARYDAgeAMDIGCCsGAQUFBwEBBCYwJDAiBggrBgEFBQcwAYYWaHR0cDovL29jc3AudGhhd3RlLmNvbTARBglghkgBhvhCAQEEBAMCBBAwDQYJKoZIhvcNAQEFBQADggEBACPMV2LywbZvv0/P4P/XFSOd5kgJ2OJpjtwUKb2KGpyiq9uxT7H9S3Kxf1na66VfUC833a3QDOXJ8MaHaFcatW5LQLwR+f74/uceWYmQoJgYbLmu/+L0yzcZmr0wPHmc7UERb1+QoW7sruevGLGlMGhxCP9UprJyD22EUpkyy/dwGz+2a0n1tUbqCkFz18C8xvslRL7hEgHD4DF8/d6oosn22VnFzKngrQzT2oKKT5mFPCkHb780mGjj/9uXBVHVNyVTW5igni6BAnmyBqZzrcbo/tMVDA/FoiT4EMkIV9wvK+1AHHe1J/isWTwWY7Tr9TASsG4ca9x0ZohnTZOnjdM=</X509Certificate><X509Certificate>MIIEnDCCA4SgAwIBAgIQR5dNeHOlvKsNL7NwGS/OXjANBgkqhkiG9w0BAQUFADCBqTELMAkGA1UEBhMCVVMxFTATBgNVBAoTDHRoYXd0ZSwgSW5jLjEoMCYGA1UECxMfQ2VydGlmaWNhdGlvbiBTZXJ2aWNlcyBEaXZpc2lvbjE4MDYGA1UECxMvKGMpIDIwMDYgdGhhd3RlLCBJbmMuIC0gRm9yIGF1dGhvcml6ZWQgdXNlIG9ubHkxHzAdBgNVBAMTFnRoYXd0ZSBQcmltYXJ5IFJvb3QgQ0EwHhcNMTAwMjA4MDAwMDAwWhcNMjAwMjA3MjM1OTU5WjBKMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMVGhhd3RlLCBJbmMuMSQwIgYDVQQDExtUaGF3dGUgQ29kZSBTaWduaW5nIENBIC0gRzIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC3i891W58l2n45sJPbONOpI9CC+ukkflwLjoP45npZ5qPFmKeZ0kT/AKalOQSK2imI6tui8xyZFSbCsfT84QxHqQkRBgogkrnHoASMXJQZq1slLB1ifnANzmFs3SuCyc5dSF/3wr68QSMeTyld10+89MUq/GPmfCZOmad5QZ4QSnp5ycaG94aV0ibOPBgq1nzOr82tu/eCLHAmN0XlD0cixgEovS6DXGqkR8Hn0NhrgUY/IRf1B8VDWqZnLLh7YBG1g+71dApycUQ9WP7oGqs4w1nbf244fXbHcmmYNpZX02Yc0lSRBC5UGbDcPbUiXobVKn4g313merFl/sUCTjEtAgMBAAGjggEcMIIBGDASBgNVHRMBAf8ECDAGAQH/AgEAMDQGA1UdHwQtMCswKaAnoCWGI2h0dHA6Ly9jcmwudGhhd3RlLmNvbS9UaGF3dGVQQ0EuY3JsMA4GA1UdDwEB/wQEAwIBBjAyBggrBgEFBQcBAQQmMCQwIgYIKwYBBQUHMAGGFmh0dHA6Ly9vY3NwLnRoYXd0ZS5jb20wHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMDMCkGA1UdEQQiMCCkHjAcMRowGAYDVQQDExFWZXJpU2lnbk1QS0ktMi0xMDAdBgNVHQ4EFgQU1A1lP3q9NMb+R+dMDcC98t4Vq3EwHwYDVR0jBBgwFoAUe1tFz6/Oy3r9MZIaarbzRutXSFAwDQYJKoZIhvcNAQEFBQADggEBAFb+U1zhx568p+1+U21qFEtRjEBegF+qpOgv7zjIBMnKPs/fOlhOsNS2Y8UpV/oCBZpFTWjbKhvUND2fAMNay5VJpW7hsMX8QU1BSm/Td8jXOI3kGd4Y8x8VZYNtRQxT+QqaLqVdv28ygRiSGWpVAK1jHFIGflXZKWiuSnwYmnmIayMj2Cc4KimHdsr7x7ZiIx/telZM3ZwyW/U9DEYYlTsqI2iDZEHZAG0PGSQVaHK9xXFnbqxM25DrUaUaYgfQvmoARzxyL+xPYT5zhc5aCre6wBwTdeMiOSjdbR0JRp1PuuhAgZHGpM6UchsBzypuFWeVia59t7fN+Qo9dbZrPCU=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

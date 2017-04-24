@@ -1,0 +1,21 @@
+﻿@model Texxtoor.DataModels.Models.Cms.CmsMenu
+@foreach (var menuitem in Model.MenuItems) {
+  <li title="@Model.Description">
+    <a href="@menuitem.NavigateUrl" title="@Html.Raw(menuitem.DecodedDescription)">
+      <i class="icon-caret-right"></i>
+      <span>@Html.Raw(menuitem.Title)</span>@* TODO: Put this in dashboard tiles ==> <span class="hub" data-hubtarget="@menuitem.DynamicData">@menuitem.DynamicDataResolved</span>*@
+    </a>
+    @if (menuitem.HasDynaMenu) {
+      <a href="#" class="dropdown-collapse"><i class="icon-caret-right"></i><span>@Html.Raw(menuitem.DynaDesc)</span>
+        <i class="icon-angle-down angle-down"></i>
+      </a>
+      <ul class="nav nav-stacked">
+        @foreach (var de in menuitem.DynaMenuItems) {
+          <li>
+            <a href="@de.Item2"><span>@Html.Raw(de.Item1)</span></a>
+          </li>
+        }
+      </ul>
+    }
+  </li>
+}

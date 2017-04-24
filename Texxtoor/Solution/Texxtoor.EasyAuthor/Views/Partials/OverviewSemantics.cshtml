@@ -1,0 +1,31 @@
+﻿<div ng-controller="overviewSemanticsCtrl">
+  <table class="table table-bordered table-hover table-condensed">
+    <tr ng-repeat="term in termset">
+      <td style="width:20%">
+        <span editable-select="term.type" e-name="type" e-form="termForm" e-ng-options="s.value as s.text for s in termtypes" e-required>{{term.type}}</span>
+      </td>
+      <td style="width:30%">
+        <span editable-text="term.name" e-name="name" e-form="termForm" e-required>{{term.name}}</span>
+      </td>
+      <td style="width:30%">
+        <span editable-text="term.data" e-name="data" e-form="termForm" e-required>{{term.data}}</span>
+      </td>
+      <td style="width:20%">
+        <div class="btn-group">
+          <form editable-form name="termForm" onbeforesave="saveTerm($data, term.id)" ng-show="termForm.$visible" class="form-buttons form-inline" shown="inserted == term">
+            <button type="submit" ng-disabled="termForm.$waiting" class="btn btn-sm btn-success">Save</button>
+            <button type="button" ng-disabled="termForm.$waiting" class="btn btn-sm btn-default" ng-click="termForm.$cancel()">Cancel</button>
+          </form>
+          <button type="button" ng-disabled="termForm.$waiting" class="btn btn-sm btn-primary" ng-click="termForm.$show()" ng-show="!termForm.$visible">Edit</button>
+          <button type="button" ng-disabled="termForm.$waiting" class="btn btn-sm btn-danger" ng-click="delTerm($index)" ng-show="!termForm.$visible">Remove</button>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <button class="btn btn-default" ng-click="addTerm()">Add Term</button>
+      </td>
+    </tr>
+  </table>
+</div>
+

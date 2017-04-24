@@ -1,0 +1,683 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<OpusCategories>
+  <OpusCategory lang="de" order="0">
+    <name>Business &amp; Karriere</name>
+  </OpusCategory>
+  <OpusCategory lang="de" order="0">
+    <name>Börse &amp; Geld</name>
+  </OpusCategory>
+  <OpusCategory lang="de" order="0">
+    <name>
+      Computer &amp; Internet
+    </name>
+    <OpusCategory lang="de" order="0">
+      <name>
+        Datenbanken
+      </name>
+      <OpusCategory lang="de" order="0">
+        <name>Datenbankprogrammierung</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>Objektorientierte Datenbanken</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>
+          Relationale Datenbanken
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>FileMaker</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>Microsoft Access</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>
+          Oracle
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>
+          SQL
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>MySQL</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>
+          SQL Server
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>PostgreSQL</name>
+      </OpusCategory>
+    </OpusCategory>
+    <OpusCategory lang="de" order="0">
+      <name>Grafik &amp; Multimedia</name>
+      <OpusCategory lang="de" order="0">
+        <name>
+          3D
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>
+          Animation &amp; Flash
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>
+          Audio
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>
+          Bildverwaltung
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>CAD</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>
+          Digitale Bildbearbeitung
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>
+          DVD-Authoring
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>
+          Grafik
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>
+          Grafikprogrammierung
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>Layout</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>
+          PDF &amp; Druckvorstufe
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>Video</name>
+      </OpusCategory>
+    </OpusCategory>
+    <OpusCategory lang="de" order="0">
+      <name>
+        Hardware &amp; Technik
+      </name>
+    </OpusCategory>
+    <OpusCategory lang="de" order="0">
+      <name>IT-Ausbildung &amp; -Berufe</name>
+      <OpusCategory lang="de" order="0">
+        <name>Informatik</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>Projektmanagement</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>SAP</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>Softwareentwicklung</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>Wirtschaftsinformatik</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>Zertifizierung</name>
+      </OpusCategory>
+    </OpusCategory>
+    <OpusCategory lang="de" order="0">
+      <name>
+        PC- &amp; Videospiele
+      </name>
+    </OpusCategory>
+    <OpusCategory lang="de" order="0">
+      <name>Apple</name>
+      <OpusCategory lang="de" order="0">
+        <name>Mac Hardware</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>Mac OS</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>Mac Software</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>Mac Programmierung</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>iOS</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>iOS Programmierung</name>
+      </OpusCategory>
+    </OpusCategory>
+    <OpusCategory lang="de" order="0">
+      <name>Microsoft</name>
+      <OpusCategory lang="de" order="0">
+        <name>Office</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>Windows</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>Windows Server</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>Online (Bing, 365)</name>
+      </OpusCategory>
+    </OpusCategory>
+    <OpusCategory lang="de" order="0">
+      <name>
+        Programmierung &amp; Webdesign
+      </name>
+      <OpusCategory lang="de" order="0">
+        <name>Entwicklungsumgebungen</name>
+        <OpusCategory lang="de" order="0">
+          <name>Eclipse</name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>Borland</name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>Microsoft Visual Studio</name>
+        </OpusCategory>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>
+          Programmiersprachen
+        </name>
+        <OpusCategory lang="de" order="0">
+          <name>C</name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>C++</name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>C#</name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>Java</name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>.NET</name>
+        </OpusCategory>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>Script-Sprachen</name>
+        <OpusCategory lang="de" order="0">
+          <name>ActionScript</name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>JavaScript</name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>Perl</name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>PHP</name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>Python</name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>Ruby</name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>VBScript</name>
+        </OpusCategory>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>
+          Spieleprogrammierung
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>
+          Versionsverwaltung
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>
+          Webdesign
+        </name>
+        <OpusCategory lang="de" order="0">
+          <name>
+            Ajax
+          </name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>
+            Content Management
+          </name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>
+            CSS
+          </name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>
+            Flash
+          </name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>
+            Server
+          </name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>
+            Usability
+          </name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>
+            Web-Editoren
+          </name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>
+            XML
+          </name>
+        </OpusCategory>
+        <OpusCategory lang="de" order="0">
+          <name>
+            (X)HTML
+          </name>
+        </OpusCategory>
+      </OpusCategory>
+    </OpusCategory>
+    <OpusCategory lang="de" order="0">
+      <name>Sicherheit</name>
+      <OpusCategory lang="de" order="0">
+        <name>Firewalls</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>Hacking</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>Kryptografie</name>
+      </OpusCategory>
+      <OpusCategory lang="de" order="0">
+        <name>Netzwerke</name>
+      </OpusCategory>
+    </OpusCategory>
+    <OpusCategory lang="de" order="0">
+      <name>Unix &amp; Linux</name>
+    </OpusCategory>
+  </OpusCategory>
+  <OpusCategory lang="de" order="0">
+    <name>
+      Freizeit, Haus &amp; Garten
+    </name>
+  </OpusCategory>
+  <OpusCategory lang="de" order="0">
+    <name>
+      Lernen &amp; Nachschlagen
+    </name>
+  </OpusCategory>
+  <OpusCategory lang="de" order="0">
+    <name>
+      Naturwissenschaften &amp; Technik
+    </name>
+  </OpusCategory>
+  <OpusCategory lang="de" order="0">
+    <name>
+      Politik &amp; Geschichte
+    </name>
+  </OpusCategory>
+  <OpusCategory lang="de" order="0">
+    <name>Sport &amp; Fitness</name>
+  </OpusCategory>
+  <OpusCategory lang="en" order="0">
+    <name>Business &amp; Investing</name>
+  </OpusCategory>
+  <OpusCategory lang="en" order="0">
+    <name>Stock Exchange &amp; Money</name>
+  </OpusCategory>
+  <OpusCategory lang="en" order="0">
+    <name>
+      Computer &amp; Technology
+    </name>
+    <OpusCategory lang="en" order="0">
+      <name>
+        Datenbase
+      </name>
+      <OpusCategory lang="en" order="0">
+        <name>Programming Datenbases</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>Objektoriented Datenbases</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>
+          Relational Datenbases
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>FileMaker</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>Microsoft Access</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>
+          Oracle
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>
+          SQL
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>MySQL</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>
+          SQL Server
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>PostgreSQL</name>
+      </OpusCategory>
+    </OpusCategory>
+    <OpusCategory lang="en" order="0">
+      <name>Graphics &amp; Design</name>
+      <OpusCategory lang="en" order="0">
+        <name>
+          3D
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>
+          Animation &amp; Flash
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>
+          Audio
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>
+          Imaging
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>CAD</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>
+          Digital Image Processing
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>
+          DVD-Authoring
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>
+          Graphics
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>
+          Programming Graphics
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>Layout</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>
+          PDF &amp; Print
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>Video</name>
+      </OpusCategory>
+    </OpusCategory>
+    <OpusCategory lang="en" order="0">
+      <name>
+        Hardware &amp; Technology
+      </name>
+    </OpusCategory>
+    <OpusCategory lang="en" order="0">
+      <name>Education &amp; Jobs</name>
+      <OpusCategory lang="en" order="0">
+        <name>Information Technology</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>Project Management</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>SAP</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>Software Development</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>Business Analysts</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>Certification</name>
+      </OpusCategory>
+    </OpusCategory>
+    <OpusCategory lang="en" order="0">
+      <name>
+        PC &amp; Video Games
+      </name>
+    </OpusCategory>
+    <OpusCategory lang="en" order="0">
+      <name>Apple</name>
+      <OpusCategory lang="en" order="0">
+        <name>Mac Hardware</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>Mac OS</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>Mac Software</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>Mac Programming</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>iOS</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>iOS Programming</name>
+      </OpusCategory>
+    </OpusCategory>
+    <OpusCategory lang="en" order="0">
+      <name>Microsoft</name>
+      <OpusCategory lang="en" order="0">
+        <name>Office</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>Windows</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>Windows Server</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>Online (Bing, 365)</name>
+      </OpusCategory>
+    </OpusCategory>
+    <OpusCategory lang="en" order="0">
+      <name>
+        Programming &amp; Web Design
+      </name>
+      <OpusCategory lang="en" order="0">
+        <name>Development Environments</name>
+        <OpusCategory lang="en" order="0">
+          <name>Eclipse</name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>Borland</name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>Microsoft Visual Studio</name>
+        </OpusCategory>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>
+          Programming Languages
+        </name>
+        <OpusCategory lang="en" order="0">
+          <name>C</name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>C++</name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>C#</name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>Java</name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>.NET</name>
+        </OpusCategory>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>Scripting Languages</name>
+        <OpusCategory lang="en" order="0">
+          <name>ActionScript</name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>JavaScript</name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>Perl</name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>PHP</name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>Python</name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>Ruby</name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>VBScript</name>
+        </OpusCategory>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>
+          Programming Games
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>
+          Version Control
+        </name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>
+          Web Design
+        </name>
+        <OpusCategory lang="en" order="0">
+          <name>
+            Ajax
+          </name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>
+            Content Management
+          </name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>
+            CSS
+          </name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>
+            Flash
+          </name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>
+            Server
+          </name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>
+            Usability
+          </name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>
+            Web-Editors
+          </name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>
+            XML
+          </name>
+        </OpusCategory>
+        <OpusCategory lang="en" order="0">
+          <name>
+            (X)HTML
+          </name>
+        </OpusCategory>
+      </OpusCategory>
+    </OpusCategory>
+    <OpusCategory lang="en" order="0">
+      <name>Security</name>
+      <OpusCategory lang="en" order="0">
+        <name>Firewalls</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>Hacking</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>Cryptography</name>
+      </OpusCategory>
+      <OpusCategory lang="en" order="0">
+        <name>Networks</name>
+      </OpusCategory>
+    </OpusCategory>
+    <OpusCategory lang="en" order="0">
+      <name>Unix &amp; Linux</name>
+    </OpusCategory>
+  </OpusCategory>
+  <OpusCategory lang="en" order="0">
+    <name>
+      Leasure, House &amp; Garden
+    </name>
+  </OpusCategory>
+  <OpusCategory lang="en" order="0">
+    <name>
+      Education &amp; Reference
+    </name>
+  </OpusCategory>
+  <OpusCategory lang="en" order="0">
+    <name>
+      Science &amp; Technology
+    </name>
+  </OpusCategory>
+  <OpusCategory lang="en" order="0">
+    <name>
+      Politics &amp; History
+    </name>
+  </OpusCategory>
+  <OpusCategory lang="en" order="0">
+    <name>Sports &amp; Outdoors</name>
+  </OpusCategory>
+</OpusCategories>

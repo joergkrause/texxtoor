@@ -1,0 +1,161 @@
+﻿@{
+  PageData["Title"] = Loc("title2", "My Library");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+  PageData["ShortHelp"] = Loc("text1", @"Your personal library contains all recently read books, own creations, and private uploads.
+From here you can download or order books in any media and for any device.");
+}
+@section HeadContent {
+    
+  <!-- Reading -->
+  <link href="~/Scripts/jquery/jstree/jquery.treeview.css" rel="stylesheet" />
+  <script src="~/Scripts/jquery/jstree/jquery.jstree.js"></script>
+  <script type="text/javascript" src="~/Scripts/views/work/library.js"></script>
+  <!-- Show information about published work -->
+  <script type="text/javascript">
+    var lib = new LibraryFunctions({
+      showDetails: '@Url.Action("PublishedDetails")',
+      createChange: '@Url.Action("ChangeCollection")',
+      getWorkCollection: '@Url.Action("GetWorkCollection")',
+      tableOfContentPublished: '@Url.Action("TableOfContentPublished")',
+      tableOfContentWork: '@Url.Action("TableOfContentWork")',
+      assignFragment: '@Url.Action("AssignFragmentToWork")',
+      rateContent: '@Url.Action("RateContent")',
+      showWorkDetails: '@Url.Action("WorkDetails")',
+      rateContentStars: '@Url.Action("RateContentStars")'
+    });
+  </script>
+  <!-- Create and manage private work -->
+  <script type="text/javascript">
+    $(function () {
+      ui = new Dialog(
+        {
+          formId: '#addBookForm',
+          formDivId: '#addBook',
+          formAction: '@Url.Action("AddWork")',
+          sendBtnId: '#addBookSendButton',
+          cancelBtnId: '#addBookCancelButton',
+          onShow: function () {
+            $('#main').hide();
+            $('#showPublished').hide();
+            $('#changeCollection').hide();
+          },
+          onClose: function () {
+            $('#main').show();
+          }
+        },
+        {
+          formId: '#editBookForm',
+          formDivId: '#editBook',
+          formAction: '@Url.Action("EditWork")',
+          sendBtnId: '#editBookSendButton',
+          cancelBtnId: '#editBookCancelButton',
+          onShow: function () {
+            $('#main').hide();
+            $('#showPublished').hide();
+            $('#changeCollection').hide();
+          },
+          onClose: function () {
+            $('#main').show();
+          }
+        },
+        {
+          formId: '#delBook',
+          formDivId: '#delBook',
+          formAction: '@Url.Action("DeleteWork")',
+          sendBtnId: '#delBookSendButton',
+          cancelBtnId: '#delBookCancelButton'
+        },
+        {
+          formId: '#main',
+          formDivId: '#main',
+          formAction: '@Url.Action("ListLibraryWorks")',
+          onShow: function () {
+            $(document).on('change', '.workselect', function () {
+              var val = $(this).val();
+              if (val > 0) {
+                window.location.href = '@Url.Action("Published")/' + val;
+              }
+            });
+          }
+        });
+      ui.updateTable();
+      $(document).on('click', 'a.miniReader', function () {
+        var id = $(this).data('item');
+        $.ajax({
+          url: '@Url.Action("MiniReader")',
+          data: { id: id },
+          success: function (data) {
+            $('#miniReaderDialog').html(data);
+            $('#miniReaderDialog img').each(function (i, e) {
+              $(e).attr('src', '@Url.Action("MiniReaderImg")/' + $(e).attr('src'));
+            });
+            $('#miniReaderDialog').dialog('open');
+          }
+        });
+      });
+      $('#miniReaderDialog').dialog(
+        {
+          autoOpen: false, resizable: true, width: '850', height: '600', modal: true, title: 'Content Preview', css: { zindex: 10000 },
+          buttons: [
+            {
+              text: 'Close', click: function () {
+                $(this).dialog("close");
+              }
+            }
+          ]
+        }
+      );
+    });
+  </script>
+  <!-- Upload EPUB to create private work -->
+  <script type="text/javascript">
+    $(function () {
+      $("#ajaxUploadForm").ajaxForm({
+        dataType: "json",
+        beforeSubmit: function () {
+          $("#ajaxUploadForm").block({ message: '<h3><img src="/Content/busy.gif" /> Uploading Epub...</h3>' });
+        },
+        success: function (result) {
+          $("#ajaxUploadForm").resetForm();
+          toastr.success(result.msg);
+          $("#ajaxUploadForm").unblock();
+          ui.updateTable(0);
+        },
+        error: function (result) {
+          $("#ajaxUploadForm").resetForm();
+          toastr.success(result.msg, 'Error uploading file');
+          $("#ajaxUploadForm").unblock();
+        }
+      });
+      $('.editor_ok_link').click(function () {
+        $("#ajaxUploadForm").submit();
+      });
+    });
+  </script>
+    <script>
+        $(document).ready(function () {
+            $("#addBook").css("display", "none");
+        });
+    </script>
+  @Script.SetTableBehavior(true)
+}
+@section helpSection {
+  @Loc("text2", @"If you work with a book personally start by creating a private issue.")
+}
+@using (Html.BtDeleteTemplate(Loc("txtDel", "You're about to remove book from shelf permanently. Please confirm."))){
+  @Create.FormButtonOnClick("delBookSendButton", "", ViewResources.Action_Reader_Library_RemoveShelf)
+  @Create.FormButtonOnClick("delBookCancelButton", "", ViewResources.Button_Cancel, BtStyle.ButtonDefault)
+}
+@Create.ContentFormEmpty("showPublished")
+@Create.ContentFormEmpty("changeCollection")
+@Create.ContentForm("addBook", @Html.Action("AddWork"), Loc("pnl", "Add New Private Text").ToString())
+@Create.ContentFormEmpty("editBook")
+@Create.MainContentWithLoader()
+<div class="clearfix" id="miniReaderDialog">
+</div>
+<div class="alert alert-success hidden-to-show">
+  @Loc("textDropBox", @"Have a DropBox account? Just setup here and drop all your EPUBs in one single step. Experience the best textbook
+reading experience in the Web today in seconds")
+</div>
+@Create.ActionTask("", false, Url.Action("Products", "Products"), ViewResources.TasksButton_Reader_Products)
+@Create.ActionTask("", false, Url.Action("Matrix", "Home"), ViewResources.LinkButton_Reader_Matrix)

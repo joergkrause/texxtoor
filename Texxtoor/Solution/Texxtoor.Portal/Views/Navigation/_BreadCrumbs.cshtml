@@ -1,0 +1,7 @@
+﻿@model List<List<KeyValuePair<string, string>>>
+@foreach (var path in Model) {
+  foreach (var link in path) {
+    <a href="@link.Value">@link.Key</a> <text>&nbsp;&gt;&nbsp;</text>
+  }
+  break;
+}

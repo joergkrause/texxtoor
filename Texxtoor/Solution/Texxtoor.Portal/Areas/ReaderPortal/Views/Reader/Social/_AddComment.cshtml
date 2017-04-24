@@ -1,0 +1,28 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Functions.Comment
+@using(Html.BtFieldset(Loc("legend", "New Comment"))) {
+  <label>@Loc("lblName", "Name")</label>
+  <div class="editor-field">
+    @Html.TextBoxFor(m => m.Name)
+    @Html.ValidationMessageFor(m => m.Name)
+  </div>
+  <label>@Loc("lblSubject", "Betreff")</label>
+  <div class="editor-field">
+    @Html.TextBoxFor(m => m.Subject)
+    @Html.ValidationMessageFor(m => m.Subject)
+  </div>
+  <label>@Loc("lblCnt", "Comment Text")</label>
+  <div class="editor-field">
+    @Html.TextAreaFor(m => m.Content)
+  </div>
+  <label>@Loc("lblPriv", "Is Private")</label>
+  <div class="editor-field">
+    @Html.CheckBoxFor(m => m.Private)
+  </div>
+  <label>@Loc("lblClsd", "Is Closed (No Answer)")</label>
+  <div class="editor-field">
+    @Html.CheckBoxFor(m => m.Closed)
+  </div>
+  <div class="formsendButtons">
+    <input id="addCommentButton" type="submit" value="@Loc("btnComment", "Send Comment")" />
+  </div>
+}

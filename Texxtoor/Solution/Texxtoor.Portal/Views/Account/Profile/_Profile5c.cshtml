@@ -1,0 +1,15 @@
+﻿@using Texxtoor.DataModels.Models.Users
+@model Texxtoor.DataModels.Models.Users.UserProfile
+@using(Html.BtFieldset(Loc("legend5c", @"Support your applications"))) {
+
+  @Html.LabelFor(m => m.ShowWalltextOnApplication,new{@class="control-label col-sm-3"})
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.ShowWalltextOnApplication)
+    @Html.ValidationMessageFor(m => m.ShowWalltextOnApplication.Value)
+  </div>
+  @Html.LabelFor(m => m.Application,new{@class="control-label col-sm-3"})
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.Application)
+    @Html.ValidationMessageFor(m => m.Application)
+  </div>
+}

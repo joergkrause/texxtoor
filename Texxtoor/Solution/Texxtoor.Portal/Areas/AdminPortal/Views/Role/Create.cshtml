@@ -1,0 +1,24 @@
+﻿@model Texxtoor.DataModels.Models.Users.Role
+
+@{
+  PageData["Title"] = "Create Role";
+  Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+@using (Html.BeginForm()) {
+  @Html.ValidationSummary(true)
+  using (Html.BtFieldset("Role")) {
+
+    <div class="editor-label">
+      @Html.LabelFor(model => model.UserRole)
+    </div>
+    <div class="editor-field">
+      @Html.EditorFor(model => model.UserRole)
+      @Html.ValidationMessageFor(model => model.UserRole)
+    </div>
+    <div class="formsendButtons">
+      <button type="submit" class="btn btn-sm btn-primary">Create Role</button>
+      @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-sm btn-default" })
+    </div>
+  }
+}
+

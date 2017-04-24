@@ -1,0 +1,4 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@model VariationType
+@(Html.DropdownForEnum<VariationType>("Variation", Model))
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

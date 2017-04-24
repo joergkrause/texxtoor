@@ -1,0 +1,39 @@
+﻿@using Texxtoor.DataModels.Models.Users
+@model IEnumerable<Texxtoor.DataModels.Models.Users.LanguageMatrix>
+<div id="languageMatrixDiv">
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th>
+          @Loc("titleLang", "Language")
+        </th>
+        <th>
+          @Loc("titleLevel", "Level")
+        </th>
+        <th class="Width200"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var item in Model) {
+        <tr>
+          <td>
+            @(Html.CultureSelectionDropDown(item.LocaleId, "language-" + item.Id, "language-" + item.Id, ""))
+          </td>
+          <td>
+            @(Html.DropdownForEnum<LanguageLevel>("levels-" + item.Id, item.LanguageLevel, new Dictionary<string, object>() { { "data-item", item.Id } }))
+          </td>
+          <td>
+            <div class="optionFields">
+              <a href="#" id="languagematrix-remove-@item.Id" class="languagematrix-remove btn btn-xs btn-danger" data-item="@item.Id" @((Model.Count() > 1) ? "" : "disabled='disabled'")>
+                @ViewResources.Action_Common_Profile_Remove
+              </a>
+              <a href="#" id="languagematrix-save-@item.Id" class="languagematrix-save btn btn-xs btn-primary" data-item="@item.Id">
+                @ViewResources.Action_Common_Profile_Save
+              </a>
+            </div>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,11 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Functions.QuestionsAnswers
+@using (Html.BeginForm("EditQuestion", "Groups", new { area = "ReaderPortal" }, FormMethod.Post, new { id = "editQuestionForm" })) {
+  using(Html.BtFieldset(Loc("legend", @"Edit Question"))) {
+    @Html.HiddenFor(m => m.Id)
+    @Html.EditorForModel()
+    <div class="formsendButtons">
+      @Create.FormButtonOnClick("editQuestionSendButton", "", ViewResources.Action_Groups_EditQuestion)
+      @Create.FormButtonOnClick("editQuestionCancelButton", "", ViewResources.Button_CancelAndClose, BtStyle.ButtonDefault)
+    </div>
+  }
+}

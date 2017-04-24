@@ -1,0 +1,45 @@
+﻿@using Texxtoor.DataModels.Models.Author
+@model IEnumerable<Texxtoor.DataModels.Models.Author.ContributorMatrix>
+<div id="contributorMatrixDiv">
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th>
+          @Loc("titleRole", "Role")
+        </th>
+        <th>
+          @Loc("titleLang", "For Language")
+        </th>
+        <th>
+          @Loc("titleInfo", "Information")
+        </th>
+        <th class="Width200"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var item in Model) {
+        <tr>
+          <td>
+            @(Html.DropdownForEnum<ContributorRole>("role-" + item.Id, item.ContributorRole, new Dictionary<string, object>() { { "data-item", item.Id } }))
+          </td>
+          <td>
+            @(Html.CultureSelectionDropDown(item.LocaleId, "language-" + item.Id, "language-" + item.Id, ""))
+          </td>
+          <td>
+            @Html.TextBox("information-" + item.Id, item.Description, new Dictionary<string, object>() { { "style", "width:300px" }, { "data-item", item.Id } })
+          </td>
+          <td>
+            <div class="optionFields">
+              <a href="#" id="contributormatrix-remove-@item.Id" class="contributormatrix-remove btn btn-xs btn-danger" data-item="@item.Id" @((Model.Count() > 1) ? "" : "disabled='disabled'")>
+                @ViewResources.Action_Common_Profile_Remove
+              </a>
+              <a href="#" id="contributormatrix-save-@item.Id" class="contributormatrix-save btn btn-xs btn-primary" data-item="@item.Id">
+                @ViewResources.Action_Common_Profile_Save
+              </a>
+            </div>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

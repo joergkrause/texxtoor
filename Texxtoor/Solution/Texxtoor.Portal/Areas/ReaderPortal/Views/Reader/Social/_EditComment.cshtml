@@ -1,0 +1,9 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Functions.Comment
+@using (Html.BeginForm("EditComment", "Reader", new { id = Model.Id, area = "ReaderPortal" }, FormMethod.Post, new { id = "editCommentForm", style = "display:none" })) {
+  using(Html.BtFieldset(Loc("legend", "Edit Own Comment"))) {
+    @Html.EditorForModel()
+    <div class="formsendButtons">
+      <input id="addCommentButton" type="submit" value="@Loc("btnComment", "Update Comment")" />
+    </div>
+  }
+}

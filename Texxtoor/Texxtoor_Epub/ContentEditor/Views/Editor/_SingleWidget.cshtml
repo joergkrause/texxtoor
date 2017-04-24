@@ -1,0 +1,44 @@
+﻿@using Texxtoor.Models
+@model Texxtoor.Editor.ViewModels.ChapterDataModel
+<div class="snippet-block" id="sn_block-@Model.CurrentElement.CurrentSnippet.Id">
+<div class="up-down">
+@Create.NavigationButtonUp(Url, Model.CurrentElement.PrevExchange, Model.DocumentId, Model.CurrentChapter.Id, Model.CurrentElement.CurrentSnippet.Id)
+@Create.NavigationButtonDown(Url, Model.CurrentElement.NextExchange, Model.DocumentId, Model.CurrentChapter.Id, Model.CurrentElement.CurrentSnippet.Id)
+</div>
+<div class="editable_highlight" style="display:none" data-item="@Model.CurrentElement.CurrentSnippet.Id"></div>
+<div class="editable_highlight_haschanged" style="display:none" data-item="@Model.CurrentElement.CurrentSnippet.Id"></div>
+@switch (Model.CurrentElement.CurrentSnippet.WidgetName) {
+  case "Text":
+    <img src="~/Content/icons/Editor/text_16.png" class="hintIcon metaDataText flowButton" data-item="@Model.CurrentElement.CurrentSnippet.Id" alt="up" />
+    Html.RenderPartial("Widgets/_TextWidget", Model.CurrentElement.CurrentSnippet as TextSnippet, new ViewDataDictionary { { "DocumentId", Model.DocumentId } });
+    break;
+  case "Sidebar":
+    <img src="~/Content/icons/Editor/text_16.png" class="hintIcon metaDataText flowButton" data-item="@Model.CurrentElement.CurrentSnippet.Id" alt="up" />
+    Html.RenderPartial("Widgets/_SidebarWidget", Model.CurrentElement.CurrentSnippet as SidebarSnippet, new ViewDataDictionary { { "DocumentId", Model.DocumentId } });
+    break;
+  case "Section":
+    <img src="~/Content/icons/Editor/newspaper_16.png" class="hintIcon metaDataText flowButton" data-item="@Model.CurrentElement.CurrentSnippet.Id" alt="up" />      
+    <div class="right-left">
+    @Create.NavigationButtonStepUp(Url, Model.CurrentElement.CanUp, Model.DocumentId, Model.CurrentChapter.Id, Model.CurrentElement.CurrentSnippet.Id)  
+    @Create.NavigationButtonStepDown(Url, Model.CurrentElement.CanDown, Model.DocumentId, Model.CurrentChapter.Id, Model.CurrentElement.CurrentSnippet.Id)  
+    </div>   
+    Html.RenderPartial("Widgets/_SectionWidget", Model.CurrentElement.CurrentSnippet as Section, new ViewDataDictionary { { "ChapterNumber", Model.GenericChapterNumber }, { "SectionNumberChain", Model.CurrentElement.SectionNumberChain } });
+    break;
+  case "Image":
+    <img src="~/Content/icons/Editor/photo_landscape_16.png" class="hintIcon metaDataText flowButton" data-item="@Model.CurrentElement.CurrentSnippet.Id" alt="up" />
+    Html.RenderPartial("Widgets/_ImageWidget", Model.CurrentElement.CurrentSnippet as ImageSnippet, new ViewDataDictionary { { "ChapterNumber", Model.GenericChapterNumber }, { "FigureCount", Model.FigureCounter } });
+    break;
+  case "Table":
+    <img src="~/Content/icons/Editor/table2_16.png" class="hintIcon metaDataText flowButton" data-item="@Model.CurrentElement.CurrentSnippet.Id" alt="up" />
+    Html.RenderPartial("Widgets/_TableWidget", Model.CurrentElement.CurrentSnippet as TableSnippet, new ViewDataDictionary { { "ChapterNumber", Model.GenericChapterNumber }, { "TableCount", Model.TableCounter } });
+    break;
+  case "Listing":
+    <img src="~/Content/icons/Editor/code_16.png" class="hintIcon metaDataText flowButton" data-item="@Model.CurrentElement.CurrentSnippet.Id" alt="up" />
+    Html.RenderPartial("Widgets/_ListingWidget", Model.CurrentElement.CurrentSnippet as ListingSnippet, new ViewDataDictionary { { "ChapterNumber", Model.GenericChapterNumber }, { "ListingCount", Model.ListingCounter } });
+    break;
+  default:
+    @:@Model.CurrentElement.CurrentSnippet.WidgetName
+    break;
+}
+<div class="metaDataDialog" style="display:none" data-item="@Model.CurrentElement.CurrentSnippet.Id" data-chapter-id="@Model.CurrentChapter.Id"></div>
+</div>

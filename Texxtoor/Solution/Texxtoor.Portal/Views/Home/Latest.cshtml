@@ -1,0 +1,15 @@
+﻿@model IDictionary<string, string>
+@{
+  PageData["Title"] = @Loc("title", "Recently Published");
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+}
+<p>
+  @Loc("text", "See what we got online in the past few days. See the authors who joined our team recently.")
+</p>
+@if (Model != null && Model.Any()) {
+  
+} else {
+  <div class="alert alert-warning">
+    @Loc("txtErr", "There are currently no news available.")
+  </div>
+}

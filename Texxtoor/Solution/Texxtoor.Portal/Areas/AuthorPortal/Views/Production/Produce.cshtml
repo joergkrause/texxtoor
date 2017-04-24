@@ -1,0 +1,31 @@
+﻿@{
+  PageData["Title"] = Loc("title", "Produce");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("text1", @"On this page you can see all projects you're administering.");
+}
+@section HeadContent{
+  <script type="text/javascript">
+    $(function() {
+      ui = new Dialog(
+        {},{},{},
+        {
+          formId: '#main',
+          formDivId: '#main',
+          formAction: '@Url.Action("ListProjectsToProduce", "Production")'
+        });
+      ui.updateTable();
+    });
+  </script>
+}
+@Create.ActionTask("", false, Url.Action("Index", "Project"), ViewResources.LinkButton_ToProjects)
+@Create.MainContentWithLoader()
+
+@section HelpSection {
+@Loc("text2", "If a project or work container does not appear here please check the following pre-conditions:" +
+                     "<ul>" +
+                     "<li>The project as well as the container must be active</li>" +
+                     "<li>The container's milestones, if any, must not contain any milestones not yet done</li>" +
+                     "<li>A marketing package must be assigned to the project and activated properly.</li>" +
+                     "<li>You must the owner or project lead to invoke production. Consider asking your admin.</li>" +
+                     "</ul>")
+}

@@ -1,0 +1,26 @@
+﻿@model Texxtoor.DataModels.Models.Users.User
+
+@{
+  PageData["Title"] = "Create";
+  Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+
+@using (Html.BeginForm()) {
+  using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+  @Html.ValidationSummary(true)
+  }
+  using (Html.BtFieldset("User")) {
+  @Html.EditorForModel()
+
+  @Html.LabelFor(m => m.Password)
+  @Html.EditorFor(m => m.Password)
+
+  <p>
+    <input type="submit" value="Create" />
+  </p>
+  }
+}
+
+<div>
+  @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-sm btn-primary" })
+</div>

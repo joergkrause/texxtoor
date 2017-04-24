@@ -1,0 +1,10 @@
+﻿@{
+  PageData["Title"] = Loc("title1", "Access Denied");
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+}
+<div class="alert alert-danger well well-lg">
+  @Loc("ad", "Access denied! Your request requires specific rights")
+</div>
+@section FooterContent {
+  @Html.Action("Show", "Navigation", new { menuName = "footer", area = "" })
+}

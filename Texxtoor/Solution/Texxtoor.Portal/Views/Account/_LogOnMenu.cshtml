@@ -1,0 +1,46 @@
+﻿@model Texxtoor.ViewModels.Users.LogOn
+
+<div class="LogonDiv4">
+  <a class="link aSpecial" href="#">@ViewResources.StaticMenu_UserAccount</a>
+  <br />
+  <div
+    class="DropZoneMenu2 LogonDiv3">
+    <div class="LogonDiv2">
+      @ViewResources.StaticMenu_Options<br />
+    </div>
+    @if (User.Identity.IsAuthenticated) {
+      <div class="tm-masterbutton LogonDiv1">
+        @Html.ActionLink(@ViewResources.StaticMenu_SignOut, "LogOff", "Account", new {area = ""}, null)
+        <br />
+        <small>@Model.UserName</small>
+      </div>
+      <div class="tm-masterbutton LogonDiv1" >
+        @Html.ActionLink(@ViewResources.StaticMenu_ChangePassword, "ChangePassword", "Account", new {area = ""}, null)
+        <br />
+        <small>@Model.UserName</small>
+      </div>
+    } else {
+      <div class="tm-masterbutton LogonDiv1" >
+        @Html.ActionLink(ViewResources.StaticMenu_SignIn, "LogOn", "Account", new {area = ""}, null)
+        <br />
+      </div>
+      <div class="tm-masterbutton LogonDiv1" >
+        @Html.ActionLink(ViewResources.StaticMenu_Register, "Register", "Account", new {area = ""}, null)
+        <br />
+        <small>@Loc("textNewAccount", @"Create a new account")</small>
+      </div>
+      <div class="tm-masterbutton LogonDiv1" >
+        @Html.ActionLink(ViewResources.StaticMenu_ResetPassword, "RetrievePassword", "Account", new {area = ""}, null)
+        <br />
+        <small>@Loc("textLostPw", @"Handle lost password")</small>
+      </div>
+      <div class="tm-masterbutton LogonDiv1" >
+        @Html.ActionLink(ViewResources.StaticMenu_ResendActivationMail, "ResendActivationMail", "Account", new {area = ""}, null)
+        <br />
+        <small>@Loc("textActivation", @"Send activation mail")</small>
+      </div>
+      <!-- External -->
+      @Html.Action("ExternalLoginsList", "Account", new { ReturnUrl = "/", area = ""})       
+    }
+  </div>
+</div>

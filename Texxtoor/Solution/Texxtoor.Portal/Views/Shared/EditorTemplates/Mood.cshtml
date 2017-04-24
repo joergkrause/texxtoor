@@ -1,0 +1,22 @@
+﻿@model int?
+<div class="editor-mood">
+  <table style="width: 100%; background-color: transparent;">
+    <tr>
+      <td style="text-align: center"><b>@BtIcon.IconHtml(BtIcon.MinusSignAlt)</b></td>
+      <td style="text-align: center"><b>@BtIcon.IconHtml(BtIcon.Frown)@BtIcon.IconHtml(BtIcon.Frown)</b></td>
+      <td style="text-align: center"><b>@BtIcon.IconHtml(BtIcon.Frown)</b></td>
+      <td style="text-align: center"><b>@BtIcon.IconHtml(BtIcon.Question)</b></td>
+      <td style="text-align: center"><b>@BtIcon.IconHtml(BtIcon.Smile)</b></td>
+      <td style="text-align: center"><b>@BtIcon.IconHtml(BtIcon.Smile)@BtIcon.IconHtml(BtIcon.Smile)</b></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><input type="radio" id="mood-0" name="mood" value="0" @(Model == null || Model.GetValueOrDefault() == 0 ? "checked='checked'" : "") /></td>
+      <td style="text-align: center"><input type="radio" id="mood-1" name="mood" value="1" @(Model.GetValueOrDefault() == 1 ? "checked='checked'" : "") /></td>
+      <td style="text-align: center"><input type="radio" id="mood-2" name="mood" value="2" @(Model.GetValueOrDefault() == 2 ? "checked='checked'" : "") /></td>
+      <td style="text-align: center"><input type="radio" id="mood-3" name="mood" value="3" @(Model.GetValueOrDefault() == 3 ? "checked='checked'" : "") /></td>
+      <td style="text-align: center"><input type="radio" id="mood-4" name="mood" value="4" @(Model.GetValueOrDefault() == 4 ? "checked='checked'" : "") /></td>
+      <td style="text-align: center"><input type="radio" id="mood-5" name="mood" value="5" @(Model.GetValueOrDefault() == 5 ? "checked='checked'" : "") /></td>
+    </tr>
+  </table>
+  @Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)
+</div>

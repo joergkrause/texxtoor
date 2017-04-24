@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
+  <head>
+    <meta name="cover" content="cover"/>
+    <meta name="dtb:uid" content="isbn:9780735656680"/>
+    <meta name="dtb:depth" content="-1"/>
+    <meta name="dtb:totalPageCount" content="0"/>
+    <meta name="dtb:maxPageNumber" content="0"/>
+  </head>
+  <docTitle>
+    <text>Microsoft XNA Framework Edition: Programming Windows Phone 7</text>
+  </docTitle>
+  <navMap>
+    <navPoint id="id2693107" playOrder="1">
+      <navLabel>
+        <text>Microsoft XNA Framework Edition: Programming Windows Phone 7</text>
+      </navLabel>
+      <content src="index.html"/>
+      <navPoint id="id2740231" playOrder="2">
+        <navLabel>
+          <text>A Note Regarding Supplemental Files</text>
+        </navLabel>
+        <content src="examples_page.html"/>
+      </navPoint>
+      <navPoint id="id2824679" playOrder="3">
+        <navLabel>
+          <text>Introduction</text>
+        </navLabel>
+        <content src="pr02.html"/>
+      </navPoint>
+    </navPoint>
+  </navMap>
+</ncx>

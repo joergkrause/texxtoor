@@ -1,0 +1,107 @@
+/*
+    Prince - Fonts stylesheet
+    http://www.princexml.com
+*/
+
+/* standard "serif" font family */
+
+@font-face {
+    font-family: serif;
+    src: local("Arial Unicode MS") /* last resort font */
+}
+
+@font-face {
+    font-family: serif;
+    src: local("Kartika") /* Malayalam script */
+}
+
+@font-face {
+    font-family: serif;
+    src: local("Tunga") /* Kannada script */
+}
+
+@font-face {
+    font-family: serif;
+    src: local("Gautami") /* Telugu script */
+}
+
+@font-face {
+    font-family: serif;
+    src: local("Latha") /* Tamil script */
+}
+
+@font-face {
+    font-family: serif;
+    src: local("Shruti") /* Gujarati script */
+}
+
+@font-face {
+    font-family: serif;
+    src: local("Raavi") /* Gurmukhi script */
+}
+
+@font-face {
+    font-family: serif;
+    src: local("Vrinda") /* Bengali script */
+}
+
+@font-face {
+    font-family: serif;
+    src: local("Mangal") /* Devanagari script */
+}
+
+@font-face {
+    font-family: serif;
+    unicode-range: U+3040-309F, U+30A0-30FF, U+4E00-9FBF;
+    src: local("MS Mincho") /* Japanese */
+}
+
+@font-face {
+    font-family: serif;
+    src: local("MingLiU") /* CJK ideographs */
+}
+
+@font-face {
+    font-family: serif;
+    src: local("Symbol")
+}
+
+@font-face {
+    font-family: serif;
+    src: local("Times New Roman")
+}
+
+/* standard "sans-serif" font family */
+
+@font-face {
+    font-family: sans-serif;
+    unicode-range: U+3040-309F, U+30A0-30FF, U+4E00-9FBF;
+    src: local("MS Gothic") /* Japanese */
+}
+
+@font-face {
+    font-family: sans-serif;
+    src: local("Arial")
+}
+
+/* standard "monospace" font family */
+
+@font-face {
+    font-family: monospace;
+    src: local("Courier New")
+}
+
+/* standard "cursive" font family */
+
+@font-face {
+    font-family: cursive;
+    src: local("Comic Sans MS")
+}
+
+/* standard "fantasy" font family */
+
+@font-face {
+    font-family: fantasy;
+    src: local("Comic Sans MS")
+}
+

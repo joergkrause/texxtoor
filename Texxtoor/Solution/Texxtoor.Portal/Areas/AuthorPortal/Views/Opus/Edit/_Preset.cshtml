@@ -1,0 +1,25 @@
+﻿@using Texxtoor.DataModels.Models.Author
+@model Texxtoor.DataModels.Models.Content.Opus
+@{
+  var cr = (ContributorRole)ViewBag.ContributorRole;
+}
+@using (Html.BeginForm("PublishingPreset", "Opus", new { id = Model.Id }, FormMethod.Post, new { id = "savePublishForm" })) {
+  if ((bool)ViewBag.UserIsTeamlead || ((cr & ContributorRole.Author) == ContributorRole.Author)) {
+    using (Html.BtFieldset(Loc("lblPubl", "Preset Publishing Options"))) {
+      using (Html.BtDiv(BtStyle.WellAndSmall)) {
+        @Loc("textPubl", @"These properties manage the publishing options for this particular text. While publishing all options can be set or changed as well.")
+      }
+      @Html.Action("PublishingPreset", new { id = Model.Id })
+      <div class="formsendButtons">
+        @Button.Send("btnSavePublished", ViewResources.Action_Editor_SetOptions, "btn-sm btn-primary")
+      </div>
+    }
+  } else {
+    using (Html.BtFieldset(Loc("lblPublView", "Publishing Options"))) {
+      using (Html.BtDiv(BtStyle.WellAndSmall)) {
+        @Loc("textPublView", @"These properties show the publishing options for this particular text. The lead author can change these values.")
+      }
+      @Html.Action("PublishingPresetView", new { id = Model.Id })
+    }
+  }
+}

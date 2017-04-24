@@ -1,0 +1,97 @@
+﻿@model int
+<li>
+  <h2>Insert Elements (semantic)</h2>
+  <div class="ribbon-list">
+    <div class="ribbon-list" onmousedown="return false">
+       <span>Abbreviations</span>
+      @Html.Action("SemanticList", new { id = Model, type = "abbreviation" })
+    </div>
+    <div class="ribbon-list" onmousedown="return false">
+        <span>Cites</span>
+      @Html.Action("SemanticList", new { id = Model, type = "cite" })
+    </div>
+  </div>
+  <div class="ribbon-list">
+    <div class="ribbon-list" onmousedown="return false">
+        <span>Variables</span>
+      @Html.Action("SemanticList", new { id = Model, type = "variable" })
+    </div>
+    <div class="ribbon-list" onmousedown="return false">
+        <span>Idiom</span>
+      @Html.Action("SemanticList", new { id = Model, type = "idiom" })
+    </div>
+  </div>
+  <div class="ribbon-list">
+    <div class="ribbon-list" onmousedown="return false">
+        <span>Definitions</span>
+      @Html.Action("SemanticList", new { id = Model, type = "definition" })
+    </div>
+      
+  </div>
+    <div class="ribbon-button" data-command="format" data-action="insertIndex"  onmousedown="return false">
+        <span>Index</span>
+    </div>
+</li>
+<li>
+  <h2>Social Interaction</h2>
+  <div class="ribbon-list">
+    <div class="ribbon-button" data-command="showpopup" data-action="comments">
+      <img src="~/Content/icons/Editor/message_16.png" alt="" />
+      <label>Comments</label>
+    </div>
+  </div>
+</li>
+<li>
+  <h2>Sidebar</h2>
+  <div class="ribbon-list">
+    <div onmousedown="return false">
+          <img src="/Content/icons/Editor/window_sidebar_16.png" alt="Sidebar">
+          <span>Type</span>
+          <ul>
+             @foreach (var item in Enum.GetValues(typeof(Texxtoor.Models.SidebarType))) {
+                 <li onclick="author.setSidebarType(this);" style="min-width: 100px;">@item
+                     <input type="hidden" value="@((int)item)"/>
+                 </li>
+             }
+          </ul>
+        </div>
+  </div>
+</li>
+<li>
+  <h2>Links</h2>
+  <div class="ribbon-list">
+    <div class="ribbon-button" data-command="showpopup" data-action="internal" onmousedown="return false;">
+      <img src="~/Content/icons/Editor/Text/link_add.png" alt="" />
+      <label>Add an internal link</label>
+    </div>
+  </div>
+</li>
+<li>
+  <h2>Meta Information</h2>
+  <div class="ribbon-list" >
+         <div onmousedown="return false">
+          <img src="~/Content/icons/Editor/Text/link_add.png" alt="" />
+          <span>Target</span>
+          <ul>
+             @foreach (var item in new[] { "Beginner", "Advanced", "Expert" }) {
+                 <li class="sem" onclick="author.setMetaData(this);" style="min-width: 120px;">
+                     <input id="@item" name="metadata-targets" type="radio" />
+                     <label for="@item">@item</label>
+                 </li>
+             }
+          </ul>
+        </div>
+        <div onmousedown="return false">
+          <img src="~/Content/icons/Editor/Text/link_add.png" alt="" />
+          <span>Stage</span>
+          <ul>
+           @foreach (var item in new[] { "Personal", "Professional", "School" }) {
+                 <li class="sem" onclick="author.setMetaData(this);" style="min-width: 120px;">
+                     <input id="@item" name="metadata-stages" type="radio" />
+                     <label for="@item">@item</label>
+                 </li>
+             }
+          </ul>
+        </div>
+  </div>
+</li>

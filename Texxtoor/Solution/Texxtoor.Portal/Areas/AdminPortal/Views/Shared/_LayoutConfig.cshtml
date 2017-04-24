@@ -1,0 +1,29 @@
+﻿@{
+  Layout = Url.GetGlobalLayout();
+}
+@section helpSection{
+  <div class="helpsection">
+    @RenderSection("helpSection", false)
+  </div>
+}
+@section HeadContent
+{
+  @if (IsSectionDefined("HeadContent")) {
+    @RenderSection("HeadContent")
+  }
+}
+@RenderBody()
+@section FooterContent {
+  @if (!IsSectionDefined("FooterContent")) {
+    @Html.Action("Show", "Navigation", new { menuName = "footer-simple", area = "" })
+  } else {
+    @RenderSection("FooterContent", false)
+  }
+}
+@*
+  <div id="topmenu" class="topmenudiv">
+    <ul class="menu menu-dropdown">
+
+    </ul>
+  </div>
+*@

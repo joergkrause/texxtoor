@@ -1,0 +1,24 @@
+﻿@model Texxtoor.ViewModels.Users.LinkInternalAccount
+
+@{
+  Layout = Url.GetGlobalLayout();
+  PageData["Title"] = Loc("title", @"Associate your {0} account", (string) ViewBag.ProviderDisplayName);
+}
+
+<div class="well">
+ @Loc("textprovider", @"If you are already registered with us, enter your email address below to associate this your {0} account with it.", (string) ViewBag.ProviderDisplayName)
+</div>
+@using (Html.BeginForm("ConfirmAssociation", "Account", new { ReturnUrl = ViewBag.ReturnUrl })) {
+  @Html.AntiForgeryToken()
+  @Html.ValidationSummary(true)
+    using(Html.BtFieldset(Loc("text1", @"Association Form"))) {
+    @Html.EditorForModel()
+    @Html.HiddenFor(m => m.ExternalLoginData)
+    <div class="formsendButtons">
+        <input type="submit" value="@ViewResources.Action_Common_Associate" class="btn btn-primary" />   Or 
+        <a href="@Url.Action("Register")" class="btn btn-primary" title="@Loc("srvRegister", "Register for new account")">@ViewResources.Action_Common_Register</a>
+    </div>
+
+    }
+}
+

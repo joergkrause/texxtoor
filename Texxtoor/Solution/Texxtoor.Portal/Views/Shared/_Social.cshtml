@@ -1,0 +1,21 @@
+﻿<script type="text/javascript">
+  var rpxJsHost = (("https:" == document.location.protocol) ? "https://" : "http://static.");
+  document.write(unescape("%3Cscript src='" + rpxJsHost + "rpxnow.com/js/lib/rpx.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  RPXNOW.init({
+    appId: '@System.Web.Configuration.WebConfigurationManager.AppSettings["texxtoor:JanRainAppId"]',
+    xdReceiver: '/rpx_xdcomm.html'
+  });
+</script>
+<script type="text/javascript">
+  function ShowActivityWindow() {
+    RPXNOW.loadAndRun(['Social'], function () {
+      var activity = new RPXNOW.Social.Activity(
+       '@ViewBag.Subject',
+       '@ViewBag.Activity',
+       '@ViewBag.Link');
+      RPXNOW.Social.publishActivity(activity);
+    });
+  }
+</script>

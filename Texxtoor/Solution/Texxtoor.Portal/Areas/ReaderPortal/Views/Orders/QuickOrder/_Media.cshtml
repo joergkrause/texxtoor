@@ -1,0 +1,42 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Orders.OrderProduct
+@using (Html.BeginForm("QuickMedia", "Orders", FormMethod.Post, new {
+                                                                     @class = "quickForm",
+                                                                     data_next_invalid_tab = "formMedia",
+                                                                     data_next_error_tab = "formMedia",
+                                                                     data_next_success_tab = ""
+                                                                   })) {
+  using(Html.BtFieldset(Loc("legendMedia", @"Media and Pricing"))) {
+    <div class="well well-sm">
+      @Loc("text1", @"Primarily any content provided by us is free. Some media we create for you individually have a production fee as shown below.")
+    </div>
+    <label>@Loc("lblMedia", @"Tell us which media you like to use")</label>
+    <div class="editor-field">
+      @foreach (var item in (MultiSelectList) ViewBag.Medias) {
+        var png = String.Format("/Content/images/media/{0}.png", item.Text);
+        <img src="@png"/>
+        <input title="@item.Text" @(item.Selected ? "checked='checked'" : "")
+               style="background: url(@png) no-repeat; "
+               type="checkbox" id="mediaSelector-@item.Value" name="mediaSelector" value="@item.Value" class="MediaInput"/>
+      }
+      @Create.FieldHelpIcon(Html, m => m.Media)
+    </div>
+    <label>@Loc("lblPriceSale", @"Final Price (single sale)")</label>
+    <div>
+      <span id="lblFinalPriceSale" class="ordermediaspan">
+        @String.Format("{0:C}", 0)</span>
+      <input type="radio" name="subscription" value="false" checked="checked" />
+      @Create.FieldHelpIcon(Html, m => m.RealPrice)
+    </div>
+    <label>@Loc("lblPriceSubscription", @"Final Price (subscription)")</label>
+    <div>
+      <span id="lblFinalPriceSubsc" class="ordermediaspan">
+        @String.Format("{0:C}", 0)</span>
+      <input type="radio" name="subscription" value="true" />
+      @Loc("textSubscr", @"Monthly subscription includes all updates. Can be cancelled any time.")
+      @Create.FieldHelpIcon(Html, m => m.Subscription)
+    </div>
+    <div class="formsendButtons">
+      <button id="btnPay" class="btn btn-danger btn-sm" data-target="@Url.Action("QuickPayment", "Orders")">@ViewResources.TasksButton_Reader_OrderNow</button>
+    </div>
+  }
+}

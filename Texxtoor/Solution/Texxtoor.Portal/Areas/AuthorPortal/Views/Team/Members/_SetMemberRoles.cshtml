@@ -1,0 +1,107 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using System.Globalization
+@using Texxtoor.DataModels.Models.Author
+@model Texxtoor.ViewModels.Author.TeamMemberModel
+@{
+  var currentUserIsTeamLead = ViewBag.Editable;
+}
+<div class="showRoles hidden-to-show" data-item="@Model.TeamMember.Id">
+  @using (Html.BtPanel(Loc("roleAssign", "Assign Roles") + " [" + Model.Member.UserName + "]", "blue")) {
+    <table class="table table-condensed">
+      <tr>
+        <th>
+          @Loc("requested", "Skills the user currently offers") <i class="icon icon-thumbs-up-alt"></i>
+        </th>
+        <th>
+          @Loc("set", "Task currently assigned to user")
+        </th>
+      </tr>
+      <tr>
+        <td style="width:50%">
+          <ul>
+            @foreach (var ctype in Model.Member.Profile.ContributorMatrix) {
+              var r = ctype.MinimumRole;
+              var attr = typeof(Texxtoor.DataModels.Models.UserRole).GetField(r.ToString()).GetCustomAttributes(typeof(DisplayAttribute), true).Cast<DisplayAttribute>().Single();
+              var roleName = attr.GetName();
+              <li>
+                <em>@ctype.Name</em>
+                @Loc("forLang", "for language")
+                <em>@CultureInfo.CreateSpecificCulture(ctype.LocaleId).Parent.NativeName</em>
+                @Loc("needsRole", "Needs role")
+                <em>@roleName</em>
+              </li>
+            }
+          </ul>
+          <small style="text-align:bottom;">
+            @Loc("explain", "Members with role author can manage the project, including changing members, publish. Members with role contributor can work on content only.")
+            @Loc("explain2", "The assigned roles will provide the sufficient tools to work on content. The skills offered by users are just suggestions, they do neither limit nor extend the roles set by team's leader.")
+          </small>
+        </td>
+        <td style="width:50%">
+          @if (currentUserIsTeamLead) {
+            var dataItem = Model.TeamMember.Id.ToString(CultureInfo.InvariantCulture);
+            var defaultValue = (int)Model.TeamMember.Role.ContributorRoles;
+            var markerValues = Model.Member.Profile.ContributorMatrix.Select(c => c.ContributorRole).Distinct().Sum(c => (int)c);
+            var excludeValue = 0;
+            var type = typeof(ContributorRole);
+            foreach (var i in Enum.GetValues(type)) {
+              var item = Convert.ToInt32(i);
+              if (excludeValue != 0 && (excludeValue & item) == item) { continue; }
+              var mark = (markerValues != 0 && (markerValues & item) == item);
+              var chkd = (defaultValue != 0 && (defaultValue & item) == item);
+              var attr = type.GetField(i.ToString()).GetCustomAttributes(typeof(DisplayAttribute), false).Cast<DisplayAttribute>().FirstOrDefault();
+              var text = attr == null ? i.ToString() : attr.ResourceType.GetProperty(attr.Name).GetValue(null);
+              var author = (ContributorRole)i == ContributorRole.Author;
+              var mri = Model.Member.Profile.ContributorMatrix.Where(c => c.ContributorRole == (ContributorRole)i);
+              var mrroleNames = new List<string>();
+              foreach (var mr in mri) {
+                var mrattr = typeof(Texxtoor.DataModels.Models.UserRole).GetField(mr.MinimumRole.ToString()).GetCustomAttributes(typeof(DisplayAttribute), true).Cast<DisplayAttribute>().Single();
+                mrroleNames.Add(mrattr.GetName());
+              }
+              var mrroleName = String.Join(",", mrroleNames.Distinct().ToArray());
+              <input type="checkbox" @(dataItem == null ? "" : "data-item=" + dataItem + "")
+                     @(chkd ? "checked='checked'" : "")
+                     name="role"
+                     id="role-@item"
+                     value="@((int)item)" />
+              <label for="role-@item" class="checkboxlist" style="@(mark ? "font-weight:bold" : "")">
+                @text
+                @if (!String.IsNullOrEmpty(mrroleName)) {
+                  <i class="icon icon-thumbs-up-alt"></i>
+                }
+                <small>
+                  [
+                  @if (author) {
+                    @Loc("author", "Role Author")
+                  } else {
+                    @Loc("contributor", "Role Contributor")
+                  }
+                  ]
+                </small>
+              </label>
+              <br />
+            }
+            <small>@Loc("lblRoles", @"Assign roles of this user in this team")</small><br />
+            @:@Create.ActionClick("btnAssignProfile-" + Model.TeamMember.Id, true, "", ViewResources.Action_Team_Save_Assignment, "btnAssignProfile btn-primary")
+          }
+          @Create.ActionClick("", true, "", ViewResources.Button_CancelAndClose, "btnCloseShowRoles")
+        </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </tr>
+    </table>
+  }
+</div>

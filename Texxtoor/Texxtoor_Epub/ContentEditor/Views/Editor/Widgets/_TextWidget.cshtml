@@ -1,0 +1,8 @@
+﻿@model Texxtoor.Models.TextSnippet
+<div class="editableByTexxtoor editableText integratedEditor saveableByTexxtoor" 
+     data-editor="HtmlEditor" 
+     data-class="editableByTexxtoor" 
+     data-item='@Model.Id' 
+     id='sn-@Model.Id'>
+     <div class="editor" contenteditable="true">@Html.Raw(Model.RawContent)</div>
+</div>

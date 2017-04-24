@@ -1,0 +1,28 @@
+﻿<div class="imprint" xmlns:t="http://www.texxtoor.de/2014/templating">
+  <div class="title">
+    <t:title></t:title>
+  </div>
+  <div class="author">
+    <t:authornames></t:authornames>
+  </div>
+  <div class="text">
+    Das Werk, einschließlich seiner Teile, ist urheberrechtlich geschützt. Jede Verwertung ist ohne Zustimmung des Verlages und des Autors unzulässig. Dies gilt insbesondere für die elektronische oder sonstige Vervielfältigung, Übersetzung, Verbreitung und öffentliche Zugänglichmachung.
+  </div>
+  <div class="text">
+    Bibliografische Information der Deutschen Nationalbibliothek:<br />
+    Die Deutsche Nationalbibliothek verzeichnet diese Publikation in der Deutschen Nationalbibliografie; detaillierte bibliografische Daten sind im Internet über http://dnb.d-nb.de abrufbar.
+  </div>
+  <div class="publisher">
+    Verlag: <t:publisher></t:publisher><br />
+    Printed in Germany<br />
+    <strong>
+      <t:isbn></t:isbn>
+    </strong>
+  </div>
+  <div class="copyeditor">
+    <t:copyeditor></t:copyeditor>
+  </div>
+  <div class="imprint-Text">
+    Senden Sie Anfragen per E-Mail an <t:owner field="email">inquiry@texxtoor.com</t:owner>
+  </div>
+</div>

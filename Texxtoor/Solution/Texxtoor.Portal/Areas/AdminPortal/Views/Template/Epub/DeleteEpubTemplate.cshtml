@@ -1,0 +1,11 @@
+﻿@model Texxtoor.DataModels.Models.Content.Template
+@{
+    PageData["Title"] = "Delete EPUB Template";
+    Layout = Url.GetGlobalLayout("_LayoutTemplates", "AdminPortal");
+}
+<div class="well">
+  The template '@Model.InternalName' will be removed from group '@Model.Group.Name'. This cannot be undone.
+</div>
+@using (Html.BeginForm()) {
+  <input type="submit" value="Delete Template" class="btn btn-sm btn-warning" />
+}

@@ -1,0 +1,51 @@
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@helper NavigationButtonUp(UrlHelper url, Texxtoor.Models.Element targetElement, int opus, int chapter, int snippet) {
+  if (targetElement != null) {
+  <a href="@url.Action("Authoring", "Editor", new { id = opus, chapterId = chapter, sectionId = snippet, move = "u" })" onclick="ui.saveScroll();author.move(null, this); return false;" class="leftButton nav-up" >
+    <img src="~/Content/icons/Editor/navigate_up_16.png" class="upButton naviButton" data-item="@snippet" alt="up" />
+  </a>
+  } else {
+  <a class="leftButton nav-up" onclick="ui.saveScroll();author.move(null, this); return false;"
+    style="opacity: 0.2">
+    <img src="~/Content/icons/Editor/navigate_up_16.png" class="upButton naviButton"  data-item="@snippet" alt="up" />
+  </a>
+  }
+}
+@helper NavigationButtonDown(UrlHelper url, Texxtoor.Models.Element targetElement, int opus, int chapter, int snippet) {
+  if (targetElement != null) {
+  <a href="@url.Action("Authoring", "Editor", new { id = opus, chapterId = chapter, sectionId = snippet, move = "d" })" onclick="ui.saveScroll();author.move(null, this); return false;" class="leftButton nav-down" >
+    <img src="~/Content/icons/Editor/navigate_down_16.png" class="downButton naviButton" data-item="@snippet" alt="down" />
+  </a>
+  } else {
+  <a class="leftButton nav-down" onclick="ui.saveScroll();author.move(null, this); return false;"
+    style="opacity: 0.2">
+    <img src="~/Content/icons/Editor/navigate_down_16.png" class="downButton naviButton"  data-item="@snippet" alt="down" />
+  </a>
+  }
+}
+@helper NavigationButtonStepUp(UrlHelper url, bool can, int opus, int chapter, int snippet) {
+  if (can) {
+       
+  <a href="@url.Action("Authoring", "Editor", new { id = opus, chapterId = chapter, sectionId = snippet, move = "l" })" onclick="ui.saveScroll();author.move(null, this); return false;" class="leftButton nav-left" >
+    <img src="~/Content/icons/Editor/sort_up_plus_16.png" class="higherIcon naviButton" data-item="@snippet" alt="higher" />
+  </a>
+  } else {
+  <a class="leftButton nav-left" onclick="ui.saveScroll();author.move(null, this); return false;"
+    style="opacity: 0.2">
+    <img src="~/Content/icons/Editor/sort_up_plus_16.png" class="higherIcon naviButton"  data-item="@snippet" alt="higher" />
+  </a>
+  }
+}
+@helper NavigationButtonStepDown(UrlHelper url, bool can, int opus, int chapter, int snippet) {
+  if (can) {
+  <a href="@url.Action("Authoring", "Editor", new { id = opus, chapterId = chapter, sectionId = snippet, move = "r" })" onclick="ui.saveScroll();author.move(null, this); return false;" class="leftButton nav-right" >
+    <img src="~/Content/icons/Editor/sort_up_minus_16.png" class="deeperIcon naviButton" data-item="@snippet" alt="deeper" />
+  </a>
+  } else {
+  <a class="leftButton nav-right" onclick="ui.saveScroll();author.move(null, this); return false;"
+    style="opacity: 0.2">
+    <img src="~/Content/icons/Editor/sort_up_minus_16.png" class="deeperIcon naviButton"  data-item="@snippet" alt="deeper" />
+  </a>
+  }
+}

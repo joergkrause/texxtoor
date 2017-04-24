@@ -1,0 +1,53 @@
+﻿@using Texxtoor.DataModels.Models.Reader.Content
+@model Tuple<Work, Work>
+<style>
+  .sortable-placeholder
+  {
+    border: 1px solid orange;
+    background-color: yellow !important;
+    min-height: 28px;
+  }
+</style>
+@using (Html.BeginForm("ChangeCollection", "Reader", new { id = Model.Item2.Id, area = "ReaderPortal" }, FormMethod.Post, new { id = "changeCollectionForm" })) {
+  using(Html.BtFieldset(Loc("legend", @"Manage collection content."))) {
+    <div class="changecollectiondiv1">
+      @Loc("help1", @"Drag 'n drop themes from left side to the right to add to current collection.")
+    </div>
+    <table class="FullWidth">
+      <tr>
+        <td>
+          @Loc("textSelCnt", "Select Content from other collections or works.")
+          @Html.Action("SelectWork", Model.Item1)
+        </td>
+        <td>@if (Model.Item2 != null) {
+          <em>@Model.Item2.Name</em>
+            }</td>
+      </tr>
+      <tr>
+        <td style="width: 50%;" id="workCollection"></td>
+        <td class="changecollectiontd">
+          <h3>@Loc("titleName", @"This is your collection '{0}'", Model.Item2.Name)</h3>
+          <ul style="width: 400px;" class="chapterList" id="chapterListTarget" data-item="@Model.Item2.Id">
+            @foreach (var frozenFragment in Model.Item2.Fragments.Where(f => f.Parent == null).OrderBy(f => f.OrderNr).Select(f => f.FrozenFragment)) {
+              <li data-item="@frozenFragment.Id"><b>@(frozenFragment.OrderNr)</b> @frozenFragment.Name
+                <a style="float:right" class="removeItem">[Remove]</a>
+                <br />
+                <small style="margin-left:15px">[was from:  @(frozenFragment.Published != null ? frozenFragment.Published.Title.Ellipsis(50).ToString() : "unknown source")]</small>
+              </li>
+            }
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>@Create.FormButtonOnClick("changeCollectionSendButton", "lib.changeFormSubmit()", ViewResources.Action_Collection_ChangeCollection)
+          @Create.FormButtonOnClick("changeCollectionCancelButton", "", ViewResources.Button_CancelAndClose, BtStyle.ButtonDefault)
+        </td>
+        <td>
+          <div class="jstree-drop" class="changecollectiondiv">
+            @Loc("help2", @"Drop a theme here to remove from current collection.")
+          </div>
+        </td>
+      </tr>
+    </table>
+  }
+}

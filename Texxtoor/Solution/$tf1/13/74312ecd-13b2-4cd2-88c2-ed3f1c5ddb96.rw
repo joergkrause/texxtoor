@@ -1,0 +1,2 @@
+﻿@model Texxtoor.DataModels.Models.Users.UserProfile.AvailabilityFrame
+@Html.EditorForModel()

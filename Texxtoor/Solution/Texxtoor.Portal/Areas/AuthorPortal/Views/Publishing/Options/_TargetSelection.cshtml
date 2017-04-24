@@ -1,0 +1,42 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.Published
+@using (Html.BeginForm("TargetSelection", "Publishing", new { id = Model.Id }, FormMethod.Post, new { id = "confirmForm", data_item = "1" })) {
+    using (Html.BtFieldset(Loc("txtLegend", "Target Store Selection"))) {
+        <label>@Loc("textLocalOption", @"Local")</label>
+        <div class="editor-field">
+            <input type="checkbox" id="localValid" name="localValid" value="true" class="publCheck" checked="checked" disabled="disabled" />
+            <small>@Loc("textLocalHlp", @"(texxtoor only, free)")</small>
+        </div>
+        <label>@Loc("textGlobalOption", @"Global")</label>
+        <div class="editor-field">
+            <input type="checkbox" id="globalValid" name="globalValid" value="true" class="publCheck" checked="checked" />
+            <small>@Loc("textGlobalHlp", @"(eBook-Shops world wide, including Amazon and Apple, fees may apply)")</small>
+        </div>
+    }
+    using (Html.BtFieldset(Loc("txtLegend2", "Publisher"))) {
+        if (ViewBag.Imprint == null) {
+            <div class="alert alert-danger">
+                <small>@Loc("textPublDataNo", @"No imprint set. Platform decides imprint data.") </small>
+            </div>
+        } else {
+            <div class="alert alert-warning">
+                <span class="badge badge-info">@ViewBag.Imprint.Name (@ViewBag.Imprint.Firm)</span>
+                <br /><small>@Loc("textPublData", @"[Imprint (Firm) used publicitly]") </small>
+            </div>
+        }
+        <label>@Loc("textPublisher", @"Publisher")</label>
+        <div class="editor-field">
+            @if (ViewBag.Imprint == null) {
+                <input type="hidden" id="publisher" name="publisher" value="false" />
+                <input type="checkbox" id="publisher" name="publisher" value="false" readonly="readonly" disabled="disabled" /> @Loc("noImprint", "No Imprint available (no firm)")
+            } else {
+                <input type="checkbox" id="publisher" name="publisher" value="true" @(Model.Imprint != null ? "checked='checked'" : "") />
+                <small>@Loc("textPublHlp", @"Select your own imprint to publish with own ISBNs. ") </small>
+            }
+        </div>
+        <div class="formsendButtons">
+            <small>@Loc("txtPubNow", "Click below to start the publishing procedure according the setup shown here.")</small><br />
+            @Create.FormButtonOnClick("btnSaveCoverTab", "", ViewResources.Action_Publish_SaveCommon_Tab, "btn-primary btnNext")
+        </div>
+    }
+}
+@Create.ActionTask("", true, Url.Action("Imprint", "Publishing", null), ViewResources.TasksButton_Imprint)

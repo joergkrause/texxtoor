@@ -1,0 +1,10 @@
+﻿@model Texxtoor.DataModels.Models.Content.Milestone
+@using (Html.BeginForm("AddMilestone", "Opus", new { area = "AuthorPortal" }, FormMethod.Post, new { id = "addMilestoneForm" })) {
+  using (Html.BtFieldset(Loc("legendGrp", @"Create New Milestone"))){
+    @Html.EditorForModel()
+    <div class="formsendButtons">
+      @Create.FormButtonOnClick("addMilestoneSendButton", "", ViewResources.Action_Opus_CreateNewMilestone)
+      @Create.FormButtonOnClick("addMilestoneCancelButton", "", ViewResources.Button_CancelAndClose, BtStyle.ButtonWarning)
+    </div>
+  }
+}

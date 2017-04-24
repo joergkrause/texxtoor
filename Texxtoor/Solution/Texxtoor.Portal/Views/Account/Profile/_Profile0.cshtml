@@ -1,0 +1,46 @@
+﻿@model Texxtoor.DataModels.Models.Users.UserProfile
+@using (Html.BtFieldset(Loc("lgndBadges", "Awards and Badges"))){
+  @Html.LabelFor(m => m.AwardState, new{@class = "control-label col-sm-3"})
+  using (Html.BtDiv()){
+    using (Html.BtDiv(BtStyle.Label & BtStyle.LabelDanger)){
+      @Html.DisplayFor(m => m.AwardState)
+    }
+    @Create.FieldHelpIcon(Html, m => m.AwardState)
+  }
+  <br/>
+  @Html.LabelFor(m => m.UserScore,new{@class="control-label col-sm-3"})
+  using (Html.BtDiv()){
+    using (Html.BtDiv(BtStyle.Label & BtStyle.LabelDefault)){
+      @Html.DisplayFor(m => m.UserScore)
+    }
+    @Create.FieldHelpIcon(Html, m => m.UserScore)
+  }
+  <br/>
+  @Html.LabelFor(m => m.UserBadge,new{@class="control-label col-sm-3"})
+  using (Html.BtDiv()){
+    using (Html.BtDiv(BtStyle.Label & BtStyle.LabelWarning)){
+      @Html.DisplayFor(m => m.UserBadge)
+    }
+    @Create.FieldHelpIcon(Html, m => m.UserBadge)
+  }
+  <br/>
+  @Html.LabelFor(m => m.CreatorScore,new{@class="control-label col-sm-3"})
+  using (Html.BtDiv()){
+    using (Html.BtDiv(BtStyle.Label & BtStyle.LabelSuccess)){
+      @Html.DisplayFor(m => m.CreatorScore)
+    }
+    @Create.FieldHelpIcon(Html, m => m.CreatorScore)
+  }
+  <br/>
+  @Html.LabelFor(m => m.CreatorBadge,new{@class="control-label col-sm-3"})
+  using (Html.BtDiv()){
+    using (Html.BtDiv(BtStyle.Label & BtStyle.LabelInfo)){
+      @Html.DisplayFor(m => m.CreatorBadge)
+    }
+    @Create.FieldHelpIcon(Html, m => m.CreatorBadge)
+  }
+  <br/>
+  using (Html.BtDiv(BtStyle.WellAndSmall)){
+    @Loc("lgndtextawards", "See your performance and reputation on the platform. Most activities get points and increase your level. Some functions are available to higher levels only.")
+  }
+}

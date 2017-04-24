@@ -1,0 +1,6 @@
+﻿@model int
+@if ((int)ViewData["MinScore"] <= (int)ViewData["HasScore"]) {
+  @Create.ActionLink("publish", true, Url.Action("FullPublish", new { id = Model }), ViewResources.Action_Publish_Go, BtStyle.ButtonAndInfo)
+} else {
+  @Html.Partial("LayoutPartials/_MinScoreRequiredLink", new Tuple<string, int, int>("To publish a min reputation of {0} is required.<br>Consider making the author's test.", (int)ViewData["MinScore"], (int)ViewData["HasScore"]))
+}

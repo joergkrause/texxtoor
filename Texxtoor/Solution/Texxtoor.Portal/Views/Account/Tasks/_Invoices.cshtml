@@ -1,0 +1,12 @@
+﻿@model Texxtoor.ViewModels.Shared.Users.Account.Tasks
+@if (Model.Invoices.Any()) {
+  <ul class="list-unstyled list-striped">
+    @foreach (var i in Model.Invoices) {
+      <li>@i.Total</li>
+    }
+  </ul>
+} else {
+  <div class="alert alert-danger">
+    @Loc("noInvoice", "There are no due invoices.")
+  </div>
+}

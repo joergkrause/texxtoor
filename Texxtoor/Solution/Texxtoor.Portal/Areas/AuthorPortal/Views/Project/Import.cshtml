@@ -1,0 +1,166 @@
+﻿@model Texxtoor.DataModels.Models.Content.Project
+@{
+  PageData["Title"] = Loc("title", "Import Manager");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("txtSimple", "Import a Word File without any style checking apart from headers, sections, tables, and images. This is recommended to get" +
+                    "as much content as possible into the project. After import use the integrated editor to refine semantic meanings.");
+}
+@section HeadContent {
+  <link href="~/Scripts/jquery/jupload/css/jquery.fileupload-ui.css" rel="stylesheet" />
+  <style>
+    div#checkSingleHtml h1
+    {
+      width: auto !important;
+      position: relative !important;
+      border: none !important;
+      padding: 0px !important;
+      margin: 0px !important;
+    }
+
+    div#checkSingleHtml p
+    {
+      font-family: Times New Roman, serif;
+    }
+  </style>
+  <script>
+    $(function () {
+      ui.updateTable();
+    });
+    ui = new Dialog(
+      {
+        formId: '#uploadHtmlForm',
+        formDivId: '#uploadHtml',
+        formAction: '@Url.Action("UploadHtml", "Project", new { Model.Id })',
+        sendBtnId: '#uploadHtmlSendButton',
+        cancelBtnId: '#uploadHtmlCancelButton',
+        onShow: function () {
+          $('#main').hide();
+        },
+        onClose: function (result) {
+          $('#main').show();
+        }
+      },
+      {
+        formId: '#uploadWordForm',
+        formDivId: '#uploadWord',
+        formAction: '@Url.Action("UploadWord", "Project", new { Model.Id })',
+        sendBtnId: '#uploadWordSendButton',
+        cancelBtnId: '#uploadWordCancelButton',
+        onShow: function () {
+          $('#main').hide();
+        },
+        onClose: function (result) {
+          $('#main').show();
+        }
+      },
+      {
+        formId: '#delFile',
+        formDivId: '#delFile',
+        formAction: '@Url.Action("DeleteImportFile", new { projectId = Model.Id })',
+        sendBtnId: '#delFileSendButton',
+        cancelBtnId: '#delFileCancelButton'
+      },
+      {
+        formId: '#main',
+        formDivId: '#main',
+        formAction: '@Url.Action("ListImportFiles", new { Model.Id })'
+      });
+      $.extend(ui, {
+        checkFile: function (id) {
+          $.ajax({
+            url: '@Url.Action("PreviewSingleHtml", "Project")',
+            data: { id: id, projectId: '@Model.Id' },
+            dataType: 'text',
+            cache: false,
+            type: 'GET'
+          }).done(function (data) {
+            $('#checkContent').html('<div id="checkSingleHtml">' + data + '</div>');
+            $('#checkContentModal').modal('show');
+          });
+        },
+        importFile: function (id, newOpus) {
+          var $this = this;
+          $.ajax({
+            url: '@Url.Action("ImportSingleHtml", "Project")',
+          data: { id: id, projectId: '@Model.Id', newOpus: newOpus },
+          dataType: 'json',
+          cache: false,
+          type: 'GET'
+        }).done(function (data) {
+          toastr.success(data.msg);
+          $this.updateTable();
+        }).fail(function (data) {
+          toastr.error(data.msg);
+        });
+        },
+        mapStyles: function (id) {
+          var $this = this;
+          $.ajax({
+            url: '@Url.Action("MapHtmlStyles", "Project")',
+          data: { id: id },
+          dataType: 'html',
+          cache: false,
+          type: 'GET'
+        }).done(function (data) {
+          $('#mapStyles').html(data);
+          $('#mapStyles').show();
+          $('#mapStylesSendButton').click(function () {
+            $.ajax({
+              url: '@Url.Action("MapStyles", "Project")',
+              data: $('#mapStylesSendButton').parents('form').serialize(),
+              dataType: 'json',
+              type: 'POST'
+            }).done(function (data) {
+              toastr.success(data.msg);
+              $('#mapStyles').hide();
+              $this.updateTable();
+            });
+          });
+          $('#mapStylesCancelButton').click(function () {
+            $('#mapStyles').hide();
+          });
+        });
+      }
+      });
+  </script>
+}
+@{
+  var leader = Model.Team.Members.FirstOrDefault(t => t.TeamLead);
+  var leaders = Model.Team.Members.Where(t => t.TeamLead).ToList();
+}
+@section HelpSection {
+  @using (Html.BtDiv(BtStyle.AlertAndInfo)) {
+    @Loc("txtTemplate", "The import will work only if you use the <strong>texxtoor MS&reg; Word&reg; Template</strong>. You can also use the MS&reg; Word&reg; Add-In for easy upload of text.")
+    @Loc("txtTemplateDownload", "Download template and add-in here:")
+    <ul class="sidemenu">
+      <li><i class="@BtIcon.FileText"></i> <a href="~/Download/TexxtoorTemplate.dotx">@Loc("txtTemplateDownloadT", "Template (TexxtoorTemplate.dotx")</a></li>
+      <li><i class="@BtIcon.ExternalLink"></i><a href="~/Download/setup.exe">@Loc("txtTemplateDownloadA", "Word Add-In (setup.exe")</a></li>
+    </ul>
+  }
+}
+@using (Html.BtDeleteTemplate(new MvcHtmlString(Loc("txtDel", "You're about to delete a file. Please confirm.").ToHtmlString() + Loc("txtDel2", "This does not delete any content already imported into a project.").ToHtmlString()))){
+  @Create.FormButtonOnClick("delFileSendButton", "", ViewResources.Action_Common_Archive_DeleteFile, BtStyle.ButtonWarning)
+  @Create.FormButtonOnClick("delFileCancelButton", "", ViewResources.Button_Cancel)
+}
+@Create.ContentFormEmpty("uploadHtml")
+@Create.ContentFormEmpty("uploadWord")
+@Create.ContentFormEmpty("mapStyles")
+@Create.MainContentWithLoader()
+<div class="modal fade " id="checkContentModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">@Loc("prevTitle", "HTML Preview")</h4>
+      </div>
+      <div class="modal-body" id="checkContent" style="height:500px; overflow-y:scroll;">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">@ViewResources.Button_CancelAndClose</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+@Create.ActionTask("", false, Url.Action("Index", "Resource", new { id = Model.Id }), ViewResources.TasksButton_FileResources)
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = Model.Id }), ViewResources.LinkButton_ToDashboard)

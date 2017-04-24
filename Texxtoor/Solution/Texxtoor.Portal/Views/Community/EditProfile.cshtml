@@ -1,0 +1,112 @@
+﻿@model Texxtoor.DataModels.Models.Users.UserProfile
+@{
+  Layout = Url.GetGlobalLayout();
+  PageData["Title"] = Loc("title", "My Profile");
+  PageData["ShortHelp"] = Loc("textProfileData", @"Apart from common business profil data you can use to present yourself you can create a single public profile here.
+<strong>texxtoor</strong> takes this an opportunity to make you visible to your friends exactly as you like. This is totally volontary and and can
+stay empty.");
+}
+@section HeadContent{
+  @*@Scripts.Render("~/Scripts/EditProfile")
+    @Styles.Render("~/Styles/EditProfile")*@
+  <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+  <script src="~/Scripts/ckeditor/lang/@(Culture).js"></script>
+  <script type="text/javascript">
+    $(function () {
+
+      //$('#wysiwyg1').CKEDITOR();
+
+      $('#btn_save').click(function () {
+        var e = CKEDITOR.instances['wysiwyg1'].getData();
+        $.ajax({
+          type: "POST",
+          url: '@Url.Action("SaveProfile")',
+          data: {
+            id: @Model.Id,
+            content: e
+          },
+          success: function (result) {
+            toastr.success(result.msg);
+          },
+          error: function (result) {
+            toastr.success(result.msg);
+          }
+        }); //ajax
+
+      }); // click
+
+    }); // ready
+
+
+  </script>
+
+}
+@section helpSection {
+  @Loc("textAuthor", @"It's, however, strongly recommended to be filled in properly if you're an author, translator, copy-editor, or any other
+contributor on <strong>texxtoor</strong>.")
+}
+@if (String.IsNullOrEmpty(Model.Walltext)) {
+  <div class="alert alert-warning">
+    @Loc("txtNoWall", "The profile text shown below is a template that gives a hint how to create a sophisticated profile. Consider changing the text first and save, then. Unless saved for the very first time the wall text remains empty.")
+  </div>
+}
+<div class="box">
+  <div class="box-header blue-background">
+    <div class="title">@Loc("textimgInstr", "Click the image to upload one")</div>
+    <div class="actions">
+      <a class="btn box-collapse btn-xs btn-link" href="#">
+        <i></i>
+      </a>
+    </div>
+  </div>
+  <div class="box-content">
+    <div class="pull-right">
+      <form id="fileForm">
+        <input type="hidden" name="id" value="@Model.Id">
+        <span class="btn btn-default btn-lg btn-file">
+          @Loc("image", "Select an Image")
+          <input type="file" name="file" 
+                 data-action="@Url.Action("SetPicture")" 
+                 data-form="#fileForm" 
+                 data-imagesrc="#profile-picture img" 
+                 data-upload="#fileSave" 
+                 data-filename="#fileName" 
+                 data-progress="#progress">
+        </span>
+        <button class="btn btn-primary btn-lg" id="fileSave">@ViewResources.Dialog_View_Upload</button>
+        <br />
+        <span id="fileName" class="badge badge-info"></span>
+        <br />
+        <span id="progress" class="badge badge-important hidden-to-show">@ViewResources.Dialog_View_Saving</span>
+      </form>
+    </div>
+    <div id="profile-picture">
+      <img src="@Url.Action("GetImg", "Tools", new { area = "", id = Model.Id, c = "Profile", res = "125x155", nc = true, t = DateTime.Now.Ticks })" alt="@Model.User.UserName" />
+    </div>
+  </div>
+</div>
+<div class="box">
+  <div class="box-header blue-background">
+    <div class="title">@Loc("legend", @"Profil Editor (Click or double click in den text to start working)")</div>
+    <div class="actions">
+      <a class="btn box-collapse btn-xs btn-link" href="#">
+        <i></i>
+      </a>
+    </div>
+  </div>
+  <div class="box-content">
+    <textarea class="form-control ckeditor hidden-to-show" id="wysiwyg1" contenteditable="true" rows="10">
+      @if (!String.IsNullOrEmpty(Model.Walltext)) {
+        @:@Html.Raw(Model.Walltext)
+      } else {
+        @:@Html.Partial("_WallTextTemplate")
+      }
+    </textarea>
+    <div class="well well-sm">
+      @Create.FormButtonOnClick("btn_save", "", ViewResources.Action_Reader_Community_Save)
+    </div>
+  </div>
+</div>
+@Create.ActionTask("btnPreview", true, Url.Action("ShowProfile", new { id = Model.Id, controller = "Community", area = "" }), ViewResources.TasksButton_Common_ShowProfile)
+@Create.ActionTask("btnEdit", true, Url.Action("UserProfile", "Account", new { area = "" }), ViewResources.LinkButton_Community_UserProfile)
+@Create.ActionTask("btnEdit", false, Url.Action("Groups", "Groups", new { area = "ReaderPortal" }), ViewResources.LinkButton_Reader_Groups)

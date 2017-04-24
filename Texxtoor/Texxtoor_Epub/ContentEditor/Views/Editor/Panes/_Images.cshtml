@@ -1,0 +1,68 @@
+﻿@model List<Texxtoor.Models.Resource>
+<li>
+  <h2>Manager (close Editor)</h2>
+  <div>
+    Not Available
+  </div>
+</li>
+<li>
+<h2>Images</h2>
+    @if (Model.Count > 7) {
+        for (var i = 0; i < 5; i++) {
+          <div class="ribbon-button" data-command="insert" data-action="img" data-item="@Model[i].Id">
+          <input class="thumbnail-image" type="hidden" value="@Url.Action("GetThumbnail", new { id = Model[i].Id, w = 32, h = 32 })" data-item="@Model[i].Id" data-title="@Model[i].Name" />
+          </div> 
+        }
+       <div class="popContainer">
+        <span>v</span>
+        <section class="popContainerPopup" style="width: 500px; overflow:auto; max-height: 500px;" data-item="images">
+        @for (var i = 5; i < Model.Count; i++) {
+          <div class="ribbon-button" data-command="insert" data-action="img" data-item="@Model[i].Id">
+          <input class="thumbnail-image" type="hidden" value="@Url.Action("GetThumbnail", new { id = Model[i].Id, w = 32, h = 32 })" data-item="@Model[i].Id" data-title="@Model[i].Name" />
+          </div> 
+        }
+      </section>
+      </div>
+    } else {
+        foreach (var item in Model) {
+            <div class="ribbon-button" data-command="insert" data-action="img" data-item="@item.Id">
+          <img src="@Url.Action("GetThumbnail", new { id = item.Id, w = 32, h = 32 })" 
+           style="width:32px; height:32px; vertical-align:top; margin:2px;border:0"
+           title="@item.Name"  alt="" /></div> 
+        }
+    }
+    
+</li>
+<li>
+  <h2>Tools</h2>
+  <div class="ribbon-list">
+@*    <div class="ribbon-button" data-command="figure" data-action="size">
+      <img src="~/Content/icons/Editor/Images/fit_to_size.png" alt="" />
+      <label>
+        Fit Size</label>
+    </div>*@
+    <div class="ribbon-button cmd-button" data-command="figure" data-action="colors">
+      <img src="~/Content/icons/Editor/Images/color_wheel.png" alt="" />
+      <label>Colors</label>
+    </div>
+    <div class="ribbon-button cmd-button" data-command="figure" data-action="crop">
+      <img src="~/Content/icons/Editor/Images/crop.png" alt="" />
+      <label>Crop</label>
+    </div>
+  </div>
+</li>
+<li>
+  <h2>Measures</h2>
+  <div class="ribbon-list">
+  <div>
+      <input style="margin-left:10px;vertical-align:middle;" id="keepsize" class="ribbon-button cmd-button" data-command="figure" checked="checked" data-action="keepsize" type="checkbox" /><label style="vertical-align:middle;">Keep Size</label>
+  </div>
+  <img id="keepratio1" data-state="disable" class="ribbon-button" style="display: none;margin:0; position:absolute; top: 33px; padding:0" data-command="figure" data-action="setratio" src="~/Content/icons/Editor/ratio1.png" alt="" />
+  <img id="keepratio2" data-state="disable" class="ribbon-button" style="margin:0; position:absolute; top: 33px; padding:0" data-command="figure" data-action="setratio" src="~/Content/icons/Editor/ratio2.png" alt="" />
+    <span style="margin-left:10px; display: inline-block; margin-top: 1px; margin-bottom: 1px"><input type="text" maxlength="4" style="width: 35px !important;" name="width" value="200" />
+        Width</span>
+        <br />
+      <span style="margin-left:10px; display: inline-block; margin-top: 1px; margin-bottom: 1px"><input type="text" maxlength="4" style="width: 35px !important;" name="height" value="100" />
+        Height</span>
+    </div>
+</li>

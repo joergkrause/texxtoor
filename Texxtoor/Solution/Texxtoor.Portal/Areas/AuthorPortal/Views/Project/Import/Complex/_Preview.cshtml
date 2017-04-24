@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Content.Element>
+@if (!Model.Any())
+{
+  @:@Loc("textNoData", @"There is nothing in the document right now.")
+}
+else
+{
+  <table class="grid-8-col">
+    <tr>
+      <th>
+        @Loc("thBytes", @"Bytes")
+      </th>
+      <th>
+        @Html.DisplayNameFor(m => m.Name)
+      </th>
+      <th>
+        @Html.DisplayNameFor(m => m.Content)
+      </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+      var name = item.Name.Substring(item.Name.LastIndexOf('.') + 1);
+      <tr>
+        <td class="text-right" valign="top">@item.Content.Length
+        </td>
+        <td title="" valign="top">@name
+        </td>
+        <td style="font-weight: @(name == "Section" ? "bold" : "normal"); background-color: @(name == "ImageSnippet" ? "azure" : "white");">
+          <div class="projectImportPreviewDiv1">
+            @System.Text.Encoding.UTF8.GetString(@item.Content)
+          </div>
+        </td>
+      </tr>
+    }
+  </table>
+}

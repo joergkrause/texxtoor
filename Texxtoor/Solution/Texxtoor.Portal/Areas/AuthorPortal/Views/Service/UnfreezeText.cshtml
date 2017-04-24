@@ -1,0 +1,41 @@
+﻿@model Texxtoor.DataModels.Models.Content.Opus 
+@{
+  PageData["Title"] = Loc("title", "Unfreeze Your Text");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  var rm = (Texxtoor.DataModels.Models.Common.RunMode)HttpContext.Current.Application["RunMode"];
+}
+
+@section HeadContent{
+  <script>
+  $(function () {
+    userSelector = $('#usernames').tokenInput('@Url.Action("SearchUsers", "Service", new { id = Model.Id })', {
+        minChars: 2,
+        theme: "@rm.ToString().ToLowerInvariant()",
+        preventDuplicates: true
+      });
+
+    });
+  </script>
+}
+@using(Html.BtDiv(BtStyle.Well)) {
+@Loc("textUnfreeze", @"Select an author that has at least 1000 reputation points and ask him to check your text for quality and let him approve the pubolishing procedure.")
+}
+
+@using (Html.BeginForm("UnfreezeText", "Service", FormMethod.Post)) {
+  using(Html.BtFieldset(Loc("legendSelect", "Select Member"))) {
+    <label for="usernames">@Loc("lblRec", @"Recommendations")</label>
+    <div class="editor-field">
+      @Html.Action("ReputationRecommandation")
+    </div>
+    <label for="usernames">@Loc("lblUser", @"Select by Username")</label>
+    <div class="editor-field">
+      <input id="usernames" name="usernames" type="text" />
+    </div>
+    <div class="LeadAuthorDiv1">
+      @Create.FieldHelpIcon(Loc("textSelect", @"The user you select will be asked to approve your text so you'll be able to publish. The user will get additional reputation for this service.").ToString(), "", "")
+    </div>
+    <div class="formsendButtons">
+      <input type="button" id="askMember" value="@ViewResources.Action_Publish_AskUser" class="@BtStyle.ButtonAndPrimary" />
+    </div>
+  }
+}

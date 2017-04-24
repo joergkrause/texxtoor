@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Reader.Functions.Comment>
+@using Texxtoor.BaseLibrary.Core.Extensions
+@using Texxtoor.DataModels.Models.Reader.Functions
+@using (Html.BeginForm("AddComment", "Reader", new { area = "ReaderPortal" }, FormMethod.Post, new { id = "editThreadForm", style = "display:none" })) {
+  using (Html.BtFieldset(Loc(@"Comment to subject {0}", (string)ViewBag.Fragment.Title))) {
+  <table>
+    <tr>
+      <td class="editthreadtd">
+        @{
+    if (Model == null || !Model.Any()) {
+          @: This subject was never mentioned.
+        } else {
+          <text>
+          @Html.TreeView("forumtree",
+    Model,
+    n => n.Children,
+    n => {
+      return "<div><strong>" + n.Subject + "</strong> von " + (n.Owner == null ? "Anonymus" : n.Owner.UserName)
+        + (n.Private ? "[Privat]" : "")
+        + "<input type='radio' name='parentCommentGroup' id='parentComment' value='" + n.Id + "' /></div>"
+        + "<p style='padding:left:25px;font-style:italics'>" + n.Content + "</p>";
+    }
+    )
+          </text>
+    }
+        }
+      </td>
+      <td style="vertical-align: top">
+        @Html.Partial("Social/_AddComment", new Comment { CfiRef = ViewBag.Fragment })
+      </td>
+    </tr>
+  </table>
+  }
+}

@@ -1,0 +1,105 @@
+﻿@model Texxtoor.DataModels.Models.Content.Template
+@{
+  PageData["Title"] = "PDF Templates";
+  Layout = Url.GetGlobalLayout("_LayoutTemplates", "AdminPortal");
+  var extension = Model == null ? "xml" : Path.GetExtension(Model.InternalName).Substring(1);
+}
+@section HeadContent {
+  <link type="text/css" rel="stylesheet" href="~/Scripts/author/codemirror/codemirror.css" />
+  <link href="~/Scripts/author/codemirror/theme/eclipse.css" rel="stylesheet" />
+  <script src="~/Scripts/author/codemirror/codemirror.js"></script>
+  <script src="~/Scripts/author/codemirror/mode/css/css.js"></script>
+  <script src="~/Scripts/author/codemirror/mode/xml/xml.js"></script>
+  <script src="~/Scripts/author/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+  <style>
+    textarea#content {
+      color: black;
+      white-space: pre;
+      font-family: monospace;
+    }
+  </style>
+  <script>
+    $(function () {
+      CodeMirror.fromTextArea($('textarea#content').get(0), {
+        lineNumbers: true,
+        mode: 'xml',
+        matchBrackets: true,
+        theme: 'eclipse',
+        smartIndent: true,
+        onChange: function () {
+        }
+      });
+    });
+  </script>
+}
+<div class="well">
+  PDF templates are primarily HTML and CSS files that add additional content to the autor's raw content.
+</div>
+<h2>Template Information</h2>
+<ul class="nav nav-tabs">
+  <li><a href="#info" data-toggle="tab">Properties</a></li>
+  <li class="active"><a href="#editor" data-toggle="tab">Edit Content</a></li>
+  <li><a href="#help" data-toggle="tab">Help</a></li>
+</ul>
+<div class="tab-content" id="editorTab">
+  <div class="tab-pane" id="info">
+    @if (Model == null) {
+      using (Html.BeginForm("EditPdfTemplate", "Template", null, FormMethod.Post)) {
+        using (Html.BtFieldset("Template Properties")) {
+          @Html.EditorForModel()
+          <br />
+          @Html.LabelFor(m => m.InternalName)
+          <div class="editor-field">
+            @Html.EditorFor(m => m.InternalName)
+            @Html.ValidationMessageFor(m => m.InternalName)
+          </div>
+        }
+      }
+    } else {
+      using (Html.BeginForm("EditEpubTemplate", "Template", new { id = Model.Id }, FormMethod.Post)) {
+        if (!String.IsNullOrEmpty(ViewBag.Message as string)) {
+          using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+            @:@ViewBag.Message
+          }
+        }
+        using (Html.BtFieldset("Template Properties")) {
+          @Html.HiddenFor(m => m.Id)
+          @Html.LabelFor(m => m.InternalName)
+          <div class="editor-field">
+            @Html.EditorFor(m => m.InternalName)
+            @Html.ValidationMessageFor(m => m.InternalName)
+          </div>
+        }
+        <input type="submit" value="Save properties" class="btn btn-primary" />
+      }
+    }
+  </div>
+  <div class="tab-pane active" id="editor">
+    <div class="clearfix" id="profile_container">
+      @using (Html.BeginForm("EditPdfTemplate", "Template", new { id = Model == null ? 0 : Model.Id }, FormMethod.Post)) {
+        using (Html.BtFieldset("Template Editor (Click or double click in the text to start working)")) {
+          <div style="border: 1px solid black">
+            <textarea id="content" name="content" class="epubtextarea">
+              @if (Model != null && Model.Content != null) {
+                @Html.Raw(System.Text.Encoding.UTF8.GetString(Model.Content))
+              }
+              else {<text><?xml version="1.0" encoding="utf-8" ?>
+<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:t="http://www.texxtoor.de/2014/templating">
+</html></text>
+              }
+</textarea>
+          </div>
+          <br /><br />
+          <input type="submit" value="Save template" class="btn btn-primary" />
+        }
+      }
+    </div>
+  </div>
+  <div class="tab-pane" id="help">
+    <h4>Cover (Umschlag)</h4>
+    <h4>FrontCover (Seite 3)</h4>
+    <h4>Imprint (Seite 4)</h4>
+    <h4>Index (Am Ende)</h4>
+    <h4>Toc (Inhaltsverzeichnis)</h4>
+  </div>
+</div>

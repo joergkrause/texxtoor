@@ -1,0 +1,14 @@
+﻿@model Texxtoor.DataModels.Models.Common.Message
+@using (Html.BeginForm("SendMessage", "Messaging", FormMethod.Post, new{id = "addMessageForm"})){
+  using (Html.BtFieldset(Loc("legend", @"Create new message"))){
+    @Html.LabelFor(m => m.Receiver)
+    <div id="friends" class="editor-field tokenInput">
+      <input type="text" id="receivers" name="receivers" required />
+      <div class="tokenInput helpIcon">
+        @Create.FieldHelpIcon(Html, m => m.Receiver)
+      </div>
+    </div>
+    @Html.EditorForModel()
+    @Button.FormSendButtons("addMessageSendButton", ViewResources.Action_Messaging_SendMail, "addMessageCancelButton", ViewResources.Button_CancelAndClose, true)
+  }
+}

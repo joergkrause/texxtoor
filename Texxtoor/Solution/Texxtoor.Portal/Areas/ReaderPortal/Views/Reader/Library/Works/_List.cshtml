@@ -1,0 +1,109 @@
+﻿@using Texxtoor.DataModels.Models.Reader.Content
+@model IPagedList<Work>
+@if (Model == null || !Model.Any()) {
+  <div class="alert alert-warning">
+    @Loc("textNoWorks", @"There is nothing in your library.")
+  </div>
+} else {
+  @Html.Partial("_Pagination", PaginationViewModel<Work>.Create(Model, "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});",
+  new Dictionary<string, string> {
+    {"id", "addBtn"},
+    {"action", "ui.addElement()" },
+    {"text", ViewResources.Action_Reader_Library_AddToShelf},
+    {"cssclass", "btn-primary"}
+  }, true, m => m.Name, m => m.CreatedAt))
+  <div class="multilist">
+    @foreach (var item in Model) {
+      <div class="listitem">
+        <div class="firstRow">
+          @Badges.NewItem(item.Name, item.CreatedAt, TimeSpan.FromDays(5))
+        </div>
+        <div class="firstRow pull-right">
+          @if (item.Extern == WorkType.External) {
+            <h3 class="@BtIcon.Exchange @BtText.Info"></h3>
+          }
+          @if (item.Extern == WorkType.Published) {
+            <h3 class="@BtIcon.Book"></h3>
+          }
+          @if (item.Extern == WorkType.Custom) {
+            <h3 class="@BtIcon.Print"></h3>
+          }
+        </div>
+        <div class="secondRow">
+          <div class="itemDescription">@item.Note</div>
+          <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+          <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+
+            @Loc("txtTbl", "<em><span data-args='0' data-desc='Name'>{0}</span></em> was created at <em><span data-args='1' data-desc='Date'>{1}</span></em>",
+              item.Name, item.CreatedAt.ToLongDateString())
+            @if (item.Products != null && item.Products.Any()) {
+              @:@Loc("lblIsProduct", "This work is associated with some order. It cannot be removed from library.")
+            } else {
+              @:@Loc("lblNoProduct", "This work was not yet ordered.")
+            }
+            @if (item.Extern == WorkType.External) {
+              @Loc("txtUpl", "externally uploaded")
+              @Loc("txttExt", "This work is <em><span data-args='0' data-desc='Extern'>{0}</span></em>", item.ExternalBook.NavigationData.HeadMetaData.Creator)@:.
+            }
+            @if (item.Extern == WorkType.Published) {
+              @Loc("tytCtlg", "pulled from catalog")@:.
+            }
+            @if (item.Extern == WorkType.Custom) {
+              @Loc("txtPrivate", "private content")@:.
+            }
+            @Loc("txtPriv", "It is <em><span data-args='0' data-desc='Private'>{0}</span></em> to other users",
+              item.Public ? @Loc("txtVis", "visible") : @Loc("txtVisNo", "not visible"))
+            @if (item.Products != null && item.Products.Any()) {
+              <div class="alert alert-info">
+                @Loc("txtProduct", "You have created a product for this text. Consider removing this before deleting a text.")
+              </div>
+              if (((Dictionary<int, int>)ViewBag.HasOrders).ContainsKey(item.Id)) {
+                if (((Dictionary<int, int>)ViewBag.HasOrders)[item.Id] > 0) {
+                  <div class="alert alert-warning">
+                    @Loc("txtErr", "You cannot remove books from shelf that have been ordered previously and might be reordered.")
+                  </div>
+                }
+              }
+            }
+            @if (item.Fragments == null || !item.Fragments.Any()) {
+              <div class="alert alert-danger">
+                @Loc("txtEmpty", "Text appears to be empty. Consider adding content from other texts.")
+              </div>
+            }
+            @if (item.Extern == WorkType.Published && item.Published != null) {
+              @Loc("opt", "Titles this work derives from")@: <em>@item.Published.Title</em><br />
+            }
+          </div>
+        </div>
+        <div class="thirdRow" data-item="@item.Id">
+          <div class="optionFields">
+            @if (item.Extern == WorkType.Published && item.Published != null) {
+              @Create.ActionClick("btnPublished", true, "lib.showDetails(" + item.Published.Id + ")", ViewResources.Action_Reader_Overview, BtStyle.ButtonPrimary)
+            }
+            @if (item.Extern == WorkType.Custom) {
+              @Create.ActionClick("btnDetails", true, "lib.showWorkDetails(" + item.Id + ")", ViewResources.Action_Reader_Overview, BtStyle.ButtonPrimary)
+              @Create.ActionClick("editButton", true, "ui.editElement(" + item.Id + ")", ViewResources.Action_Reader_Library_Modify)
+              @Create.ActionClick("btnChange", true, "lib.createChange.loadAll(" + item.Id + ")", ViewResources.Action_Reader_Collections_Manage)
+            }
+            @if (item.Extern != WorkType.External) {
+              @Create.ActionLink("createCopy", false, Url.Action("CopyWork", "Reader", new { id = item.Id }), ViewResources.Action_Reader_Library_CreateCopy)
+            }
+            @if (item.Products != null && item.Products.Any()) {
+              @Create.ActionClick("btnDelete", true, "ui.deleteElement(" + item.Id + ")", ViewResources.Action_Reader_Library_Remove)
+            }
+            @if (item.Bookmarks.Any()) {
+              @Create.ActionLink("btnBookmarks", false, Url.Action("Bookmarks", "Reader", new { id = item.Id }), ViewResources.Action_Reader_Library_Bookmarks)
+            }
+            @if (item.Comments.Any()) {
+              @Create.ActionLink("btnComments", false, Url.Action("Comments", "Reader", new { id = item.Id }), ViewResources.Action_Reader_Library_Comments)
+            }
+            @Create.ActionLink("btnBuy", true, Url.Action("BuyWork", "Products", new { id = item.Id }), ViewResources.Action_Reader_Library_Order, BtStyle.ButtonInfo)
+            @if (item.Fragments != null && item.Fragments.Any()) {
+              @Create.ActionLink("btnRead", true, Url.Action("ReaderApp", "Reader", new { id = item.Id }), ViewResources.Action_Reader_ReadAndWork)
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

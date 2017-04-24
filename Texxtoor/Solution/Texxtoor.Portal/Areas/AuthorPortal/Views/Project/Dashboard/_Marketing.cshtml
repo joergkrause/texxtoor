@@ -1,0 +1,32 @@
+﻿@model Texxtoor.DataModels.Models.Content.Project
+<h4>@Loc("titleMarketing", "Marketing")</h4>
+<div class="well well-sm">
+  @Loc("textMrktg", @"See marketing management to support the publishing.")
+  @if (Model.Marketing != null) { 
+    @Loc("textIsPckg", @"The package <em>{0}</em> has been assigned to this book.", Model.Marketing.Name)
+  } else {
+    @Loc("textNoPckg", @"There is no marketing package assigned")
+  }
+</div>
+<h4>@Loc("titlePricing", "Pricing")</h4>
+<div class="well well-sm">
+  @if (Model.Marketing != null) { 
+    @:@Loc("textMarketing", @"The base price has been set to <em><span data-args='0' data-desc='Price'>{0}</span></em>.", Model.Marketing.BasePrice)
+  }
+  <ul>
+    @foreach (var opus in Model.Opuses) {
+      if (opus.ContributorRatios != null && opus.ContributorRatios.Any()) {
+        <li>
+          @Loc("text", @"Book <em><span data-args='0' data-desc='Work Name'>{0}</span></em> 
+            has <em><span data-args='1' data-desc='Ratio Count'>{1}</span></em> shares.",
+          opus.Name,
+          opus.ContributorRatios.Count()
+          )
+        </li>
+      }
+    }
+  </ul>
+  @Loc("textPricingAndSharing", @"As a lead, create and propose shares with your contributors. Define a base price for Content. Any production cost for distinct media will be added automatically. As a contributor, watch pricing and share proposals and confirm or deny.")
+</div>
+@Create.ActionTask("", false, Url.Action("ManageShares", "Team", new { id = Model.Id }), ViewResources.TasksButton_ManageShares)
+@Create.ActionTask("", false, Url.Action("MarketingPackage", "Marketing", new { id = Model.Id }), ViewResources.TasksButton_ManageMarketingPackages)

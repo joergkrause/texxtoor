@@ -1,0 +1,77 @@
+﻿@model Texxtoor.ViewModels.Content.QuickProject
+<script>
+  $(function () {
+    $('#UseDefaults').on('click', function () {
+      if ($(this).is(':checked')) {
+        $('#AdvancedFields').hide();
+      } else {
+        $('#AdvancedFields').show();
+      }
+    });
+    $('[data-task]').each(function(i, e) {
+      // jumpAbsolute in home.js
+      var f = $(e).parents('form');
+      var b = $(e);
+      $.validator.unobtrusive.parse(f);
+      b.on('click', function (be) {
+        var $this = this;
+        f = $($this).parents('form');
+        var v = f.valid();
+        if (v) {
+          $($this).attr('disabled', 'disabled');
+          $.ajax({
+            url: f.attr('action'),
+            type: f.attr('method'),
+            data: f.serialize(),
+            success: function (result) {
+              if (result.forward != "") {
+                $($this).removeAttr('disabled');
+                jumpAbsolute(result.forward);
+              }
+            },
+            error: function (result) {
+              $($this).removeAttr('disabled');
+            }
+          });
+        }
+        return false;
+      });
+    });
+  });
+</script>
+<div class="col-sm-12" data-item="author" data-active="true">
+  <div class="box box-collapsed">
+    <div class="box-header green-background">
+      <div class="title">
+        <div class="icon-pencil"></div>
+        @Loc("titleAuthorStart", "Now writing")
+      </div>
+      <div class="actions">
+        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+        </a>
+      </div>
+    </div>
+    <div class="box-content">
+      @using (Html.BeginForm("QuickFormAuthor", "Home", FormMethod.Post)) {
+        <fieldset class="col-sm-12">
+          <legend>
+            @Loc("txtImportant", "Few things first...")
+          </legend>
+          <div class="col-md-12">
+            @Html.EditorForModel()
+          </div>
+          <div class="col-md-12 hidden-to-show" id="AdvancedFields">
+            @Html.Partial("QuickLink/Start/_AuthorsStartAdvanced", new Texxtoor.ViewModels.Content.QuickProjectAdvanced())
+          </div>
+          <div class="formsendButtons">
+            <button type="button" class="btn btn-primary" data-task="SubmitAuthorForm">@ViewResources.Button_Quick_Go</button>
+            <br />
+            <small class="text-muted">
+              @Loc("textAuthorStart", "Start writing here. After sending the form you will begin working in the editor.")
+            </small>
+          </div>
+      </fieldset>
+      }
+    </div>
+  </div>
+</div>

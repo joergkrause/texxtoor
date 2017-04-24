@@ -1,0 +1,60 @@
+﻿@{
+  PageData["Title"] = "Private";
+  Layout = Url.GetGlobalLayout();
+  PageData["Title"] = Loc("title", "Recycle Bin");
+}
+@section HeadContent {
+  <script type="text/javascript">
+    $(function() {
+      ui = new Dialog(
+        {
+          
+        },
+        {
+          
+        },
+        {
+          formId: '#delUserFile',
+          formDivId: '#delUserFile',
+          formAction: '@Url.Action("DeleteUserFile")',
+          sendBtnId: '#delUserFileSendButton',
+          cancelBtnId: '#delUserFileCancelButton'
+        },
+        {
+          formId: '#main',
+          formDivId: '#main',
+          formAction: '@Url.Action("ListRecycleBin")'
+        });
+      ui.updateTable();
+    });
+
+    function DownloadElement(id) {
+      window.location = '@Url.Action("DownloadFile")' + '/' + id;
+    }
+
+    function RecoverElement(id) {
+      $.ajax({
+        url: '@Url.Action("RecoverUserFile")',
+        data: { id: id },
+        type: 'POST',
+        success: function(data) {
+          ui.updateTable();
+          toastr.success(data.msg);
+        }
+      });
+    }
+  </script>
+}
+@using(Html.BtDiv(BtStyle.Well)) {
+@Loc("text1", @"Find here all files that has been deleted. Recover or delete permanently.")
+}
+@using (Html.BtDeleteTemplate(Loc("txtDel", "You're about to delete a file. Please confirm. File will kept in recycle bin for 90 days."))){
+  @Create.FormButtonOnClick("delUserFileSendButton", "", ViewResources.Action_Common_Archive_DeleteFile, "btn-warning")
+  @Create.FormButtonOnClick("delUserFileCancelButton", "", ViewResources.Button_Cancel)
+}
+<h2>@Loc("titleDownload", "Downloads")</h2>
+@Create.MainContentWithLoader()
+@Create.ActionTask("recArch", true, Url.Action("Archive"), ViewResources.TasksButton_Common_Archive)
+@Create.ActionTask("", true, Url.Action("UserProfile", "Account", new { area = "" }), ViewResources.LinkButton_Community_UserProfile)
+@Create.ActionTask("", false, Url.Action("Index", "Messaging", new { area = "" }), ViewResources.LinkButton_Common_Mail)
+

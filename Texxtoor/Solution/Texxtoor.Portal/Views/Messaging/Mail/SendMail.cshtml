@@ -1,0 +1,56 @@
+﻿@model Tuple<Texxtoor.DataModels.Models.Users.User, Texxtoor.DataModels.Models.Users.User>
+@{
+  Layout = Url.GetGlobalLayout();
+  PageData["Title"] = Loc("title", "Send Mail");
+  var rm = (Texxtoor.DataModels.Models.Common.RunMode)HttpContext.Current.Application["RunMode"];
+}
+@section HeadContent{
+  <script type="text/javascript">
+    var receiversSelector;
+    $(function() {
+      receiversSelector = $('#receivers').tokenInput('@Url.Action("GetMessageReceivers", "Messaging", null)', {
+        minChars: 2,
+        theme: "@rm.ToString().ToLowerInvariant()",
+        preventDuplicates: true,
+        hintText: "@ViewResources.Input_NameOfRecipient",
+        noResultsText: "@ViewResources.Input_Search_NoResult",
+        searchingText: "@ViewResources.Action_Team_SearchUsers"
+      });
+      receiversSelector.tokenInput("add", { id: @Model.Item1.Id, name: '@Model.Item1.UserName' });
+      if (!window.history.length) {
+        $('#addMessageCancelButton').hide();
+      } else {
+        $('#addMessageCancelButton').click(function() {
+          window.history.back();
+        });
+      }
+      $.validator.unobtrusive.parse($('form#addMessageForm'));
+      $('#addMessageSendButton').click(function() {
+        CheckWatermarks('form#addMessageForm');
+        if ($('form#addMessageForm').valid()) {
+          $('form#addMessageForm').submit();
+        }
+      });
+    });
+    // TODO: use ui.js
+    function CheckWatermarks(formId) {
+      $(formId).find('input[type=text]').each(function() {
+        if ($(this).val() == $(this).data('watermark')) {
+          $(this).val('');
+        }
+      });
+      $(formId).find('textarea').each(function() {
+        if ($(this).text() == $(this).data('watermark')) {
+          $(this).text('');
+        }
+      });
+    }
+  </script>
+}
+@using (Html.BtDiv(BtStyle.Well)) {
+  @Loc("text1", @"Send a message to a texxtoor member.")
+}
+@Html.Action("SendMessage", new { Receiver = Model.Item1, Sender = Model.Item2 })
+@Create.ActionTask("", false, Url.Action("UserProfile", "Account", new { area = "" }), ViewResources.LinkButton_Community_UserProfile)
+@Create.ActionTask("", false, Url.Action("Private", "Account", new { area = "" }), ViewResources.LinkButton_Common_Archive)
+@Create.ActionTask("", false, Url.Action("Index", "Messaging", new { area = "" }), ViewResources.Action_Messaging_SendMail)

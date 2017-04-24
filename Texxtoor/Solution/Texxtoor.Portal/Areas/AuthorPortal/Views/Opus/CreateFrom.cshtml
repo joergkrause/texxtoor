@@ -1,0 +1,77 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@model Texxtoor.DataModels.Models.Content.Opus
+@{
+  PageData["Title"] = Loc("title", @" Create Workspace From Existing");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("text1", @"On this page you start a new book within the project <em>{0}</em>. Modify settings according your needs.", @Model.Project.Name);
+  ViewData["Parent"] = Model;
+}
+@section HeadContent{
+  <script>
+    $(function () {
+      //$('input[name=Version]').spinner({ min: 0, max: 100 });
+      $(".datepicker").datepicker({
+        showOn: 'both',
+        changeMonth: true,
+        changeYear: true,
+        yearRange: "@(DateTime.Now.Year):@(DateTime.Now.Year + 20)",
+        buttonImage: '@Url.Content("~/Content/icons/calendar.png")'
+      });
+      $('#showMilestones').hide();
+      $('input[name=useMilestones]').on('change', function () {
+        ($('input[name=useMilestones]').is(':checked')) ? $('#showMilestones').show() : $('#showMilestones').hide();
+      });
+      $('#saveNewOpus').click(function () {
+        $('#saveNewOpus').attr('disabled', 'disabled');
+        $.ajax({
+          url: '@Url.Action("CreateFrom")',
+          data: $('#createForm').serialize(),
+          type: 'POST',
+          success: function (data) {
+            $('#createForm').hide();
+            toastr.success(data.msg);
+            setTimeout(function () {
+              window.location = '@Url.RequestContext.HttpContext.Request.UrlReferrer.AbsoluteUri';
+            }, 1000);
+          },
+          error: function (data) {
+            $('#saveNewOpus').removeAttr('disabled');
+            toastr.error(data.msg);
+          }
+        });
+        return false;
+      });
+      $('#cancelSave').click(function () {
+        window.location = '@Url.RequestContext.HttpContext.Request.UrlReferrer.AbsoluteUri';
+      });
+    });
+  </script>
+}
+@using (Html.BeginForm("CreateFrom", "Opus", FormMethod.Post, new Dictionary<string, object> { { "id", "createForm" } })) {
+  @Html.HiddenFor(m => m.Project.Id)
+  using (Html.BtFieldset(Loc("legend", @"Common Workspace Settings"))) {
+    @Html.EditorForModel()
+    <label>@Loc("lblCopyContent", @"Copy Content")</label>
+    <div class="editor-field">
+      @Html.CheckBox("copyContent", true)
+      @Create.FieldHelpIcon(Loc("help4", @"Copy the current content to the new issue. This is helpful for translation, editing, and new issues.").ToString(), Loc("lblCopyContent", @"Copy Content").ToString(), "h4")
+    </div>
+    <label>@Loc("lblUseMilestones", @"Use Milestones")</label>
+    <div class="editor-field">
+      @Html.CheckBox("useMilestones", false)
+      @Create.FieldHelpIcon(Loc("help5", @"Milestones help managing the writing progress.").ToString(), Loc("lblUseMilestones", @"Use Milestones").ToString(), "h5")
+    </div>
+    <div id="showMilestones">
+      <label>@Loc("lblMilestones", @"Milestones")</label>
+      <div id="milestoneEditor">
+        @Html.Partial("Create/_AssignOpusMilestones", Model)
+      </div>
+    </div>
+    <div class="formsendButtons">
+      <button class="btn btn-primary btn-sm" id="saveNewOpus">@ViewResources.Action_Create_Workspace</button>
+      <button class="btn btn-warning btn-sm" id="cancelSave">@ViewResources.Button_CancelAndClose</button>
+    </div>
+  }
+}
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = Model.Id }), ViewResources.LinkButton_ToDashboard)

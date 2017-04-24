@@ -1,0 +1,26 @@
+﻿@model Texxtoor.DataModels.Models.Users.Tenant
+
+@{
+  PageData["Title"] = "Details";
+  Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+
+<h1>Details</h1>
+
+@using(Html.BtFieldset("Tenant")) {
+
+  <div class="display-label">Name</div>
+  <div class="display-field">
+    @Html.DisplayFor(model => model.Name)
+  </div>
+
+  <div class="display-label">Description</div>
+  <div class="display-field">
+    @Html.DisplayFor(model => model.Description)
+  </div>
+
+}
+<p>
+  @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

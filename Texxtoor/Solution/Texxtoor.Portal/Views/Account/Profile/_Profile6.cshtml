@@ -1,0 +1,25 @@
+﻿@model Texxtoor.DataModels.Models.Users.UserProfile
+@using(Html.BtFieldset(Loc("legend6", @"Availability"))) {
+  @Html.LabelFor(m => m.Hidden,new{@class="control-label col-sm-3"})
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.Hidden)
+    @Html.ValidationMessageFor(m => m.Hidden)
+  </div>
+  @Html.LabelFor(m => m.Availabilities,new{@class="control-label col-sm-3"})
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.Availabilities, "AvailabilitiesEditor")
+  </div>
+  <div class="box box-padding hidden-to-show" id="addTimeslot">
+    <form class="box-content" id="addTimeslotForm">
+      @Html.HiddenFor(m => m.Id)
+      @using (Html.BtFieldset(Loc("legendTs", @"Add Timeslot"))) {
+        @Html.Partial("Profile/Fragments/_AvailabilityFrame", new Texxtoor.DataModels.Models.Users.UserProfile.AvailabilityFrame(DateTime.Now, DateTime.Now.AddDays(30)))
+        <div class="formsendButtons">
+          @Create.FormButtonOnClick("addTimeslotSendButton", "", "Add Timeslot")
+          @Create.FormButtonOnClick("removeTimeslotSendButton", "", "Remove This Timeslot", BtStyle.ButtonDanger)
+          @Create.FormButtonOnClick("addTimeslotCancelButton", "", ViewResources.Button_CancelAndClose, BtStyle.ButtonDefault)
+        </div>
+      }
+    </form>
+  </div>
+}

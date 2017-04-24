@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Projects Team="Windows Authors" LeadAuthor="TeamLead">
+  <Project Name="IIS8">
+    <Short>A short introduction in IIS</Short>
+    <Description>Introduction in IIS and all new functions of IIS and IIS 8.5</Description>
+    <TermsAndConditions></TermsAndConditions>
+    <ApproveTerms>False</ApproveTerms>
+    <Active>True</Active>
+    <Image Path="projects/iis8.jpg"></Image>
+    <Opuses>
+      <Opus Path="projects/IIS 8.xml" Name="IIS8"></Opus>
+    </Opuses>
+  </Project>
+  <Project Name="ASP.NET" Team="DemoUsers" LeadAuthor="TeamLead">
+    <Short>A short introduction in ASP.NET</Short>
+    <Description>Introduction in ASP.NET and MVC</Description>
+    <TermsAndConditions></TermsAndConditions>
+    <ApproveTerms>False</ApproveTerms>
+    <Active>True</Active>
+    <Image Path="projects/aspnet.png"></Image>
+    <Opuses>
+      <Opus Path="projects/aspnet.xml" Name="ASP.NET"></Opus>
+    </Opuses>
+  </Project>
+</Projects>

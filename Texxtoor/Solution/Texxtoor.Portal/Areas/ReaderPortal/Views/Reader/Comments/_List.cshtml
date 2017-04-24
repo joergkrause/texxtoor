@@ -1,0 +1,67 @@
+﻿@model IDictionary<string, List<Texxtoor.DataModels.Models.Reader.Functions.Comment>>
+<div class="multilist">
+  @foreach (var item in Model) {
+    <div class="listitem">
+      <div class="firstRow">
+        <div class="pull-right">
+          @{
+    switch (item.Key) {
+      case "COMM":
+            @: <h3 class="@BtIcon.Comment"></h3> @Loc("hComment", "Comment")
+                    break;
+      case "PUBL":
+            @: <h3 class="@BtIcon.UserMd"></h3> @Loc("hPubl", "Public Tag (categories are shared among all your works)")
+                    break;
+      case "PRIV":
+            @: <h3 class="@BtIcon.Collapse"></h3> @Loc("hPriv", "Private Tag (categories are exclusive to the current work)")
+                    break;
+      default:
+                    if (item.Key.StartsWith("NOTE")) {
+            @: <h3 class="@BtIcon.Bookmark"></h3> @Loc("hNote", "Note (PostIt)")
+                }
+                    break;
+    } 
+          }
+        </div>
+      </div>
+      @foreach (var comment in item.Value) {             
+        <div class="secondRow">
+          @Loc("txtComment", @"Comment created at <em><span data-args='0' data-desc='CreatedAt'>{0}</span></em> at <em><span data-args='1' data-desc='Time'>{1}</span></em>.", comment.CreatedAt.ToShortDateString(), comment.CreatedAt.ToShortTimeString())
+          @{
+        var value = comment.Subject.Split(':')[0];
+        var color = comment.Subject.Split(':')[1];
+        switch (item.Key) {
+          case "COMM":
+            @: <i class="@BtIcon.Comment" style="color:@color"></i>
+                          break;
+          case "PUBL":
+            @: <i class="@BtIcon.UserMd" style="color:@color"></i>
+                          break;
+          case "PRIV":
+            @: <i class="@BtIcon.Collapse" style="color:@color"></i>
+                          break;
+          default:
+                          if (item.Key.StartsWith("NOTE")) {
+            @: <i class="@BtIcon.Bookmark" style="color:@color"></i>
+                      }
+                          break;
+        }
+          }
+          <ul class="list-unstyled">
+            <li>
+              <div class="well well-sm">
+                @comment.Content
+              </div>
+              @Html.Partial("Comments/_ChildComments", comment)
+            </li>
+          </ul>
+        </div>
+        <div class="thirdRow">
+          <div class="optionFields">
+            @Create.ActionClick("btnRemove-" + comment.Id, true, "DeleteComment(" + comment.Id + ")", ViewResources.Action_Reader_DeleteComment, BtStyle.ButtonDanger)
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>

@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Reader.Content.WorkChat>
+<ul class="list-unstyled list-hover list-striped">
+  @foreach (var item in Model) {
+    <li class="message">
+      @if (!item.Closed) {
+        <div style="position: absolute">
+          <i class="@BtIcon.MailReply"></i>
+          <input type="radio" name="parentId" value="@item.Id" />
+        </div>
+      }
+      <div class="body" style="margin: 15px 0px 10px 53px; font-size:85%">
+        <strong>@item.Subject</strong><br />
+        @item.Content
+        @if (item.HasChildren()) {
+          @Html.Partial("MessageBoard/_ChildMessage", item.Children)
+        }
+      </div>
+    </li>
+  }
+</ul>

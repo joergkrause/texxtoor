@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Content.TemplateGroup>
+<form>
+  @foreach (var templateGroup in Model) {
+    using (Html.BtFieldset(String.Format("Template Group '{0}' [{1}]", templateGroup.Name, templateGroup.Culture.NativeName))) {
+      <div class="btn-group">
+        @if (!templateGroup.IsCommonTemplate) {
+          @Html.ActionLink("Rename Group", "RenameEpubTemplateGroup", "Template", new { id = templateGroup.Id }, new { @class = "btn btn-sm btn-default" })
+          @Html.ActionLink("Delete Group", "DeleteEpubTemplateGroup", "Template", new { id = templateGroup.Id }, new { @class = "btn btn-sm btn-warning" })
+          @Html.ActionLink("Create File", "EditEPubTemplate", "Template", null, new { @class = "btn btn-sm btn-primary" })
+          @Html.ActionLink("Upload File", "UploadEpubTemplate", "Template", new { id = templateGroup.Id }, new { @class = "btn btn-sm btn-default" })
+        } else {
+          <div class="alert alert-info">
+            This is the default group that supports internal public functions. You cannot change this unless you copy the whole group and work with the copy.
+          </div>
+        }
+        @Html.ActionLink("Copy Group", "CopyEpubTemplateGroup", "Template", new { id = templateGroup.Id }, new { @class = "btn btn-sm btn-default" })
+      </div>
+      <table class="table table-condensed table-striped">
+        <tr>
+          <th width="100%">Vorlagen</th>
+          <th colspan="3">Aktionen</th>
+        </tr>
+        @foreach (var template in templateGroup.Templates) {
+          <tr>
+            <td>
+              @template.InternalName
+            </td>
+            <td>
+              @Html.ActionLink("Delete", "DeleteEPubTemplate", new { id = template.Id }, new { @class = "btn btn-xs btn-warning" })
+            </td>
+            <td>
+              @if (template.InternalName.EndsWith(".html") || template.InternalName.EndsWith(".css") || template.InternalName.EndsWith(".xml")) {
+                @Html.ActionLink("Edit", "EditEPubTemplate", new { id = template.Id }, new { @class = "btn btn-xs btn-primary" })
+              } else {
+                @Html.ActionLink("Upload", "UploadEpubTemplate", new { id = template.Id, name = template.InternalName, group = templateGroup.Id }, new { @class = "btn btn-xs btn-default" })
+              }
+            </td>
+            <td>
+              @Html.ActionLink("Download", "DownloadTemplate", new { id = template.Id }, new { @class = "btn btn-xs btn-default" })
+            </td>
+          </tr>
+        }
+      </table>
+    }
+  }
+</form>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<themes lang="de">
+  <theme name="Computer">
+    Beschäftigt sich mit Computer
+  </theme>
+  <theme name="Garten">
+    Beschäftigt sich mit Garten
+  </theme>
+  <theme name="Gesundheit">
+    Beschäftigt sich mit Gesundheit
+  </theme>
+  <theme name="Wirtschaft">
+    Beschäftigt sich mit Wirtschaft
+  </theme>
+  <theme name="Recht">
+    Beschäftigt sich mit Recht
+  </theme>
+</themes>

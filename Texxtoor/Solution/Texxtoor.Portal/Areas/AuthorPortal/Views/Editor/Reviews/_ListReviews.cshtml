@@ -1,0 +1,66 @@
+﻿@using Texxtoor.DataModels.Models.Reader.Content
+@model IPagedList<Texxtoor.DataModels.Models.Reader.Content.PeerReview>
+@Html.Partial("_Pagination",
+      PaginationViewModel<PeerReview>.Create(Model, "javascript:UpdateTable({page}, '{order}', '{dir}', {pagesize});",
+      new Dictionary<string, string> {
+        {"id", "addBtn"},
+        {"action", "ui.addElement()"},
+        {"text", ViewResources.Action_Opus_CreateReview},
+        {"cssclass", BtStyle.ButtonPrimary}
+      },
+      true,
+      m => m.Reviewer.UserName,
+      m => m.CreatedAt))
+@if (Model == null || !Model.Any()) {
+  @: @Loc("textNoModel", @"There are no Reviews. Add a peer reviwer role to the project to let people review this work.")
+} else {
+  <div class="multilist">
+    @foreach (var item in Model) {
+      if (item.Reviewer == null) { continue; }
+      <div class="firstRow">
+        @Badges.NewItem(item.Reviewer.UserName, item.CreatedAt, TimeSpan.FromDays(30))
+        <input type="number" data-rating value="@item.Level" data-min="1" data-max="6" />
+      </div>
+      <div class="secondRow">
+        <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+        <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+          @Loc("text", @"
+          This review was created at <em><span data-args='0' data-desc='At'>{0}</span></em>
+          and by <em><span data-args='1' data-desc='Name'>{1}</span></em>.
+          This is <em><span data-args='2' data-desc='Approved'>{2}</span></em>
+          and has level <em><span data-args='3' data-desc='Review'>{3}</span></em>.",
+            item.CreatedAt.ToLongDateString(),
+            item.Reviewer.UserName,
+            (item.Approved ? "approved" : "not approved"),
+            item.Level)
+        </div>
+        @if (item.Reviewer.UserName == User.Identity.Name) {
+          if (item.Approved) {
+            <small class="text text-red">
+              @Loc("approved", "Review was approved. You cannot change or delete this review anymore.")
+            </small>
+          }
+        }
+      </div>
+      <div class="thirdRow">
+        <div class="optionFields" data-item="@item.Id">
+          @if (item.Reviewer.UserName == User.Identity.Name) {
+            if (!item.Approved) {
+              @:@Create.FormButtonOnClick("editReview", "ui.editElement(" + item.Id + ")", ViewResources.Action_Opus_ReviewEdit)
+              @:@Create.FormButtonOnClick("delReview", "ui.deleteElement(" + item.Id + ")", ViewResources.Action_Opus_ReviewDelete, BtStyle.ButtonDanger)
+            }
+          }
+          @if ((bool)ViewBag.UserIsTeamLead) {
+            // no else because user can be teamlead and peer reviewer in persona
+            @:@Create.FormButtonOnClick("approveReview", "ui.approveReview(" + item.Id + ")", ViewResources.PeerReview_Approve, BtStyle.ButtonAndSuccess)
+          }
+          else {
+            <small class="text text-red">
+              @Loc("notYou", "You're not the reviewer. You cannot change other team members reviews.")
+            </small>
+          }                    
+        </div>
+      </div>
+    }
+  </div>
+}

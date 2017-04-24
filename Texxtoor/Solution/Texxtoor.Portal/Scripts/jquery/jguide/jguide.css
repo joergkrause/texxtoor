@@ -1,0 +1,103 @@
+﻿/*
+ * jguide 0.0.3
+ * http://www.joergkrause.de
+ *
+ * Copyright (c) 2012 Joerg Krause (joergkrause.de)
+ *
+ * Licensed same as jquery - under the terms of either the MIT License or the GPL Version 2 License
+ *   http://www.opensource.org/licenses/mit-license.php
+ *   http://www.gnu.org/licenses/gpl.html
+ *
+ * $Date: 2012-02-09 01:07:00 +0200 (Berlin, Germany) $
+ * $Revision: 101 $
+ */
+.jguidebubble, .arrow:after
+{
+  background: #006633;
+  border: 2px solid #C8D200;
+}
+
+.jguidebubble
+{
+  pointer-events: none;
+  display: inline-block;
+  position: absolute;
+  padding: 10px 20px;
+  color: #DDDDDD;
+  border-radius: 1px;
+  margin-top: 20px;
+  text-align: center;
+  font-stretch: condensed;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 0 2px #006633;
+  z-index: 2000;
+}
+
+.jguidecontent
+{
+  font: 12px "Merriweather Sans", Sans-Serif;
+  max-width: 350px;
+  width: 300px;
+  min-width: 200px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: left;
+}
+
+.arrow
+{
+  width: 80px;
+  height: 16px;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  margin-left: -35px;
+  bottom: -16px;
+}
+
+  .arrow:after
+  {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: -20px;
+    width: 25px;
+    height: 25px;
+    -webkit-box-shadow: 6px 5px 9px -9px #006633, 5px 6px 9px -9px #006633;
+    -moz-box-shadow: 6px 5px 9px -9px #006633, 5px 6px 9px -9px #006633;
+    box-shadow: 6px 5px 9px -9px #006633, 5px 6px 9px -9px #006633;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+  }
+
+.right
+{
+  left: 95%;
+}
+
+.left
+{
+  left: 5%;
+}
+
+
+.jguideflash
+{
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  box-shadow: 0 0 12px red;
+}
+
+.jguidefieldflash
+{
+  border: 2px solid red;
+  box-shadow: 0 0 10px #A1A1A1;
+  outline: none;
+  border-radius: 7px;
+  border-color: #A1A1A1;
+}

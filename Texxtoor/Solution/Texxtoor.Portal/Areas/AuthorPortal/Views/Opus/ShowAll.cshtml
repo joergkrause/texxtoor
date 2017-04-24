@@ -1,0 +1,35 @@
+﻿@model bool
+@{
+  PageData["Title"] = Loc("title", "All Open Workspaces");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("txtIntro", "This list shows all active workspaces from all your projects, regardless your role.");
+}
+@section HeadContent{
+  <script>
+    $(function () {
+      ui = new Dialog(
+        {
+        },
+        {
+        },
+        {
+        },
+        {
+          formId: '#main',
+          formDivId: '#main',
+          formAction: '@Url.Action("ListAll", "Opus", new { closed = false })'
+        });
+      ui.updateTable();
+    });
+  </script>
+}
+<h2>@Loc("titleClosed", "List of Active Workspaces in all Projects")</h2>
+@if (!Model) {
+  <div class="alert alert-warning">
+    @Loc("noShow", "You don't have anything created so far. Consider start your first project right now.")
+  </div>
+} else {
+  @Create.MainContentWithLoader()
+}
+
+@Create.ActionTask("", false, Url.Action("Index", "Project"), ViewResources.LinkButton_ToProjects)

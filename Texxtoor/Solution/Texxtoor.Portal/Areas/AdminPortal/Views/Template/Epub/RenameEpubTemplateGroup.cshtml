@@ -1,0 +1,15 @@
+﻿@{
+    PageData["Title"] = "Rename EPUB Template";
+    Layout = Url.GetGlobalLayout("_LayoutTemplates", "AdminPortal");
+}
+<div class="well">
+  Give the templates another unique name. This is just for your internal purposes.
+</div>
+@using (Html.BeginForm()) {
+  @Html.Hidden("oldname", (string)ViewBag.OldName)
+  @Html.TextBox("name", "")
+  <p>
+    Any name but "Common Template" is allowed.
+  </p>
+  <input type="submit" value="Rename Group" class="btn btn-primary" />
+}

@@ -1,0 +1,37 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.Published
+@using (Html.BeginForm("ConfirmPublished", "Publishing", new { id = Model.Id }, FormMethod.Post, new { id = "confirmForm", data_item = "7" })) {
+  using (Html.BtFieldset(Loc("txtContract", "Read and confirm the contract."))) {
+    using (Html.BtDiv(BtStyle.WellAndSmall)){
+      @Loc("txtContractTxt", "Before you finally publish a text you need to read, understand, and sign the author's contract" +
+                                  "between you and our platform. Please open the link below, read the text, and confirm by ticking" +
+                                  "the checkbox at the end.")
+    }
+    <label>@Loc("lblContract", "Your Contract")</label>
+  <div class="editor-field editor-field">
+    <a data-toggle="modal" href="#modal-publish" id="readContract">@Loc("txtContract", "Read and confirm the contract.")</a>
+  </div>
+  <div class="formsendButtons">
+    @Button.Submit(ViewResources.Action_Publish_FinishPublishing, "btn-primary confirmformbutton")
+  </div>
+  }
+}
+<div class="modal fade hidden-to-show" id="modal-publish" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+        <h4 class="modal-title" id="myModalLabel">@Loc("hdContract", "Contract")</h4>
+      </div>
+      <div class="modal-body">
+        <div id="authorcontractcontainer" style="padding: 5px; overflow-y: scroll; position: relative; height: 400px;">
+          @Loc("txtNoContract", "Fill in and confirm all the previous forms before finishing the publish procedure.")
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal" type="button" id="btnDenyContract">@ViewResources.LinkButton_Contract_Deny</button>
+        <button class="btn btn-primary" type="button" id="btnConfirmContract">@ViewResources.LinkButton_Contract_Confirm</button>
+        <button class="btn btn-primary" type="button" id="btnPrintContract">@ViewResources.LinkButton_Contract_Print</button>
+      </div>
+    </div>
+  </div>
+</div>

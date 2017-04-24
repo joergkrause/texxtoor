@@ -1,0 +1,21 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@model IEnumerable<Texxtoor.DataModels.Models.Content.TemplateGroup>
+@{
+  var gk = (GroupKind)ViewBag.GroupKind;
+  var da = typeof(GroupKind).GetField(gk.ToString()).GetCustomAttributes(typeof(System.ComponentModel.DataAnnotations.DisplayAttribute), false).OfType<System.ComponentModel.DataAnnotations.DisplayAttribute>().SingleOrDefault();
+  var n = da == null ? gk.ToString() : da.GetName();
+}
+<tr>
+  <td style="width:250px">
+    <label>@n</label>
+  </td>
+  <td>
+    <select name="templateGroupId">
+      @foreach (var template in Model) {
+        <option value="@template.Id" title="@template.Description">@template.Name (@template.Culture.NativeName)</option>
+      }
+    </select>
+    @Create.FieldHelpIcon(Loc("templateHelp", "Choose an appropriate template for {0} output. This template will be used for production. ", n).ToString(),
+                      Loc("field", "Template Group").ToString(), "hlp")
+  </td>
+</tr>

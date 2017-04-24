@@ -1,0 +1,2875 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+/* line 9, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.dark {
+  background-color: #333333;
+  color: white; }
+
+/* line 14, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.medium {
+  background-color: #A1AAA1;
+  color: #666666; }
+
+/* line 19, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.light {
+  background-color: #C8C8C8;
+  color: #666666; }
+
+/* line 24, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.author {
+  background-color: #333333; }
+
+/* line 28, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.reader {
+  background-color: #A1AAA1; }
+
+/* line 32, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.community {
+  background-color: #C8C8C8; }
+
+/* line 36, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  min-height: 100%;
+  height: 100%; }
+
+/* line 43, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+body {
+  position: relative;
+  height: 100%;
+  overflow: visible; }
+
+/* line 49, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+header {
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  height: auto;
+  position: fixed;
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  z-index: 100; }
+  /* line 61, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  header #logoMain {
+    margin-top: 15px;
+    position: absolute; }
+    /* line 65, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    header #logoMain > img {
+      float: left;
+      top: 15px;
+      position: relative; }
+    /* line 71, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    header #logoMain > span {
+      top: 15px;
+      position: relative; }
+
+/* line 78, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.wrapper {
+  margin: 120px 0px 0px 0px;
+  width: 100%; }
+
+/* line 83, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+div.section {
+  margin: auto; }
+
+/* line 88, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+footer {
+  display: none; }
+
+/* line 92, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+#body {
+  margin: auto; }
+
+/* line 96, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+img {
+  border: 0; }
+  /* line 99, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  img::selection, img::-moz-selection {
+    background: transparent; }
+
+/* line 104, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+iframe {
+  border: 0; }
+
+/* line 109, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+input[type='button'], input[type='submit'], input[type='checkbox'], input[type='image'], input[type='radio'], input[type='reset'] {
+  cursor: pointer; }
+
+/* line 114, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+select, button, label {
+  cursor: pointer; }
+
+/* line 118, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+textarea {
+  min-height: 35px;
+  resize: vertical;
+  width: auto;
+  margin-bottom: 10px;
+  overflow: auto;
+  font-family: "Montserrat", "Helvetica", "Arial", sans-serif;
+  font-size: 1em;
+  line-height: 19px;
+  padding: 5px;
+  margin: 0 0 10px 0;
+  color: #666666; }
+  /* line 131, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  textarea.watermark:not(.has-error) {
+    color: #DDDDDD; }
+  /* line 135, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  textarea.watermark.has-error {
+    color: #A1A1A1; }
+
+/* line 141, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+input[type='text'].rate-field {
+  border: 0;
+  width: 20px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 14pt;
+  font-weight: bold;
+  padding: 0 0 0 6px; }
+/* line 151, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+input[type='text'].small-number {
+  width: 16px; }
+/* line 155, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+input[type='text'].watermark[value=""]:not(.has-error) {
+  color: #DDDDDD; }
+/* line 159, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+input[type='text'].watermark[value=""].has-error {
+  color: #A1A1A1; }
+/* line 163, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+input[type='text'].datepicker {
+  width: 80px; }
+
+/* line 168, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+/* line 172, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+body {
+  margin: 0; }
+
+/* line 176, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+p, hr, dl, blockquote, pre, figure {
+  margin: 15px 15px 15px 0px; }
+
+/* line 180, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+h1 {
+  z-index: 1;
+  margin: 0; }
+
+/* line 185, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+h2, h3, h4, h5, h6 {
+  margin: 25px 0px 5px 0px; }
+
+/* line 189, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+ul, ol, dl {
+  padding-left: 30px; }
+
+/* line 193, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+dd {
+  margin-left: 40px; }
+
+/* line 197, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+h1, h2, h3, h4, h5, h6 {
+  color: black;
+  padding: 5px 0px 5px 0px; }
+
+/* line 202, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+h1 {
+  font-size: 28px;
+  line-height: 36px; }
+  /* line 206, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  h1 + p {
+    padding-top: 10px; }
+
+/* line 211, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+h2 {
+  font-size: 22px;
+  line-height: 22px; }
+
+/* line 216, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+h3 {
+  font-size: 18px;
+  line-height: 18px; }
+
+/* line 221, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+h4, h5, h6 {
+  font-size: 16px;
+  line-height: 16px; }
+
+/* line 226, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+a {
+  color: #666666;
+  text-decoration: none; }
+  /* line 230, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  a:hover {
+    color: #333333;
+    text-decoration: underline; }
+  /* line 235, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  a:hover, a:active {
+    outline: none; }
+
+/* line 240, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+a > div:hover {
+  text-decoration: none; }
+
+/* line 244, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+small {
+  font-size: 12px;
+  line-height: 80%; }
+
+/* line 249, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+ins {
+  text-decoration: none; }
+
+/* line 253, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+del {
+  text-decoration: line-through; }
+
+/* line 257, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+  cursor: help; }
+
+/* line 262, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+  font-style: normal; }
+
+/* line 268, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+hr {
+  display: block;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid; }
+
+/* line 276, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+q {
+  quotes: '\201C' '\201D' '\2018' '\2019';
+  font-style: italic; }
+
+/* line 281, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+blockquote {
+  quotes: '\201C' '\201D' '\2018' '\2019';
+  font-style: italic;
+  padding: 0 20px;
+  font-size: 16px;
+  line-height: 22px; }
+  /* line 288, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  blockquote:before {
+    content: '\201C'; }
+  /* line 292, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  blockquote:after {
+    content: '\201D'; }
+
+/* line 297, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+code, pre {
+  font-family: "Courier New", Courier, monospace; }
+
+/* line 301, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+code {
+  word-spacing: -2px; }
+
+/* line 305, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+pre {
+  padding: 10px;
+  font-size: 12px;
+  line-height: 18px;
+  white-space: pre-wrap; }
+
+/* line 312, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 317, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+th, td {
+  padding: 1px;
+  vertical-align: top; }
+
+/* line 322, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+input {
+  vertical-align: middle; }
+
+/* line 326, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+select {
+  vertical-align: middle;
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Montserrat", "Helvetica", "Arial", sans-serif; }
+
+/* line 333, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+input, button {
+  line-height: 16px;
+  font-family: "Montserrat", "Helvetica", "Arial", sans-serif;
+  font-size: 0.9em; }
+
+/* line 339, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+button {
+  padding: 5px;
+  line-height: inherit;
+  min-width: 120px;
+  font-size: 16px; }
+
+/* line 347, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+input[type='button'], input[type='submit'] {
+  padding: 5px;
+  line-height: inherit;
+  min-width: 120px;
+  font-size: 16px; }
+
+/* line 355, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+hr {
+  border-top-color: #ddd; }
+
+/* line 359, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+pre {
+  border: 1px solid #ddd;
+  background: #fafafa; }
+
+/* line 364, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+::-moz-selection, ::selection {
+  background: #39f;
+  color: #fff; }
+
+/* line 370, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+a:not([class]):active, a:not([class]):focus, a:not([class]):active > *, a:not([class]):focus > * {
+  position: relative; }
+
+/* line 376, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.clearfix:before, .clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  overflow: hidden; }
+
+/* line 384, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.clearfix:after {
+  clear: both; }
+
+/* line 388, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+#menu {
+  float: left; }
+
+/* line 392, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+#breadcrumb {
+  position: absolute;
+  top: 75px;
+  left: 0px;
+  width: 960px; }
+
+/* line 399, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+#statistics {
+  position: absolute;
+  top: 15px;
+  right: 100px; }
+
+/* line 405, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.module {
+  margin: 15px; }
+
+/* line 409, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.wizardLink {
+  cursor: pointer;
+  background-color: #fafafa;
+  width: 325px;
+  height: 50px;
+  padding: 2px;
+  font-size: 14pt;
+  margin-bottom: 2px; }
+  /* line 418, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .wizardLink:hover {
+    background-color: #eaeaea; }
+    /* line 421, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    .wizardLink:hover span {
+      color: #d50; }
+
+/* line 427, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.frontMatter {
+  border: 2px solid #A1A1A1;
+  height: 220px;
+  padding: 10px;
+  margin-left: 10px;
+  width: 340px;
+  float: right; }
+
+/* line 436, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.menu {
+  margin: 0px;
+  padding: 0px;
+  list-style: none; }
+  /* line 441, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .menu ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none; }
+  /* line 447, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .menu a, .menu span {
+    display: block; }
+  /* line 451, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .menu a {
+    text-decoration: none; }
+
+/* line 456, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.align-center {
+  display: block;
+  margin: auto;
+  margin-bottom: 10px; }
+
+/* line 463, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+div.optionFields {
+  /* overflow: hidden;
+    opacity: 0.7;*/
+  padding: 5px 0 5px 0; }
+/* line 469, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+div.formsendButtons {
+  margin: 15px 0 10px 25%;
+  padding-left: 15px; }
+
+/* line 476, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+a.matrix-keywords {
+  display: block;
+  background-color: #f1e63b;
+  padding: 5px;
+  background-position: right;
+  background-repeat: no-repeat;
+  width: 350px;
+  margin-bottom: 2px; }
+
+/* line 488, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+ul.blank, ul.space, ul.line, ul.check, ul.zebra {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+/* line 494, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+ul.space li {
+  margin-top: 15px; }
+  /* line 497, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  ul.space li:first-child {
+    margin-top: 0; }
+/* line 502, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+ul.line > li {
+  margin-top: 5px;
+  padding-top: 5px; }
+
+/* line 509, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+ul.check > li {
+  margin-top: 5px; }
+  /* line 512, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  ul.check > li:first-child {
+    margin: 0; }
+/* line 517, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+ul.zebra > li {
+  padding: 5px; }
+
+/* line 522, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+dl.separator {
+  padding: 0;
+  overflow: hidden; }
+  /* line 526, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  dl.separator dt {
+    width: 160px;
+    padding-right: 10px;
+    float: left;
+    clear: both; }
+  /* line 533, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  dl.separator dd {
+    margin-left: 170px;
+    padding-left: 20px; }
+
+/* line 539, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+em.box {
+  padding: 0 3px;
+  white-space: nowrap; }
+
+/* line 544, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+hr.dotted {
+  border: none; }
+
+/* line 548, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.box-content, .box-note, .box-info, .box-warning, .box-hint, .box-download {
+  margin: 15px 0;
+  padding: 10px;
+  text-align: left; }
+
+/* line 554, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.box-content {
+  padding: 20px; }
+
+/* line 558, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.box-info, .box-warning, .box-hint, .box-download {
+  padding-left: 40px; }
+
+/* line 562, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+img.border-box {
+  border: 1px solid #ddd; }
+
+/* line 566, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+ul.line > li, .section.line > article {
+  border-top: 1px solid #ddd; }
+
+/* line 571, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+dl.separator dt {
+  position: relative;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-transform: uppercase; }
+/* line 578, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+dl.separator dd {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-width: 0 0 0 1px;
+  border-style: solid;
+  border-color: #DDD; }
+/* line 587, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+dl.separator dt:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -15px;
+  width: 30px;
+  border-top: 1px solid #DDD; }
+/* line 596, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+dl.separator dt:after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 5px;
+  height: 5px;
+  background: #FFF;
+  border: 1px solid #DDD;
+  border-radius: 6px; }
+/* line 609, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+dl.separator dt:first-child:before, dl.separator dt:first-child:after {
+  display: none; }
+
+/* line 616, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+em.box {
+  border: 1px dotted #bbb;
+  background: #fafafa;
+  color: #444; }
+
+/* line 622, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+hr.dotted {
+  background: url(../../images/line_dotted.png) 0 0 repeat-x; }
+
+/* line 626, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+form fieldset {
+  /*border: 1px solid #a1a1a1;*/
+  border: none;
+  padding: 10px;
+  margin: 16px 0px;
+  width: 100%; }
+  /* line 633, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  form fieldset legend {
+    color: #333333;
+    padding: 5px 0px 5px 0px; }
+  /* line 638, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  form fieldset label {
+    width: 25%;
+    display: block;
+    font-weight: bold;
+    float: left;
+    padding-top: 10px; }
+    /* line 645, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    form fieldset label.checkboxlist {
+      display: inline-block;
+      float: none !important; }
+  /* line 651, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  form fieldset .display-label {
+    width: 244px;
+    display: block;
+    float: left;
+    font-weight: bold;
+    clear: left; }
+  /* line 663, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  form fieldset.menu legend {
+    padding: 5px;
+    font-weight: bold; }
+  /* line 668, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  form fieldset.menu fieldset {
+    border: 1px solid white;
+    width: 100%;
+    padding: 5px; }
+  /* line 674, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  form fieldset.menu input {
+    border: none; }
+
+/* line 680, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.breadcrumbs {
+  overflow: hidden; }
+  /* line 683, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .breadcrumbs a, .breadcrumbs span, .breadcrumbs strong {
+    display: inline-block;
+    text-decoration: none; }
+  /* line 688, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .breadcrumbs a, .breadcrumbs > span {
+    margin-right: 10px; }
+
+/* line 693, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.searchbox {
+  width: 228px;
+  border: 1px solid #666666;
+  background: url(/Content/icons/magnifying-glass.gif) 0 50% no-repeat; }
+  /* line 698, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .searchbox input {
+    height: 30px;
+    color: #666666;
+    font-size: 14px; }
+    /* line 703, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    .searchbox input:-moz-placeholder, .searchbox input::-webkit-input-placeholder, .searchbox input.placeholder {
+      color: #A1A1A1; }
+  /* line 708, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .searchbox.filled button {
+    width: 25px;
+    background: url(../../images/searchbox_reset.png) 50% 50% no-repeat; }
+  /* line 713, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .searchbox.loading button {
+    background: url(../../images/searchbox_loader.gif) 50% 50% no-repeat; }
+
+/* line 719, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.breadcrumbs a > span {
+  padding-right: 15px;
+  background: url(../../images/breadcrumbs.png) 100% 50% no-repeat; }
+
+/* line 725, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+span.highlight {
+  background-color: #ffffaa; }
+
+/* line 729, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+em, code {
+  color: #48b; }
+
+/* line 734, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.menu-dropdown a.level2:hover, .menu-dropdown a.level3:hover {
+  color: #48b; }
+
+/* line 740, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.menu-sidebar a:hover > span, .menu-sidebar span:hover > span {
+  color: #48b; }
+
+/* line 745, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+img {
+  -ms-interpolation-mode: bicubic; }
+
+/* line 749, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+pre {
+  word-wrap: break-word; }
+
+/* line 753, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+button {
+  width: auto;
+  overflow: visible; }
+
+/* line 758, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.menu-dropdown a > span {
+  cursor: pointer; }
+
+/* line 763, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.menu-sidebar a.level1 > span, .menu-sidebar span.level1 > span {
+  zoom: 1;
+  cursor: pointer; }
+
+/* line 769, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.menu-line li {
+  display: inline; }
+  /* line 772, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .menu-line li a {
+    display: inline; }
+
+/* line 777, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.facebook {
+  margin-top: 25px; }
+
+/* line 781, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.tag1 {
+  font-size: 0.8em; }
+
+/* line 785, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.tag2 {
+  font-size: 0.9em; }
+
+/* line 789, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.tag3 {
+  font-size: 1em; }
+
+/* line 793, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.tag4 {
+  font-size: 1.2em; }
+
+/* line 797, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.tag5 {
+  font-size: 1.4em; }
+
+/* line 801, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.tag6 {
+  font-size: 1.7em; }
+
+/* line 805, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.tag7 {
+  font-size: 2em; }
+
+/* line 809, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+ul.tags-cloud li {
+  display: inline; }
+
+/* line 816, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.display-field {
+  width: 100%;
+  min-height: 45px;
+  margin: 5px 0 2px 25%;
+  padding-left: 15px; }
+
+/* line 823, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.editor-label {
+  min-width: 30% !important;
+  /*this is important as we have some forms 
+	with labels greater than the given 
+	width 25%, this is makin the next field disturbed*/ }
+
+/* line 830, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.editor-field {
+  width: 100%;
+  min-height: 45px;
+  margin: 5px 0px 2px 25%;
+  padding-left: 15px; }
+  /* line 836, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .editor-field table {
+    border-collapse: collapse; }
+    /* line 839, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    .editor-field table.noborder th, .editor-field table td {
+      border-style: none; }
+  /* line 844, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .editor-field tr {
+    background: #fff; }
+    /* line 847, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    .editor-field tr.altrow {
+      background: #D9D9D9; }
+  /* line 852, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .editor-field th {
+    text-align: left;
+    border-width: 1px;
+    border-style: solid;
+    color: #7BA857;
+    background: #EFEFEF;
+    padding: 2px 3px;
+    border-color: #DFDFDF #D3D3D3 #A7A7A7 #D3D3D3; }
+  /* line 862, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .editor-field td {
+    border-color: #EFEFEF;
+    padding: 2px 3px;
+    vertical-align: top; }
+
+/* line 869, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+td {
+  text-align: left;
+  vertical-align: top; }
+
+/* line 874, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+input, select {
+  min-height: 35px;
+  line-height: 19px;
+  padding: 2px;
+  margin: 0 0 3px 0;
+  color: #666666;
+  border: 2px solid #DDDDDD;
+  font-size: 14px;
+  font-family: "Montserrat", "Helvetica", "Arial", sans-serif; }
+  /* line 885, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  input input[type=button]:hover, select input[type=button]:hover {
+    color: #666666; }
+  /* line 890, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  input[type=radio], input[type=checkbox], select[type=radio], select[type=checkbox] {
+    border: 2px solid transparent;
+    width: 20px;
+    height: 20px;
+    min-height: 20px; }
+  /* line 897, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  input[data-val-number], select[data-val-number] {
+    text-align: right; }
+
+/* line 902, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+input[type=text]:focus, select:focus, textarea:focus {
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  border-color: #A1A1A1;
+  border-width: 2px;
+  margin: 0 0 2px 0; }
+
+/* line 910, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+textarea:focus {
+  margin-bottom: 10px; }
+
+/* line 915, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.input-validation-error, .has-error {
+  background-color: pink !important;
+  /* override light theme */
+  border: 1px solid red;
+  color: black; }
+
+/* line 921, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.field-validation-error {
+  color: red;
+  display: block;
+  padding: 5px 0px 5px 0px;
+  margin-left: -12px; }
+  /* line 927, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .field-validation-error:before {
+    content: "\f061" " ";
+    font-family: "FontAwesome";
+    font-size: 12px;
+    top: -1px;
+    position: relative; }
+
+/* line 936, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+input[data-val-required][type=text][value=""], input[data-val-required][type=password][value=""], select[data-val-required] {
+  border: 2px solid #dd5500; }
+
+/* line 941, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+textarea[data-val-required] :empty {
+  border: 2px solid #dd5500; }
+
+/* line 946, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.pagination-digg-button {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  float: right; }
+  /* line 952, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .pagination-digg-button li {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    list-style: none;
+    margin-right: 2px;
+    display: inline-block; }
+  /* line 962, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .pagination-digg-button a {
+    border: none;
+    text-align: center;
+    color: #fff !important;
+    font-weight: bold; }
+
+/* line 970, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.editor-field-accordion {
+  min-height: 45px !important; }
+
+/* line 974, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.editor-field-help {
+  font-size: smaller; }
+
+/* line 978, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.editor-field a.editor-field {
+  width: 200px;
+  margin-left: 212px;
+  padding: 5px; }
+
+/* line 984, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.editor-field-accordion a.editor-field {
+  width: 200px;
+  padding: 5px;
+  margin: 4px 0px 4px 265px; }
+
+/* line 990, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.editor-field-textarea {
+  width: auto;
+  height: auto;
+  resize: vertical;
+  padding: 6px; }
+
+/* line 997, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ui-datepicker {
+  font-size: 9pt !important; }
+
+/* line 1001, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ui-datepicker-trigger {
+  height: 26px !important;
+  position: relative;
+  top: 2px;
+  margin-left: 5px;
+  border: 1px solid #a1a1a1;
+  min-width: 32px;
+  width: 32px; }
+
+/* line 1012, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.accordion-container fieldset {
+  width: 90%; }
+/* line 1016, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.accordion-container img {
+  margin-top: 5px; }
+/* line 1020, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.accordion-container > span {
+  top: -10px;
+  position: relative; }
+
+/* line 1026, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+#basic-modal-content {
+  display: none; }
+
+/* line 1030, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+#simplemodal-overlay {
+  background-color: #000;
+  cursor: wait; }
+
+/* line 1035, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+#simplemodal-container {
+  color: #666666;
+  background-color: #FAFAFA;
+  border: 2px solid #a1a1a1;
+  padding: 12px;
+  border-radius: 7px; }
+  /* line 1042, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  #simplemodal-container .simplemodal-data {
+    padding: 2px; }
+  /* line 1046, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  #simplemodal-container code {
+    background: #141414;
+    border-left: 1px solid #65B43D;
+    color: #bbb;
+    display: block;
+    font-size: 12px;
+    margin-bottom: 12px;
+    padding: 4px 6px 6px; }
+  /* line 1056, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  #simplemodal-container a {
+    color: #ddd; }
+    /* line 1059, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    #simplemodal-container a.modalCloseImg {
+      background: url(/Content/images/delete_24.png) no-repeat;
+      width: 24px;
+      height: 24px;
+      display: inline;
+      z-index: 3200;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      cursor: pointer; }
+  /* line 1072, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  #simplemodal-container h3 {
+    color: #84b8d9; }
+
+/* line 1078, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+div.currentobject {
+  background-color: #C8C8C8;
+  color: #fff;
+  padding: 5px; }
+  /* line 1083, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  div.currentobject em, div.currentobject a {
+    color: #666666 !important; }
+
+/* line 1089, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+div.multilist {
+  clear: both; }
+  /* line 1092, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  div.multilist.col2 {
+    column-count: 2; }
+  /* line 1096, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  div.multilist.col3 {
+    column-count: 3; }
+  /* line 1100, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  div.multilist div.multilistSelected {
+    /* background-color: $TexxtoorBwMedium; 
+    opacity: 1;*/
+    z-index: 500; }
+  /* line 1106, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  div.multilist div.listitem {
+    padding: 5px 5px 0px 5px;
+    margin-bottom: 5px;
+    column-span: 1;
+    width: 100%;
+    overflow: visible;
+    border: transparent solid 1px; }
+    /* line 1114, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    div.multilist div.listitem:hover {
+      border: #aaa solid 1px; }
+    /* line 1118, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    div.multilist div.listitem.col2 {
+      width: 465px;
+      display: inline-block; }
+      /* line 1122, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+      div.multilist div.listitem.col2 a {
+        display: none; }
+    /* line 1127, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    div.multilist div.listitem.col3 {
+      width: 310px;
+      display: inline-block; }
+      /* line 1131, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+      div.multilist div.listitem.col3 a {
+        display: none; }
+
+/* line 1140, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+div.firstRow {
+  margin: 5px 0px 0px 0px; }
+/* line 1144, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+div.firstRow strong {
+  display: inline-block;
+  vertical-align: top; }
+/* line 1149, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+div.secondRow {
+  margin: 5px 0px 0px 0px;
+  font-size: small;
+  line-height: 1.5; }
+/* line 1155, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+div.thirdRow {
+  margin: 0px 0px 25px 0px;
+  clear: both; }
+/* line 1160, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+div.iconCell {
+  margin: 0 5px 0 5px;
+  border: 0; }
+
+/* line 1166, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.dropzone-tile {
+  width: 102px;
+  height: 80px;
+  border: 1px solid #333333;
+  margin-top: 30px;
+  margin-right: 16px;
+  float: left;
+  position: relative;
+  font-size: 12px;
+  padding-left: 2px; }
+  /* line 1177, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .dropzone-tile span small {
+    font-size: 8px; }
+  /* line 1181, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .dropzone-tile div {
+    font-size: 10px; }
+
+/* line 1186, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.dropzone-hover {
+  background-color: #A1AAA1; }
+
+/* line 1190, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.dropzone-info {
+  float: right;
+  bottom: 0;
+  position: absolute;
+  right: 0px; }
+
+/* line 1197, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.last {
+  margin-right: 0px; }
+
+/* line 1203, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+em {
+  font-style: normal;
+  font-variant: small-caps; }
+
+/* line 1209, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+#topmenu-task-container {
+  margin: 4px 0px;
+  position: relative;
+  width: 110px;
+  left: -2px;
+  display: none; }
+  /* line 1215, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  #topmenu-task-container div.task {
+    width: 108px;
+    margin-top: 1px;
+    border-top: 1px solid white;
+    background-color: #333333; }
+    /* line 1221, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    #topmenu-task-container div.task a.task {
+      color: #DDDDDD; }
+      /* line 1224, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+      #topmenu-task-container div.task a.task:hover {
+        color: #DDDDDD;
+        text-decoration: underline; }
+
+/* line 1232, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.topmenu-task-header {
+  border: 0;
+  z-index: 50;
+  width: 110px;
+  cursor: pointer;
+  height: 24px; }
+
+/* line 1240, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+#topmenu-task-action {
+  width: 110px;
+  height: 24px; }
+
+/* line 1245, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+div.texxtoorHeadTool {
+  top: 10px;
+  margin-left: 939px;
+  float: right;
+  width: 85px;
+  height: 85px;
+  color: White;
+  font-size: 18pt;
+  overflow: visible;
+  z-index: 200;
+  position: fixed; }
+
+/* line 1258, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.texxtoorHeadTool span {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: right; }
+
+/* line 1265, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+a.backNavButton {
+  min-width: 48px;
+  float: right;
+  font-weight: normal;
+  padding: 0px 5px 0px 32px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  display: inline-block;
+  font-size: 18px;
+  margin-left: 5px;
+  opacity: 0.5; }
+  /* line 1277, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  a.backNavButton:hover {
+    opacity: 1;
+    text-decoration: none;
+    color: white !important; }
+
+/* line 1284, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.error {
+  color: Red;
+  padding: 10px 0px; }
+
+/* line 1289, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.field-validation-error {
+  color: Red;
+  white-space: nowrap; }
+
+/* line 1294, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.thumb45x60 img {
+  width: 45px;
+  height: 60px; }
+
+/* line 1299, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.simpleColorChooser {
+  background-color: white;
+  z-index: 1; }
+
+/* line 1304, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.icon-award_star_gold_1 {
+  background-image: url(/Content/icons/award_star_gold_1.png); }
+
+/* line 1308, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.icon-award_star_silver_1 {
+  background-image: url(/Content/icons/award_star_silver_1.png); }
+
+/* line 1312, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.rating-field {
+  float: left;
+  width: 16px;
+  height: 16px;
+  cursor: pointer; }
+
+/* line 1319, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.culture-selection {
+  display: block;
+  width: 100%; }
+  /* line 1324, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .culture-selection a .drop {
+    display: inline-block;
+    clear: both;
+    margin-left: 15px; }
+  /* line 1330, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .culture-selection a .link {
+    height: 24px; }
+
+/* line 1336, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.flag {
+  width: 85px;
+  height: 85px;
+  margin-right: 15px;
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-position: 15px;
+  color: white;
+  float: left;
+  font-size: 16pt;
+  padding: 3px; }
+  /* line 1348, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .flag img {
+    width: 80px; }
+
+/* line 1353, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.culture-selection-logoff {
+  width: 106px;
+  position: absolute;
+  top: 0px;
+  left: 854px; }
+  /* line 1359, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .culture-selection-logoff img {
+    float: left;
+    margin-top: 5px;
+    cursor: pointer; }
+  /* line 1365, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .culture-selection-logoff div {
+    float: left;
+    padding: 2px;
+    font-size: 12px;
+    cursor: pointer; }
+  /* line 1372, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .culture-selection-logoff.drop {
+    top: auto;
+    position: relative;
+    display: none;
+    top: 24px; }
+
+/* line 1380, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.topmenu-cms-search {
+  position: absolute;
+  top: 0px;
+  left: 488px; }
+
+/* line 1386, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.topmenu-logon {
+  position: absolute;
+  top: 0px;
+  padding: 2px;
+  background-color: #333333;
+  width: 104px;
+  height: 20px;
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  left: 732px; }
+  /* line 1398, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .topmenu-logon a {
+    color: #ddd; }
+    /* line 1401, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    .topmenu-logon a:hover {
+      color: #ddd;
+      text-decoration: underline; }
+
+/* line 1408, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.topmenuCreate {
+  background-color: #333333;
+  color: white !important;
+  width: 100px; }
+
+/* line 1414, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.topmenu {
+  background-color: #A1AAA1;
+  color: black !important;
+  width: 100px; }
+
+/* line 1420, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.createli {
+  width: 100px; }
+
+/* line 1424, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.topmenu-title, .helpcls {
+  display: block;
+  width: 100%; }
+
+/* line 1429, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+div.sidemenu {
+  padding-top: 15px;
+  padding-bottom: 0px;
+  font-size: 16px; }
+
+/* line 1435, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+ul.sidemenu {
+  overflow: hidden;
+  margin: 0;
+  padding: 0 0 0 24px;
+  list-style-type: none;
+  list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABjSURBVDhPYxgFgwAwQ2kMYJOrO13OTIz10alXN6BCWAETlMYEjAwaDEyM663zdHZb5uhoQEUxAG4DoICRgVGGifm/BJSLAXAa8P8/w5f/DP8rmQWFdI9OvHoAKjwKBiFgYAAAwjoSmVHdzZsAAAAASUVORK5CYII=');
+  /*/Content/icons/Front/bullet.png*/ }
+  /* line 1442, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  ul.sidemenu li {
+    margin-bottom: 8px; }
+  /* line 1446, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  ul.sidemenu a {
+    color: #AAAAAA; }
+    /* line 1449, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    ul.sidemenu a:hover {
+      text-decoration: none;
+      color: black; }
+
+/* line 1456, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.infobox-index {
+  margin-top: 16px;
+  padding: 10px 5px 5px 5px;
+  color: #ddd;
+  height: 275.6px; }
+  /* line 1462, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .infobox-index img {
+    width: 32px;
+    height: 32px;
+    float: left;
+    margin: 5px; }
+  /* line 1469, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .infobox-index span {
+    display: inline-block;
+    padding: 5px;
+    height: 44px;
+    font-size: 22px;
+    font-family: "Merriweather Sans", "Trebuchet MS", sans-serif;
+    width: 150px;
+    text-transform: uppercase;
+    line-height: 1.2em; }
+  /* line 1480, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .infobox-index div {
+    padding-left: 42px;
+    padding-top: 10px; }
+  /* line 1485, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .infobox-index .infobox-infotext {
+    padding-left: 5px;
+    height: 225px; }
+  /* line 1490, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .infobox-index .infobox-introtext {
+    padding-left: 5px;
+    height: 165px; }
+
+/* line 1496, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.infobox-introheader-img {
+  background-image: url(/Content/icons/arrow-right-32-4-white.png);
+  background-repeat: no-repeat;
+  background-position: 180px;
+  height: 32px;
+  width: 212px;
+  cursor: pointer; }
+
+/* line 1505, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.infobox-introform {
+  display: none; }
+
+/* line 1509, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.introform-close {
+  float: right;
+  cursor: pointer; }
+
+/* line 1514, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.infobox-introheader {
+  position: relative;
+  vertical-align: bottom;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding-left: 5px !important; }
+
+/* line 1522, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.moreDiv {
+  font-size: 16pt;
+  margin: 12px 5px 5px 0px; }
+
+/* line 1527, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.pivotitem {
+  font-size: 16pt; }
+
+/* line 1531, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.headzone-navigation-history {
+  width: 85px;
+  height: 85px;
+  margin-right: 15px;
+  background-color: #ddd;
+  color: Black;
+  float: left;
+  font-size: 16pt;
+  padding: 3px;
+  position: relative;
+  overflow: hidden; }
+  /* line 1543, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .headzone-navigation-history span {
+    font-size: 7pt;
+    position: absolute;
+    bottom: 0%;
+    left: 0px;
+    padding-left: 2px; }
+  /* line 1551, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .headzone-navigation-history a {
+    font-size: 16pt;
+    color: #000;
+    text-decoration: none; }
+
+/* line 1558, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+footer {
+  position: relative;
+  left: 0px;
+  right: 0px;
+  margin-top: 20px;
+  bottom: 24px;
+  /* Delta for .copyright */
+  background-color: #DDDDDD;
+  padding-top: 1.2%;
+  padding-bottom: 1.4%;
+  position: fixed; }
+  /* line 1569, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  footer.h4 {
+    color: #A1A1A1; }
+  /* line 1573, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  footer menu {
+    list-style-type: none; }
+    /* line 1576, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    footer menu li {
+      margin: 2px 0px 0px -40px; }
+  /* line 1581, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  footer.a {
+    color: #666666 !important; }
+    /* line 1584, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    footer.a:hover :visited :active {
+      color: #666666 !important; }
+
+/* line 1590, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.copyright {
+  height: 35px;
+  line-height: 30px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #C8C8C8;
+  position: fixed;
+  bottom: 0;
+  padding-top: 6px;
+  left: 0px;
+  right: 0px;
+  font-size: 16px;
+  vertical-align: middle; }
+
+/* line 1605, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.center-pane-container {
+  text-align: left;
+  height: 380px;
+  width: 1066px;
+  margin-left: -106px; }
+  /* line 1611, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .center-pane-container .landing {
+    height: 380px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    overflow: visible; }
+    /* line 1617, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    .center-pane-container .landing.overlay {
+      background-position: 0 0; }
+    /* line 1621, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    .center-pane-container .landing.default {
+      background-position: 106px 0; }
+    /* line 1625, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    .center-pane-container .landing div.indextable {
+      position: absolute;
+      padding: 5px;
+      width: 350px; }
+    /* line 1631, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    .center-pane-container .landing table.indextable {
+      font-size: 12px;
+      display: inline-block;
+      position: relative;
+      width: 610px;
+      left: -610px; }
+      /* line 1638, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+      .center-pane-container .landing table.indextable th {
+        width: 106px; }
+        /* line 1639, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+        .center-pane-container .landing table.indextable th:first-child {
+          width: 318px; }
+      /* line 1646, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+      .center-pane-container .landing table.indextable td {
+        text-align: center; }
+        /* line 1649, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+        .center-pane-container .landing table.indextable td:first-child {
+          text-align: left;
+          padding: 0px; }
+      /* line 1655, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+      .center-pane-container .landing table.indextable col.texxtoor {
+        background-color: #C8C8C8; }
+
+/* line 1662, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.center-pane-divider {
+  height: 32px;
+  margin-left: -106px;
+  width: 1200px;
+  background-color: #666; }
+  /* line 1668, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .center-pane-divider td {
+    vertical-align: middle; }
+    /* line 1671, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    .center-pane-divider td.icon {
+      width: 32px; }
+  /* line 1676, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .center-pane-divider.gap {
+    top: -48px;
+    position: relative; }
+
+/* line 1682, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+td.page-title {
+  width: 138px; }
+
+/* line 1686, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+div.page-title {
+  color: #ddd; }
+
+/* line 1690, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.page-columns {
+  font-size: 14px;
+  width: 716px;
+  height: 100%;
+  column-count: 2;
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+  column-gap: 16px; }
+  /* line 1699, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .page-columns img {
+    width: 350px !important; }
+  /* line 1703, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .page-columns h2 {
+    font-size: 16px; }
+
+/* line 1708, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.page-nocolumns {
+  column-count: 1;
+  -moz-column-count: 1;
+  -webkit-column-count: 1;
+  position: absolute;
+  width: grid-8-col;
+  z-index: 500;
+  background-color: white; }
+
+/* line 1718, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.page-head {
+  float: right;
+  position: relative;
+  top: -64px;
+  left: 0px;
+  display: inline;
+  z-index: 100; }
+  /* line 1726, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .page-head span {
+    font-size: 14px;
+    text-transform: uppercase;
+    width: 122px;
+    height: 32px;
+    display: inline-block;
+    padding-left: 16px;
+    vertical-align: middle; }
+  /* line 1736, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .page-head img {
+    vertical-align: middle; }
+
+/* line 1741, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+div.tokenInput {
+  position: relative;
+  top: -15px; }
+
+/* line 1746, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.helpIcon {
+  left: 420px; }
+
+/* line 1750, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.listDiv {
+  width: 100%;
+  background-color: #FFFFCC;
+  margin-top: 5px;
+  padding: 2px; }
+
+/* line 1757, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.notification {
+  color: red; }
+
+/* line 1761, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+th {
+  text-align: center; }
+
+/* line 1765, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.DemoWizardTable1 {
+  padding: 0 !important;
+  border: none;
+  position: relative;
+  top: 80px; }
+  /* line 1771, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .DemoWizardTable1 td {
+    padding: 0 !important; }
+
+/* line 1776, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.DemoWizardTitle {
+  width: 960px; }
+
+/* line 1780, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.DemoWizardTable1 div {
+  padding: 10px; }
+
+/* line 1784, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.DemoWizardImg {
+  border: none;
+  padding: 0px;
+  margin: 0px 0px 0px 0px; }
+
+/* line 1790, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.DefaultDiv1 {
+  margin-top: 25px;
+  width: 850px; }
+
+/* line 1795, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.DefaultDiv2 {
+  margin-top: 25px;
+  width: 150px;
+  float: right; }
+
+/* line 1801, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.pageHead {
+  width: 850px; }
+
+/* line 1805, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.TeamsTable {
+  width: 100%;
+  height: 20px;
+  background-color: white; }
+
+/* line 1811, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.TeamTd {
+  padding: 0px;
+  vertical-align: top; }
+
+/* line 1816, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.TeamTd1 {
+  padding: 10px;
+  vertical-align: bottom; }
+
+/* line 1821, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.TeamTd2 {
+  width: 240px;
+  background-position: 0px -85px;
+  background-image: url(/Content/images/landing/h1-4.png); }
+
+/* line 1827, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.InfoSecLi {
+  width: 850px;
+  display: block; }
+
+/* line 1832, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.InfoSecLi1 {
+  width: 850px;
+  display: block;
+  height: 100%; }
+
+/* line 1838, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.InfoSec {
+  float: left;
+  overflow: hidden;
+  width: 850px;
+  height: 100%; }
+
+/* line 1845, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ForAuthorsTd {
+  width: 33%;
+  vertical-align: top;
+  padding-top: 130px;
+  background-repeat: no-repeat; }
+
+/* line 1852, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.WorkType {
+  font-size: 36px;
+  font-weight: bold;
+  color: orange; }
+
+/* line 1858, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ForAuthorsTd1 {
+  text-align: center; }
+
+/* line 1862, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.TeamsDiv1 {
+  font-size: 16pt;
+  margin: 2px 5px 5px 0px; }
+
+/* line 1867, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.TeamsSpan {
+  overflow: hidden;
+  width: 850px;
+  height: 28px;
+  white-space: nowrap; }
+
+/* line 1874, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+#profile_picture {
+  padding: 5px; }
+  /* line 1877, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  #profile_picture img {
+    box-shadow: 5px 5px 1em gray; }
+  /* line 1881, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  #profile_picture form {
+    position: relative;
+    min-height: 155px; }
+  /* line 1886, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  #profile_picture button {
+    height: 26px;
+    width: 50px;
+    border: 1px solid #a1a1a1;
+    break-before: always;
+    position: relative;
+    top: 4px;
+    font-size: smaller; }
+
+/* line 1897, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+#profile-container h3 {
+  padding: 5px 0px 0px 45px; }
+
+/* line 1901, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+span.h3-icon {
+  position: relative;
+  top: -10px; }
+
+/* line 1906, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+img.h3-icon {
+  float: right;
+  position: relative;
+  top: -10px; }
+
+/* line 1912, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.LogonDiv1 {
+  font-size: 16pt;
+  color: white;
+  text-decoration: none; }
+
+/* line 1918, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.LogonDiv2 {
+  width: 85px;
+  height: 185px;
+  margin-right: 15px;
+  background-color: #fff;
+  color: Black;
+  float: left;
+  font-size: 16pt;
+  padding: 3px; }
+
+/* line 1929, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.LogonDiv3 {
+  display: inline-block;
+  width: 100%;
+  clear: both;
+  margin-left: 15px; }
+
+/* line 1936, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.LogonDiv4 {
+  display: block;
+  width: 100%; }
+
+/* line 1941, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ConsumerMatrixTable1 {
+  width: 560px;
+  margin-bottom: 5px; }
+
+/* line 1946, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.InfoSec2 {
+  float: left;
+  overflow: hidden;
+  width: 850px; }
+
+/* line 1952, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.FrontMatterHead {
+  margin: 10px 50px 10px 50px;
+  background-color: white;
+  text-align: center;
+  position: relative;
+  top: -50px; }
+
+/* line 1960, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.frontmatterDiv1 {
+  text-align: left;
+  margin-left: 0px;
+  padding-left: 130px;
+  position: relative;
+  top: -40px; }
+
+/* line 1968, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.forntmatterLi {
+  width: 100px;
+  border-left: 1px solid #eeeeee;
+  padding-right: 25px; }
+
+/* line 1974, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.frontmatterDiv2 {
+  left: -130px;
+  position: relative;
+  width: 330px;
+  top: 0px;
+  font-size: 8pt; }
+
+/* line 1982, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ManageshareSpan {
+  color: Orange;
+  font-size: 16pt;
+  font-weight: bold; }
+
+/* line 1988, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.manageShareInput {
+  color: Orange;
+  font-size: 16pt;
+  font-weight: bold;
+  width: 10%; }
+
+/* line 1995, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.TemplatesSpan {
+  padding-left: 30px;
+  vertical-align: middle; }
+
+/* line 2000, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.TemplatesDiv1 {
+  margin-left: 25px;
+  border-left: 2px solid #a1a1a1;
+  float: right; }
+  /* line 2005, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .TemplatesDiv1 input {
+    width: 16px; }
+
+/* line 2011, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+ul.chapterList {
+  border: 2px solid #DDDDDD;
+  width: 100%;
+  overflow-x: hidden;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 2px; }
+  /* line 2019, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  ul.chapterList li {
+    background-color: #A1AAA1;
+    color: #fff;
+    list-style: none;
+    margin: 2px 2px 2px -28px;
+    padding: 10px;
+    border-radius: 2px; }
+    /* line 2027, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    ul.chapterList li.ui-sortable-helper {
+      background-color: GoldenRod; }
+    /* line 2031, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    ul.chapterList li:last-child {
+      margin-bottom: 40px; }
+/* line 2038, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+ul.templateNames li {
+  cursor: pointer;
+  background-color: #e31d22;
+  color: #fff;
+  display: inline-block;
+  padding: 5px;
+  min-width: 140px;
+  text-decoration: none; }
+  /* line 2047, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  ul.templateNames li:hover {
+    text-decoration: underline; }
+
+/* line 2053, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.processing {
+  cursor: not-allowed;
+  color: #a1a1a1; }
+  /* line 2057, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .processing:hover {
+    text-decoration: none; }
+
+/* line 2062, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.configinput {
+  width: 100px;
+  display: none; }
+
+/* line 2067, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.topmenudiv {
+  float: left;
+  position: fixed;
+  top: 122px;
+  z-index: 10000; }
+
+/* line 2074, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.epubtextarea {
+  width: 98%;
+  height: 450px; }
+
+/* line 2079, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.listgroupdiv {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  top: -64px; }
+
+/* line 2086, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.sharedcontentdiv {
+  font-size: 36px;
+  color: orange; }
+
+/* line 2091, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.sharedcontentdiv2 {
+  box-shadow: 1px 1px 1px 1px #cecece;
+  padding: 5px; }
+
+/* line 2096, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.globalsearchdiv {
+  border: 1px solid white;
+  border-radius: 2px;
+  padding: 5px; }
+
+/* line 2102, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ordermediadiv {
+  width: 16px;
+  height: 16px;
+  padding: 11px 11px 11px 40px;
+  margin-right: 5px;
+  border: none;
+  background-position: left center;
+  display: inline; }
+
+/* line 2112, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ordermediaspan {
+  font-size: 18pt;
+  color: #ffa500;
+  font-weight: bold; }
+
+/* line 2118, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.publishedimg {
+  float: right;
+  box-shadow: 5px 5px 5px #a1a1a1;
+  margin-right: 5px; }
+
+/* line 2124, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.orderimg {
+  width: 80%;
+  height: 80%;
+  border: none; }
+
+/* line 2130, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.changecollectiondiv1 {
+  padding: 10px 0px 5px 0px;
+  height: 45px; }
+
+/* line 2135, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.changecollectiondiv {
+  padding: 10px 0px 5px 0px;
+  height: 45px;
+  color: red; }
+
+/* line 2141, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.changecollectiontd {
+  width: 50%;
+  overflow: hidden; }
+
+/* line 2146, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.childmessagediv {
+  background-color: #fffaea;
+  padding: 5px;
+  margin: 2px;
+  border: 3px solid white; }
+
+/* line 2153, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.topmessagediv {
+  background-color: #fffaea;
+  padding: 5px;
+  margin: 5px;
+  min-height: 55px; }
+
+/* line 2160, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.editthreadtd {
+  width: 450px;
+  vertical-align: top; }
+
+/* line 2165, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.readerappdiv {
+  background-color: white;
+  height: 100%; }
+
+/* line 2170, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.readerappspan {
+  padding: 0px 0px 0px 22px; }
+
+/* line 2174, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.readerbookcontent {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAI9SURBVDjLpZPNS5VBFIef+77X4lYayfVqpQY3XPiRGogp9rEpa2NRQpAELaJl5LKVJGSrFm36A6RMCpSilu5StETLaGcophTeNMyv+/rOmTMtrp87o4FhOOdwnvObHzMR5xz/s6IAz98vtDnHHeu0UFWxCqKKtYpVh1jdti1WHFZ1uONmSW0UQJ2721ybHf+XyQ9efqvcVGBV4wBvJjoRFcQKRgVjzdZpZbN2v74DY+zebYCMDy1lt3c1fSUQjNgtD6xVALr7U7sCXK7JJdwOkHUAwI3TCV4NzHK9IX8z1zM0S3PdVjy3GOxUYKyizhH1oWcwhe979A6liHjgrTfd6zpH2izRVP6aiqJDhCYD8Dau4ICoH6G5PkHUg2t1Ca7WJrhSmwDAOENhvJSu0YsEJkBEdypwClEP3o38wveh9cVZnBpCFUIRjuSWUFpwiqVghdbeKrJ5tg0ginOOLB8uncyjb2wO0ZAL5bewTrFqURw//kxzorCB5TDNyPcmKh8GBzMmakaO70XoG5sDIJAQ65Sp+XGMCqIGYw2La0tUF51h2azyYbJ/3gMQkYwHHpyvihP1IZAAsUJ+TjEFOcc4fDBJlh8jL/soo9MDfJz4ympIzZYHzlFRfICfv9Mcz4+RljU6Bx8TakggIcl4GXXJRoan+hmdGaMi9lR72ls+rz8kN9DePV4dWt1vxGLEEpNuolYRK+QAn2YaiXgxBsa/ULLnCQsribcAkd1+52RbZMWqvy+tNpl65CY38n8B/ZBP7EKNHesAAAAASUVORK5CYII=');
+  /*/Scripts/reader/img/table_go.png*/ }
+
+/* line 2178, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.readerappcreatebookmark {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAB3RJTUUH1wkbDx8TC188pQAAAAlwSFlzAAAewQAAHsEBw2lUUwAAAARnQU1BAACxjwv8YQUAAAKOSURBVHjadVNNSFVBFP7m+vzBWliRZqRiJfnTe0YRloVQ1kKikpYtAgkiMNu4MXLTz0KiNpUGL4nA2lRQ1EJLoj8Ro6CwbFVa0Q8+oed71nt37r0z05kZ8SdseGfOeffM9835zr2Hgdbe49eqlFK3FRCHQq2iTdEfvVmnZkwKHz5PjD3vaV+tsSHYA0foYHm4spjFJhIGbAGAJZOgHyYTf5DmRKJCpZhelgCoC1cWsR2RIhQXhg1Yo6UGai/t7cvzcpGbE8K2/Ucxj4CyS8JVJeh9/RHxeAqnR3uw7FU/mO9DZWYitrEeJ4sPYjKZgss9zF3TEsBCWSGUrS/B2oKlkK0XsOjERSCD0iKA7OlG47GtSLs+bt15Oo/Ame4BhJD4Ekvi68QU8gNhs733jVshJUbHk/ADSbLUAgRkkggC6jDnHJxKNSknw3g3YUv3hcQ/+NkKdFL4AZE4iLZdx9jDu8CuBuPPtURBl8MLbFMXJAgo6VHTPDqonGzcOHAWn29eRXTPKciMLHiCkf2XAKRPIHADcF/Apdglf+XQJXCKuUeWGsT3b+dRuq4P4Z0xNLRF2ud+SFS6pC/MNwRGjlDmRv1cpAewsuADNlXUYNXSMjwZuYeh9y/O1DQX5s2T4HuWQGtNa0/GKU5NPcaG8moIR6C6cDcE87ElXKuhzYZAvxpPS+BagjTl++RN+Vwg/nscmWwx9lW0GN2t9VGsyY/oMGemB7pkobX61lx6I5xTY6mrv5JxjPwYREd/kyHoeNSET7FhHbozPYDjYHNNBIoxQxYIPXnWM96IoeE+1Ea248G7LmSxEAbePtPQTqb3uqbL3cRx2E6emp1GmHG0F+QQIPsNwMwsTJF1vez82fYXNZi4b1jfEPoAAAAASUVORK5CYII=');
+  /*/Scripts/reader/img/bookmark_add.png*/ }
+
+/* line 2182, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.readerappdeletebookmark {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAB3RJTUUH1wkbDx8nKuvIEAAAAAlwSFlzAAAewQAAHsEBw2lUUwAAAARnQU1BAACxjwv8YQUAAAKWSURBVHjabVNbSFRRFF33oU7jR+ZQKeWoPWjSxkqIsCCwB72Iwr+K+glCooLqx6iPCokI+ilIsIhC++mBJYjl9CH5I9RHhBREjdODyJHQmUFn7r3n0T736Jjl4e6z7z377HXW2uduAzT2nb5XK6V8LIExSGySNEn6UJN2Mm+Ce/Cc1PDrjovLVK4NveE4bYxEa8JGcjTlJ+sEQIMJ0IPx1ASyDoFIuxpTQwMAW6I1FUZjXQXC5VE/WWULlai80KcvLAkiGLCxeX8zZgFQdEG0thK9bz9jbGwSV+IdCL2JwfA8yIICJOu34UL4EMbTk8g5Lv4eUxJg2IU2Vq6pxIrFpRDnbqD4/E3AojBnEB13ceBkA7I5D4+e9M8CMKdqAM4FvibT+DaawSLGdbS323dlQiA+kobHBMmScwCQCQJgVGHHceAQVT9kWr7PpTR1jwv8kz/DQAW5xwjERHvLfQy/7AK27/b99VPtoMPhMl3UOQEYBV0qmksbpVmEzqZWJB7eQfveyxBWIVxukP0PMF1E0sfBcgyOR542KkZtR2/pdQJfnXiG5Z+eoj6ZwO/CAEp2WC07Y/yanWegkhzPB/DlcOmfqNYj8edocAYQOdKMoupaZN/34cNArLVPfJyYJcFzNYDSmlWezKH3JUOdWNXYhMCXfhgPDiIY70JVZciShjzjM1BX4yqqjpJAQHRtnFFhBbHxJOZnRhAoo793z9kZ7ZfKYQmjKl8DRZm7XEsgAMWIMelbOhjC5LseFHefgJP9BXXJmbQFbuFnvgYwTWzYWAdpGD4Y46rztE+tO4yhwR6ES+fBtgqQGWVIjBgUkbenAWIvegaP6c6TM90Ivx3xSi7FVrEea7/HEKJWEJb5g2Jtu2L86h/u0cUKFpTWlQAAAABJRU5ErkJggg==');
+  /*/Scripts/reader/img/bookmark_delete.png*/ }
+
+/* line 2186, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.readerappcomments {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAG/SURBVDjLjZK9T8JQFMVZTUyc3IyJg4mDi87+GyYu6qB/gcZdFxkkJM66qJMGSNRBxDzigJMRQ1jQ4EcQ+SgVKB+FtuL13EdJxNDq8Ev7Xu85797T51nwhqeAH5w6cAxWwDgReX7jwYfdaCIraroptB7NLlVQrOoiGEsL1G06GZyxuILicsMUH3VTlOqGKNUMUdTacj+j1Nng0NGAT2WxYosK1bbIVVoiW27J9V8G57WWKVSczMV5iK+Tudv1vVh5yXdlLQN+os4AFZss2Ob82CCgQmhYHSnmkzf2b6rIhTAaaT2aXZALIRdCLgRtkA1WfYG4iKcVYX52JIs7EYvFmJ8wGiEXQi6EXAhdyn2MxQaPcg68zIETTvzyLsPzWnwqixVbhFwI3RFykes+A9vkIBKX4jCoIxdCLrI4/0OcUXXK4/1dbbDBS088xGGCCzAJCsiF2lanT8xdKNhHXvRarLFBqmcwCrbAhL32+kP3lHguETKRsNlbqUFPeY2OoikW62DNM+jf2ibzQNN0g5ALC75AGiT59oIReQ+cDGyTB+TC4jaYGXiRXMTD3AFogVmnOjeDMRAC025duo7wH74BwZ8JlHrTPLcAAAAASUVORK5CYII=');
+  /*/Scripts/reader/img/comments.png*/ }
+
+/* line 2190, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.readerappsignout {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAB3RJTUUH1wkbFAMJADnUEwAAAAlwSFlzAAAewQAAHsEBw2lUUwAAAARnQU1BAACxjwv8YQUAAAKcSURBVHjarZPLTxNRFMa/aWmBFiqPkEBBRGh4BbECGpH4IFFjRNzgghAeGxM29K9hr7wkhKTBpKIkQGpgY0hM2CBaKX1BAaHFllLKzH14ZxJq8LHSs5jce+d+v/Odc2aAfwzp14Ogw1HFKeshoP1cVooZGDgnuxRsjHE62fBiyvtXQGjI0UUYHbbU2UrMdjukPAuQSkHZCyO6sIDDaGSHcupoGn/t/A2giimlowX375nNVxtBNz8BeyFAliHl5EMqL0fkzVuE/BvHjJKBG1NzzjQgMDRUKWwvF95ptZparoG6XUiepCBRBZlGAyTGweUUUN+E/bl5bO0Fw4yT223T7k2dChDiXpO10Jp9pR506R1QWoHs5jYYknGw7xFI9lZI1Y1QludR1N6O7NSplTLaq2o1AJNon7mhFmx9FYlgANycB70lD7q669DVtkCy5AOiDM4A4vOixH4LwkGfqs1QH6IxpRkmE+DxQCIK4q9eIvdxJzIqq7Uiie8rYtPTWq8MRwqymm+CrZLSNECMCyweh3QUg04+FUQKTogYHxcvoe3PghAGPVddE6RLEA62TwJ+YV2MTcByu/u07GTjs5iGB/qqGlx4Pihu62C8eAkxnw9MIds/AYyMR1ZWwK028GMFODwAOfiG+MwMYk4n6M42eHRfJNLDUGFDcM2t9mA8XYLYTCTMWYOR925rwaMOJFwuiFlrFqloQnRkRLtqefIUgcVZJORkmEp84tyH9LGns0uARotyCs1F7Q8g+72QvV4wmSGzxgZj2WWEFl3wRzzHTGIDHbPrznMANT50P+wSmYeNVC4pq22FsdiqnSfDQXjXlpCkqR0hdpyJ//gzLT+7W8WJ0kP0rJ8zWqxOSKx3xXqMETLZMffFi/8ZPwDypFyzCnQcwwAAAABJRU5ErkJggg==');
+  /*/Scripts/reader/img/decline.png*/ }
+
+/* line 2194, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.readerappdiv1 {
+  float: left;
+  margin-left: 65px; }
+
+/* line 2199, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.readerappdiv2 {
+  float: right;
+  margin-right: 112px; }
+
+/* line 2204, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.singleworkDiv {
+  box-shadow: 2px 2px 2px 2px #cecece;
+  margin-bottom: 5px;
+  padding: 5px;
+  position: absolute;
+  background-color: #fff;
+  left: 550px; }
+
+/* line 2213, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.font-small {
+  font-size: smaller; }
+
+/* line 2217, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.border-widthSize {
+  border: 0; }
+
+/* line 2221, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.MarketingIndexImg {
+  float: right;
+  width: 40%; }
+
+/* line 2226, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ColorRed {
+  color: red; }
+
+/* line 2230, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Fullwidth {
+  width: 100%; }
+
+/* line 2234, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.HalfWidth {
+  width: 50%; }
+
+/* line 2238, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.TopVertical {
+  vertical-align: top; }
+
+/* line 2242, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.MileStonesFinishTd {
+  line-height: 28px; }
+
+/* line 2246, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.MileStonesFinishAnchor {
+  width: 16px;
+  height: 16px;
+  font-size: 8pt; }
+
+/* line 2252, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.MileStonesFinishInput {
+  width: 460px;
+  height: 16px;
+  font-size: 8pt; }
+
+/* line 2258, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.MileStonesheight {
+  height: 2px; }
+
+/* line 2262, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ShowMilestoneSpan1 {
+  color: red;
+  font-size: 20pt;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: top; }
+
+/* line 2270, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.MergeContentTd1 {
+  width: 50%;
+  overflow: hidden; }
+
+/* line 2275, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Height500 {
+  height: 500px; }
+
+/* line 2279, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Width600 {
+  width: 600px; }
+
+/* line 2283, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Width200 {
+  width: 200px; }
+
+/* line 2287, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.RetorteDiv1 {
+  width: 350px;
+  padding: 5px; }
+
+/* line 2292, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.PaymentDiv1 {
+  color: orange;
+  font-size: 24px;
+  font-weight: bold; }
+
+/* line 2298, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.SummaryDiv1 {
+  float: left;
+  padding: 20px; }
+
+/* line 2303, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.SummaryImg {
+  max-width: 300px;
+  min-height: 100px; }
+
+/* line 2308, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.RightAlign {
+  text-align: right; }
+
+/* line 2312, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.SummaryDiv2 {
+  clear: both;
+  margin: 20px;
+  text-align: justify; }
+
+/* line 2318, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Bottom5 {
+  margin-bottom: 5px; }
+
+/* line 2322, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ProjectTeamDiv1 {
+  border: 1px solid #a1a1a1;
+  padding: 5px;
+  margin-bottom: 1px;
+  height: 110px; }
+
+/* line 2329, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ProjectImportImg {
+  vertical-align: middle;
+  text-align: center; }
+
+/* line 2334, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ProjectImportUploadDiv1 {
+  float: right;
+  width: 300px; }
+
+/* line 2339, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ProjectImportUploadDiv2 {
+  max-height: 100px;
+  overflow-y: scroll;
+  position: relative;
+  top: 0px; }
+
+/* line 2346, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Width950 {
+  width: 950px; }
+
+/* line 2350, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Width160 {
+  width: 160px; }
+
+/* line 2354, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Width200 {
+  width: 200px; }
+
+/* line 2358, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Width480 {
+  width: 480px; }
+
+/* line 2362, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Width140 {
+  width: 140px; }
+
+/* line 2366, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.projectImportPreviewDiv1 {
+  width: 850px;
+  max-height: 100px;
+  overflow-y: scroll;
+  font-family: Courier New; }
+
+/* line 2373, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ChildMessageDiv1 {
+  background-color: #fffaea;
+  padding: 5px;
+  margin: 2px;
+  border: 3px solid white; }
+
+/* line 2380, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.TopMessageDiv1 {
+  float: right;
+  border: 2px solid #eee9d9;
+  background-color: White;
+  padding: 2px; }
+
+/* line 2387, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.TopMessageDiv2 {
+  background-color: #fffaea;
+  padding: 5px;
+  margin: 5px;
+  min-height: 55px; }
+
+/* line 2394, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.LeadAuthorDiv1 {
+  float: right;
+  position: relative;
+  top: -25px; }
+
+/* line 2400, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.projectDashboardSpan {
+  padding-left: 30px;
+  vertical-align: middle; }
+
+/* line 2405, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Minheight24 {
+  min-height: 24px; }
+
+/* line 2409, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Paddind5 {
+  padding: 5px; }
+
+/* line 2413, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.projectDashboardSpan1 {
+  padding-left: 30px;
+  vertical-align: middle; }
+
+/* line 2418, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.LeftMargin260 {
+  margin-left: 260px; }
+
+/* line 2422, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Width64 {
+  width: 64px; }
+
+/* line 2426, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Margin20 {
+  margin: 20px; }
+
+/* line 2430, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.PublishableImg {
+  position: relative;
+  top: 4px; }
+
+/* line 2435, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.RecentPublishDiv {
+  background-image: url(/Content/images/pdf_24.png);
+  background-repeat: no-repeat;
+  padding-left: 32px; }
+
+/* line 2441, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Leftmargin240 {
+  margin-left: 240px; }
+
+/* line 2445, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.AssignCatalogSelect {
+  margin-top: 15px !important;
+  width: 300px;
+  margin-left: 10px !important;
+  height: 100px; }
+
+/* line 2452, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Width580 {
+  width: 580px; }
+
+/* line 2456, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Width20 {
+  width: 20px; }
+
+/* line 2460, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.marketingSpan1 {
+  color: Orange;
+  font-size: 12pt;
+  font-weight: bold; }
+
+/* line 2466, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.marketingDiv1 {
+  position: relative;
+  left: -260px; }
+
+/* line 2471, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.marketingDiv2 {
+  position: relative;
+  left: -25px;
+  top: 0px; }
+
+/* line 2477, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ConfirmPublishedDiv1 {
+  min-height: 60px;
+  max-height: 250px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 900px;
+  margin: 0 0 10px 0;
+  border: 1px solid #a1a1a1; }
+
+/* line 2487, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ConfirmPublishedDiv2 {
+  height: 250px;
+  width: 440px;
+  margin: 0 0 10px 0;
+  border: 1px solid #a1a1a1;
+  float: left; }
+
+/* line 2495, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ConfirmPublishedDiv3 {
+  height: 250px;
+  width: 420px;
+  margin: 0 0 10px 0;
+  border: 1px solid #a1a1a1;
+  float: right; }
+
+/* line 2503, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.QuickPublishedImg {
+  float: left;
+  width: 64px;
+  height: 64px;
+  margin-right: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+/* line 2512, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.CountryDiv1 {
+  position: relative;
+  left: -260px;
+  top: -15px; }
+
+/* line 2518, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.MarketingTypesDiv1 {
+  margin-left: -250px;
+  margin-top: 10px; }
+
+/* line 2523, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Margin5 {
+  margin: 5px; }
+
+/* line 2527, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Width33Per {
+  width: 33%; }
+
+/* line 2531, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.BothClear {
+  clear: both; }
+
+/* line 2535, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.text-top {
+  vertical-align: top; }
+
+/* line 2539, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ListMembersImg {
+  cursor: pointer;
+  margin: 10px 15px 15px 0; }
+
+/* line 2544, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ListMembersDiv0 {
+  position: absolute;
+  z-index: 20;
+  display: none;
+  background-color: white;
+  box-shadow: 2px 2px 3px 3px #c0c0c0;
+  padding: 5px;
+  width: 330px; }
+
+/* line 2554, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.SearchResultsTh1 {
+  width: 150px;
+  text-align: center; }
+
+/* line 2559, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Width100 {
+  width: 100px; }
+
+/* line 2563, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Width10 {
+  width: 10px; }
+
+/* line 2567, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Width70 {
+  width: 70px; }
+
+/* line 2571, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Width150 {
+  width: 150px; }
+
+/* line 2575, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.itemDescription {
+  padding: 5px;
+  margin: 5px 0px;
+  width: 800px;
+  border: 1px solid white; }
+
+/* line 2582, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.divAOM {
+  float: right;
+  margin-right: 50px; }
+
+/* line 2587, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.listStyleNone {
+  list-style-type: none; }
+
+/* line 2591, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ListSpan0 {
+  vertical-align: top;
+  margin-right: 5px; }
+
+/* line 2596, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.marginRight5 {
+  margin-right: 5px; }
+
+/* line 2600, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.MarginBottom20 {
+  margin-bottom: 20px; }
+
+/* line 2604, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.DetailsDiv1 {
+  clear: both;
+  margin: 20px;
+  text-align: justify; }
+
+/* line 2610, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.MarginTop20 {
+  margin-top: 20px; }
+
+/* line 2614, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.RateMemberDiv {
+  width: 240px;
+  top: 5px; }
+
+/* line 2619, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.VerticalTop {
+  vertical-align: top; }
+
+/* line 2623, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.VerticalMiddle {
+  vertical-align: middle; }
+
+/* line 2627, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.MediaInput {
+  width: 16px;
+  height: 16px;
+  padding: 11px 11px 11px 40px;
+  margin-right: 5px;
+  border: none;
+  background-position: left center;
+  display: inline; }
+
+/* line 2637, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.BoldFont {
+  font-weight: bold; }
+
+/* line 2641, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ListReaderDiv0 {
+  font-size: 36px;
+  color: orange; }
+
+/* line 2646, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Padding0 {
+  padding: 0; }
+
+/* line 2650, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ContactImg {
+  float: right;
+  padding-top: 15px; }
+
+/* line 2655, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.QuickFormatInfoHead {
+  position: relative;
+  top: 0px; }
+
+/* line 2660, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.FullHeight {
+  height: 100%; }
+
+/* line 2664, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.MarginLeft25 {
+  margin-left: 25px; }
+
+/* line 2668, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.backgroundcolorBlack {
+  background-color: black; }
+
+/* line 2672, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.CmsAdminBodyDiv1 {
+  margin: 10px;
+  position: absolute;
+  z-index: 100;
+  top: 200px; }
+
+/* line 2679, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.CmsAdminBodyImg {
+  position: relative;
+  top: -10px;
+  left: 20px;
+  cursor: pointer; }
+
+/* line 2686, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.CmsAdminBodyDiv2 {
+  visibility: hidden;
+  width: 160px;
+  height: 120px;
+  background-color: white;
+  border: 1px solid blue;
+  padding: 5px; }
+
+/* line 2695, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.TextPortalCreateDiv1 {
+  text-decoration: none;
+  font-weight: bold;
+  height: 80px;
+  width: 80px; }
+
+/* line 2702, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.NoTextDecoration {
+  text-decoration: none; }
+
+/* line 2706, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.TextPortalAnchor {
+  opacity: 0.5;
+  color: lavenderblush;
+  cursor: not-allowed; }
+
+/* line 2712, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.TextPortalImg1 {
+  float: left;
+  margin-right: 15px; }
+
+/* line 2718, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.textAlignLeft {
+  text-align: left; }
+
+/* line 2722, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.templateDiv {
+  margin-left: 25px;
+  border-left: 2px solid #a1a1a1;
+  float: right; }
+
+/* line 2728, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.opacity05 {
+  opacity: 0.5; }
+
+/* line 2732, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.floatRight20px {
+  float: right;
+  margin: 20px; }
+
+/* line 2737, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.TeamImg {
+  width: 50px;
+  height: 70px; }
+
+/* line 2742, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.coverImg {
+  max-width: 150px;
+  min-height: 100px;
+  box-shadow: 6px 6px 4px -3px #555; }
+
+/* line 2748, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.listMembersImg {
+  cursor: pointer;
+  width: 96px;
+  height: 128px; }
+
+/* line 2754, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.indexMinWidth {
+  min-width: 350px; }
+
+/* line 2758, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.editPaddingLeft {
+  padding-left: 260px; }
+
+/* line 2762, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.ratingstardiv {
+  padding: 5px 0px 15px 0px; }
+
+/* line 2766, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.headzone-usercommands {
+  width: 106px;
+  height: 115px;
+  margin-right: 16px;
+  float: left;
+  font-size: 16pt;
+  padding: 3px;
+  overflow: hidden;
+  background-color: #ddd;
+  color: #333333; }
+
+/* line 2778, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Width45 {
+  width: 45px; }
+
+/* line 2783, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+#users h4 {
+  width: 120px;
+  height: 80px;
+  padding: 5px;
+  img-float: left; }
+/* line 2790, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+#users div {
+  width: 250px;
+  margin: 25px 25px 0px 0px;
+  float: left; }
+  /* line 2795, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  #users div div {
+    margin: 0; }
+    /* line 2798, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    #users div div.chat_user, #users div div.chat_team, #users div div.chat_group {
+      font-size: smaller;
+      border: 1px solid transparent; }
+
+/* line 2806, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+ul.templateNames li {
+  cursor: pointer;
+  color: #fff;
+  display: inline-block;
+  padding: 5px;
+  min-width: 140px;
+  text-decoration: none; }
+  /* line 2814, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  ul.templateNames li:hover {
+    text-decoration: underline; }
+
+/* line 2819, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+#productionProgress, #productionProgressMessage {
+  width: 350px; }
+
+/*Styles start New*/
+/* line 2825, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+#MaxHourlyRate {
+  width: initial; }
+
+/* line 2830, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+form input[type="checkbox"] {
+  display: inline-block !important; }
+/* line 2834, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+form legend {
+  width: 100%; }
+
+/* line 2839, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+h1.pull-left {
+  border-bottom: 0px;
+  width: initial; }
+
+/* line 2844, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.navigation > .nav > li > a {
+  background-color: #eeeeee; }
+
+/* line 2848, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.datatables-top {
+  margin-left: 0px;
+  background-color: white;
+  margin-right: 0%; }
+
+/* line 2854, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.tooltip {
+  position: absolute;
+  z-index: 1030;
+  display: block;
+  visibility: visible;
+  font-size: 12px;
+  line-height: 1;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  margin-left: 7%;
+  color: darkgoldenrod; }
+
+/* line 2867, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.page-header {
+  overflow: initial; }
+
+/* line 2871, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.icon-search {
+  min-width: 0%; }
+
+/* line 2875, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+#content {
+  background-color: #f8f8f8; }
+
+/*.btn-group, .btn-group-vertical {
+  position: initial !important;
+}*/
+/* line 2883, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.btn-file {
+  position: relative;
+  overflow: hidden; }
+
+/* line 2888, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 999px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block; }
+
+/* line 2906, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.pagination-digg input {
+  margin-left: 3px !important;
+  height: 29px !important; }
+  /* line 2910, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .pagination-digg input.filter-control {
+    border-color: #A1A1A1;
+    padding: 6px;
+    padding-right: 30px;
+    margin: 5px 5px 5px 0;
+    background: white;
+    border: 1px solid #ddd;
+    position: relative;
+    width: 100px;
+    font-size: smaller;
+    top: -5px; }
+    /* line 2922, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+    .pagination-digg input.filter-control:before {
+      content: "\f002" " "; }
+/* line 2929, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.pagination-digg .filter-area {
+  float: left;
+  margin-top: 5px;
+  font-size: 85%; }
+
+/* line 2936, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.panel-heading > a > i {
+  color: #666666;
+  padding-right: 20px;
+  text-decoration: none; }
+
+/* line 2942, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.contrast-grass-green header .navbar {
+  background-color: #C8C8C8; }
+  /* line 2946, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .contrast-grass-green header .navbar > .nav > li.light > a, .contrast-grass-green header .navbar > .nav > li.dark > a {
+    background-color: #C8C8C8; }
+
+/* line 2952, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.hidden-to-show {
+  display: none; }
+
+/* line 2956, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.formServiceLabelDiv {
+  height: 40px; }
+  /* line 2960, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .formServiceLabelDiv > label {
+    width: 30% !important;
+    float: left !important; }
+  /* line 2965, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .formServiceLabelDiv > div {
+    width: 70% !important;
+    float: left; }
+
+/* line 2972, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+div#gbox_termsets .ui-jqgrid-pager {
+  height: 35px !important; }
+
+/* line 2976, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.form-control, .editor-mood {
+  display: inline-block;
+  width: auto; }
+
+/* line 2981, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.form-group {
+  min-height: 38px; }
+
+/* styles End New*/
+/* styles Bootsstrap override */
+/* line 2989, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.col-xs-12 {
+  margin-bottom: 2%; }
+
+/* line 2993, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.Calender-Inline {
+  width: 28%;
+  display: inline-table; }
+
+/* line 2998, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.has-error {
+  border: 2px solid #dd5500 !important; }
+
+/* line 3002, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.dropNavigation {
+  left: auto !important; }
+
+/* line 3006, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.dropTasks {
+  left: auto !important; }
+
+/* line 3012, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.pagination-sm > li:first-child > span {
+  z-index: 0 !important; }
+
+/* line 3017, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.pagination > .active > span, .pagination > .active > a {
+  z-index: 0 !important;
+  /*this is important as the dropdown buttons and the "previous" and  "next"  that were used in bootstrap pagination 
+	 are visible even if they over the other div
+	 (say footer for instance)  */ }
+
+/* line 3025, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.cu-mg-bm {
+  margin-bottom: 100px !important;
+  margin-top: 60px; }
+
+/* line 3030, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.page-header-with-buttons {
+  position: fixed;
+  z-index: 5;
+  width: 100%; }
+
+/* line 3036, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.open > .dropdown-menu {
+  z-index: 1000;
+  padding: 0; }
+
+/* line 3041, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.panel-group .panel {
+  overflow: visible; }
+
+/* line 3045, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+[data-lang-image="de"] {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGzSURBVHjaYvTxcWb4+53h3z8GZpZff/79+v3n/7/fDAz/GHAAgABi+f37e3FxOZD1Dwz+/v3z9y+E/AMFv3//+Qumfv9et241QACxMDExAVWfOHkJJAEW/gUEP0EQDn78+AHE/gFOQJUAAcQiy8Ag8O+fLFj1n1+/QDp+/gQioK7fP378+vkDqOH39x9A/RJ/gE5lAAhAYhzcAACCQBDkgRXRjP034R0IaDTZTFZn0DItot37S94KLOINerEcI7aKHAHE8v/3r/9//zIA1f36/R+o4tevf1ANYNVA9P07RD9IJQMDQACxADHD3z8Ig4GMHz+AqqHagKp//fwLVA0U//v7LwMDQACx/LZiYFD7/5/53/+///79BqK/EMZ/UPACSYa/v/8DyX9A0oTxx2EGgABi+a/H8F/m339BoCoQ+g8kgRaCQvgPJJiBYmAuw39hxn+uDAABxMLwi+E/0PusRkwMvxhBGoDkH4b/v/+D2EDyz///QB1/QLb8+sP0lQEggFh+vGXYM2/SP6A2Zoaf30Ex/J+PgekHwz9gQDAz/P0FYrAyMfz7wcDAzPDtFwNAgAEAd3SIyRitX1gAAAAASUVORK5CYII=') no-repeat left center;
+  padding-left: 25px; }
+
+/* line 3050, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+[data-lang-image="en"] {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHzSURBVHjaYkxOP8IAB//+Mfz7w8Dwi4HhP5CcJb/n/7evb16/APL/gRFQDiAAw3JuAgAIBEDQ/iswEERjGzBQLEru97ll0g0+3HvqMn1SpqlqGsZMsZsIe0SICA5gt5a/AGIEarCPtFh+6N/ffwxA9OvP/7//QYwff/6fZahmePeB4dNHhi+fGb59Y4zyvHHmCEAAAW3YDzQYaJJ93a+vX79aVf58//69fvEPlpIfnz59+vDhw7t37968efP3b/SXL59OnjwIEEAsDP+YgY53b2b89++/awvLn98MDi2cVxl+/vl6mituCtBghi9f/v/48e/XL86krj9XzwEEEENy8g6gu22rfn78+NGs5Ofr16+ZC58+fvyYwX8rxOxXr169fPny+fPn1//93bJlBUAAsQADZMEBxj9/GBxb2P/9+S/R8u3vzxuyaX8ZHv3j8/YGms3w8ycQARmi2eE37t4ACCDGR4/uSkrKAS35B3TT////wADOgLOBIaXIyjBlwxKAAGKRXjCB0SOEaeu+/y9fMnz4AHQxCP348R/o+l+//sMZQBNLEvif3AcIIMZbty7Ly6t9ZmXl+fXj/38GoHH/UcGfP79//BBiYHjy9+8/oUkNAAHEwt1V/vI/KBY/QSISFqM/GBg+MzB8A6PfYC5EFiDAABqgW776MP0rAAAAAElFTkSuQmCC') no-repeat left center;
+  padding-left: 25px; }
+
+/* line 3055, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+[data-lang-image="es"] {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFnSURBVHjaYvzPgAD/UNlYEUAAmuTYAAAQhAEYqF/zFbe50RZ1cMmS9TLi0pJLRjZohAMTGFUN9HdnHgEE1sDw//+Tp0ClINW/f0NIKPoFJH/9//ULyGaUlQXaABBALAx/Gf4zAt31F4i+ffj3/cN/XrFfzOx//v///f//LzACM/79ZmD8/e8TA0AAMYHdDVT958vXP38nMDB0s3x94/Tj5y+YahhiAKLfQKUAAcQEdtJfoDHMF2L+vPzDmFXLelf551tGFOOhev4A/QgQQExgHwAd8IdFT/Wz6j+GhlpmXSOW/2z///8Eq/sJ18Dw/zdQA0AAMQExxJjjdy9x2/76EfLz4MXdP/i+wsyGkkA3Aw3984cBIIAYfzIwMKel/bt3jwEaLNAwgZIQxp/fDH/+MqqovL14ESCAWICeZvr9h0FSEhSgwBgAygFDEMT+wwAhgQgc4kAEVAwQQIxfUSMSTxxDAECAAQAJWke8v4u1tAAAAABJRU5ErkJggg==') no-repeat left center;
+  padding-left: 25px; }
+
+/* line 3060, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+[data-lang-image="fr"] {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGzSURBVHjaYiyeepkBBv79+Zfnx/f379+fP38CyT9//jAyMiq5GP77wvDnJ8MfoAIGBoAAYgGqC7STApL///3/9++/pCTv////Qdz/QO4/IMna0vf/z+9/v379//37bUUTQACBNDD8Z/j87fffvyAVX79+/Q8GQDbQeKA9fM+e/Pv18/+vnwzCIkBLAAKQOAY5AIAwCEv4/4PddNUm3ji0QJyxW3rgzE0iLfqDGr2oYuu0l54AYvnz5x9Q6d+/QPQfyAQqAin9B3EOyG1A1UDj//36zfjr1y8GBoAAFI9BDgAwCMIw+P8Ho3GDO6XQ0l4MN8b2kUwYaLszqgKM/KHcDXwBxAJUD3TJ779A8h9Q5D8SAHoARP36+Rfo41+/mcA2AAQQy49ff0Cu//MPpAeI/0FdA1QNYYNVA/3wmwEYVgwMAAHE8uPHH5BqoD1//gJJLADoJKDS378Z//wFhhJAALF8A3rizz8uTmYg788fJkj4QOKREQyYxSWBhjEC/fcXZANAALF8+/anbcHlHz9+ffvx58uPX9KckkCn/gby/wLd8uvHjx96k+cD1UGiGQgAAgwA7q17ZpsMdUQAAAAASUVORK5CYII=') no-repeat left center;
+  padding-left: 25px; }
+
+/* line 3068, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.validation-summary-errors > span {
+  margin: 0 0 10px 0;
+  display: inline-block;
+  font-weight: bold; }
+
+/* line 3074, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.validation-summary-valid {
+  display: none; }
+
+/* line 3079, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.maxlength {
+  font-size: 9px;
+  color: green; }
+  /* line 3083, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+  .maxlength .maxlength-warning {
+    color: red; }
+
+/* line 3088, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+#helpsection {
+  display: none; }
+
+/* line 3092, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+#helpsectiontrigger {
+  cursor: help; }
+
+/* line 3096, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.drop-hover {
+  background-color: #A1AAA1;
+  font-weight: 400;
+  font-size: 1.1em; }
+
+/* This is support for list items that can be dragged to favorites pane */
+/* line 3103, D:/Apps/Firma/ABG/Project/Texxtoor/Texxtoor.Solution/Texxtoor.Portal/sass/custom/style.scss */
+.draggable {
+  cursor: crosshair; }
+
+/*# sourceMappingURL=style-mymanuals.css.map */

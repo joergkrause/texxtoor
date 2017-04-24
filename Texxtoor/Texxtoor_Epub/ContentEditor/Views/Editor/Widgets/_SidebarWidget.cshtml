@@ -1,0 +1,10 @@
+﻿@model Texxtoor.Models.SidebarSnippet
+<div class="editableByTexxtoor editableText integratedEditor saveableByTexxtoor" 
+     data-editor="HtmlEditor" 
+     data-class="editableByTexxtoor" 
+     data-style="background-color:#fff;" 
+     data-item='@Model.Id' 
+     id='sn-@Model.Id'>
+     <div class="editor" contenteditable="true">@Html.Raw(Model.RawContent)</div>
+     <input name="sidebartype-@Model.Id" type="hidden" value="@((int)Model.SidebarType)" />
+</div>

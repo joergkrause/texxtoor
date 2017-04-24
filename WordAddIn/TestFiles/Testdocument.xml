@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html>
+
+  <body lang="DE">
+
+    <div class="WordSection1">
+
+      <h1 style='margin-left:0cm'>
+        <span lang="EN-US">
+          1<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;&#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Chapter One</span>
+      </h1>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">This is the chapter's introduction.</span>
+      </p>
+
+      <h2 style='margin-left:0cm'>
+        <span lang="EN-US">
+          1.1<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Introduction</span>
+      </h2>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">
+          The first chapter explains the basic
+          functions of the Texxtoor Add-In.
+        </span>
+      </p>
+
+      <h2 style='margin-left:0cm'>
+        <span lang="EN-US">
+          1.2<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Purpose</span>
+      </h2>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">Here we describe the purpose.</span>
+      </p>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">
+          The Add-In restricts the user to certain
+          functions that allows us to automate the production process.
+        </span>
+      </p>
+
+      <h1 style='margin-left:0cm'>
+        <span lang="EN-US">
+          2<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;&#160;&#160;&#160;
+          </span>
+        </span>Add-In Functions
+      </h1>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">
+          Several functions are available to create
+          scientific and non-fiction texts the easy way.
+        </span>
+      </p>
+
+      <h2 style='margin-left:0cm'>
+        <span lang="EN-US">
+          2.1<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Headings</span>
+      </h2>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">
+          Heading are nested sections creating a
+          strong hierarchy.
+        </span>
+      </p>
+
+      <h2 style='margin-left:0cm'>
+        <span lang="EN-US">
+          2.2<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Snippets</span>
+      </h2>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">
+          Snippets are atomic parts with a specific
+          formatting that consists of one or more paragraphs. They are treated as a
+          single element and convert on export into one XML element.
+        </span>
+      </p>
+
+      <h3 style='margin-left:0cm'>
+        <span lang="EN-US">
+          2.2.1<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Overview Snippets</span>
+      </h3>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">Available snippets:</span>
+      </p>
+
+      <p class="MsoListParagraphCxSpFirst" style='text-indent:-18.0pt'>
+        <span
+lang="EN-US" style='font-family:Symbol'>
+          �<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Text</span>
+      </p>
+
+      <p class="MsoListParagraphCxSpMiddle" style='text-indent:-18.0pt'>
+        <span
+lang="EN-US" style='font-family:Symbol'>
+          �<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Table</span>
+      </p>
+
+      <p class="MsoListParagraphCxSpMiddle" style='text-indent:-18.0pt'>
+        <span
+lang="EN-US" style='font-family:Symbol'>
+          �<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Listing</span>
+      </p>
+
+      <p class="MsoListParagraphCxSpMiddle" style='text-indent:-18.0pt'>
+        <span
+lang="EN-US" style='font-family:Symbol'>
+          �<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Sidebar</span>
+      </p>
+
+      <p class="MsoListParagraphCxSpLast" style='text-indent:-18.0pt'>
+        <span lang="EN-US"
+style='font-family:Symbol'>
+          �<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;&#160;&#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Figure</span>
+      </p>
+
+      <h2 style='margin-left:0cm'>
+        <span lang="EN-US">
+          2.3<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Snippet Tests</span>
+      </h2>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">
+          This sections shows all snippets to test
+          conversion functions.
+        </span>
+      </p>
+
+      <h3 style='margin-left:0cm'>
+        <span lang="EN-US">
+          2.3.1<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Text</span>
+      </h3>
+
+      <h4 style='margin-left:0cm'>
+        <span lang="EN-US">
+          2.3.1.1<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Text can contain semantic elements</span>
+      </h4>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">
+          This is a regular Text paragraph. It can
+          contain
+        </span>
+        <code>
+          <span lang="EN-US" style='font-size:10.0pt;line-height:115%'>Code</span>
+        </code>
+        <span
+lang="EN-US">, FileNames, and </span>
+        <kbd>
+          <span lang="EN-US" style='font-size:10.0pt;
+line-height:115%'>Keystroke</span>
+        </kbd>
+        <span lang="EN-US">
+          hints. These styles
+          are called semantic, because they give the content a meaning.
+        </span>
+      </p>
+
+      <h4 style='margin-left:0cm'>
+        <span lang="EN-US">
+          2.3.1.2<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Text can contain basic formatting</span>
+      </h4>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">
+          Several Text paragraphs may follow each
+          other. Such a sequence appears as one XML element with several &lt;p&gt; tags
+          in it. Text can have basic formatting, such as <b>bold</b>, <i>italics</i>, and
+          <u>underline</u>. The basic formatting has no meaning, it's for style and
+          structuring purpose only.
+        </span>
+      </p>
+
+      <h4 style='margin-left:0cm'>
+        <span lang="EN-US">
+          2.3.1.3<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Text can contain dynamic elements</span>
+      </h4>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">
+          The server provides access to five semantic
+          lists:
+        </span>
+      </p>
+
+      <p class="MsoListParagraphCxSpFirst" style='margin-left:38.7pt;text-indent:-18.0pt'>
+        <span
+lang="EN-US">
+          1.<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Definitions</span>
+      </p>
+
+      <p class="MsoListParagraphCxSpMiddle" style='margin-left:38.7pt;text-indent:-18.0pt'>
+        <span
+lang="EN-US">
+          2.<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Variables</span>
+      </p>
+
+      <p class="MsoListParagraphCxSpMiddle" style='margin-left:38.7pt;text-indent:-18.0pt'>
+        <span
+lang="EN-US">
+          3.<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Links</span>
+      </p>
+
+      <p class="MsoListParagraphCxSpMiddle" style='margin-left:38.7pt;text-indent:-18.0pt'>
+        <span
+lang="EN-US">
+          4.<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Idioms</span>
+      </p>
+
+      <p class="MsoListParagraphCxSpLast" style='margin-left:38.7pt;text-indent:-18.0pt'>
+        <span
+lang="EN-US">
+          5.<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Abbreviations</span>
+      </p>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">
+          Each of the list provides simple key-value
+          pairs. The key is the name shown in the text and the value is the additional
+          data entity shown when appropriate.
+        </span>
+      </p>
+
+      <h4 style='margin-left:0cm'>
+        <span lang="EN-US">
+          2.3.1.4<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Text can contain index entries</span>
+      </h4>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">
+          The text can contain index entries. The
+          index is gathered on the server side and will not be added to the document.
+        </span>
+      </p>
+
+      <h3 style='margin-left:0cm'>
+        <span lang="EN-US">
+          2.3.2<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Tables</span>
+      </h3>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">
+          Tables always have a caption. The caption
+          is above the table. Captions contain the chapter's number.
+        </span>
+      </p>
+
+      <p class="TableCaption">
+        <span lang="EN-US">Table </span>
+        <span
+lang="EN-US">2</span>
+        <span lang="EN-US">&#8209;</span>
+        <span
+lang="EN-US">1</span>
+        <span lang="EN-US">: A caption</span>
+      </p>
+
+      <table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0"
+       style='border-collapse:collapse;border:none'>
+        <tr>
+          <td width="260" valign="top" style='width:155.8pt;border:solid windowtext 1.0pt;
+	padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal" style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+	normal'>
+              <span lang="EN-US">Header</span>
+            </p>
+          </td>
+          <td width="260" valign="top" style='width:155.85pt;border:solid windowtext 1.0pt;
+	border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal" style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+	normal'>
+              <span lang="EN-US">&#160;</span>
+            </p>
+          </td>
+          <td width="260" valign="top" style='width:155.85pt;border:solid windowtext 1.0pt;
+	border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal" style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+	normal'>
+              <span lang="EN-US">&#160;</span>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="260" valign="top" style='width:155.8pt;border:solid windowtext 1.0pt;
+	border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal" style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+	normal'>
+              <span lang="EN-US">Body</span>
+            </p>
+          </td>
+          <td width="260" valign="top" style='width:155.85pt;border-top:none;border-left:
+	none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+	padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal" style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+	normal'>
+              <span lang="EN-US">&#160;</span>
+            </p>
+          </td>
+          <td width="260" valign="top" style='width:155.85pt;border-top:none;border-left:
+	none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+	padding:0cm 5.4pt 0cm 5.4pt'>
+            <p class="MsoNormal" style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+	normal'>
+              <span lang="EN-US">&#160;</span>
+            </p>
+          </td>
+        </tr>
+      </table>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">&#160;</span>
+      </p>
+
+      <h3 style='margin-left:0cm'>
+        <span lang="EN-US">
+          2.3.3<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Listings</span>
+      </h3>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">
+          Listings always have a caption. The caption
+          is above the table. Listings are decorated by line numbers. Captions contain
+          the chapter's number.
+        </span>
+      </p>
+
+      <p class="ListingCaption">
+        <span lang="EN-US">Listing </span>
+        <span
+lang="EN-US">2</span>
+        <span lang="EN-US">&#8209;</span>
+        <span
+lang="EN-US">1</span>
+        <span lang="EN-US">: A caption</span>
+      </p>
+
+      <p class="Listing">
+        <span lang="EN-US">public string Listing; </span>
+      </p>
+
+      <p class="Listing">
+        <span lang="EN-US">
+          // The lines have a leading number for
+          reference (callout) in text
+        </span>
+      </p>
+
+      <p class="Listing">
+        <span lang="EN-US">/* Listings can have any number of lines */</span>
+      </p>
+
+      <h3 style='margin-left:0cm'>
+        <span lang="EN-US">
+          2.3.4<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Figures</span>
+      </h3>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">
+          Figures always have a caption. The caption
+          is below the figure. Captions contain the chapter's number.
+        </span>
+      </p>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">
+          If the user uses the image tools the
+          changed and rendered image will be save to server as part of the document.
+        </span>
+      </p>
+
+      <p class="MsoNormal">
+        <img width="606" height="436" id="Grafik 1"
+src="Testdocument-Dateien/image001.jpg" />
+      </p>
+
+      <p class="FigureCaption">
+        <span lang="EN-US">Figure </span>
+        <span
+lang="EN-US">2</span>
+        <span lang="EN-US">&#8209;</span>
+        <span
+lang="EN-US">1</span>
+        <span lang="EN-US">: The figure's caption</span>
+      </p>
+
+      <h3 style='margin-left:0cm'>
+        <span lang="EN-US">
+          2.3.5<span style='font:7.0pt "Times New Roman"'>
+            &#160;&#160;&#160;
+          </span>
+        </span>
+        <span lang="EN-US">Sidebars</span>
+      </h3>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">
+          Sidebars explain something outside the
+          regular text flow. The have distinct types.
+        </span>
+      </p>
+
+      <p class="SideBarHeader">
+        <span lang="EN-US">Note</span>
+      </p>
+
+      <p class="SideBarContent">
+        <span lang="EN-US">Content of Sidebar.</span>
+      </p>
+      <p class="SideBarContent">
+        <span lang="EN-US">More Content of Sidebar.</span>
+      </p>
+
+      <p class="SideBarHeader">
+        <span lang="EN-US">Warning</span>
+      </p>
+
+      <p class="SideBarContent">
+        <span lang="EN-US">Content of Warning.</span>
+      </p>
+      <p class="SideBarContent">
+        <span lang="EN-US">More Content of Warning.</span>
+      </p>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">
+          Sidebars do not have a caption. The header
+          is either explicitly set to type �Custom�, where the user can add anything, or
+          to �Note�, �Warning�, or �Hint�, where the user cannot change the header's
+          content.
+        </span>
+      </p>
+
+      <p class="MsoNormal">
+        <span lang="EN-US">&#160;</span>
+      </p>
+
+    </div>
+
+  </body>
+
+</html>

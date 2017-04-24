@@ -1,0 +1,11 @@
+﻿@model Texxtoor.DataModels.Models.Content.Template
+@{
+    PageData["Title"] = "Delete Mail Template";
+    Layout = Url.GetGlobalLayout("_LayoutTemplates", "AdminPortal");
+}
+<div class="well">
+  The template '@Model.InternalName' for language '@Model.Group.Culture.NativeName' will be removed. This cannot be undone.
+</div>
+@using (Html.BeginForm()) {
+  <input type="submit" value="Delete Template" class="btn btn-primary" />
+}

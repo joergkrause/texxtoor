@@ -1,0 +1,30 @@
+﻿@{
+  PageData["Title"] = "Upload EPUB Template";
+  Layout = Url.GetGlobalLayout("_LayoutTemplates", "AdminPortal");
+}
+<div class="well">
+  Laden Dateien hoch, die für die Vorlagen benötigt werden, z.B. Fonts oder Bilder.
+</div>
+@using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+ @Html.ValidationSummary()
+}
+@using (Html.BeginForm("UploadEpubTemplate", "Template", FormMethod.Post, new { enctype = "multipart/form-data" })) {
+  using (Html.BtFieldset("File Upload")) {
+    <input type="hidden" name="templateId" value="@ViewBag.Id"/>
+    <input type="hidden" name="templateGroupId" value="@ViewBag.Group"/>
+    <label for="name" class="display-label">Name</label>
+    <div class="editor-field">
+      <input type="text" name="name" value="@ViewBag.Name" @(ViewBag.Name == null ? "" : "disabled='disabled'") />
+    </div>
+    <label for="epubTemplate" class="display-label">File</label>
+    <div class="editor-field">
+      <input type="file" name="epubTemplate" id="epubTemplate" />
+    </div>
+    <p>
+      Hier kann alles hochgeladen, was für die Vorlage benötigt wird, wenn das Namensfeld leer ist. Wurde ein Pflichtbaustein
+      ausgewählt, so wird genau dieser ersetzt und der Name wird beibehalten, egal wie die hochgeladene Datei heißt. Die
+      Dateierweiterung muss jedoch stimmen, ansonsten wird der Upload abgelehnt.
+    </p>
+  <input type="submit" value="Upload File" class="btn btn-primary" />
+  }
+}

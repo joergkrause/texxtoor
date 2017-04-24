@@ -1,0 +1,106 @@
+﻿@model Texxtoor.DataModels.Models.Content.Template
+@{
+  PageData["Title"] = "E-Mail Templates";
+  Layout = Url.GetGlobalLayout("_LayoutTemplates", "AdminPortal");
+}
+@section HeadContent{
+  <link type="text/css" rel="stylesheet" href="~/Scripts/author/codemirror/codemirror.css" />
+  <link href="~/Scripts/author/codemirror/theme/eclipse.css" rel="stylesheet" />
+  <script src="~/Scripts/author/codemirror/codemirror.js"></script>
+  <script src="~/Scripts/author/codemirror/mode/xml/xml.js"></script>
+  <style>
+    textarea#content {
+      color: black;
+      white-space: pre;
+      font-family: monospace;
+    }
+  </style>
+  <script>
+    $(function () {
+      CodeMirror.fromTextArea($('textarea#content').get(0), {
+        lineNumbers: true,
+        mode: 'xml',
+        matchBrackets: true,
+        theme: 'eclipse',
+        smartIndent: true,
+        onChange: function () {
+        }
+      });
+    });
+  </script>
+}
+<div class="well">
+  Mail templates are being used for sending mail externally and automatically after certain tasks. Templates are aware of the particular user's language preferences.
+</div>
+@if (Model == null) {
+  using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+    @:The template choosen is not available or not editable.
+  }
+} else {
+  <ul class="nav nav-tabs">
+    <li><a href="#info" data-toggle="tab">Properties</a></li>
+    <li class="active"><a href="#editor" data-toggle="tab">Edit Content</a></li>
+    <li><a href="#help" data-toggle="tab">Help</a></li>
+  </ul>
+  <div class="tab-content" id="editorTab">
+    <div class="tab-pane" id="info">
+      @using (Html.BeginForm()) {
+        using (Html.BtFieldset("Template Properties")) {
+          @Html.HiddenFor(m => m.Id)
+          @Html.DisplayForModel()
+        }
+      }
+    </div>
+    <div class="tab-pane active" id="editor">
+      @using (Html.BeginForm()) {
+        <div class="clearfix" id="profile_container">
+          @using (Html.BtFieldset("Template Editor (Click or double click in the text to start working)")) {
+            <div style="border: 1px solid black">
+              <textarea id="content" name="content" class="epubtextarea">
+                @if (Model.Content != null) {
+                  @Html.Raw(System.Text.Encoding.UTF8.GetString(Model.Content))
+                }
+              </textarea>
+            </div>
+          }
+        </div>
+        <input type="submit" value="Save template" class="btn btn-primary" />
+      <div class="container">
+        <div class="row">
+          @if (ViewBag.Error != null && ViewBag.Message != null) {
+            using (Html.BtDiv((bool)ViewBag.Error ? BtStyle.AlertAndError : BtStyle.AlertAndSuccess)) {
+              @:@ViewBag.Message
+            }
+          }
+        </div>
+      </div>
+      }
+    </div>
+    <div class="tab-pane" id="help">
+      <h3>Editor Help</h3>
+      <ul>
+        <li>&lt;subject&gt;: Subject line</li>
+        <li>&lt;body&gt;: Message body</li>
+      </ul>
+      <p>Within the &lt;body&gt; element you can use XHTML (HTML that validates using XML rules). So use &lt;br /&gt; instead of &lt;br&gt;, for instance.</p>
+      <p>
+        Some variables can be embedded:
+      </p>
+      <ul>
+        <li>{UserName}: A user's full name</li>
+        <li>{ProjectName}: Name of project</li>
+        <li>{Password}: Name of project</li>
+      </ul>
+      <p>
+        For other variables use either the currently processed form field names like this: {Form:Name} or a distinct call of the service layer, such as
+        {Data:GetCurrentProject}.
+      </p>
+    </div>
+  </div>
+}
+@section HelpSection{
+  <p>
+    Mail-Templates are XML files that control certain parts of a formatted mail.
+  </p>
+
+}

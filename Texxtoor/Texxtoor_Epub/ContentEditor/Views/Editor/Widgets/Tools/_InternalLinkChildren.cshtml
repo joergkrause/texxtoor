@@ -1,0 +1,11 @@
+﻿@using Texxtoor.Editor.Core.Extensions
+@using Texxtoor.Models
+@model List<Texxtoor.Models.Element>   
+<ul>
+@foreach (var item in Model.OrderBy(s => s.OrderNr)) {
+    <li>
+        <a ondblclick="author.addLink();" href="#" data-value="@item.Id" class="@(item.WidgetName.ToLower())-icon">@(item is TitledSnippet ? String.IsNullOrEmpty((((TitledSnippet)item).Title)) ? item.WidgetName : ((TitledSnippet)item).Title  : @item.RawContent.StripTags().Ellipsis(40).ToString())</a>
+        @Html.Partial("Widgets/Tools/_InternalLinkChildren", item.Children);
+    </li>
+}
+</ul>

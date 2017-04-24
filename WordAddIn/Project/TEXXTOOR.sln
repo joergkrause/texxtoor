@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEXXTOOR", "TEXXTOOR\TEXXTOOR.csproj", "{FD9A51EF-3716-418C-AD7C-0A169C7C9754}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://augmentedbooks.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TEXXTOOR\\TEXXTOOR.csproj
+		SccProjectName1 = TEXXTOOR
+		SccLocalPath1 = TEXXTOOR
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD9A51EF-3716-418C-AD7C-0A169C7C9754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD9A51EF-3716-418C-AD7C-0A169C7C9754}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD9A51EF-3716-418C-AD7C-0A169C7C9754}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD9A51EF-3716-418C-AD7C-0A169C7C9754}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,9 @@
+﻿@model IDictionary<string, string>
+@if (Model != null) {
+    foreach (var link in Model) {
+      if (link.Value == null || link.Key == null) {
+        continue;
+      }
+      <li><a href="@link.Key"><span>@link.Value</span><i class="icon icon-remove pull-right" onclick="removeFavorite('@link.Key'); return false;"></i></a></li>
+    }
+}

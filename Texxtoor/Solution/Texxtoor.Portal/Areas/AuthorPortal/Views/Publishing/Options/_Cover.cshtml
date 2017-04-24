@@ -1,0 +1,139 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.Published
+@using (Html.BeginForm("SavePublishedCover", "Publishing", new { id = Model.Id }, FormMethod.Post, new { id = "coverForm", data_item = "5" })) {
+  using (Html.BtFieldset(Loc("legendOptions", @"Cover Options"))) {
+    <div class="modal fade in" id="coverShow" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">@Loc("preTitle", "Preview Front Cover")</h4>
+          </div>
+          <div class="modal-body">
+            <img id="coverImgBig" src="@Url.Action("GetImg", "Tools", new { id = Model.Id, res = "600x868", nc = true, c = "ProjectCover", area = "" })" alt="cover" class="coverImg" />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">@ViewResources.Button_CancelAndClose</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    @Html.LabelFor(m => m.CoverImage)
+    <div style="position:absolute; margin-top: 40px;">
+      <img id="coverImg" src="@Url.Action("GetImg", "Tools", new { id = Model.Id, res = "100x145", nc = true, c = "ProjectCover", area = "" })" alt="cover" class="coverImg" />
+    </div>
+    <div class="editor-field">
+      <table class="table table-condensed">
+        <tr>
+          <td colspan="2">
+            <small>@Loc("applyOptions", @"Apply these options when generating a cover:")</small>
+            <span class="pull-right">@Create.FieldHelpIcon(Html, published => published.CoverImage)</span>
+          </td>
+        </tr>
+        <tr>
+          <td style="width:250px">
+            <label>@Loc("fontFamily", @"Font Family")</label>
+          </td>
+          <td>
+            <select name="fontFamily" id="fontFamily" class="createli">
+              <option>@(Model.CoverImage.FontFamily ?? Loc("selFont", "Select a Font").ToHtmlString())</option>
+            </select>
+            <select name="fontSize" id="fontSize" class="createli">
+              <option value="48" @(Math.Abs(Model.CoverImage.BaseFontSize - 48F) < 0.1 ? "selected='selected'" : "")>48 pt</option>
+              <option value="52" @(Math.Abs(Model.CoverImage.BaseFontSize - 52F) < 0.1 ? "selected='selected'" : "")>52 pt</option>
+              <option value="56" @(Math.Abs(Model.CoverImage.BaseFontSize - 56F) < 0.1 ? "selected='selected'" : "")>56 pt</option>
+              <option value="64" @(Math.Abs(Model.CoverImage.BaseFontSize - 64F) < 0.1 ? "selected='selected'" : "")>64 pt</option>
+              <option value="72" @(Math.Abs(Model.CoverImage.BaseFontSize - 72F) < 0.1 ? "selected='selected'" : "")>72 pt</option>
+              <option value="80" @(Math.Abs(Model.CoverImage.BaseFontSize - 80F) < 0.1 ? "selected='selected'" : "")>80 pt</option>
+              <option value="96" @(Math.Abs(Model.CoverImage.BaseFontSize - 96F) < 0.1 ? "selected='selected'" : "")>96 pt</option>
+              <option value="108" @(Math.Abs(Model.CoverImage.BaseFontSize - 108F) < 0.1 ? "selected='selected'" : "")>108 pt</option>
+              <option value="120" @(Math.Abs(Model.CoverImage.BaseFontSize - 120F) < 0.1 ? "selected='selected'" : "")>120 pt</option>
+              <option value="150" @(Math.Abs(Model.CoverImage.BaseFontSize - 150F) < 0.1 ? "selected='selected'" : "")>150 pt</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>@Loc("foreColor", @"Fore Color")</label>
+          </td>
+          <td>
+            <input type="text" name="foreColor" id="foreColor" class="createli" value="@(Model.CoverImage.ForeColor ?? "#000000")" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>@Loc("backTemplate", @"Use Background Template")</label>
+          </td>
+          <td>
+            <input type="checkbox" name="useBackTemplate" id="useBackTemplate" value="true" class="createli" />
+          </td>
+        </tr>
+        <tr id="backColorZone">
+          <td>
+            <label>@Loc("backColor", @"Back Color")</label>
+          </td>
+          <td>
+            <input type="text" name="backColor" id="backColor" class="createli" value="@(Model.CoverImage.BackColor ?? "#008080")" data-displaycolorcode="true" />
+          </td>
+        </tr>
+        <tr id="backColorOff">
+          <td></td>
+          <td>
+            @{
+    var path = Server.MapPath("~/App_Data/Templates/Cover");
+    var templates = Directory.GetFiles(path, "*.png");
+            }
+            <select name="backTemplate" id="backTemplate" class="hidden-to-show">
+              <option>@Loc("selTpl", "Select a Template")</option>
+              @foreach (var file in templates) {
+                <option value="@Path.GetFileName(file)">@Path.GetFileName(file)</option>
+              }
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="btn-group dropdown taskdropdown">
+              <button class="btn dropdown-toggle" data-toggle="dropdown" data-target="history">
+                @Loc("legendActions", "Actions")
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu dropNavigation" data-target="history">
+                <li>
+                  <a href="#" id="genCoverLnk" class="btn btn-sm btn-default" style="min-width:220px">@Loc("textCover", "Click here to generate a new one.")</a>
+                </li>
+                <li>
+                  <div class="editable btn btn-sm btn-default" style="min-width: 220px">
+                    @Loc("textUpload", @"Click Image to upload custom cover.")
+                  </div>
+                </li>
+                <li>
+                  <a href="#" id="remCoverLnk" class="btn btn-sm btn-default" style="min-width: 220px">@Loc("textNoCover", "Remove custom cover.")</a>
+                </li>
+              </ul>
+              @Create.FieldHelpIcon(Loc("helpUpload", "The cover must have 1748 x 2452 pixel to fit to the printing process. Shrinked versions for apps will be created automatically.").ToString(), Loc("title", "Cover size").ToString(), "")
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    @Html.LabelFor(m => m.PreferredTemplateGroup)
+    <div class="editor-field">
+      <table class="table table-condensed">
+        <tr>
+          <td colspan="2">
+            <small>@Loc("applyOutput", @"Apply these options to control production:")</small>
+            <span class="pull-right">@Create.FieldHelpIcon(Html, published => published.PreferredTemplateGroup)</span>
+</td>
+        </tr>
+        @foreach (var group in ProjectManager.Instance.GetTemplateGroups()) {
+          @Html.Action("TemplateGroups", "Publishing", new { id = Model.Id, group = group })
+        }
+      </table>
+    </div>
+  }
+  <div class="formsendButtons">
+    @Create.FormButtonOnClick("btnSaveCover", "", ViewResources.Action_Publish_SaveCommon, "btn-primary btnSave")
+    @Create.FormButtonOnClick("btnSaveCoverTab", "", ViewResources.Action_Publish_SaveCommon_Tab, "btn-primary btnNext")
+  </div>
+}

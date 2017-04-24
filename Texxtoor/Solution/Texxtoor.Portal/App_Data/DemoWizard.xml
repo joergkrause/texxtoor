@@ -1,0 +1,1783 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<wizards>
+  <wizard lang="en" id="CreateProject" title="Create a Project" target="Author">
+    <img src="/Content/Wizard/CreateProject.en.jpg" />
+    <desc>This demo shows how to create a project, add Content and manage settings.</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="/AuthorPortal/Project" querystring="">
+          <steps>
+            <step>
+              <![CDATA[
+              {
+              fieldSelector: '#createNewButton',
+              fieldValue: {
+              value: '',
+              pause: 5000,
+              flash: true,
+              human: false,
+              event: 'click'
+              },
+              bubble: {
+              header: 'Erzeuge ein neues Projekt',
+              Content: 'Hier kannst du ein neues Projekt anlegen. <br>Die Angaben sind nur für dich und dein Team und helfen,<br> deine Arbeiten zu organisieren.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: '/Content/audio/Teil_1.3.mp3'
+              },
+              action: {
+              afterDelay: 18000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step>
+              <![CDATA[
+              {
+              fieldSelector: '#Name',
+              fieldValue: {
+              value: 'Neues Publizieren',
+              pause: 3000,
+              flash: true,
+              human: true,
+              event: '',
+              setValue: true
+              },
+              bubble: {
+              header: 'Name',
+              Content: 'Gib dem Projekt einen eindeutigen Namen.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: '/Content/audio/Teil_2.2.mp3'
+              },
+              action: {
+              afterDelay: 28000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step>
+              <![CDATA[
+              {
+              fieldSelector: '#Short',
+              fieldValue: {
+              value: 'Ein Essay über das Publizieren von Fachtexten.',
+              pause: 3000,
+              flash: true,
+              human: true,
+              event: '',
+              setValue: true
+              },
+              bubble: {
+              header: 'Kurzbeschreibung',
+              Content: 'Eine kurze Beschreibung hilft anderen Teilnehmern.<br>Erscheint in der Übersichtsseite zum Projekt - dem Cockpit.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: '/Content/audio/Teil_3.3.mp3'
+              },
+              action: {
+              afterDelay: 13000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step>
+              <![CDATA[
+              {
+              fieldSelector: '#Description',
+              fieldValue: {
+              value: 'Dieses Projekt ist ein Demowerk, das zeigt, wie mit texxtoor Fachtexte erstellt, korrigiert, beurteilt und veröffentlicht werden können.',
+              pause: 3000,
+              flash: true,
+              human: false,
+              event: '',
+              setValue: true
+              },
+              bubble: {
+              header: 'Beschreibung',
+              Content: 'Ein ausführlicher Text, der als Basis für die<br>Zusammenfassung beim Veröffentlichen genutzt werden kann.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 10000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step>
+              <![CDATA[
+              {
+              fieldSelector: '#templateSelection',
+              fieldValue: {
+              value: '',
+              pause: 3000,
+              flash: true,
+              human: false,
+              event: '',
+              setValue: false
+              },
+              bubble: {
+              header: 'Auswahl der Vorlage',
+              Content: 'Die Vorlage für das erste Werk im Projekt.<br>Das erste Werk wird automatisch erstellt.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: '/Content/audio/Teil_4.3.mp3'
+              },
+              action: {
+              afterDelay: 6000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step>
+              <![CDATA[
+              {
+              fieldSelector: '#Terms',
+              fieldValue: {
+              value: '',
+              pause: 8000,
+              flash: true,
+              human: true,
+              event: '',
+              setValue: false
+              },
+              bubble: {
+              header: 'Bedingungen',
+              Content: 'Wenn du Teammitglieder planst, Teile hier dein Bedingungen mit.<br>Lass das Feld frei, wenn du alleine arbeiten willst.<br>Du kannst später noch andere Experten einladen.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 6000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step>
+              <![CDATA[
+              {
+              fieldSelector: '#ApproveTerms',
+              fieldValue: {
+              value: '',
+              pause: 8000,
+              flash: true,
+              human: true,
+              event: 'click'
+              },
+              bubble: {
+              header: 'Bedingungen bestätigen',
+              Content: 'Sage deinen Partnern, ob sie sich mit den Bedingungen explizit einverstanden erklären müssen.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 6000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step>
+              <![CDATA[
+              {
+              fieldSelector: '#teamId',
+              fieldValue: {
+              value: '',
+              pause: 5000,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Auswahl Team',
+              Content: 'Wenn du schon Teams hast, kannst du die weiter benutzen.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: '/Content/audio/Teil_5.1.mp3'
+              },
+              action: {
+              afterDelay: 20000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step>
+              <![CDATA[
+              {
+              fieldSelector: '#addProjectSendButton',
+              fieldValue: {
+              value: '',
+              pause: 8000,
+              flash: true,
+              human: false,
+              event: 'click'
+              },
+              bubble: {
+              header: 'Erzeuge nun das Projekt',
+              Content: 'Hiermit wird das Projekt angelegt und erscheint in der Liste unten an oberster Stelle.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 15000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step>
+              <![CDATA[
+              {
+              fieldSelector: '#lnkDashboard:first',
+              fieldValue: {
+              setValue: false,
+              pause: 0,
+              },
+              action: {
+              afterDelay: 0,
+              scriptCall: function () { $('div.optionFields:first').show(); },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step>
+              <![CDATA[
+              {
+              fieldSelector: '#lnkDashboard:first',
+              fieldValue: {
+              value: '',
+              pause: 8000,
+              flash: true,
+              human: false,
+              event: 'click'
+              },
+              bubble: {
+              header: 'Das Cockpit',
+              Content: 'Hier werden alle Informationen zum Projekt zusammengefasst.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: '/Content/audio/Teil_6.1.mp3'
+              },
+              action: {
+              afterDelay: 15000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+        <page url="/AuthorPortal/Project/Dashboard" querystring="">
+          <steps>
+            <step>
+              <![CDATA[
+              {
+              fieldSelector: 'div#body > div',
+              fieldValue: {
+              value: '',
+              pause: 3000,
+              flash: false,
+              human: false,
+              event: ''
+              },
+              bubble: {
+              header: 'Das Cockpit',
+              Content: 'Hier werden alle Informationen zum Projekt zusammengefasst.<br>Als Projektinhaber kannst du alle Angaben jederzeit ändern, <br>Teammitglieder können alles sehen, aber einiges nicht ändern.<br>Die einzelnen Teile des Cockpit werden nun einzeln erläutert.',
+              offset: {
+              x: -350,
+              y: 0
+              },
+              narrator: '',
+              arrow: 'none'
+              },
+              action: {
+              afterDelay: 12000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>  
+  </wizard>
+  <wizard lang="en" id="BuildTeam" title="Build a Team" target="Author">
+    <img src="/Content/Wizard/BuildTeam.en.jpg" />
+    <desc>A longer description</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="en" id="ExtendNetwork" title="Extend your Network" target="Author">
+    <img src="" />
+    <desc>A longer description</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="en" id="SellWork" title="Sell and Market your Work" target="Author">
+    <img src="" />
+    <desc>A longer description</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="en" id="CoAuthorBook" title="Work as a Co-Author" target="Contributor">
+    <img src="/Content/Wizard/CoauthorBook.en.jpg" />
+    <desc>If you don't want to start your own project, why not contribute to another work?</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="en" id="Contributor" title="Contribute" target="Contributor">
+    <img src="" />
+    <desc>A longer description</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="en" id="Translate" title="Translate others Work" target="Contributor">
+    <img src="" />
+    <desc>A longer description</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="en" id="PeerReview" title="Review a Work" target="Contributor">
+    <img src="" />
+    <desc>A longer description</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="en" id="CreateGroup" title="Create and use Groups" target="Teams">
+    <img src="/Content/Wizard/BuildGroup.en.jpg" />
+    <desc>Here we show how to create a group, add members, and share Content, comments, bookmarks, and even payed work.</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="en" id="DiscussSubject" title="Discuss with Authors and Readers" target="Teams">
+    <img src="" />
+    <desc>A longer description</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="en" id="ManageMembers" title="Manage your Groups Members" target="Teams">
+    <img src="" />
+    <desc>A longer description</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="en" id="GetKnowledge" title="Get the right Textbook" target="Reader">
+    <img src="/Content/Wizard/GetKnowledge.en.jpg" />
+    <desc>Learn how you can select the perfect textbook or assemble your own one, reading it online for free or order on any media.</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="en" id="AssembleBooks" title="Your own Textbook" target="Reader">
+    <img src="" />
+    <desc>A longer description</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="en" id="OrderMedia" title="Order on your Media" target="Reader">
+    <img src="" />
+    <desc>A longer description</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="en" id="Collaborate" title="Work in a Team" target="Reader">
+    <img src="" />
+    <desc>A longer description</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="de" id="CreateProject" title="Ein Projekt anlegen" target="Author">
+    <img src="/Content/Wizard/CreateProject.de.jpg" />
+    <desc>Diese Demo zeigt, wie du ein Projekt anlegen kannst, es mit Inhalt füllst und welche Möglichkeiten zur Kontrolle es gibt.</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="/AuthorPortal/Project" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '#createNewButton',
+              fieldValue: {
+              value: '',
+              pause: 5000,
+              flash: true,
+              human: false,
+              event: 'click'
+              },
+              bubble: {
+              header: 'Erzeuge ein neues Projekt',
+              Content: 'Hier kannst du ein neues Projekt anlegen. <br>Die Angaben sind nur für dich und dein Team und helfen,<br> deine Arbeiten zu organisieren.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: '/Content/audio/Teil_1.3.mp3'
+              },
+              action: {
+              afterDelay: 18000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step><![CDATA[
+              {
+              fieldSelector: '#Name',
+              fieldValue: {
+              value: 'Neues Publizieren',
+              pause: 3000,
+              flash: true,
+              human: true,
+              event: '',
+              setValue: true
+              },
+              bubble: {
+              header: 'Name',
+              Content: 'Gib dem Projekt einen eindeutigen Namen.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: '/Content/audio/Teil_2.2.mp3'
+              },
+              action: {
+              afterDelay: 28000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step>
+                <![CDATA[
+              {
+              fieldSelector: '#Short',
+              fieldValue: {
+              value: 'Ein Essay über das Publizieren von Fachtexten.',
+              pause: 3000,
+              flash: true,
+              human: true,
+              event: '',
+              setValue: true
+              },
+              bubble: {
+              header: 'Kurzbeschreibung',
+              Content: 'Eine kurze Beschreibung hilft anderen Teilnehmern.<br>Erscheint in der Übersichtsseite zum Projekt - dem Cockpit.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: '/Content/audio/Teil_3.3.mp3'
+              },
+              action: {
+              afterDelay: 13000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step>
+                <![CDATA[
+              {
+              fieldSelector: '#Description',
+              fieldValue: {
+              value: 'Dieses Projekt ist ein Demowerk, das zeigt, wie mit texxtoor Fachtexte erstellt, korrigiert, beurteilt und veröffentlicht werden können.',
+              pause: 3000,
+              flash: true,
+              human: false,
+              event: '',
+              setValue: true
+              },
+              bubble: {
+              header: 'Beschreibung',
+              Content: 'Ein ausführlicher Text, der als Basis für die<br>Zusammenfassung beim Veröffentlichen genutzt werden kann.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 10000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step>
+                <![CDATA[
+              {
+              fieldSelector: '#templateSelection',
+              fieldValue: {
+              value: '',
+              pause: 3000,
+              flash: true,
+              human: false,
+              event: '',
+              setValue: false
+              },
+              bubble: {
+              header: 'Auswahl der Vorlage',
+              Content: 'Die Vorlage für das erste Werk im Projekt.<br>Das erste Werk wird automatisch erstellt.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: '/Content/audio/Teil_4.3.mp3'
+              },
+              action: {
+              afterDelay: 6000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step>
+                <![CDATA[
+              {
+              fieldSelector: '#Terms',
+              fieldValue: {
+              value: '',
+              pause: 8000,
+              flash: true,
+              human: true,
+              event: '',
+              setValue: false
+              },
+              bubble: {
+              header: 'Bedingungen',
+              Content: 'Wenn du Teammitglieder planst, Teile hier dein Bedingungen mit.<br>Lass das Feld frei, wenn du alleine arbeiten willst.<br>Du kannst später noch andere Experten einladen.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 6000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step><![CDATA[
+              {
+              fieldSelector: '#ApproveTerms',
+              fieldValue: {
+              value: '',
+              pause: 8000,
+              flash: true,
+              human: true,
+              event: 'click'
+              },
+              bubble: {
+              header: 'Bedingungen bestätigen',
+              Content: 'Sage deinen Partnern, ob sie sich mit den Bedingungen explizit einverstanden erklären müssen.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 6000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step><![CDATA[
+              {
+              fieldSelector: '#teamId',
+              fieldValue: {
+              value: '',
+              pause: 5000,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Auswahl Team',
+              Content: 'Wenn du schon Teams hast, kannst du die weiter benutzen.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: '/Content/audio/Teil_5.1.mp3'
+              },
+              action: {
+              afterDelay: 20000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step>
+              <![CDATA[
+              {
+              fieldSelector: '#addProjectSendButton',
+              fieldValue: {
+              value: '',
+              pause: 8000,
+              flash: true,
+              human: false,
+              event: 'click'
+              },
+              bubble: {
+              header: 'Erzeuge nun das Projekt',
+              Content: 'Hiermit wird das Projekt angelegt und erscheint in der Liste unten an oberster Stelle.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 15000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step>
+              <![CDATA[
+              {
+              fieldSelector: '#lnkDashboard:first',
+              fieldValue: {
+              setValue: false,
+              pause: 0,
+              },
+              action: {
+              afterDelay: 0,
+              scriptCall: function () { $('div.optionFields:first').show(); },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+            <step>
+                <![CDATA[
+              {
+              fieldSelector: '#lnkDashboard:first',
+              fieldValue: {
+              value: '',
+              pause: 8000,
+              flash: true,
+              human: false,
+              event: 'click'
+              },
+              bubble: {
+              header: 'Das Cockpit',
+              Content: 'Hier werden alle Informationen zum Projekt zusammengefasst.',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: '/Content/audio/Teil_6.1.mp3'
+              },
+              action: {
+              afterDelay: 15000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+        <page url="/AuthorPortal/Project/Dashboard" querystring="">
+          <steps>
+            <step>
+              <![CDATA[
+              {
+              fieldSelector: 'div#body > div',
+              fieldValue: {
+              value: '',
+              pause: 3000,
+              flash: false,
+              human: false,
+              event: ''
+              },
+              bubble: {
+              header: 'Das Cockpit',
+              Content: 'Hier werden alle Informationen zum Projekt zusammengefasst.<br>Als Projektinhaber kannst du alle Angaben jederzeit ändern, <br>Teammitglieder können alles sehen, aber einiges nicht ändern.<br>Die einzelnen Teile des Cockpit werden nun einzeln erläutert.',
+              offset: {
+              x: -350,
+              y: 0
+              },
+              narrator: '',
+              arrow: 'none'
+              },
+              action: {
+              afterDelay: 12000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: false
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="de" id="BuildTeam" title="Ein Team zusammenstellen" target="Author">
+    <img src="" />
+    <desc>Diese Demo zeigt, wie du für dein Projekt ein Team zusammenstellst, die richtigen Partner findest und wie ihr optimal zusammenarbeitet.</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="de" id="ExtendNetwork" title="Dein Netzwerk erweitern" target="Author">
+    <img src="" />
+    <desc>Hier wird gezeigt, wie du Marketingeinstellung vornimmst, soziale Netzwerke nutzt und Inhalte auf deiner Website zeigst.</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="de" id="SellWork" title="Verkaufen und vermarkten" target="Author">
+    <img src="" />
+    <desc>Hier wird gezeigt, wie du deine Inhalte vermarktes und wo Einnahmen erzielt werden.</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="de" id="CoAuthorBook" title="Arbeite als Co-Author" target="Contributor">
+    <img src="/Content/Wizard/CoauthorBook.de.jpg" />
+    <desc>Wenn du kein eigenes Projekt starten möchtest, nimm an bestehenden Projekten Teil.</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="de" id="Contributor" title="Mitarbeiten" target="Contributor">
+    <img src="" />
+    <desc>Als Designer, Grafiker, Lektor oder Korrekturleser kannst du an vielen Projekten teilnehmen. Hier wird gezeigt wie's geht.</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="de" id="Translate" title="Übersetze" target="Contributor">
+    <img src="" />
+    <desc>Fachübersetzer können jedes Werk nehmen, übersetzen und am Erfolg teilhaben. Aufträge als Übersetzer gibt's hier.</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="de" id="PeerReview" title="Erstelle Gutachten" target="Contributor">
+    <img src="" />
+    <desc>Werke mit Gutachten sind wertvoller und du kannst als Gutachter vom Erfolg der Werke direkt partizipieren.</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="de" id="CreateGroup" title="Erstelle Gruppen" target="Teams">
+    <img src="/Content/Wizard/BuildGroup.de.jpg" />
+    <desc>Gruppen fassen Leser zusammen. Teilt Inhalte, Lesezeichen, Kommentare und gekaufte Inhalte.</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="de" id="DiscussSubject" title="Diskutiere mit Autoren und Lesern" target="Teams">
+    <img src="" />
+    <desc>Nutze öffentliche Foren um mit anderen Lesern und Autoren zu diskutieren.</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="de" id="ManageMembers" title="Verwalte deine Mitglieder" target="Teams">
+    <img src="" />
+    <desc>Als Gruppenmoderator kannst du deine Mitglieder selbst verwalten. Hier wird gezeigt wie's geht.</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="de" id="GetKnowledge" title="Den richtigen Inhalt finden" target="Reader">
+    <img src="/Content/Wizard/GetKnowledge.de.jpg" />
+    <desc>Nutze unsere raffinierte semantische Matrix, um das perfekte Fachbuch zu finden. Stelle dir ein eigenes Buch zusammen und lese auf jedem Medium.</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="de" id="AssembleBooks" title="Bau dir dein eigenes Fachbuch" target="Reader">
+    <img src="" />
+    <desc>Bau dir dein eigenes Fachbuch, indem du Inhalte zusammenstellst, auch aus eigenen Quellen.</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="de" id="OrderMedia" title="Bestelle dein Medium" target="Reader">
+    <img src="" />
+    <desc>Bestelle dein Medium, egal ob Druck, Online, iPad, EPUB oder was auch immer.</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+  <wizard lang="de" id="Collaborate" title="Arbeite mit anderen" target="Reader">
+    <img src="" />
+    <desc>Lerne, wie du Studiengruppen, Lesegruppen oder Kollegen mit einbinden kannst.</desc>
+    <demo username="DemoUser" password="p@ssw0rd">
+      <pages number="1">
+        <page url="" querystring="">
+          <steps>
+            <step><![CDATA[
+              {
+              fieldSelector: '',
+              fieldValue: {
+              value: '',
+              pause: 250,
+              flash: true,
+              human: true,
+              event: ''
+              },
+              bubble: {
+              header: 'Help',
+              Content: 'Bubble Text Goes Here...',
+              offset: {
+              x: 0,
+              y: 0
+              },
+              narrator: ''
+              },
+              action: {
+              afterDelay: 5000,
+              scriptCall: function () { },
+              startFlash: true,
+              endFlash: true
+              }
+              }]]>
+            </step>
+          </steps>
+        </page>
+      </pages>
+    </demo>
+  </wizard>
+</wizards>

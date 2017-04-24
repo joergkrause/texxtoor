@@ -1,0 +1,14 @@
+﻿@using Texxtoor.DataModels.Models.Common
+@model Texxtoor.ViewModels.Users.HomeScreenInfo
+@{
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+  PageData["Title"] = Loc("portal", "Portal");
+  PageData["IsLandingPage"] = true;
+}
+@Html.Action("Show", "Navigation", new { menuName = "centerpane", area = "" })
+<div style="margin-top: 45px; margin-left: -2%">
+  <div class="col-md-3">
+    @Html.Action("Show", "Navigation", new { menuName = "sidemenu", area = "" })
+  </div>
+  @Html.Action("Show", "Navigation", new { menuName = "static", area = "" })
+</div>

@@ -1,0 +1,50 @@
+﻿<div class="modal fade hidden-to-show" id="pictureshowManipulate" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+        <h4 class="modal-title" id="myModalLabelPreview">@Loc("showColor", "Change Color")</h4>
+
+        <select id="ddlManipulateOptions">
+          <option value="Sepia" data-action="" data-option="Sepia">Sepia</option>
+          <option value="Red" data-action="" data-option="Red">Red</option>
+          <option value="Yellow" data-action="" data-option="Yellow">Yellow</option>
+          <option value="Magenta" data-action="" data-option="Magenta">Magenta</option>
+          <option value="Cyon" data-action="" data-option="Cyon">Cyon</option>
+          <option value="Green" data-action="" data-option="Green">Green</option>
+          <option value="Blue" data-action="" data-option="Blue">Blue</option>
+        </select>
+        <table style="margin-top: 15px;margin-bottom: -15px;">
+          <tr>
+            <td>
+              Saturation
+            </td>
+            <td>
+              Brightness
+            </td>
+
+          </tr>
+          <tr>
+            <td>
+              <input class="form-control valid" data-spinner='true' id="txtSaturation" style="width: 50px; display: block;" type="text" value="0">
+            </td>
+            <td>
+              <input class="form-control valid" data-spinner='true' id="txtBrightness" style="width: 50px; display: block;" type="text" value="0">
+            </td>
+
+          </tr>
+
+        </table>
+
+      </div>
+      <div class="modal-body image-container" id="cropContainer">
+        <img src="" id="fullsizeimageManipulate" class="image" style="border: 1px solid silver; padding: 10px" />
+        <img src="" id="fullsizeimageManipulatePreview" class="image" style="border: 1px solid silver; padding: 10px" />
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal" type="button" id="colorSave">@ViewResources.Button_OK</button>
+        <button class="btn btn-default" data-dismiss="modal" type="button">@ViewResources.Button_CancelAndClose</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+﻿@{
+    PageData["Title"] = "Index";
+    Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+
+<h2>Backup</h2>
+<div class="well">You can backup the database partially. The files downloaded are XML that serve corresponding import tools.</div>
+<ul>
+  <li>@Html.ActionLink("Backup Localization Fallback", "BackupToFile", "Home", new { table = "Localization", p = "" }, null)</li>
+  <li>@Html.ActionLink("Backup Localization DE", "BackupToFile", "Home", new { table = "Localization", p = "de" }, null)</li>
+</ul>

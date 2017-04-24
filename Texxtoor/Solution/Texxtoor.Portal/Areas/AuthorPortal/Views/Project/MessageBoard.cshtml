@@ -1,0 +1,63 @@
+﻿@model Texxtoor.DataModels.Models.Content.Project
+@{
+  PageData["Title"] = Loc("titleMsgWorkroom", "Workroom Message Board");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+}
+@section HeadContent {
+  <script type="text/javascript">
+
+    $(function () {
+      InitCreateForm();
+      UpdateTable(0);
+    });
+
+    function EndRequest(message) {
+      UpdateTable(0);
+      InitCreateForm();
+      toastr.success(message);      
+    }
+
+    function InitCreateForm() {    
+      $("#createMessageForm").ajaxForm({      
+        data: { projectId: @Model.Id },
+        beforeSubmit: function(arr, form, o){
+
+          arr.push({ "name" : "parentId", "value" : $('[name="parentId"]:checked').val() });
+        },
+        success: function (result) {
+          $("#createMessageForm").clearFields();
+          EndRequest(result.data);        
+        },
+        error: function (xhr, textStatus, errorThrown) {
+          EndRequest('Error creating message');
+        }
+      });
+    }
+
+    function UpdateTable(page, order, dir) {
+      if (page === undefined) page = 0;
+      $.ajax({
+        url: '@Url.Action("TopMessage")', 
+        data: { 
+          id : @Model.Id,
+        page: page,
+        order: order,
+        dir: dir
+      },
+        cache: false,
+        dataType: "html",
+        success: function (data) {
+          $('#main').html(data);
+        }
+      });
+  }
+
+  </script>
+}
+@using(Html.BtDiv(BtStyle.Well)) {
+@Loc("textMwsg", @"Use this board to share anything outside the Content level with your team members. This board is specific to <em><span data-args='0' data-desc='Project Name'>{0}</span></em>.", @Model.Name)
+}
+@Html.Action("CreateMessage")
+<div id="main"></div>
+@Create.ActionTask("", true, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", true, Url.Action("Dashboard", "Project", new { id = Model.Id }), ViewResources.LinkButton_ToDashboard)

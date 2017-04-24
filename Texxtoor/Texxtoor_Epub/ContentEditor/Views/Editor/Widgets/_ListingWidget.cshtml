@@ -1,0 +1,11 @@
+﻿@model Texxtoor.Models.ListingSnippet
+<div class="editableByTexxtoor integratedEditor saveableByTexxtoor listingEditor" data-editor="ListingEditor" data-item='@Model.Id' data-style="">
+  <textarea class="code">@Html.Raw(Model.RawContent)</textarea>
+  <div class="snippetTitle">
+    <span>Listing @ViewData["ChapterNumber"].@ViewData["ListingCount"]</span>
+    <input type="text" name="caption-@Model.Id" value="@Model.Title"  data-item='@Model.Id'/>
+    <input type="hidden" name="language-@Model.Id" value="@Model.Language"  data-item='@Model.Id'/>
+    <input type="hidden" name="linenumbers-@Model.Id" value="@Model.LineNumbers.ToString()"  data-item='@Model.Id'/>
+    <input type="hidden" name="syntaxhighlight-@Model.Id" value="@Model.SyntaxHighlight.ToString()"  data-item='@Model.Id'/>
+  </div>
+</div>

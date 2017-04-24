@@ -1,0 +1,47 @@
+﻿@model Texxtoor.Models.TableSnippet
+<div class="editableByTexxtoor editableTable integratedEditor saveableByTexxtoor" data-editor="TableEditor" data-style="" id='sn-@Model.Id' data-item='@Model.Id'>
+  <div class="editor" contenteditable="true">@Html.Raw(Model.RawContent)</div>
+  <div class="snippetTitle">
+    <span>Table @ViewData["ChapterNumber"].@ViewData["TableCount"]</span>
+    <input type="text" name="caption-@Model.Id" value="@Model.Title"  data-item='@Model.Id'/>
+  </div>
+  <div class="tableOptionsDialog" data-item='@Model.Id'>
+  <div class="block">
+    <h5>Size</h5>
+    <div><input type="text" name="rows" value="@Model.Rows" />Rows</div>
+    <div><input type="text" name="cols" value="@Model.Cols"/>Columns</div>
+  </div>
+  <div class="block table-type">
+    <h5>Type</h5>
+    <div class="type-btn ribbon-button" data-option="simple">
+        <img src="~/Content/icons/Editor/Tables/table_simple.png" />
+        <div>Simple</div>
+    </div>
+    <div class="type-btn ribbon-button" data-option="leadcol">
+        <img src="~/Content/icons/Editor/Tables/table_leadcol.png" />
+        <div>Leading Column</div>
+    </div>
+    <div class="type-btn ribbon-button" data-option="grid">
+        <img src="~/Content/icons/Editor/Tables/table_grid.png" />
+        <div>Grid</div>
+    </div>
+  </div>
+  <div class="block">
+    <h5>Rows</h5>
+    <div><input type="text" name="row-height" value="" />Row height</div>
+  </div>
+  <div class="block">
+    <h5>Cells</h5>
+    <div><input type="text" name="cellspacing" value="" />Cellspacing</div>
+  </div>
+  <dic class="clear"></dic>
+  <div class="col-width">
+    <h5>Column width</h5>
+    <div></div>
+  </div>
+  <div class="buttons">
+    <input type="button" class="setTableOptions" value="OK" />
+    <input type="button" class="showTableOptions" value="Cancel" />
+  </div>
+  </div>
+</div>

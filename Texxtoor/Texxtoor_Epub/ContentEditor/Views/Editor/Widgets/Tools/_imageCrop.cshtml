@@ -1,0 +1,32 @@
+﻿<img src="/Content/icons/Editor/delete2_16.png" class="linkClose close-popup" alt="" />
+<h2>Crop Image</h2>
+<div class="image-container" id="imageContainer">
+</div>
+<div class="options-container">
+    <div class="preview" style="display: none;">
+        <img id="preview" src="" alt="" />
+    </div>
+    <div>
+        <input type="radio" id="ratio-none" name="ratio" checked="checked" />
+        <label for="ratio-none">
+            None</label><br />
+        <input type="radio" id="ratio-keep" name="ratio" />
+        <label for="ratio-keep">
+            Keep ratio</label><br />
+        <input type="radio" id="ratio-set" name="ratio" />
+        <label for="ratio-set">
+            Set ratio</label><br />
+        <input type="text" class='ratio-input' />
+        x
+        <input type="text" class='ratio-input' />
+        <div style="margin-top: 10px;">
+            Crop size</div>
+        <input type="text" class='crop-width' />
+        x
+        <input type="text" class='crop-height' />
+    </div>
+</div>
+<div class="buttons">
+    <input type="button" value="Crop" onclick="crop.saveCropProperties();" />
+    <input type="button" value="Cancel" class="close-popup" />
+</div>

@@ -1,0 +1,789 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=8" />
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+  <title>jQuery Ribbon</title>
+  <script src="scripts/jquery-1.3.2.min.js" type="text/javascript"></script>
+  <script src="scripts/jquery.ribbon.js" type="text/javascript"></script>
+  <script src="scripts/page.js" type="text/javascript"></script>
+  <link href="style.css" rel="Stylesheet" type="text/css" />
+  <script>
+    $(function () {
+      $('.popContainer').click(function () {
+        $("div.popContainerPopup").hide();
+        $(this).find("div.popContainerPopup").toggle('fast');
+      });
+    });
+  </script>
+  <style>
+    .popContainerPopup
+    {
+      display: none;
+      position: absolute;
+      z-index: 1000;
+      width: 200px;
+      height: 100px;
+      background-color: White;
+      border: 2px solid silver;
+      box-shadow: 5px 5px 5px silver;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="mainContainer">
+    <ul class="ribbon">
+      <li>
+        <ul class="orb">
+          <li><a href="javascript:void(0);" accesskey="1" class="orbButton">&nbsp;</a><span>Menu</span>
+            <ul>
+              <li><a href="#">
+                <img src="ribbon/images/icon_doc.png" alt="New" /><span>New</span></a>
+                <ul>
+                  <li><a href="#">
+                    <img src="ribbon/images/icon_richtext.png" alt="Rich Text" /><span>Rich Text document</span></a>
+                  </li>
+                  <li><a href="#">
+                    <img src="ribbon/images/icon_ooxml.png" alt="OOXML" /><span>Office Open XML document</span></a>
+                  </li>
+                  <li><a href="#">
+                    <img src="ribbon/images/icon_ooxml.png" alt="Open Document" /><span>OpenDocument text</span></a>
+                  </li>
+                  <li><a href="#">
+                    <img src="ribbon/images/icon_plaintext.png" alt="Plain text" /><span>Plain text document</span></a>
+                  </li>
+                  <li><a href="#">
+                    <img src="ribbon/images/icon_otherformats.png" alt="Other formats" /><span>Other formats</span></a>
+                  </li>
+                  <li><a href="#">
+                    <img src="ribbon/images/icon_otherformats.png" alt="Other formats 2" /><span>Other
+                      formats 2</span></a> </li>
+                  <li><a href="#">
+                    <img src="ribbon/images/icon_otherformats.png" alt="Other formats 3" /><span>Other
+                      formats 3</span></a> </li>
+                </ul>
+                <div class="ribbon-backstage-rightColumnSmall">
+                  <h2>
+                    Test</h2>
+                  <br />
+                  <img src="images/window_icon.png" />
+                  <p>
+                    Information...</p>
+                </div>
+              </li>
+              <li><a href="#">
+                <img src="ribbon/images/icon_open.png" alt="Open" /><span>Open</span></a> </li>
+              <li><a href="#">
+                <img src="ribbon/images/icon_save.png" alt="Save" /><span>Save</span></a> </li>
+              <li><a href="#">
+                <img src="ribbon/images/icon_saveas.png" alt="Save as" /><span>Save As</span></a>
+                <ul>
+                  <li><a href="#">
+                    <img src="ribbon/images/icon_richtext.png" alt="Rich Text" /><span>Rich Text document</span></a>
+                  </li>
+                  <li><a href="#">
+                    <img src="ribbon/images/icon_ooxml.png" alt="OOXML" /><span>Office Open XML document</span></a>
+                  </li>
+                  <li><a href="#">
+                    <img src="ribbon/images/icon_ooxml.png" alt="Open Document" /><span>OpenDocument text</span></a>
+                  </li>
+                  <li><a href="#">
+                    <img src="ribbon/images/icon_plaintext.png" alt="Plain text" /><span>Plain text document</span></a>
+                  </li>
+                  <li><a href="#">
+                    <img src="ribbon/images/icon_otherformats.png" alt="Other formats" /><span>Other formats</span></a>
+                  </li>
+                </ul>
+                <div class="ribbon-backstage-rightColumnWide">
+                  Right content!
+                </div>
+              </li>
+              <li><a href="#">
+                <img src="ribbon/images/icon_print.png" alt="Print" /><span>Print</span></a>
+                <ul>
+                  <li><a href="#">
+                    <img src="ribbon/images/icon_print.png" alt="Print" /><span>Print</span></a> </li>
+                  <li><a href="#">
+                    <img src="ribbon/images/icon_quickprint.png" alt="Quick print" /><span>Quick print</span></a>
+                  </li>
+                  <li><a href="#">
+                    <img src="ribbon/images/icon_printpreview.png" alt="Print preview" /><span>Print preview</span></a>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#">
+                <img src="ribbon/images/icon_pagesetup.png" alt="Page setup" /><span>Page setup</span></a>
+              </li>
+              <li><a href="#">
+                <img src="ribbon/images/icon_sendemail.png" alt="Send in e-mail" /><span>Send e-mail</span></a>
+              </li>
+              <li><a href="#">
+                <img src="ribbon/images/icon_about.png" alt="About" /><span>About</span></a> </li>
+              <li><a href="#">
+                <img src="ribbon/images/icon_exit.png" alt="Exit" /><span>Exit</span></a> </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <ul class="menu">
+          <li><a href="#home" accesskey="2">Home</a>
+            <ul>
+              <li>
+                <h2>
+                  <span>Clipboard</span></h2>
+                <div>
+                  <img src="ribbon/images/icon_paste.png" alt="Paste" />
+                  Paste
+                </div>
+                <div class="ribbon-list">
+                  <div>
+                    <img src="ribbon/images/icon_small_cut.png" alt="Cut" />
+                    Cut
+                  </div>
+                  <div>
+                    <img src="ribbon/images/icon_small_copy.png" alt="Copy" />
+                    Copy
+                  </div>
+                </div>
+              </li>
+              <li>
+                <h2>
+                  <span>Editing</span></h2>
+                <div class="ribbon-list">
+                  <div>
+                    <img src="ribbon/images/icon_small_find.png" alt="Find" />
+                    Find
+                  </div>
+                  <div>
+                    <img src="ribbon/images/icon_small_replace.png" alt="Replace" />
+                    Replace
+                  </div>
+                  <div>
+                    <img src="ribbon/images/icon_small_selectall.png" alt="Select all" />
+                    Select all
+                  </div>
+                </div>
+              </li>
+              <li>
+                <h2>
+                  <span>Insert Snippet</span></h2>
+                <div>
+                  <img src="ribbon/images/icon_chapter.png" alt="Chapter" />
+                  Chapter
+                </div>
+                <div class="ribbon-list">
+                  <div>
+                    <img src="ribbon/images/icon_small_cut.png" alt="Section" />
+                    1.1
+                  </div>
+                  <div>
+                    <img src="ribbon/images/icon_small_copy.png" alt="Subsection" />
+                    1.1.1
+                  </div>
+                  <div class="ribbon-list">
+                    <img src="ribbon/images/icon_small_theme.png" alt="Theme" />
+                    Sub Sections
+                    <ul class="ribbon-theme">
+                      <li class="SubSubSubSection">1.1.1.1</li>
+                      <li class="SubSubSubSubSection">1.1.1.1.1</li>
+                      <li class="SubSubSubSubSection">1.1.1.1.1.1</li>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <img src="ribbon/images/icon_table.png" alt="Table" />
+                  Table
+                </div>
+                <div>
+                  <img src="ribbon/images/icon_picture.png" alt="Picture" />
+                  Picture
+                </div>
+                <div>
+                  <img src="ribbon/images/icon_equation.png" alt="Equation" />
+                  Equation
+                </div>
+              </li>
+              <li>
+                <h2>
+                  Theme</h2>
+                <div class="ribbon-list">
+                  <div>
+                    <img src="ribbon/images/icon_small_theme.png" alt="Theme" />
+                    Ribbon theme
+                    <ul class="ribbon-theme">
+                      <li class="ribbon-windows7">Windows 7</li>
+                      <li class="ribbon-simple">Simple</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#view" accesskey="3">View</a>
+            <ul>
+              <li>
+                <h2>
+                  Table of Content</h2>
+                <div>
+                  <img src="ribbon/images/icon_toc.png" alt="Zoom in" />
+                  Table of Content
+                </div>
+                <div>
+                  <img src="ribbon/images/icon_zoomout.png" alt="Zoom out" />
+                  Zoom out
+                </div>
+                <div>
+                  <img src="ribbon/images/icon_zoom100.png" alt="Zoom" />
+                  100%
+                </div>
+              </li>
+              <li>
+                <h2>
+                  Show or hide</h2>
+                <div class="ribbon-list">
+                  <div>
+                    <input type="checkbox" id="Checkbox10" />
+                    <label accesskey="r" for="chkboxNavigation">
+                      Navigation</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="Checkbox11" />
+                    <label accesskey="s" for="chkboxComments">
+                      Comments</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="Checkbox12" />
+                    <label accesskey="m" for="chkboxMetaData">
+                      Meta Data</label>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <h2>
+                  Settings</h2>
+                <div class="ribbon-list">
+                  <div>
+                    <img src="ribbon/images/icon_small_wordwrap.png" alt="Word wrap" />
+                    Word wrap
+                    <ul>
+                      <li>No wrap</li>
+                      <li>Wrap to window</li>
+                      <li>Wrap to ruler</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <img src="ribbon/images/icon_small_measurement.png" alt="Measurement" />
+                    Measurement Units
+                    <ul>
+                      <li>Inches</li>
+                      <li>Centimeters</li>
+                      <li>Points</li>
+                      <li>Picas</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#view" accesskey="3">Format</a>
+            <ul>
+              <li>
+                <h2>
+                  Text Formatting (non semantic)</h2>
+                <div>
+                  <img src="ribbon/images/icon_toc.png" alt="Zoom in" />
+                  Bold
+                </div>
+                <div>
+                  <img src="ribbon/images/icon_zoomout.png" alt="Zoom out" />
+                  Italic
+                </div>
+                <div>
+                  <img src="ribbon/images/icon_zoom100.png" alt="Zoom" />
+                  Underline
+                </div>
+                <div>
+                  <img src="ribbon/images/icon_zoom100.png" alt="Zoom" />
+                  H<sub>2</sub>O
+                </div>
+                <div>
+                  <img src="ribbon/images/icon_zoom100.png" alt="Zoom" />
+                  m<sup>2</sup>
+                </div>
+              </li>
+              <li>
+                <h2>
+                  Show or hide</h2>
+                <div class="ribbon-list">
+                  <div>
+                    <input type="checkbox" id="chkboxNavigation" />
+                    <label accesskey="r" for="chkboxNavigation">
+                      Navigation</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="chkboxComments" />
+                    <label accesskey="s" for="chkboxComments">
+                      Comments</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="chkboxMetaData" />
+                    <label accesskey="m" for="chkboxMetaData">
+                      Meta Data</label>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <h2>
+                  Settings</h2>
+                <div class="ribbon-list">
+                  <div>
+                    <img src="ribbon/images/icon_small_wordwrap.png" alt="Word wrap" />
+                    Word wrap
+                    <ul>
+                      <li>No wrap</li>
+                      <li>Wrap to window</li>
+                      <li>Wrap to ruler</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <img src="ribbon/images/icon_small_measurement.png" alt="Measurement" />
+                    Measurement Units
+                    <ul>
+                      <li>Inches</li>
+                      <li>Centimeters</li>
+                      <li>Points</li>
+                      <li>Picas</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#view" accesskey="4">Semantic</a>
+            <ul>
+              <li>
+                <h2>
+                  Insert Elements (semantic)</h2>
+                <div>
+                  <img src="ribbon/images/icon_toc.png" alt="Zoom in" />
+                  Abbreviations
+                </div>
+                <div>
+                  <img src="ribbon/images/icon_zoomout.png" alt="Zoom out" />
+                  Cites
+                </div>
+                <div>
+                  <img src="ribbon/images/icon_zoom100.png" alt="Zoom" />
+                  Variables
+                </div>
+                <div>
+                  <img src="ribbon/images/icon_zoom100.png" alt="Zoom" />
+                  Emphasis
+                </div>
+                <div>
+                  <img src="ribbon/images/icon_zoom100.png" alt="Zoom" />
+                  Definitions
+                </div>
+              </li>
+              <li>
+                <h2>
+                  Links</h2>
+                <div class="ribbon-list">
+                  <div>
+                    <input type="checkbox" id="Checkbox13" />
+                    <label accesskey="r" for="chkboxNavigation">
+                      Internal</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="Checkbox14" />
+                    <label accesskey="s" for="chkboxComments">
+                      External</label>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <h2>
+                  Meta Information</h2>
+                <div class="ribbon-list">
+                  <div>
+                    <img src="ribbon/images/icon_small_wordwrap.png" alt="Word wrap" />
+                    Level
+                    <ul>
+                      <li>No wrap</li>
+                      <li>Wrap to window</li>
+                      <li>Wrap to ruler</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <img src="ribbon/images/icon_small_measurement.png" alt="Measurement" />
+                    Target
+                    <ul>
+                      <li>Inches</li>
+                      <li>Centimeters</li>
+                      <li>Points</li>
+                      <li>Picas</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#view" accesskey="4" style="background-color: Fuchsia">Tables</a>
+            <ul>
+              <li>
+                <h2>
+                  Table of Content</h2>
+                <div>
+                  <img src="ribbon/images/icon_toc.png" alt="Zoom in" />
+                  Table of Content
+                </div>
+                <div>
+                  <img src="ribbon/images/icon_zoomout.png" alt="Zoom out" />
+                  Zoom out
+                </div>
+                <div>
+                  <img src="ribbon/images/icon_zoom100.png" alt="Zoom" />
+                  100%
+                </div>
+              </li>
+              <li>
+                <h2>
+                  Show or hide</h2>
+                <div class="ribbon-list">
+                  <div>
+                    <input type="checkbox" id="Checkbox1" />
+                    <label accesskey="r" for="chkboxNavigation">
+                      Navigation</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="Checkbox2" />
+                    <label accesskey="s" for="chkboxComments">
+                      Comments</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="Checkbox3" />
+                    <label accesskey="m" for="chkboxMetaData">
+                      Meta Data</label>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <h2>
+                  Settings</h2>
+                <div class="ribbon-list">
+                  <div>
+                    <img src="ribbon/images/icon_small_wordwrap.png" alt="Word wrap" />
+                    Word wrap
+                    <ul>
+                      <li>No wrap</li>
+                      <li>Wrap to window</li>
+                      <li>Wrap to ruler</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <img src="ribbon/images/icon_small_measurement.png" alt="Measurement" />
+                    Measurement Units
+                    <ul>
+                      <li>Inches</li>
+                      <li>Centimeters</li>
+                      <li>Points</li>
+                      <li>Picas</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#view" accesskey="5" style="background-color: Lime">Pictures</a>
+            <ul>
+              <li>
+                <h2>
+                  Table of Content</h2>
+                <div>
+                  <img src="ribbon/images/icon_toc.png" alt="Zoom in" />
+                  Table of Content
+                </div>
+                <div>
+                  <img src="ribbon/images/icon_zoomout.png" alt="Zoom out" />
+                  Zoom out
+                </div>
+                <div>
+                  <img src="ribbon/images/icon_zoom100.png" alt="Zoom" />
+                  100%
+                </div>
+              </li>
+              <li>
+                <h2>
+                  Show or hide</h2>
+                <div class="ribbon-list">
+                  <div>
+                    <input type="checkbox" id="Checkbox4" />
+                    <label accesskey="r" for="chkboxNavigation">
+                      Navigation</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="Checkbox5" />
+                    <label accesskey="s" for="chkboxComments">
+                      Comments</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="Checkbox6" />
+                    <label accesskey="m" for="chkboxMetaData">
+                      Meta Data</label>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <h2>
+                  Settings</h2>
+                <div class="ribbon-list">
+                  <div>
+                    <img src="ribbon/images/icon_small_wordwrap.png" alt="Word wrap" />
+                    Word wrap
+                    <ul>
+                      <li>No wrap</li>
+                      <li>Wrap to window</li>
+                      <li>Wrap to ruler</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <img src="ribbon/images/icon_small_measurement.png" alt="Measurement" />
+                    Measurement Units
+                    <ul>
+                      <li>Inches</li>
+                      <li>Centimeters</li>
+                      <li>Points</li>
+                      <li>Picas</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#view" accesskey="6" style="background-color: Aqua">Equations</a>
+            <ul>
+              <li>
+                <h2>
+                  Predefined</h2>
+                <div>
+                  <img src="ribbon/images/icon_toc.png" alt="Zoom in" />
+                  Table of Content
+                </div>
+                <div>
+                  <img src="ribbon/images/icon_zoomout.png" alt="Zoom out" />
+                  Zoom out
+                </div>
+                <div>
+                </div>
+              </li>
+              <li>
+                <h2>
+                  Letters</h2>
+                <div class="popContainer">
+                  <img src="ribbon/images/icon_zoom100.png" alt="Zoom" />
+                  Greek Letters
+                  <div class="popContainerPopup">
+                    <span class="fm-math"><span class="use-backslash"><span title="Gamma">Γ</span> <span
+                      title="Delta">Δ</span> <span title="Theta">Θ</span> <span title="Lamda">Λ</span>
+                      <span title="Xi">Ξ</span> <span title="Pi">Π</span> <span title="Sigma">Σ</span>
+                      <!-- <span title="Upsilon">Υ</span> -->
+                      <span title="Phi">Φ</span> <span title="Psi">Ψ</span> <span title="Omega">Ω</span><br>
+                    </span><span class="fm-mi-length-1"><span title="alpha">α</span> <span title="beta">
+                      β</span> <span title="gamma">γ</span> <span title="delta">δ</span> <span title="epsilon">
+                        ε</span> <span title="zeta">ζ</span> <span title="eta">η</span> <span title="theta">
+                          θ</span> <span title="iota">ι</span> <span title="kappa">κ</span> <span title="lamda">
+                            λ</span> <span title="mu">μ</span><br>
+                      <span title="nu">ν</span> <span title="xi">ξ</span>
+                      <!-- <span title="omicron">ο</span> -->
+                      <span title="pi">π</span> <span title="rho">ρ</span> <span title="final sigma">ς</span>
+                      <span title="sigma">σ</span> <span title="tau">τ</span> <span title="upsilon">υ</span>
+                      <span title="phi">φ</span> <span title="chi">χ</span> <span title="psi">ψ</span>
+                      <span title="omega">ω</span><br>
+                      <span title="curled beta">ϐ</span> <span title="script theta">ϑ</span> <span title="Upsilon with hook symbol">
+                        ϒ</span> <span title="phi symbol">ϕ</span> <span title="pi symbol">ϖ</span> <span
+                          title="Stigma">Ϛ</span>
+                      <!-- <span title="Digamma">Ϝ</span> -->
+                      <span title="Koppa">Ϟ</span> <span title="Sampi">Ϡ</span> <span title="script kappa">
+                        ϰ</span> <span title="tailed rho">ϱ</span> <span title="lunate sigma">ϲ</span>
+                    </span></span>
+                  </div>
+                </div>
+                <div class="popContainer">
+                  <img src="ribbon/images/icon_zoom100.png" alt="Zoom" />
+                  Script Letters
+                  <div class="popContainerPopup">
+                    <span class="ma-script use-sc"><span>A</span> <span title="Bernoulli function">B</span>
+                      <span>C</span> <span>D</span> <span title="electromotive force">E</span> <span title="Fourier transform">
+                        F</span> <span>G</span> <span title="Hamiltonian operator">H</span> <span>I</span>
+                      <span>J</span> <span>K</span> <span title="Laplace transform">L</span> <span title="M-matrix (physics)">
+                        M</span><br>
+                      <span>N</span> <span>O</span> <span>P</span> <span>Q</span> <span title="Riemann Integral">
+                        R</span> <span>S</span> <span>T</span> <span>U</span> <span>V</span> <span>W</span>
+                      <span>X</span> <span>Y</span> <span>Z</span><br>
+                      <span>a</span> <span>b</span> <span>c</span> <span>d</span> <span title="error">e</span>
+                      <span>f</span> <span>g</span> <span>h</span> <span>i</span> <span>j</span> <span>k</span>
+                      <span>l</span> <span>m</span><br>
+                      <span>n</span> <span>o</span> <span>p</span> <span>q</span> <span>r</span> <span>s</span>
+                      <span>t</span> <span>u</span> <span>v</span> <span>w</span> <span>x</span> <span>y</span>
+                      <span>z</span> </span>
+                  </div>
+                </div>
+                <div class="popContainer">
+                  <img src="ribbon/images/icon_zoom100.png" alt="Zoom" />
+                  Fractur Letters
+                  <div class="popContainerPopup">
+                    <span class="ma-fraktur use-fr"><span>A</span> <span>B</span> <span>C</span> <span>
+                      D</span> <span>E</span> <span>F</span> <span>G</span> <span title="Hilbert space">
+                        H</span> <span title="imaginary part">I</span> <span>J</span> <span>K</span> <span>
+                          L</span> <span>M</span><br>
+                      <span>N</span> <span>O</span> <span>P</span> <span>Q</span> <span title="real part">
+                        R</span> <span>S</span> <span>T</span> <span>U</span> <span>V</span> <span>W</span>
+                      <span>X</span> <span>Y</span> <span>Z</span><br>
+                      <span>a</span> <span>b</span> <span>c</span> <span>d</span> <span>e</span> <span>f</span>
+                      <span>g</span> <span>h</span> <span>i</span> <span>j</span> <span>k</span> <span>l</span>
+                      <span>m</span><br>
+                      <span>n</span> <span>o</span> <span>p</span> <span>q</span> <span>r</span> <span>s</span>
+                      <span>t</span> <span>u</span> <span>v</span> <span>w</span> <span>x</span> <span>y</span>
+                      <span>z</span> </span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <h2>
+                  Show or hide</h2>
+                <div class="ribbon-list">
+                  <div>
+                    <input type="checkbox" id="Checkbox7" />
+                    <label accesskey="r" for="chkboxNavigation">
+                      Navigation</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="Checkbox8" />
+                    <label accesskey="s" for="chkboxComments">
+                      Comments</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="Checkbox9" />
+                    <label accesskey="m" for="chkboxMetaData">
+                      Meta Data</label>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <h2>
+                  Common Elements</h2>
+                <div class="ribbon-list">
+                  <div>
+                    <img src="ribbon/images/icon_small_wordwrap.png" alt="Word wrap" />
+                    Integrals
+                    <ul>
+                      <li>No wrap</li>
+                      <li>Wrap to window</li>
+                      <li>Wrap to ruler</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <img src="ribbon/images/icon_small_measurement.png" alt="Measurement" />
+                    Measurement Units
+                    <ul>
+                      <li>Inches</li>
+                      <li>Centimeters</li>
+                      <li>Points</li>
+                      <li>Picas</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="left">&nbsp;</div>
+  <div class="right">&nbsp;</div>
+  <div class="textbox">
+    <div>
+      <h1>
+        jQuery Ribbon</h1>
+      <h2>
+        How do I use it?</h2>
+      <p>
+        First of all you need to <a href="http://jqueryribbon.codeplex.com">download the source</a>.</p>
+      <p>
+        The next step is to unzip all the files to your website. After that you need to
+        grab the source code in the HTML and add to your site where you want to have the
+        ribbon, and add references to the javascript files.</p>
+      <p>
+        To enable the ribbon you just have to add this code snippet:</p>
+      <pre> $().ready(function() {
+    $().Ribbon();
+});</pre>
+      <p>
+        The menu is built on ul lists, so to add new submenu items in the menu, just add
+        a nested list and it will be added autmagically.</p>
+      <p>
+        If you have any questions or comments, please let me know.</p>
+      <h2>
+        Author</h2>
+      Copyright &copy; 2009, Mikael Söderström.<br />
+      <a href="http://weblogs.asp.net/mikaelsoderstrom">My blog</a><br />
+      <a href="http://twitter.com/vimpyboy">vimpyboy@twitter</a>
+      <h2>
+        Lorem ipsum</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fermentum, ante quis
+        vestibulum dapibus, ipsum est faucibus nisl, eleifend blandit turpis risus nec risus.
+        Ut ornare nibh nec orci ullamcorper a vulputate mi commodo. Phasellus euismod molestie
+        magna at mollis. Ut adipiscing dapibus convallis. Ut nec luctus velit. Suspendisse
+        bibendum ipsum nisi. Morbi velit leo, viverra nec malesuada sit amet, blandit vitae
+        risus. Etiam quis mauris egestas leo faucibus scelerisque. Nam at purus ac odio
+        egestas commodo. Cras viverra lacus sed libero tristique dictum. Suspendisse nec
+        sem ante. Etiam nisl augue, molestie eu mattis at, dapibus pulvinar sapien. Integer
+        vitae lacus erat. Curabitur vel neque nibh, vitae ultrices eros. Proin vulputate
+        nisl ut lectus dictum quis consequat elit feugiat. In nulla nibh, dignissim et imperdiet
+        quis, posuere at magna. Donec tincidunt felis et diam faucibus pellentesque.</p>
+      <p>
+        Sed cursus euismod nunc, ac auctor ante tincidunt id. Fusce eu nisi id diam auctor
+        vestibulum porta ac metus. Quisque sit amet lorem eget lorem vestibulum luctus non
+        quis lacus. Suspendisse eu nisi non dolor cursus facilisis sit amet in lacus. Suspendisse
+        faucibus urna ut eros molestie ut luctus risus dignissim. Maecenas facilisis volutpat
+        accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+        inceptos himenaeos. Nulla vestibulum massa sit amet sem mattis sollicitudin. Cras
+        nec tellus justo. Fusce ornare venenatis auctor. Phasellus eu quam at ipsum dictum
+        gravida. Mauris pretium, diam id eleifend varius, odio metus commodo lorem, sit
+        amet tincidunt massa elit id dui. Nulla malesuada eleifend tristique. Aliquam erat
+        volutpat.</p>
+      <p>
+        Vivamus consequat magna vitae nisi feugiat a ultrices tellus semper. Maecenas vehicula,
+        enim vitae elementum dignissim, est dui dignissim nisl, vel ornare erat diam sollicitudin
+        felis. Praesent commodo rutrum eros, a vulputate sem ultrices id. Vestibulum facilisis
+        volutpat mauris, eget convallis dolor tincidunt ut. Etiam ut placerat ipsum. Sed
+        at metus eu augue tincidunt interdum. In accumsan sapien et felis commodo a vulputate
+        nisi dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada
+        fames ac turpis egestas. In tristique odio quis tellus condimentum quis mollis neque
+        porttitor. Fusce ultricies pulvinar suscipit. Ut vitae diam ante. Vestibulum lacinia
+        ornare odio, ut venenatis felis consectetur a. Morbi nunc mi, molestie ut fermentum
+        non, vehicula non risus. Nam rutrum venenatis imperdiet. Aliquam euismod lacinia
+        nulla, at volutpat nisi mattis in. Sed dolor augue, pellentesque non accumsan at,
+        hendrerit at arcu. Aliquam ullamcorper fringilla tortor quis accumsan.</p>
+      <p>
+        Ut sit amet risus leo, ac tristique augue. Nullam sit amet dui quis metus venenatis
+        accumsan sed at tortor. Proin ornare bibendum elit, non euismod velit sagittis ac.
+        Nunc ac tellus metus, sed feugiat magna. Fusce quis leo ut massa vestibulum commodo.
+        Vestibulum non dictum libero. Nunc in dolor erat. Quisque placerat arcu et sem pulvinar
+        ultricies. Aenean non diam in risus euismod congue eu vel nulla. Phasellus non ante
+        ullamcorper diam pulvinar malesuada quis id est.</p>
+      <p>
+        Aenean sapien ante, placerat vitae commodo vitae, suscipit id nisl. Donec nec erat
+        sapien. Aliquam quis rhoncus turpis. Ut imperdiet tellus non orci facilisis facilisis.
+        Proin vitae venenatis felis. Duis metus metus, facilisis ut volutpat non, posuere
+        eu ipsum. Quisque volutpat nisi ut justo viverra eu auctor metus commodo. Phasellus
+        aliquet, urna at adipiscing tristique, leo augue tempus libero, eu luctus arcu erat
+        sed diam. Sed in dui lacus, aliquet condimentum nisl. In hac habitasse platea dictumst.</p>
+    </div>
+  </div>
+</body>
+</html>

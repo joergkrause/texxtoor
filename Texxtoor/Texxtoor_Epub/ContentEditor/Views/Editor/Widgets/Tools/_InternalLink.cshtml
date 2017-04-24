@@ -1,0 +1,24 @@
+﻿@using Texxtoor.Editor.Core.Extensions
+@model List<Texxtoor.Models.Element>
+<img src="/Content/icons/Editor/delete2_16.png" class="linkClose close-popup">           
+<h2>
+  Internal Links</h2>
+<p>
+  Add an element that hyperlinks to a place inside this book.</p>
+<span class="caption">Caption<input type="text" onmousedown="this.focus();"/></span>
+<div id="internalLinkList">
+    <div id="il-tree">
+        <ul>
+        @foreach (var item in Model.OrderBy(s => s.OrderNr)) {
+            <li>
+                <a ondblclick="author.addLink();" href="#" data-value="@item.Id" class="@(item.WidgetName.StripTags().ToLower())-icon">@item.RawContent.Ellipsis(40).ToString()</a>
+                @Html.Partial("Widgets/Tools/_InternalLinkChildren", item.Children);
+            </li>
+        }
+        </ul>
+    </div>
+</div>
+<div class="buttons">
+    <input type="button" value="Ok" onclick="author.addLink();"/>
+    <input type="button" value="Cancel" class="close-popup"/>
+</div>

@@ -1,0 +1,50 @@
+﻿@using Microsoft.Owin.Security
+@using Texxtoor.DataModels.Models.Common
+@model IEnumerable<AuthenticationDescription>
+
+@{
+  var rm = (RunMode)HttpContext.Current.Application["RunMode"];
+}
+@if (Model.Any() && rm == RunMode.Texxtoor) {
+  <script>
+
+    $(function () {
+      $('a.provider').click(function (e) {
+        //alert('called');
+        var self = $(this);
+        var form = self.closest('form');
+        var tempElement = $("<input type='hidden'/>");
+        var val = self.data('value');
+        tempElement.attr("name", "provider").val(val).appendTo(form);
+        form.submit();
+        tempElement.remove();
+        e.preventDefault();
+        return false;
+      });
+    });
+
+  </script>
+  @Html.Heading(HtmlHeading.H2, Loc("headerext", "External Logon"))
+  <div class="well well-sm">
+    @Loc("txtExt", "Click on any of these options to logon using your existing social network account. You local account becomes associated with the external one. You can remove this relation anytime later.")
+  </div>
+  using (Html.BeginForm("ExternalLogin", "Account", new { ViewBag.ReturnUrl })) {
+    var url = "";
+    @:@Html.AntiForgeryToken()
+    foreach (AuthenticationDescription p in Model) {
+
+      if (@p.Caption == "microsoft") {
+        url = "https://login.live.com";
+      } else if (@p.Caption == "twitter") {
+        url = "https://twitter.com/";
+      } else if (@p.Caption == "facebook") {
+        url = "https://facebook.com/";
+      } else if (@p.Caption == "google") {
+        url = "https://google.com/";
+      }
+      <div class="btn-group">
+        <a href="@url" class="btn btn-lg btn-default provider" title="@Loc("externalLogonTxt", "Log in using your {0} account", p.Caption)" data-value="@p.AuthenticationType">@p.Caption <img src="~/Content/images/social/@(p.Caption)24x24.png" class="icon" /></a>
+      </div>
+    }
+  }
+}

@@ -1,0 +1,14 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Functions.QuestionsAnswers
+@using (Html.BeginForm("AddQuestion", "Groups", new { area = "ReaderPortal" }, FormMethod.Post, new { id = "addQuestionForm" })) {
+  using(Html.BtFieldset(Loc("legend", @"New Question"))) {
+    @Html.EditorForModel()
+    @Html.LabelFor(m => m.Theme)
+    <div class="editor-field">
+      @Html.DropDownListFor(m => m.Theme, (SelectList)ViewBag.Themes, ViewResources.DropList_Reader_SelectTheme, new Dictionary<string, object> { { "id", "id" } })
+    </div>
+    <div class="formsendButtons">
+      @Create.FormButtonOnClick("addQuestionSendButton", "", ViewResources.Action_Groups_CreateQuestion)
+      @Create.FormButtonOnClick("addQuestionCancelButton", "", ViewResources.Button_CancelAndClose, BtStyle.ButtonDefault)
+    </div>
+  }
+}

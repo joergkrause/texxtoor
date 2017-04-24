@@ -1,0 +1,56 @@
+﻿@{
+  PageData["Title"] = Loc("title", "Revenues");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("text1", @"This page show your current revenues per time and per work.");
+}
+@section HeadContent{
+}
+<div id="accordion" class="accordion accordion-green accordion-contrast panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseOne-accordion">@Loc("textToday", @"Today")</a>
+        </div>
+        <div id="collapseOne-accordion" class="panel-collapse collapse">
+            <div class="panel-body">
+                @Html.Action("RevenueFilterDate", "Marketing", new { model = Model, filter = Texxtoor.ViewModels.Author.Revenues.DateFilter.ToDay })
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo-accordion">@Loc("text7days", @"7 days rollover")</a>
+        </div>
+        <div id="collapseTwo-accordion" class="panel-collapse collapse">
+            <div class="panel-body">
+                @Html.Action("RevenueFilterDate", "Marketing", new { model = Model, filter = Texxtoor.ViewModels.Author.Revenues.DateFilter.LastWeek })
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseThree-accordion">@Loc("textMonth", @"Last month")</a>
+        </div>
+        <div id="collapseThree-accordion" class="panel-collapse collapse">
+            <div class="panel-body">
+                @Html.Action("RevenueFilterDate", "Marketing", new { model = Model, filter = Texxtoor.ViewModels.Author.Revenues.DateFilter.LastMonth })
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading">
+            <a class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapsefour-accordion">@Loc("text", @"Total")</a>
+        </div>
+        <div id="collapsefour-accordion" class="panel-collapse collapse">
+            <div class="panel-body">
+                @Html.Action("RevenueFilterDate", "Marketing", new { model = Model, filter = Texxtoor.ViewModels.Author.Revenues.DateFilter.All })
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@if (User.IsInRole("Author")) {
+  @Create.ActionTask("btnRev", true, Url.Action("Index", "Payment", new { area = "AuthorPortal" }), ViewResources.Action_Common_Payment_WithDraw)
+  @Create.ActionTask("btnStat", true, Url.Action("Stats", "Marketing", new { area = "AuthorPortal" }), ViewResources.LinkButton_Common_Stats)
+}
+@Create.ActionTask("btnMsg", false, Url.Action("Index", "Messaging", new { area = "" }), ViewResources.LinkButton_Common_Mail)

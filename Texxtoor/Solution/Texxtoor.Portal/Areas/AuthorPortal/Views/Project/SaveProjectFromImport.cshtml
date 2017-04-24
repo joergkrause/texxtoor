@@ -1,0 +1,71 @@
+﻿@model Texxtoor.DataModels.Models.Content.Project
+@{
+  PageData["Title"] = Loc("titleProcess", "Process Your Import");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+}
+@section HeadContent {
+  <script type="text/javascript">
+    $(function () {
+      $('#launchImport').click(function () {
+        $('#main').html('Import is being processed on the server, please stand by.');
+        $.ajax({
+          url: '@Url.Action("SaveProjectFromImport", "Project")',
+          type: 'POST',
+          data: {
+            id: '@Model.Id',
+            opusId: $('select[name=opusId]').val(),
+            importOverwrite: $('input[name=importOverwrite]').val(),
+            splitOpus: $('input[name=splitOpus]').val(),
+            resourceFile: $('input[name=resourceFile]:checked').val() || []
+          },
+          cache: false,
+          dataType: "html",
+          success: function (data) {
+            $('#main').html(data);
+          }
+        });
+      });
+    });
+  </script>
+}
+@using(Html.BtDiv(BtStyle.Well)) {
+@Loc("textProcess", @"Start the actual import process using the options shown below.")
+}
+<h2>@Loc("titleOptions", "Import Options")</h2>
+<div class="well well-sm">
+  @Loc("textImport", @"Select options to manage the import procedure.")
+</div>
+@using(Html.BtFieldset(Loc("legendOptions", @"Options"))) {
+  <label>@Loc("lblWork", @"Workspace to import into")</label>
+  <div class="editor-field">
+    <select name="opusId" id="opusId" disabled="disabled">
+      @foreach (var item in Model.Opuses) {
+        <option value="@item.Id">@item.Name</option>
+      }
+    </select>
+  </div>
+  <label>@Loc("lblOverwrite", @"Overwrite existing import data")</label>
+  <div class="editor-field">
+    <input type="checkbox" value="True" id="importOverwrite" name="importOverwrite" checked="checked" />
+    @Loc("lblOverwriteRec", @" (recommended, existing content will be overwritten)")
+  </div>
+  <label>@Loc("lblSplit", @"Split Resource Folders in Opuses")</label>
+  <div class="editor-field">
+    <input type="checkbox" value="True" id="splitOpus" name="splitOpus" checked="checked" />
+    @Loc("lblSplitCreate", @" (recommended, if checked a new workspace is being created and named after import folder.)")
+  </div>
+  <label>@Loc("lblImpFolders", @"Select files for import")</label>
+  <div class="editor-field LeftMargin260" id="opusNamePreview">
+    @Html.Action("ImportComplex", new { id = Model.Id, type = ".docx", selectable = true })
+  </div>
+  <input type="button" id="launchImport" value="Launch Import" class="@BtStyle.ButtonAndPrimary pull-right" />
+}
+<h3>@Loc("titleStat", "Statistics and Results for '<span data-args='0' data-desc='Project'>{0}</span>'", Model.Name)</h3>
+<div class="well well-sm">
+  @Loc("textResults", @"After import any result appear below.")
+</div>
+<div id="main">
+</div>
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = Model.Id }), ViewResources.LinkButton_ToDashboard)
+@Create.ActionTask("", false, Url.Action("Import", new { id = Model.Id }), ViewResources.LinkButton_ToImport)

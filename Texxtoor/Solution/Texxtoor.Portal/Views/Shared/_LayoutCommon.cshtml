@@ -1,0 +1,103 @@
+﻿@using Texxtoor.DataModels.Models.Common
+@{
+  var rm = (Texxtoor.DataModels.Models.Common.RunMode)HttpContext.Current.Application["RunMode"];
+}
+<!doctype html>
+<html lang="en">
+<head>
+  <title>@PageData["Title"]</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="texxtoor - making knowledge available" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="design, idea, conception, programming server, programming client, database design, coding, publishing, testing, everything: Joerg <isageek> Krause, Berlin, Germany; www.joergkrause.de" />
+  @Styles.Render("~/Content/Landing/" + rm.ToString().ToLowerInvariant())
+  @Scripts.Render("~/Scripts/Landing")
+  
+  @RenderSection("HeadContent", false)
+  <script>
+    $(function () {
+      $('#cmsSearch').on('keyup', function (e) {
+        var code = e.keyCode || e.which;
+        if (code == 13) {
+          $(this).parents('form').submit();
+        }
+      });
+      $('#cmsSearch').on('click', function (e) {
+        var offset = $('#cmsSearch').offset();
+        var clickZone = e.clientX > offset.left && e.clientX < offset.left + 24 && e.clientY > offset.top && e.clientY < offset.top + 24;
+        if (clickZone) {
+          $(this).parents('form').submit();
+        }
+      });
+    });
+
+  </script>
+
+</head>
+<body>
+  @Html.Partial("LayoutPartials/_CmsAdminBody")
+  <div style="width: 1200px; margin-left: auto; margin-right: auto;">
+    <div class="toprule" align="center">
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10">
+          <header>
+            @using (Html.BeginForm("SearchAll", "Home")) {
+              <table style="width:100%">
+                <tr style="vertical-align: top">
+                  <td>
+                    @Html.Partial("_LogoHead", new { area = "" })
+                  </td>
+                  <td>
+                    @Html.Partial("_CultureSelection", Culture) @* Selection is aware of logon state *@
+
+                    <div class="topmenu-logon pull-right">
+                      @if (User.Identity.IsAuthenticated) {
+                        @Html.ActionLink(ViewResources.Action_Common_Logoff, "Logoff", "Account")
+                      } else {
+                        @Html.ActionLink(ViewResources.Action_Common_Logon, "Logon", "Account")
+                      }
+                    </div>
+                    <input type="text" id="cmsSearch" name="cmsSearch" placeholder="@ViewResources.SearchPlaceHolder" class="searchbox topmenu-cms-search pull-right" />
+                  </td>
+                </tr>
+              </table>}
+          </header>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-11" >
+          <div class="wrapper">
+            <div id="content-no-menu">
+              <div class="container" style="height: 900px">
+                @if (!((bool?) PageData["IsLandingPage"]).GetValueOrDefault()) {
+                  <h1>@PageData["Title"]</h1>
+                }
+                @RenderBody()
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+    <footer>
+      @if (!IsSectionDefined("FooterContent")) {
+        @Html.Action("Show", "Navigation", new {menuName = "footer", area = ""})
+      }
+      else {
+        @RenderSection("FooterContent", false)
+      }
+    </footer>
+    <div class="copyright">
+      &copy; 2011&mdash;@DateTime.Now.Year @rm.ToString().ToLowerInvariant() &ndash;All rights reserved
+    </div>
+  </div>
+</body>
+</html>

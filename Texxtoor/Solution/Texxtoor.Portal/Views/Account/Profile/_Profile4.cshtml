@@ -1,0 +1,11 @@
+﻿@model Texxtoor.DataModels.Models.Users.UserProfile
+@if (Model.Addresses == null) {
+  using (Html.BtDiv(BtStyle.AlertAndWarning & BtStyle.WellSmall)) {
+    @Loc("text41", "No addresses so far. Please add an address to get printed copies or invoices through snail mail.")
+  }
+}
+@using (Html.BtDeleteTemplate(Loc("textConfDel", @"You're about to delete an address permanently. Please confirm."))) {
+  @Create.FormButtonOnClick("delAddressSendButton", "", ViewResources.Action_Common_Profile_DeleteAddress, BtStyle.ButtonDanger)
+  @Create.FormButtonOnClick("delAddressCancelButton", "", ViewResources.Button_Cancel)
+}
+<div id="main"></div>

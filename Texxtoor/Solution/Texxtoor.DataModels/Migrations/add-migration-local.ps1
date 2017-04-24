@@ -1,0 +1,1 @@
+﻿add-migration sw1_p406 -ProjectName Texxtoor.DataModels -ConnectionString "data source=.\sqlexpress;initial catalog=MyManuals;integrated security=True;MultipleActiveResultSets=true" -ConnectionProviderName "System.Data.SqlClient"

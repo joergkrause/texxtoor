@@ -1,0 +1,4 @@
+﻿@model IList<Texxtoor.DataModels.Models.Users.Role>
+@foreach (var item in Model) {
+  <input type="checkbox" name="Roles" id="Roles-@item" value="@item.UserRole"/>@item.UserRole <br/>
+}

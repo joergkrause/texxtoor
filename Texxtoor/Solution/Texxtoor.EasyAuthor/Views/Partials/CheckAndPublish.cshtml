@@ -1,0 +1,39 @@
+﻿<div ng-controller="previewCtrl">
+  <div class="nav-bar">
+    <div class="container">
+
+      <div class="nav-item " ng-click="$state.go('overview', { opusId: id })">
+        <span>UBERSICHT</span>
+        <div class="arrow"></div>
+      </div>
+
+      <div class="nav-item" ng-click="$state.go('preview', { opusId: id })">
+        <span>VORSCHAU</span>
+        <div class="arrow"></div>
+      </div>
+
+      <div class="nav-item active">
+        <span>VEROFFENTLICHUNG</span>
+        <div class="arrow"></div>
+      </div>
+
+      <div class="nav-item" ng-click="$state.go('marketing', { opusId: id })">
+        <span>VERMARKTUNG</span>
+        <div class="arrow"></div>
+      </div>
+
+      <div class="nav-item" ng-click="$state.go('success', { opusId: id })">
+        <span>ERFOLGSKONTROLLE</span>
+      </div>
+
+    </div>
+  </div>
+
+    <div class="overview-p">
+        <div class="container">
+            <div class="publish-content">
+            </div>
+        </div>
+    </div>
+
+</div>

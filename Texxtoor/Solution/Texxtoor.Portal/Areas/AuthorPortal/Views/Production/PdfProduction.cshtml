@@ -1,0 +1,53 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@model IEnumerable<Texxtoor.DataModels.Models.Content.TemplateGroup>
+@{
+  PageData["Title"] = Loc("title1", "PDF Production");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("textPrev1", @"Choose a template and create final output. Refine output, if necessary, then.");
+}
+@{
+  var pdfTemplates = Model.Where(t => t.Group == GroupKind.Pdf).OrderBy(t => t.Name).ToList();
+}
+@section HeadContent{
+  @RenderPage("_Script.cshtml")
+}
+<h2>
+  @Loc("titlePdfTemplates", "Select a Template for PDF Output")
+</h2>
+@if (pdfTemplates.Any()) {
+  using (Html.BtDiv(BtStyle.WellAndSmall)) {
+    @Loc("textPdfTemplates", "Click a template name. The file will be created in the background. You can choose any template to see different results.")
+  }
+  <div class="container">
+    @foreach (var item in pdfTemplates) {
+      <div class="row">
+        <div class="col-md-3 ">
+          <button data-action data-type="pdf" data-value="@item.Id" class="@BtStyle.ButtonAndPrimary btn btn-block" style="margin-right: 20px;">@item.Name</button>
+          <br />
+          <div class="badge badge-info">@item.Culture.NativeName</div>
+        </div>
+        <div class="col-md-9">
+          @if (item.Description != null) {
+            <div class="alert alert-info">@item.Description </div>
+          } else {
+            <div class="alert alert-info">@Loc("nodesc", "No description provided")</div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+  <br />
+  using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+    @Loc("textPdfLang", String.Format(@"The texts language setting is being used to determine the templates base language, which currently is <em>{0}</em>. If it is not set it falls back to your global language settings, which currently is <em>{1}</em>", (string)ViewBag.OpusLang, (string)ViewBag.UserLang))
+  }
+} else {
+  using (Html.BtDiv(BtStyle.AlertAndError)) {
+    @Loc("txtNoPdf", "There are no templates for PDF production.")
+  }
+}
+<span id="pdfLink"></span>
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = ViewBag.ProjectId }), ViewResources.LinkButton_ToDashboard)
+@Create.ActionTask("", false, Url.Action("Index", "Publishing", new { id = ViewBag.ProjectId }), ViewResources.LinkButton_Publishing)
+@Create.ActionTask("", true, Url.Action("EpubProduction", "Production", new { id = ViewBag.OpusId }), ViewResources.TasksButton_ProductionPreview + " EPUB")
+@Create.ActionTask("", true, Url.Action("AppProduction", "Production", new { id = ViewBag.OpusId }), ViewResources.TasksButton_ProductionPreview + " APP")

@@ -1,0 +1,1 @@
+﻿update-database -ConnectionString "data source=.\sqlexpress;initial catalog=PortalDatabase;integrated security=True;MultipleActiveResultSets=true" -ConnectionProviderName "System.Data.SqlClient"

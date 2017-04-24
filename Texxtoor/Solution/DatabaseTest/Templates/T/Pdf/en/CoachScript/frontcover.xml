@@ -1,0 +1,14 @@
+﻿<div class="frontcover" xmlns:t="http://www.texxtoor.de/2014/templating">
+  <h1>
+    <t:title></t:title>
+  </h1>
+  <h2>
+    <t:subtitle></t:subtitle>
+  </h2>
+  <p class="version">Version: <t:version>1.0</t:version> (<t:printdate type="short" />)</p>
+  <div class="about" id="about-h-1">
+    <t:img src="author" />
+    <h3 class='builder'><t:authorname type="lead" /></h3>
+    <p><t:biography type="lead" /></p>
+  </div>
+</div>

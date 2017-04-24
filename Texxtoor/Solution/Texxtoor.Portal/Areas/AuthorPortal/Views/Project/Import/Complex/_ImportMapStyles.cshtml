@@ -1,0 +1,6 @@
+﻿@model int
+<div class="alert alert-info ">
+@Loc("text", @"<em><span data-args='0' data-desc='File Count'>{0}</span></em> files have been processed. The importer has 
+found <em><span data-args='1' data-desc='Style Count'>{1}</span></em> styles. <em><span data-args='2' data-desc='Style Mapped'>{2}</span>
+</em>styles have been mapped already.", 1, (int)ViewBag.StyleCount, (int)ViewBag.MapCount)
+</div>

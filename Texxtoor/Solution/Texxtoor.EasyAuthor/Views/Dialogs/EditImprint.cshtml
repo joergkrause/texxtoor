@@ -1,0 +1,31 @@
+﻿@model Texxtoor.EasyAuthor.Models.ImprintAddressDto
+<section id="edit-metadata">
+  <div class="modal-header">
+    <h3>EDIT Imprint</h3>
+    <i class="icon-times pull-right" ng-click="close()"></i>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-sm-12">
+        @Html.HiddenFor(m => m.ImprintId)
+        @Html.HiddenFor(m => m.AddressId)
+        @Html.LabelFor(m => m.CompanyLogo)
+        <div id="imprintLogo" class="pull-left" style="padding-left: 15px">
+          <img src="~/Tools/GetImg/{{imprint.imageId}}?c=ImprintLogo&res=300x80&nc=true" alt="logo" />
+        </div>
+        <div class="clearfix">
+          <small>(For optimal printing image ratio is 3,75 : 1)</small>
+        </div>
+        <div class="clearfix formsendButtons">
+          <small>Click on the image to upload another one</small>
+        </div>
+        @Html.AngularEditorForModel()
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-default btn-sm btn-uppercase" ng-click="close()">Cancel</a>
+    <button class="btn btn-default btn-sm btn-uppercase" ng-click="save()">Save</button>
+  </div>
+</section>
+

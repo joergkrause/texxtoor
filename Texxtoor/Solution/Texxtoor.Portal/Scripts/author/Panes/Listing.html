@@ -1,0 +1,39 @@
+﻿<li>
+  <h2 data-lc="Panes" data-p="Listing_Format"></h2>
+  <div class="ribbon-list">
+    <div>
+      <input type="checkbox" id="syntaxhighlight" onclick="AUTHOR.setListingEditorOption('syntaxhighlight', $(this).is(':checked'));"
+             name="syntaxhighlight" value="true" checked="checked" />
+      <label data-lc="Panes" data-p="Listing_Format_Code"></label>
+    </div>
+    <div>
+      <input type="checkbox" id="linenumbers" onclick="AUTHOR.setListingEditorOption('linenumbers', $(this).is(':checked'));"
+             name="linenumbers" value="true" checked="checked" />
+      <label data-lc="Panes" data-p="Listing_Format_LineNumbers"></label>
+    </div>
+  </div>
+</li>
+<li>
+  <h2 data-lc="Panes" data-p="Listing_Format_FormattingGuide"></h2>
+  <div class="ribbon-list">
+    <i class="icon-code icon-2x" title="Language"></i>
+    <div>
+      <span data-lc="Panes" data-p="Listing_FormattingGuide_Language"></span>
+      <ul id="lang">
+        <li data-value="text/x-csharp" onclick="AUTHOR.setListingEditorOption('language', $(this).data('value'));">C#</li>
+        <li data-value="text/x-java" onclick="AUTHOR.setListingEditorOption('language', $(this).data('value'));">Java</li>
+        <li data-value="vbscript" onclick="AUTHOR.setListingEditorOption('language', $(this).data('value'));">VB</li>
+        <li data-value="javascript" onclick="AUTHOR.setListingEditorOption('language', $(this).data('value'));">JavaScript</li>
+        <li data-value="xml" onclick="AUTHOR.setListingEditorOption('language', $(this).data('value'));">HTML</li>
+        <li data-value="css" onclick="AUTHOR.setListingEditorOption('language', $(this).data('value'));">CSS</li>
+      </ul>
+    </div>
+  </div>
+</li>
+<li>
+  <h2 data-lc="Panes" data-p="Listing_Delete"></h2>
+  <div class="ribbon-button" data-command="delete" data-action="snippet">
+    <i class="icon-trash-o icon-2x block red" alt="Delete" />
+    <span data-lc="Panes" data-p="Listing_Delete_Listing"></span>
+  </div>
+</li>

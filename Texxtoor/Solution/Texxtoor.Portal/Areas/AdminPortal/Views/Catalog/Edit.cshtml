@@ -1,0 +1,51 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.Catalog
+@{
+    PageData["Title"] = "Edit Catalog Item";
+    Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+
+@using (Html.BeginForm()) {
+  @Html.ValidationSummary(true)
+  @Html.AntiForgeryToken()
+  using (Html.BtFieldset("Catalog")) {
+    <div class="editor-label">
+      @Html.LabelFor(model => model.Description)
+    </div>
+    <div class="editor-field">
+      @Html.EditorFor(model => model.Description)
+      @Html.ValidationMessageFor(model => model.Description)
+    </div>
+    <div class="editor-label">
+      @Html.LabelFor(model => model.Culture)
+    </div>
+    <div class="editor-field">
+      @Html.EditorFor(model => model.Culture)
+      @Html.ValidationMessageFor(model => model.Culture)
+    </div>
+    <div class="editor-label">
+      @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="editor-field">
+      @Html.EditorFor(model => model.Name)
+      @Html.ValidationMessageFor(model => model.Name)
+    </div>
+    <div class="editor-label">
+      @Html.LabelFor(model => model.Parent)
+    </div>
+    <div class="editor-field">
+      @Html.TextBoxFor(model => model.Parent.Id)
+    </div>
+    <div class="editor-label">
+      @Html.LabelFor(model => model.OrderNr)
+      </div>
+      <div class="editor-field">
+        @Html.EditorFor(model => model.OrderNr)
+        @Html.ValidationMessageFor(model => model.OrderNr)
+      </div>
+      @Html.HiddenFor(model => model.Id)      
+      <div class="formsendButtons">
+        <button class="btn btn-sm btn-primary" type="submit">Save Catalog Item</button>
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-sm btn-default" })
+      </div>
+      }
+  }

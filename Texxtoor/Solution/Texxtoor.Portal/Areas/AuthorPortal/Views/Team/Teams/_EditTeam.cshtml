@@ -1,0 +1,29 @@
+﻿@using Texxtoor.DataModels.Models.Author
+@model Texxtoor.DataModels.Models.Author.Team
+@using (Html.BeginForm("EditTeam", "Team", FormMethod.Post, new { id = "editTeamForm" })) {
+  @Html.HiddenFor(m => m.Id)
+  using (Html.BtFieldset(Loc("legend", @"Edit Team"))) {
+    @Html.EditorForModel()
+    @Html.LabelFor(m => m.Image)
+    <div class="editor-field">
+      <div id="team-picture" style="width: 550px; vertical-align: top; ">
+        @Html.CheckBox("clearImage") @Loc("clear", "Check here to remove the image")
+        <br /><br />
+        <div class="btn btn-default btn-sm btn-file">
+          @Loc("image", "Select an Image")
+          <input type="file" name="editTeamImage"
+                 data-form="#editTeamForm"
+                 data-imagesrc="#team-picture img"
+                 data-filename="#teamImageName"
+                 data-progress="#teamSaveProgress">
+        </div>
+        @(Create.FieldHelpIcon<Team>(m => m.Image))
+        <img class="img img-thumbnail clearfix" style="margin-bottom: 10px; float:right;" src="@Url.Action("GetImg", "Tools", new { area = "", id = Model.Id, c = "Team", res = "125x155", nc = true, t = DateTime.Now.Ticks })" alt="@Model.Name" />
+      </div>
+      <br />
+      <span id="teamImageName" class="badge badge-info"></span>
+    </div>
+    @Button.FormSendButtons("editTeamSendButton", ViewResources.Action_Team_ChangeName, "editTeamCancelButton", ViewResources.Button_CancelAndClose)
+    <span id="teamSaveProgress" class="badge badge-important hidden-to-show">@ViewResources.Dialog_View_Saving</span>
+  }
+}

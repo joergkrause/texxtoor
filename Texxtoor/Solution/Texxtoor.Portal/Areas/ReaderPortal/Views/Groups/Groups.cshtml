@@ -1,0 +1,102 @@
+﻿@{
+  PageData["Title"] = Loc("titleMyGrp", "My Groups");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+  PageData["ShortHelp"] = Loc("textMyGrpExpl", @"Private groups can share books online&mdash;if one member buys a book online all members will have access to it. Members can share
+bookmarks, comments, and related resources. Members can send private messages directly to each other. Uploaded content by members will be accessible be all others.
+All activities within the group are kept private to members.");
+}
+@section HeadContent {
+  <script>
+    $(document).ready(function () {
+      $("#addGroup").css("display", "none");
+    });
+  </script>
+  <script type="text/javascript">
+    $(function () {
+      ui = new Dialog(
+        {
+          formId: '#addGroupForm',
+          formDivId: '#addGroup',
+          formAction: '@Url.Action("AddGroup")',
+          sendBtnId: '#addGroupSendButton',
+          cancelBtnId: '#addGroupCancelButton',
+          onShow: function () {
+            $('#main').hide();
+          },
+          onClose: function () {
+            $('#main').show();
+          }
+
+        },
+        {
+          formId: '#editGroupForm',
+          formDivId: '#editGroup',
+          formAction: '@Url.Action("EditGroup")',
+          sendBtnId: '#editGroupSendButton',
+          cancelBtnId: '#editGroupCancelButton',
+          onShow: function () {
+            $('#main').hide();
+          },
+          onClose: function () {
+            $('#main').show();
+          }
+        },
+        {
+          formId: '#delGroup',
+          formDivId: '#delGroup',
+          formAction: '@Url.Action("DeleteGroup")',
+          sendBtnId: '#delGroupSendButton',
+          cancelBtnId: '#delGroupCancelButton',
+          onShow: function () {
+            $('#main').hide();
+          },
+          onClose: function () {
+            $('#main').show();
+          }
+
+        },
+        {
+          formId: '#main',
+          formDivId: '#main',
+          formAction: '@Url.Action("ListGroups", new { @public = false })'
+        });
+      ui.updateTable();
+    });
+
+  </script>
+  <script>
+    function GetSharedContent(groupId, page) {
+      $.ajax({
+        url: '@Url.Action("SharedContent")',
+        data: {
+          id: groupId,
+          page: page
+        },
+        type: 'GET',
+        cache: false,
+        dataType: 'html',
+        success: function (data) {
+          $('#sharedContent').html(data).show();
+          $('#main').hide();
+        }
+      });
+      $(document).on('click', '#closeSharedWorkButton', function () {
+        $('#sharedContent').html("").hide();
+        $('#main').show();
+      });
+    }
+  </script>
+}
+<div class="alert alert-info">
+  @Loc("textMyGrp", @"These are private groups and those you are permitted to manage.")
+</div>
+@using (Html.BtDeleteTemplate(Loc("textDel", @"You're about to delete a group permanently. Please confirm."))){
+  @Create.FormButtonOnClick("delGroupSendButton", "", ViewResources.Action_Reader_DeleteGroup, BtStyle.ButtonDanger)
+  @Create.FormButtonOnClick("delGroupCancelButton", "", ViewResources.Button_Cancel, BtStyle.ButtonDefault)
+}
+@Create.ContentForm("addGroup", @Html.Action("AddGroup"), Loc("newGroup", "Create New Group").ToString())
+@Create.ContentFormEmpty("editGroup")
+@Create.ContentFormEmpty("sharedContent")
+@Create.MainContentWithLoader()
+
+@Create.ActionTask("", false, Url.Action("Questions", "Groups", new { area = "ReaderPortal" }), ViewResources.LinkButton_Reader_Questions)

@@ -1,0 +1,70 @@
+﻿@using Texxtoor.DataModels.Models.Common
+@using Texxtoor.DataModels.Models.Content
+@model IPagedList<ResourceFile>
+@Html.Partial("_Pagination", PaginationViewModel<ResourceFile>.Create(Model, "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});",
+new List<IDictionary<string, string>> {
+new Dictionary<string, string> {
+    {"id", "uploadHtml"},
+    {"action", "ui.addElement()" },
+    {"text", ViewResources.LinkButton_Upload_WordHTML},
+    {"cssclass", BtStyle.ButtonPrimary} },
+    new Dictionary<string, string> {
+    {"id", "uploadWord"},
+    {"action", "ui.editElement()" },
+    {"text", ViewResources.LinkButton_Upload_WordDOCX},
+    {"cssclass", BtStyle.ButtonPrimary}
+  }},
+true, m => m.Name, m => m.CreatedAt))
+<div class="multilist">
+  @foreach (var item in Model) {
+    <div class="listitem">
+      <div class="firstRow">
+        @Badges.NewItem(item.Name, item.CreatedAt, TimeSpan.FromDays(2))
+      </div>
+      <div class="secondRow">
+        <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+        <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+          @Loc("textFile", @"The file <em><span data-args='0' data-desc='Name'>{0}</span></em> was uploaded <em><span data-args='1' data-desc='Date'>{1}</span></em> at <em><span data-args='2' data-desc='Name'>{2}</span></em>. It has been converted to an importable HTML.", item.Name, item.CreatedAt.ToShortDateString(), item.CreatedAt.ToShortTimeString())
+          @if (!item.Metadata.ContainsKey("ImportToOpus")) {
+            <div class="alert alert-warning">@Loc("notimported", "Not yet imported.")</div>
+          } else {
+            <div class="alert alert-info">@Loc("already", "Already in Opus {0}", item.Metadata["ImportToOpusName"]).</div>
+          }
+          @if (!item.Metadata.ContainsKey("Mapping")) {
+            <div class="alert alert-warning">@Loc("notmapped", "Styles not yet mapped.")</div>
+          } else {
+            <div class="alert alert-link">@Loc("view", "Click to view mappings.")</div>
+          }
+          @if ((bool)ViewBag.HasMapping) {
+            @Loc("hasMapping", "There is already a common mapping you can assign to this file.")
+          } else {
+            @Loc("hasNoMapping", "There is no mapping available. Start with the function 'Create Mapping'.")
+          }
+        </div>
+      </div>
+      <div class="thirdRow">
+        <div class="optionFields" data-item="@item.Id">
+          @if (Path.GetExtension(item.FullName).EndsWith("htm") || Path.GetExtension(item.FullName).EndsWith("html")) {
+            @Create.ActionClick("lnkCheck", true, "ui.checkFile(" + item.Id + ")", ViewResources.Action_OpusFileImport_PreviewHTML)
+            @Create.ActionLink("lnkDownload", false, Url.Action("DownloadImportFile", new { id = item.Id }), ViewResources.Action_OpusFileImport_Download_HTMLFile)
+            @Create.ActionClick("lnkImport", true, "ui.importFile(" + item.Id + ", false)", ViewResources.Action_OpusFileImport_ImportNew)
+          }
+          @if (Path.GetExtension(item.FullName).EndsWith("docx")) {
+            @Create.ActionLink("lnkDownload", false, Url.Action("DownloadImportFile", new {id = item.Id}), ViewResources.Action_OpusFileImport_Download_DOCXFile)
+            if (item.Metadata.ContainsKey("Mapping")) {
+              @Create.ActionLink("lnkCheck", true, Url.Action("GetRestorableXml", "Project", new {id = item.Id}), ViewResources.Action_OpusFileImport_Download_Restorable)
+              @Create.ActionLink("lnkMapping", true, Url.Action("ImportMapping", new {id = item.Project.Id, resourceId = item.Id}), ViewResources.Action_OpusFileImport_ViewMap_Styles, BtStyle.ButtonAndWarning)
+            }
+            else {
+                @Create.ActionLink("lnkMapping", true, Url.Action("ImportMapping", new {id = item.Project.Id, resourceId = item.Id}), ViewResources.Action_OpusFileImport_ViewMap_Styles, BtStyle.ButtonAndWarning)
+            }
+          }
+          @if (item.Metadata.ContainsKey("ImportToOpus")) {
+            @Create.ActionClick("lnkImportNew", true, "ui.importFile(" + item.Id + ", false)", ViewResources.Action_OpusFileImport_ImportOverwrite)
+          }
+          @Create.ActionClick("lnkRemove", true, "ui.deleteElement(" + item.Id + ")", ViewResources.Action_Common_Archive_DeleteFile, BtStyle.ButtonAndDanger)
+        </div>
+      </div>
+    </div>
+  }
+</div>

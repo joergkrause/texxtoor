@@ -1,0 +1,122 @@
+﻿@model Texxtoor.DataModels.Models.Content.Opus
+@using (Html.BeginForm("Edit", "Opus", new { id = Model.Id }, FormMethod.Post, new { id = "saveOpusForm" })) {
+  using (Html.BtFieldset(Loc("titleProps", "General Content Properties"))) {
+    @Html.HiddenFor(m => m.Project.Id)
+    @Html.HiddenFor(m => m.Project.Name)
+    @Html.HiddenFor(m => m.Project.Short)
+    if ((bool)ViewBag.UserIsTeamlead) {
+      @Html.LabelFor(m => m.Name)
+      <div class="editor-field">
+        @Html.EditorFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+      </div>
+    } else {
+      @Html.LabelFor(m => m.Name)
+      <div class="editor-field">
+        @Html.DisplayFor(m => m.Name)
+      </div>
+    }
+    if ((bool)ViewBag.UserIsTeamlead) {
+      <label for="LocaleId">@Loc("lblLang", @"Language")</label>
+      <div class="editor-field">
+        @Create.CultureSelection(Url, "LocaleId", Model.LocaleId)
+        @Create.FieldHelpIcon(Html, m => m.LocaleId)
+        @Html.ValidationMessageFor(m => m.Name)
+      </div>
+    } else {
+      <label>@Loc("lblLang", @"Language")</label>
+      <div class="editor-field">
+        @Html.DisplayFor(m => m.LocaleId)
+      </div>
+    }
+  }
+  using (Html.BtFieldset(Loc("titleTarget", "User Information in Apps"))) {
+    if ((bool)ViewBag.UserIsTeamlead) {
+      @Html.LabelFor(m => m.Requirements)
+      <div class="editor-field">
+        @Html.EditorFor(m => m.Requirements)
+        @Html.ValidationMessageFor(m => m.Requirements)
+      </div>
+      <div class="editor-field">
+        @Html.EditorFor(m => m.RequirementsResource, new { Parent = Model })
+      </div>
+    } else {
+      @Html.LabelFor(m => m.Requirements)
+      <div class="editor-field">
+        @Html.DisplayFor(m => m.Requirements)
+      </div>
+      <div class="editor-field">
+        @Html.DisplayFor(m => m.RequirementsResource)
+      </div>
+    }
+
+    if ((bool)ViewBag.UserIsTeamlead) {
+      @Html.LabelFor(m => m.TargetAudience)
+      <div class="editor-field">
+        @Html.EditorFor(m => m.TargetAudience)
+        @Html.ValidationMessageFor(m => m.TargetAudience)
+      </div>
+    } else {
+      @Html.LabelFor(m => m.TargetAudience)
+      <div class="editor-field">
+        @Html.DisplayFor(m => m.TargetAudience)
+      </div>
+    }
+
+    if ((bool)ViewBag.UserIsTeamlead) {
+      @Html.LabelFor(m => m.ProposedOutcome)
+      <div class="editor-field">
+        @Html.EditorFor(m => m.ProposedOutcome)
+        @Html.ValidationMessageFor(m => m.ProposedOutcome)
+      </div>
+      <div class="editor-field">
+        @Html.EditorFor(m => m.ProposedOutcomeResource, new { Parent = Model })
+      </div>
+    } else {
+      @Html.LabelFor(m => m.ProposedOutcome)
+      <div class="editor-field">
+        @Html.DisplayFor(m => m.ProposedOutcome)
+      </div>
+      <div class="editor-field">
+        @Html.DisplayFor(m => m.ProposedOutcomeResource)
+      </div>
+    }
+  }
+  using (Html.BtFieldset(Loc("titleOrg", "Structure and Organisation"))) {
+    if ((bool)ViewBag.UserIsTeamlead) {
+      @Html.LabelFor(m => m.Version)
+      <div class="editor-field">
+        @Html.EditorFor(m => m.Version)
+        @Html.ValidationMessageFor(m => m.Version)
+      </div>
+    } else {
+      @Html.LabelFor(m => m.Version)
+      <div class="editor-field">
+        @Html.DisplayFor(m => m.Version)
+      </div>
+    }
+    if ((bool)ViewBag.UserIsTeamlead) {
+      @Html.LabelFor(m => m.IsBoilerplate)
+      <div class="editor-field">
+        @Html.EditorFor(m => m.IsBoilerplate)
+        @Html.ValidationMessageFor(m => m.IsBoilerplate)
+      </div>
+    } else {
+      @Html.LabelFor(m => m.IsBoilerplate)
+      <div class="editor-field">
+        @Html.DisplayFor(m => m.IsBoilerplate)
+      </div>
+    }
+    <div class="formsendButtons">
+      @if ((bool)ViewBag.UserIsTeamlead) {
+          using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+            @Loc("txtSaveHint", "Changed values get saved immediately.")
+          }
+      } else {
+        using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+          @Loc("txtLeadOnly", "Only the leading author can change these values")
+        }
+      }
+    </div>
+  }
+}

@@ -1,0 +1,11 @@
+﻿@model Texxtoor.DataModels.Models.Users.UserProfile
+@using (Html.BtFieldset(Loc("legend3a", @"Define your interests"))) {
+  @Html.LabelFor(m => m.ConsumerMatrix, new { @class = "control-label col-sm-3" })
+  <div class="editor-field-accordion col-md-9">
+    @Html.Action("ConsumerMatrix", new { id = Model.Id })
+    <div id="SaveConsumerMatrixMessage" class="alert alert-success hidden-to-show">@Loc("txtSaving", "Saving matrix values...")</div>
+  </div>
+  <div class="formsendButtons">
+    <a href="#" class="consumermatrix-add btn btn-small btn-primary">@ViewResources.Action_Common_Profile_AddMore</a>
+  </div>
+}

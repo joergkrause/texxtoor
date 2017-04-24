@@ -1,0 +1,34 @@
+﻿@model Texxtoor.DataModels.Models.Users.UserProfile
+@using (Html.BtDiv(BtStyle.WellAndSmall)) {
+  @Loc("lgndtextawards", "See your performance and reputation on the platform. Most activities get points and increase your level. Some functions are available to higher levels only.")
+}
+@using (Html.BeginForm()) {
+  using (Html.BtFieldset(Loc("lgndBadges", "Awards and Badges"))) {
+    @Html.LabelFor(m => m.AwardState)
+    <div class="editor-field">
+      <div class="badge badge-info">@Html.DisplayFor(m => m.AwardState)</div>
+      <div class="pull-right" style="margin-right:550px">@Create.FieldHelpIcon(Html, m => m.AwardState)</div>
+    </div>
+    @Html.LabelFor(m => m.UserScore)
+    <div class="editor-field">
+
+      <div class="badge badge-warning">@Html.DisplayFor(m => m.UserScore)</div>
+      <div class="pull-right" style="margin-right:550px">@Create.FieldHelpIcon(Html, m => m.UserScore)</div>
+    </div>
+    @Html.LabelFor(m => m.UserBadge)
+    <div class="editor-field">
+      <div class="badge badge-success">@Html.DisplayFor(m => m.UserBadge)</div>
+      <div class="pull-right" style="margin-right:550px">@Create.FieldHelpIcon(Html, m => m.UserBadge)</div>
+    </div>
+    @Html.LabelFor(m => m.CreatorScore)
+    <div class="editor-field">
+      <div class="badge badge-warning">@Html.DisplayFor(m => m.CreatorScore)</div>
+      <div class="pull-right" style="margin-right:550px">@Create.FieldHelpIcon(Html, m => m.CreatorScore)</div>
+    </div>
+    @Html.LabelFor(m => m.CreatorBadge)
+    <div class="editor-field">
+      <div class="badge badge-inverse">@Html.DisplayFor(m => m.CreatorBadge)</div>
+      <div class="pull-right" style="margin-right:550px">@Create.FieldHelpIcon(Html, m => m.CreatorBadge)</div>
+    </div>
+  }
+}

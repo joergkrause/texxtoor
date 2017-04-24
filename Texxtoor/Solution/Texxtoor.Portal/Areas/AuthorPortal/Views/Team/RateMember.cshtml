@@ -1,0 +1,172 @@
+﻿@model Texxtoor.DataModels.Models.Users.UserRating
+@{
+  PageData["Title"] = Loc("title", "Rate Member");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+}
+@section HeadContent {
+  <script>
+    $(function () {
+      $("#fnslider").slider({
+        value: '@Model.Friendlyness', min: 1, max: 10, step: 1,
+        slide: function (event, ui) { $("#fn").val(ui.value); }
+      });
+      $("#coslider").slider({
+        value: '@Model.Communication', min: 1, max: 10, step: 1,
+        slide: function (event, ui) { $("#co").val(ui.value); }
+      });
+      $("#puslider").slider({
+        value: '@Model.Punctuality', min: 1, max: 10, step: 1,
+        slide: function (event, ui) { $("#pu").val(ui.value); }
+      });
+      $("#quslider").slider({
+        value: '@Model.Quality', min: 1, max: 10, step: 1,
+        slide: function (event, ui) { $("#qu").val(ui.value); }
+      });
+      $("#reslider").slider({
+        value: '@Model.Reliability', min: 1, max: 10, step: 1,
+        slide: function (event, ui) { $("#re").val(ui.value); }
+      });
+      $("#fn").val($("#fnslider").slider("value"));
+      $("#co").val($("#coslider").slider("value"));
+      $("#pu").val($("#puslider").slider("value"));
+      $("#qu").val($("#quslider").slider("value"));
+      $("#re").val($("#reslider").slider("value"));
+    });
+  </script>
+}
+@using (Html.BtDiv(BtStyle.Well)) {
+  @Loc("textRating", "The rating systems helps your contributors to get jobs as well as other authors to get the right contributors. Rate fair and consious. Don't downrate without an exceptional reason.")
+}
+@using (Html.BeginForm()) {
+  <input type="hidden" value="@Model.Id" id="userId" name="userId" />
+  <table class="table table-condensed table-hover table-striped">
+    <tr>
+      <td colspan="3">
+        <p>@Loc("label", "For which project do you want to rate this contributor?")</p>
+        <select id="projectId" name="projectId">
+          @foreach (var prj in (IList<Texxtoor.DataModels.Models.Content.Project>)ViewBag.ProjectsForMember) {
+            <option value="@prj.Id">@prj.Name</option>
+          }
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <h3>@Loc("hFriend", "Friendlyness")</h3>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="fnslider" class="RateMemberDiv">
+        </div>
+      </td>
+      <td>
+        <input type="text" value="@Model.Friendlyness" name="fn" id="fn" class="rate-field" />
+      </td>
+      <td>
+        @Loc("tFriend", @"This describes the style, the way to communicate, the habit
+        while talking to others")
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <h3>@Loc("hComm", @"Communication")</h3>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div id="coslider" class="RateMemberDiv">
+      </div>
+    </td>
+    <td>
+      <input type="text" value="@Model.Communication" name="co" id="co" class="rate-field" />
+    </td>
+    <td>
+      @Loc("tComm", @"The communication skills, responsiveness and speed of reaction.")
+  </td>
+</tr>
+<tr>
+  <td colspan="3">
+    <h3>@Loc("hPunc", @"Punctuality")</h3>
+  </td>
+</tr>
+<tr>
+  <td>
+    <div id="puslider" class="RateMemberDiv">
+    </div>
+  </td>
+  <td>
+    <input type="text" value="@Model.Punctuality" name="pu" id="pu" class="rate-field" />
+  </td>
+  <td>
+    @Loc("tPunc", @"Commitment to schedule, timeline, and availability for meetings.")
+</td>
+</tr>
+<tr>
+  <td colspan="3">
+    <h3>@Loc("hQual", @"Quality")</h3>
+  </td>
+</tr>
+<tr>
+  <td>
+    <div id="quslider" class="RateMemberDiv">
+    </div>
+  </td>
+  <td>
+    <input type="text" value="@Model.Quality" name="qu" id="qu" class="rate-field" />
+  </td>
+  <td>
+    @Loc("tQual", @"The overall quality of the desired work concerning the expectations.")
+</td>
+</tr>
+<tr>
+  <td colspan="3">
+    <h3>@Loc("hRel", @"Reliability")</h3>
+  </td>
+</tr>
+<tr>
+  <td>
+    <div id="reslider" class="RateMemberDiv">
+    </div>
+  </td>
+  <td>
+    <input type="text" value="@Model.Reliability" name="re" id="re" class="rate-field " />
+  </td>
+  <td>
+    @Loc("tRel", @"The overall reliability regarding work, schedules, commitments, even outside the
+        regular work.")
+</td>
+</tr>
+<tr>
+  <td class="VerticalTop" colspan="2">
+    <h3>@Loc("hDesc", @"Comment (optional)")</h3>
+  </td>
+  <td>
+    @Html.EditorFor(m => m.Comment)
+  </td>
+</tr>
+</table>
+  <div class="formsendButtons">
+    <input type="submit" value="@ViewResources.Action_Team_RateMember" class="btn btn-primary" />
+  </div>
+}
+@Create.ActionTask("btnPrj", false, Url.Action("Index", "Project"), ViewResources.TasksButton_ToProjects)
+@Create.ActionTask("btnTeam", false, Url.Action("Index", "Team", new { id = ViewBag.TeamId }), ViewResources.TasksButton_ToTeam)
+@section HelpSection{
+  <p>
+    @Loc("text", "The rating uses a simple number system:")
+  </p>
+  <div>
+    <div>&nbsp;1.@Loc("li1", "Really bad, no usable work at all")</div>
+    <div>&nbsp;2.@Loc("li2", "Slightly usable, most parts are less than expected")</div>
+    <div>&nbsp;3.@Loc("li3", "Partly usable")</div>
+    <div>&nbsp;4.@Loc("li4", "Poor quality, but almost complete")</div>
+    <div class="text text-orange">&nbsp;5.@Loc("li5", "Good quality")</div>
+    <div>&nbsp;6.@Loc("li6", "Very good, can be used with some additional effort")</div>
+    <div>&nbsp;7.@Loc("li7", "Really good, contributor worked as expected")</div>
+    <div>&nbsp;8.@Loc("li8", "Expert level work, professional in any way")</div>
+    <div>&nbsp;9.@Loc("li9", "Beyond expectations, extremely professional")</div>
+    <div>10.@Loc("li10", "Metaphysical perfection, far above the average")</div>
+  </div>
+
+}

@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Texxtoor.ViewModels.Author.TeamMemberModel>
+<div class="Margin5">
+  @foreach (var item in Model) {
+    var elm = item.Member;
+    <div class="pull-left Width200">
+      @Create.ImageAction("", Url.Action("ShowProfile", "Community", new { id = elm.Profile.Id, area = "" }), "/Tools/GetImg/" + elm.Profile.Id + "?c=MemberThumbnail&res64x64", true, "addedMember")
+      <br />
+      <strong>User @elm.UserName</strong>
+      <br />
+      (@elm.Email)      
+    </div>
+  }
+</div>

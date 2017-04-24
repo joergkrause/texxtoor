@@ -1,0 +1,9 @@
+﻿@{
+  PageData["Title"] = Loc("title", "InvoiceStatus");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+}
+<div class="alert alert-info">
+  @Loc("text1", @"Invoice Payment is successfully done.")
+</div>
+@Create.ActionTask("", false, Url.Action("InvoicesOutgoing", "Team", new { area = "AuthorPortal" }), ViewResources.LinkButton_OutgoingInvoices)
+@Create.ActionTask("", false, Url.Action("InvoicesIncoming", "Team", new { area = "AuthorPortal" }), ViewResources.LinkButton_IncomingInvoices)

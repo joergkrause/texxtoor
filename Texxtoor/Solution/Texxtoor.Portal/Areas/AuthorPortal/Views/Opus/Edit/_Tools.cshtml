@@ -1,0 +1,132 @@
+﻿@model Texxtoor.DataModels.Models.Content.Opus
+@using Texxtoor.DataModels.Models.Author
+@{
+  var cr = (ContributorRole)ViewBag.ContributorRole;
+  var localizedRoles = (IEnumerable<string>)ViewBag.ContributorRoles;
+}
+<form>
+  @using (Html.BtFieldset(Loc("titleAction", "Your Tools"))) {
+    var anyMissing = false;
+    using (Html.BtDiv(BtStyle.AlertAndInfo)) {
+      @Loc("textRole", @"You have the following roles assigned: ")
+      @String.Join(", ", localizedRoles.ToArray())
+    }
+    @*// this is the per contributor type unique TypeId from ContributorRole table, filtered to the current users contributing types*@
+    if ((cr & ContributorRole.Author) == ContributorRole.Author) {
+      <div style="width: 200px; display: inline-block;">
+        @Create.ActionLinkIcon("lnkAuthor1", Url.Action("AuthorRoom", "Editor", new { Id = Model.Id }), ViewResources.TasksButton_AuthorRoom, BtIcon.Edit, BtStyle.ButtonAndSuccess & "Width200")
+      </div>
+      <small>@Loc("author", "As an author you can edit the whole text")</small>
+      <br />
+    } else {
+      anyMissing = true;
+    }
+    if ((cr & ContributorRole.Translator) == ContributorRole.Translator) {
+      if (Model.Variation == Texxtoor.DataModels.Models.Content.VariationType.Translation) {
+        <div style="width: 200px; display: inline-block;">
+          @Create.ActionLinkIcon("lnkTr4", Url.Action("TranslatorRoom", "Editor", new { Id = Model.Id }), ViewResources.TasksButton_TranslatorRoom, BtIcon.Columns, BtStyle.ButtonPrimary & "Width200")
+        </div>
+        <small>@Loc("tr", "As a translator you can translate text portions step by step using Bing or Google")</small>
+        <br />
+      } else {
+        <br />
+        <div class="alert alert-warning">
+          @Loc("transoptions", "The translation tool is activated for you. However, the current text is not tagged as an active translation project. Options depend on your state.")
+          @Create.ActionLink("lnkTr4a", false, Url.Action("CreateFrom", "Opus", new { Id = Model.Id }), "Create Copy...", BtStyle.ButtonDefault)
+          @if ((cr & ContributorRole.Author) == ContributorRole.Author) {
+            @Create.ActionLink("lnkTr4b", false, Url.Action("ChangeOpusVariation", "Opus", new { Id = Model.Id, Variation = Texxtoor.DataModels.Models.Content.VariationType.Translation }), "Make Text Translatable", BtStyle.ButtonDefault)
+          }
+        </div>
+      }
+    } else {
+      anyMissing = true;
+    }
+    if ((cr & ContributorRole.Editor) == ContributorRole.Editor) {
+      <div style="width: 200px; display: inline-block;">
+        @Create.ActionLinkIcon("lnkCe5", Url.Action("EditorRoom", "Editor", new { Id = Model.Id }), ViewResources.TasksButton_EditorRoom, BtIcon.EditSign, BtStyle.ButtonPrimary & "Width200")
+      </div>
+      <small>@Loc("ed", "As an editor you can add private comments to your team text snippet by texct snippet")</small>
+      <br />
+    } else {
+      anyMissing = true;
+    }
+    if ((cr & ContributorRole.CopyEditor) == ContributorRole.CopyEditor) {
+      <div style="width: 200px; display: inline-block;">
+        @Create.ActionLinkIcon("lnkCe6", Url.Action("ProofRoom", "Editor", new { Id = Model.Id }), ViewResources.TasksButton_ProofRoom, BtIcon.CodeFork, BtStyle.ButtonPrimary & "Width200")
+      </div>
+      <small>@Loc("proof", "As a proof reader you can add, change, or delete text using a correction tool")</small>
+      <br />
+    } else {
+      anyMissing = true;
+    }
+    if ((cr & ContributorRole.Reviewer) == ContributorRole.Reviewer || (cr & ContributorRole.TechnicalReviewer) == ContributorRole.TechnicalReviewer) {
+      if (Model.IsPublished) {
+        <div style="width: 200px; display: inline-block;">
+          @Create.ActionLinkIcon("lnkCe6", Url.Action("PeerReviewerRoom", "Editor", new { Id = Model.Id }), ViewResources.TasksButton_PeerReviewRoom, BtIcon.WarningSign, BtStyle.ButtonPrimary & "Width200")
+        </div>
+        <small>@Loc("rev", "As a reviewer you can write public reviews for published texts") (@Model.Published.Title)</small>
+      } else {
+        <br />
+        <div class="alert alert-warning">
+          @Loc("peeroptions", "The peer reviewer tool is activated for you. However, the current text is not yet published and cannot be reviews right now. Wait for the publishing step and try again.")
+        </div>
+      }
+      <br />
+    } else {
+      anyMissing = true;
+    }
+    if ((cr & ContributorRole.Critic) == ContributorRole.Critic) {
+
+    } else {
+      anyMissing = true;
+    }
+    <br />
+    if (anyMissing) {
+      if ((cr & ContributorRole.Author) == ContributorRole.Author) {
+        <div class="alert alert-warning" role="alert">
+          <strong>@Loc("anyMissingHeader", "Missing a tool?")</strong> @Loc("anyMissingTxt", "If you miss a tool and think it should be here right now try adding the appropriate role in team management.")
+          @Html.ActionLink(Loc("anyMissingLink", "Click here to manage your team.").ToString(), "Details", "Team", new { id = Model.Project.Team.Id, projectId = Model.Project.Id }, null)
+        </div>
+      } else {
+        <div class="alert alert-warning" role="alert">
+          <strong>@Loc("anyMissingHeaderGuest", "Missing a tool?")</strong> @Loc("anyMissingTxtGuest", "If you miss a tool and think it should be here right now ask your team leader to assign you the required roles.")
+          @Html.ActionLink(Loc("anyMissingLinkGuest", "Click here to ask your leading author.").ToString(), "SendMail", "Messaging", new { area = "", id = Model.Project.Team.TeamLead.Id, senderId = (int)ViewBag.UserId }, null)
+        </div>
+      }
+    }
+  }
+  @using (Html.BtFieldset(Loc("titleActionOnProject", "Your Tools on Project Level"))) {
+    if ((cr & ContributorRole.Author) == ContributorRole.Author
+        || (cr & ContributorRole.Designer) == ContributorRole.Designer
+        || (cr & ContributorRole.Illustrator) == ContributorRole.Illustrator
+        || (cr & ContributorRole.Translator) == ContributorRole.Translator) {
+      <div style="width: 200px; display: inline-block;">
+        @Create.ActionLinkIcon("lnkIdx1", Url.Action("Index", "Resource", new { Id = Model.Project.Id }), ViewResources.TasksButton_FileResources, BtIcon.File, BtStyle.ButtonAndInfo & "Width200")
+      </div>
+      <small>
+
+        @Loc("files", "Upload and manage files you wish to include or add as a download")
+      </small>
+      <br />
+    }
+    if ((cr & ContributorRole.Author) == ContributorRole.Author
+        || (cr & ContributorRole.Translator) == ContributorRole.Translator) {
+      <div style="width: 200px; display: inline-block;">
+        @Create.ActionLinkIcon("lnkTs4", Url.Action("Termsets", "Resource", new { Id = Model.Project.Id }), ViewResources.TasksButton_SemanticData, BtIcon.Lightbulb, BtStyle.ButtonAndInfo & "Width200")
+      </div>
+      <small>@Loc("sem", "Create semantic particles to help creating stringent content")</small>
+      <br />
+    }
+    if ((cr & ContributorRole.Designer) == ContributorRole.Designer || (cr & ContributorRole.Illustrator) == ContributorRole.Illustrator) {
+      <div style="width: 200px; display: inline-block;">
+        @Create.ActionLinkIcon("lnkDs2", Url.Action("DesignerRoom", "Editor", new { id = Model.Project.Id, opusId = Model.Id }), ViewResources.TasksButton_DesignerRoom, BtIcon.Picture, BtStyle.ButtonPrimary & "Width200")
+      </div>
+      <small>@Loc("des", "As a designer you can create vector graphics").</small>
+      @:&nbsp;
+      @Create.FieldHelpIcon(Loc("des2", "Here you launch an emtpy editor. Use the library explorer within or the file explorer to edit drawings.").ToString(), "Designer", "")
+      <br />
+    }
+
+  }
+</form>
+

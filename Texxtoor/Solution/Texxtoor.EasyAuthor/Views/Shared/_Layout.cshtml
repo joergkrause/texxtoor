@@ -1,0 +1,83 @@
+﻿@using Texxtoor.DataModels.Models.Cms
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="~/Content/css/bootstrap/bootstrap.css" rel="stylesheet" />
+  <link href="~/Content/css/font.css" rel="stylesheet" />
+  <link href="~/Content/css/font-awesome.4.css" rel="stylesheet" />
+  <link href="~/Content/css/theme.css" rel="stylesheet" />
+  <link href="~/Content/css/modules.css" rel="stylesheet" />
+  <script src="~/Scripts/lib/jquery/jquery.js"></script>
+  <script src="~/Scripts/lib/angular/angular.js"></script>
+  <script src="~/Scripts/lib/angular/xeditable.js"></script>
+  <script src="~/Scripts/lib/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="~/Scripts/lib/angular-ui-bootstrap-bower/ui-bootstrap.js"></script>
+  <script src="~/Scripts/lib/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js"></script>
+
+  <script src="~/Scripts/lib/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="~/Scripts/lib/angular-route/angular-route.js"></script>
+  <script src="~/Scripts/lib/underscore/underscore.js"></script>
+
+  <script src="~/Scripts/app.js"></script>
+
+  <script src="~/Scripts/directives/moretextItem.js"></script>
+  <script src="~/Scripts/directives/textItem.js"></script>
+
+  <script src="~/Scripts/services/dashboardSvc.js"></script>
+  <script src="~/Scripts/services/marketingSvc.js"></script>
+  <script src="~/Scripts/services/overviewSvc.js"></script>
+  <script src="~/Scripts/services/previewSvc.js"></script>
+  <script src="~/Scripts/services/publishSvc.js"></script>
+  <script src="~/Scripts/services/successSvc.js"></script>
+
+  <script src="~/Scripts/controllers/dashboardCtrl.js"></script>
+  <script src="~/Scripts/controllers/createNewTextCtrl.js"></script>
+  <script src="~/Scripts/controllers/editImprintCtrl.js"></script>
+  <script src="~/Scripts/controllers/editMetadataCtrl.js"></script>
+  <script src="~/Scripts/controllers/showImageFileCtrl.js"></script>
+  <script src="~/Scripts/controllers/overviewCtrl.js"></script>
+  <script src="~/Scripts/controllers/overviewContentCtrl.js"></script>
+  <script src="~/Scripts/controllers/overviewFilesCtrl.js"></script>
+  <script src="~/Scripts/controllers/overviewSemanticsCtrl.js"></script>
+  <script src="~/Scripts/controllers/previewCtrl.js"></script>
+  <script src="~/Scripts/controllers/publishCtrl.js"></script>
+  <script src="~/Scripts/controllers/marketingCtrl.js"></script>
+  <script src="~/Scripts/controllers/successCtrl.js"></script>
+
+  <title>@ViewBag.Title</title>
+</head>
+<body>
+  <div class="header boxShadow1">
+    <div class="line"></div>
+    @Html.Action("UserPrivateMenu", "Cms")
+  </div>
+
+  <div class="body-content">
+    @RenderBody()
+  </div>
+
+  <footer>
+    <div class="footer-links container">
+      <div class="row">
+        @foreach (CmsMenu menu in @ViewBag.FooterMenu) {
+          <div class="col-xs-3">
+            <div class="group-title">@menu.Title</div>
+            <ul>
+              @foreach (var menuItem in menu.MenuItems) {
+                <li><a href="@menuItem.NavigateUrl">@menuItem.Title</a></li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="copyright">
+      <span>&copy; 2011 &ndash; @DateTime.Now.Year &middot; texxtoor &middot; All rights reserved</span>
+    </div>
+  </footer>
+
+</body>
+</html>

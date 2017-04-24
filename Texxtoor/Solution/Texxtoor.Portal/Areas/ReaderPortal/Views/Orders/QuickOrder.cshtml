@@ -1,0 +1,185 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.Published
+@{
+  PageData["Title"] = Loc("title", "Quick Orders");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+  PageData["ShortHelp"] = new HtmlString(Loc("text", "You have been directed here to order the following product:").ToString() + "<strong class='badge badge-info'>" + Model.Title + "</strong>");
+}
+@section HeadContent{
+  <link href="~/Content/css/plugins/fuelux/wizard.css" rel="stylesheet" />
+  <script src="~/Content/css/plugins/fuelux/wizard.js"></script>
+  <script>
+    $(function () {
+      $('#wizard').wizard('selectedItem', { step: 0 });
+      $(document).on('click', '[data-next-tab]', function () {
+        $('#wizard').wizard('selectedItem', { step: $(this).data('next-tab') });
+      });
+      // drop down for media stores immediately
+      $('input[name="mediaSelector"], input[name=subscription]').change(function () {
+        getPricing();
+      });
+      getPricing();
+      $(document).on('click', '[data-form]', function () {
+        var form = $(this).parents('form');
+        form.validate();
+        if (form.valid()) {
+          $.ajax({
+            url: form.attr('action'),
+            type: 'POST',
+            dataType: 'json',
+            data: form.serialize(),
+            success: function (data) {
+              toastr.success(data.msg);
+              $('#wizard').wizard('selectedItem', form.data('next-success-tab') + ']');
+              var view = {};
+              if (form.data('next-form-url')) {
+                view.url = form.data('next-form-url');
+                view.target = form.data('next-form-target');
+                view.id = form.data('next-form-id');
+                loadDynamicForm(view);
+              }
+            },
+            error: function (data) {
+              if (data) {
+                $('#wizard').wizard('selectedItem', form.data('next-error-tab') + ']');
+              } else {
+                $('#wizard').wizard('selectedItem', form.data('next-invalid-tab') + ']');
+              }
+            }
+          });
+        } else {
+          $('#wizard').wizard('selectedItem', form.data('next-invalid-tab') + ']');
+        }
+      });
+    });
+
+    function loadDynamicForm(view) {
+      $.ajax({
+        url: view.url,
+        type: 'GET',
+        dataType: 'html',
+        cache: false,
+        data: { id: view.id },
+        success: function (data) {
+          $('#' + view.target).html(data);
+        }
+      });
+    }
+  </script>
+  <script>
+    function getPricing() {
+      var ids = new Array();
+      $('input[name="mediaSelector"]:checked').each(function (idx, e) {
+        ids[idx] = $(e).val();
+      });
+      if (ids.length == 0) {
+        $('#btnPay').attr('disabled', 'disabled').css('opacity', '0.5');
+      } else {
+        $('#btnPay').removeAttr('disabled').css('opacity', '1.0');
+      }
+      $('input[type="checkbox"]').attr('disabled', 'disabled');
+      $.ajax({
+        url: '@Url.Action("QuickMedia")',
+        traditional: true,
+        data: {
+          ids: ids,
+          amount: 1,
+          id: '@Model.Id',
+          subscription: $('input[name="subscription"]:checked').val()
+        },
+        type: 'POST',
+        cache: false,
+        dataType: "json",
+        success: function (data) {
+          toastr.success(data.data);
+          $('#lblFinalPriceSale').html(data.price);
+          $('#lblFinalPriceSubsc').html(data.subscription);
+          $('input[type="checkbox"]').removeAttr('disabled');
+        },
+        error: function () {
+          $('input[type="checkbox"]').removeAttr('disabled');
+        }
+      });
+    }
+  </script>
+}
+<div class="box">
+  <div class="box-content box-padding">
+    <div class="fuelux">
+      <div id="wizard" class="wizard">
+        <ul class="steps">
+          <li class="active" data-step="formStart">
+            <span><span class="badge">1</span>@Loc("titlePublished", "Published")</span>
+          </li>
+          @if (!User.Identity.IsAuthenticated) {
+            <li data-step="formLogon">
+              <span><span class="badge">2</span>@Loc("titleLogon", "Logon")</span>
+            </li>
+            <li data-step="formRegister">
+              <span><span class="badge">3</span>@Loc("titleRegister", "Register")</span>
+            </li>
+            <li data-step="formAddress">
+              <span><span class="badge">4</span>@Loc("titleAddress", "Address")</span>
+            </li>
+            <li data-step="formMedia">
+              <span><span class="badge">5</span>@Loc("titleMedia", "Media")</span>
+            </li>
+          } else {
+            <li data-step="formAddress">
+              <span><span class="badge">2</span>@Loc("titleAddress", "Address")</span>
+            </li>
+            <li data-step="formMedia">
+              <span><span class="badge">3</span>@Loc("titleMedia", "Media")</span>
+            </li>
+          }
+        </ul>
+        <div class="actions">
+          <button class="btn btn-xs btn-prev" disabled="disabled">
+            <i class="icon-arrow-left"></i>@ViewResources.Prev
+          </button>
+          <button class="btn btn-xs btn-next" data-last="@ViewResources.Button_Quick_Go">@ViewResources.Next<i class="icon-arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="step-content">
+        <div class="step-pane active" data-step="formStart">
+          @Html.Partial("QuickOrder/_Published", Model)
+          <div class="col-md-offset-2">
+            @if (!User.Identity.IsAuthenticated) {
+              <input type="button" id="btnLogOn" data-next-tab="formLogon" value="@ViewResources.Action_Common_Logon" class="btn btn-primary btn-sm startForm" />
+              <input type="button" id="btnRegister" data-next-tab="formRegister" value="@ViewResources.Action_Common_Register" class="btn btn-primary btn-sm startForm" />
+            } else {
+              <input type="button" id="btnAddress" data-next-tab="formAddress" value="@ViewResources.Action_Product_ConfirmAddress" class="btn btn-success btn-sm startForm" />
+            }
+          </div>
+        </div>
+        @if (!User.Identity.IsAuthenticated) {
+          <div class="step-pane" data-step="formLogon">
+            @Loc("noLogon", "If you are already a texxtoor user just enter your credentials. Otherwise register for free.")
+            @Html.Action("QuickLogOn", "Orders", new { area = "ReaderPortal" })
+          </div>
+          <div class="step-pane" data-step="formRegister">
+            @Loc("noReg", "Register for free to get access. This is a temporary account to download electronic files, no obligation, no spam, no membership required.")
+            @Html.Action("QuickRegister", "Orders", new { area = "ReaderPortal" })
+          </div>
+        }
+        <div class="step-pane" data-step="formAddress">
+          @if (User.Identity.IsAuthenticated) {
+            @Html.Action("QuickAddress", "Orders", new { area = "ReaderPortal" })
+          } else {
+            @Loc("noAddress", "You must either logon or register to add an address.")
+          }
+        </div>
+        <div class="step-pane" data-step="formMedia">
+          @if (User.Identity.IsAuthenticated) {
+            @Html.Action("QuickMedia", "Orders", new { area = "ReaderPortal" })
+          } else {
+            @Loc("noMedias", "You must add an address to proceed with the order.")
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

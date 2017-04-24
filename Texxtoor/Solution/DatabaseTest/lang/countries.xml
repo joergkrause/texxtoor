@@ -1,0 +1,2393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<countries>
+  <country code="ABW" code2="AW">
+    <name>Aruba</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>193</surfacearea>
+    <population>103000</population>
+    <gnp>828</gnp>
+    <localname>Aruba</localname>
+    <capital>129</capital>
+  </country>
+  <country code="AFG" code2="AF">
+    <name>Afghanistan</name>
+    <continent>Asia</continent>
+    <region>Southern and Central Asia</region>
+    <surfacearea>652090</surfacearea>
+    <population>22720000</population>
+    <gnp>5976</gnp>
+    <localname>Afganistan/Afqanestan</localname>
+    <capital>1</capital>
+  </country>
+  <country code="AGO" code2="AO">
+    <name>Angola</name>
+    <continent>Africa</continent>
+    <region>Central Africa</region>
+    <surfacearea>1246700</surfacearea>
+    <population>12878000</population>
+    <gnp>6648</gnp>
+    <localname>Angola</localname>
+    <capital>56</capital>
+  </country>
+  <country code="AIA" code2="AI">
+    <name>Anguilla</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>96</surfacearea>
+    <population>8000</population>
+    <gnp>63</gnp>
+    <localname>Anguilla</localname>
+    <capital>62</capital>
+  </country>
+  <country code="ALB" code2="AL">
+    <name>Albania</name>
+    <continent>Europe</continent>
+    <region>Southern Europe</region>
+    <surfacearea>28748</surfacearea>
+    <population>3401200</population>
+    <gnp>3205</gnp>
+    <localname>ShqipÃ«ria</localname>
+    <capital>34</capital>
+  </country>
+  <country code="AND" code2="AD">
+    <name>Andorra</name>
+    <continent>Europe</continent>
+    <region>Southern Europe</region>
+    <surfacearea>468</surfacearea>
+    <population>78000</population>
+    <gnp>1630</gnp>
+    <localname>Andorra</localname>
+    <capital>55</capital>
+  </country>
+  <country code="ANT" code2="AN">
+    <name>Netherlands Antilles</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>800</surfacearea>
+    <population>217000</population>
+    <gnp>1941</gnp>
+    <localname>Nederlandse Antillen</localname>
+    <capital>33</capital>
+  </country>
+  <country code="ARE" code2="AE">
+    <name>United Arab Emirates</name>
+    <continent>Asia</continent>
+    <region>Middle East</region>
+    <surfacearea>83600</surfacearea>
+    <population>2441000</population>
+    <gnp>37966</gnp>
+    <localname>Al-Imarat al-Â´Arabiya al-Muttahida</localname>
+    <capital>65</capital>
+  </country>
+  <country code="ARG" code2="AR">
+    <name>Argentina</name>
+    <continent>South America</continent>
+    <region>South America</region>
+    <surfacearea>2780400</surfacearea>
+    <population>37032000</population>
+    <gnp>340238</gnp>
+    <localname>Argentina</localname>
+    <capital>69</capital>
+  </country>
+  <country code="ARM" code2="AM">
+    <name>Armenia</name>
+    <continent>Asia</continent>
+    <region>Middle East</region>
+    <surfacearea>29800</surfacearea>
+    <population>3520000</population>
+    <gnp>1813</gnp>
+    <localname>Hajastan</localname>
+    <capital>126</capital>
+  </country>
+  <country code="ASM" code2="AS">
+    <name>American Samoa</name>
+    <continent>Oceania</continent>
+    <region>Polynesia</region>
+    <surfacearea>199</surfacearea>
+    <population>68000</population>
+    <gnp>334</gnp>
+    <localname>Amerika Samoa</localname>
+    <capital>54</capital>
+  </country>
+  <country code="ATA" code2="AQ">
+    <name>Antarctica</name>
+    <continent>Antarctica</continent>
+    <region>Antarctica</region>
+    <surfacearea>13120000</surfacearea>
+    <population>0</population>
+    <gnp>0</gnp>
+    <localname>Â–</localname>
+    <capital></capital>
+  </country>
+  <country code="ATF" code2="TF">
+    <name>French Southern territories</name>
+    <continent>Antarctica</continent>
+    <region>Antarctica</region>
+    <surfacearea>7780</surfacearea>
+    <population>0</population>
+    <gnp>0</gnp>
+    <localname>Terres australes franÃ§aises</localname>
+    <capital></capital>
+  </country>
+  <country code="ATG" code2="AG">
+    <name>Antigua and Barbuda</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>442</surfacearea>
+    <population>68000</population>
+    <gnp>612</gnp>
+    <localname>Antigua and Barbuda</localname>
+    <capital>63</capital>
+  </country>
+  <country code="AUS" code2="AU">
+    <name>Australia</name>
+    <continent>Oceania</continent>
+    <region>Australia and New Zealand</region>
+    <surfacearea>7741220</surfacearea>
+    <population>18886000</population>
+    <gnp>351182</gnp>
+    <localname>Australia</localname>
+    <capital>135</capital>
+  </country>
+  <country code="AUT" code2="AT">
+    <name>Austria</name>
+    <continent>Europe</continent>
+    <region>Western Europe</region>
+    <surfacearea>83859</surfacearea>
+    <population>8091800</population>
+    <gnp>211860</gnp>
+    <localname>Ã–sterreich</localname>
+    <capital>1523</capital>
+  </country>
+  <country code="AZE" code2="AZ">
+    <name>Azerbaijan</name>
+    <continent>Asia</continent>
+    <region>Middle East</region>
+    <surfacearea>86600</surfacearea>
+    <population>7734000</population>
+    <gnp>4127</gnp>
+    <localname>AzÃ¤rbaycan</localname>
+    <capital>144</capital>
+  </country>
+  <country code="BDI" code2="BI">
+    <name>Burundi</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>27834</surfacearea>
+    <population>6695000</population>
+    <gnp>903</gnp>
+    <localname>Burundi/Uburundi</localname>
+    <capital>552</capital>
+  </country>
+  <country code="BEL" code2="BE">
+    <name>Belgium</name>
+    <continent>Europe</continent>
+    <region>Western Europe</region>
+    <surfacearea>30518</surfacearea>
+    <population>10239000</population>
+    <gnp>249704</gnp>
+    <localname>BelgiÃ«/Belgique</localname>
+    <capital>179</capital>
+  </country>
+  <country code="BEN" code2="BJ">
+    <name>Benin</name>
+    <continent>Africa</continent>
+    <region>Western Africa</region>
+    <surfacearea>112622</surfacearea>
+    <population>6097000</population>
+    <gnp>2357</gnp>
+    <localname>BÃ©nin</localname>
+    <capital>187</capital>
+  </country>
+  <country code="BFA" code2="BF">
+    <name>Burkina Faso</name>
+    <continent>Africa</continent>
+    <region>Western Africa</region>
+    <surfacearea>274000</surfacearea>
+    <population>11937000</population>
+    <gnp>2425</gnp>
+    <localname>Burkina Faso</localname>
+    <capital>549</capital>
+  </country>
+  <country code="BGD" code2="BD">
+    <name>Bangladesh</name>
+    <continent>Asia</continent>
+    <region>Southern and Central Asia</region>
+    <surfacearea>143998</surfacearea>
+    <population>129155000</population>
+    <gnp>32852</gnp>
+    <localname>Bangladesh</localname>
+    <capital>150</capital>
+  </country>
+  <country code="BGR" code2="BG">
+    <name>Bulgaria</name>
+    <continent>Europe</continent>
+    <region>Eastern Europe</region>
+    <surfacearea>110994</surfacearea>
+    <population>8190900</population>
+    <gnp>12178</gnp>
+    <localname>Balgarija</localname>
+    <capital>539</capital>
+  </country>
+  <country code="BHR" code2="BH">
+    <name>Bahrain</name>
+    <continent>Asia</continent>
+    <region>Middle East</region>
+    <surfacearea>694</surfacearea>
+    <population>617000</population>
+    <gnp>6366</gnp>
+    <localname>Al-Bahrayn</localname>
+    <capital>149</capital>
+  </country>
+  <country code="BHS" code2="BS">
+    <name>Bahamas</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>13878</surfacearea>
+    <population>307000</population>
+    <gnp>3527</gnp>
+    <localname>The Bahamas</localname>
+    <capital>148</capital>
+  </country>
+  <country code="BIH" code2="BA">
+    <name>Bosnia and Herzegovina</name>
+    <continent>Europe</continent>
+    <region>Southern Europe</region>
+    <surfacearea>51197</surfacearea>
+    <population>3972000</population>
+    <gnp>2841</gnp>
+    <localname>Bosna i Hercegovina</localname>
+    <capital>201</capital>
+  </country>
+  <country code="BLR" code2="BY">
+    <name>Belarus</name>
+    <continent>Europe</continent>
+    <region>Eastern Europe</region>
+    <surfacearea>207600</surfacearea>
+    <population>10236000</population>
+    <gnp>13714</gnp>
+    <localname>Belarus</localname>
+    <capital>3520</capital>
+  </country>
+  <country code="BLZ" code2="BZ">
+    <name>Belize</name>
+    <continent>North America</continent>
+    <region>Central America</region>
+    <surfacearea>22696</surfacearea>
+    <population>241000</population>
+    <gnp>630</gnp>
+    <localname>Belize</localname>
+    <capital>185</capital>
+  </country>
+  <country code="BMU" code2="BM">
+    <name>Bermuda</name>
+    <continent>North America</continent>
+    <region>North America</region>
+    <surfacearea>53</surfacearea>
+    <population>65000</population>
+    <gnp>2328</gnp>
+    <localname>Bermuda</localname>
+    <capital>191</capital>
+  </country>
+  <country code="BOL" code2="BO">
+    <name>Bolivia</name>
+    <continent>South America</continent>
+    <region>South America</region>
+    <surfacearea>1098581</surfacearea>
+    <population>8329000</population>
+    <gnp>8571</gnp>
+    <localname>Bolivia</localname>
+    <capital>194</capital>
+  </country>
+  <country code="BRA" code2="BR">
+    <name>Brazil</name>
+    <continent>South America</continent>
+    <region>South America</region>
+    <surfacearea>8547403</surfacearea>
+    <population>170115000</population>
+    <gnp>776739</gnp>
+    <localname>Brasil</localname>
+    <capital>211</capital>
+  </country>
+  <country code="BRB" code2="BB">
+    <name>Barbados</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>430</surfacearea>
+    <population>270000</population>
+    <gnp>2223</gnp>
+    <localname>Barbados</localname>
+    <capital>174</capital>
+  </country>
+  <country code="BRN" code2="BN">
+    <name>Brunei</name>
+    <continent>Asia</continent>
+    <region>Southeast Asia</region>
+    <surfacearea>5765</surfacearea>
+    <population>328000</population>
+    <gnp>11705</gnp>
+    <localname>Brunei Darussalam</localname>
+    <capital>538</capital>
+  </country>
+  <country code="BTN" code2="BT">
+    <name>Bhutan</name>
+    <continent>Asia</continent>
+    <region>Southern and Central Asia</region>
+    <surfacearea>47000</surfacearea>
+    <population>2124000</population>
+    <gnp>372</gnp>
+    <localname>Druk-Yul</localname>
+    <capital>192</capital>
+  </country>
+  <country code="BVT" code2="BV">
+    <name>Bouvet Island</name>
+    <continent>Antarctica</continent>
+    <region>Antarctica</region>
+    <surfacearea>59</surfacearea>
+    <population>0</population>
+    <gnp>0</gnp>
+    <localname>BouvetÃ¸ya</localname>
+    <capital></capital>
+  </country>
+  <country code="BWA" code2="BW">
+    <name>Botswana</name>
+    <continent>Africa</continent>
+    <region>Southern Africa</region>
+    <surfacearea>581730</surfacearea>
+    <population>1622000</population>
+    <gnp>4834</gnp>
+    <localname>Botswana</localname>
+    <capital>204</capital>
+  </country>
+  <country code="CAF" code2="CF">
+    <name>Central African Republic</name>
+    <continent>Africa</continent>
+    <region>Central Africa</region>
+    <surfacearea>622984</surfacearea>
+    <population>3615000</population>
+    <gnp>1054</gnp>
+    <localname>Centrafrique/BÃª-AfrÃ®ka</localname>
+    <capital>1889</capital>
+  </country>
+  <country code="CAN" code2="CA">
+    <name>Canada</name>
+    <continent>North America</continent>
+    <region>North America</region>
+    <surfacearea>9970610</surfacearea>
+    <population>31147000</population>
+    <gnp>598862</gnp>
+    <localname>Canada</localname>
+    <capital>1822</capital>
+  </country>
+  <country code="CCK" code2="CC">
+    <name>Cocos (Keeling) Islands</name>
+    <continent>Oceania</continent>
+    <region>Australia and New Zealand</region>
+    <surfacearea>14</surfacearea>
+    <population>600</population>
+    <gnp>0</gnp>
+    <localname>Cocos (Keeling) Islands</localname>
+    <capital>2317</capital>
+  </country>
+  <country code="CHE" code2="CH">
+    <name>Switzerland</name>
+    <continent>Europe</continent>
+    <region>Western Europe</region>
+    <surfacearea>41284</surfacearea>
+    <population>7160400</population>
+    <gnp>264478</gnp>
+    <localname>Schweiz/Suisse/Svizzera/Svizra</localname>
+    <capital>3248</capital>
+  </country>
+  <country code="CHL" code2="CL">
+    <name>Chile</name>
+    <continent>South America</continent>
+    <region>South America</region>
+    <surfacearea>756626</surfacearea>
+    <population>15211000</population>
+    <gnp>72949</gnp>
+    <localname>Chile</localname>
+    <capital>554</capital>
+  </country>
+  <country code="CHN" code2="CN">
+    <name>China</name>
+    <continent>Asia</continent>
+    <region>Eastern Asia</region>
+    <surfacearea>9572900</surfacearea>
+    <population>1277558000</population>
+    <gnp>982268</gnp>
+    <localname>Zhongquo</localname>
+    <capital>1891</capital>
+  </country>
+  <country code="CIV" code2="CI">
+    <name>CÃ´te dÂ’Ivoire</name>
+    <continent>Africa</continent>
+    <region>Western Africa</region>
+    <surfacearea>322463</surfacearea>
+    <population>14786000</population>
+    <gnp>11345</gnp>
+    <localname>CÃ´te dÂ’Ivoire</localname>
+    <capital>2814</capital>
+  </country>
+  <country code="CMR" code2="CM">
+    <name>Cameroon</name>
+    <continent>Africa</continent>
+    <region>Central Africa</region>
+    <surfacearea>475442</surfacearea>
+    <population>15085000</population>
+    <gnp>9174</gnp>
+    <localname>Cameroun/Cameroon</localname>
+    <capital>1804</capital>
+  </country>
+  <country code="COD" code2="CD">
+    <name>Congo, The Democratic Republic of the</name>
+    <continent>Africa</continent>
+    <region>Central Africa</region>
+    <surfacearea>2344858</surfacearea>
+    <population>51654000</population>
+    <gnp>6964</gnp>
+    <localname>RÃ©publique DÃ©mocratique du Congo</localname>
+    <capital>2298</capital>
+  </country>
+  <country code="COG" code2="CG">
+    <name>Congo</name>
+    <continent>Africa</continent>
+    <region>Central Africa</region>
+    <surfacearea>342000</surfacearea>
+    <population>2943000</population>
+    <gnp>2108</gnp>
+    <localname>Congo</localname>
+    <capital>2296</capital>
+  </country>
+  <country code="COK" code2="CK">
+    <name>Cook Islands</name>
+    <continent>Oceania</continent>
+    <region>Polynesia</region>
+    <surfacearea>236</surfacearea>
+    <population>20000</population>
+    <gnp>100</gnp>
+    <localname>The Cook Islands</localname>
+    <capital>583</capital>
+  </country>
+  <country code="COL" code2="CO">
+    <name>Colombia</name>
+    <continent>South America</continent>
+    <region>South America</region>
+    <surfacearea>1138914</surfacearea>
+    <population>42321000</population>
+    <gnp>102896</gnp>
+    <localname>Colombia</localname>
+    <capital>2257</capital>
+  </country>
+  <country code="COM" code2="KM">
+    <name>Comoros</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>1862</surfacearea>
+    <population>578000</population>
+    <gnp>4401</gnp>
+    <localname>Komori/Comores</localname>
+    <capital>2295</capital>
+  </country>
+  <country code="CPV" code2="CV">
+    <name>Cape Verde</name>
+    <continent>Africa</continent>
+    <region>Western Africa</region>
+    <surfacearea>4033</surfacearea>
+    <population>428000</population>
+    <gnp>435</gnp>
+    <localname>Cabo Verde</localname>
+    <capital>1859</capital>
+  </country>
+  <country code="CRI" code2="CR">
+    <name>Costa Rica</name>
+    <continent>North America</continent>
+    <region>Central America</region>
+    <surfacearea>51100</surfacearea>
+    <population>4023000</population>
+    <gnp>10226</gnp>
+    <localname>Costa Rica</localname>
+    <capital>584</capital>
+  </country>
+  <country code="CUB" code2="CU">
+    <name>Cuba</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>110861</surfacearea>
+    <population>11201000</population>
+    <gnp>17843</gnp>
+    <localname>Cuba</localname>
+    <capital>2413</capital>
+  </country>
+  <country code="CXR" code2="CX">
+    <name>Christmas Island</name>
+    <continent>Oceania</continent>
+    <region>Australia and New Zealand</region>
+    <surfacearea>135</surfacearea>
+    <population>2500</population>
+    <gnp>0</gnp>
+    <localname>Christmas Island</localname>
+    <capital>1791</capital>
+  </country>
+  <country code="CYM" code2="KY">
+    <name>Cayman Islands</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>264</surfacearea>
+    <population>38000</population>
+    <gnp>1263</gnp>
+    <localname>Cayman Islands</localname>
+    <capital>553</capital>
+  </country>
+  <country code="CYP" code2="CY">
+    <name>Cyprus</name>
+    <continent>Asia</continent>
+    <region>Middle East</region>
+    <surfacearea>9251</surfacearea>
+    <population>754700</population>
+    <gnp>9333</gnp>
+    <localname>KÃ½pros/Kibris</localname>
+    <capital>2430</capital>
+  </country>
+  <country code="CZE" code2="CZ">
+    <name>Czech Republic</name>
+    <continent>Europe</continent>
+    <region>Eastern Europe</region>
+    <surfacearea>78866</surfacearea>
+    <population>10278100</population>
+    <gnp>55017</gnp>
+    <localname>Â¸esko</localname>
+    <capital>3339</capital>
+  </country>
+  <country code="DEU" code2="DE">
+    <name>Germany</name>
+    <continent>Europe</continent>
+    <region>Western Europe</region>
+    <surfacearea>357022</surfacearea>
+    <population>82164700</population>
+    <gnp>2133367</gnp>
+    <localname>Deutschland</localname>
+    <capital>3068</capital>
+  </country>
+  <country code="DJI" code2="DJ">
+    <name>Djibouti</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>23200</surfacearea>
+    <population>638000</population>
+    <gnp>382</gnp>
+    <localname>Djibouti/Jibuti</localname>
+    <capital>585</capital>
+  </country>
+  <country code="DMA" code2="DM">
+    <name>Dominica</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>751</surfacearea>
+    <population>71000</population>
+    <gnp>256</gnp>
+    <localname>Dominica</localname>
+    <capital>586</capital>
+  </country>
+  <country code="DNK" code2="DK">
+    <name>Denmark</name>
+    <continent>Europe</continent>
+    <region>Nordic Countries</region>
+    <surfacearea>43094</surfacearea>
+    <population>5330000</population>
+    <gnp>174099</gnp>
+    <localname>Danmark</localname>
+    <capital>3315</capital>
+  </country>
+  <country code="DOM" code2="DO">
+    <name>Dominican Republic</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>48511</surfacearea>
+    <population>8495000</population>
+    <gnp>15846</gnp>
+    <localname>RepÃºblica Dominicana</localname>
+    <capital>587</capital>
+  </country>
+  <country code="DZA" code2="DZ">
+    <name>Algeria</name>
+    <continent>Africa</continent>
+    <region>Northern Africa</region>
+    <surfacearea>2381741</surfacearea>
+    <population>31471000</population>
+    <gnp>49982</gnp>
+    <localname>Al-JazaÂ’ir/AlgÃ©rie</localname>
+    <capital>35</capital>
+  </country>
+  <country code="ECU" code2="EC">
+    <name>Ecuador</name>
+    <continent>South America</continent>
+    <region>South America</region>
+    <surfacearea>283561</surfacearea>
+    <population>12646000</population>
+    <gnp>19770</gnp>
+    <localname>Ecuador</localname>
+    <capital>594</capital>
+  </country>
+  <country code="EGY" code2="EG">
+    <name>Egypt</name>
+    <continent>Africa</continent>
+    <region>Northern Africa</region>
+    <surfacearea>1001449</surfacearea>
+    <population>68470000</population>
+    <gnp>82710</gnp>
+    <localname>Misr</localname>
+    <capital>608</capital>
+  </country>
+  <country code="ERI" code2="ER">
+    <name>Eritrea</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>117600</surfacearea>
+    <population>3850000</population>
+    <gnp>650</gnp>
+    <localname>Ertra</localname>
+    <capital>652</capital>
+  </country>
+  <country code="ESH" code2="EH">
+    <name>Western Sahara</name>
+    <continent>Africa</continent>
+    <region>Northern Africa</region>
+    <surfacearea>266000</surfacearea>
+    <population>293000</population>
+    <gnp>60</gnp>
+    <localname>As-Sahrawiya</localname>
+    <capital>2453</capital>
+  </country>
+  <country code="ESP" code2="ES">
+    <name>Spain</name>
+    <continent>Europe</continent>
+    <region>Southern Europe</region>
+    <surfacearea>505992</surfacearea>
+    <population>39441700</population>
+    <gnp>553233</gnp>
+    <localname>EspaÃ±a</localname>
+    <capital>653</capital>
+  </country>
+  <country code="EST" code2="EE">
+    <name>Estonia</name>
+    <continent>Europe</continent>
+    <region>Baltic Countries</region>
+    <surfacearea>45227</surfacearea>
+    <population>1439200</population>
+    <gnp>5328</gnp>
+    <localname>Eesti</localname>
+    <capital>3791</capital>
+  </country>
+  <country code="ETH" code2="ET">
+    <name>Ethiopia</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>1104300</surfacearea>
+    <population>62565000</population>
+    <gnp>6353</gnp>
+    <localname>YeItyopÂ´iya</localname>
+    <capital>756</capital>
+  </country>
+  <country code="FIN" code2="FI">
+    <name>Finland</name>
+    <continent>Europe</continent>
+    <region>Nordic Countries</region>
+    <surfacearea>338145</surfacearea>
+    <population>5171300</population>
+    <gnp>121914</gnp>
+    <localname>Suomi</localname>
+    <capital>3236</capital>
+  </country>
+  <country code="FJI" code2="FJ">
+    <name>Fiji Islands</name>
+    <continent>Oceania</continent>
+    <region>Melanesia</region>
+    <surfacearea>18274</surfacearea>
+    <population>817000</population>
+    <gnp>1536</gnp>
+    <localname>Fiji Islands</localname>
+    <capital>764</capital>
+  </country>
+  <country code="FLK" code2="FK">
+    <name>Falkland Islands</name>
+    <continent>South America</continent>
+    <region>South America</region>
+    <surfacearea>12173</surfacearea>
+    <population>2000</population>
+    <gnp>0</gnp>
+    <localname>Falkland Islands</localname>
+    <capital>763</capital>
+  </country>
+  <country code="FRA" code2="FR">
+    <name>France</name>
+    <continent>Europe</continent>
+    <region>Western Europe</region>
+    <surfacearea>551500</surfacearea>
+    <population>59225700</population>
+    <gnp>1424285</gnp>
+    <localname>France</localname>
+    <capital>2974</capital>
+  </country>
+  <country code="FRO" code2="FO">
+    <name>Faroe Islands</name>
+    <continent>Europe</continent>
+    <region>Nordic Countries</region>
+    <surfacearea>1399</surfacearea>
+    <population>43000</population>
+    <gnp>0</gnp>
+    <localname>FÃ¸royar</localname>
+    <capital>901</capital>
+  </country>
+  <country code="FSM" code2="FM">
+    <name>Micronesia, Federated States of</name>
+    <continent>Oceania</continent>
+    <region>Micronesia</region>
+    <surfacearea>702</surfacearea>
+    <population>119000</population>
+    <gnp>212</gnp>
+    <localname>Micronesia</localname>
+    <capital>2689</capital>
+  </country>
+  <country code="GAB" code2="GA">
+    <name>Gabon</name>
+    <continent>Africa</continent>
+    <region>Central Africa</region>
+    <surfacearea>267668</surfacearea>
+    <population>1226000</population>
+    <gnp>5493</gnp>
+    <localname>Le Gabon</localname>
+    <capital>902</capital>
+  </country>
+  <country code="GBR" code2="GB">
+    <name>United Kingdom</name>
+    <continent>Europe</continent>
+    <region>British Islands</region>
+    <surfacearea>242900</surfacearea>
+    <population>59623400</population>
+    <gnp>1378330</gnp>
+    <localname>United Kingdom</localname>
+    <capital>456</capital>
+  </country>
+  <country code="GEO" code2="GE">
+    <name>Georgia</name>
+    <continent>Asia</continent>
+    <region>Middle East</region>
+    <surfacearea>69700</surfacearea>
+    <population>4968000</population>
+    <gnp>6064</gnp>
+    <localname>Sakartvelo</localname>
+    <capital>905</capital>
+  </country>
+  <country code="GHA" code2="GH">
+    <name>Ghana</name>
+    <continent>Africa</continent>
+    <region>Western Africa</region>
+    <surfacearea>238533</surfacearea>
+    <population>20212000</population>
+    <gnp>7137</gnp>
+    <localname>Ghana</localname>
+    <capital>910</capital>
+  </country>
+  <country code="GIB" code2="GI">
+    <name>Gibraltar</name>
+    <continent>Europe</continent>
+    <region>Southern Europe</region>
+    <surfacearea>6</surfacearea>
+    <population>25000</population>
+    <gnp>258</gnp>
+    <localname>Gibraltar</localname>
+    <capital>915</capital>
+  </country>
+  <country code="GIN" code2="GN">
+    <name>Guinea</name>
+    <continent>Africa</continent>
+    <region>Western Africa</region>
+    <surfacearea>245857</surfacearea>
+    <population>7430000</population>
+    <gnp>2352</gnp>
+    <localname>GuinÃ©e</localname>
+    <capital>926</capital>
+  </country>
+  <country code="GLP" code2="GP">
+    <name>Guadeloupe</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>1705</surfacearea>
+    <population>456000</population>
+    <gnp>3501</gnp>
+    <localname>Guadeloupe</localname>
+    <capital>919</capital>
+  </country>
+  <country code="GMB" code2="GM">
+    <name>Gambia</name>
+    <continent>Africa</continent>
+    <region>Western Africa</region>
+    <surfacearea>11295</surfacearea>
+    <population>1305000</population>
+    <gnp>320</gnp>
+    <localname>The Gambia</localname>
+    <capital>904</capital>
+  </country>
+  <country code="GNB" code2="GW">
+    <name>Guinea-Bissau</name>
+    <continent>Africa</continent>
+    <region>Western Africa</region>
+    <surfacearea>36125</surfacearea>
+    <population>1213000</population>
+    <gnp>293</gnp>
+    <localname>GuinÃ©-Bissau</localname>
+    <capital>927</capital>
+  </country>
+  <country code="GNQ" code2="GQ">
+    <name>Equatorial Guinea</name>
+    <continent>Africa</continent>
+    <region>Central Africa</region>
+    <surfacearea>28051</surfacearea>
+    <population>453000</population>
+    <gnp>283</gnp>
+    <localname>Guinea Ecuatorial</localname>
+    <capital>2972</capital>
+  </country>
+  <country code="GRC" code2="GR">
+    <name>Greece</name>
+    <continent>Europe</continent>
+    <region>Southern Europe</region>
+    <surfacearea>131626</surfacearea>
+    <population>10545700</population>
+    <gnp>120724</gnp>
+    <localname>EllÃ¡da</localname>
+    <capital>2401</capital>
+  </country>
+  <country code="GRD" code2="GD">
+    <name>Grenada</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>344</surfacearea>
+    <population>94000</population>
+    <gnp>318</gnp>
+    <localname>Grenada</localname>
+    <capital>916</capital>
+  </country>
+  <country code="GRL" code2="GL">
+    <name>Greenland</name>
+    <continent>North America</continent>
+    <region>North America</region>
+    <surfacearea>2166090</surfacearea>
+    <population>56000</population>
+    <gnp>0</gnp>
+    <localname>Kalaallit Nunaat/GrÃ¸nland</localname>
+    <capital>917</capital>
+  </country>
+  <country code="GTM" code2="GT">
+    <name>Guatemala</name>
+    <continent>North America</continent>
+    <region>Central America</region>
+    <surfacearea>108889</surfacearea>
+    <population>11385000</population>
+    <gnp>19008</gnp>
+    <localname>Guatemala</localname>
+    <capital>922</capital>
+  </country>
+  <country code="GUF" code2="GF">
+    <name>French Guiana</name>
+    <continent>South America</continent>
+    <region>South America</region>
+    <surfacearea>90000</surfacearea>
+    <population>181000</population>
+    <gnp>681</gnp>
+    <localname>Guyane franÃ§aise</localname>
+    <capital>3014</capital>
+  </country>
+  <country code="GUM" code2="GU">
+    <name>Guam</name>
+    <continent>Oceania</continent>
+    <region>Micronesia</region>
+    <surfacearea>549</surfacearea>
+    <population>168000</population>
+    <gnp>1197</gnp>
+    <localname>Guam</localname>
+    <capital>921</capital>
+  </country>
+  <country code="GUY" code2="GY">
+    <name>Guyana</name>
+    <continent>South America</continent>
+    <region>South America</region>
+    <surfacearea>214969</surfacearea>
+    <population>861000</population>
+    <gnp>722</gnp>
+    <localname>Guyana</localname>
+    <capital>928</capital>
+  </country>
+  <country code="HKG" code2="HK">
+    <name>Hong Kong</name>
+    <continent>Asia</continent>
+    <region>Eastern Asia</region>
+    <surfacearea>1075</surfacearea>
+    <population>6782000</population>
+    <gnp>166448</gnp>
+    <localname>Xianggang/Hong Kong</localname>
+    <capital>937</capital>
+  </country>
+  <country code="HMD" code2="HM">
+    <name>Heard Island and McDonald Islands</name>
+    <continent>Antarctica</continent>
+    <region>Antarctica</region>
+    <surfacearea>359</surfacearea>
+    <population>0</population>
+    <gnp>0</gnp>
+    <localname>Heard and McDonald Islands</localname>
+    <capital></capital>
+  </country>
+  <country code="HND" code2="HN">
+    <name>Honduras</name>
+    <continent>North America</continent>
+    <region>Central America</region>
+    <surfacearea>112088</surfacearea>
+    <population>6485000</population>
+    <gnp>5333</gnp>
+    <localname>Honduras</localname>
+    <capital>933</capital>
+  </country>
+  <country code="HRV" code2="HR">
+    <name>Croatia</name>
+    <continent>Europe</continent>
+    <region>Southern Europe</region>
+    <surfacearea>56538</surfacearea>
+    <population>4473000</population>
+    <gnp>20208</gnp>
+    <localname>Hrvatska</localname>
+    <capital>2409</capital>
+  </country>
+  <country code="HTI" code2="HT">
+    <name>Haiti</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>27750</surfacearea>
+    <population>8222000</population>
+    <gnp>3459</gnp>
+    <localname>HaÃ¯ti/Dayti</localname>
+    <capital>929</capital>
+  </country>
+  <country code="HUN" code2="HU">
+    <name>Hungary</name>
+    <continent>Europe</continent>
+    <region>Eastern Europe</region>
+    <surfacearea>93030</surfacearea>
+    <population>10043200</population>
+    <gnp>48267</gnp>
+    <localname>MagyarorszÃ¡g</localname>
+    <capital>3483</capital>
+  </country>
+  <country code="IDN" code2="ID">
+    <name>Indonesia</name>
+    <continent>Asia</continent>
+    <region>Southeast Asia</region>
+    <surfacearea>1904569</surfacearea>
+    <population>212107000</population>
+    <gnp>84982</gnp>
+    <localname>Indonesia</localname>
+    <capital>939</capital>
+  </country>
+  <country code="IND" code2="IN">
+    <name>India</name>
+    <continent>Asia</continent>
+    <region>Southern and Central Asia</region>
+    <surfacearea>3287263</surfacearea>
+    <population>1013662000</population>
+    <gnp>447114</gnp>
+    <localname>Bharat/India</localname>
+    <capital>1109</capital>
+  </country>
+  <country code="IOT" code2="IO">
+    <name>British Indian Ocean Territory</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>78</surfacearea>
+    <population>0</population>
+    <gnp>0</gnp>
+    <localname>British Indian Ocean Territory</localname>
+    <capital></capital>
+  </country>
+  <country code="IRL" code2="IE">
+    <name>Ireland</name>
+    <continent>Europe</continent>
+    <region>British Islands</region>
+    <surfacearea>70273</surfacearea>
+    <population>3775100</population>
+    <gnp>75921</gnp>
+    <localname>Ireland/Ã‰ire</localname>
+    <capital>1447</capital>
+  </country>
+  <country code="IRN" code2="IR">
+    <name>Iran</name>
+    <continent>Asia</continent>
+    <region>Southern and Central Asia</region>
+    <surfacearea>1648195</surfacearea>
+    <population>67702000</population>
+    <gnp>195746</gnp>
+    <localname>Iran</localname>
+    <capital>1380</capital>
+  </country>
+  <country code="IRQ" code2="IQ">
+    <name>Iraq</name>
+    <continent>Asia</continent>
+    <region>Middle East</region>
+    <surfacearea>438317</surfacearea>
+    <population>23115000</population>
+    <gnp>11500</gnp>
+    <localname>Al-Â´Iraq</localname>
+    <capital>1365</capital>
+  </country>
+  <country code="ISL" code2="IS">
+    <name>Iceland</name>
+    <continent>Europe</continent>
+    <region>Nordic Countries</region>
+    <surfacearea>103000</surfacearea>
+    <population>279000</population>
+    <gnp>8255</gnp>
+    <localname>Ãsland</localname>
+    <capital>1449</capital>
+  </country>
+  <country code="ISR" code2="IL">
+    <name>Israel</name>
+    <continent>Asia</continent>
+    <region>Middle East</region>
+    <surfacearea>21056</surfacearea>
+    <population>6217000</population>
+    <gnp>97477</gnp>
+    <localname>YisraÂ’el/IsraÂ’il</localname>
+    <capital>1450</capital>
+  </country>
+  <country code="ITA" code2="IT">
+    <name>Italy</name>
+    <continent>Europe</continent>
+    <region>Southern Europe</region>
+    <surfacearea>301316</surfacearea>
+    <population>57680000</population>
+    <gnp>1161755</gnp>
+    <localname>Italia</localname>
+    <capital>1464</capital>
+  </country>
+  <country code="JAM" code2="JM">
+    <name>Jamaica</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>10990</surfacearea>
+    <population>2583000</population>
+    <gnp>6871</gnp>
+    <localname>Jamaica</localname>
+    <capital>1530</capital>
+  </country>
+  <country code="JOR" code2="JO">
+    <name>Jordan</name>
+    <continent>Asia</continent>
+    <region>Middle East</region>
+    <surfacearea>88946</surfacearea>
+    <population>5083000</population>
+    <gnp>7526</gnp>
+    <localname>Al-Urdunn</localname>
+    <capital>1786</capital>
+  </country>
+  <country code="JPN" code2="JP">
+    <name>Japan</name>
+    <continent>Asia</continent>
+    <region>Eastern Asia</region>
+    <surfacearea>377829</surfacearea>
+    <population>126714000</population>
+    <gnp>3787042</gnp>
+    <localname>Nihon/Nippon</localname>
+    <capital>1532</capital>
+  </country>
+  <country code="KAZ" code2="KZ">
+    <name>Kazakstan</name>
+    <continent>Asia</continent>
+    <region>Southern and Central Asia</region>
+    <surfacearea>2724900</surfacearea>
+    <population>16223000</population>
+    <gnp>24375</gnp>
+    <localname>Qazaqstan</localname>
+    <capital>1864</capital>
+  </country>
+  <country code="KEN" code2="KE">
+    <name>Kenya</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>580367</surfacearea>
+    <population>30080000</population>
+    <gnp>9217</gnp>
+    <localname>Kenya</localname>
+    <capital>1881</capital>
+  </country>
+  <country code="KGZ" code2="KG">
+    <name>Kyrgyzstan</name>
+    <continent>Asia</continent>
+    <region>Southern and Central Asia</region>
+    <surfacearea>199900</surfacearea>
+    <population>4699000</population>
+    <gnp>1626</gnp>
+    <localname>Kyrgyzstan</localname>
+    <capital>2253</capital>
+  </country>
+  <country code="KHM" code2="KH">
+    <name>Cambodia</name>
+    <continent>Asia</continent>
+    <region>Southeast Asia</region>
+    <surfacearea>181035</surfacearea>
+    <population>11168000</population>
+    <gnp>5121</gnp>
+    <localname>KÃ¢mpuchÃ©a</localname>
+    <capital>1800</capital>
+  </country>
+  <country code="KIR" code2="KI">
+    <name>Kiribati</name>
+    <continent>Oceania</continent>
+    <region>Micronesia</region>
+    <surfacearea>726</surfacearea>
+    <population>83000</population>
+    <gnp>41</gnp>
+    <localname>Kiribati</localname>
+    <capital>2256</capital>
+  </country>
+  <country code="KNA" code2="KN">
+    <name>Saint Kitts and Nevis</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>261</surfacearea>
+    <population>38000</population>
+    <gnp>299</gnp>
+    <localname>Saint Kitts and Nevis</localname>
+    <capital>3064</capital>
+  </country>
+  <country code="KOR" code2="KR">
+    <name>South Korea</name>
+    <continent>Asia</continent>
+    <region>Eastern Asia</region>
+    <surfacearea>99434</surfacearea>
+    <population>46844000</population>
+    <gnp>320749</gnp>
+    <localname>Taehan MinÂ’guk (Namhan)</localname>
+    <capital>2331</capital>
+  </country>
+  <country code="KWT" code2="KW">
+    <name>Kuwait</name>
+    <continent>Asia</continent>
+    <region>Middle East</region>
+    <surfacearea>17818</surfacearea>
+    <population>1972000</population>
+    <gnp>27037</gnp>
+    <localname>Al-Kuwayt</localname>
+    <capital>2429</capital>
+  </country>
+  <country code="LAO" code2="LA">
+    <name>Laos</name>
+    <continent>Asia</continent>
+    <region>Southeast Asia</region>
+    <surfacearea>236800</surfacearea>
+    <population>5433000</population>
+    <gnp>1292</gnp>
+    <localname>Lao</localname>
+    <capital>2432</capital>
+  </country>
+  <country code="LBN" code2="LB">
+    <name>Lebanon</name>
+    <continent>Asia</continent>
+    <region>Middle East</region>
+    <surfacearea>10400</surfacearea>
+    <population>3282000</population>
+    <gnp>17121</gnp>
+    <localname>Lubnan</localname>
+    <capital>2438</capital>
+  </country>
+  <country code="LBR" code2="LR">
+    <name>Liberia</name>
+    <continent>Africa</continent>
+    <region>Western Africa</region>
+    <surfacearea>111369</surfacearea>
+    <population>3154000</population>
+    <gnp>2012</gnp>
+    <localname>Liberia</localname>
+    <capital>2440</capital>
+  </country>
+  <country code="LBY" code2="LY">
+    <name>Libyan Arab Jamahiriya</name>
+    <continent>Africa</continent>
+    <region>Northern Africa</region>
+    <surfacearea>1759540</surfacearea>
+    <population>5605000</population>
+    <gnp>44806</gnp>
+    <localname>Libiya</localname>
+    <capital>2441</capital>
+  </country>
+  <country code="LCA" code2="LC">
+    <name>Saint Lucia</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>622</surfacearea>
+    <population>154000</population>
+    <gnp>571</gnp>
+    <localname>Saint Lucia</localname>
+    <capital>3065</capital>
+  </country>
+  <country code="LIE" code2="LI">
+    <name>Liechtenstein</name>
+    <continent>Europe</continent>
+    <region>Western Europe</region>
+    <surfacearea>160</surfacearea>
+    <population>32300</population>
+    <gnp>1119</gnp>
+    <localname>Liechtenstein</localname>
+    <capital>2446</capital>
+  </country>
+  <country code="LKA" code2="LK">
+    <name>Sri Lanka</name>
+    <continent>Asia</continent>
+    <region>Southern and Central Asia</region>
+    <surfacearea>65610</surfacearea>
+    <population>18827000</population>
+    <gnp>15706</gnp>
+    <localname>Sri Lanka/Ilankai</localname>
+    <capital>3217</capital>
+  </country>
+  <country code="LSO" code2="LS">
+    <name>Lesotho</name>
+    <continent>Africa</continent>
+    <region>Southern Africa</region>
+    <surfacearea>30355</surfacearea>
+    <population>2153000</population>
+    <gnp>1061</gnp>
+    <localname>Lesotho</localname>
+    <capital>2437</capital>
+  </country>
+  <country code="LTU" code2="LT">
+    <name>Lithuania</name>
+    <continent>Europe</continent>
+    <region>Baltic Countries</region>
+    <surfacearea>65301</surfacearea>
+    <population>3698500</population>
+    <gnp>10692</gnp>
+    <localname>Lietuva</localname>
+    <capital>2447</capital>
+  </country>
+  <country code="LUX" code2="LU">
+    <name>Luxembourg</name>
+    <continent>Europe</continent>
+    <region>Western Europe</region>
+    <surfacearea>2586</surfacearea>
+    <population>435700</population>
+    <gnp>16321</gnp>
+    <localname>Luxembourg/LÃ«tzebuerg</localname>
+    <capital>2452</capital>
+  </country>
+  <country code="LVA" code2="LV">
+    <name>Latvia</name>
+    <continent>Europe</continent>
+    <region>Baltic Countries</region>
+    <surfacearea>64589</surfacearea>
+    <population>2424200</population>
+    <gnp>6398</gnp>
+    <localname>Latvija</localname>
+    <capital>2434</capital>
+  </country>
+  <country code="MAC" code2="MO">
+    <name>Macao</name>
+    <continent>Asia</continent>
+    <region>Eastern Asia</region>
+    <surfacearea>18</surfacearea>
+    <population>473000</population>
+    <gnp>5749</gnp>
+    <localname>Macau/Aomen</localname>
+    <capital>2454</capital>
+  </country>
+  <country code="MAR" code2="MA">
+    <name>Morocco</name>
+    <continent>Africa</continent>
+    <region>Northern Africa</region>
+    <surfacearea>446550</surfacearea>
+    <population>28351000</population>
+    <gnp>36124</gnp>
+    <localname>Al-Maghrib</localname>
+    <capital>2486</capital>
+  </country>
+  <country code="MCO" code2="MC">
+    <name>Monaco</name>
+    <continent>Europe</continent>
+    <region>Western Europe</region>
+    <surfacearea>1.5</surfacearea>
+    <population>34000</population>
+    <gnp>776</gnp>
+    <localname>Monaco</localname>
+    <capital>2695</capital>
+  </country>
+  <country code="MDA" code2="MD">
+    <name>Moldova</name>
+    <continent>Europe</continent>
+    <region>Eastern Europe</region>
+    <surfacearea>33851</surfacearea>
+    <population>4380000</population>
+    <gnp>1579</gnp>
+    <localname>Moldova</localname>
+    <capital>2690</capital>
+  </country>
+  <country code="MDG" code2="MG">
+    <name>Madagascar</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>587041</surfacearea>
+    <population>15942000</population>
+    <gnp>3750</gnp>
+    <localname>Madagasikara/Madagascar</localname>
+    <capital>2455</capital>
+  </country>
+  <country code="MDV" code2="MV">
+    <name>Maldives</name>
+    <continent>Asia</continent>
+    <region>Southern and Central Asia</region>
+    <surfacearea>298</surfacearea>
+    <population>286000</population>
+    <gnp>199</gnp>
+    <localname>Dhivehi Raajje/Maldives</localname>
+    <capital>2463</capital>
+  </country>
+  <country code="MEX" code2="MX">
+    <name>Mexico</name>
+    <continent>North America</continent>
+    <region>Central America</region>
+    <surfacearea>1958201</surfacearea>
+    <population>98881000</population>
+    <gnp>414972</gnp>
+    <localname>MÃ©xico</localname>
+    <capital>2515</capital>
+  </country>
+  <country code="MHL" code2="MH">
+    <name>Marshall Islands</name>
+    <continent>Oceania</continent>
+    <region>Micronesia</region>
+    <surfacearea>181</surfacearea>
+    <population>64000</population>
+    <gnp>97</gnp>
+    <localname>Marshall Islands/Majol</localname>
+    <capital>2507</capital>
+  </country>
+  <country code="MKD" code2="MK">
+    <name>Macedonia</name>
+    <continent>Europe</continent>
+    <region>Southern Europe</region>
+    <surfacearea>25713</surfacearea>
+    <population>2024000</population>
+    <gnp>1694</gnp>
+    <localname>Makedonija</localname>
+    <capital>2460</capital>
+  </country>
+  <country code="MLI" code2="ML">
+    <name>Mali</name>
+    <continent>Africa</continent>
+    <region>Western Africa</region>
+    <surfacearea>1240192</surfacearea>
+    <population>11234000</population>
+    <gnp>2642</gnp>
+    <localname>Mali</localname>
+    <capital>2482</capital>
+  </country>
+  <country code="MLT" code2="MT">
+    <name>Malta</name>
+    <continent>Europe</continent>
+    <region>Southern Europe</region>
+    <surfacearea>316</surfacearea>
+    <population>380200</population>
+    <gnp>3512</gnp>
+    <localname>Malta</localname>
+    <capital>2484</capital>
+  </country>
+  <country code="MMR" code2="MM">
+    <name>Myanmar</name>
+    <continent>Asia</continent>
+    <region>Southeast Asia</region>
+    <surfacearea>676578</surfacearea>
+    <population>45611000</population>
+    <gnp>180375</gnp>
+    <localname>Myanma Pye</localname>
+    <capital>2710</capital>
+  </country>
+  <country code="MNG" code2="MN">
+    <name>Mongolia</name>
+    <continent>Asia</continent>
+    <region>Eastern Asia</region>
+    <surfacearea>1566500</surfacearea>
+    <population>2662000</population>
+    <gnp>1043</gnp>
+    <localname>Mongol Uls</localname>
+    <capital>2696</capital>
+  </country>
+  <country code="MNP" code2="MP">
+    <name>Northern Mariana Islands</name>
+    <continent>Oceania</continent>
+    <region>Micronesia</region>
+    <surfacearea>464</surfacearea>
+    <population>78000</population>
+    <gnp>0</gnp>
+    <localname>Northern Mariana Islands</localname>
+    <capital>2913</capital>
+  </country>
+  <country code="MOZ" code2="MZ">
+    <name>Mozambique</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>801590</surfacearea>
+    <population>19680000</population>
+    <gnp>2891</gnp>
+    <localname>MoÃ§ambique</localname>
+    <capital>2698</capital>
+  </country>
+  <country code="MRT" code2="MR">
+    <name>Mauritania</name>
+    <continent>Africa</continent>
+    <region>Western Africa</region>
+    <surfacearea>1025520</surfacearea>
+    <population>2670000</population>
+    <gnp>998</gnp>
+    <localname>Muritaniya/Mauritanie</localname>
+    <capital>2509</capital>
+  </country>
+  <country code="MSR" code2="MS">
+    <name>Montserrat</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>102</surfacearea>
+    <population>11000</population>
+    <gnp>109</gnp>
+    <localname>Montserrat</localname>
+    <capital>2697</capital>
+  </country>
+  <country code="MTQ" code2="MQ">
+    <name>Martinique</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>1102</surfacearea>
+    <population>395000</population>
+    <gnp>2731</gnp>
+    <localname>Martinique</localname>
+    <capital>2508</capital>
+  </country>
+  <country code="MUS" code2="MU">
+    <name>Mauritius</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>2040</surfacearea>
+    <population>1158000</population>
+    <gnp>4251</gnp>
+    <localname>Mauritius</localname>
+    <capital>2511</capital>
+  </country>
+  <country code="MWI" code2="MW">
+    <name>Malawi</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>118484</surfacearea>
+    <population>10925000</population>
+    <gnp>1687</gnp>
+    <localname>Malawi</localname>
+    <capital>2462</capital>
+  </country>
+  <country code="MYS" code2="MY">
+    <name>Malaysia</name>
+    <continent>Asia</continent>
+    <region>Southeast Asia</region>
+    <surfacearea>329758</surfacearea>
+    <population>22244000</population>
+    <gnp>69213</gnp>
+    <localname>Malaysia</localname>
+    <capital>2464</capital>
+  </country>
+  <country code="MYT" code2="YT">
+    <name>Mayotte</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>373</surfacearea>
+    <population>149000</population>
+    <gnp>0</gnp>
+    <localname>Mayotte</localname>
+    <capital>2514</capital>
+  </country>
+  <country code="NAM" code2="NA">
+    <name>Namibia</name>
+    <continent>Africa</continent>
+    <region>Southern Africa</region>
+    <surfacearea>824292</surfacearea>
+    <population>1726000</population>
+    <gnp>3101</gnp>
+    <localname>Namibia</localname>
+    <capital>2726</capital>
+  </country>
+  <country code="NCL" code2="NC">
+    <name>New Caledonia</name>
+    <continent>Oceania</continent>
+    <region>Melanesia</region>
+    <surfacearea>18575</surfacearea>
+    <population>214000</population>
+    <gnp>3563</gnp>
+    <localname>Nouvelle-CalÃ©donie</localname>
+    <capital>3493</capital>
+  </country>
+  <country code="NER" code2="NE">
+    <name>Niger</name>
+    <continent>Africa</continent>
+    <region>Western Africa</region>
+    <surfacearea>1267000</surfacearea>
+    <population>10730000</population>
+    <gnp>1706</gnp>
+    <localname>Niger</localname>
+    <capital>2738</capital>
+  </country>
+  <country code="NFK" code2="NF">
+    <name>Norfolk Island</name>
+    <continent>Oceania</continent>
+    <region>Australia and New Zealand</region>
+    <surfacearea>36</surfacearea>
+    <population>2000</population>
+    <gnp>0</gnp>
+    <localname>Norfolk Island</localname>
+    <capital>2806</capital>
+  </country>
+  <country code="NGA" code2="NG">
+    <name>Nigeria</name>
+    <continent>Africa</continent>
+    <region>Western Africa</region>
+    <surfacearea>923768</surfacearea>
+    <population>111506000</population>
+    <gnp>65707</gnp>
+    <localname>Nigeria</localname>
+    <capital>2754</capital>
+  </country>
+  <country code="NIC" code2="NI">
+    <name>Nicaragua</name>
+    <continent>North America</continent>
+    <region>Central America</region>
+    <surfacearea>130000</surfacearea>
+    <population>5074000</population>
+    <gnp>1988</gnp>
+    <localname>Nicaragua</localname>
+    <capital>2734</capital>
+  </country>
+  <country code="NIU" code2="NU">
+    <name>Niue</name>
+    <continent>Oceania</continent>
+    <region>Polynesia</region>
+    <surfacearea>260</surfacearea>
+    <population>2000</population>
+    <gnp>0</gnp>
+    <localname>Niue</localname>
+    <capital>2805</capital>
+  </country>
+  <country code="NLD" code2="NL">
+    <name>Netherlands</name>
+    <continent>Europe</continent>
+    <region>Western Europe</region>
+    <surfacearea>41526</surfacearea>
+    <population>15864000</population>
+    <gnp>371362</gnp>
+    <localname>Nederland</localname>
+    <capital>5</capital>
+  </country>
+  <country code="NOR" code2="NO">
+    <name>Norway</name>
+    <continent>Europe</continent>
+    <region>Nordic Countries</region>
+    <surfacearea>323877</surfacearea>
+    <population>4478500</population>
+    <gnp>145895</gnp>
+    <localname>Norge</localname>
+    <capital>2807</capital>
+  </country>
+  <country code="NPL" code2="NP">
+    <name>Nepal</name>
+    <continent>Asia</continent>
+    <region>Southern and Central Asia</region>
+    <surfacearea>147181</surfacearea>
+    <population>23930000</population>
+    <gnp>4768</gnp>
+    <localname>Nepal</localname>
+    <capital>2729</capital>
+  </country>
+  <country code="NRU" code2="NR">
+    <name>Nauru</name>
+    <continent>Oceania</continent>
+    <region>Micronesia</region>
+    <surfacearea>21</surfacearea>
+    <population>12000</population>
+    <gnp>197</gnp>
+    <localname>Naoero/Nauru</localname>
+    <capital>2728</capital>
+  </country>
+  <country code="NZL" code2="NZ">
+    <name>New Zealand</name>
+    <continent>Oceania</continent>
+    <region>Australia and New Zealand</region>
+    <surfacearea>270534</surfacearea>
+    <population>3862000</population>
+    <gnp>54669</gnp>
+    <localname>New Zealand/Aotearoa</localname>
+    <capital>3499</capital>
+  </country>
+  <country code="OMN" code2="OM">
+    <name>Oman</name>
+    <continent>Asia</continent>
+    <region>Middle East</region>
+    <surfacearea>309500</surfacearea>
+    <population>2542000</population>
+    <gnp>16904</gnp>
+    <localname>Â´Uman</localname>
+    <capital>2821</capital>
+  </country>
+  <country code="PAK" code2="PK">
+    <name>Pakistan</name>
+    <continent>Asia</continent>
+    <region>Southern and Central Asia</region>
+    <surfacearea>796095</surfacearea>
+    <population>156483000</population>
+    <gnp>61289</gnp>
+    <localname>Pakistan</localname>
+    <capital>2831</capital>
+  </country>
+  <country code="PAN" code2="PA">
+    <name>Panama</name>
+    <continent>North America</continent>
+    <region>Central America</region>
+    <surfacearea>75517</surfacearea>
+    <population>2856000</population>
+    <gnp>9131</gnp>
+    <localname>PanamÃ¡</localname>
+    <capital>2882</capital>
+  </country>
+  <country code="PCN" code2="PN">
+    <name>Pitcairn</name>
+    <continent>Oceania</continent>
+    <region>Polynesia</region>
+    <surfacearea>49</surfacearea>
+    <population>50</population>
+    <gnp>0</gnp>
+    <localname>Pitcairn</localname>
+    <capital>2912</capital>
+  </country>
+  <country code="PER" code2="PE">
+    <name>Peru</name>
+    <continent>South America</continent>
+    <region>South America</region>
+    <surfacearea>1285216</surfacearea>
+    <population>25662000</population>
+    <gnp>64140</gnp>
+    <localname>PerÃº/Piruw</localname>
+    <capital>2890</capital>
+  </country>
+  <country code="PHL" code2="PH">
+    <name>Philippines</name>
+    <continent>Asia</continent>
+    <region>Southeast Asia</region>
+    <surfacearea>300000</surfacearea>
+    <population>75967000</population>
+    <gnp>65107</gnp>
+    <localname>Pilipinas</localname>
+    <capital>766</capital>
+  </country>
+  <country code="PLW" code2="PW">
+    <name>Palau</name>
+    <continent>Oceania</continent>
+    <region>Micronesia</region>
+    <surfacearea>459</surfacearea>
+    <population>19000</population>
+    <gnp>105</gnp>
+    <localname>Belau/Palau</localname>
+    <capital>2881</capital>
+  </country>
+  <country code="PNG" code2="PG">
+    <name>Papua New Guinea</name>
+    <continent>Oceania</continent>
+    <region>Melanesia</region>
+    <surfacearea>462840</surfacearea>
+    <population>4807000</population>
+    <gnp>4988</gnp>
+    <localname>Papua New Guinea/Papua Niugini</localname>
+    <capital>2884</capital>
+  </country>
+  <country code="POL" code2="PL">
+    <name>Poland</name>
+    <continent>Europe</continent>
+    <region>Eastern Europe</region>
+    <surfacearea>323250</surfacearea>
+    <population>38653600</population>
+    <gnp>151697</gnp>
+    <localname>Polska</localname>
+    <capital>2928</capital>
+  </country>
+  <country code="PRI" code2="PR">
+    <name>Puerto Rico</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>8875</surfacearea>
+    <population>3869000</population>
+    <gnp>34100</gnp>
+    <localname>Puerto Rico</localname>
+    <capital>2919</capital>
+  </country>
+  <country code="PRK" code2="KP">
+    <name>North Korea</name>
+    <continent>Asia</continent>
+    <region>Eastern Asia</region>
+    <surfacearea>120538</surfacearea>
+    <population>24039000</population>
+    <gnp>5332</gnp>
+    <localname>Choson Minjujuui InÂ´min Konghwaguk (Bukhan)</localname>
+    <capital>2318</capital>
+  </country>
+  <country code="PRT" code2="PT">
+    <name>Portugal</name>
+    <continent>Europe</continent>
+    <region>Southern Europe</region>
+    <surfacearea>91982</surfacearea>
+    <population>9997600</population>
+    <gnp>105954</gnp>
+    <localname>Portugal</localname>
+    <capital>2914</capital>
+  </country>
+  <country code="PRY" code2="PY">
+    <name>Paraguay</name>
+    <continent>South America</continent>
+    <region>South America</region>
+    <surfacearea>406752</surfacearea>
+    <population>5496000</population>
+    <gnp>8444</gnp>
+    <localname>Paraguay</localname>
+    <capital>2885</capital>
+  </country>
+  <country code="PSE" code2="PS">
+    <name>Palestine</name>
+    <continent>Asia</continent>
+    <region>Middle East</region>
+    <surfacearea>6257</surfacearea>
+    <population>3101000</population>
+    <gnp>4173</gnp>
+    <localname>Filastin</localname>
+    <capital>4074</capital>
+  </country>
+  <country code="PYF" code2="PF">
+    <name>French Polynesia</name>
+    <continent>Oceania</continent>
+    <region>Polynesia</region>
+    <surfacearea>4000</surfacearea>
+    <population>235000</population>
+    <gnp>818</gnp>
+    <localname>PolynÃ©sie franÃ§aise</localname>
+    <capital>3016</capital>
+  </country>
+  <country code="QAT" code2="QA">
+    <name>Qatar</name>
+    <continent>Asia</continent>
+    <region>Middle East</region>
+    <surfacearea>11000</surfacearea>
+    <population>599000</population>
+    <gnp>9472</gnp>
+    <localname>Qatar</localname>
+    <capital>2973</capital>
+  </country>
+  <country code="REU" code2="RE">
+    <name>RÃ©union</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>2510</surfacearea>
+    <population>699000</population>
+    <gnp>8287</gnp>
+    <localname>RÃ©union</localname>
+    <capital>3017</capital>
+  </country>
+  <country code="ROM" code2="RO">
+    <name>Romania</name>
+    <continent>Europe</continent>
+    <region>Eastern Europe</region>
+    <surfacearea>238391</surfacearea>
+    <population>22455500</population>
+    <gnp>38158</gnp>
+    <localname>RomÃ¢nia</localname>
+    <capital>3018</capital>
+  </country>
+  <country code="RUS" code2="RU">
+    <name>Russian Federation</name>
+    <continent>Europe</continent>
+    <region>Eastern Europe</region>
+    <surfacearea>17075400</surfacearea>
+    <population>146934000</population>
+    <gnp>276608</gnp>
+    <localname>Rossija</localname>
+    <capital>3580</capital>
+  </country>
+  <country code="RWA" code2="RW">
+    <name>Rwanda</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>26338</surfacearea>
+    <population>7733000</population>
+    <gnp>2036</gnp>
+    <localname>Rwanda/Urwanda</localname>
+    <capital>3047</capital>
+  </country>
+  <country code="SAU" code2="SA">
+    <name>Saudi Arabia</name>
+    <continent>Asia</continent>
+    <region>Middle East</region>
+    <surfacearea>2149690</surfacearea>
+    <population>21607000</population>
+    <gnp>137635</gnp>
+    <localname>Al-Â´Arabiya as-SaÂ´udiya</localname>
+    <capital>3173</capital>
+  </country>
+  <country code="SDN" code2="SD">
+    <name>Sudan</name>
+    <continent>Africa</continent>
+    <region>Northern Africa</region>
+    <surfacearea>2505813</surfacearea>
+    <population>29490000</population>
+    <gnp>10162</gnp>
+    <localname>As-Sudan</localname>
+    <capital>3225</capital>
+  </country>
+  <country code="SEN" code2="SN">
+    <name>Senegal</name>
+    <continent>Africa</continent>
+    <region>Western Africa</region>
+    <surfacearea>196722</surfacearea>
+    <population>9481000</population>
+    <gnp>4787</gnp>
+    <localname>SÃ©nÃ©gal/Sounougal</localname>
+    <capital>3198</capital>
+  </country>
+  <country code="SGP" code2="SG">
+    <name>Singapore</name>
+    <continent>Asia</continent>
+    <region>Southeast Asia</region>
+    <surfacearea>618</surfacearea>
+    <population>3567000</population>
+    <gnp>86503</gnp>
+    <localname>Singapore/Singapura/Xinjiapo/Singapur</localname>
+    <capital>3208</capital>
+  </country>
+  <country code="SGS" code2="GS">
+    <name>South Georgia and the South Sandwich Islands</name>
+    <continent>Antarctica</continent>
+    <region>Antarctica</region>
+    <surfacearea>3903</surfacearea>
+    <population>0</population>
+    <gnp>0</gnp>
+    <localname>South Georgia and the South Sandwich Islands</localname>
+    <capital></capital>
+  </country>
+  <country code="SHN" code2="SH">
+    <name>Saint Helena</name>
+    <continent>Africa</continent>
+    <region>Western Africa</region>
+    <surfacearea>314</surfacearea>
+    <population>6000</population>
+    <gnp>0</gnp>
+    <localname>Saint Helena</localname>
+    <capital>3063</capital>
+  </country>
+  <country code="SJM" code2="SJ">
+    <name>Svalbard and Jan Mayen</name>
+    <continent>Europe</continent>
+    <region>Nordic Countries</region>
+    <surfacearea>62422</surfacearea>
+    <population>3200</population>
+    <gnp>0</gnp>
+    <localname>Svalbard og Jan Mayen</localname>
+    <capital>938</capital>
+  </country>
+  <country code="SLB" code2="SB">
+    <name>Solomon Islands</name>
+    <continent>Oceania</continent>
+    <region>Melanesia</region>
+    <surfacearea>28896</surfacearea>
+    <population>444000</population>
+    <gnp>182</gnp>
+    <localname>Solomon Islands</localname>
+    <capital>3161</capital>
+  </country>
+  <country code="SLE" code2="SL">
+    <name>Sierra Leone</name>
+    <continent>Africa</continent>
+    <region>Western Africa</region>
+    <surfacearea>71740</surfacearea>
+    <population>4854000</population>
+    <gnp>746</gnp>
+    <localname>Sierra Leone</localname>
+    <capital>3207</capital>
+  </country>
+  <country code="SLV" code2="SV">
+    <name>El Salvador</name>
+    <continent>North America</continent>
+    <region>Central America</region>
+    <surfacearea>21041</surfacearea>
+    <population>6276000</population>
+    <gnp>11863</gnp>
+    <localname>El Salvador</localname>
+    <capital>645</capital>
+  </country>
+  <country code="SMR" code2="SM">
+    <name>San Marino</name>
+    <continent>Europe</continent>
+    <region>Southern Europe</region>
+    <surfacearea>61</surfacearea>
+    <population>27000</population>
+    <gnp>510</gnp>
+    <localname>San Marino</localname>
+    <capital>3171</capital>
+  </country>
+  <country code="SOM" code2="SO">
+    <name>Somalia</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>637657</surfacearea>
+    <population>10097000</population>
+    <gnp>935</gnp>
+    <localname>Soomaaliya</localname>
+    <capital>3214</capital>
+  </country>
+  <country code="SPM" code2="PM">
+    <name>Saint Pierre and Miquelon</name>
+    <continent>North America</continent>
+    <region>North America</region>
+    <surfacearea>242</surfacearea>
+    <population>7000</population>
+    <gnp>0</gnp>
+    <localname>Saint-Pierre-et-Miquelon</localname>
+    <capital>3067</capital>
+  </country>
+  <country code="STP" code2="ST">
+    <name>Sao Tome and Principe</name>
+    <continent>Africa</continent>
+    <region>Central Africa</region>
+    <surfacearea>964</surfacearea>
+    <population>147000</population>
+    <gnp>6</gnp>
+    <localname>SÃ£o TomÃ© e PrÃ­ncipe</localname>
+    <capital>3172</capital>
+  </country>
+  <country code="SUR" code2="SR">
+    <name>Suriname</name>
+    <continent>South America</continent>
+    <region>South America</region>
+    <surfacearea>163265</surfacearea>
+    <population>417000</population>
+    <gnp>870</gnp>
+    <localname>Suriname</localname>
+    <capital>3243</capital>
+  </country>
+  <country code="SVK" code2="SK">
+    <name>Slovakia</name>
+    <continent>Europe</continent>
+    <region>Eastern Europe</region>
+    <surfacearea>49012</surfacearea>
+    <population>5398700</population>
+    <gnp>20594</gnp>
+    <localname>Slovensko</localname>
+    <capital>3209</capital>
+  </country>
+  <country code="SVN" code2="SI">
+    <name>Slovenia</name>
+    <continent>Europe</continent>
+    <region>Southern Europe</region>
+    <surfacearea>20256</surfacearea>
+    <population>1987800</population>
+    <gnp>19756</gnp>
+    <localname>Slovenija</localname>
+    <capital>3212</capital>
+  </country>
+  <country code="SWE" code2="SE">
+    <name>Sweden</name>
+    <continent>Europe</continent>
+    <region>Nordic Countries</region>
+    <surfacearea>449964</surfacearea>
+    <population>8861400</population>
+    <gnp>226492</gnp>
+    <localname>Sverige</localname>
+    <capital>3048</capital>
+  </country>
+  <country code="SWZ" code2="SZ">
+    <name>Swaziland</name>
+    <continent>Africa</continent>
+    <region>Southern Africa</region>
+    <surfacearea>17364</surfacearea>
+    <population>1008000</population>
+    <gnp>1206</gnp>
+    <localname>kaNgwane</localname>
+    <capital>3244</capital>
+  </country>
+  <country code="SYC" code2="SC">
+    <name>Seychelles</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>455</surfacearea>
+    <population>77000</population>
+    <gnp>536</gnp>
+    <localname>Sesel/Seychelles</localname>
+    <capital>3206</capital>
+  </country>
+  <country code="SYR" code2="SY">
+    <name>Syria</name>
+    <continent>Asia</continent>
+    <region>Middle East</region>
+    <surfacearea>185180</surfacearea>
+    <population>16125000</population>
+    <gnp>65984</gnp>
+    <localname>Suriya</localname>
+    <capital>3250</capital>
+  </country>
+  <country code="TCA" code2="TC">
+    <name>Turks and Caicos Islands</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>430</surfacearea>
+    <population>17000</population>
+    <gnp>96</gnp>
+    <localname>The Turks and Caicos Islands</localname>
+    <capital>3423</capital>
+  </country>
+  <country code="TCD" code2="TD">
+    <name>Chad</name>
+    <continent>Africa</continent>
+    <region>Central Africa</region>
+    <surfacearea>1284000</surfacearea>
+    <population>7651000</population>
+    <gnp>1208</gnp>
+    <localname>Tchad/Tshad</localname>
+    <capital>3337</capital>
+  </country>
+  <country code="TGO" code2="TG">
+    <name>Togo</name>
+    <continent>Africa</continent>
+    <region>Western Africa</region>
+    <surfacearea>56785</surfacearea>
+    <population>4629000</population>
+    <gnp>1449</gnp>
+    <localname>Togo</localname>
+    <capital>3332</capital>
+  </country>
+  <country code="THA" code2="TH">
+    <name>Thailand</name>
+    <continent>Asia</continent>
+    <region>Southeast Asia</region>
+    <surfacearea>513115</surfacearea>
+    <population>61399000</population>
+    <gnp>116416</gnp>
+    <localname>Prathet Thai</localname>
+    <capital>3320</capital>
+  </country>
+  <country code="TJK" code2="TJ">
+    <name>Tajikistan</name>
+    <continent>Asia</continent>
+    <region>Southern and Central Asia</region>
+    <surfacearea>143100</surfacearea>
+    <population>6188000</population>
+    <gnp>1990</gnp>
+    <localname>ToÃ§ikiston</localname>
+    <capital>3261</capital>
+  </country>
+  <country code="TKL" code2="TK">
+    <name>Tokelau</name>
+    <continent>Oceania</continent>
+    <region>Polynesia</region>
+    <surfacearea>12</surfacearea>
+    <population>2000</population>
+    <gnp>0</gnp>
+    <localname>Tokelau</localname>
+    <capital>3333</capital>
+  </country>
+  <country code="TKM" code2="TM">
+    <name>Turkmenistan</name>
+    <continent>Asia</continent>
+    <region>Southern and Central Asia</region>
+    <surfacearea>488100</surfacearea>
+    <population>4459000</population>
+    <gnp>4397</gnp>
+    <localname>TÃ¼rkmenostan</localname>
+    <capital>3419</capital>
+  </country>
+  <country code="TMP" code2="TP">
+    <name>East Timor</name>
+    <continent>Asia</continent>
+    <region>Southeast Asia</region>
+    <surfacearea>14874</surfacearea>
+    <population>885000</population>
+    <gnp>0</gnp>
+    <localname>Timor Timur</localname>
+    <capital>1522</capital>
+  </country>
+  <country code="TON" code2="TO">
+    <name>Tonga</name>
+    <continent>Oceania</continent>
+    <region>Polynesia</region>
+    <surfacearea>650</surfacearea>
+    <population>99000</population>
+    <gnp>146</gnp>
+    <localname>Tonga</localname>
+    <capital>3334</capital>
+  </country>
+  <country code="TTO" code2="TT">
+    <name>Trinidad and Tobago</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>5130</surfacearea>
+    <population>1295000</population>
+    <gnp>6232</gnp>
+    <localname>Trinidad and Tobago</localname>
+    <capital>3336</capital>
+  </country>
+  <country code="TUN" code2="TN">
+    <name>Tunisia</name>
+    <continent>Africa</continent>
+    <region>Northern Africa</region>
+    <surfacearea>163610</surfacearea>
+    <population>9586000</population>
+    <gnp>20026</gnp>
+    <localname>Tunis/Tunisie</localname>
+    <capital>3349</capital>
+  </country>
+  <country code="TUR" code2="TR">
+    <name>Turkey</name>
+    <continent>Asia</continent>
+    <region>Middle East</region>
+    <surfacearea>774815</surfacearea>
+    <population>66591000</population>
+    <gnp>210721</gnp>
+    <localname>TÃ¼rkiye</localname>
+    <capital>3358</capital>
+  </country>
+  <country code="TUV" code2="TV">
+    <name>Tuvalu</name>
+    <continent>Oceania</continent>
+    <region>Polynesia</region>
+    <surfacearea>26</surfacearea>
+    <population>12000</population>
+    <gnp>6</gnp>
+    <localname>Tuvalu</localname>
+    <capital>3424</capital>
+  </country>
+  <country code="TWN" code2="TW">
+    <name>Taiwan</name>
+    <continent>Asia</continent>
+    <region>Eastern Asia</region>
+    <surfacearea>36188</surfacearea>
+    <population>22256000</population>
+    <gnp>256254</gnp>
+    <localname>TÂ’ai-wan</localname>
+    <capital>3263</capital>
+  </country>
+  <country code="TZA" code2="TZ">
+    <name>Tanzania</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>883749</surfacearea>
+    <population>33517000</population>
+    <gnp>8005</gnp>
+    <localname>Tanzania</localname>
+    <capital>3306</capital>
+  </country>
+  <country code="UGA" code2="UG">
+    <name>Uganda</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>241038</surfacearea>
+    <population>21778000</population>
+    <gnp>6313</gnp>
+    <localname>Uganda</localname>
+    <capital>3425</capital>
+  </country>
+  <country code="UKR" code2="UA">
+    <name>Ukraine</name>
+    <continent>Europe</continent>
+    <region>Eastern Europe</region>
+    <surfacearea>603700</surfacearea>
+    <population>50456000</population>
+    <gnp>42168</gnp>
+    <localname>Ukrajina</localname>
+    <capital>3426</capital>
+  </country>
+  <country code="UMI" code2="UM">
+    <name>United States Minor Outlying Islands</name>
+    <continent>Oceania</continent>
+    <region>Micronesia/Caribbean</region>
+    <surfacearea>16</surfacearea>
+    <population>0</population>
+    <gnp>0</gnp>
+    <localname>United States Minor Outlying Islands</localname>
+    <capital></capital>
+  </country>
+  <country code="URY" code2="UY">
+    <name>Uruguay</name>
+    <continent>South America</continent>
+    <region>South America</region>
+    <surfacearea>175016</surfacearea>
+    <population>3337000</population>
+    <gnp>20831</gnp>
+    <localname>Uruguay</localname>
+    <capital>3492</capital>
+  </country>
+  <country code="USA" code2="US">
+    <name>United States</name>
+    <continent>North America</continent>
+    <region>North America</region>
+    <surfacearea>9363520</surfacearea>
+    <population>278357000</population>
+    <gnp>8510700</gnp>
+    <localname>United States</localname>
+    <capital>3813</capital>
+  </country>
+  <country code="UZB" code2="UZ">
+    <name>Uzbekistan</name>
+    <continent>Asia</continent>
+    <region>Southern and Central Asia</region>
+    <surfacearea>447400</surfacearea>
+    <population>24318000</population>
+    <gnp>14194</gnp>
+    <localname>Uzbekiston</localname>
+    <capital>3503</capital>
+  </country>
+  <country code="VAT" code2="VA">
+    <name>Holy See (Vatican City State)</name>
+    <continent>Europe</continent>
+    <region>Southern Europe</region>
+    <surfacearea>0.40000000596046448</surfacearea>
+    <population>1000</population>
+    <gnp>9</gnp>
+    <localname>Santa Sede/CittÃ  del Vaticano</localname>
+    <capital>3538</capital>
+  </country>
+  <country code="VCT" code2="VC">
+    <name>Saint Vincent and the Grenadines</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>388</surfacearea>
+    <population>114000</population>
+    <gnp>285</gnp>
+    <localname>Saint Vincent and the Grenadines</localname>
+    <capital>3066</capital>
+  </country>
+  <country code="VEN" code2="VE">
+    <name>Venezuela</name>
+    <continent>South America</continent>
+    <region>South America</region>
+    <surfacearea>912050</surfacearea>
+    <population>24170000</population>
+    <gnp>95023</gnp>
+    <localname>Venezuela</localname>
+    <capital>3539</capital>
+  </country>
+  <country code="VGB" code2="VG">
+    <name>Virgin Islands, British</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>151</surfacearea>
+    <population>21000</population>
+    <gnp>612</gnp>
+    <localname>British Virgin Islands</localname>
+    <capital>537</capital>
+  </country>
+  <country code="VIR" code2="VI">
+    <name>Virgin Islands, U.S.</name>
+    <continent>North America</continent>
+    <region>Caribbean</region>
+    <surfacearea>347</surfacearea>
+    <population>93000</population>
+    <gnp>0</gnp>
+    <localname>Virgin Islands of the United States</localname>
+    <capital>4067</capital>
+  </country>
+  <country code="VNM" code2="VN">
+    <name>Vietnam</name>
+    <continent>Asia</continent>
+    <region>Southeast Asia</region>
+    <surfacearea>331689</surfacearea>
+    <population>79832000</population>
+    <gnp>21929</gnp>
+    <localname>ViÃªt Nam</localname>
+    <capital>3770</capital>
+  </country>
+  <country code="VUT" code2="VU">
+    <name>Vanuatu</name>
+    <continent>Oceania</continent>
+    <region>Melanesia</region>
+    <surfacearea>12189</surfacearea>
+    <population>190000</population>
+    <gnp>261</gnp>
+    <localname>Vanuatu</localname>
+    <capital>3537</capital>
+  </country>
+  <country code="WLF" code2="WF">
+    <name>Wallis and Futuna</name>
+    <continent>Oceania</continent>
+    <region>Polynesia</region>
+    <surfacearea>200</surfacearea>
+    <population>15000</population>
+    <gnp>0</gnp>
+    <localname>Wallis-et-Futuna</localname>
+    <capital>3536</capital>
+  </country>
+  <country code="WSM" code2="WS">
+    <name>Samoa</name>
+    <continent>Oceania</continent>
+    <region>Polynesia</region>
+    <surfacearea>2831</surfacearea>
+    <population>180000</population>
+    <gnp>141</gnp>
+    <localname>Samoa</localname>
+    <capital>3169</capital>
+  </country>
+  <country code="YEM" code2="YE">
+    <name>Yemen</name>
+    <continent>Asia</continent>
+    <region>Middle East</region>
+    <surfacearea>527968</surfacearea>
+    <population>18112000</population>
+    <gnp>6041</gnp>
+    <localname>Al-Yaman</localname>
+    <capital>1780</capital>
+  </country>
+  <country code="YUG" code2="YU">
+    <name>Yugoslavia</name>
+    <continent>Europe</continent>
+    <region>Southern Europe</region>
+    <surfacearea>102173</surfacearea>
+    <population>10640000</population>
+    <gnp>17000</gnp>
+    <localname>Jugoslavija</localname>
+    <capital>1792</capital>
+  </country>
+  <country code="ZAF" code2="ZA">
+    <name>South Africa</name>
+    <continent>Africa</continent>
+    <region>Southern Africa</region>
+    <surfacearea>1221037</surfacearea>
+    <population>40377000</population>
+    <gnp>116729</gnp>
+    <localname>South Africa</localname>
+    <capital>716</capital>
+  </country>
+  <country code="ZMB" code2="ZM">
+    <name>Zambia</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>752618</surfacearea>
+    <population>9169000</population>
+    <gnp>3377</gnp>
+    <localname>Zambia</localname>
+    <capital>3162</capital>
+  </country>
+  <country code="ZWE" code2="ZW">
+    <name>Zimbabwe</name>
+    <continent>Africa</continent>
+    <region>Eastern Africa</region>
+    <surfacearea>390757</surfacearea>
+    <population>11669000</population>
+    <gnp>5951</gnp>
+    <localname>Zimbabwe</localname>
+    <capital>4068</capital>
+  </country>
+</countries>

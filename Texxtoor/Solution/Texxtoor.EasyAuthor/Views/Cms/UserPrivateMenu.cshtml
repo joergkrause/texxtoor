@@ -1,0 +1,46 @@
+﻿@model Texxtoor.DataModels.Models.Users.User
+
+<div class="container">
+    <a href="#">
+      <img src="/Content/images/Texxtoor-160x56.png" alt="" />
+    </a>
+    
+    <div class="pull-right user-box">
+        <img class="avatar-icon" 
+             alt="@Model.UserName" 
+             src="@Url.Action("GetImg", "Tools", new { id = 0, c = "ProfileByName", res = "28x28", area = "" })">
+        <a href="#">@Model.UserName</a>
+        <div class="delimiter"></div>
+        <div class="mail-icon"></div>
+        <div class="delimiter"></div>
+        <div class="btn-group">
+            <div class="settings-icon dropdown-toggle" data-toggle="dropdown"></div>
+            <ul class="dropdown-menu pull-right" role="menu" style="width: 180px;">
+                <li>
+                    <div class="color-title" style="margin-left: 8px">@ViewResources.Action_SwitchPlatform</div>
+                    @*@Url.Action("RaiseModeToEasy", "Account", new { area= "" })*@
+                    <a data-change-to="assets/stylesheets/light-theme.css" href="#" onclick="alert('This function is currently under construction.'); return false;">
+                        Easy Author
+                        <small>Standard</small>
+                    </a>
+                    <a data-change-to="assets/stylesheets/dark-theme.css" href="@Url.Action("RaiseModeToFull", "Account", new { area = "" })">
+                        Professional
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <div class="color-title" style="margin-left: 8px">@ViewResources.Action_SwitchPlatform_Language</div>
+                    <a data-change-to="contrast-blue" href="@Url.Action("SetCulture", "Tools", new { culture = "de", area = "" })">
+                        <i class="icon-cog text-blue"></i>
+                        Deutsch
+                        <small>Standard</small>
+                    </a>
+                    <a data-change-to="contrast-blue" href="@Url.Action("SetCulture", "Tools", new { culture = "en", area = "" })">
+                        <i class="icon-cog text-blue"></i>
+                        English
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

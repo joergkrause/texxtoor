@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Texxtoor.Resources.Properties" GeneratedClassName="Settings">
+    <Profiles />
+    <Settings>
+        <Setting Name="SiteLogo" Type="System.String" Scope="Application">
+            <Value Profile="(Default)">SiteLogo</Value>
+        </Setting>
+        <Setting Name="SiteSubLogo" Type="System.String" Scope="Application">
+            <Value Profile="(Default)">SiteSubLogo</Value>
+        </Setting>
+        <Setting Name="DefaultPageId" Type="System.String" Scope="Application">
+            <Value Profile="(Default)">DefaultPageId</Value>
+        </Setting>
+        <Setting Name="RssLink" Type="System.String" Scope="Application">
+            <Value Profile="(Default)">RssLink</Value>
+        </Setting>
+        <Setting Name="LastCreated" Type="System.String" Scope="Application">
+            <Value Profile="(Default)">LastCreated</Value>
+        </Setting>
+    </Settings>
+</SettingsFile>

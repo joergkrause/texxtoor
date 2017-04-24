@@ -1,0 +1,13 @@
+﻿@model Texxtoor.DataModels.Models.Author.TermSet
+@using (Html.BeginForm("EditTermset", "Resource", new { id = Model.Project == null ? 0 : Model.Project.Id }, FormMethod.Post, new { id = "editTermsetForm" })) {
+  @Html.HiddenFor(m => m.Id)
+  using (Html.BtFieldset(Loc("legend", @"Edit Termset"))) {
+    @Html.EditorForModel()
+    if (Model.Project == null) {
+      <div class="alert alert-warning">
+        @Loc("warning", "The termset is a public global termset. Changes may apply to many projects.")
+      </div>
+    }
+    @Button.FormSendButtons("editTermsetSendButton", ViewResources.Action_Team_BillingNewInvoice, "editTermsetCancelButton", ViewResources.Button_CancelAndClose)
+  }
+}

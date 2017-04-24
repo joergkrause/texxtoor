@@ -1,0 +1,7 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Users.User>
+
+@foreach (var elm in Model) {
+  <a href="javascript:SelectUser('@elm.Id','@elm.UserName');">
+    @Create.ImageAction("", Url.Action("ShowProfile", "Community", new { area ="", id = elm.Id }), "/Tools/GetImg/" + elm.Id + "?c=MemberThumbnail&res64x64", true)<strong>@elm.UserName</strong>@elm.Email
+  </a>                      
+}

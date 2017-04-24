@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TEXXTOOR.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TemplateName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TexxtoorTemplate.dotx</Value>
+    </Setting>
+    <Setting Name="AddOnName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\TexxtoorAddOn\</Value>
+    </Setting>
+    <Setting Name="TemplateNameDocx" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TexxtoorTemplate.docx</Value>
+    </Setting>
+    <Setting Name="Initials" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">texxtoor</Value>
+    </Setting>
+    <Setting Name="ServiceTimeout" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5000</Value>
+    </Setting>
+    <Setting Name="Version" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

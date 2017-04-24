@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:t="http://www.texxtoor.de/2014/templating">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>
+      <t:title></t:title>
+    </title>
+    <meta name="author" content="Jörg Krause, Berlin" />
+    <meta name="creator" content="texxtoor - augmented publishing platform" />
+    <meta name="name" content="CoachScript English" />
+    <meta name="description" content="This template provides a laser printable handout. Pages are numbered consecutive single side. Has on cover page with author details." />
+    <t:configuration toc="false" imprint="false" index="false" about="false" frontcover="true" cover="false" backcover="false" />
+    <t:style src="stylesheet.css" />
+  </head>
+  <body>
+    <div class="frontcover" >
+      <h1>
+        <t:title></t:title>
+      </h1>
+      <h2>
+        <t:subtitle></t:subtitle>
+      </h2>
+      <p class="version">
+        Version: <t:version>1.0</t:version> (<t:printdate type="short" />)
+      </p>
+      <div class="about" id="about-h-1">
+        <t:img src="author" />
+        <h3 class='builder'>
+          <t:authorname type="lead" />
+        </h3>
+        <p>
+          <t:biography type="lead" />
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

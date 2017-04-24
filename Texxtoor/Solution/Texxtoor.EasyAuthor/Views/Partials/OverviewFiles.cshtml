@@ -1,0 +1,60 @@
+﻿<div ng-controller="overviewFilesCtrl" class="container">  
+  <button class="btn btn-help pull-right" data-container="body" data-toggle="popover" data-placement="left" title="Team Members"
+          data-html="true"
+          data-content="
+    <fieldset>
+      <legend>Legend</legend>
+      <ul class='list-group list-unstyled'>
+        <li class='list-group-item-text'><i class='icon-minus-circle'></i> Not Published (you can change if yours)</li>
+        <li class='list-group-item-text'><i class='icon-print'></i> Published (you cannot change this item)</li>
+        <li class='list-group-item-text'><i class='icon-male'></i> Owner (you're the owner, you can change)</li>
+        <li class='list-group-item-text'><i class='icon-group'></i> Others (belongs to other team member, for reference only)</li>
+        <li class='list-group-item-text'><i class='icon-file-o'></i> Content (can be added to document, such as an figure, is visible to other team members)</li>
+        <li class='list-group-item-text'><i class='icon-book'></i> Project (can be added as download material to published text, only lead author can use)</li>
+      </ul>
+    </fieldset>">
+  </button>
+  <div class="row" ng-repeat="file in files">
+    <div class="col-md-9">
+      <ul class="nav navbar-nav">
+        <li ng-if="file.isPublished"><i class="icon-print"></i></li>
+        <li ng-if="!file.isPublished"><i class="icon-minus-circle"></i></li>
+        <li ng-if="file.isOwner"><i class="icon-male"></i></li>
+        <li ng-if="!file.isOwner"><i class="icon-group"></i></li>
+        <li><input type="text" class="form-control" value="{{file.name}}" name="name" /></li>
+        <li>
+          <select name="label" style="width:180px" class="form-control" ng-model="file.label" ng-options="label for label in file.labels">
+            <option value=""></option>
+          </select>
+        </li>
+        <li>{{file.size}}</li>
+        <li>{{file.date}}</li>
+        <li>
+          <input type="radio" name="volume-{{file.id}}" ng-model="file.volume" value="Content" /><label for="volume-{{file.id}}"><i class="icon-file-o"></i></label>
+        </li>
+        <li>
+          <input type="radio" name="volume-{{file-id}}" ng-model="file.volume" value="Project" /><label for="volume-{{file.id}}"><i class="icon-book"></i></label>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <div class="btn-group dropdown ">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:100px">
+          Action <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" style="top: 30px !important">
+          <li><a href="#" ng-click="saveFile(file.id)">Save Changes</a></li>
+          <li ng-if="file.isOwner">
+            <a href="#" ng-click="deleteFile(file.id)">Delete</a>
+          </li>
+          <li><a href="#" rel="nofollow" ng-click="downloadFile(file.id)">Download</a></li>
+          <li><a href="#" ng-click="copyFile(file.id)">Make a Copy</a></li>
+        </ul>
+      </div>
+      <button type="button" class="btn btn-sm btn-primary" ng-click="showImage(file.id)" ng-if="file.isImage" style="width:50px">
+        <img class="image-icon" ng-src="/tools/getimg/{{file.id}}?c=finderresource&amp;nc=true&amp;res=20x20" />
+      </button>
+    </div>
+  </div>
+
+</div>

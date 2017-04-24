@@ -1,0 +1,68 @@
+﻿@{
+  PageData["Title"] = Loc("title", "Active Users");
+  Layout = Url.GetGlobalLayout();
+  PageData["ShortHelp"] = Loc("text1", @"See all active users and check out on them to get partner, contributor, or author for your project.");
+}
+@section HeadContent {
+  <script type="text/javascript">
+    $(function () {
+      ui = new Dialog(
+        { },
+        { },
+        { },
+        {
+          formId: '#main',
+          formDivId: '#main',
+          formAction: '@Url.Action("ListUsers")'
+        });
+      ui.updateTable();
+    });
+
+  </script>
+  <script type="text/javascript">
+    $(function () {
+      $(document).on('click', '#addMessageSendButton', function () {
+        var frm = $('#addMessageForm input');
+        var data = {};
+        $.each(frm, function (i, v) {
+          data[v.name] = v.value;
+        });
+        $.validator.unobtrusive.parse($('#addMessageForm'));
+        if ($('#addMessageForm').valid()) {
+          $.post('@Url.Action("SendMessage")', data, 'json')
+            .always(function (r) {
+              $('#addMessage').hide();
+              toastr.success(r.msg);
+            });
+        }
+      });
+      $(document).on('click', '#addMessageCancelButton', function () {
+        $('#addMessageForm input').val('');
+        $('#addMessage').hide();
+      });
+    });
+    function CreateMessage(userId) {
+      ShowMessageForm({
+        url: '@Url.Action("AddMessageToUser")',
+        data: { id: userId }
+      });
+    }
+    function ShowMessageForm(d) {
+      $.ajax({
+        url: d.url,
+        data: d.data,
+        type: 'GET',
+        dataType: 'html',
+        success: function (data) {
+          $('#addMessage').html(data);
+          $('#addMessage').show();
+        }
+      });
+    }
+  </script>
+  @Script.SetTableBehavior(true)
+}
+@Create.ContentFormEmpty("addMessage")
+@Create.MainContentWithLoader()
+
+@Create.ActionTask("", false, Url.Action("Groups", "Groups", new { area = "ReaderPortal" }), ViewResources.LinkButton_Reader_PublicGroups)

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:t="http://www.texxtoor.de/2014/templating">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>
+      <t:title></t:title>
+    </title>
+    <meta name="author" content="Jörg Krause, Berlin" />
+    <meta name="creator" content="texxtoor - augmented publishing platform" />
+    <meta name="name" content="Common Template" />
+    <meta name="description" content="Dies ist die Standardvorlage. Diese Vorlage erzeugt ein Buchformat. Die Seiten sind wechselseitig bedruckt, Kapitel beginnen immer rechts, ungerade. Mit Inhaltsverzeichnis und Index. Eine Titelei-Seite gibt Imprint-Informationen im klassischen Fachbuchstil wieder." />
+    <t:configuration toc="true" imprint="false" index="true" about="true" frontcover="true" cover="false" backcover="false" />
+    <t:style src="print.css" />
+  </head>
+  <body>
+    <xi:include href="frontcover.xml" />
+    <xi:include href="imprint.xml" />
+    <xi:include href="about.xml" />
+    <xi:include href="toc.xml" />    
+    <t:content />
+    <xi:include href="index.xml" />
+  </body>
+</html>

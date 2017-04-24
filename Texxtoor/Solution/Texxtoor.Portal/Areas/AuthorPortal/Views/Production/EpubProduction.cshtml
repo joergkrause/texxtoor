@@ -1,0 +1,48 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@model IEnumerable<Texxtoor.DataModels.Models.Content.TemplateGroup>
+@{
+  PageData["Title"] = Loc("title1", "EPUB Production");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("textPrev1", @"Choose a template and create final output. Refine output, if necessary, then.");
+}
+@{
+  var epubTemplates = Model.Where(t => t.Group == GroupKind.Epub).OrderBy(t => t.Name).ToList();
+}
+@section HeadContent{
+  @RenderPage("_Script.cshtml")
+}
+<h2>
+  @Loc("titleEpubTemplate", "Select a Template for EPUB Output")
+</h2>
+@if (epubTemplates.Any()) {
+  using (Html.BtDiv(BtStyle.WellAndSmall)) {
+    @Loc("textEpubTemplates", "Click a template name. The file will be created in the background. You can choose any template to see different results.")
+  }
+  <div class="container">
+    @foreach (var item in epubTemplates) {
+      <div class="row">
+        <div class="col-md-3 ">
+          <button data-action data-type="epub" data-value="@item.Id" class="@BtStyle.ButtonAndPrimary btn btn-block " style="margin-right: 20px;">@item.Name</button>
+          <br />
+          <div class="badge badge-info">@item.Culture.NativeName</div>
+        </div>
+        <div class="col-md-9">
+          @if (item.Description != null) {
+            <div class="alert alert-info">@item.Description </div>
+          } else {
+            <div class="alert alert-info">@Loc("nodesc", "No description provided")</div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+} else {
+  using (Html.BtDiv(BtStyle.AlertAndError)) {
+    @Loc("txtNoEpub", "There are no templates for EPUB production.")
+  }
+}
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)
+@Create.ActionTask("", false, Url.Action("Dashboard", "Project", new { id = ViewBag.ProjectId }), ViewResources.LinkButton_ToDashboard)
+@Create.ActionTask("", false, Url.Action("Index", "Publishing", new { id = ViewBag.ProjectId }), ViewResources.LinkButton_Publishing)
+@Create.ActionTask("", true, Url.Action("PdfProduction", "Production", new { id = ViewBag.OpusId }), ViewResources.TasksButton_ProductionPreview + " PDF")
+@Create.ActionTask("", true, Url.Action("AppProduction", "Production", new { id = ViewBag.OpusId }), ViewResources.TasksButton_ProductionPreview + " APP")

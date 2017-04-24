@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Reader.Content.Catalog>
+<script type="text/javascript">
+
+  $(function () {
+
+    $('#btnSubmit').click(function () {
+      $('#searchPopupForm').ajaxSubmit();
+    });
+
+    $('#searchPopupForm').show();
+
+  });
+</script>
+@using (Html.BeginForm("Search", "Home", new { area = "ReaderPortal" }, FormMethod.Post, new { id = "searchPopupForm", @class = "menu" })) {
+  <div class="globalsearchdiv">
+    <div class="BoldFont">@Loc("legendQ", @"Quick Search")</div>
+    <label>@Loc("lblCat", @"Category")</label>
+    <div class="editor-field">
+      <select id="category" name="stdCategory">
+        <option>@Loc("optionAll", @"All Categories")</option>
+        @foreach (var cat in Model) { 
+          <option value="@cat.Id">@cat.Name</option>    
+        }
+      </select>
+    </div>
+    <label>@Loc("lblSearch", @"Search")</label>
+    <div class="editor-field">
+      <input type="text" name="search_term" />
+    </div>
+    <div class="col-md-offset-2">
+      <input id="search_submit" value="@Loc("btnSearch", "Search")" tabindex="0" type="submit" name="stdBtn" />
+    </div>
+  </div>
+}
+<br/>
+@using (Html.BeginForm("Search", "Home", new { area = "ReaderPortal" }, FormMethod.Post, new { id = "searchPopupFormAdv", @class = "menu" })) {
+  <div class="globalsearchdiv">
+    <div class="BoldFont">@Loc("legendA", @"Advanced Search")</div>
+    <label for="category">@Loc("lblArea", @"Category")</label>
+    <div class="editor-field">
+      <select id="category" name="profiCategory">
+        <option>@Loc("optionAll", @"All Categories")</option>
+        @foreach (var cat in Model) {
+          <option value="@cat.Id">@cat.Name</option>
+        }
+      </select>
+    </div>
+    <label for="search">@Loc("lblSearch", @"Search")</label>
+    <div class="editor-field">
+      <input id="search" name="search_profi" value="" title="search" tabindex="4" type="text">
+    </div>
+    <label for="rating">@Loc("lblRating", @"Rating")</label>
+    <div class="editor-field">
+      1<input type="radio" value="1" name="rating" id="rating1" />
+      2<input type="radio" value="2" name="rating" id="rating2" />
+      3<input type="radio" value="3" name="rating" id="rating3" />
+      4<input type="radio" value="4" name="rating" id="rating4" />
+      5<input type="radio" value="5" name="rating" id="rating5" />
+    </div>
+    <label>@Loc("lblReviewed", @"Reviewed only?")</label>
+    <div class="editor-field">
+      <input type="checkbox" value="true" name="auditing" id="auditing" />
+      @Loc("lblReviewMin", @"At least reviewed with level")
+      <select name="auditinglevel" id="auditinglevel">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+    </div>
+    <div class="col-md-offset-2">
+      <input id="popup_submit" value="@Loc("btnSearch", "Search")" tabindex="6" type="button" name="btnSubmit">
+    </div>
+  </div>
+}

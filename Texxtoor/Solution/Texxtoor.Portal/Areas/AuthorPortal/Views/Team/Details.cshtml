@@ -1,0 +1,247 @@
+﻿@using Texxtoor.ViewModels.Author
+@model TeamOverviewModel
+@{
+  PageData["Title"] = Loc("titleTeamRoom", "Team Room");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("textTeam", @"This is the homepage for team <em><span data-args='0' data-desc='Team Name'>{0}</span></em>. Manage your members and encourage others to participate by pimping your homepage.", Model.Team.Name);
+}
+@section HeadContent{
+  <script type="text/javascript">
+    var saveUrl = '@Url.Action("Save")';
+    $(function() {
+      $(document).on('click', '.btnShowRoles', function() {
+        $('.showRoles').hide();
+        var parentId = $(this).parents('[data-item]').data('item');
+        $('.showRoles[data-item=' + parentId + ']').show();
+      });
+      $(document).on('click', '.btnCloseShowRoles', function() {
+        $(this).parents('.showRoles').hide();
+      });
+      $(document).on('click', '.btnAssignProfile', function() {
+        var parent = $(this).parents('.showRoles');
+        var id = parent.data('item');
+        var roles = $('input[name=role][data-item=' + id + ']:checked').map(function() { return $(this).val(); }).get();
+        var sumRoles = 0;
+        for (var i = 0; i < roles.length; i++) {
+          sumRoles += (roles[i] - 0);
+        }
+        $.ajax({
+          url: '@Url.Action("AssignRole")',
+          data: $.toJSON({
+            id: id,
+            roles: sumRoles
+          }),
+          type: 'POST',
+          contentType: "application/json; charset=utf-8",
+          success: function(data) {
+            toastr.success(data.msg);
+            GetMemberRoles(id);
+            parent.hide();
+          }
+        });
+        return false;
+      });
+
+      $(document).on('click', '.showProfile', function() {
+        var id = $(this).parents('[data-item]').data('item');
+        $('.showProfileDialog[data-item=' + id + ']').dialog('open');
+      });
+      $(document).on('change', '[data-change="projectShare"]', function() {
+        if (this.selectedIndex > 0) {
+          window.location.href = '@Url.Action("ManageShares", "Team")/' + this.options[this.selectedIndex].value;
+        }
+      });
+      $(document).on('change', '[data-change="projectForum"]', function() {
+        if (this.selectedIndex > 0) {
+          window.location.href = '@Url.Action("MessageBoard", "Project")/' + this.options[this.selectedIndex].value;
+        }
+      });
+      GetMemberTabs();
+    });
+    ui = new Dialog(
+    {
+
+    },
+    {
+      formId: '#editTeamForm',
+      formDivId: '#overviewTeamEdit',
+      formAction: '@Url.Action("EditTeam")',
+      sendBtnId: '#editTeamSendButton',
+      cancelBtnId: '#editTeamCancelButton',
+      onShow: function() {
+        $('#overviewcontent').hide();
+      },
+      onClose: function() {
+        $('#overviewcontent').show();
+        refreshOverview();
+      }
+    },
+    {
+      formId: '#delTeamMember',
+      formDivId: '#delTeamMember',
+      formAction: '@Url.Action("RemoveMember")',
+      sendBtnId: '#delTeamMemberSendButton',
+      cancelBtnId: '#delTeamMemberCancelButton'
+    },
+    {
+
+    });
+
+    function refreshOverview() {
+      $.ajax({
+        url: '@Url.Action("GetTeam")',
+        data: { id: @Model.Team.Id },
+        type: 'GET',
+        dataType: 'json',
+        cache: false,
+        success: function(data) {
+          $('#teamName').text(data.Name);
+          $('#teamDescription').text(data.Description);
+          $('#teamLogo img').attr('src', '/Tools/GetImg/@Model.Team.Id?c=Team&res=100x150&nc=true&t=@DateTime.Now.Ticks - 5');
+        }
+      });
+    }
+
+    function GetMemberRoles(id) {
+      $.ajax({
+        url: '@Url.Action("MembersRoles")',
+        data: {
+          id: id
+        },
+        success: function(html) {
+          $('[data-target=membersroles][data-id=' + id + ']').html(html);
+        }
+      });
+    }
+
+    function GetMemberTabs() {
+      $.ajax({
+        url: '@Url.Action("ListMembers", new {id = Model.Team.Id, editable = (bool) ViewBag.Editable})',
+        success: function(html) {
+          $('#main').replaceWith(html);
+          $('.showProfileDialog').hide();
+        }
+      });
+    }
+  </script>
+}
+@using (Html.BtDiv(BtStyle.WellSmall & BtStyle.AlertAndInfo)) {
+  @Loc("textTeamName", @"This is team <em><span data-args='0' data-desc='Team Name'>{0}</span></em>.", Model.Team.Name)
+  @Loc("textInfo",
+    @"The team is currently <em><span data-args='0' data-desc='Active'>{0}</span></em>.
+               It started at <em><span data-args='1' data-desc='Date'>{1}</span></em>.
+               It has <em><span data-args='2' data-desc='Member Count'>{2}</span></em> members, and
+               <em><span data-args='3' data-desc='Project Count'>{3}</span></em> projects.",
+    Model.Team.Active ? Loc("txtActive", "active").ToString() : Loc("txtInActive", "inactive").ToString(),
+    Model.Team.CreatedAt.ToShortDateString(),
+    Model.Team.Members.Count,
+    Model.Team.Projects.Count(p => p.Active))
+}
+@using (Html.BtDeleteTemplate(Loc("txtErr", "You're about to remove a team member permanently. Please confirm."))) {
+  @Create.FormButtonOnClick("delTeamMemberSendButton", "", ViewResources.Action_Team_DeleteMember, "btn-warning")
+  @Create.FormButtonOnClick("delTeamMemberCancelButton", "", ViewResources.Button_Cancel)
+}
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#overview" data-toggle="tab">@ViewResources.Tab_TeamDetails_Overview</a></li>
+  <li><a href="#leader" data-toggle="tab">@ViewResources.Tab_TeamDetails_TeamLeader</a></li>
+  <li><a href="#active" data-toggle="tab">@ViewResources.Tab_TeamDetails_ActiveMembers</a></li>
+  <li><a href="#new" data-toggle="tab">@ViewResources.Tab_TeamDetails_NewMembers</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="overview">
+    <div id="overviewTeamEdit" class="hidden-to-show box-content">
+    </div>
+    <div id="overviewcontent">
+      <h2>@ViewResources.Tab_TeamDetails_Overview</h2>
+      <table class="table table-condensed">
+        <tr>
+          <td rowspan="3">
+            <div id="teamLogo" class="@(((bool)ViewBag.Editable) ? "editable" : "") ">
+              <img src="~/Tools/GetImg/@Model.Team.Id?c=Team&res=100x150&nc=true&t=@DateTime.Now.Ticks" alt="logo" />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <h2 class="text-right" id="teamName">@Model.Team.Name</h2>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="" id="teamDescription">@Model.Team.Description</div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div class="btn-toolbar">
+              @{
+                var active = Model.Team.Projects.Where(p => p.Active);
+                var inactive = Model.Team.Projects.Where(p => !p.Active);
+              }
+              @if (active.Union(inactive).Any()) {
+                <div class=" btn-group dropdown">
+                  <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" title="@Loc("txtClickView", "(Team's other projects, click to view)")">
+                    @Loc("textPrjHeader", @"Projects") @ViewResources.DropList_Team_SelectProject <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" data-change="projectForum">
+                    @foreach (var project in active) {
+                      <li>
+                        @Create.ActionLink("", true, Url.Action("MessageBoard", "Project", new { id = @project.Id }), String.Format(ViewResources.TasksButton_MessageBoard_ForProject, project.Name))
+                      </li>
+                    }
+                    @if (inactive.Any()) {
+                      <li class="separator"><small>@Loc("inactive", "Inactive projects:")</small></li>
+                      foreach (var project in inactive) {
+                        <li>
+                          @Create.ActionLink("", true, Url.Action("MessageBoard", "Project", new { id = @project.Id }), String.Format(ViewResources.TasksButton_MessageBoard_ForProject, project.Name))
+                        </li>
+                      }
+                    }
+                  </ul>
+                </div>
+                <div class=" btn-group dropdown" data-change="projectShare">
+                  <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" title="@Loc("txtClickShares", "(Other projects you can set shares for team members)")">
+                    @Loc("textPrjShares", @"Manage Shares") @ViewResources.DropList_Team_SelectProject <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    @foreach (var project in active) {
+                      <li>
+                        @Create.ActionLink("", true, Url.Action("ManageShares", "Team", new { id = @project.Id }), String.Format(ViewResources.Action_Marketing_ConfirmSharesName, project.Name))
+                      </li>
+                    }
+                    @if (inactive.Any()) {
+                      <li class="separator"><small>@Loc("inactive", "Inactive projects:")</small></li>
+                      foreach (var project in inactive) {
+
+                        <li>
+                          @Create.ActionLink("", true, Url.Action("ManageShares", "Team", new { id = @project.Id }), String.Format(ViewResources.Action_Marketing_ConfirmSharesName, project.Name))
+                        </li>
+                      }
+                    }
+                  </ul>
+                </div>
+              } else {
+                @Loc("noProjectAssigned", "This team is currently not assigned to any active or inactive project.")
+              }
+              @if (Model.CurrentUserIsLead) {
+                <button type="button" class="btn btn-primary btn-sm" id="btnEdit" onclick="ui.editElement(@Model.Team.Id)">@ViewResources.Action_Team_Edit</button>
+              }
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      @if ((bool)ViewBag.Editable) {
+        @Create.ActionTask("btnAdd", false, Url.Action("AddMember", "Team", new { id = Model.Team.Id }), ViewResources.TasksButton_NewTeamMember)
+      } else {
+        using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+          @Loc("txtnoLead", "You cannot add or remove members, because you'r not the team's leader.")
+        }
+      }
+    </div>
+  </div>
+  <div id="main"></div>
+</div>
+
+@Create.ActionTask("", false, Url.Action("Index", "Team", null), ViewResources.LinkButton_ToTeams)
+@Create.ActionTask("", false, Url.Action("Index", "Project", null), ViewResources.LinkButton_ToProjects)

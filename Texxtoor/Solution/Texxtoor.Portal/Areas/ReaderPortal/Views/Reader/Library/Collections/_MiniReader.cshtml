@@ -1,0 +1,6 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.FrozenFragment
+<h3>@Model.Name</h3>
+<p>@(Model.Published != null ? Model.Published.Title : "unknown source")</p>
+<div>
+  @Html.Raw(System.Text.Encoding.UTF8.GetString(Model.Content))
+</div>

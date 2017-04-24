@@ -1,0 +1,20 @@
+﻿@model Texxtoor.DataModels.Models.Author.Team
+
+@{
+  PageData["Title"] = "Edit Team";
+  Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+@using (Html.BeginForm()) {
+  @Html.ValidationSummary(true)
+  using(Html.BtFieldset("Team Properties")) {
+    @Html.EditorForModel()
+
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="formsendButtons">
+      <button type="submit" class="btn btn-sm btn-primary">Save Team</button>
+      @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-sm btn-default" })
+    </div>
+  }
+}
+

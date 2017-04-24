@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Messaging>
+  <Message lang="en" id="Project-CreateInvoice-Debitor">
+    <Subject paramHint="Username">You send a new invoice to {0}</Subject>
+    <Body paramHint="Username">You send a new invoice to {0}</Body>
+  </Message>
+  <Message lang="en" id="Project-CreateInvoice-Creditor">
+    <Subject paramHint="Username">You got a new invoice to {0}</Subject>
+    <Body paramHint="Username">You got a new invoice to {0}</Body>
+  </Message>
+  <Message lang="de" id="Project-CreateInvoice-Debitor">
+    <Subject paramHint="Username">Du hast {0} eine neue Rechnung geschickt</Subject>
+    <Body paramHint="Username">Du hast {0} eine neue Rechnung geschickt</Body>
+  </Message>
+  <Message lang="de" id="Project-CreateInvoice-Creditor">
+    <Subject paramHint="Username">Du hast von {0} eine neue Rechnung bekommen</Subject>
+    <Body paramHint="Username">Du hast von {0} eine neue Rechnung bekommen</Body>
+  </Message>
+</Messaging>

@@ -1,0 +1,604 @@
+﻿/* Sample style sheet for boom!, the book microformat              */
+/* written  by Hakon Wium Lie and Bert Bos, November 2005          */
+/* You may reuse this style sheet for any purpose without any fees */
+/* Modified for texxtoor
+
+       This is the base style for coaching material
+
+       Date: 23/04/2014
+       Lang: DE
+       AUTH: Joerg <isageek> Krause
+       TYPE: Trainingsunterlage
+
+      */
+html {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+/* default colors */
+@prince-color blue01 {
+  color: cmyk(1, 0.4, 0, 0.3);
+}
+
+@prince-color black00 {
+  color: cmyk(0, 0, 0, 1);
+}
+
+@prince-color black50 {
+  color: cmyk(0, 0, 0, 0.5);
+}
+
+@prince-color black60 {
+  color: cmyk(0, 0, 0, 0.4);
+}
+
+@prince-color black80 {
+  color: cmyk(0.8, 0.8, 0.8, 0.5);
+}
+
+@font-face {
+  font-family: 'Ubuntu Bold';
+  src: url('Fonts/Ubuntu-Bold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ubuntu Light';
+  src: url('Fonts/Ubuntu-Light.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ubuntu Light Italic';
+  src: url('Fonts/Ubuntu-LightItalic.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Ubuntu Bold";
+  page-break-after: avoid;
+}
+
+h1 {
+  font-size: 18pt;
+  color: prince-color(black60);
+}
+
+h2 {
+  font-size: 12pt;
+  color: prince-color(black80);
+}
+
+h3 {
+  font-size: 10pt;
+  color: prince-color(black80);
+}
+
+h4 {
+  font-size: 9pt;
+  color: prince-color(black00);
+}
+
+/* All these characters are not supported by Ubuntu, hence we use a standard non-serife font */
+
+/* German Quotation, double, low before, high after */
+
+q.double:before {
+  font-family: "Arial";
+  content: "\201E";
+}
+
+q.double:after {
+  font-family: "Arial";
+  content: "\201C";
+}
+
+span.ndash {
+  font-family: "Arial";
+  content: "\2013";
+}
+
+span.mdash {
+  font-family: "Arial";
+  content: "\2014";
+}
+
+div[data-item=text] {
+  width: 100%;
+  margin: 2mm 0 2mm 0;
+  padding: 0 40mm 0 0;
+}
+
+p {
+  font: 9pt "Ubuntu Light";
+  text-align: left;
+  line-height: 1.4em;
+  widows: 2;
+  orphans: 2;
+  margin-left: 23mm;
+}
+
+  p.author {
+    margin-top: 2em;
+    text-indent: 0;
+    text-align: right;
+  }
+
+  p.Query {
+    font-style: italic;
+  }
+
+ul {
+  margin-left: 27mm;
+  margin-top: 3mm;
+}
+
+ol {
+  margin-left: 28mm;
+  margin-top: 3mm;
+}
+
+  ul, ol li {
+    font: 9pt "Ubuntu Light";
+    line-height: 1.4em;
+    text-align: left;
+    widows: 2;
+  }
+
+li:last-child {
+  page-break-before: avoid;
+}
+
+li:first-child {
+  page-break-after: avoid;
+}
+
+ul, ol ul, ol {
+  margin-top: 1mm;
+  margin-bottom: 1mm;
+}
+
+
+  ul ul li {
+    margin-left: 6mm;
+    margin-right: 23mm;
+  }
+
+  ol ol li {
+    margin-left: 5mm;
+    margin-right: 23mm;
+  }
+
+pre {
+  margin: 1em 0em;
+  font: 90% "Lucida Console", "Lucida Sans Typewriter", monospace;
+  font-size: 0.9em;
+  max-width: 125mm;
+  word-wrap: break-word;
+  white-space: pre-line;
+}
+
+a {
+  text-decoration: none;
+  color: prince-color(black00, overprint);
+}
+
+  /* cross-references */
+
+  a.section::after {
+    content: " Seite " target-counter(attr(href), page);
+  }
+
+  a.section::before {
+    content: " Kapitel " target-counter(attr(href), chapter) ", ";
+  }
+
+  a.image {
+    content: " Abbildung " target-counter(attr(href), figure);
+  }
+
+  a.table {
+    content: " Tabelle " target-counter(attr(href), table);
+  }
+
+  a.listing {
+    content: " Listing " target-counter(attr(href), listing);
+  }
+
+
+/* sidebars */
+
+header.builder {
+  margin: 1.2em 0 0 23mm;
+  background: #BBB;
+  padding: 0.5em 1em;
+  page-break-inside: avoid;
+  page-break-after: avoid;
+  font-weight: bold;
+  font-family: "Ubuntu Bold";
+}
+
+  header.builder[data-type=Tip] {
+    content: "Tipp";
+  }
+
+  header.builder[data-type=Warning] {
+    content: "Warnung";
+  }
+
+  header.builder[data-type=Note] {
+    content: "Hinweis";
+  }
+
+  header.builder[data-type=Information] {
+    content: "Information";
+  }
+
+  header.builder[data-type=Advice] {
+    content: "Empfehlung";
+  }
+
+  header.builder[data-type=Box] {
+  }
+
+aside.builder {
+  font-family: "Ubuntu Light";
+  margin: 0 0 1.2em 23mm;
+  background: #CCC;
+  padding: 0.5em 1em;
+  page-break-inside: avoid;
+  text-align: justify;
+}
+
+  aside.builder p {
+    padding: 0;
+    margin-left: 0mm; /* because p has global margin */
+  }
+
+  aside.builder h2 {
+    margin-top: 0;
+  }
+
+/* figures, listings and tables*/
+
+div.listing {
+  counter-increment: listing;
+}
+
+  div.listing p.caption::before {
+    content: "Listing " counter(listing) ": ";
+    font-weight: bold;
+    font-family: "Georgia";
+    font-style: italic;
+  }
+
+  div.listing p.caption {
+    width: 100%;
+    font: 8pt "Georgia";
+    font-style: italic;
+    text-align: left;
+    font-size: 1em;
+    margin: 1.5em 0 0em 0;
+  }
+
+figure {
+  position: relative;
+  margin: 1em 0 0 23mm;
+  counter-increment: figure;
+  page-break-inside: avoid;
+}
+
+  figure figcaption {
+    position: absolute;
+    display: inline-block;
+    font: 7pt "Ubuntu Light Italic";
+    left: 115mm;
+    width: 58mm;
+    bottom: 0;
+    word-wrap: hyphenate;
+    text-align: left;
+    padding-left: 2mm;
+    padding-bottom: 1mm;
+    margin: 0;
+  }
+
+    figure figcaption::before {
+      content: "Abbildung " counter(figure) ": ";
+      font-weight: bold;
+    }
+
+      figure img.builder {
+        max-width: 115mm;
+        max-height: 82mm;
+        width: auto !important; /* overwrite the image's settings here */
+        height: auto !important;
+        top: 0;
+        right: 0;
+        left: 0;
+      }
+
+table {
+  margin: 1em 0;
+  width: 100%;
+  counter-increment: table;
+}
+
+  table th {
+    text-align: left;
+    background-color: #CCC;
+    font-size: 8pt;
+  }
+
+  table th, table td {
+    text-align: left;
+    padding-right: 1em;
+  }
+
+  table td {
+    background-color: #EEE;
+    font: 8pt "Ubuntu Light";
+    vertical-align: top;
+  }
+
+  table.lined td, table.lined th {
+    border-top: none;
+    border-bottom: thin dotted;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+  }
+
+  table caption {
+    width: 100%;
+    font: 8pt "Georgia";
+    text-align: left;
+    font-size: 0.7em;
+    margin: 0 0 1.2em 0;
+  }
+
+    table caption::before {
+      content: "Tabelle " counter(table) ": ";
+      font-weight: bold;
+    }
+
+
+.pspacing {
+  display: none;
+}
+
+/* define default page and names pages: cover, blank, frontmatter */
+
+@page {
+  margin: 17mm 17mm 17mm 17mm;
+  size: 212mm 261mm;
+  marks: crop cross;
+  prince-jpeg-quality: 100;
+  prince-image-resolution: 300dpi;
+
+      @top-right {
+        font: 8pt "Ubuntu Bold";
+        margin-right: -12mm;
+        color: Gray;
+        content: "Skript " string(title);
+      }
+
+  @bottom-right {
+    position: absolute;
+    font: 8pt "Ubuntu Light";
+    content: counter(page);
+    vertical-align: top;
+    margin-right: -12mm;
+    color: Gray;
+  }
+}
+
+@page :first {
+
+      @top-right {
+        content: none;
+      }
+
+      @bottom-right {
+        content: none;
+      }
+    }
+
+@page :blank {
+  @top-left {
+    content: normal;
+  }
+
+  @bottom-left {
+    content: normal;
+  }
+}
+
+/*
+       A book consists of different types of sections. We propose to use
+       DIV elements with these class names:
+
+        frontcover / cover (this is for separate printing with spine, does not need backcover)
+        halftitlepage: contains the title of the book
+        titlepage: contains the title of the book, name of author(s) and publisher
+        imprint: left page with copyright, publisher, library printing information
+        dedication: right page with short dedication
+        foreword: written by someone other than the author(s)
+        toc: table of contents
+        preface: preface, including acknowledgements
+        chapter: each chapter is given its own DIV element
+        references: contains list of references
+        appendix: each appendix is given its own
+        bibliography
+        glossary
+        index
+        colophon: describes how the book was produced
+        backcover
+
+       A book will use several of the types listed above, but few books
+       will use all of them.
+    */
+
+/* which section uses which named page */
+
+/* page breaks */
+
+div.frontcover {
+  height: 227mm;
+  border-left: 1mm solid #ccc;
+}
+
+  div.frontcover h1 {
+    position: relative;
+    top: 60mm;
+    font: 30pt "Ubuntu Bold";
+    color: cmyk(0.5,0.5,0.5,0.5);
+    margin-left: 6mm;
+    width: 120mm;
+  }
+
+  div.frontcover h2 {
+    position: relative;
+    top: 10mm;
+    font: 20pt "Ubuntu Bold";
+    color: cmyk(0.5,0.5,0.5,0.5);
+    margin-left: 6mm;
+  }
+
+  div.frontcover p.version {
+    position: relative;
+    top: 50mm;
+    font: 14pt "Ubuntu Bold";
+    color: cmyk(0.5,0.5,0.5,0.5);
+    margin-left: 6mm;
+  }
+
+div.about {
+  position: absolute;
+  bottom: 0;
+  left: 9mm;
+  width: 166mm;
+  min-height: 36mm;
+  border: 0.5mm solid #bbb;
+}
+
+  div.about h3 {
+    margin: 3.5mm 0 0 1mm;
+    display: inline-block;
+    font: 11pt "Ubuntu Bold";
+    color: prince-color(black80);
+  }
+
+  div.about > p {
+    margin-left: 32mm;
+    font-size: 8pt;
+    width: 132mm;
+    overflow: hidden;
+  }
+
+  div.about img {
+    float: left;
+    height: 30mm;
+    margin: 4mm;
+    padding: 0;
+  }
+
+/* TOC */
+
+div.toc {
+  page-break-before: always;
+  background-color: #ccc;
+  width: 164mm;
+  padding: 2mm 4mm 4mm 23mm;
+}
+
+  div.toc h1.builder {
+    font-family: "Ubuntu Bold";
+    font-size: 14pt;
+    content: "Zusammenfassung";
+  }
+
+  div.toc h2.builder {
+    font-family: "Ubuntu Bold";
+    font-size: 10pt;
+    content: "Inhalt:";
+  }
+
+      div.toc div.covertext {
+        font: 9pt "Ubuntu Light";
+        margin: 2mm 10mm 4mm 0;
+      }
+
+ul.toc, ul.toc ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font: 9pt "Ubuntu Light";
+}
+
+      ul.toc li {
+        width: 145mm;
+      }
+
+    /* the boomconverter creates an entry for TOC, because it's on the same page in this template, we remove it */
+    ul.toc li.frontmatter {
+      display: none;
+    }
+
+      ul.toc ul {
+        display: none; /* here we don't show the levels 2 and lower, even if provided */
+      }
+
+      ul.toc a::before {
+        content: target-counter(attr(href), chapter) " ";
+        font-style: normal;
+      }
+
+  ul.toc a::after {
+    content: leader('.') target-counter(attr(href), page);
+    font-style: normal;
+  }
+
+/* Global References */
+
+title {
+  string-set: title content();
+}
+
+
+/* chapter numbers */
+
+    h1[id] {
+      counter-increment: chapter;
+      string-set: header content();
+    }
+
+span.element, span.attribute {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 80%;
+}
+
+span.property {
+  font-weight: bold;
+}
+
+ul.code li {
+  list-style-type: none;
+  font-family: "source Code Pro";
+  font-size: 8pt;
+  margin-left: -20px;
+}
+
+code, code p, span.css, span.value, span.declaration {
+  font: 90% "Lucida Console", "Lucida Sans Typewriter", monospace;
+  font-size: 0.9em;
+}
+
+  code p {
+    line-height: 90%;
+  }

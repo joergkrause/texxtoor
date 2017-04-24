@@ -1,0 +1,13 @@
+﻿@if (User.IsInRole("CmsAdmin")) {
+    <script type="text/javascript" src="~/Scripts/admin/cmsadmin.js"></script>
+    <script>
+      var cmsAdmin;
+      $(function () {
+        cmsAdmin = new CmsAdmin('@(Culture)', '@Url.Action("SaveResource", "ThemeSwitcher", new { area = "" })');
+        $('#resSummaryIcon').click(function () {
+          var resSummary = $('#resSummary');
+          resSummary.css('visibility', (resSummary.css('visibility') == 'hidden') ? 'visible' : 'hidden');
+        });
+      });
+    </script>
+  }

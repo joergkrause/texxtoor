@@ -1,0 +1,24 @@
+﻿@model Texxtoor.DataModels.Models.Content.Template
+@{
+  PageData["Title"] = "Rename PDF Template";
+  Layout = Url.GetGlobalLayout("_LayoutTemplates", "AdminPortal");
+}
+<div class="well">
+  Give the templates another unique name. This is just for your internal purposes.
+</div>
+@Html.ValidationSummary(false, "An error occured while saving", new { @class = "alert alert-danger alert-dismissable" })
+@using (Html.BeginForm()) {
+  @Html.Hidden("oldname", (string)ViewBag.OldName)
+  <div class="editor-label">
+    @Html.LabelFor(m => m.InternalName)
+  </div>
+  <div class="editor-field">
+    @Html.EditorFor(m => m.InternalName)
+    <small>
+      Any name but "Common Template" is allowed.
+    </small>
+  </div>
+  <div class="formsendButtons">
+    <input type="submit" value="Rename Group" class="btn btn-primary" />
+  </div>
+}

@@ -1,0 +1,93 @@
+﻿@using Texxtoor.DataModels.Models.Reader.Content
+@model IPagedList<Product>
+@if (Model == null || !Model.Any()) {
+  <div class="alert alert-warning">
+    @Loc("textNoModel", "There is no app content. Choose a work to create a content container from.")
+  </div>
+} else {
+  <div class="alert alert-info">
+    @Html.Pluralize(Model.Count(),
+      Loc("txtS", "There is <em>{0}</em> content container. This is ").ToString(),
+      Loc("txtP", "There are <em>{0}</em> content containers. These are ").ToString(),
+      Loc("txtN", "no").ToString())
+    @Html.Pluralize(Model.GroupBy(p => p.Work).Count(),
+      Loc("txtWS", "<em>{0}</em> work").ToString(),
+      Loc("txtWP", "<em>{0}</em> works").ToString(),
+      Loc("txtWN", "none").ToString())
+    @Loc("textrel", @"connected.")
+  </div>
+  @Html.Partial("_Pagination", PaginationViewModel<Product>.Create(Model, "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});", true, m => m.Name, m => m.Title, m => m.CreatedAt, m => m.Colored))
+  <div class="multilist">
+    @foreach (var item in Model) {
+      <div class="listitem">
+        <div class="firstRow">
+          @Badges.NewItem(item.Name, item.CreatedAt, TimeSpan.FromDays(5))
+          @if (item.CreatedAt.Subtract(DateTime.Now).TotalHours > -1) {
+            <div class="badge badge-success">
+              @Loc("newInBasket", "Recently added to basket")
+            </div>
+          }
+        </div>
+        <div class="secondRow">
+          <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+          <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+            @Loc("text", @"
+          App content <em><span data-args='0' data-desc='Name'>{0}</span></em>
+          was created at <em><span data-args='1' data-desc='At'>{1}</span></em>
+          for work <em><span data-args='2' data-desc='Work Name'>{2}</span></em>.<br />
+          If you're going to order, it will have these properties:",
+              item.Name,
+              item.CreatedAt.ToLongDateString(),
+              item.Work.Name
+              )
+            <ul>
+              <li><label>@Loc("lblTitle", @"Title:")</label> <em>@item.Title</em></li>
+              <li><label>@Loc("lblSub", @"Subtitle:")</label> <em>@item.SubTitle</em> </li>
+              <li><label>@Loc("lblDed", @"Dedication:")</label> <em>@item.Dedication</em> </li>
+              <li>
+                <label>@Loc("lblCol", @"Colored:")</label>
+                @if (item.Colored) {
+                  <img src="~/Content/icons/bool_yes.png" />
+                } else {
+                  <img src="~/Content/icons/bool_no.png" />
+                }
+              </li>
+            </ul>
+            @if (item.Orders.Any()) {
+              @Loc("hasOrders", "This product has been orders <em>{0}</em> times.", item.Orders.Count())
+            } else {
+              @Loc("noOrders", "This product has no orders accociated.")
+            }
+          </div>
+        </div>
+        <div class="thirdRow">
+          <div class="optionFields" data-item="@item.Id">
+            @if (item.Orders.Any()) {
+              @Create.ActionLink("btnPrevOrder", true, Url.Action("PreviousOrders", "Orders", new { id = item.Id }), ViewResources.Action_Product_OrderAgain, "btn-info")
+            } else {
+              @Create.ActionLink("btnOrder", true, Url.Action("Order", "Orders", new { id = item.Id }), ViewResources.Action_Product_OrderOnDevice, "btn-info")
+            }
+            @Create.ActionClick("editButton", false, "ui.editElement(" + item.Id + ")", Loc("lnkModify", "Modify").ToHtmlString())
+            @Create.ActionClick("delButton", true, "ui.deleteElement(" + item.Id + "," + Model.PageNumber + ")", Loc("lnkRemove", "Remove").ToHtmlString(), "btn-danger")
+            <div class="btn-group">
+              <button class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">@ViewResources.LinkButton_Products_ShowProperties &nbsp;<span class="caret"></span></button>
+              <ul class="dropdown-menu " role="menu" style="width: 300px;">
+                <li><label style="width:150px">@Loc("lblTitle", @"Title:")</label> <em>@item.Title</em></li>
+                <li><label style="width:150px">@Loc("lblSub", @"Subtitle:")</label> <em>@item.SubTitle</em> </li>
+                <li><label style="width:150px">@Loc("lblDed", @"Dedication:")</label> <em>@item.Dedication</em> </li>
+                <li>
+                  <label style="width:150px">@Loc("lblCol", @"Colored:")</label>
+                  @if (item.Colored) {
+                    <img src="~/Content/icons/bool_yes.png" />
+                  } else {
+                    <img src="~/Content/icons/bool_no.png" />
+                  }
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

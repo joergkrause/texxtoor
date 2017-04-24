@@ -1,0 +1,232 @@
+﻿@* Generator: MvcHelper *@
+
+@using System.ComponentModel.DataAnnotations
+@using System.Linq.Expressions
+@using Texxtoor.DataModels.Models.Common
+@helper FieldHelpIcon(string description, string fieldName, string id) {
+  <img src="~/Content/icons/help.png" alt="@description" data-content="@description" data-header="@fieldName" id="fh-@id" class="fieldHelpIcon" />
+}
+@functions
+{
+  public static HelperResult FieldHelpIcon<TModel>(System.Web.Mvc.HtmlHelper<TModel> html, Expression<Func<TModel, object>> expr) {
+    var name = "";
+    Type baseType = null;
+    if (expr.Body is MemberExpression) {
+      name = ((MemberExpression)expr.Body).Member.Name;
+      baseType = ((MemberExpression)expr.Body).Member.ReflectedType;
+    }
+    if (expr.Body is UnaryExpression) {
+      name = ((MemberExpression)((UnaryExpression)expr.Body).Operand).Member.Name;
+      baseType = ((MemberExpression)((UnaryExpression)expr.Body).Operand).Member.ReflectedType;
+    }
+    var desc = "";
+    var exnm = "";
+    if (baseType != null) {
+      var disp = baseType.GetProperty(name).GetCustomAttributes(true).OfType<DisplayAttribute>().FirstOrDefault();
+      if (disp != null) {
+        desc = disp.GetDescription();
+        exnm = disp.GetName();
+      }
+    }
+    return FieldHelpIcon(desc, exnm, name);
+  }
+
+  public static HelperResult FieldHelpIcon<TModel>(Expression<Func<TModel, object>> expr) {
+    var name = "";
+    Type baseType = null;
+    if (expr.Body is MemberExpression) {
+      name = ((MemberExpression)expr.Body).Member.Name;
+      baseType = ((MemberExpression)expr.Body).Member.ReflectedType;
+    }
+    if (expr.Body is UnaryExpression) {
+      name = ((MemberExpression)((UnaryExpression)expr.Body).Operand).Member.Name;
+      baseType = ((MemberExpression)((UnaryExpression)expr.Body).Operand).Member.ReflectedType;
+    }
+    var desc = "";
+    var exnm = "";
+    if (baseType != null) {
+      var disp = baseType.GetProperty(name).GetCustomAttributes(true).OfType<DisplayAttribute>().FirstOrDefault();
+      if (disp != null) {
+        desc = disp.GetDescription();
+        exnm = disp.GetName();
+      }
+    }
+    return FieldHelpIcon(desc, exnm, name);
+  }
+}
+@helper ImageButton(string text, string cssClass = "") {
+  if (text.StartsWith("$Res:")) {
+    var res = HttpContext.GetGlobalResourceObject("ImageButton", text.Substring(5)) as string;
+    text = res ?? text;
+  }
+  <div class="btn @cssClass TextPortalCreateDiv1">
+    @text
+  </div>
+}
+@helper ImageButtonOnAction(string id, string url, string text, string cssClass = "", bool disable = false) {
+  if (text.StartsWith("$Res:")) {
+    var res = HttpContext.GetGlobalResourceObject("ImageButton", text.Substring(5)) as string;
+    text = res ?? text;
+  }
+  if (disable) {
+    <a class="btn task @cssClass minRepDisabled">@text</a>
+  } else {
+    <a href="@url" id="@id" class="btn @cssClass NoTextDecoration">@text</a>
+  }
+}
+
+@helper ActionClick(string id, bool important, string click, string text, string css = "") {
+  @ActionClick(id, important, click, text, css, null)
+}
+@helper ActionClick(string id, bool important, string click, string text, string css, IDictionary<string, object> properties) {
+  if (important) {
+    if (properties == null) {
+      properties = new Dictionary<string, object>();
+    }
+    properties.Add("data-important", "true");
+  }
+  @ActionClick(id, click, text, css, properties)
+}
+@helper ActionClick(string id, string click, string text, string css, IDictionary<string, object> properties) {
+  var props = new HtmlString(properties != null ? String.Join(" ", properties.Select(p => String.Format("{0}='{1}'", p.Key, p.Value)).ToArray()) : "");
+  <a href="#" onclick="return @click" @(String.IsNullOrEmpty(id) ? "" : "id=" + id + "") class="btn btn-sm @css" @props>@text</a>
+}
+
+@helper ActionLink(string id, bool important, string url, string text, string css = "") {  
+  @ActionLink(id, important, url, text, css, null);
+}
+@helper ActionLink(string id, bool important, string click, string text, string css, IDictionary<string, object> properties) {
+  if (important) {
+    if (properties == null) {
+      properties = new Dictionary<string, object>();
+    }
+    properties.Add("data-important", "true");
+  }
+  @ActionLink(id, click, text, css, properties)
+}
+@helper ActionLink(string id, string url, string text, string css, IDictionary<string, object> properties) {
+  var props = new HtmlString(properties != null ? String.Join(" ", properties.Select(p => String.Format("{0}='{1}'", p.Key, p.Value)).ToArray()) : "");
+  <a href="@url" @(String.IsNullOrEmpty(id) ? "" : "id=" + id + "") class="btn btn-sm @css" @props>@text</a>
+}
+
+@helper ActionLinkIcon(string id, string url, string text, Texxtoor.Portal.Core.Extensions.BtIcon icon, string css = "") {
+  <a href="@url" @(String.IsNullOrEmpty(id) ? "" : "id=" + id + "") class="btn btn-sm @css">
+    <i class="icon @icon pull-left"></i>&nbsp;@text
+  </a>
+}
+
+@helper ActionIcon(string id, string click, string text, Texxtoor.Portal.Core.Extensions.BtIcon icon, string css = "") {
+  <a href="#" onclick="return @click" @(String.IsNullOrEmpty(id) ? "" : "id=" + id + "") class="btn btn-sm @css">
+    <i class="icon @icon"></i>&nbsp;@text
+  </a>
+}
+
+
+@helper ActionLink(string id, string url, string text, Texxtoor.Portal.Core.Extensions.BtIcon icon, string css) {
+  <a href="@url" @(String.IsNullOrEmpty(id) ? "" : "id=" + id + "") class="btn btn-sm @css">
+    <i class="@icon"></i>&nbsp;@text
+  </a>
+}
+
+@helper ActionTask(string id, bool belowDivider, string url, string text, string cssClass = "", bool disable = false) {
+  if (disable) {
+    <span class="task" data-class="@cssClass" data-disabled="true" data-belowdivider="@belowDivider" data-text="@text"></span>
+  } else {
+    <span class="task" data-class="@cssClass" data-disabled="false" data-belowdivider="@belowDivider" data-text="@text" data-url="@url"></span>
+  }
+}
+@helper FormButtonOnClick(string id, string click, string text, string cssClass = "btn-primary", bool disable = false) {
+  if (text.StartsWith("$Res:")) {
+    var res = HttpContext.GetGlobalResourceObject("ImageButton", text.Substring(5)) as string;
+    text = res ?? text;
+  }
+  if (disable) {
+    <a id="@id" class="btn btn-sm @cssClass btn-disabled">@text</a>
+  } else {
+    <a id="@id" onclick="@(String.IsNullOrEmpty(click) ? "return false;" : "return " + click + ";")" href="#" class="btn btn-sm @cssClass">@text</a>
+  }
+}
+
+@helper HeaderButtonBack() {
+  var r = HttpContext.Current.Request.UrlReferrer;
+  if (r == null) {
+    <a href="#" disabled="disabled" class="btn btn-white" id="hdnBackBtn">@Texxtoor.DataModels.ViewResources.Button_Back</a>
+  } else {
+    <a href="@r.AbsoluteUri" class="btn btn-white" id="hdnBackBtn">@Texxtoor.DataModels.ViewResources.Button_Back</a>
+  }
+}
+
+@helper ImageAction(string id, string url, string icon, bool noPrefix = false, string @class = "") {
+  <a href="@url" id="@id" class="@(@class)">
+    @if (noPrefix) {
+      <img src="@icon" />
+    } else {
+      <img src="~/Content/icons/@icon" />
+    }
+  </a>
+}
+@helper CultureSelection(System.Web.Mvc.UrlHelper url, string name, string defaultValue) {
+  <select name="@name" id="@name">
+    <option value="">@Texxtoor.DataModels.ViewResources.DropList_Culture_Select</option>
+    @foreach (var item in System.Web.Configuration.WebConfigurationManager.AppSettings["ui:SupportedCultures"].Split(',')) {
+      var c = new System.Globalization.CultureInfo(item);
+      <option data-lang-image="@c.TwoLetterISOLanguageName" value="@c.TwoLetterISOLanguageName" @(@c.TwoLetterISOLanguageName == defaultValue ? "selected" : "")>@c.NativeName</option>
+    }
+  </select>
+}
+@helper CheckBoxListFromEnum(Type type, string name, int defaultValue, bool columnStyle = false, string dataItem = null, int markerValues = 0, int excludeValue = 0) {
+  foreach (var i in Enum.GetValues(type)) {
+    var item = Convert.ToInt32(i);
+    if (excludeValue != 0 && (excludeValue & item) == item) { continue; }
+    var mark = (markerValues != 0 && (markerValues & item) == item);
+    var chkd = (defaultValue != 0 && (defaultValue & item) == item);
+    var attr = type.GetField(i.ToString()).GetCustomAttributes(typeof(DisplayAttribute), false).Cast<DisplayAttribute>().FirstOrDefault();
+    var text = attr == null ? i.ToString() : attr.ResourceType.GetProperty(attr.Name).GetValue(null);
+    <input type="checkbox" @(dataItem == null ? "" : "data-item=" + dataItem + "")
+           @(chkd ? "checked='checked'" : "")
+           name="@name"
+           id="@name-@item"
+           value="@((int)item)" />
+    <label for="@name-@item" class="checkboxlist" style="@(mark ? "font-weight:bold" : "")">@text</label>
+    if (columnStyle) { <br /> }
+  }
+}
+@helper MainContentWithLoader(string id = "main") {
+  <div class="box box-double-padding">
+    <div class="box-content" id="@id">
+      <img src="~/Content/loading.gif" alt="Loading..." />
+    </div>
+  </div>
+}
+@helper ContentFormEmpty(string id, string name = "") {
+  <div class="hidden-to-show" id="@id">
+    <div class="box">
+      <div class="box-header green-background">
+        <div class="title">
+          @name
+        </div>
+      </div>
+      <div class="box-content"></div>
+    </div>
+  </div>
+}
+
+@helper ContentForm(string id, System.Web.Mvc.MvcHtmlString html, string name) {
+  <div id="@id" class="hidden-to-show">
+    <div class="box">
+      <div class="box-header green-background">
+        <div class="title">
+          @name
+        </div>
+      </div>
+      <div class="box-content">
+        @html
+      </div>
+    </div>
+  </div>
+}
+@*@helper ContentForm(string id, MvcHtmlString html) {
+    <div id="@id" class="hidden-to-show">
+      @html
+    </div>
+  }*@

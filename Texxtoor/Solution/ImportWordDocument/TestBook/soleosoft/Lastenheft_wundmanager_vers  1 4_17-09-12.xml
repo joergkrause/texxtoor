@@ -1,0 +1,3454 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Content>
+  <Element Type="Opus" Name="Lastenheft" Short="Lastenheft" Description="Lastenheft Wundmanager.">
+    Lastenheft Wundmanager
+    <Element Type="Section" Name="Vorblatt">
+      Vorblatt
+      <Element Type="Text">
+        <p>
+          Lastenheft für das Software-Modul „Wundmanager“ der Soleosoft GmbH
+          aktueller Versionsstand:
+        </p>
+        <p>1.9</p>
+        <p>erstellt durch:</p>
+        <p>Andreas Rudolph</p>
+      </Element>
+    </Element>
+    <Element Type="Section" Name="Änderungsverzeichnis">
+      Änderungsverzeichnis
+      <Element Type="Table">
+        <table>
+          <tr>
+            <td>
+              <p>
+                <b>Datum</b>
+              </p>
+            </td>
+            <td>
+              <p>
+                <b>Version</b>
+              </p>
+            </td>
+            <td>
+              <p>
+                <b>Geänderte Kapitel, was</b>
+              </p>
+            </td>
+            <td>
+              <p>
+                <b>Geändert durch</b>
+              </p>
+            </td>
+          </tr>
+        </table>
+      </Element>
+    </Element>
+    <Element Type="Section" Name="Freigabe">
+      Freigabe
+      <Element Type="Table">
+        <table>
+          <tr>
+            <td>
+              <p>
+                <b>Datum</b>
+              </p>
+            </td>
+            <td>
+              <p>
+                <b>Vers. – Nummer</b>
+              </p>
+            </td>
+            <td>
+              <p>
+                <b>Freigabe durch</b>
+              </p>
+            </td>
+            <td>
+              <p>
+                <b>Signum</b>
+              </p>
+            </td>
+          </tr>
+        </table>
+      </Element>
+    </Element>
+    <Element Type="Section" Name="Beschreibung des IST- Zustandes">
+      Beschreibung des IST- Zustandes
+      <Element Type="Text">
+        <p>
+          Die Firma soleosoft GmbH bietet
+          auf dem elektronischen Wege den Expertenstandard für ein Entlassungsmanagement
+          für Krankenhäuser und Pflegeheime an. Der Standard soll das
+          Entlassungsmanagement, welches nach Paragraph
+          <b>§</b>
+          113a Absatz 4 SGB XI vom
+          Gesetzgeber klar gefordert wird und welches vorgibt wie und mit welchen Aufwand
+          eine Entlassung mit Nachversorgung zu erfolgen hat, umsetzen. Jedes Krankenhaus
+          und jede Pflegeeinrichtung hat sich daran zu orientieren und einen derartigen
+          Prozess zu initiieren. Um diesen Prozess für die Partner attraktiv zu machen,
+          zu unterstützen und/oder zu vereinfachen, bietet soleosoft GmbH eine Software an,
+          welche dem Kunden über ein Internetplattform zur Verfügung gestellt wird. Der
+          aktuelle Releasestand ist eine Version 2.0 (siehe Schaubild), welche auch aktiv
+          auf dem Geschäftsmarkt vertrieben wird. Die Beseitigung kleinere Fehler oder Verbesserungen
+          an der Software werden aktuell am laufenden System durch ein Systemhaus
+          realisiert.
+        </p>
+      </Element>
+      <Element Type="Image" width="681" Height="588">images/image001.jpg</Element>
+      <Element Type="Text">
+        <p>
+          Weiterhin hat es sich soleosoft
+          zur Aufgabe gemacht, die neuen Softwareprodukte modularer zu gestalten. Aus
+          diesem Grund wird auch das Modul Wundmanager aus dem Hauptpaket herausgezogen.
+          Das heißt aber nicht, dass es im Hauptprodukt (soleosoft 3.0) keinen
+          Wundmanagement mehr geben wird. Dieser wird jedoch nur mit
+          Standardfunktionalitäten ausgestattet sein. Man könnte ihn auch als
+          Wundmanager-Light bezeichnen.  Aus strategischer Sicht erhofft sich soleosoft
+          durch die Trennung des Produktes, für sein Hauptsystem eine bessere Vermarktung
+          und mehr Flexibilität für den Endkunden. Auch kann mit diesem Schritt das
+          Lizenzmodell umgestellt werden.
+        </p>
+        <p>
+          Wichtig ist,  dass der
+          <i>
+            Wundmanager
+            Pro
+          </i>
+          sowie auch andere Wundmanager-Systeme auf dem Markt eine Schnittstelle besitzen,
+          um mit soleosoft 3.0 zu kommunizieren. Dies bedeutet, Benutzer die soleosoft
+          3.0 einsetzen, können auf Daten des
+          <i>Wundmanager Pro</i>
+          zurückgreifen bzw.
+          werden diese über den Gateway konvertiert und dem Benutzer bereitgestellt. Dies
+          ist aber eine optionale Funktion, welche separat lizenziert werden muss.
+        </p>
+      </Element>
+    </Element>
+    <Element Type="Section" Name="Ziel der Maßnahmen">
+      Ziel der Maßnahmen
+      <Element Type="Text">
+        <p>
+          Ziel
+          dieses Lastenheftes ist es, eine neue Software zu entwickeln, um den Endkunden
+          über verschiedene Wege bereitzustellen. Die neue Software soll auf
+          verschiedenen Betriebssystemen sowie Endgeräten lauffähig sein. Demnach muss es
+          eine Softwareversion für Microsoft Betriebssysteme bzw. Apple und Android
+          geben. Die Software soll den Endkunden bei der professionellen Wundversorgung
+          als Hilfsmittel unterstützen und folgende Bereiche abdecken.
+        </p>
+        <p>Dokumentation der Wundversorgung</p>
+        <p>Visuelle Darstellung der Wunde im System</p>
+        <p>Vermessung der Wunden</p>
+        <p>Einbindung des Hausarztes bei fachlichen Themen</p>
+        <p>Vergabeempfehlung von Wundversorgungsmitteln durch den Benutzer</p>
+        <p>
+          Rezeptgenerierung durch das System zur elektronische Freigabe des
+          Hausarztes
+        </p>
+        <p>Bestellung von Hilfsmitteln für die Wundversorgung</p>
+        <p>Archivierung der Daten im System für 30 Jahre</p>
+        <p>online und offline Variante des Systems</p>
+        <p>Prozess orientierte Verarbeitung bei der Wundversorgung</p>
+        <p>
+          Soleosoft richtet sich bei der
+          Umsetzung bzw. Entwicklung der neuen Software nach den gesetzlichen Vorgaben
+          (Expertenstandard Wunde), sowie nach den fachlichen Anmerkungen von mehreren
+          Unternehmen, die im Bereich Wundversorgung unterwegs sind.
+        </p>
+        <p>
+          Das System muss in der Lage sein,
+          vollständig ohne Verbindung zum Hauptsystem lauffähig zu sein, da es bei den
+          Einsatzort vorkommen kann, dass keine Internetverbindung vorhanden ist.
+        </p>
+      </Element>
+      <Element Type="Image" width="896" height="279">images/image002.png</Element>
+      <Element Type="Text">
+        <p>
+          Die Firma soleosoft GmbH wird
+          nach dem Beginn der Softwareentwicklung allen Kunden einen offiziellen Zeitplan
+          bekanntgeben. Dieser Zeitplan wird im Detail mit dem Systemhaus vorher abgestimmt.
+          Dabei ist eine Einhaltung der dort verankerten Termine unabdingbar, da eine
+          Verschiebung seitens der soleosoft GmbH nicht akzeptiert werden kann.
+        </p>
+        <p>
+          Der Auftraggeber (AG) fordert
+          eine intensive Überprüfung des Konzeptes, um eine vollfunktionale neu
+          Softwareversion und das dazu gehörige Hardwarekonzept zu erzielen. Sind
+          Änderungswünsche seitens des Auftragnehmers (AN) vorhanden, sind diese im
+          Detail im Vorfeld abzustimmen. Sollten Anregungen oder neue Ideen bzw.
+          Konzeptveränderungen vom AN bestehen, bitten wir Sie, diese uns ebenfalls rechtzeitig
+          zu unterbreiten, damit wir ggf. das Konzept anpassen können.
+        </p>
+      </Element>
+      <Element Type="Section" Name="Softwareanforderungen an die Version 3.0">
+        Softwareanforderungen an die Version 3.0
+        <Element Type="Text">
+          <p>
+            Die Softwareanforderungen an den
+            Wundmanager werden im folgenden Kapitel ausführlich dargestellt. Primär hat der
+            AG die Aufgabe, jegliche Funktionen und Prozessabläufe unabhängig von der
+            Systemplattform gleich abzubilden. Das heißt, es ist egal, ob der Endkunde mit
+            einem Apple oder Windows- System arbeitet. Die Funktionen sind gleichwertig zu
+            behandeln. Optisch können natürlich Unterschiede zu erkennen sein. Der
+            <i>
+              Wundmanager
+              Pro
+            </i>
+            wird nicht mehr über eine Webplattform dem Endkunden zur Verfügung
+            gestellt, sondern es gibt eine eigene Applikation dafür. Diese grundlegende
+            Änderung ergibt sich aus den Kundenwünschen und Sicherheitsanforderungen
+            seitens des BSI. Da sich im System personenbezogene Daten befinden, ist
+            soleosoft immer daran interessiert, die mögliche Sicherheitsgegebenheiten zu
+            optimieren und einzusetzen.
+          </p>
+          <p>
+            Mit dem Schritt, eine eigene
+            Applikation für den Wundmanager zu entwickeln, reagiert soleosoft auf die
+            Anforderungen, dem Kunden eine online/offline-Variante anzubieten. Somit kann
+            die Applikation auch verwendet werden, wenn keine Internetverbindung besteht.
+            Außerdem können auch andere Verschlüsselungsmethoden zum Einsatz kommen, was
+            die Sicherheit der Applikation verbessert. Die Applikation muss zusätzlich in
+            der Lage sein, eine Lokalarchivierung von abgeschlossenen Vorgängen zu
+            ermöglichen und die Daten dem Endkunden jederzeit bereitzustellen. Voraussetzung
+            ist, dass ein BACKUP vom Endgerät entweder durch den Endkunden oder soleosoft
+            realisiert wird.
+          </p>
+          <p>
+            Der
+            <i>Wundmanager Pro</i>
+            muss
+            in der Lage sein, eine Replizierung zwischen dem Endgerät und dem soleosoft
+            Hauptsystem vorzunehmen. Für die Peplizierung soll es drei Varianten geben:
+          </p>
+          <p>
+            <b>Variante (vollständige Replizierung):</b>
+          </p>
+          <p>
+            Hier findet eine vollständige Replizierung der Daten zw. dem Endgerät und  dem Soleosoft-
+            System statt. Diese wird angewendet, wenn eine WLAN- oder direkte
+            Netzwerk-Anbindung existiert. Dabei werden alle Daten (Bilder + Stammdaten) an
+            das Hauptsystem übertragen         .
+            <br />
+          </p>
+          <p>
+            <b>Variante (teilweise Replizierung):</b>
+          </p>
+          <p>
+            <br />
+            Diese Art der Replizierung wird angewendet, wenn ein Internetverbindung über
+            GSM, GPRS oder UMTS besteht. Dabei werden nur die Stammdaten und die Bilder in niedriger
+            Auflösung an das Hauptsystem übertragen.
+            <br />
+            <br />
+          </p>
+          <p>
+            <b>Variante (minimale Replizierung):</b>
+          </p>
+          <p>
+            Bei dieser Art der Replizierung wird eine Internetverbindung benötigt. Die
+            Internetverbindung dient dazu, dass nur die Stammdaten mit Verlinkung zu den
+            Bildern (ohne Übertragung) an das Hauptsystem übertragen werden. Im Falle eines
+            Systemabsturzes oder defektes Endgerät befinden sich zumindest die Textdaten und
+            Felder im Hauptsystem.
+            <br />
+          </p>
+          <p>
+            Der Endbenutzer kann vor der
+            Replizierung entscheiden, welche der oben genannten Varianten er einsetzen
+            möchte. Dies muss in den Einstellungen des Wundmanagers auch festlegbar sein. Ziel
+            ist es, mit den verschiedenen Replizierungen auf die verfügbare Bandbreite an Internetverbindungen
+            einzugehen. (siehe Schaubild)
+          </p>
+        </Element>
+        <Element Type="Image" width="749" height="479" >images/image003.png</Element>
+        <Element Type="Text">
+          <p>
+            Es wurde von unseren Kunden
+            gewünscht bzw. gefordert, dass es eine online bzw. offline Version des
+            Wundmanagers gibt. Soleosoft verfolgt damit die Vision, dass die Bearbeitung
+            der Wund- dokumentation direkt beim Patienten realisiert wird. Dies setzt die
+            beiden vorab beschriebenen Funktionen als Grundbestandteil der Software voraus.
+          </p>
+          <p>
+            Der AN hat bei der Entwicklung
+            der Software sicherzustellen, dass diese Funktion unabhängig des Endgerät sowie
+            des Betriebssystems funktionieren.
+          </p>
+          <p>
+            <u>Materialbeschaffung</u>
+          </p>
+          <p>
+            Der
+            <i>Wundmanager Pro</i>
+            soll
+            die Möglichkeit besitzen, eine Materialbeschaffung über die Applikation
+            durchzuführen. Beschafft werden sollen z.B. Materialien, die zur Wundversorgung
+            benötigt werden und gegebenenfalls auch rezeptpflichtiges Material für den
+            Patienten.  Rezeptpflichtiges Material erfordert
+            eine Freigabe des Hausarztes oder der nächst übergeordneten Stelle. Der
+            Freigabeprozess ist mit in die Applikation einzubauen und dem Kunden
+            bereitzustellen. Der Wundmanager hat die Möglichkeit, mehrere
+            Herstellerdatenbanken (Artikel) einzubinden. Dieses muss über die Einstellungen
+            in der Applikation konfigurierbar sein. Dort kann sich der Kunde entscheiden,
+            ob er einen Vorzuglieferanten einstellen möchte oder gegebenenfalls eine eigene
+            Materialdatenbank hinterlegt. Soleosoft könnte diese Option auch als strategisches
+            Mittel für Hersteller und Partner einsetzen, um eine hierarchische Anzeige von
+            Materialien zu realisieren. Diese Funktion wird über das Lizenzmodell des
+            Wundmanagers geregelt. Übersetzt bedeutet dies,  kauft sich ein Hersteller über
+            eine Lizenzgebühr bei soleosoft ein, könnten seine Produkte in der Auswahl
+            weiter oben angezeigt werden. Weitere Details finden Sie unter dem Punkt
+            Lizenzmanagement.
+          </p>
+          <p>
+            <u>Kostenkontrolle:</u>
+          </p>
+          <p>
+            Im
+            <i>Wundmanager Pro</i>
+            soll auch eine Funktion einer kleinen Kostenkontrolle
+            integriert werden. Diese Funktion zeigt dem Benutzer online an, welche
+            reellen IST- Kosten pro Patient anfallen.  Dies
+            zeigt dem Benutzer jedoch
+            <u>nicht</u>
+            (?), ob er kostendeckend arbeitet.
+            Die für die Kalkulation benötigten Grunddaten (Fahrzeugkosten, Kosten pro
+            Kilometer, Stundenlohn, Aufwand etc.) können in den Einstellungen hinterlegt
+            werden. Wird das System bei größeren Kunden eingesetzt, bei denen mehrere
+            Wundschwestern parallel arbeiten, kann die Vorgabe über die Zentrale erfolgen.
+            Auch kann die Zentrale dann einsehen, wie die Kosten
+            aktuell verlaufen und ob kostendeckend gearbeitet wird.
+          </p>
+          <p>
+            <u>Wundvermessung</u>
+          </p>
+          <p>
+            Im
+            <i>Wundmanager Pro</i>
+            soll
+            eine Wundvermessungsfunktion integriert werden. Diese Funktion dient dazu, dass
+            bei einer Grundversorgung die bestehende Wunde oder die Wunden vermessen werden
+            können. Somit kann eine Dokumentation des Heilungsverlaufe stattfinden.
+            Da die Wundvermessung, je nach Wunde, nach
+            verschiedenen Messverfahren durchgeführt werden kann, müssen die Verfahren vor
+            der Messung dem Benutzer zur Auswahl gestellt werden. Der Benutzer wählt das
+            Messverfahren aus und wird anhand eines Assistenten geleitet. Der Benutzer hat die
+            Möglichkeit, sich einen Wundverlauf ausdrucken zu lassen oder diesen direkt an
+            den Hausarzt über das System zu versenden. Der Hausarzt wird dann aufgefordert,
+            eine Ferndiagnose zu stellen.
+          </p>
+          <p>
+            <u>Kalender:</u>
+          </p>
+          <p>
+            Im Manager Pro muss ein Kalender
+            integriert werden. Dieser Kalender ermöglicht dem Benutzer eine Terminplanung.
+            Auch sieht der Benutzer nach erfolgreichem Anmelden im System, welche Termine am
+            aktuellen Tag geplant sind. Bei mehreren Geräten in einem Unternehmen, muss die
+            Zentrale einen Zugriff auf den Kalender eingerichtet bekommen, bzw. kann diese auch
+            Termine für den Benutzer eintragen. Jene bekommt er online angezeigt. Das
+            bedeutet, dass im
+            <i>Wundmanager Pro</i>
+            eine Mitarbeitersteuerung von einer
+            Stelle aus vorgenommen werden kann.
+          </p>
+          <p>
+            <u>Experten/ Standard</u>
+          </p>
+          <p>
+            Die Applikation und den
+            <i>Wundmanager Pro</i>
+            soll es in verschiedenen optischen Anzeigevarianten geben. Insgesamt existieren
+            vier verschiedene Ansichten im System. Mit den unterschiedlichen Variationen
+            kommt man den Wünschen der Kunden nach, eine Ansicht entsprechend des Benutzer-Levels
+            (Schulung) anzubieten.
+          </p>
+          <p>
+            <b>Expertenansicht</b>
+          </p>
+          <p>
+            In der
+            Expertenansicht werden alle Informationen angezeigt und können auch verwendet
+            werden. Für diesen Modus ist es sinnvoll, eine Schulung seitens der soleosoft
+            für den
+            <i>Wundmanager Pro</i>
+            erhalten zu haben. Hier kann jede Funktion oder
+            auch die Reihenfolge geändert werden. Es erfolgt keine automatische Anleitung
+            für die nächsten weitere Schritte und es wird keine gesonderten Sicherheitsabfragen
+            bzw. Schutzfragen (z.B. Wollen sie speichern?) geben.
+            <br />
+            <br />
+          </p>
+          <p>
+            <b>Standardansicht</b>
+            In der Standardansicht wird die Applikation mit einem vollständigen
+            Prozessablauf dargestellt. Diese Prozessablauf soll dem Benutzer helfen, eine
+            schnelle und korrekte Wundversorgung vorzunehmen, ohne dass wichtige
+            Informationen vergessen werden. Bei dieser Ansicht steht dem Benutzer auch
+            während der Wundversorgung ein so genannter Hilfeassistent zur Verfügung. Diese
+            Hilfsassistent hat die Aufgabe, die eingegeben Werte des Benutzers zu
+            analysieren und daraus auffällige oder verdächtige Krankheitsmuster (Diabetischer
+            Fuß) zu erkennen. Die fachlichen Vorgaben wurden in Zusammenarbeit mit der
+            Fachgruppe erarbeitet und sollen in die Applikation mit einfließen. Findet der
+            Hilfeassistent einen Auslöser, so macht sich dieser optisch oder akustisch in
+            der Applikation bemerkbar und weist den Benutzer darauf hin. In dieser Ansicht
+            hat der Benutzer auch nicht viele Möglichkeiten, Veränderung an der
+            Prozessstruktur vorzunehmen. Diese wird vom System vorgegeben und sichert somit
+            eine qualitativ hochwertige Prozessabwicklung.
+            <br />
+            <br />
+          </p>
+          <p>
+            <b>Administratoransicht</b>
+          </p>
+          <p>
+            Die Administratoransicht
+            steht dem Benutzer nur zur Verfügung, wenn er ausreichende Berechtigung für das
+            System erhält oder bekommen hat. Die Aufgabe dieser Ansicht ist es,  Veränderung
+            am System vorzunehmen und gegebenenfalls bei bereits eingegebenen Vorgängen
+            noch Veränderung vorzunehmen. Diese Änderung werden alle in einem Verlauf
+            gespeichert, so dass ein Nachweis für den Auditor erkennbar ist, dass der
+            Administrator die Veränderung (Zeit + Datum) vorgenommen hat. Da hier im
+            Normalfall keine Wundversorgung vorgenommen wird, steht in dieser Ansicht kein
+            Hilfsassistent zur Verfügung.
+            <br />
+            <br />
+          </p>
+          <p>
+            <b>
+              Benutzerdefiniert
+              <br />
+            </b>
+            In der benutzerdefinierten Ansicht werden nur Informationen angezeigt, die im
+            Administratormodus vorher als Prozessablauf definiert worden sind. Dabei
+            besteht die Gefahr, dass die Vorgaben des Expertenstandards (Wunde) nicht mehr
+            eingehalten werde, da der Administrator in der Applikation eine Veränderung des
+            Standardprozesses vorgenommen hat.  Die
+            Abweichung einem Stornoprozess Machtlosigkeit soleosoft nur Sinn, wenn ein
+            übergelagertes System in der Zentrale genutzt wird wo die Daten später
+            einfließen und dort ein komplette Akte für die Wundversorgung angelegt wird.
+            Das heißt, der
+            <i>Wundmanager Pro</i>
+            dient nur als Dateneingabe und
+            Hilfsmittel für das übergeordnete System. Diese Ansicht steht auch nur den
+            Kunden zur Verfügung, die den soleosoft- Gateway einsetzen.
+          </p>
+          <p>
+            <u>Wizard/ Hilfeassistent</u>
+          </p>
+          <p>
+            Der Wizard/Hilfeassistent hat die
+            Aufgabe, dem Benutzer bei der Wundversorgung zur Seite zu stehen und
+            gegebenenfalls auch Vorschläge oder Hinweise zu geben. Der Assistent arbeitet
+            parallel im Hintergrund mit und überprüft die eingegebenen Werte und Parameter
+            des Benutzers auf gewisse Symptome oder Krankheitsbilder. Die Vorgaben für den
+            Assistenten werden von fachlichen Beratern entwickelt und eingepflegt. Der
+            Assistent steht dem Benutzer aber nur in der Standardansicht zur Verfügung.
+          </p>
+          <p>
+            <u>Auswertungen:</u>
+          </p>
+          <p>
+            Der
+            <i>Wundmanager Pro</i>
+            muss
+            die Möglichkeit haben, Auswertung in verschiedenen Formaten dem Endkunden
+            anzuzeigen. Diese Auswertungen können für Verhandlungen mit den Herstellern
+            (wovon?) oder auch Krankenhäusern nützlich
+            sein, da detaillierte Informationen angezeigt werden. Hierbei muss es auch
+            Filtermöglichkeiten geben, die durch den Benutzer selektiert werden können. Die
+            Ausgabe der Auswertungen sollten elektronisch, aber auch in Druckform, möglich
+            sein.
+          </p>
+          <p>
+            <u>Schnittstellen</u>
+          </p>
+          <p>
+            Der Wundmanager muss mit einer Schnittstelle versehen sein,
+            die es dem Endkunden ermöglicht, Daten an den soleo- Gateway zu transportieren.
+            Mit dieser Schnittstelle soll es die Möglichkeit geben,  Datensätze zu
+            exportieren und z.B. an soleosoft 3.0 zu übergeben. Gegebenenfalls könnten die
+            Daten auch an KIS-Systeme übergeben werden. Das setzt aber voraus, dass die
+            KIS-Systeme eine Schnittstelle zu den soleo- Gateway besitzen. Weiterhin soll
+            es eine Import-Funktion geben, die dem Endkunden die Gelegenheit bietet,
+            bereits bestehende Wundversorgungen von anderen Systemen über den soleosoft- Gateway
+            in den
+            <i>Wundmanager Pro</i>
+            einzufügen. Generell erfolgt jede Datenübergabe
+            über den soleosoft- Gateway.
+          </p>
+        </Element>
+      </Element>
+      <Element Type="Section" Name="Hardwarekonfiguration/Anforderungen">
+        Hardwarekonfiguration/Anforderungen
+        für den Wundmanager
+        <Element Type="Text">
+          <p>
+            Die Hardwarekonfiguration hängt
+            vom endgültig final abgestimmten Konzept ab.
+          </p>
+          <p>
+            Derzeit gehen wir von folgendem
+            Konzept samt Übersicht aus. Wir bitten den AN an, dies intensiv zu prüfen und
+            Änderungswünsche im Vorfeld mit dem AG abzustimmen. Gegebenenfalls kann das
+            Gesamtkonzept noch geändert werden. Bitte beachten Sie auch bei der Planung,
+            dass eine proportionale Steigerung der Auslastung bei entsprechendem Kundenzuwachs
+            stattfinden könnte. Das später eingesetzte System sollte mit einer Reserve von mind.
+            20 % ausgestattet sein, damit auch noch Software-Erweiterungen integriert
+            werden können. Die Soleosoft GmbH  plant mit einer Laufzeit von 3 Jahren für die
+            Umsetzung des gesamten neuen Hardwarekonzepts.
+          </p>
+          <p>
+            Ob ein Kauf-, Miet – oder Leasingkonzept
+            zum Einsatz kommt, ist durch den AN wirtschaftlich zu bedenken und zu planen.
+          </p>
+          <p>
+            Die Hardwarearchitektur muss so
+            umgestellt werden, dass ein komplett redundantes System entsteht (siehe
+            Schaubild).
+          </p>
+        </Element>
+        <Element Type="Image" width="724" height="575">images/image004.png</Element>
+        <Element Type="Text">
+          <p>
+            Bitte beachten Sie, dass die
+            Version 3.0 auch ein Modul „Offline Version“ enthält. Die soleosoft GmbH plant
+            mit zwei unterschiedlichen Varianten, die wahlweise zum Einsatz kommen können.
+          </p>
+          <p>
+            <b>
+              <u>
+                Die verschiedenen Offline
+                Varianten:
+              </u>
+            </b>
+          </p>
+          <p>
+            <b>
+              <u>Variante I:</u>
+            </b>
+          </p>
+          <p>
+            Bei der Variante I stellt
+            soleosoft GmbH dem Endkunden einen physischen Server zur Verfügung. Der Server
+            wird dann bei der hausinternen IT des Kunden vor Ort installiert und stellt die
+            Anwendung über das Intranet zur Verfügung. Eine Kommunikation zum Hauptserver
+            der soleosoft GmbH erfolgt über ein Replikationsverfahren. Das bedeutet, der
+            lokale Server stellt über eine gesonderte VPN-Verbindung die Kommunikation zum
+            Hauptsystem her und überträgt die notwendigen Informationen.
+          </p>
+          <p>
+            <b>
+              <u>Variante II:</u>
+            </b>
+          </p>
+          <p>
+            Bei dieser Variante wird dem
+            Endkunden die Anwendung virtuell bereitgestellt. Die notwendigen Images (Vorbereitung
+            durch den AN) müssen dem Endkunden zur Verfügung gestellt werden. Dieser kann
+            das übergebene Image in seine Virtualisierungsumgebung (z.B. VMWARE, HyperV
+            etc.) einbinden und dem Kunden intern als Dienst bereitstellen. Eine
+            Kommunikation zum Hauptserver der soleosoft GmbH erfolgt über ein
+            Replikationsverfahren. Der lokale Server stellt über eine gesonderte
+            VPN-Verbindung die Kommunikation zum Hauptsystem her und überträgt die
+            notwendigen Informationen. Die notwendige Einrichtung beim Endkunden für die
+            gängigen Virtualisierungssysteme ist durch den AN zu gewährleisten.
+          </p>
+          <p>
+            Der AN hat beide Varianten in
+            seinem Angebot zu integrieren und gesondert anzubieten.
+          </p>
+          <p>
+            <u>
+              Zusätzliche Sicherheitstechnik
+              (Hardware)
+            </u>
+          </p>
+          <p>
+            Die Firma soelosoft GmbH hat sich
+            entschieden, ein zusätzliches physisches Sicherheitssystem zu implementieren.
+            Dieses soll mit all seinen Funktionen ab der Version 3.0 zum Einsatz kommen. Es
+            kann aber auch notwendig werden, dass partiell dieses neue System noch in der
+            Version 2.0 implementiert werden muss.
+          </p>
+          <p>
+            Der AN muss dieses Problem in der
+            Planung mit einkalkulieren und im Angebot bewerten.
+            <br />
+          </p>
+          <p>
+            In der Zukunft  soll jeder
+            soleosoft-User bei der Registrierung eine separate Chipkarte ausgestellt
+            bekommen. Auf der Karte sind die allgemeinen Userdaten samt Rechte und Funktion
+            vermerkt. Desweiteren soll ein 10-stelliger Code in Form von Zahlen automatisch
+            von der soleosoft GmbH generiert werden. Die Zahlenfolge wird in der Software dem
+            User automatisch zugeordnet und hinterlegt. Kommt es später zu einer
+            gesonderten Abfrage bei der z.B. besondere Berechtigungen benötigt werden,
+            fragt das System per Zufallsgenerator zwei Zahlen von der jeweiligen
+            Kundenkarte ab. Dieses System verstärkt zusätzlich den Sicherheitsstandard und
+            setzt voraus, dass der User auch wirklich vor dem Computer sitzt. Momentan
+            erfolgt nur eine Passwortabfrage. Besitzt ein fremder User das Passwort, kann
+            er sich am System anmelden und im Namen eines anderen Users agieren.
+          </p>
+        </Element>
+      </Element>
+      <Element Type="Section" Name="Lizenzierung des Wundmanagers">
+        Lizenzierung des Wundmanagers
+        <Element Type="Text">
+          <p>
+            <br />
+            Für den Wundmanager wird folgendes Lizenz Modell oder Lizenzierung angedacht.
+            Da der Wundmanager pro eine völlig eigenständige Applikation ist nichts mit dem
+            soleosoft Gateway oder soleosoft 3.0 zu tun hat, bedarf es dieser separaten
+            Lizenzierung. Die Lizenzierung muss drauf zwei wegen dem Endkunden
+            bereitgestellt werden. D.h. einmal gibt es den Weg der so genannten
+            Applikationslizenzierung auf dem anderen Weg die Lizenzierung auf dem
+            Hauptsystem. Die Applikation muss in regelmäßigen Abständen eine Überprüfung
+            der Lizenzierung dem Hauptsystem vornehmen.
+          </p>
+          <p>
+            <b>1.) &gt;</b>
+            <b>Lizenzierung mit Gerät(Bundle):</b>
+            <br />
+            In dem Modul befindet sich das Kernstück der Software und die muss jeder Kunde
+            erwerben. D.h dieses Modul wird als BASIS- bzw. Grund- Modul verkauft
+            <br />
+            <br />
+          </p>
+          <p>
+            <b>2.) &gt;</b>
+            <b>Lizenzierung ohne Gerät:</b>
+            <br />
+            Das Modul 1 umfasst den Großteil aller Funktionen aus der Vorgänger- Version
+            2.0 und dieses wurde ja über die Transaktionsgebühr(je Überleitung) von 2,00 €
+            abgegolten. Das wird auch in der Version 3.0 weiter so bestehen. Es müssen
+            jedoch alle Beteiligten bezahlen, ausgenommen sind die Krankenhäuser und größere
+            Pflegedienste. Diese beiden genannten werden über eine monatliche Pauschale
+            abgerechnet.
+            <br />
+            <br />
+          </p>
+          <p>
+            3.) &gt;
+            <b>Lizenzierung Hauptsystem:</b>
+          </p>
+          <p>
+            Dieses
+            Modul wird separat lizenziert und dem Kunden freigeschaltet. Die Lizenzierung
+            erfolgt monatlich und wird je Größe des Unternehmens berechnet und in Rechnung
+            gestellt.
+            <br />
+            <br />
+          </p>
+          <p>
+            <b>4.) &gt;</b>
+            <b>
+              Lizenzierung „Hersteller“:
+              <br />
+            </b>
+            Dieses Modul umfasst die Schnittstellen und wird benötigt für die Anbindung
+            an die jeweiligen KIS- Systeme. Da je Schnittstelle unterschiedliche Preise
+            anfallen werden diese auch an den Kunden so weitergegeben.
+            <b>
+              <br />
+              <br />
+            </b>
+          </p>
+          <p>
+            <b>5.) &gt;</b>
+            <b>Modul 7:</b>
+          </p>
+          <p>
+            Das
+            Modul wird einzeln und Separat Lizenziert. Da dieses Modul wird einmal durch
+            den Kunden gekauft. Und es fallen nur noch Gebühren für Pflege und Wartung an.
+            Für die benötigte Hardware fallen gesonderte Kosten an, welche durch den Kunden
+            zu tragen sind.
+          </p>
+          <p>
+            <b>6.) &gt;</b>
+            <b>
+              Modul 8:
+              <br />
+            </b>
+            Dieses Modul wird einzeln und gesondert lizenziert. Der Kunde kann das
+            Modul einmalig kaufen und trägt dann nur noch jährlich die Kosten für Service
+            und Pflege. Der Kunde kann aber auch über eine monatliche Pauschale das Modul
+            mieten.
+            <b>
+              <br />
+              <br />
+            </b>
+          </p>
+          <p>
+            <b>7.) &gt;</b>
+            <b>Modul 9:</b>
+          </p>
+          <p>
+            Das
+            Modul wird einzeln und Separat Lizenziert. Da dieses Modul wird einmal durch
+            den Kunden gekauft. Und es fallen nur noch Gebühren für Pflege und Wartung an.
+          </p>
+        </Element>
+        <Element Type="Table" Name="Preisliste Soleosoft Version 3.0">
+          <table>
+            <tr>
+              <td>
+                Modul
+              </td>
+              <td>
+                Beschreibung
+              </td>
+              <td>
+                Kaufpreis
+              </td>
+              <td>
+                Miete
+              </td>
+              <td>
+                Service/Pflege
+              </td>
+              <td>
+                Entlassung
+              </td>
+            </tr>
+            <tr>
+              <td>
+                0
+              </td>
+              <td>
+                Soleo- Basis
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                1
+              </td>
+              <td>
+                Entlassungsmanagement
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                2,00 €
+              </td>
+            </tr>
+            <tr>
+              <td>
+                2
+              </td>
+              <td>
+                Soleo- Pflegeheim
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                3
+              </td>
+              <td>
+                Soleo- Schnittstellen
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                4
+              </td>
+              <td>
+                Soleo- Krankenhaus
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                5
+              </td>
+              <td>
+                Soleo- Wundmanager
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                6
+              </td>
+              <td>
+                Soleo- Designer
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                7
+              </td>
+              <td>
+                Soleo- E-Unterschrift
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                8
+              </td>
+              <td>
+                Soleo- E- Akte
+              </td>
+              <td>
+                2,00 €
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                9
+              </td>
+              <td>
+                Soleo- Case- Mgmt
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+        </Element>
+      </Element>
+      <Element Type="Section" Name="Detailbeschreibung der einzelnen Module">
+        Detailbeschreibung der einzelnen Module
+        <Element Type="Text">
+          <p>
+            In den
+            nächsten Abschnitt werden die einzelnen Module im Detail beschrieben.  Das
+            dient dazu den AN einen Einblick in die einzelnen Funktionen der Software zu
+            gewährleisten bzw. soll auch die Skalierbarkeit und Flexibilität der Software-
+            Version 3.0 attraktiv bleiben.
+          </p>
+          <p>
+            Der AG weißt
+            explizit noch einmal daraufhin, das jedes Modul so entwickelt und umgesetzt
+            werden das es separat und einzeln lauffähig ist.  Es darf nur die Verbindung zu
+            den Kernmodul bestehen, da dieses als zentrale Einheit bei jeder Installation
+            benötigt wird.
+          </p>
+        </Element>
+        <Element Type="Section" Name="Modul 0: Kernmodul – Soleosoft 3.0 (Hauptsystem)">
+          Modul 0: Kernmodul – Soleosoft 3.0 (Hauptsystem)
+          <Element Type="Text">
+            <p>
+              Dieses
+              Modul umfasst das komplette Hauptsystem, welches überhaupt ein Arbeiten mit der
+              neuen Softwareversion 3.0 ermöglicht. Dieses Modul muss von jedem Endkunden
+              gekauft werden.
+            </p>
+            <p>
+              1. &gt;
+              Installation Grundsystem
+            </p>
+            <p>
+              2. &gt;
+              Erstellung der Basis-Datenbank
+            </p>
+            <p>
+              3. &gt;
+              Erstellung der Basis-Datenbank-Modelle (ActiveRecords)
+            </p>
+            <p>
+              3.1. &gt;
+              Entwurf eines Prüfsummensystems für Datensätze
+            </p>
+            <p>
+              3.2. &gt;
+              Entwurf eines ACL-Rechtesystems
+            </p>
+            <p>
+              3.3.
+              &gt; Entwurf eines
+              Verlaufsprotokolls
+              <br />
+              Die Anforderungen an das Verlaufsprotokoll sind einheitlich und über das gesamte
+              System anzuwenden. D.h., Verlaufsprotokolle müssen folgende Felder und
+              Reihenfolgen beinhalten (Datum, Uhrzeit, Username (nicht Loginname), Schlagwort
+              (siehe Reiter (bei überleitungsbogen die Positionsnummer)).
+            </p>
+          </Element>
+          <Element Type="Image" width="708" height="618" Name="Hilfsmittel">images/image005.jpg</Element>
+          <Element Type="Text">
+            <p>
+              Diese Daten sollen in Form einer
+              Listenansicht bei jedem Vorgang aufgelistet werden können. Der Aufruf erfolgt
+              über einen neuen Reiter „Verlauf“ welcher im Hauptmenü zu sehen sein soll.
+            </p>
+          </Element>
+          <Element Type="Image" width="818" height="300" >images/image006.jpg</Element>
+          <Element Type="Text">
+            <p>
+              Desweiteren soll es die Funktion
+              einer Detailansicht geben für jeden Hauptpunkt geben, wo der User die
+              Möglichkeit hat Punkt aufzuklappen. Dann hat der User die Möglichkeit die getätigten
+              Änderungen im Detail zu betrachten . z.B. muss sichtbar sein wenn der einzelne User
+              den Punkt von  Barthelindex/Blasenkontrolle von 0 auf 5 gesetzt hat. Oder beim Punkt
+              Wunden muss immer das Feld vor und nach der Änderung(speichern) visuell
+              dargestellt werden.
+            </p>
+          </Element>
+          <Element Type="Image" width="421" height="311" >images/image007.jpg</Element>
+          <Element Type="Text">
+            <p>
+              Es gibt auch sogenannte
+              Sonderfälle(wie z. B. den Überleitungsbogen). Dort müssen alle Felder als
+              Auswahlfenster definiert werden. Und es soll immer die letzte Eingabe in der
+              Kurzansicht(nur die letzte Veränderung) dargestellt werden.
+            </p>
+            <p>
+              Die letzte
+              Veränderung von einem Auswahlfeld wird immer dann angezeigt wenn der User mit
+              der Maus über das Feld fährt und die Maus dort stehen lässt.
+            </p>
+            <p>
+              4.
+              &gt; Erstellung
+              des Basis-GUI(Grafisches User Interface)
+              <br />
+              Bei der Erstellung dieser Basis- GUI legt soleosoft GmbH sehr viel Wert auf
+              Standardisierung, da  aufgrund der Komplexität ggf. Module an andere
+              Dienstleister zum Entwickeln oder Implementieren gegeben werden müssen.
+            </p>
+            <p>Entwurf einer generischen Schnittstelle</p>
+            <p>Entwurf einer dynamischen Navigation</p>
+            <p>Entwurf eines kontextspezifischen Hilfesystems</p>
+            <p>
+              5.3. &gt;
+              Entwurf eines Rollen- und Rechtssystems mit der Möglichkeit
+              Rollen/Rechte durch Plug-Ins zu ergänzen
+            </p>
+            <p>
+              5.4. &gt;
+              Entwurf eines dynamischen Datenbanksystems mit der Möglichkeit Modelle
+              durch Plug-Ins zu ergänzen
+            </p>
+            <p>
+              5.5. &gt;
+              Entwurf generischer Methoden zur Abfrage und Änderung besonders
+              schützenswerter Datensätze
+              <br />
+              • Entwurf eines Abhängigkeitssystems
+            </p>
+            <p>
+              6. &gt;
+              Erstellung eines Plug-In-Managers mit automatischem Import aller
+              Informationen der Schnittstelle
+            </p>
+            <p>
+              6.1. &gt;
+              Entwurf eines zentralen Dokumentmanagers
+            </p>
+            <p>
+              6.2. &gt;
+              Entwurf eines zentralen Formularmanagers
+            </p>
+            <p>
+              6.3. &gt;
+              Entwurf eines zentralen EDP-Managers (E-Mail)
+            </p>
+            <p>
+              6.4. &gt;
+              Entwurf eines zentralen Fax-Managers
+            </p>
+            <p>
+              6.5. &gt;
+              Entwurf eines zentralen Hybrid-Mail-Managers
+            </p>
+            <p>
+              6.6. &gt;
+              Entwurf eines zentralen Signatur-Managers
+            </p>
+            <p>
+              6.7.
+              &gt; API-Dokumentation für
+              Fremdentwickler
+            </p>
+            <p>
+              Entwurf
+              Lizenzsystem
+              <br />
+              Die Softwareversion 3.0 wird gegenüber der Version 2.0 mit einem völlig neuen
+              Lizenzierungskonzept ausgestattet. D.h., die Firma soleosoft GmbH löst sich von
+              dem Komplett-System Anbieter und steigt auf die Lizenzierung pro Modul um. Das
+              soll der solesoft GmbH die notwendige Flexibilität ermöglichen und dem
+              Endkunden eine bessere Kostenstruktur darstellen. Für alle Bestandskunden eine
+              optimale Lösung zu finden stellt sich dabei problematisch dar. Der AN wird
+              aufgefordert zwei bis drei Vorschläge bzgl. einer sinnvollen Lizenzierung bei
+              der Angebotsabgabe beizulegen. Der AG kann sich für einen Vorschlag entscheiden
+              oder gibt eigene Ideen als Lizenzierungsmodell bekannt.
+              <br />
+              Für die Generierung der zukünftigen
+              Lizenzcodes/Schlüssel soll ein separates Tool des AN zum Einsatz kommen. Das
+              Tool erstellt auf Knopfdruck für die jeweilige Modulkonfiguration einen dazu benötigten
+              Lizenzschlüssel, welcher automatisch in Papierform und in Datenform in die
+              Version 3.0 eingespielt wird. Das Papierdokument wird dem Kunden übergeben. Bei
+              der Installation beim Kunden fragt das System nach dem erhaltenen
+              Lizenzschlüssel.
+            </p>
+            <p>
+              6.9.
+              &gt; Patch-Management
+              <br />
+              Die neue Softwareversion 3.0 soll mit einem Patch-Management-System
+              ausgestattet sein. D.h. Bugfixes oder Neuerungen können nach Freigabe durch
+              soleosoft GmbH modulweise eingespielt werden. Hierbei muss auch die
+              Lizenzierung der Software berücksichtigt werden damit der Kunde nur die
+              freigeschalteten Module zum patchen sieht. Der AN hat auch ein Patchverlauf
+              inkl. einer detaillierten Aufstellung was sich bei dem jeweiligen Patch
+              verändert hat zu dokumentieren. Soleosoft kann die Dokumentation auch für
+              Revisionsverfolgung und Dokumentation verwenden. D.h. der AN muss eine genormte
+              Form der Dokumentation wählen.
+              <br />
+              <br />
+            </p>
+            <p>
+              Adminverwaltung
+              <br />
+              Bei diesem Plug-In muss eine komplette vollautomatische Dokumentierung im
+              Verlaufsprotokoll erfolgen. Auch die Anmeldung als Administrator soll in der
+              Zukunft farbig anders dargestellt werden. Somit sieht der User sofort ob er
+              sich im Administrator-Mode befindet oder nicht. Soleosoft GmbH fordert eine
+              separate Loginmaske mit einer separaten Domainverlinkung. Z.B. https://admin.entlassung.soleosoft.de
+              <br />
+              In dem Plug-In sollen in der Zukunft auch Funktionen wie
+              Rechnungslegung(mehrstufig: monatlich,jährlich,quartalsweise,
+              keine) und eine Möglichkeit eines einfachen Email-Systems bestehen. Email-Verkehr
+              für Geschäftskunden mit Archivierung muss genauso möglich sein wie ein Versand
+              intern. Jede vom System generierte Rechnung soll automatisch mit Versandbestätigung,
+              Übertragungsbericht und ggf.  Empfangsbestätigung(wenn der Kunde die zulässt) versehen
+              sein. Die Rechnungen müssen auch archiviert werden können und das System soll
+              die letzte Absenderadresse der versendeten Rechnungen ermitteln und die Folgerechnungen
+              automatisch am folgenden 10. des laufenden Monats für den vergangenen Monat an
+              die hinterlegten Rechnungsadressen versenden.  Folgende
+              Funktionen, wie z. B. Rechnungsversand, Abrechnungszeitraum, Firmendaten und
+              Krankenhausverwaltung müssen in die Adminverwaltung integriert werden. Auch
+              benötigt der Administrator die Möglichkeit Unternehmen(Krankenkassen, Krankenhäuser
+              usw.) zusammen verschmelzen lassen zu können.
+            </p>
+            <p>
+              6.11.
+              &gt; Remote-Management
+              <br />
+              Die neue Softwareversion soll mit einem Remote-Management- Tool ausgestattet
+              sein. Dieses Tool muss sich über das Internet auf den Bildschirm des Endkunden schalten
+              können. Z.B. könnte auf die Software Netviewer oder Teamviewer zurückgegriffen
+              werden. Da dies über ein Tool eines Drittanbieters läuft muss ein notwendiger
+              Eingriff im Vorfeld mit der lokalen IT abgestimmt werden. Der AN muss eine
+              Verankerung zum Tool in den Profildaten einbauen. D.h.,  der User kann dort die
+              Applikation downloaden und ggf. starten. Der AN hat dies mit in das Angebot
+              einzukalkulieren.
+            </p>
+            <p>
+              7.
+              Arzt-Funktion
+              / Modul
+              <br />
+              In der neuen Softwareversion sollen Ärzte mit besonderen Rechten ausstattet
+              werden. Jeder Arzt muss bei der ersten Registrierung ein gesondertes Formular
+              unterzeichnen, welches in das System eingescannt wird und den User als Arzt
+              ausweist. Diese Funktionalität wird benötigt um später elektronische Dokumente wie
+              Anträge, Rezepte uvm. abzusenden. Dies muss auch ohne Modul 8 gewährleistet
+              werden, jedoch kann ein reeller Versand nur nach Erwerb von Modul 8
+              funktionieren. Soll ein Dokument später elektronisch versendet werden benötigt der
+              Arzt die Usercard welche bei der Anmeldung nach dem Namen sowie Passwort und noch
+              Ziffern abfragt. Das merkt sich das System und im Nachgang wird die Patientenkartei
+              als Identifikationsmerkmal verwendet. Somit stehen dem Arzt die zusätzlichen
+              Funktionen wie elektronischer Versand im Druckmanager zur Verfügung. Gegebenenfalls
+              kann später eine Erweiterung dieser Funktion auf die Stationsschwester erfolgen.
+              <br />
+              Aufgrund von Kundenwünschen sollen in der neuen Version die Ärzte tiefer
+              eingebunden werden. D.h. Hausärzte oder spezielle Fachärzte,  die einem
+              Patienten zugeordnet sind, sollen auch Rückinformation bei der Entlassung oder
+              dem Status seines Patienten erhalten. Hier sollte im System die Möglichkeit
+              bestehen über eine Datenbank alle registrierten Ärzte in soleosoft GmbH zu führen.
+              Wird ein Patient angelegt kann der User gleich den richtigen Hausarzt auswählen
+              und dem Patienten zuordnen. Wenn der Patient es wünscht erfolgt eine
+              Benachrichtigung über das System an den Hausarzt. Die Suchfunktion sollte über
+              Namen und PLZ auch in Kombination möglich sein. Im Regelfall wird bei der
+              Aktivierung  bzgl. der Entlassung des Patienten eine Information an den Arzt
+              geschickt werden. Somit weiß der Arzt über den aktuellen Sachstand seines
+              Patienten Bescheid. Der Arzt hat nun die Möglichkeit sich in das System
+              einzuloggen und die Daten einzusehen. Will der Arzt diese Möglichkeit nicht
+              nutzen, erfolgt trotzdem eine Verknüpfung zum Arzt. Dieser kann sich in der Zukunft
+              dann einloggen und kann die Daten seiner Patienten einsehen.
+            </p>
+            <p>
+              7.1.
+              &gt; Allgemeine Funktionen
+              <br />
+              die folgenden Punkte müssen in der Softwareversion 3.0 integriert werden
+            </p>
+            <p>
+              7.1.1.
+              &gt;
+              <Element Type="Image" width="816" height="265" >images/image008.jpg</Element>
+              Die Funktionen vorwärts und zurück in den
+              Internet-Browsern(Mozilla,Microsoft), müssen in der Softwareversion 3.0
+              überarbeitet werden. Die Funktion der beiden Buttons sollen entweder
+              deaktiviert werden, oder bei der Betätigung der Pfeile zurück bzw. vor, muss
+              eine Abfrage erscheinen. Die Abfrage soll die Bestätigung mit Ja oder Nein
+              abfragen. Der Abfragetext lautet: „Sollen die Daten gespeichert werden ".
+            </p>
+            <p>
+              <Element Type="Image" width="818" height="171" >images/image009.jpg</Element>
+              Alternativ kann
+              zu der oben beschriebenen Funktion auch ein gesondertes Pop-Up-Fenster zum
+              Einsatz kommen. Nach dem Anmelden des Users im System erscheint das neue
+              Fenster als Hauptarbeitsfläche. Darin wird das System vollständig dargestellt.
+            </p>
+            <p>
+              Somit
+              fallen die beiden Button Vor und Zurück nicht mehr ins Gewicht, da diese außer
+              Funktion sind.
+            </p>
+            <p>
+              7.1.2.
+              &gt; Beim einem
+              Wechsel zw. den Reitern in der Softwareversion 3.0 muss ein automatisches Speichern
+              erfolgen
+            </p>
+            <p>
+              <Element Type="Image" width="796" height="237">images/image010.jpg</Element>
+            </p>
+            <p>
+              7.1.3.
+              &gt; Wenn man
+              aus der Patientenansicht in die Patientenübersicht wechselt, ohne zu speichern
+              soll die Frage erscheinen speichern oder nicht
+            </p>
+            <p>
+              7.1.4.
+              &gt; Patienten-Dupletten
+              <br />
+              Dies ist ein sehr wichtiger Punkt in der gesamten Software und darf auf keinen
+              Fall auftreten und muss unter allen Umständen verhindert werden. Wir haben
+              unsere Ideen in den Punkt Modul 1.3 einfließen lassen, dennoch bitten wir den
+              AN uns weitere geeignete Vorschläge zu unterbreiten.
+            </p>
+            <p>
+              7.1.5.
+              &gt; 48 Stunden
+              Regel
+              <br />
+              Bei dieser Funktion erfolgt eine Überwachung der Versorger(z.B. Firma Jüttner),
+              welche die gesetzliche Auflage haben innerhalb der 48 h nach entlassen des
+              Patienten aus der Klinik oder Krankenhaus eine Rückmeldung an das System zu
+              melden. Beim erfolgreichen Login MUSS ein sichtbar hervorgehobenes Info-Fenster
+              erscheinen in dem zu sehen ist, welcher Patient noch nicht zurückgemeldet wurde(nach
+              24 h und einer Minute). Der User hat dann die Möglichkeit direkt in dem
+              Infofenster zu dem Patienten zu springen und weitere Schritte einzuleiten. Oder
+              er schließt das Fenster und es erfolgt  später automatisch vom System eine
+              erneute Mitteilung. Dies gilt auch für die Versorger die nicht am System durch Login
+              angemeldet sind und somit keinem gültigen Vertrag besitzen und dennoch Überleitungen
+              erhalten haben. In diesem Fall müssen diese Meldungen auch im Krankenhaus oder
+              der Klinik auflaufen. Diese Meldung sollte aber nur bei der Benutzergruppe Sozialarbeiter
+              bzw. Benutzer mit besonderer Berechtigung erscheinen.
+            </p>
+            <p>
+              8.
+              &gt; Druckmanager
+              <br />
+              In der neuen Softwareversion 3.0 soll ein modulübergreifender standardisierter
+              Druckmanager zum Einsatz kommen. Der Druckmanager stellt die komplette
+              Output-Schnittstelle von Daten die aus dem Netz der soleosoft GmbH kommen dar.
+              D.h., die eigentliche Druckfunktion (welche im Webbrowser integriert ist) muss
+              nicht verwendet werden  bzw. könnte deaktiviert werden. Weiterhin muss  im Druckmanager
+              das Berechtigungskonzept von soleosoft GmbH greifen um hier später
+              unterschiedliche Felder zum Druck oder versenden je Berechtigung bereitstellen
+              zu können. Die folgenden Punkte sind später als Funktion im Druckmanager
+              abzubilden.
+              <br />
+              <br />
+              <b>- Funktion 1</b>
+              : Ausdruck (html)
+              <br />
+              <br />
+              <b>- Funktion 2</b>
+              speichern unter (PDF oder hauseigene Versandmöglichkeit)
+              <br />
+              <br />
+              <b>- Funktion 3</b>
+              Faxausgabe (PDF mit Abfrage ob Bemerkungsfeld beschrieben
+              werden soll)           Bei Versand muss eine Dokumentation der Email an den User
+              erfolgen von wem und was gesendet wurde.
+            </p>
+            <p>
+              <b>- Funktion 4</b>
+              Email an Empfänger
+              (vorzugsweise sollen dort der User stehen, der bei dem Versorger als
+              Hauptansprechpartner eingetragen ist. Zusätzlich hat der User aber auch die
+              Möglichkeit über ein  Freifeld eine weitere, neue oder andere Adresse einzugeben.
+              Der Versand an An/Wem/Datum u. Uhrzeit müssen im Verlauf aufgezeichnet werden.
+              Ebenso muss eine visuelle Kopie der Email an der Patientenakte des betroffen
+              Patienten automatisch angehangen werden.
+              <br />
+              <br />
+              <b>- Funktion 5</b>
+              Export zum  Archivieren (je Krankenhaus bzw. Leistungserbringer
+              voreingestellt)
+              <br />
+              Hier kann der hauseigene Administrator einen Pfad hinterlegen um Dokumente
+              direkt aus der
+              <br />
+              soleosoft GmbH in  die bestehende Archivierungssoftware oder andere Software
+              zu exportieren.
+              <br />
+              <br />
+            </p>
+            <p>
+              <br />
+              <b>- Funktion 6</b>
+              Faxgateway (Detailbeschreibung siehe Modul 10)
+            </p>
+            <p>
+              Bei dem
+              neuen Druckmanager muss es auch die Möglichkeit geben die verschiedenen Reiter
+              immer nur partiell oder komplett ausdrucken zu lassen. D.h., es sollte erkannt
+              werden welcher Reiter gerade ausgewählt ist und dort sollte die Auswahl beim
+              Drucken zur Verfügung stehen. Sollte der User auch die anderen Reiter gedruckt
+              haben wollen, muss nachgewählt werden. Die Druckauswahl könnte wie eine
+              Ordnerstruktur erfolgen, der User setzt die Häkchen und das Druck- Dokument
+              baut sich Online zusammen. In der Neuen Version soll jeder Druck des Users über
+              einen von soleosoft GmbH gesteuerten Druckmanager erfolgen. D.h., es muss bei
+              jeder Seitenansicht eine Verlinkung zum Druckmanager erfolgen. Das hat nichts
+              mit der Druckfunktion des jeweiligen Internet-Browsers zu tun, es soll hier
+              eine eigene Lösung eingeführt werden, wozu der User auch für die Benutzung
+              geschult wird.. Ist ein Druck, egal in welcher Form erfolgt, muss das dokumentiert
+              sein. Ebenso muss die Möglichkeit bestehen, bereits ausgedruckte Dokumente sich
+              später noch einmal visuell anzusehen. D.h., es muss  parallel zum Druck auch
+              das Dokument noch einmal gespeichert werden oder bei Aufruf aus dem Archiv baut
+              sich das Dokument visuell noch einmal auf. Bedingung ist, dass immer das
+              gleiche Dokument wie beim Druck noch einmal visuell sichtbar wird.
+            </p>
+            <p>
+              <br />
+              <b>• Modul 1: Hauptsystem</b>
+            </p>
+            <p>
+              In diesem
+              Modul befinden sich im Moment noch einige Funktionen, die wir soleosoft GmbH
+              eigentlich in Modul 0 sehen und daher gilt es zu prüfen ob nicht doch einige
+              Funktionen in das Modul 0 übernommen werden können oder sollen. Der AN soll
+              diese bitte noch einmal im Detail prüfen und dem AG ein Statement dazu geben.
+              Ggf. erfolgt hier noch eine Anpassung.
+            </p>
+            <p>
+              1.
+              &gt; Administration
+            </p>
+            <p>
+              1.1.
+              &gt; Rollenverwaltung
+            </p>
+            <p>
+              1.2.
+              &gt; Benutzerverwaltung
+            </p>
+            <p>
+              1.3.
+              &gt; Login-System
+            </p>
+            <p>
+              1.4.
+              &gt; Verwaltung
+            </p>
+            <p>
+              1.5.
+              &gt; Patch-Management
+            </p>
+            <p>
+              Für eine
+              Administration wird ein komplettes separates Login durch den AG gefordert. Das
+              heißt, jede Tätigkeit, die der Haupt-Admin durchführen muss, erfordert eine
+              Anmeldung an die Administrationsseite des Systems.
+            </p>
+            <p>
+              Die
+              Version 3.0 unterscheidet zwei Kategorien von Administratoren. Einmal ist das der
+              Hauptadministrator für das komplette System und zum anderen ist es ein
+              kundenspezifischer Administrator, welcher nur eingeschränkte Befugnisse hat.
+            </p>
+            <p>
+              2.
+              &gt; Buchhaltung
+            </p>
+            <p>
+              2.1.
+              &gt; Rechnungslegung
+            </p>
+            <p>
+              2.2.
+              &gt; Auswertungsfunktionen
+            </p>
+            <p>
+              3. &gt;
+              Patientenstammdaten
+              <br />
+              Auf diese Funktion wird ein besonderes Augenmerk gelegt. Denn hier können die
+              schlimmsten Fehler passieren. Das hat zur Folge, dass bei einer falschen
+              Registrierung der gesamte Vorgang rückgängig gemacht werden muss.
+              Auch muss in der Version 3.0 die Möglichkeit bestehen,
+              Patienten aktiv und inaktiv zusetzen. Deshalb fordert die Firma
+              soleosoft GmbH folgende Funktionen:
+              <br />
+              <br />
+              Patientenimport:
+              <br />
+              Die Version 3.0 muss eine standardisierte Importschnittstelle(API) erhalten.
+              Diese Schnittstelle bietet dem Kunden einen Import von Patientenstammdaten(KIS,
+              Orbis, SAP und weitere) an.
+            </p>
+            <p>
+              Patienten neu anlegen:
+              <br />
+              Wird ein neuer Patient im System angelegt, geht der User wie folgt vor. Der
+              User gibt die bekannten Informationen wie Nachname, Vorname, Ort und PLZ ein.
+              Dann sucht das System intern in der eigenen Datenbank, ob es diesen Patienten
+              oder ähnliche Patienten schon gibt. Sollte ein Treffer in der Datenbank
+              vorhanden sein erscheint ein Auswahlfeld in dem alle gefunden Patienten
+              angezeigt werden. Der User kann nach der Prüfung weiterer Felder wie z.B. Geburtstag
+              oder Anschrift den richtigen Patient analysieren und ggf. auswählen. Besteht
+              aber keine Übereinstimmung  muss über ein Zentralsystem wie externe Datenbank(
+              <a href="http://www.telefonbuch.de">www.telefonbuch.de</a>
+              oder ähnl.) eine
+              Auswahl an Personen angezeigt werden. Dort kann der User den richtigen
+              Patienten finden und auswählen. Der Patient wird dann ins System portiert und
+              steht dem User dort zur Verfügung.
+              <br />
+              <br />
+              Erweiterte Suchfunktion:
+              <br />
+              Bei dieser Funktion „erweiterte Suchfunktion“ nach Name, Vorname, Geburtsdatum
+              müssen auch alle Dupletten angezeigt werden. Die Vergangenheit zeigt, dass
+              trotz der vielen Suchmerkmale es zu Dupletten kommen kann. D.h., wenn eine Gleichheit
+              in den obigen Suchkriterien besteht  werden alle Patienten in einem separatem Auswahlfenster
+              angezeigt. Ist der User immer noch unsicher muss ein Button für die Neuanlage einer
+              Patientendokumentation immer vorhanden sein.
+              <br />
+              <br />
+            </p>
+            <p>
+              Patientensuche:
+              <br />
+              Die Funktion der normalen Patientensuche muss in der Softwareversion 3.0
+              angepasst werden. Um die neue Funktion im Detail zu beschreiben, verwenden wir
+              folgendes Fallbeispiel. Wir haben die Situation, dass ein Patient X von der
+              Station1 auf die Station 2 verlegt wird). Der User(Schwester Station 2) will
+              natürlich den Patienten neuanlegen. Jedoch springt das System bei der
+              Überprüfung auf eine Übereinstimmung, den Patient X befindet sich laut System
+              in derselben Klinik aber auf Station 1. Nun soll der User die Möglichkeit haben
+              den Patienten von der Station 1 zu übernehmen. Dabei soll ein Auswahlfenster
+              mit zwei Auswahlmöglichkeiten erscheinen.
+            </p>
+            <p>
+              1.)
+              &gt; Patient direkt übernehmen
+              und Info an die Station1
+            </p>
+            <p>oder</p>
+            <p>
+              2.)
+              &gt; Patient übernehmen
+              aber mit vorheriger Prüfung ob Patient frei zur Übernahme ist. Wählt der User
+              diese Möglichkeit, muss das System im Hintergrund prüfen ob die Freigabe
+              vorhanden ist oder nicht. Um diese Überprüfung vornehmen zu können, muss ein Feld
+              in den Stammdaten hinzugefügt werden in dem angegeben wird ob der Patient für
+              eine Überleitung intern freigegeben ist. D.h., das der Patient frei für andere Stationen
+              ist (dieser Punkt sollte über dem Button "Patient intern frei gegeben "
+              geregelt sein).
+            </p>
+          </Element>
+          <Element Type="Image" width="816" height="299" >images/image011.jpg</Element>
+          <Element Type="Text">
+            <p>
+              Solche Informationen müssen im Verlauf
+              dokumentiert werden. Sollte die erste Frage mit ja beantwortet sein, dann darf
+              der haken nicht in der Ansicht erscheinen und in der Dokumentation sollte
+              stehen Patient von st1 auf st2 verlegt ohne Freigabe bzw. andersrum. Umkehrschluss,
+              wird ein Patient willentlich verlegt sollte der Haken  automatisch gesetzt
+              werden bzw. in der Doku das auch so vermerkt werden. Natürlich müssen die User
+              im Verlauf vermerkt werden, die eine Verlegung  durchgeführt haben.
+            </p>
+            <p>
+              <Element Type="Image" border="0" width="804" height="1106" >images/image012.png</Element>
+            </p>
+            <p>
+              4.
+              &gt; Patientenübersicht
+            </p>
+            <p>
+              5.
+              &gt; Kalender-Funktion
+            </p>
+            <p>
+              6.
+              &gt; News-System
+              <br />
+              Bei dieser Funktion sollen alle User, Patienten, Versorger und Ärzte über
+              wichtige Informationen informiert werden können. Dabei kann es sich um die
+              unterschiedlichsten Informationen handeln. Es ist wichtig, dass eine gute
+              Auswahlmöglichkeit über Gruppen und einzelne User erfolgen kann. Es soll auch
+              die Möglichkeit bestehen, das es versch. Vorlagen gibt, die der User je nach Bedarf
+              auswählen kann. z.B. Feiertagsvorlagen, Automailer, Systemmeldungen für den
+              Admin etc..
+            </p>
+            <p>
+              6.1.
+              &gt; allg. News
+            </p>
+            <p>
+              6.2.
+              &gt; Change log
+            </p>
+            <p>
+              7.
+              &gt; Statische
+              Datensätze administrieren
+            </p>
+            <p>
+              7.1.
+              &gt; Krankenkassen
+            </p>
+            <p>
+              <br />
+              <b>
+                Modul 5: Kommunikation (IMP)
+                <br />
+                <br />
+              </b>
+              Dieses Modul ist eine komplette Neuentwicklung und soll ab der Version 3.0
+              dem Endkunden zur Verfügung stehen. Ziel des Moduls ist es, dem User eine
+              Möglichkeit zu geben, sehr schnell über ein
+              IMP(Informations-Management-Portal) wichtige Dokumente direkt zu versenden.
+              Wichtige Dokumente können z.B. MRSA-, AIDS- Meldungen sein. Diese Meldungen
+              müssen innerhalb einer sehr kurzen Zeit an fest vorgeschriebene Stellen
+              versendet werden. Die Rohlinge bzw. Vorlagen der Standardformulare werden zur
+              Pflichtenheft-Erstellung vom AG an den AN zur Einarbeitung übergeben.
+            </p>
+            <p>
+              Um in das
+              Informations-Management- Portal zu gelangen, muss ein neuer Reiter(IMP)
+              entwickelt werden.
+            </p>
+          </Element>
+          <Element Type="Image" border="0" width="815" height="221" >images/image013.jpg</Element>
+          <Element Type="Text">
+            <p />
+            <p>
+              Der User
+              muss auf Knopfdruck das Formular mit den Daten des Patienten angezeigt
+              bekommen. Er hat dann die Möglichkeit über den Druckmanager das Dokument je
+              nach Versandart zu versenden. Es muss dabei die Funktionalität des Vier-
+              Augen-Prinzips gewahrt bleiben. D.h.,  in einigen Fällen muss ein Arzt
+              mitunterzeichnen. In so einem Fall muss nach dem Versenden des Dokuments durch
+              den User eine Kopie des Dokuments systemintern an den entsprechenden Arzt (oder
+              anderen Mit- unterzeichner) weitgeleitet werden. Dieser muss ebenfalls das
+              Dokument freigeben und erst dann wird das Dokument endgültig versendet. Die
+              Information über das Vorliegen eines Dokumentes zum Freigeben wird bei der
+              Anmeldung im News-Bereich signalisiert. Parallel dazu erfolgt eine SMS an den
+              betroffenen User. Die Kosten für die Übertragung der SMS werden von soleosoft
+              GmbH übernommen und dem Endkunden bei der Monatsrechnung in Rechnung gestellt.
+              Der AN hat die Versendung und Aufbereitung der Kosten im System abzubilden.Wenn
+              aus verschiedenen Gründen keine Freigabe erfolgt muss eine Information an den
+              Dokumenten-Ersteller gegeben werden dass das Dokument nicht versendet werden
+              konnte. Jetzt kann der User das Dokument dem zweiten User entziehen und es
+              einem weiteren Freigeber weiterleitern. Somit beginnt die gleiche Prozedur.
+              Eine Information dass das Dokument dem ersten Freigeber entzogen wurde erfolgt
+              per Email. Der gesamte Vorgang muss im Verlauf verankert sein.
+            </p>
+            <p>
+              Empfehlenswert
+              ist der Einsatz eines Workflow- Systems. Der AN sollte diese Anregung  in seine
+              Ideenfindung einarbeiten.
+            </p>
+            <p>
+              Standardisierte Formulare (4 Formulare mit 2 Seiten)
+              <br />
+              Ausgabeformat A4 und als PDF-Datei
+              <br />
+              Die Rohlinge bzw. Vorlagen der Standardformulare werden zur
+              Pflichtenheft-Erstellung von dem AG an den AN zur Einarbeitung übergeben.
+              <br />
+              <br />
+            </p>
+            <p>
+              Werden von der Klinik weitere Formulare benötigt, muss das Modul 6
+              dazugekauft werden
+            </p>
+            <p>
+              In diesem
+              Modul sollte ein Zugriff auf zwei Adressbücher, welche beim Versand über den
+              Druckmanager angezogen werden, möglich sein. Dort kann der User auswählen
+              welchen Adressaten er benutzen möchte.
+            </p>
+            <p>
+              zentrales Adressbuch
+              <br />
+              dieses Adressbuch wird vom jeweiligen Admin der Klinik gepflegt und verwaltet.
+              Darin können auch die Vertreterregelungen und weiteren Freigeber vermerkt
+              werden
+            </p>
+            <p>
+              -
+              &gt;
+              personalisiertes Adressbuch
+              <br />
+              In diesem Adressbuch hat jeder User die Möglichkeit seine eigenen Kontakte
+              anzulegen. Dieses sollte zentral im Personalstamm verankert sein, so dass man
+              immer im Druckmanager auf die eingegebenen Kontakte zugreifen kann. Der User
+              kann das Adressbuch über den Button „mein Profil“ anlegen und pflegen.
+            </p>
+          </Element>
+          <Element Type="Image" border="0" width="815" height="221" >
+            images/image014.jpg
+          </Element>
+          <Element Type="Text">
+            <p>
+              1.
+              &gt; Modul
+              Überleitungsbogen
+            </p>
+            <p>
+              1.1.
+              &gt;  Hilfsmittel/HBA
+              <br />
+              Bei einem HBA (Hausbesuchsauftrag) soll zusätzlich eine Erinnerungsfunktion
+              eingebaut werden. Diese soll nach 5 AT auslösen und eine automatische
+              Information in Form einer Email an den User und parallel zu dem Versorger
+              versenden. Der Versorger bekommt dadurch die Möglichkeit zeitnah (innerhalb von
+              4 Stunden) ein Statement mit einem konkreten  Terminvorschlag abzugeben.
+              Erfolgt keinerlei Reaktion seitens des Versorgers erfolgt eine weitere
+              Information per Email an den User. Dieser kann nun intern die nächsten Schritte
+              einleiten. Das kann durch eine direkte Kontaktaufnahme mit dem Versorger oder
+              durch eine Vergabe des HBA an einen  anderen Versorger erfolgen. In diesem Fall
+              würde der Versorger eine Email bekommen dass ihm der HBA entzogen wurde.  Der
+              gesamte Informationsfluss muss in dem Dokumentationsverlauf vermerkt werden.
+            </p>
+            <p>
+              1.1.1.
+              &gt; Barthelindex
+              <br />
+              auch im Modul Barthelindex gibt es Anpassungen bzw. Ergänzungen gegenüber dem
+              jetzigen Daten, hier gilt die Grundlage des aktualisierten Expertenstandards.
+              Welche Werte sich ändern bzw. ergänzt werden sehen Sie in der Anlage
+              „Barthelindex“
+            </p>
+            <p>
+              1.1.2.
+              &gt; Fragenkatalog Rückmeldung
+              <br />
+              auch im Modul Rückmeldung gibt es Anpassungen bzw. Ergänzungen gegenüber den
+              aktuell eingestellten Daten. Hier gilt die Grundlage des aktualisierten
+              Expertenstandards. Dazu muss noch ein wichtiger Punkt ergänzt werden.
+            </p>
+          </Element>
+          <Element Type="Image" border="0" width="608" height="340" >images/image015.jpg</Element>
+          <Element Type="Text">
+            <p>
+              In der Standardfunktion ab der
+              Softwareversion 3.0 hat jede Klinik die Option zwei Fragen optional im
+              Rückmeldungsbogen zu ergänzen. Benötigt eine Klinik noch weitere Rückfragen
+              muss das Modul Formular-Manager dazugekauft werden.  Danach hat der User die Möglichkeit
+              den kompletten Überleitungsbogen/Rückmeldebogen frei anzupassen und zu
+              verändern.  Der Überleitungs-/Rückmeldebogen, der vom
+              Kunden angewendet wird muss vom Firmenadministrator durch ein separates Login
+              angepasst werden.
+            </p>
+            <p>
+              2.
+              &gt; Administration
+              von fest definierten Datensätzen
+            </p>
+            <p>
+              2.1.
+              &gt; Hilfsmittel
+              <br />
+              In diesem Modul gibt es in der neuen Version eine neue Funktionalität. Es soll
+              während  des Aufenthalts in der Klinik oder im Krankenhaus möglich sein
+              kleinere Hilfsmittel(z.B. Kompressionsstrümpfe) über soleosoft GmbH zu ordern.
+            </p>
+          </Element>
+          <Element Type="Image" width="816" height="1" >images/image016.jpg</Element>
+          <Element Type="Text">
+            <p>
+              Da in diesem Fall keine
+              Rückmeldung notwendig ist wird diese vom User bei der Bestellung deaktiviert.
+              Die Deaktivierung „keine Rückmeldung notwendig“ ist aber nur für den Teil
+              „allgemeine Hilfsmittel“ gültig. Der große Vorteil für die Klinik liegt darin,
+              dass keine Rezepte mehr auf dem Papierwege gedruckt werden müssen. Werden
+              Hilfsmittel geordert, müssen diese auch in der Patientenübersicht zu sehen
+              sein. Wurde der Patient entlassen soll nach zwei Tagen automatisch die Ansicht
+              über die laufenden Hilfsmittel verschwinden und wieder eine normale Ansicht im
+              Archiv erfolgen. Im Verlauf kann man natürlich den Nachweis über die Betreuung
+              während des Aufenthalts nachvollziehen.
+            </p>
+            <p>
+              2.2.
+              &gt; Fragen für Rückmeldebogen
+            </p>
+            <p>
+              Allgemeine
+              Funktionalitäten:
+            </p>
+            <p>
+              Werden einzelne Punkte im
+              Überleitungsbogen nicht ausgefüllt (leer bleiben) sollen diese auch nicht für
+              den Druck vorgesehen sein. Es muss jedoch ein Vermerk auf dem Dokument
+              erfolgen, z. B. Punkt 1 bis Punkt N sind nicht ausgefüllt worden. Dadurch soll
+              der Überleitungsbogen in der Druckversion stark reduziert werden und somit auch
+              nur die benötigten Informationen veröffentlicht werden.
+            </p>
+            <p>
+              Zusätzlich muss es ein Extrafeld
+              geben, welches immer am Ende der Punkte stehen soll (z.B. 1.Körperpflege
+              Überbegriff).
+            </p>
+          </Element>
+          <Element Type="Image" width="794" height="1" >images/image017.jpg</Element>
+          <Element Type="Text">
+            <p>
+              Dieses Feld soll erscheinen nachdem
+              man (ähnlich verstorben) einen Haken gesetzt hat. Dieses Feld soll frei
+              beschreibbar sein, mit einem extra Button hinzufügbar und mit einer Speichermöglichkeit
+              versehen sein. Sollte der User das speichern des neu eingegebenen Textes
+              vergessen, so soll eine automatische Speicherung bei einem Reiterwechsel oder
+              beenden der Applikation erfolgen.
+            </p>
+            <p>
+              Das Modul soll soweit umgestellt
+              werden, dass die meisten zu beantwortenden Punkte in Auswahlfelder mit
+              vorgegebenen Antworten geändert werden. Somit wird eine weitere
+              Standardisierung des Überleitungsbogens angestrebt.
+            </p>
+            <p>
+              <br />
+              <b>
+                • Modul 9 „Offline – Version „
+                <br />
+              </b>
+              Das Modul 9 „Offline- Version“ ist eine komplette neue Entwicklung und
+              ermöglicht dem Endkunden ab der Softwareversion 3.0 das Hauptsystem intern im
+              eigenen Haus zu betreiben. Die soleosoft GmbH geht hier von der von der
+              Grundidee(Version 1.0 – 2-0) und Strategie ab um auf die Anforderungen der
+              Kunden zu agieren.
+            </p>
+          </Element>
+          <Element Type="Image" border="0" width="833" height="582" >images/image018.png</Element>
+          <Element Type="Text">
+            <p>
+              Dieses Modul
+              soll dem Kunden ein verstärktes Sicherheitsgefühl vermitteln, denn er hat die
+              Möglichkeit das System in 3 Varianten mit dem Hauptsystem zu verbinden.
+            </p>
+            <p>
+              <b>
+                <u>
+                  Variante
+                  1 (immer verbunden):
+                </u>
+              </b>
+              In dieser Variante besteht eine dauerhafte Verbindung über das Internet
+              zu dem Hauptsystem. Zusätzlich dient ein VPN-Tunnel für eine gesicherte
+              Verbindung und Datenübertragung.
+            </p>
+            <p>
+              <b>
+                <u>
+                  Variante
+                  2 (zeitgesteuert verbunden):
+                </u>
+              </b>
+              <br />
+              Diese Variante basiert auf der Technologie der Variante 1, jedoch mit dem
+              großen Unterschied, das keine dauerhafte Verbindung besteht. Sondern es wird
+              Zeit- oder Ereignis-gesteuert eine Verbindung zum Hauptsystem aufgebaut. Das
+              gibt den Kunden die Sicherheit, das sich kein fremder User oder Benutzer auf
+              dem System befindet. Aber es reduziert auch deutlich das Volumen bzw. den
+              Datenverkehr auf der vorhandenen Datenleitung. Es gibt immer noch Kunden, die
+              keine Standleitung zur Außenwelt(Internet) haben und daher auf diese
+              Möglichkeit zurückgreifen.
+            </p>
+            <p>
+              <b>
+                <u>
+                  Variante
+                  3 (manuell verbunden):
+                </u>
+              </b>
+              <br />
+              In dieser Variante besteht kein Verbindung zu dem Hauptsystem und der User kann
+              über ein separates Tool die Datenübertragung starten. Das Tool stellt eine
+              VPN-Verbindung zu dem Hauptsystem her und überträgt dann die Daten. Danach
+              beendet das Tool automatisch auch die VPN-Verbindung.
+            </p>
+            <p>
+              Ein weiterer
+              Vorteil ist die Administration des Systems. Der lokale Administrator kann jedem
+              User einen Zugang geben, da kein Internet-Zugriff notwendig ist. Die User
+              arbeiten über das Intranet und befinden sich im internen Klinik- oder
+              Pflegeheim-Netzwerk. Auch kann der Administrator das Berechtigungskonzept
+              vereinfachen, da die Anmeldung an das System intern erfolgt.
+            </p>
+            <p>
+              Auch das
+              Thema Datensicherheit ist besser geregelt, denn der User hat die Hoheit der
+              Daten und kann eine Sicherhung des Systems selber vornehmen. Ein weiterer Punkt
+              ist auch das sich nur die aktuellen Überleitungen im Internet befinden und so
+              im Falle eines Hacking-Angriffes oder Einbruch weniger Daten im Zugriff sind.
+              Das schützt dem Kunden natürlich nicht vor Eingriff aus den internen Netzwerk.
+            </p>
+            <p>
+              D.h. für den
+              AN dieser muss ein komplett eigenständiges System entwickeln, welches völlig
+              allein und los gelöst von dem Hauptsystem funktioniert und auf einem
+              hauseigenen Intranet-Server läuft. Es müssen die Datenbanken lokal installiert
+              werden und eine Synchronisation und Datensicherung erfolgt immer wenn die
+              Verbindung zu dem Hauptsystem besteht. Der AN hat die Aufgabe ein Konzept zu
+              entwickeln und dem AG zwei Vorschläge für eine eventuelle Umsetzung zu
+              unterbreiten. Der AG fordert eine auch eine preisliche Bewertung in dem
+              abzugebenden Angebot.
+            </p>
+            <p />
+            <p>
+              <br />
+              <b>• Modul 10: Fax macht Spaß</b>
+            </p>
+            <p>
+              Das Modul 10
+              ist eine vollständig neue Funktion, die dazu dient, die virtuellen Versorger
+              (die es auch schon in der Version 2.0 gab) abzuschalten. Das Modul soll alle
+              Kunden überzeugen, die immer noch auf das klassische Faxgerät bauen, und der
+              Dienst ist momentan kostenlos. Soleosoft GmbH erhält dadurch mehr Versorger und
+              kann das strategische Netzwerk weiter ausbauen. D.h., jeder Versorger bekommt
+              eine reelle Identität und der User kann die Faxvorlage mit einem automatisch
+              generierten Antwortfax aus dem System soleosoft GmbH drucken. Der User kann
+              jetzt, wie gewohnt, das Formular über ein klassisches Fax versenden.
+            </p>
+          </Element>
+          <Element Type="Image" border="0" width="839" height="595" >images/image019.png</Element>
+          <Element Type="Text">
+            <p>
+              Die
+              Formulare werden mit einem QR-Code versehen um sie später wieder zuordnen zu
+              können. Der Antwortbogen ist mit einen Fragenkatalog versehen, auf dem der
+              Versorger nur noch Kreuze machen muss. Im Anschluss daran legt der Versorger
+              das Formular auf oder in ein Faxgerät und sendet die Antwort an eine bestimmte
+              Adresse. Der Server, der das Formular erhält macht eine OCR-Erkennung und kann
+              das eingelesene Formular an die Patientenakte anhängen. Die Erkennung, zu
+              welchen Patienten das Formular gehört erfolgt durch den QR-Code. D.h., der User
+              erhält auf jeden Fall seine Antwort im soleosoft-System und kann dort eine
+              weitere Bearbeitung der Akte vornehmen. Sollte der User das Dokument sehen oder
+              ausdrucken wollen, kann das über die Patientenakte erfolgen, da dort das
+              Originaldokument abgelegt ist.
+            </p>
+            <p>
+              Ist ein
+              Versorger noch nicht im System angelegt, so kann der User ihn neu anlegen. Dazu
+              werden der Name, die Anschrift, Telefon und PLZ eingegeben. Im Anschluss daran
+              sucht das System in den zentralen Systemstammdaten ob der Versorger nicht schon
+              irgendwo angelegt ist. Wenn ja kann dieser übernommen werden. Sollte es nicht
+              der Fall sein wird der neue Versorger virtuell angelegt. Beim Abspeichern wird
+              eine Email an soleosoft GmbH geschickt mit dem Hinweis, dass ein neuer
+              virtueller Versorger in der Klinik X angelegt wurde. Wir als soleosoft GmbH
+              treten dann direkt an den Versorger heran und versuchen ihn in unserem System
+              als festen Versorger zu registrieren. Für den ersten Kontakt sollte von
+              soelsoft GmbH ein fertiges Paket mit allen Informationen(Kostenübersicht, Vor-
+              und Nachteile) bereits im System entwickelt und vorhanden sein, welches direkt
+              an den virtuellen Versorger geschickt werden kann.
+            </p>
+            <p>
+              1.
+              &gt; Kostenlose
+              Version
+              <br />
+              Die oben beschriebene Funktionalität soll dem Kunden kostenlos zur Verfügung
+              gestellt werden, wenn diese noch die Überleitungen per Fax versenden.
+            </p>
+            <p>
+              2.
+              &gt; „Kostenloser“
+              Überleitungsbogen
+              <br />
+              Der Überleitungsbogen ist für beide Seiten (Klinik und Versorger) kostenlos und
+              soleosoft GmbH wird nur als Postman verwendet.  Das dient dazu, um die Kunden
+              anzufüttern und soleosoft GmbH behält sich vor, diese Funktion zu einem
+              späteren Zeitpunkt abzuschalten und dann ein kostenpflichtiges Modul daraus zu
+              generieren
+            </p>
+            <p>
+              3.
+              &gt; Das
+              Fax-System ist auf Grund der unverschlüsselten Kommunikation
+              datenschutzrechtlich sehr bedenklich.
+              <br />
+              Dieses Problem ist soleosoft GmbH bekannt. Wir können nur immer wieder darauf
+              hinweisen, dass das Versenden des Überleitungsbogen per Faxgerät keine Garantie
+              und Freistellung von der Haftung bedeutet. Jedoch hätte der Kunde die
+              Sicherheit, daß er den Prozess teilweise elektronisch digitalisiert hätte. Denn
+              die Antwort eines Überleitungsbogen würde dann immer  System eingespielt sein.
+            </p>
+            <p>
+              4.
+              &gt; Automatische
+              Zuordnungen von Faxen (=Bilder) erfordert ein Scancode-System. Barcodes
+              scheiden mangels Faxauflösung aus, QR-Codes (z.B. 42 x 5 Pixel zu je 1 mm) sind
+              weniger anfällig, aber der Platz muss auf allen Formularen vorgesehen sein.
+              <br />
+              Die Anpassung der beschriebenen Formulare hat durch den AN zu erfolgen und muss
+              mit in das Angebot eingearbeitet werden. Ebenso hat der AN die Entwicklung des
+              QR-Codes vorzunehmen und einzubinden, da die Verschlüsselung bzw. die
+              Übersetzung und der Ausdruck über das System erfolgt.
+            </p>
+            <p>
+              5.
+              &gt; API
+              Schnittstelle
+              <br />
+              Damit der einzubindende Partner später die Daten bidirektional in das System
+              bekommt benötigt er eine API-Schnittstellenbeschreibung. Diese ist von dem AN
+              zu entwickeln und mit einem Handbuch zu versehen. Die Entwicklung sollte mit in
+              dem Modul 7 „Schnittstellen“ integriert werden.
+            </p>
+            <p>
+              Die technische Umsetzung:
+              <br />
+              Für den Empfang der Rückmeldungsformulare wird ein separater Dienstleister
+              eingebunden. Dieser wird für die Firma soleosoft GmbH das Empfangen  und
+              Versenden von Dokumenten übernehmen und alle Dokumente elektronisch verwalten.
+              Dazu gehört auch der Empfang des oben genannten Formulars. Der Dienstleister
+              wird eine OCR-Erkennung über das Formular laufen lassen und die ermittelten
+              Daten soleosoft GmbH über die Schnittstelle elektronisch zur Verfügung
+              stellen.  Falls die OCR-Erkennung fehlschlägt übernimmt ein Callcenter die
+              manuelle Erkennung und gibt ebenfalls die Daten in elektronischer Form an die
+              soleosoft GmbH weiter. D.h., es kommen so gut wie keine fehlerhaften Dokumente
+              im System an. Der Dienstleister übermittelt die fertig konvertierten Dokumente
+              einmal in einer PDF-Datei mit dem eingegangenen visuellen Dokument. Bei dem
+              anderen elektronischen File, handelt es sich um die ermittelten Werte, welche
+              direkt an das System übergeben werden. Das finale Format dieser Datei kann der
+              AN vorgeben.
+            </p>
+            <p>
+              Bei der Angebotsabgabe muss der AN
+              seine Vorstellungen schriftlich darstellen und dem AG übergeben. Der AG wird
+              die Vorschläge an den Dienstleister weitergeben und eine Überprüfung ob das
+              technisch realisiert werden kann anstreben lassen.
+            </p>
+            <p>
+              <br />
+              <b>
+                • Modul 11: Archiv
+                <br />
+                <br />
+              </b>
+            </p>
+            <p>
+              Das Modul
+              „Archiv“ wird erst ab der Version 3.0 mit der vollen Funktionalität vorhanden
+              sein. In dieses Modul muss sehr viel Entwicklungszeit hinein gesteckt werden.
+              Die Anforderungen an den AN sind seitens des AG hoch gesteckt und unbedingt zu
+              erfüllen. Es muss eine komplette Datenübernahme aus der Version 2.0 garantiert
+              werden, da die User rückwirkend alle Patienten einsehen wollen. Der User soll
+              nur die Berechtigung „lesen“ im Archiv bekommen. Änderungen dürfen nur im Vier-
+              oder Sechs-Augen-Prinzip durchgeführt werden. Alle Bewegungen müssen im Archiv
+              dokumentiert werden. Löschen von Daten aus dem Archiv ist generell untersagt
+              und es darf nie passieren. Die Daten müssen im Archiv 10 Jahre vorgehalten
+              werden. Wird ein Krankenhaus oder eine Klinik durch einen Wirtschaftsprüfer
+              oder Datenschutz- Beauftragten kontrolliert kann dieser mit einen
+              Auditor-Zugang sich die Daten für die zu prüfende Institution  ansehen. Nach
+              Abschluss der Überprüfung wird der Account wieder deaktiviert. Der Account wird
+              auf Wunsch der jeweiligen Klinik noch eine zu definierende Zeit freigeschaltet.
+              Dieser Auditor-Zugang wird ebenfalls komplett geloggt bzw. überwacht. Alle
+              Daten und Aufzeichnungen sind im Verlaufsprotokoll zu verankern. Aus
+              Sicherheitsgründen ist  Sinnvoll für das Archiv ein eigenes Verlaufsprotokoll
+              anzulegen und dieses separat zu speichern.
+            </p>
+            <p>
+              1.
+              &gt; komplette
+              Verlaufsansicht mit Sortier-Funktion
+              <br />
+              <br />
+            </p>
+            <p>
+              2.
+              &gt; Filterfunktion
+              nach Patient, Datum, behandelndem Arzt, bearbeitendem Benutzer, externen
+              Versorger,
+            </p>
+            <p>
+              3.
+              &gt; Auditoren-Rolle
+              erzeugen
+            </p>
+            <p>
+              4. &gt;
+              Der AN muss eine automatische Trennung
+              der  anwenderbezogenen Daten vom Hauptsystem nach 6 Monaten realisieren. Der AG
+              bevorzugt den Einsatz von einer separaten Datenbank, in welche die Daten
+              exportiert werden können. Ein Zugriff auf diese Datenbank(nur Leseberechtigung)
+              muss aus dem Hauptsystem möglich sein.
+            </p>
+            <p>
+              5. &gt;
+              Folgende Felder sind in der
+              Archivfunktion auf jedenfall  zu integrieren:
+            </p>
+            <p>
+              5..1. &gt;
+              Name
+            </p>
+            <p>
+              5..2. &gt;
+              Vorname
+            </p>
+            <p>
+              5..3. &gt;
+              Geb.-Datum
+            </p>
+            <p>
+              5..4. &gt;
+              Vorgangsnummer/ Chipkartenummer
+            </p>
+            <p>
+              Die oben
+              beschrieben Felder müsen auch als Suchkriterium fungieren. D.h. der User kann
+              danach suchen.
+            </p>
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Modul 1: Entlassungsmanagement">
+          Modul 1: Entlassungsmanagement:
+        </Element>
+        <Element Type="Section" Name="Modul 2: Pflegedienst">
+          Modul 2: Pflegedienst:
+          <Element Type="Text">
+            <p>
+              Das Modul Pflegedienst ist für kleinere Institutionen
+              gedacht, die eine einfache und sichere Verwaltung Ihre Patientendaten in
+              Soleosoft bereitgestellt bekommen möchten. Es wird dieses Modul in zwei
+              Varianten dem Kunden angeboten. Einmal als Online-Variante wo der Benutzer sich
+              über das Portal anmeldet und Zugriff auf das System erlangt. Oder der Kunde
+              entscheidet sich für eine Offline-Variante, dort läuft direkt bei dem Kunden
+              ein Server worauf der Benutzer dann zugreift. Der große Nutzen der Software
+              liegt darin, dass ein Überleiten von Patienten elektronisch erfolgen kann.
+              Somit spart sich die Institution  den manuellen Aufwand des ständigen Hin- und Her-Transports
+              von Dokumenten. Dieses Modul ist aus der strategischen Sicht für Pflegeheime
+              angedacht, wo ein regelmäßiger Transfer der Daten erfolgt. Bei Pflegediensten
+              kann es oft zu mehrmaligen Transporten von Patienten in beide Richtungen
+              kommen. Das Modul wird über eine monatliche Pauschale an den Endkunden
+              berechnet. Da die soleosoft GmbH hier ein preiswertes und modulares System auf
+              den Markt bringen möchte, sollte auch dieses Modul wieder modular preislich
+              gestaltet werden. Der AN hat dies auch im Angebot zu berücksichtigen.
+              <br />
+              <br />
+              Die technische Umsetzung basiert auf einem System, welches vor Ort beim Kunden
+              installiert wird und ohne direkte Verbindung zum Hauptsystem funktioniert. Es
+              soll später zwei verschiedene Arten von Systemen angeboten werden, siehe
+              Hardwareanforderungen an die Version 3.0. Jedoch muss die Möglichkeit bestehen,
+              dass zu Wartungszwecken oder der Replikation der Datenbanken für die
+              Datensicherung eine Verbindung über einen gesonderten VPN-Tunnel erfolgen kann.
+              (
+              <b>Siehe Schaubild)</b>
+            </p>
+          </Element>
+          <Element Type="Image" border="0" width="747" height="511" >images/image020.png</Element>
+          <Element Type="Text">
+            <p>
+              Dies kann
+              auch vom Endkunden gesteuert werden. D.h., er muss die Möglichkeit haben, auf
+              Knopfdruck die Verbindung zur Außenwelt zu erlauben oder nicht. In der Offline
+              Version stehen mehr Informationen zur Verfügung als soleosoft GmbH für die
+              eigentliche Überleitung benötigt. Die gesammelten Informationen zu den
+              Patienten werden nicht bei einer Überleitung übertragen und sind somit auch
+              geschützt. Die zusätzlichen Felder sind von dem AN mit einzurichten.  Die
+              zusätzlichen Felder könnten in dem Modul Patientendaten abgebildet werden.
+              <br />
+              <br />
+            </p>
+            <p>
+              <b>
+                <u>
+                  Funktionsumfang
+                  des Moduls Pflegedienst:
+                </u>
+              </b>
+            </p>
+            <p>
+              Modul
+              Patientendaten:
+            </p>
+            <p>
+              -
+              &gt;
+              Krankendaten, Krankheitsverlauf , Diagnosen, Medikamentenverordnung
+            </p>
+            <p>
+              -
+              &gt;
+              Wohndaten, Familiendaten, Angehörige , sonstige vertrauliche
+              Informationen
+            </p>
+            <p>
+              -
+              &gt;
+              Rente , Pflegestufe,
+            </p>
+            <p>
+              -
+              &gt;
+              Hygiene , Pflegeart , Aufwand für Pflegeheim, Nahrungsaufnahme
+            </p>
+            <p>
+              -
+              &gt;
+              Arzt, behandelnder Arzt, Hausarzt, Termine, Kostenverfolgung
+            </p>
+            <p>
+              -
+              &gt;
+              Usw.
+            </p>
+            <p>
+              Alle Felder und Bezeichnungen
+              werden in dem Pflichtenheft im Detail abgestimmt und eingearbeitet
+              <br />
+              <br />
+              Modul Schnittstellen:
+            </p>
+            <p>
+              -
+              &gt;
+              Hier müssen die Standardschnittstelle siehe Modul 7 zur Verfügung stehen
+            </p>
+            <p>
+              Modul
+              Archivierung:
+            </p>
+            <p>
+              -
+              &gt;
+              In diesem Modul muss eine Archivierungsfunktion vorhanden sein, wo die
+              Daten ab einen definierbaren Punkt in ein separates System gespeichert werden.
+              Siehe Details in Modul 11
+            </p>
+            <p>
+              Das gesamte
+              Modul sollte in einem CRM-artigen Aufbau erfolgen. Das hätte den riesigen
+              Vorteil dass eine Ähnlichkeit mit anderen Anbietern wie Orbis oder SAP was das
+              Look und Feel angeht vorhanden ist. Die Akzeptanz für das Modul würde dadurch
+              natürlich steigen.
+              <br />
+              <br />
+              Wird ein Patient in eine andere Klinik oder ein anderes Krankenhaus eingewiesen
+              muss der User die Möglichkeit besitzen ein komplettes Einweisungsformular aus
+              dem soleosoft-System zu erstellen und dieses über den Druckmanager zu
+              versenden. Das hätte den Vorteil, dass Krankenhäuser bzw.  Kliniken, die
+              bereits soleosoft GmbH Ware einsetzen die Daten nicht mehr in das System
+              eingeben müssen. Sondern es besteht elektronisch die Möglichkeit der Datenübernahme
+              aus dem Netz. Der AN muss eine derartige  Funktionalität in das Hauptsystem
+              einbinden.
+            </p>
+            <p>
+              Entlässt das
+              Krankenhaus oder die Klinik den Patienten wieder  muss in der Akte beim Entlassen
+              ein Vermerk “ soleosoft-Kunde“ erscheinen. Das bedeutet für den User, dass der
+              komplette Überleitungsbogen samt zusätzlicher Informationen  elektronisch zu
+              dem anderen Krankenhaus oder Pflegeheim versendet werden kann. Daraus ergibt
+              sich für beide Vertragsparteien ein riesiger Einspareffekt. Kommt die
+              Überleitung zurück sieht der User direkt die Veränderungen und kann diese
+              Änderungen in das Offline-System übernehmen.   Das hat den Vorteil, dass eine
+              vollständige Krankenakte existiert und die Klinik oder das Pflegeheim den
+              kompletten Vorgang sieht.
+            </p>
+            <p>
+              Die Firma
+              soleosoft GmbH ist sich über den späteren Vertriebsweg bzw. auch
+              Lizenzierungstyp noch nicht ganz  einig, da die Erfahrungswerte noch fehlen.
+              Jedoch ist im Moment geplant, dass es eine Lizenzierung nur komplett als Modul geben
+              soll, welches für eine Summe X  von der Klinik oder dem Pflegeheim später
+              gekauft werden kann. Die darauf folgenden Überleitungen werden in Form einer
+              Jahrespauschale berechnet. Das hat den Vorteil, dass nicht jede Überleitung die
+              auch mehrmals pro Patient anfallen kann berechnet wird.
+              <br />
+              <br />
+            </p>
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Modul 3 Schnittstellen">
+          Modul 3 Schnittstellen:
+          <Element Type="Text">
+            <p>
+              Das Modul
+              „Schnittstellen“ ist in jedem Softwareprodukt, egal in welcher Version, immer
+              aktuell, da auf diesem Markt immer Veränderungen und Anpassungen erforderlich
+              sein werden. Deshalb wird das Thema Schnittstellen immer mehr an Bedeutung
+              gewinnen, so das soleosoft GmbH eine standardisierte Schnittstelle in der
+              Version 3.0 einplant. Eine Schnittstelle teilt sich immer in zwei Bereiche auf
+              siehe Skizze. D.h. es gibt einmal den Bereich der Schnittstelle, der an das
+              soleosoft- System angrenzt und andererseits den Bereich, welcher an das andere
+              Verwaltungssystem angrenzt. Da wir als soloeosoft GmbH gegenwärtig bei mehreren
+              unterschiedlichen Unternehmen eine Schnittstelle implementieren, stoßen wir
+              immer wieder an das gleiche Problem. Es fehlt uns die Schnittstellendefinition
+              aus dem soleosoft-System heraus bis zu einen neutralem Übergabepunkt. Ziel in
+              diesem Modul ist es, dass der AN eine Schnittstelle entwickelt, welche so
+              standardisiert ist, dass  andere Unternehmen mit einer entsprechenden
+              Dokumentation sich an das System andocken können. Weiterhin soll es auch später
+              kein Anpassungsaufwand seitens des AN geben, wenn ein weiterer Partner
+              angebunden werden soll.
+            </p>
+            <p>Skizze:</p>
+          </Element>
+          <Element Type="Image" border="0" width="833" height="543">images/image021.png</Element>
+          <Element Type="Text">
+            <p>
+              Die neue
+              Schnittstelle muss in beide Richtungen also Bidirektional arbeiten können, so
+              dass jede gewünschte Information in beide Richtungen transportiert werden
+              können. Die detaillierte Dokumentation dieser Schnittstelle muss mit in das
+              Angebot eingearbeitet werden. Ziel muss sein,  dass bei einer späteren
+              Einführung einer Schnittstelle kein Entwicklungsaufwand seitens des AN mehr
+              entsteht.
+            </p>
+            <p>
+              Mögliche
+              Schnittstellen können sein:
+            </p>
+            <p>
+              1.
+              &gt; ORBIS ?
+            </p>
+            <p>
+              2.
+              &gt; SAP ?
+            </p>
+            <p>
+              3.
+              &gt; Jüttner
+              ERP?
+            </p>
+            <p>
+              4.
+              &gt; Import/Exportsystem
+            </p>
+            <p>
+              4.1.
+              &gt; Definition
+            </p>
+            <p>
+              4.2.
+              &gt; Umsetzung
+            </p>
+            <p>
+              4.3.
+              &gt; API-Dokumentation
+            </p>
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Modul 4 Krankenhaus">
+          Modul 4 Krankenhaus:
+        </Element>
+        <Element Type="Section" Name="Modul 5: Wundmanager">
+          Modul 5: Wundmanager:
+          <Element Type="Text">
+            <p>
+              Das Modul 5 „Wundmanager“ wird
+              komplett neu überarbeitet und dem Kunden nur nach vorherigem Kauf
+              freigeschaltet. Alle erforderlichen Informationen einschließlich der bisher
+              angelegten Patienten-Daten müssen aus den einzelnen Modulen der Version 2.0
+              übernommen werden. Die Integration von Kundenwünschen für eine komfortablere
+              Handhabung, die Einführung moderner Technologien  (Tablet-PC, Scanner etc.) und
+              nicht zuletzt die Fortschreibung relevanter Gesetze und Verordnungen macht eine
+              völlige Neuentwicklung dieses Moduls erforderlich, das im System „soleosoft“
+              nunmehr zurecht als unser neues Flaggschiff bezeichnet werden darf.
+              <br />
+              Kunden, die die Version soleosoft3.0 kaufen, müssen für dieses Modul eine
+              separate Lizenz erwerben.
+            </p>
+            <p>
+              Die bestehenden Funktionen des
+              Wundmanagers bzw. Features aus der Version 2.0 können übernommen werden.
+            </p>
+          </Element>
+          <Element Type="Image" width="778" height="1" >images/image022.jpg</Element>
+          <Element Type="Text">
+            <p>
+              Im täglichen Einsatz mit einem
+              Tablet-PC wird das neue Modul als Online- und Offline-Variante lauffähig sein.
+              Für den Fall einer ortsabhängig unsicheren Internet-Verbindung arbeitet das
+              System mit einer lokalen Replik. Wie da technische Lösung aussehen könnte ist
+              vom AN dem AG aufzuarbeiten und vorzustellen.
+            </p>
+            <p>
+              Sobald eine Internet-Verbindung
+              wieder stabil verfügbar ist, repliziert das System automatisch. Somit können
+              zeitnah immer die Vorgänge weiter bearbeitet werden und es liegt immer eine
+              Sicherheitskopie auf dem Hauptsystem vor.
+            </p>
+            <p>
+              Dieses Verfahren stellt sicher,
+              dass die eingegebenen Daten im zentralen Server-System des Wundmanagers zeitnah
+              abgelegt werden. Von dort aus können Sie bei Bedarf an Hausarzt, Pflegeheim
+              oder auch ein Krankenhaus übermittelt werden.
+            </p>
+            <p>
+              Das erspart dem Wundmanager/in
+              eine doppelte Eingabe der Daten und gleichzeitig wird die Forderung nach einer
+              elektronischen Dokumentationspflicht erfüllt.
+              <br />
+              <br />
+            </p>
+            <p>
+              Im Soleo-Wundmanager werden alle
+              Daten der Patienten für unbestimmte Zeit gespeichert. Um die Geschwindigkeit
+              des Systems jedoch performant zu halten, werden die Daten nach 6Monaten
+              automatisch in das Archiv geschoben und sind dort nur noch einem zertifizierten
+              Auditor zugänglich. D.h. es muss für dieses Modul pro Endkunde ein Archiv
+              geben.
+            </p>
+            <p>
+              Diese Funktionalitäten setzen den
+              Einsatz eines Tablet-PC´s voraus, der sowohl über eine Kamera hinreichender
+              Qualität für die Wunddokumentation als auch USB-Schnittstellen für
+              Druckeranschluss/Chipkarten-Lesegerät verfügt. Für den personalisierten Internet-Zugang
+              muss der Endkunde diesen separat bereitstellen. Ggf. sollten die Geräte schon
+              mit dieser Funktionalitäten ausgestattet sein. Bei Erfordernis wird es auch
+              eine Version für das IPhone geben.
+            </p>
+            <p>Diebstahlssicherung/Ortungsfunktion?</p>
+            <p>
+              Die Funktionalitäten wie
+              Diebstahlsicherung und Ortungsfunktion müssen für die Endgeräte verfügbar sein.
+              Für den Fall dass ein windowsfähiger PC zum Einsatz kommt kann die
+              Ortungsfunktion vernachlässigt werden.
+            </p>
+            <p>Vertriebsmodell:</p>
+            <p>
+              soleosoft denkt darüber nach die
+              Endgeräte über zwei Vertriebswege dem Endkunden bereitzustellen. Der Endkunde
+              kann zwischen diesen beiden Vertriebsmodellen auswählen.
+            </p>
+            <p>Vertriebsweg I:</p>
+            <p>
+              bei dieser Version bietet
+              soleosoft dem Endkunden das Endgerät als Mietgerät an. D.h. der Kunde bezahlt
+              monatlich ein Betrag und bekommt als Gegenleistung das Gerät zur Verfügung
+              gestellt. Bei dieser Variante ist der Internetzugang inklusive. Somit braucht
+              der Kunde sich um sich zu kümmern und benötigt keinen großen Erstinvest.
+            </p>
+            <p>Vertriebsweg II:</p>
+            <p>
+              Bei diesen Weg beschaffte ein
+              Kunde die Endgeräte selber und stellt diese für die Installation und
+              Einrichtung der Software soleosoft zur Verfügung. Auch der Internetzugang muss
+              somit vom Endkunden organisiert und bereitgestellt werden. Diese Vertriebsweg
+              zu ermöglichen muss im Vorfeld der AN eine genaue Spezifikation der Hardware
+              vorgegeben. Hierbei sollte auf zwei unterschiedliche Möglichkeiten eingegangen
+              werden
+            </p>
+            <p>
+              <b>
+                <u>Allgemeine Informationen:</u>
+              </b>
+            </p>
+            <p>
+              In diesem Kapitel wird auf die
+              allgemeine Informationen zu den neuen Modul „Wundmanager“ eingegangen. Folgende
+              Vorgaben wurden von verschiedenen Unternehmen soleosoft zur Verfügung gestellt.
+              Diese können sich gegebenenfalls noch während der aktiven Umsetzungsphase
+              ändern, daher dienen die aktuellen Werte nur als Schätz und Kalkulationswerte.
+            </p>
+            <p>
+              <b>
+                <u>Anlegen eines neuen Vorgangs:</u>
+              </b>
+            </p>
+            <p>
+              zum Anlegen eines neuen Vorgangs stellt der neue Wundmanager
+              folgende Wundkategorien zur Auswahl:
+            </p>
+            <p>Diabetiker-Fuß</p>
+            <p>Stumpf (Amputation von Körperteilen)</p>
+            <p>Offene Wunden (z.B. ulcus cruris)</p>
+            <p>STOMA-Versorgung</p>
+            <p>weitere Wundtypen sind jederzeit möglich</p>
+            <p>
+              Nach der entsprechenden Auswahl
+              der Wundkategorie werden Umfang und Maße der Wunde in das System aufgenommen.
+              Hier hat der Benutzer die Möglichkeit, zwischen den  verschiedenen Wundbeschaffenheiten
+              zu wählen.  Das System unterscheidet zwischen:
+              <br />
+              <br />
+            </p>
+            <p>Infektion</p>
+            <p>Wundgeruch</p>
+            <p>Wundrand(WR)</p>
+            <p>Wundgrund(WG)</p>
+            <p>Wundumgebung(WU)</p>
+            <p>Wundflüssigkeiten</p>
+            <p>
+              Nachdem die Wundbeschaffenheit
+              beschrieben ist, berechnet das System automatisch den Wundheitsgrad. Nach
+              diesem errechneten Wundgrad gibt die Krankenkasse die zur Behandlung
+              notwendigen Mittel frei, welche der Wundmanager dann zur Wundheilung einsetzen
+              darf.
+            </p>
+            <p>
+              <br />
+              Nachdem  die Grunddaten der Wunde eingegeben sind, kann der Benutzer Fotos zu
+              der Wunde einpflegen. Diese werden direkt mit der sich im Gerät befindenden
+              Kamera fotografiert und zu dem Patienten gespeichert.
+            </p>
+            <p>
+              In der neuen Version des
+              Wundmanagers soll es keine Größenbegrenzung der anzuhängenden Bilder geben. Wobei
+              bei der Verwendung der verschiedenen Endgeräten (Tablet-PC, Iphone) unterschiedliche
+              kameraabhängige Bilder entstehen können. Auch können verschiedene Größenverhältnisse
+              dadurch entstehen. Es kommt noch die Problematik dazu, dass jeder Endbenutzer
+              die Kamera unterschiedlich hält bzw. das Endgerät benutzt. Deshalb soll das
+              System eine User-unabhängige automatisierte Konvertierung in ein Format mit
+              einheitlicher Dateikonvention und Größe (Bildgröße) realisieren und vornehmen. Gegebenenfalls
+              muss für die Übertragung der getätigten Bilder zum Hauptsystem eine
+              Komprimierung im Vorfeld automatisch stattfinden, damit die Bilder in einem
+              kleineren Format übertragen werden. Der Kameramodus in dem Tool muss innovativ
+              und einfach sein. Der Endkunde muss an die Wunde eine Messskala in Form eines
+              Papierstreifens anbringen. Somit kann später die Software die Berechnung der
+              Wunde (Größe) vornehmen. Das fordert allerdings im Vorfeld dem Nutzer ab, den
+              wundrelevanten Bildausschnitt möglichst formatfüllend anzulegen(siehe
+              unten-&gt;Schulung am Gerät). Im Zweifelsfalle muss dem User mit einer
+              einfachen Bildbearbeitungssoftware die Möglichkeit einer nachträglichen
+              Ausschnittsvergrößerung/Anpassung gegeben werden bzw. die Fähigkeiten dazu
+              vermittelt werden, da im Behandlungstermin am Patienten gewisse Unsicherheiten
+              im Fotoprozess nicht auszuschließen sind. Wer User hat die Möglichkeit, beim
+              Output über den Druckmanager die Bilder entweder mit auszudrucken oder
+              abzuwählen. Das gilt für jede Versandart (Druck, Fax, Email etc.).
+            </p>
+            <p>
+              Der Wundmanager schätzt nun die
+              Dauer der Behandlung und trägt diese in das System ein. Dabei wählt er auch aus
+              dem vorgegebenen Artikelsortiment die notwendigen Hilfsmittel.  Diese Eingaben
+              werden dann direkt zu dem Patienten gespeichert. Somit besteht die Möglichkeit,
+              dass die Zentrale (Logistik,Warenwirtschaft) ggf. eine Route oder das benötigte
+              Material bestellen kann.
+            </p>
+            <p>
+              <br />
+              Die Benutzer des Soleo- Wundmanagers können die Material- und
+              Mitarbeiterdisposition im System steuern. Es besteht auch die Möglichkeit,
+              diese Daten über eine Schnittstelle zu exportieren.
+            </p>
+            <p>
+              Ein wichtiges Feature in dem
+              System ist die Option, Hilfsmittel direkt oder an verschiedene Anlaufstellen zu
+              versenden. Der Wundmanager/in kann in diesem Fall das Hilfsmittel z.B. zu
+              Verwandten oder direkt an den Patienten versenden lassen. Im Weiteren kann auch
+              die Zentrale alle Hilfsmittel versenden, verschiedene Möglichkeiten stehen zur
+              Auswahl.
+            </p>
+            <p>
+              <br />
+              Fallabhängig werden während der Wundversorgung weitere Hilfsmittel nötig. Diese
+              müssen aber von der Krankenkasse oder dem Hausarzt freigegeben werden. Der
+              Soleo- Wundmanager verfügt über die Funktion, diesen Prozess abzubilden; d.h.
+              es können über Soleosoft auch Rezeptanfragen an den Hausarzt versendet werden.
+              Diese können dann vom Hausarzt direkt im System oder per Ausdruck freigegeben
+              werden. Die Bestellung würde nach Freigabe elektronisch zu dem Hilfsmittel-
+              Lieferanten gehen und dieser kann direkt die Bestellung auslösen.
+            </p>
+            <p>
+              Ist die Wundheilung abgeschlossen
+              so muss der Wundmanager in dem Tool die Möglichkeit haben, ein Abschluss der
+              Dokumentation vorzunehmen. Mit dem abgeschlossenen Vorgang kann der Kunde eine
+              interne Kostenüberprüfung/ Materialeinsatz/ Verbrauch vornehmen.
+            </p>
+            <p>
+              Es soll auch die Möglichkeit
+              bestehen einen kompletten Vorgang zu exportieren, damit Nachversorger diese in
+              ihr eigenes System importieren können. Somit erspart sich der Wundmanager den
+              doppelten Eingabe Aufwand bei der Dokumentation des Vorgangs. Ein weiterer
+              Vorteil ist auch, dass abgeschlossene Vorgänge immer wieder angezeigt werden
+              können welches für Recherchezwecke oder auch den Hausarzt oder Patienten zum
+              Vorteil sein kann. Später soll weist auch eine Übergabe an die Krankenkasse von
+              komplett abgeschlossenen Vorgängen möglich sein.
+            </p>
+            <p>
+              <b>
+                <u>
+                  Prozessschaubild
+                  für den Wundmanager bei der IST- Aufnahme:
+                </u>
+              </b>
+            </p>
+            <p>
+              Mit diesem Schaubild sieht man
+              die einzelnen Prozessschritte welche für den Ablauf des Gesamtprozesses
+              notwendig sind. Dieser Prozessschritt wird einzeln und in Detail noch einmal
+              beschrieben.
+            </p>
+          </Element>
+          <Element Type="Image" border="0" width="559" height="683" >images/image023.png</Element>
+          <Element Type="Text">
+            <p>
+              Diesen Prozessschritt I existieren verschiedene Wege der
+              Annahme einer Wundversorgung:;
+            </p>
+            <p>
+              <u>Weg I:</u>
+            </p>
+            <p>
+              Der Wundmanager/in nimmt das
+              Rezept direkt vor Ort bei dem Kunden an. Das Rezept muss dann digitalisiert
+              werden. Das ersetzt das Anlegen des Patienten im System. Die Digitalisierung
+              kann entweder über Tastatur (herkömmlicher Weg) eingegeben werden, bzw. über
+              ein Scanverfahren automatisiert eingelesen werden.
+            </p>
+            <p>
+              <u>Weg II:</u>
+            </p>
+            <p>
+              Das einlesen der
+              Patienteninformationen erfolgt über einen Cardreader. Die Karte besitzt alle
+              Informationen zu dem Patienten. Das ermöglicht dem Wundmanager/in direkt ein
+              anlegen des Patienten vor Ort. Hersteller KOBIL,Cherry bietet solche Lösungen
+              über Bloototh und USB an.
+            </p>
+            <p>
+              <u>Weg III:</u>
+            </p>
+            <p>
+              Import aus einem Verzeichnis,
+              somit können die Daten aus einem anderen System via Schnittstelle eingebunden
+              werden. Das zu bestimmende Format der einzulesen den Dateien aus in Form einer
+              API - Schnittstelle dokumentiert und gewährleistet werden. Diese Art des
+              Imports hat den großen Vorteil das der in Kunde sein eigenes oder primäres
+              System (KIS) verwenden kann. Das erspart dem Wundmanager und auch dem
+              Pflegepersonal viel Zeit, welche sinnvoller eingesetzt werden kann.
+            </p>
+            <p>
+              <b>Was sind Pflichtinformationen beim anlegen des Patienten:</b>
+            </p>
+            <p>
+              Die wichtigsten Informationen die
+              der Wundmanager bei dem Anlegen des Patienten benötigt, sind Informationen
+              welche auf den Rezept zu finden sind. D.h. es müssen die Daten vom Rezept
+              übernommen werden. Gegebenenfalls kann auch die Chipkarte dienen. Die Basisinformationen
+              zu den Patienten zu erhalten. Es muss die Möglichkeit gegeben sein, fehlende
+              Daten nachträglich einzufügen. Außerdem muss die Möglichkeit gegeben sein, dass
+              ein Zusammenfügen von Patientendaten aus mehreren Systemen möglich ist. In
+              diesem Fall werden nur Name, Vorname, Vers.-Nummer und Geburtsdatum eingegeben.
+            </p>
+          </Element>
+          <Element Type="Image" width="406" height="1" >images/image024.jpg</Element>
+          <Element Type="Text">
+            <p>
+              mit dem minimalen Datenbestand
+              kann eine Bearbeitung des Patienten vorgenommen werden, obwohl es keinen
+              Abgleich mit der Hauptdatenbank gegeben hat. Bekommt das System Zugriff auf die
+              Hauptdatenbank muss ein automatischer Abgleich dieser gesonderten Fälle
+              beginnen. Bei Unstimmigkeiten ist der Wundmanager via Informationen mit
+              einzubinden. Dieser entscheidet welcher Datenbestand endgültig der finale
+              Datenbestand ist. Weiterhin soll es auch die Möglichkeit geben zusätzliche
+              Informationen wie die die Telefon-Nummer/Angehörige händisch hinzugefügt werden
+              können.
+            </p>
+            <p>
+              In den nächsten Eingabeschritt
+              wird nach der Größe und Gewicht des Patienten gefragt. Diese Werte müssen als
+              Pflichtfelder deklariert werden, da der BMI darüber automatisch berechnet wird.
+            </p>
+            <p>
+              Im nächsten Eingabe Schritt,
+              werden die Informationen zu den Hausarzt abgefragt. Das ist notwendig damit
+              gegebenenfalls dieser mit zur Behandlung/ Rat oder Informationen bei der Behandlung
+              einbezogen werden kann. Es soll auch eine Anbindung an eine Datenbank erfolgen,
+              wurden sich alle Hausärzte aufgelistet befinden. Somit hatte und Manager die
+              Möglichkeit auf diese zurück zugreifen und sich den richtigen Hausarzt online
+              per System herauszusuchen.
+            </p>
+            <p>
+              Wird der Patienten final gespeichert wird eine automatische
+              Berechnung des BMI vorgenommen.
+            </p>
+            <p>
+              Das System muss bei der
+              Replizierung automatisch einen Abgleich der Stammdaten vornehmen, d.h. im
+              Strategischen System (z.B. Eva) müssen die Daten in beide Richtungen
+              abgeglichen werden. Gibt es dabei Unstimmigkeiten, soll verfahren werden wie
+              bei Outlook.  Den Abgleich übernimmt der Benutzer des Strategischen System.
+              Nach erfolgreicher Verschmelzung und Synchronisierung muss der gleiche
+              Datenbestand in beiden System vorhanden sein.
+            </p>
+            <p>eingebunden in</p>
+            <p>
+              In dem Prozessschritt II kann
+              zwischen verschiedenen Typen von Maßnahmen ausgewählt werden.
+            </p>
+            <p>
+              Dies erfolgt entweder durch
+              Zuteilung des Strategischen Systems oder es erfolgt vor Ort direkt durch den
+              Wundmanager. D.h. es existieren  folgende Auswahlmöglichkeiten.
+            </p>
+            <p>
+              <b>
+                Möglicheit I:Festlegung der Art der Wunde
+                <br />
+                <br />
+              </b>
+            </p>
+            <p>Diabetiker Fuß</p>
+            <p>Stumpf(Amputation von Körperteilen)</p>
+            <p>Offene Wunden(z.B. ulcus cruris)</p>
+            <p>STOMA- Versorgung</p>
+            <p>weitere Wundtypen sind jederzeit möglich</p>
+            <p>
+              Zuarbeit durch E.Kaufhold ob ggf.
+              mehr Felder benötigt werden. Daraus erfolgt Vorschlag ob sich die nächsten
+              Auswahlschritte je Kategorie ergibt.
+            </p>
+            <p />
+            <p>
+              Nach Auswahl und Festlegung der
+              Art der Wunde muss eine örtliche Geo Referenzierung erfolgen. D.h. der
+              Wundmanager muss über ein Auswahlmenü und anhand von Piktogrammen die Stelle wo
+              sich die Wunde befindet. Daraus folgt die Auswahl des richtigen Piktogramms aus
+              der Wunddokumentation (Internet) . Ggf. Piktogramm kaufen Aktuell haben wir
+              folgende Piktogramme
+            </p>
+            <p>
+              1.)
+              &gt; Kompletter
+              Körper(vorne hinten links rechts)
+            </p>
+            <p>
+              2.)
+              &gt;  Kopf
+            </p>
+            <p>
+              3.)
+              &gt; Oberkörper(bis
+              Bauchnabel)
+            </p>
+            <p>
+              4.)
+              &gt; Brust8BIS
+              Genitalbereich)
+            </p>
+            <p>
+              5.)
+              &gt; Bauchnabel(bis
+              Oberschenkel, für Rückansicht komplette Sacral-Ansicht)
+            </p>
+            <p>
+              6.)
+              &gt; Arme (Links Rechts) 45
+              Grad angewinkelt
+            </p>
+            <p>
+              7.)
+              &gt; Beine (vorne hinten9
+              gerade
+            </p>
+            <p>
+              8.)
+              &gt; Unterschenkel(Ab Knie)
+            </p>
+            <p>
+              9.)
+              &gt; Fuß (vorne hinten,
+              oben unten links rechts)
+            </p>
+            <p>Siehe Beispiel Softwareversion 2.0</p>
+          </Element>
+          <Element Type="Image" width="414" height="1" >images/image025.jpg</Element>
+          <Element Type="Text">
+            <p>
+              Funktionsübernahme altes System(neue Wunde) daraus folgt
+              Beschreibungsfeld und sofortige Aktivierung der Kamera und es kann nur ein Foto
+              pro Auswahlpunkt  aufgenommen werden.
+            </p>
+            <p>Scan Foto( beschrieben in Punkt 3)</p>
+            <p>Auswahl Foto von Datei</p>
+            <p>
+              Wird ein Foto auf andere Wege breitgestellt, kann dieses
+              über die manuelle Auswahl über Explorer eingefügt werden.
+            </p>
+            <p>
+              <b>Möglichkeit II Prothese</b>
+            </p>
+            <p>Wird noch gefüllt</p>
+            <p>
+              <b>Möglichkeit III Kompressiontherapie</b>
+            </p>
+            <p>Wird noch gefüllt</p>
+            <p>
+              <b>Möglichkeit IV weitere Möglichkeiten</b>
+            </p>
+            <p>Ist für die Zukunft angedacht</p>
+            <p>
+              Die
+              Kamera muss im Suchfeld ein Fokussierungsquadrat haben (Fadenkreuz) Dieses
+              Zielquadrat muss Optional zuwählbar und die einzelnen Quadrate nummerierbar
+              sein. Nachdem das Foto aufgenommen wurde wird durch Hilfe-Hinweise (Abwählbar)
+              durch den weiteren Prozess geführt.
+            </p>
+            <p>
+              Alles Tablet-abhängig-nur durch Personalschulung
+              realisierbar.
+              <br />
+              Generelle Schulung am Gerät muss sowieso zwingend erfolgen-sonst ist Chaos
+              vorprogrammiert-Learning by doing geht hier absolut nicht
+            </p>
+            <p>
+              1.)
+              Breite,Länge,Tiefe
+              der Wunde abgefragt
+              <br />
+              Breite: durch Punktsetzen am linken Rand und weiteren Punkt setzen am rechten
+              Rand
+            </p>
+            <p>Länge: gleich wie Breite</p>
+            <p>
+              Tiefe: Die Tiefe der Wunde muss
+              manuell eingegeben werden(Es muss geprüft werden ob laut Expertenstandard Wunde
+              eine Maßtabelle verwendet werden muss. Oder obe eine Skalierung auf dem
+              Foto(Druck) ausreicht.
+            </p>
+            <p>
+              2.)
+              &gt;
+              Berechnung der
+              Wunde:
+            </p>
+            <p>
+              Durch das Punktesetzen im
+              Uhrzeigersinn an den Wundrand max. 10 Einzelpunkte ergibt sich eine Figur. Die
+              automatisch in Quadratzentimeter berechnet wird. Ggf. prüfen pb es ein
+              verfügbares auf dem markt gibt. Schutz Patent?
+            </p>
+            <p>
+              <br />
+              mE. viel zu kompliziert-ist das gesetzlich
+              vorgeschrieben bzw. fachlich erforderlich, eine Wunde übertrieben genau zu
+              vermessen
+              <br />
+              Von uns entwickelte(!) Aufklebefolie reicht
+              sicher für Dokumentation vor Ort aus – wer ist denn qualifiziert dafür, einen
+              Wundrand o.a. zu definieren und die Punkte zu setzen? das Personal am Patienten
+              kann das nicht leisten, fotografieren ist schon die Schmerzgrenze-die haben
+              keine Zeit bzw. anderes zu tun bzw. die Bildbearbeitungszeit wird nicht
+              vergütet weil keine Regelleistung. Ev. müssen die Bilder erforderlichenfalls
+              von einer Bildbearbeiter-Crew mit Fachkenntnissen (Facharzt/Hausarzt/AIP)
+              zentral+zeitnah bearbeitet werden  Stichwort KOMPETENZEN
+              AUSLAGERN
+            </p>
+            <p />
+            <p />
+            <p>
+              3.)
+              &gt;
+              Abfrage
+              durch  Auswahlfelder der folgenden Parameter
+              <br />
+              <br />
+            </p>
+            <p>
+              o &gt;
+              Infektion
+            </p>
+            <p>
+              o &gt;
+              Wundgeruch
+            </p>
+            <p>
+              o &gt;
+              Wundrand(WR)
+            </p>
+            <p>
+              o &gt;
+              Wundgrund(WG)
+            </p>
+            <p>
+              o &gt;
+              Wundumgebung(WU)
+            </p>
+            <p>
+              o &gt;
+              Wundflüssigkeiten
+            </p>
+            <p>
+              o &gt;
+              Ernährungszustand
+            </p>
+            <p>
+              o &gt;
+              Krankheitszustand(Entzündung
+              ja/nein
+            </p>
+            <p />
+            <p>
+              Zu
+              jedem Punkt muss es einen detaillierten Beschreibungsvorschlag geben (Zuarbeit E.Kaufhold)
+            </p>
+            <p>
+              Aus
+              dem oben angegeben Daten ergibt sich automatisch der Wundgrad und der
+              Gefährdungsgrad sowie der BMI-Index des Patienten.
+            </p>
+            <p>
+              <b>
+                <u>Prozessschritt IV: Beschreibung Wunde</u>
+              </b>
+            </p>
+            <p />
+            &gt;
+            <p>
+              <b>
+                <u>Prozessschritt V: Anforderung / Versorgung</u>
+              </b>
+              <br />
+              <br />
+            </p>
+            <p>
+              In
+              diesem Prozessschritt wird entschieden, wie weiter eine Bearbeitung je Fall
+              vorgenommen wird.
+            </p>
+            <p>
+              1.)
+              &gt;
+              Hilfmittel auswählen
+            </p>
+            <p>
+              2.)
+              &gt;
+              Versorger
+              hinzuwählen
+            </p>
+            <p>
+              3.)
+              &gt;
+              Sozialdiesnt
+            </p>
+            <p>
+              4.)
+              &gt;
+              Arzt
+            </p>
+            <p>
+              5.)
+              &gt;
+              Maßnahme hinzufügen (Kompressionstherapie)
+            </p>
+            <p>
+              Der
+              Benutzer muss auch die Möglichkeit haben eine Mehrfachauswahl zu erstellen.
+            </p>
+            <p>Hilfsmittel/Auswahl:</p>
+            <p>
+              o &gt;
+              Aufgrund
+              der der oben ausgweählten Wund und Debutiucsgrad ergeben sich die
+              auszuwählenden Hilfsmittel. Wie z.B.
+            </p>
+            <p>
+              o &gt;
+              Antidecubitus
+              Matratze (mehrere Hersteller je Wundgrad) und
+            </p>
+            <p>
+              o &gt;
+              Antidecubitus
+              -Sitzkissen (wieder mehrere Hersteller je Wundgrad). Die Produkte werden von
+              der Zentrale vorgegeben.
+            </p>
+            <p>
+              o &gt;
+              Schmerztherapie
+              (Rücksprache mit Frau Kaufhold)
+            </p>
+            <p />
+            <p>Sozialdienst:</p>
+            <p>
+              Über
+              die Auswahl der PLZ ergibt sich eine Liste aller in der Region befindlichen
+              Sozialdienste, die ähnlich Soleosoft V2.0 hinzugewählt werden können und
+              Zugriff auf die jeweiligen Daten haben.
+            </p>
+            <p />
+            <p>Versorger:</p>
+            <p>
+              Über
+              die Auswahl der PLZ ergibt sich eine Liste aller in der Region befindlichen
+              Versorger, die ähnlich Soleosoft V2.0 hinzugewählt werden können und Zugriff auf
+              die jeweiligen Daten haben.
+            </p>
+            <p />
+            <p>Arzt:</p>
+            <p>
+              In
+              diesem Punkt kann der schon in den Stammdaten hinterlegte Hausarzt zu einem Rat
+              hinzugefügt werden. Es entsteht in dem Browser ein Link zu diesem Patienten,
+              der versehen ist das der Arzt Zugriff bekommt. Der Arzt wird immer über die
+              folgenden Wege (Fax, Email, Link) informiert, wenn sich was an seinem Patienten
+              ändert.  Bei dem Versenden des Links muss eine Kurzbeschreibung seitens  Link
+              und solesoft erfolgen.
+            </p>
+            <p />
+            <p>
+              Maßnahme
+              hinzufügen:
+            </p>
+            <p />
+            <p>
+              In
+              diesem Punkt kann während der Abarbeitung des Wundheilungsprozesses ein weiterer
+              oder zusätzlicher Prozess eingeleitet werden. Das wird benötigt, wenn eine
+              zusätzliche Behandlungsmethode notwendig ist. z.B. siehe Punkt 1,5
+            </p>
+            <p />
+            <p>Produktauswahl:</p>
+            <p>
+              Anhand einer
+              Alphabetischen Tabelle kann der Anfangsbuchstabe des Herstellers ausgewählt
+              werden. Das Produkt wird namentlich gesucht oder nachdem reinen Produktnamen.
+            </p>
+            <p>
+              Nach
+              erfolgreicher Auswahl der Produkte wird eine Bestellliste generiert. Diese wird
+              automatisch an die Zentrale oder Einkauf im Hintergrund weitergeleitet.
+              Prozesswissen einbauen.
+            </p>
+          </Element>
+          <Element Type="Image" width="582" height="1" >images/image026.jpg</Element>
+          <Element Type="Text">
+            <p>
+              <b>
+                <u>Prozessschritt VI Zusammenfassung / Speicherung</u>
+              </b>
+            </p>
+            <p>
+              Zusammenfassung
+              des Vorgangs
+            </p>
+            <p>
+              Speichern
+              des Vorgangs:
+            </p>
+            <p>
+              Der Vorgang
+              wird erst einmal lokal gespeichert und bei bestehende Verbidnung ein Versand
+              zum Hauptsystem . Der Benutzer hat die Möglichkeit den Prozess händisch mit
+              automatischen Speichern zu beenden. Die Alternative ist: Nach verlassen des
+              Ortes von 100 Metern ergibt sich eine automatische Speicherung.
+            </p>
+            <p>
+              Im
+              Wundmanager sollte es verschiedene Benutzergruppen geben.
+              <br />
+              <br />
+            </p>
+            <p>
+              -
+              &gt;
+              <b>
+                <u>Benutzerguppe User</u>
+              </b>
+              <br />
+              In der Benutzergruppe User kann die standardmäßigen Funktion des Wundmanagers
+              erfolgen.
+              <br />
+              <br />
+            </p>
+            <u>&gt;</u>
+            <p>
+              -
+              &gt;
+              <b>
+                <u>Benutzerguppe Einkauf</u>
+              </b>
+              <br />
+              Der Einkauf hat die Möglichkeit die zur Verfügung stehenden Produkte
+              auszuwählen. Hierzu wird auf eine Produkt-Cd des Herstellers zurückgegriffen.
+              Ggf. Prüfung ob Hersteller das automatisch macht.  Beteiigung an der
+              Entwicklung
+              <br />
+            </p>
+            <p>
+              -
+              &gt;
+              <b>
+                <u>Benutzergruppe Vorgesetzter</u>
+              </b>
+              <br />
+              in der Benutzergruppe Vorgesetzter kann folgendes bestimmt werden.
+            </p>
+            <p>Anfahrtspauschale</p>
+            <p>Stundenlohn</p>
+            <p>Unkostenbeitrag</p>
+            <p>Decubitusgrad beschreiben</p>
+            <p>GPS-Trigger</p>
+            <p>RFID- Verwaltung</p>
+            <p>
+              1.)
+              &gt;
+            </p>
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Modul 6: Corporate Design">
+          Modul 6: Corporate Design („Formular-Manager“)
+          <Element Type="Text">
+            <p>
+              Das Modul 6
+              ist eine komplett neue Funktion und soll auch erst ab der Version 3.0 zum
+              Einsatz kommen. Da dieses Modul sehr wichtig und elementar für das
+              Gesamt-System ist, muss hier besonderer Wert auf eine spätere Implementierung
+              gelegt werden. D.h., kauft der Kunde das Modul erst zu einem späteren Zeitpunkt
+              oder zeitverzögert, muss dennoch ein reibungsloser Einsatz ohne Datenverlust möglich
+              sein. Der AN hat dieses Problem während der Entwicklungshase und der späteren
+              Umsetzungsphase zu berücksichtigen. Der Wechsel zwischen diesem Modul und dem
+              Standard muss vollständig automatisiert erfolgen.
+            </p>
+            <p>
+              1.
+              &gt; Formular-Designer/-Editor
+              <br />
+              Im Formular-Designer hat der Admin die Möglichkeit eigene Kopfbögen mit eigenen
+              Logo´s, Kopf- und Fußzeilen etc. zu erstellen. Aber auch die Gestaltung von
+              eigenen Überleitungsbögen oder Rückmeldungen soll möglich sein. D.h., eine
+              Klinik oder ein Krankenhaus kann die Dokumente so gestalten wie sie sie
+              benötigt und sie kann auch die Vorgaben des Expertenstandards verlassen. Für
+              das System bedeutet das, dass es einen Formulargenerator geben muss, der die
+              änderbaren Bereiche vorgibt. Bei der Angebotserstellung sollte auch eine
+              intensive Dokumentation oder ein Handbuch einkalkuliert werden.
+            </p>
+            <p>
+              2.
+              &gt; Anpassung
+              der Benutzeroberfläche an das Corporate Design
+              <br />
+              In diesem Punkt kann der Admin das Desgin von soleosoft GmbH verlassen und sein
+              eigenes Corporate Design implementieren. Logo´s und Textzüge können partiell
+              geändert werden. Jedoch muss immer noch ein Wasserzeichen bzw.
+              Wiedererkennungswert  von soleosoft GmbH erkennbar sein.
+            </p>
+          </Element>
+          <Element Type="Image" border="0" width="815" height="221" >images/image027.jpg</Element>
+          <Element Type="Text">
+            <p>
+              2.1.
+              &gt; Theme-Manager
+            </p>
+            <p>
+              2.2. &gt; Online Theme-Editor (Farben, Logos,
+              Icons, …)
+            </p>
+            <p>lang=EN-US&gt;</p>
+            <p>
+              3.
+              &gt; Formularmanager
+              Standardformulare
+            </p>
+            <p>Allgemeine Funktionalitäten:</p>
+            <p>
+              Bei diesem Freiheitsgrad, den der
+              User beim Erwerb dieses Modul erhält, darf er auch die Standard-Formulare
+              anpassen. Z.B.  besteht die Möglichkeit, die standardmäßig hinterlegten
+              Ansprechpartner in jedem Formular zu verändern. Um dies auch realisieren zu
+              können sollte im Modul pro Formular eine Option bestehen, die Ansprechdaten,
+              Faxnummer, Telefon, Email etc. zu ändern. Beim Kauf dieses Moduls hat er auch
+              die Möglichkeit des Hinterlegens von vielen Adressen und Kontakten. Dies ist
+              eine große Abweichung gegenüber der Standardversion. Ein Vorschlag von
+              soleosoft GmbH ist es, ein Adressbuch zur Verwaltung zu entwickeln, in dem eine
+              Angabe zu jedem Dokumententyp/ Art vermerkt ist. Dort hat der Admin auch
+              schnell die Möglichkeit die Ansprechpartner zu tauschen. Hierzu soll der AN
+              bitte noch seine Vorschläge einbringen.
+            </p>
+            <p>Standardformulare:</p>
+            <p>
+              Durch die solesoft GmbH werden in
+              der Version Standardformulare vorgegeben. Darin hat der Firmenadministrator nur
+              die Möglichkeit, bestimmte Felder anzupassen.
+            </p>
+            <p>Sonderformulare:</p>
+            <p>
+              Diese Formulare können beim
+              Erwerb des Moduls 6 eingesetzt werden. Hierbei wird keine Einschränkung (Anzahl
+              der Formulare) vorgenommen. Weiterhin hat der Kunde die Möglichkeit weitere
+              Formulare selbst zu erstellen und in das System einzubinden. Dazu muss der
+              Kunde eine Administratorenschulung nachweisen. Alternativ kann das als
+              Dienstleistung vom AN bezogen werden. Der AN muss ein Kalkulationsbeispiel für
+              eine derartigen Leistung vorlegen.
+            </p>
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Modul 7: elektronische Unterschrift">
+          Modul 7: elektronische Unterschrift
+          <Element Type="Text">
+            <p>
+              Das Modul 7 „elektronische
+              Unterschrift“ ist eine Neuentwicklung und Erweiterung des aktuellen Softwareproduktes.
+              Mit der neuen Funktionalität will man den Arbeitsaufwand bei den Usern
+              optimieren und vereinfachen. Der User soll in der Zukunft elektronisch
+              unterschreiben und die Dokumente elektronisch versenden. Bei den Dokumenttypen
+              handelt es sich um Dokumente die an Kostenträger oder Leistungserbringer
+              versendet werden.
+            </p>
+            <p>
+              1.
+              &gt; Zertifikats-
+              und Identitäts-Manager
+            </p>
+            <p>
+              1.1.
+              &gt; Usercard
+              <br />
+              Um in der Zukunft überhaupt in der Lage zu sein elektronisch Unterschriften zu
+              speichern wird das optische Medium, die Usercard(Chipkarte), eingeführt. Wie
+              eingangs schon beschrieben kann in diesem Zusammenhang  auch die Unterschrift
+              digitalisiert werden. Die Unterschrift wird in den Stammdaten beim Arzt
+              hinterlegt. Die Chipkarte ist von dem AN zu bedruckt bereitzustellen. Bei der
+              Angebotsabgabe ist eine preisliche Übersicht und visueller Entwurf beizulegen.
+            </p>
+            <p>
+              1.2.
+              &gt; Chipkarte
+              <br />
+              Eine weitere Ausbaustufe soll es sein, dass soleosoft GmbH über die
+              Krankenchipkarte die Patientendaten oder Arztdaten einlesen kann. Der AN hat
+              die Aufgabe zu recherchieren,  welche Kartenlesegeräte eingesetzt werden könnten
+            </p>
+            <p>
+              1.3.
+              &gt; Einlesen der
+              Patientenunterschrift
+              <br />
+              Da auf einigen Formularen auch Patientenunterschriften notwendig sind, muss die
+              Unterschrift ebenso elektronisch vorliegen. Entweder kann die
+              Patientenchipkarte eingelesen werden oder es muss die Unterschrift über ein
+              Formular, auf dem der Patient unterschreibt,  entwickelt werden. Dieses müsste
+              ebenfalls gescannt und in der Patientenakte hinterlegt werden. Auf dem Formular,
+              welches mit einem Barcode versehen ist, steht der genaue Verwendungszweck der
+              jeweiligen Unterschrift.  Der Patient unterschreibt und das Dokument wird
+              eingescannt. Anhand des Barcodes kann das System den Patienten ermitteln und
+              das Dokument an die Patientenakte anhängen.
+            </p>
+            <p>
+              2.
+              &gt; Validierungssystem
+            </p>
+            <p>
+              Das Validierungssystem hat die
+              Aufgabe, intern im System die Unterschriften nicht zu verwechseln und immer die
+              richtige Unterschrift dem Patienten bzw. dem Arzt zuzuordnen. Weiterhin hat das
+              System auch die Aufgabe, zu prüfen, ob Dokumente und Unterschriften notwendig
+              bzw. korrekt sind. Auch eine Prüfung der Berechtigung und der korrekten
+              Anmeldung der unterschreibenden Personen muss erfolgen? Sollte das System auf
+              Fehler(zweifach angemeldet, oder Pin falsch registriert, oder angemeldet über
+              die falsche Station , nicht korrekt abgemeldet  etc. ) stoßen muss eine Meldung
+              an den Admin gesendet werden. Gegebenenfalls kann ein aufgetretener Fehler eine
+              temporäre Sperre des Accounts zur Folge haben.
+            </p>
+            &gt;
+            <p>
+              <b>Wie soll es funktionieren:</b>
+            </p>
+            <p>
+              Wie oben beschrieben merkt das
+              System automatisch beim Versenden von Dokumenten, wie z. B.  Rezepten,
+              Arztbriefen oder Kostenübernahme-Anträgen bei den Krankenkassen, dass eine
+              elektronische Unterschrift benötigt wird. Das System prüft ob der User, der das
+              Dokument versenden möchte allein die Vollmacht für die Unterzeichnung des Dokumentes
+              hat. Sollte das der Fall sein, wird im Druckmanager beim Versenden des
+              Dokumentes noch einmal eine Zahlenkombination von der Usercard abgefragt und
+              dann wird das Dokument automatisch mit der Unterschrift versehen, freigegeben und
+              versendet.
+            </p>
+            <p>
+              Reicht die alleinige Vollmacht
+              nicht aus, wird im Druckmanager das Dokument zwar auf die Reise geschickt,
+              jedoch wird es intern zu einem weiteren Bevollmächtigen geschickt. Gibt dieser
+              seine Unterschrift wird das Dokument elektronisch versendet. Der Prozess läuft
+              ab wie im Modul 5 beschrieben.
+            </p>
+            <p>
+              In der Zukunft, wenn die neue
+              Patientenkarten bzw. Arztkarten vorhanden sind, und diese auch in Deutschland flächendeckend
+              eingesetzt werden, sollte eine Online- Kontrolle über ein Lesegerät im
+              Krankenhaus möglich sein. Soll ein Dokument versendet werden, welches eine
+              Unterschrift eines Arztes oder eines Patienten benötigt, stecken diese Ihre
+              Karte in das mobile Lesegerät und das System verzeichnet das im System und
+              prüft die Richtigkeit.
+            </p>
+            <p>
+              Im Anschluss daran  wird das
+              Dokument  versendet.
+              <br />
+              <br />
+            </p>
+            <p>
+              Alle Dokumente, die versendet wurden,
+              müssen komplett archiviert werden und jederzeit visuell wieder angezeigt werden
+              können. Die Aufbewahrungsfrist beträgt 10 Jahre. Dieser Zeitraum muss durch das
+              System auch abgedeckt werden.
+            </p>
+          </Element>
+        </Element>
+      </Element>
+      <Element Type="Section" Name="Was bringt die Zukunft">
+        Was bringt die Zukunft:
+        <Element Type="Text">
+          <p>
+            Was die Zukunft uns bringt kann
+            kein Mensch  oder Maschine uns sagen. Dennoch muss sich die Firma Soleosoft
+            etwas für die Zukunft ausdenken bzw. entwickeln so das sie gut gerüstet für die
+            Zukunft ist. Wir haben uns im Moment auf zwei Produkte eingestellt, welche hier
+            in diesem Lastenheft schon einmal beschrieben sind. Ziel von Soleosoft ist es
+            eine preisliche Vorbewertung der beiden Module vorzunehmen um eine
+            Grobkalkulation zu bekommen.
+          </p>
+        </Element>
+        <Element Type="Section" Name="Modul Z-1: „Case Management“">
+          Modul Z-1: „Case Management“
+          <Element Type="Text">
+            <p>
+              Dieses Modul
+              wird momentan aus der Betrachtung des Lastenheftes herausgenommen. Es fehlt  an
+              aktuellem Bedarf seitens der Kunden. Dennoch soll das Modul in der Roadmap
+              weiter bestehen bleiben, da im Fall einer Kundenanfrage das Modul aktiviert und
+              dann doch in das Gesamtkonzept implementiert werden kann. Dann wird es jedoch
+              ein gesondertes Lastenheft dafür geben.
+              <br />
+              <br />
+            </p>
+          </Element>
+        </Element>
+        <Element Type="Section" Name="Modul Z-2: E-Patientenakte">
+          Modul Z-2: E-Patientenakte
+          <Element Type="Text">
+            <p>
+              Mit diesem Modul verfolgt die
+              soelosoft GmbH als Weiterentwicklung für die Zukunft. Da eine Veröffentlichung
+              nur teilweise geplant ist, soll aber dennoch in der Softwareversion 3.0 schon
+              die Grundsteine gelegt werden. Die Grundidee ist , eine komplette elektronische
+              Patientenakte  zur Verfügung zu stellen. Egal ob später der Hausarzt, Patient,
+              Klinik darauf zugreifen möchte. Jeder der die Zugriffsberechtigung besitzt,
+              kann sich über die Plattform anmelden und die Daten einsehen. Dazu benötigt
+              jeder User einen eigenen Account mit Zugangsdaten. Die Berechtigungen vergibt
+              der Patient selber, er trägt seinen Hausarzt oder Physiotherapeuten etc. mit
+              der gewünschten Berechtigung ein. Dann prüft das System automatisch ob der
+              eingerichtete User schon Zugriff auf das System besitzt. Wenn ja erfolgt eine
+              Info an denjenigen per Email mit der Information „Patient XXX hat Ihnen Zugriff
+              auf seine Patientenakte gewährt“.
+            </p>
+            <p>
+              Bei den Berechtigungen gibt es
+              zwei verschiedene Möglichkeiten. Entweder bekommt der User die Berechtigung zum
+              lesen, oder dem User wird die Berechtigung Lesen+Schreiben zugeteilt. Ob es
+              Sinnvoll ist ein komplexeres Berechtigungssystem später einzuführen gilt es
+              noch zu erforschen. Jedoch werden dazu noch weitere Informationen benötigt, die
+              im Moment noch nicht vorliegen.
+            </p>
+            <p>
+              Der zugreifende User soll aber
+              auch die Möglichkeit bekommen. Dokumente aus dem System per Knopfdruck
+              exportieren zu können. Die exportierten Daten können dann in das vom User
+              eigene System importiert werden. Die Bereitstellung erfolgt in einer
+              standardisierten Form. Hier muss der AN dem AG einen Vorschlag unterbreiten. Es
+              muss aber auch die Möglichkeit bestehen die Daten als PDF-Datei
+              herunterzuladen. Wenn später so ein einfacher Weg als Dokumententransfer
+              besteht, können die Krankenhäuser die Arztbriefe darüber versenden. Das erspart
+              Kosten und erhöht die Sicherheit bei allen beteiligten.
+            </p>
+            <p />
+            <p>
+              Das Modul wird als Vision
+              betrachtet und wird nicht im Angebot berücksichtigt. Jedoch hat der AN die
+              Ideen soweit mit in die Planung einzubeziehen, das die Grundsteine für eine
+              spätere Implementierung gelegt sind. D.h. zum Beispiel sollte die Datenbank
+              schon mit den notwendigen Feldern versehen sein etc…
+            </p>
+          </Element>
+        </Element>
+      </Element>
+    </Element>
+    <Element Type="Section" Name="Support">
+      Support
+      <Element Type="Text">
+        <p>
+          <br />
+          In der neuen Softwareversion 3.0 soll ein mehrstufiges Support- und
+          Helpdesk-Modell zum Einsatz kommen. Der Ansatz ist das mit den Modellen
+          jeglicher Support von dem AN oder ggf. einem anderen Dienstleister übernommen
+          werden kann.
+        </p>
+        <p>
+          Ab der Softwareversion 3.0 wird
+          das System so einen deutlichen Zuwachs an Usern haben, so das ein täglicher
+          Support/ Helpdesk notwendig ist. Da dieses Thema immer sehr kosten intensiv ist
+          bitten wir den AN uns auf die versch. geforderten Modelle uns ein Angebot zu
+          erstellen. Die Kosten sollen so angeboten werden, das eine monatliche Pauschale
+          je Kategorie veranschlagt ist, das ermöglicht dem AG eine bessere
+          Entscheidungsgrundlage.
+        </p>
+        <p>
+          <b>
+            <u>
+              Variante 1 (7 * 24
+              Stunden):
+            </u>
+          </b>
+        </p>
+        <p>
+          In dieser Variante wird das
+          komplette Programm abgefragt. D.h. es erfolgt ein Support rund um die Uhr. Hier
+          erfolgt eine Rufannahme  von 0.00 – 24.00 Uhr. Es wird das Problem des Kunden
+          aufgenommen und  es erfolgt innerhalb von 4 Stunden eine Reaktion bzw.
+          Lösungsansatz. In dieser Variante werden auch die Systementwickler einbezogen ,
+          um das Problem auf den schnellsten Wege zu beheben.
+          <br />
+          <br />
+        </p>
+        <p>
+          <b>
+            <u>Variante 2 (5 * 8 Stunden):</u>
+          </b>
+        </p>
+        <p>
+          In dieser Variante wird ein Support von Montags – Freitags von
+          08.00 – 17.00 Uhr gewährt. Es wird das Problem des Kunden aufgenommen und es
+          erfolgt eine Reaktion seitens des Dienstleisters innerhalb von 4 Stunden. Im
+          Anschluss wird an einer Lösung des Problems gearbeitet. Eine Einbindung der
+          Systementwickler erfolgt nur zu den normalen Arbeitszeiten des Dienstleisters.
+          Ist ein Einsatz außerhalb dieser Zeiten gefordert sind diese nach Freigabe
+          durch soleosoft kostenpflichtig.
+        </p>
+        <p />
+        <p>
+          <b>
+            <u>Variante 3 (6 * 8 Stunden):</u>
+          </b>
+        </p>
+        <p>
+          In dieser Variante wird ein
+          Support von Montags – Samstags von 08.00 – 17.00 Uhr gewährt. Es wird das
+          Problem des Kunden aufgenommen und es erfolgt eine Reaktion seitens des
+          Dienstleisters innerhalb von 4 Stunden. Im Anschluss wird an einer Lösung des
+          Problems gearbeitet. Eine Einbindung der Systementwickler erfolgt nur zu den
+          normalen Arbeitszeiten des Dienstleisters. Ist ein Einsatz außerhalb dieser
+          Zeiten gefordert sind diese nach Freigabe durch soleosoft kostenpflichtig.
+        </p>
+        <p>
+          <b>
+            <u>Variante 4 (nach Aufwand):</u>
+          </b>
+        </p>
+        <p>
+          In dieser Variante werden
+          überhaupt keine Support-Zeiten vereinbart. Es erfolgt eine Aufnahme eines
+          Problems nur zu den normalen Öffnungszeiten ohne Anrufgarantie. D.h. der AN
+          muss nicht immer über das Telefon erreichbar sein. Es kann auch eine
+          Problemmeldung per Email aus dem System an den Dienstleister erfolgen. Wird
+          dann bei der Problemlösung festgestellt, das es sich um ein wirkliches Problem
+          handelt, erfolgt eine Abrechnung zu einem fest vereinbarten Stundenkontingent.
+          Das Kontingent gilt immer für einen fest definierten Zeitraum und wird mit der
+          kleinsten Zeiteinheit von 15 min abgerechnet. Der AN hat das in dem Angebot
+          auch so anzubieten.
+        </p>
+        <p>Informationsfluss:</p>
+        <p>
+          Der spätere Dienstleister ist
+          verpflichtet, den fest vereinbarten Informationsfluss einzuhalten. Dieser dient
+          dazu im Fall eines Ausfalls des Systems die richtigen Ansprechpartner zu
+          informieren. Die Übersichtsliste wer /wo/ wie informiert werden muss, steh im
+          System im Admin- Modul.     Die Konfiguration nimmt jeder lokale Administrator
+          vor und trägt diese bei sich im Admin-Modus ein. Das System speichert die dort
+          hinterlegten Daten automatisch in ein zentrales Adressbuch. Im Fall eines
+          Notfalls sieht der Dienstleister in dem zur Verfügung gestellten Adressbuch und
+          startet mit der Informationsverteilung.
+          <br />
+          <br />
+        </p>
+        <p>Ticketsystem:</p>
+        <p>
+          Jeder Anruf  oder eingehende
+          Email bzgl. einer Problemmeldung oder Unterstützungsanforderung, muss in einem
+          vom Dienstleister bereitgestellten eigenem Ticketsystem aufgenommen werden. Das
+          Ticketsystem gilt als Nachweis gegenüber dem AG welche Kosten dem AG in
+          Rechnung gestellt werden können. Der AG hat das Recht in das Ticketsystem
+          Einsicht zu bekommen und sich zu jedem seiner bestehenden Tickets einen
+          detaillierten Bericht in elektronischer Form übergeben zulassen.
+        </p>
+        <p>Auswertung:</p>
+        <p>
+          Der Dienstleister muss auch eine elektronische
+          Auswertungsmöglichkeit anbieten. D.h. das eine Auswertung über alle
+          Tickets(Support, Problem, Lösung) muss in Tabellenform dem AG zu Verfügung
+          gestellt werden. Ziel ist es mit der Auswertung gemeinsam mit dem
+          Systementwickler eine regelmäßige Systemanalyse vorzunehmen um Schwachstellen
+          frühzeitig zu finden oder ggf. auch Veränderungen an einem Modul oder des
+          Gesamtsystems vorzunehmen.
+        </p>
+      </Element>
+    </Element>
+    <Element Type="Section" Name="Dokumentation">
+      Dokumentation
+      <Element Type="Text">
+        <p>
+          Alle neu installierten technischen
+          Systeme, aber auch alle damit verbundenen Änderun­ gen der bestehenden Systeme und Infrastrukturen müssen schriftlich in
+          Form von Be­triebsanweisungen, Plänen und Verzeichnissen nachvollziehbar und
+          zukunftssicher do kumentiert werden.
+        </p>
+        <p>
+          Alleinige
+          mündliche Einweisungen des Personals durch die System
+          anbieter sind nicht ausreichend.
+        </p>
+        <p>
+          <br />
+          Teilsystembereiche werden vom Auftraggeber definiert.
+          Folgende Dokumentation ist nach den genannten
+          Prinzipien in dreifacher Ausführung (2x Hardcopy, 1x CD) mit
+          Inhaltsverzeichnis aufzuführen:
+        </p>
+        <p>
+          Bedienungs- und Wartungsanweisungen, abgestimmt
+          auf die ausgeführten Anlagen
+        </p>
+        <p>
+          Protokolle über alle im Rahmen der Arbeiten
+          durchgeführten Messungen und Prüfungen
+        </p>
+        <p>
+          Prüfzeugnisse des Herstellers, insbesondere
+          Zertifikate zu EN- und DIN - Normen
+          Aufrisszeichnungen, ggf. Installationspläne
+        </p>
+      </Element>
+    </Element>
+    <Element Type="Section" Name="Normen / Technische Richtlinien">
+      Normen / Technische Richtlinien
+      <Element Type="Text">
+        <p>
+          Alle Installationen sind gemäß den
+          gültigen EN und VDE – Normen auszuführen. Die  eingesetzten
+          Kommunikationssysteme müssen die innerhalb der EU erforderlichen Zu
+          lassungen besitzen. In Zulassungsverfahren
+          befindliche oder zur Zulassung eingereichte Systeme und Komponenten
+          dürfen nicht eingesetzt werden.
+        </p>
+      </Element>
+      <Element Type="Section" Name="Anforderungen an die Bauleitung">
+        Anforderungen an die Bauleitung durch den
+        Auftragnehmer (AN)
+        <Element Type="Text">
+          <p>
+            Der Auftraggeber erwartet, dass der
+            AN bzw. die Bietergemeinschaft für das Projekt ei­nen Projektleiter als
+            ständigen Ansprechpartner für die Soleosoft – Projektleitung benennt.
+            Der Projektleiter ist im Angebot namentlich zu
+            benennen und eine kurze Ausführung zum fachlichen Profil und zu
+            Referenzprojekten (mit Ansprechpartnern für Rückfragen) zu machen.
+          </p>
+          <p>
+            Der
+            Projektleiter des AN ist verantwortlich für die Abstimmung der Umsetzungsplanung
+            mit  dem AG, die Steuerung aller
+            Lieferanten und Nachunternehmer des AN und die Berichterstattung über
+            den Entwicklungs-, Liefer-, Installations- und Inbetriebnahmefortschritt.
+          </p>
+          <p>
+            In
+            der Realisierungsphase wird der AG in einem gemeinsam vereinbarten Zyklus Pro­jektbesprechungen
+            vor Ort durchführen. Diese werden in der Regel durch den Projektsteuerer
+            oder das Ing.-Büro geleitet.
+          </p>
+        </Element>
+      </Element>
+      <Element Type="Section" Name="Abnahme">
+        Abnahme
+        <Element Type="Text">
+          <p>
+            Die Abnahme des Projektes erfolgt
+            unter Teilnahme des Leiters Projektsteuerung, der  Geschäftsleitung der Soleosoft GmbH und des Projektleiters des
+            Auftragnehmers und soweit erfor derlich
+            die technischen Verantwortlichen der jeweiligen Nachunternehmen. Der Bieter
+            hat schriftlich die Bereitschaft zur Abnahme mit
+            einem Vorlauf von 7 Kalendertagen zu erklären. Die Leitung der Abnahme
+            erfolgt durch einen Beauftragten des Auftraggebers.  Bei nicht erfolgter Abnahme des Gesamt- oder Teilsystems erfolgt eine
+            Teilabnahme  oder die Neuabnahme nach
+            vereinbarter Frist für das jeweilige Gesamt- bzw. Teilsystem. Die
+            Gewährleistung beginnt mit der vollständigen (vorbehaltlosen) Abnahme eines
+            Teil- bzw. des Gesamtsystems durch den AG.
+          </p>
+          <p>
+            Bei
+            vorbehaltlicher Abnahme des Gesamt- oder eines Teilsystems erfolgt durch den
+            Auf traggeber eine entsprechende
+            Fristsetzung. Mit Ablauf der genannten Fristsetzung hat
+            der AN seine Bereitschaft zur erneuten zeitnahen
+            Abnahme zu erklären.
+          </p>
+          <p>
+            Im Übrigen gelten die allgemeinen Einkaufs- und
+            Lieferbedingungen der Soleosoft GmbH.
+          </p>
+        </Element>
+      </Element>
+      <Element Type="Section" Name="Gewährleistung und Service">
+        Gewährleistung und Service
+        <Element Type="Text">
+          <p>
+            Die
+            Gewährleistungsfrist soll 3 Jahre ab vorbehaltloser Abnahme betragen.
+          </p>
+          <p>
+            Der
+            Bieter soll dem Angebot ein separates Angebot über einen Service- und Wartungs
+            vertrag beifügen. Es ist zu beschreiben, welchen
+            Wartungs- und technischen Be treuungsaufwand
+            der Bieter für die Einzelsysteme vorsieht und welche Ersatzteilbestän­de
+            (Bezeichnung, Anzahl, EP, GP) dem AG empfohlen werden.
+          </p>
+          <p>
+            Es
+            sind Ausführungen zu machen, auf welche örtlich eigenen Ressourcen bzw. Service
+            - Partner der Bieter zurückgegriffen
+            wird und welche Response – Zeiten bei technischen
+            Problemen realistisch garantiert werden können
+            .
+          </p>
+        </Element>
+      </Element>
+    </Element>
+  </Element>
+</Content>

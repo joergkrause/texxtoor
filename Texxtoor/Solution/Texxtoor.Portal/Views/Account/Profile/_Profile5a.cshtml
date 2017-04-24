@@ -1,0 +1,10 @@
+﻿@using Texxtoor.DataModels.Models.Users
+@model Texxtoor.DataModels.Models.Users.UserProfile
+@using(Html.BtFieldset(Loc("legend5a", @"Languages you're familiar with"))) {
+  @Html.LabelFor(m => m.LanguageMatrix,new{@class="control-label col-sm-3"})
+  <div class="editor-field-accordion col-md-9">
+    @Html.Action("LanguageMatrix", new { id = Model.Id })
+    <a href="#" class="languagematrix-add btn btn-sm btn-primary">@ViewResources.Action_Common_Profile_AddLanguage</a>
+    @Create.FieldHelpIcon(Loc("txtSkillLang", @"The languages that you can choose from are the languages supported by platform. You may add more in the info field.").ToString(), "Language", "")
+  </div>
+}

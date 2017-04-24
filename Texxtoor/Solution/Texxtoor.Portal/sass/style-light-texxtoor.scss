@@ -1,0 +1,15 @@
+﻿$TexxtoorClrDark: #006633; 
+$TexxtoorClrMedium: #3CAA37;
+$TexxtoorClrLight: #C8D200;
+$TexxtoorBwDark: #666666; 
+$TexxtoorBwMedium: #A1A1A1;
+$TexxtoorBwLight: #DDDDDD;
+$TexxtoorBlack: #000000;
+$baseWidth: 960px;   // view port
+$superWidth: 1200px; // max outbound
+@import url(http://fonts.googleapis.com/css?family=Merriweather|Merriweather+Sans:300,100italic,100) all;
+$baseFont: "Merriweather Sans","Trebuchet MS",sans-serif;
+$inputFont: "Merriweather Sans","Trebuchet MS",sans-serif;
+$headerFont: "Merriweather Sans","Trebuchet MS",sans-serif;
+
+@import "custom/style-light";

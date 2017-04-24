@@ -1,0 +1,21 @@
+﻿@model int?
+<div class="editor-mood">
+  <span>@Loc("noMood", @"No")</span>
+  <input type="radio" name="Mood" id="Mood-0" value="0" @(Model == null ? "checked='checked'" : "") />
+  &nbsp;&nbsp;
+  <span>:-((</span>
+  <input type="radio" name="Mood" id="Mood-1" value="1" @(Model.GetValueOrDefault() == 1 ? "checked='checked'" : "") />
+  &nbsp;&nbsp;
+  <span>:-(</span>
+  <input type="radio" name="Mood" id="Mood-2" value="2" @(Model.GetValueOrDefault() == 2 ? "checked='checked'" : "") />
+  &nbsp;&nbsp;
+  <span>:-|</span>
+  <input type="radio" name="Mood" id="Mood-3" value="3" @(Model.GetValueOrDefault() == 3 ? "checked='checked'" : "") />
+  &nbsp;&nbsp;
+  <span>:-)</span>
+  <input type="radio" name="Mood" id="Mood-4" value="4" @(Model.GetValueOrDefault() == 4 ? "checked='checked'" : "") />
+  &nbsp;&nbsp;
+  <span>:-))</span>
+  <input type="radio" name="Mood" id="Mood-5" value="5" @(Model.GetValueOrDefault() == 5 ? "checked='checked'" : "") />
+</div>
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

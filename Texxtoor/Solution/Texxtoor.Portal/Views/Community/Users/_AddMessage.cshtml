@@ -1,0 +1,8 @@
+﻿@model Texxtoor.DataModels.Models.Common.Message
+@using (Html.BeginForm("AddMessage", "Messaging", FormMethod.Post, new{id = "addMessageForm"})){
+  using (Html.BtFieldset(Loc("legend", @"Create new message"))){
+    <input type="hidden" id="receivers" name="receivers" value="@ViewBag.Receivers" />
+    @Html.EditorForModel()
+    @Button.FormSendButtons("addMessageSendButton", ViewResources.Action_Messaging_SendMail, "addMessageCancelButton", ViewResources.Button_CancelAndClose)
+  }
+}

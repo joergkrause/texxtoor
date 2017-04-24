@@ -1,0 +1,90 @@
+﻿@using Texxtoor.DataModels.ViewModels.Content
+@model Texxtoor.DataModels.Models.Reader.Orders.OrderProduct
+<div class="col-sm-6">
+  <div class="row">
+    <div class="col-sm-12">
+      @using (Html.BtBox(Loc("legendMedia", @"Media and Pricing"), System.Drawing.Color.Green, BtIcon.Money)) {
+        using (Html.BeginForm()) {
+          using (Html.BtFieldset(Loc("m", "Media"))) {
+        <div class="well well-sm">
+          @Loc("text1", @"Primarily any content provided by us is free. Some media we create for you individually have a production fee as shown below.")
+        </div>
+            <table>
+              @{
+                var rowspan = ((MultiSelectList) ViewBag.Medias).Count() - 1;
+                var first = true;
+              } 
+              @foreach (var item in (MultiSelectList)ViewBag.Medias) {
+                <tr>
+                  <td style="width: 100px">
+                    <label for="mediaSelector-@item.Value" style="width: 200px;">
+                      @switch (item.Text) {
+                        case "Web":
+                          <i class="@BtIcon.RssSign text-green">&nbsp;&nbsp;</i><small>RSS Feed</small>
+                          break;
+                        case "ePub":
+                        <i class="@BtIcon.Book text-green">&nbsp;&nbsp;</i><small>EPUB</small>
+                          break;
+                        case "Print":
+                        <i class="@BtIcon.Print text-red">&nbsp;&nbsp;</i><small>Print</small>
+                          break;
+                        case "PDF":
+                        <i class="@BtIcon.Adn text-orange">&nbsp;&nbsp;</i><small>PDF</small>
+                          break;
+                        case "iBook":
+                        <i class="@BtIcon.Apple text-red">&nbsp;&nbsp;</i><small>iBook</small>
+                          break;
+                        case "Kindle":
+                        <i class="@BtIcon.ShoppingCart text-red">&nbsp;&nbsp;</i><small>Kindle</small>
+                          break;
+                        case "AndroidApp":
+                        <i class="@BtIcon.Android text-red">&nbsp;&nbsp;</i><small>Android</small>
+                          break;
+                        case "Phone7App":
+                        <i class="@BtIcon.Windows text-red">&nbsp;&nbsp;</i><small>Windows</small>
+                          break;
+                        case "iPadApp":
+                        <i class="@BtIcon.Tablet text-red">&nbsp;&nbsp;</i><small>iPad</small>
+                          break;
+                      }
+                    </label>
+                  </td>
+                  <td style="width: 100px">
+                    <input title="@item.Text" @(item.Selected ? "checked='checked'" : "")
+                           class="ordermediadiv" 
+                           type="checkbox" id="mediaSelector-@item.Value" name="mediaSelector" value="@item.Value" />
+                  </td>
+                  @if (first) {
+                    first = false;
+                    <td rowspan="@rowspan" style="width: 300px; padding-left:25px">
+                      @Create.FieldHelpIcon(Html, m => m.Media)<br /><br />
+                      <small>@Loc("lblMedia", @"Tell us which media you like to use")</small>
+                    </td>
+                  }
+                </tr>
+              }
+            </table>
+          }
+          using (Html.BtFieldset(Loc("p", "Pricing"))) {
+        <label style="width: 200px">@Loc("lblPriceSale", @"Final Price (single sale)")</label>
+        <div class="editor-field">
+          <span id="lblFinalPriceSale" class="ordermediaspan">
+            @String.Format("{0:C}", 0)</span>
+          <input type="radio" name="subscription" value="false" checked="checked" />
+          @Create.FieldHelpIcon(Html, m => m.RealPrice)
+        </div>
+        <label style="width: 200px">@Loc("lblPriceSubscription", @"Final Price (subscription)")</label>
+            <div class="editor-field">
+              <span id="lblFinalPriceSubsc" class="ordermediaspan">
+                @String.Format("{0:C}", 0)</span>             
+              <input type="radio" name="subscription" value="true" /> 
+              @Create.FieldHelpIcon(Html, m => m.Subscription)
+            </div>
+        <small>@Loc("textSubscr", @"Monthly subscription includes all updates. Can be cancelled any time.")</small>
+          }
+        }
+      }
+
+    </div>
+  </div>
+</div>

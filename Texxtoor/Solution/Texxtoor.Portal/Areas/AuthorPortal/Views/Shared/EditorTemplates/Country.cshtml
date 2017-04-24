@@ -1,0 +1,12 @@
+﻿@using System.Collections
+@model IList<string>
+@{
+  var rm = (Texxtoor.DataModels.Models.Common.RunMode)HttpContext.Current.Application["RunMode"];
+}
+<div class="">
+  <input type="text" id="countryInput" name="countryList"
+         data-tokeninput
+         data-url="@Url.Action("CountryLookup", "Marketing", null)"
+         data-minchars="2"
+         data-theme="@rm.ToString().ToLowerInvariant()" /> @Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)
+</div>

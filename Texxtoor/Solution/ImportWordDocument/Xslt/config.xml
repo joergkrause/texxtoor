@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<replaces>
+  <tables>
+    <replace word="Tabelle" pattern="Tabelle\s*[0-9]+\.[0-9]+\s*"></replace>
+    <replace word="Table" pattern="Table\s*[0-9]+\.[0-9]+\s*"></replace>
+    <replace word="Tab" pattern="Tab\s*[0-9]+\.[0-9]+\s*"></replace>
+  </tables>
+  <listings>
+    <replace word="Listinguberschrift" pattern="Listing\s*[0-9]+\.[0-9]+\s*"></replace>
+    <replace word="Listing" pattern="Listing\s*[0-9]+\.[0-9]+\s*"></replace>
+    <replace word="ListingCaption" pattern="Listing\s*[0-9]+\.[0-9]+\s*"></replace>
+  </listings>
+</replaces>

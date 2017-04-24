@@ -1,0 +1,118 @@
+﻿@{
+  PageData["Title"] = Loc("title", "Payments");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("text1", @"This page shows all payments of all your projects. Find the total revenues and your share. See past, current, and future payments.");
+}
+@section HeadContent{
+  <script type="text/javascript">
+    $(function () {
+      UpdateAccountTransactionTable(0);
+    });
+
+    function UpdateAccountTransactionTable(page) {
+      $('#transactions').GridUnload();
+      $('#transactions').jqGrid({
+        url: '@Url.Action("AccountTransaction")',
+        ajaxGridOptions: {
+          cache: false,
+          type: 'POST',
+          datatype: 'json'
+        },
+        datatype: 'json',
+        colNames: ['Type',
+          'Amount',
+          'Date',
+          'Description',
+          'Code'],
+        colModel: [
+          { name: 'transactiontype', index: 'transactiontype', width: 130, search: true, editable: false, stype: 'select', searchoptions: { value: {@Html.Raw(ViewBag.TransactionTypesAsJsonForSearch) } } },
+          { name: 'amount', index: 'amount', width: 120, editable: false, search: true },
+          { name: 'createdat', index: 'createdat', width: 120, editable: false, search: false },
+          { name: 'description', index: 'description', width: 430, editable: false, search: true },
+          { name: 'transactionno', index: 'transactionno', width: 100, sortable: false, search: false, formatoptions: { keys: true, delbutton: true } }
+        ],
+        rowNum: 10,
+        rowList: [10, 20, 50, 100],
+        sortname: 'createdat',
+        sortorder: 'desc',
+        viewrecords: true,
+        gridview: true,
+        caption: 'Account Transactions',
+        pager: '#pager'
+      });
+      $('#transactions').jqGrid('filterToolbar', { searchOnEnter: true });
+      $("#transactions").jqGrid('setGridHeight', '232px');
+    }
+
+    ui = new Dialog({
+      formId: '#WithdrawForm',
+      formDivId: '#WithdrawAmount',
+      formAction: '@Url.Action("WithdrawAmount")',
+      sendBtnId: '#WithdrawAmountSendButton',
+      cancelBtnId: '#WithdrawAmountCancelButton',
+      onShow: function () { $('#btnWithdraw').hide(); },
+      onClose: function () { $('#btnWithdraw').show(); }
+    },
+      {
+        formId: '#WithdrawForm',
+        formDivId: '#WithdrawAmount',
+        formAction: '@Url.Action("WithdrawAmount")',
+        sendBtnId: '#WithdrawAmountSendButton',
+        cancelBtnId: '#WithdrawAmountCancelButton'
+      },
+      {},
+      {
+        formId: '#WithdrawForm',
+        formDivId: '#AccountTransaction',
+        formAction: '@Url.Action("AccountTransaction")'
+      });
+
+      ui.updateTable();
+  </script>
+  @Script.SetTableBehavior(true)
+  <script src="~/Scripts/jquery/jqgrid/jquery.jqGrid.src.js"></script>
+  <script src="~/Scripts/jquery/jqgrid/i18n/grid.locale-@(new System.Globalization.CultureInfo(Culture).TwoLetterISOLanguageName).js"></script>
+  <link href="~/Scripts/jquery/jqgrid/css/ui.jqgrid.css" rel="stylesheet" />
+  <link href="~/Scripts/jquery/DataTable/demo_table_jui.css" rel="stylesheet" />
+  <link href="~/Scripts/jquery/DataTable/jquery.dataTables.css" rel="stylesheet" />
+  <link href="~/Scripts/jquery/DataTable/jquery.dataTables_themeroller.css" rel="stylesheet" />
+  <script src="~/Scripts/jquery/DataTable/jquery.dataTables.js"></script>
+}
+<h2>@Loc("titleWithdraw", "Withdraw Money")</h2>
+@using (Html.BtDiv(BtStyle.WellAndSmall)) {
+  @Loc("txtxWithDraw", "If you have any money in our internal accounting system you can withdraw to the primary payment account. The primary account is set in your profile, e.g. a PayPal id.")
+  if ((bool)ViewBag.NoPaypal) {
+    using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+  @Loc("textNoPaypal", @"You have no Paypal-Id or payment method in your profile. Hence, we can't send you any money from your balance.")
+    }
+  } else {
+  @Create.FormButtonOnClick("btnWithdraw", "ui.editElement()", ViewResources.Action_Common_Payment_WithDraw, "btn-danger pull-right")
+  }
+  <br />  <br />
+
+}
+@Create.ContentFormEmpty("WithdrawAmount")
+<h2>@Loc("titleAccount", "Your Balance")</h2>
+@using (Html.BtDiv(BtStyle.WellAndSmall)) {
+  @Loc("textAccount", @"The balance shown here is the summary of all former transactions.")
+  <div class="PaymentDiv1 pull-right">
+    @ViewBag.Balance &euro;
+  </div>
+  <br />  <br />
+
+}
+<h2>@Loc("titleTransactionDetails", "Your Transactions Details")</h2>
+@using (Html.BtDiv(BtStyle.WellAndSmall)) {
+  @Loc("txtTransaction", "The table below shows all historical transactions in your account, beginning with the most recent.")
+}
+<table id="transactions">
+  <tr>
+    <td />
+  </tr>
+</table>
+<div id="pager" style="height: 1%"></div>
+@if (User.IsInRole("Author")) {
+  @Create.ActionTask("btnRev", true, Url.Action("Revenues", "Marketing", new { area = "AuthorPortal" }), ViewResources.LinkButton_Common_Revenues)
+  @Create.ActionTask("btnStat", true, Url.Action("Stats", "Marketing", new { area = "AuthorPortal" }), ViewResources.LinkButton_Common_Stats)
+}
+@Create.ActionTask("btnMsg", false, Url.Action("Index", "Messaging", new { area = "" }), ViewResources.LinkButton_Common_Mail)

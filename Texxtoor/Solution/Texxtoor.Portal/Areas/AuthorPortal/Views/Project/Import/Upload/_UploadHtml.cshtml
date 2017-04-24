@@ -1,0 +1,22 @@
+﻿@model int
+@using (Html.BeginForm("Upload", "Project", FormMethod.Post, new Dictionary<string, object>() { { "id", "uploadHtmlForm" }, { "enctype", "multipart/form-data" } })) {
+  <input type="hidden" name="id" value="@Model" />
+  <input type="hidden" name="upload" value="@((string)ViewBag.Type)" />
+  using(Html.BtFieldset(Loc("legendImportDocx", "Upload HTML File"))) {
+    <label for="file">
+      @Loc("lblUpload", "Select your file (*.zip)"):
+    </label>
+    <div class="editor-field">
+      <span class="btn btn-success fileinput-button"><i class="icon-plus icon-white"></i><span>Add files...</span><input name="file" type="file"></span>
+      <div id="progress" class="hidden-to-show">
+        <img src="~/Content/loading.gif" class="ProjectImportImg"
+          alt="Uploading..." />
+      </div>
+    </div>
+    <div class="well well-sm">
+      @Loc("txtExpl", "To upload HTML open Word, load your file, export to disk using the option 'Website, filtered'. This results in a *.htm file and" +
+                      "a folder with the very same name that contains the image files. Create a ZIP-File of this and upload the zipped content here.")
+    </div>
+    @Button.FormSendButtons("uploadHtmlSendButton", ViewResources.Action_Reader_Library_Upload, "uploadHtmlCancelButton", ViewResources.Button_CancelAndClose)
+  }
+}

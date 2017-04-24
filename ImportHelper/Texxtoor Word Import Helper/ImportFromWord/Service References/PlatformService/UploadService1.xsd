@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Texxtoor.Portal.ServiceApi.Services.ServiceDtos" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Texxtoor.Portal.ServiceApi.Services.ServiceDtos" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfServiceElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceElement" nillable="true" type="tns:ServiceElement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfServiceElement" nillable="true" type="tns:ArrayOfServiceElement" />
+  <xs:complexType name="ServiceElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Children" nillable="true" type="tns:ArrayOfServiceElement" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceElement" nillable="true" type="tns:ServiceElement" />
+  <xs:complexType name="DocumentProperties">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllowChapters" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowMetaData" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ChapterDefault" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentLanguage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ListingSnippetDefault" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SectionDefault" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShowNumberChain" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TextSnippetDefault" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentProperties" nillable="true" type="tns:DocumentProperties" />
+  <xs:complexType name="ArrayOfComment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Comment" nillable="true" type="tns:Comment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfComment" nillable="true" type="tns:ArrayOfComment" />
+  <xs:complexType name="Comment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Comment" nillable="true" type="tns:Comment" />
+</xs:schema>

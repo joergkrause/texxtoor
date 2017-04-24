@@ -1,0 +1,6 @@
+﻿@using Texxtoor.DataModels.Models.Content
+@model IEnumerable<Resource>
+@foreach (var res in Model.OfType<ResourceFile>()) {
+  @Html.Partial("Finder/_Item", res, new ViewDataDictionary { { "Labels", Model.OfType<ResourceFolder>() },
+    {"TabName", "default-content"} })
+}

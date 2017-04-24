@@ -1,0 +1,42 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using System.Reflection
+@using Texxtoor.DataModels.Models.Reader.Orders
+@model IPagedList<Texxtoor.DataModels.Models.Reader.Orders.OrderProduct>
+@if (Model == null || !Model.Any()) {
+  <div class="alert alert-warning">@Loc("textErr", @"There are no items from previews orders.")</div>
+} else {
+  @Html.Partial("_Pagination", PaginationViewModel<Texxtoor.DataModels.Models.Reader.Orders.OrderProduct>.Create(Model, "javascript:ui.updateTable" +
+                                                                                                                        "({page}, '{order}', '{dir}', {pagesize});", true, m => m.Name, m => m.CreatedAt))
+  <div class="multilist">
+    @foreach (var item in Model) {
+      var name = Enum.GetName(typeof(FullFillmentState), item.Store.FullFillment);
+      var localizeAttribute = typeof(FullFillmentState).GetField(name).GetCustomAttribute(typeof(DisplayAttribute), true) as DisplayAttribute;
+      var locName = (localizeAttribute != null) ? localizeAttribute.GetName() : name;            
+      <div class="listitem">
+        <div class="firstRow">
+          @Badges.NewItem(item.Name, item.CreatedAt, TimeSpan.FromDays(5))
+        </div>
+        <div class="secondRow">
+          @Loc("text", @"Order <em><span data-args='0' data-desc='Order Name'>{0}</span></em> 
+          was created at <em><span data-args='1' data-desc='At'>{1}</span></em>.",
+          item.Name,
+          item.CreatedAt.ToLongDateString() + " " + item.CreatedAt.ToShortTimeString())
+          @if (item.Store != null) {
+            <span class="alert alert-warning">
+              @Loc("txtNo", "Cannot remove this product, because it has been ordered already.")
+            </span>
+          }
+          @Loc("state", "The order is currently in the fullfillment state <em><span>{2}</span></em>", locName)
+        </div>
+        <div class="thirdRow">
+          <div class="optionFields">
+            @Create.ActionLink("btnOrderNow", true, Url.Action("ReOrder", "Orders", new { id = item.Id }), ViewResources.Action_Product_OrderAgain)
+            @if (item.Store == null) {
+              @Create.ActionClick("btnOrderDelete", true, "DeletePreOrder(" + item.Id + "," + Model.PageNumber + ")", Loc("lnkRemove", "Remove Permanently").ToHtmlString())
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

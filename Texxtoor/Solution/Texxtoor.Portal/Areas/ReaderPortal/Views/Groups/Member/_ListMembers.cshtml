@@ -1,0 +1,60 @@
+﻿@model IPagedList<Texxtoor.DataModels.Models.Users.User>
+@Html.Partial("_Pagination", PaginationViewModel<Texxtoor.DataModels.Models.Users.User>.Create(Model, "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});",
+new List<IDictionary<string, string>>(
+  new[] {
+new Dictionary<string, string> {
+    {"id", "addButton"},
+    {"action", "ui.addElement()" },
+    {"text", ViewResources.Action_Reader_AddMember},
+    {"cssclass", "btn-primary"}},
+new Dictionary<string, string> {
+    {"id", "btnSendAll"},
+    {"action", "CreateMessageAll()"},
+    {"text", ViewResources.Action_Reader_MessageToMembers},
+    {"cssclass", "btn-default"}
+  }}), true, m => m.UserName))
+<div class="multilist">
+  @foreach (var item in Model) {
+    <div class="listitem">
+      <div class="firstRow">
+        <img src="/Tools/GetImg/@item.Profile.Id?res=50x70&c=MemberThumbnail" class="image pull-left" /> &nbsp;&nbsp;
+        <a href="@Url.Action("ShowProfile", "Community", new { id = item.Id, area = "" })">
+          @item.UserName
+        </a>
+        @if (item.Id == (int)ViewBag.GroupAdmin) {
+          @BtIcon.IconHtml(BtIcon.Medkit)
+        }
+      </div>
+      <div class="secondRow">
+        <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+        <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+          @Loc("txtGroupUser", @"
+        User <em><span data-args='0' data-desc='User'>{0}</span></em>,
+      can be contacted via mail at <em><span data-args='1' data-desc='Mail'>{1}</span></em>.
+        User joined the group at <em><span data-args='2' data-desc='Date'>{2}</span></em>.",
+            item.UserName,
+            item.Email,
+            item.CreatedAt.ToLongDateString())
+          @if (item.Id == (int)ViewBag.GroupAdmin) {
+            <div class="alert alert-warning well-sm">@Loc("txtGroupAdmin", @"This is the group's admin account and cannot be changed.")</div>
+          }
+        </div>
+      </div>
+      <div class="thirdRow">
+        <div class="optionFields" data-item="@item.Id">
+          @if (item.Id != (int)ViewBag.GroupAdmin) {
+            <a href="#" class="btn btn-danger btn-sm" id="delButton" onclick="ui.deleteElement('@item.Id') ">
+              @ViewResources.Action_Reader_DeleteMember
+            </a>
+            <a href="#" class="btn btn-primary btn-sm" id="messageButton" onclick="CreateMessage('@item.Id') ">
+              @ViewResources.Action_Groups_SendMessage
+            </a>
+            @Html.ActionLink(ViewResources.Action_Reader_ShowProfile, "ShowProfile", "Community", new { id = item.Profile.Id, area = "" }, new { @class = "btn btn-primary btn-sm" })
+          }
+          @Html.ActionLink(ViewResources.Tools_Groups, "Groups", "Groups", new { id = (int)ViewBag.ReaderGroup }, new { @class = "btn btn-default btn-sm" })
+
+        </div>
+      </div>
+    </div>
+  }
+</div>

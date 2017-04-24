@@ -1,0 +1,112 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using Texxtoor.DataModels.Models.Author
+@using Texxtoor.ViewModels.Common
+@using Texxtoor.ViewModels.Author
+@model TeamOverviewModel
+@{
+  var isSingleView = (bool)(ViewData["TeamSingleView"] ?? false); // if on detail page exclude some functions
+}
+<div class="firstRow">
+  <img class="img img-thumbnail" style="margin-right: 10px; float: left; width: 64px; height: 64px;" src="@Url.Action("GetImg", "Tools", new { area = "", id = Model.Team.Id, c = "Team", res = "64x64", nc = true, t = DateTime.Now.Ticks })" alt="@Model.TeamName" />
+  @Badges.NewItem(Model.TeamName, Model.Team.CreatedAt, TimeSpan.FromDays(2))
+</div>
+<div class="secondRow">
+  <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+  <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+    <div style="min-height: 64px">
+      @if (!String.IsNullOrEmpty(Model.Team.Description)) {
+        @:@Loc("textTeamName", @"This is team <em><span data-args='0' data-desc='Team Name'>{0}</span></em>.", Model.Team.Name)
+        @:@Html.Raw(Model.Team.Description)
+    }
+    </div>
+    @Loc("txtMemberInSingle", "This team is for this project: <em>{0}</em>", String.Join(", ", Model.Team.Projects.Where(p => p.Active).Select(p => p.Name).ToArray()))
+    @if (Model.CurrentUserIsLead) {
+      @:@Loc("textIsLead", @"You're the team's lead author or creator.")
+    }
+    @Loc("textInfo",
+      @"The team is currently <em><span data-args='0' data-desc='Active'>{0}</span></em>.
+               It started at <em><span data-args='1' data-desc='Date'>{1}</span></em>.
+               It has <em><span data-args='2' data-desc='Member Count'>{2}</span></em> members, and
+               <em><span data-args='3' data-desc='Project Count'>{3}</span></em> projects.",
+      Model.Team.Active ? Loc("txtActive", "active").ToString() : Loc("txtInActive", "inactive").ToString(),
+      Model.Team.CreatedAt.ToShortDateString(),
+      Model.Team.Members.Count,
+      Model.Team.Projects.Count(p => p.Active) + "/" + Model.Team.Projects.Count(p => !p.Active))
+  </div>
+</div>
+<div class="thirdRow">
+  <div class="optionFields" data-item="@Model.Team.Id">
+    @{
+      var options = new List<OptionField>();
+    }
+    @if (!isSingleView) {
+      if (Model.CurrentUserIsLead) {
+        options.Add(new OptionLinkField("btnAddNew", false, Url.Action("AddMember", new { id = Model.Team.Id }), ViewResources.Action_Team_AddContributor));
+        //options.Add(new OptionLinkField("btnBids", false, Url.Action("MemberBidding", new { id = Model.Team.Id }), ViewResources.Action_Team_PostAJob));
+        if ((Model.Team.Active == false || Model.Team.Projects.Count == 0 && Model.Team.Members.Count == 1) || (Model.Team.Active && Model.Team.Projects.Count(p => p.Active) == 0 && Model.Team.Projects.Count(p => !p.Active) > 0)) {
+          options.Add(new OptionClickField("btnDelete", false, "ui.deleteElement('" + Model.Team.Id + "')", ViewResources.Action_Team_DeleteTeam, BtStyle.ButtonDanger));
+        } else {
+          options.Add(new OptionClickField("btnDelete", false, "", ViewResources.Action_Team_DeleteTeam, "btn-danger disabled") {
+            HtmlProperties = new Dictionary<string, object> { { "title", Loc("deActivatedTeam", "You cannot delete this team. It has either active members or projects.") } }
+          });
+        }
+        options.Add(new OptionClickField("btnEdit", false, "ui.editElement('" + Model.Team.Id + "')", ViewResources.Action_Team_Edit));
+        options.Add(new OptionLinkField("btnManage", true, Url.Action("Details", new { id = Model.Team.Id }), ViewResources.Action_Team_ManageTeam));
+      } else {
+        options.Add(new OptionLinkField("btnHome", true, Url.Action("Details", new { id = Model.Team.Id }), ViewResources.Action_Team_TeamsRoom));
+      }
+      <a href='#' class="btn btn-sm btn-success teamPopup" data-item="@Model.Team.Id">
+        @Loc("textMembersShow", @"Show member's roles")
+      </a>
+      if (Model.Team.Projects.Any(p => p.Active)) {
+        <div class="btn-group dropdown">
+          <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+            @String.Format(ViewResources.TasksButton_MessageBoard_ForProject, "")...<span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            @foreach (var project in Model.Team.Projects.Where(p => p.Active)) {
+              <li>
+                @Create.ActionLink("gotoMessageBoard", true, Url.Action("MessageBoard", "Project", new { id = @project.Id }), "..." + project.Name)
+              </li>
+            }
+          </ul>
+        </div>
+      }
+    }
+    @Html.Partial("_OptionFields", options)
+  </div>
+  @if (!isSingleView) {
+    <div class="teamPopupForm" data-item="@Model.Team.Id" title="@Model.Team.Name">
+      @using (Html.BtPanel(Model.Team.Name, "green")) {
+        foreach (var member in Model.Team.Members) {
+          <div style="float: left; margin-right: 10px; @(member.TeamLead ? "background-color: beige;" : "")">
+            @if (member.Member == null) {
+              continue;
+            }
+            <span class="ListSpan0">
+              @if (member.Member.Profile != null) {
+                @Create.ImageAction("", Url.Action("ShowProfile", "Community", new { area = "", id = member.Member.Profile.Id }), "/Tools/GetImg/" + member.Member.Profile.Id + "?c=MemberThumbnail&res45x60", true, "thumb45x60")
+              }
+            </span>
+            <div class="marginRight5">
+              @{
+          var localizedRoles = new List<string>();
+              }
+              <em>@member.Member.UserName</em> @Loc("is", "is")<br />
+              @{
+          var rs = Enum.GetValues(typeof(ContributorRole)).Cast<ContributorRole>();
+          localizedRoles.AddRange(from r in rs
+                                  where member.Role.ContributorRoles.HasFlag(r)
+                                  select typeof(ContributorRole).GetField(r.ToString()).GetCustomAttributes(typeof(DisplayAttribute), true).Cast<DisplayAttribute>().Single()
+                                    into attr
+                                    select attr.GetName());
+              }
+              <em>@Html.Raw(String.Join("</em>, <em>", localizedRoles.ToArray()))</em>
+            </div>
+          </div>
+        }
+        <button class="btn btn-primary pull-right teamPopUpClose">@ViewResources.Button_CancelAndClose</button>
+      }
+    </div>
+  }
+</div>

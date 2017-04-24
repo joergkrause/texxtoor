@@ -1,0 +1,24 @@
+{
+  "name": "TexxtoorEasy",
+  "version": "0.0.1",
+  "description": "Texxtor Easy Author Platform",
+  "authors": [
+    "Joerg<IsAGeek>"
+  ],
+  "license": "MIT",
+  "homepage": "www.texxtoor.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "bootstrap": "~3.3.5",
+    "angularjs": "~1.4.1",
+    "breeze-client": "~1.5.4"
+  }
+}

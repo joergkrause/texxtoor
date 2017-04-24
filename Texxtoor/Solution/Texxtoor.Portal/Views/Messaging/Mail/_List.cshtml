@@ -1,0 +1,58 @@
+﻿@using Texxtoor.ViewModels.Common
+@model Texxtoor.BaseLibrary.Core.Utilities.Pagination.IPagedList<Texxtoor.DataModels.Models.Common.Message>
+@Html.Partial("_Pagination", PaginationViewModel<Texxtoor.DataModels.Models.Common.Message>.Create(Model,
+"javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});",
+new Dictionary<string, string> {
+    {"id", "btnAddMessage"},
+    {"href", "javascript: ui.addElement()" },
+    {"text", ViewResources.Action_Messaging_SendMail},
+    {"cssclass", "btn-primary"}
+  },
+ true, m => m.Subject, m => m.CreatedAt))
+@if (!Model.Any()) {
+  <div class="notification">
+    @Loc("text1", @"There are no messages for you.")
+  </div>
+} else {
+  <div class="multilist">
+    @foreach (var item in Model) {
+      <div class="listitem">
+        <div class="firstRow">
+          @Badges.NewItem(item.Subject, item.CreatedAt, TimeSpan.FromDays(1))
+        </div>
+        <div class="secondRow">
+          <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+          <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+
+            @{
+      var everyBody = Loc("txtEverybody", "Everybody").ToString();
+      var system = Loc("txtSystem", "texxtoor System").ToString();
+            }
+            @Loc("txtInfo", @"Message from <em><span data-args='0' data-desc='Message'>{0}</span></em> send to
+          <em><span data-args='1' data-desc='To'>{1}</span></em> came in at <em><span data-args='2' data-desc='Date'>{2}</span></em>
+          <em><span data-args='3' data-desc='Time'>{3}</span></em>",
+              (item.Sender == null ? everyBody : item.Sender.UserName),
+              (item.Receiver == null ? system : item.Receiver.UserName),
+              item.CreatedAt.ToLongDateString(),
+              item.CreatedAt.ToShortTimeString())
+            <div class="listDiv">
+              <strong>@item.Subject</strong><br />
+              @item.Body.Ellipsis(200)
+            </div>
+          </div>
+        </div>
+        <div class="thirdRow">
+          <div class="optionFields" data-item="@item.Id">
+            @Create.ActionClick("delBtn", true, "deleteElement(" + item.Id + ")", ViewResources.Action_Common_Mail_Delete)
+            @if (((string)ViewBag.Filter) == "In") {
+              @Create.ActionClick("radBtn", true, "ui.editElement(" + item.Id + ")", ViewResources.Action_Common_Mail_ReadAndAnswer)
+              @*@Create.ActionLink("fwdBtn", true, Url.Action("Forward", new { id = item.Id }), ViewResources.Action_Common_Mail_Forward)*@
+              @Create.ActionLink("spmBtn", true, Url.Action("ReportAsSpam", new { id = item.Id }), ViewResources.Action_Common_Mail_ReportAsSpam)
+              @*@Create.ActionLink("dspBtn", true, Url.Action("ReportAsSpam", new { id = item.Id, delete = true }), ViewResources.Action_Common_Mail_DeleteAndSpam)*@
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}

@@ -1,0 +1,42 @@
+﻿@model IList<Texxtoor.ViewModels.Shared.Common.IMultilistViewModel>
+<script>
+  $(document).on('mouseover', '[data-area=infobox]', function () { $(this).find('div[data-type=infobox]').show(); });
+  $(document).on('mouseout', '[data-area=infobox]', function () { $(this).find('div[data-type=infobox]').hide(); });
+  $(document).on('mouseout', '[data-type=infobox]', function () { $(this).hide(); });
+  $(document).on('click', '[data-area=close]', function () { $(this).parent().hide(); });
+</script>
+<div class="multilist">
+  @foreach (var item in Model) {
+    <div class="listitem draggable" style="height: 110px; background-color: #fafafa" data-drop-item="@item.ItemId" data-title="@item.ItemTitle" data-model="@item.ItemModel">
+      @if (item.InfoBoxTiles.Any()) {
+        <div data-area="infobox">
+          @{
+        var right = 15;
+          }
+          @foreach (var tile in item.InfoBoxTiles.Take(4)) {
+            @tile.GetContent(right, tile.ColorStyleClass)
+            right += 108;
+          }
+          <div class="hidden-to-show" data-type="infobox" style="background-color: #fff; color: black; height: 108px; z-index:1000; position: absolute; right: @(right)px; left: 18px; text-align:left; margin: -5px; padding: 15px 5px;">
+            <div class="pull-right" style="position:absolute; right:15px; cursor: pointer;" data-area="close"><i class="icon icon-minus"></i></div>
+            <div style="padding: 5px 35px 5px 15px">
+              @item.VerboseInfoText
+            </div>
+          </div>
+        </div>
+      }
+      <div class="firstRow">
+        @item.Title
+      </div>
+      <div class="secondRow">
+        @item.SubTitle
+      </div>
+      <div class="thirdRow">
+        <div class="optionFields" data-item="@item.OptionFieldItemId">
+          @Html.Partial("_OptionFields", item.OptionFields)
+        </div>
+      </div>
+
+    </div>
+  }
+</div>

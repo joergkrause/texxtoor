@@ -1,0 +1,28 @@
+.content
+{
+	position :relative ;
+	margin-top :0px;
+	margin-left:auto ;
+	margin-right :auto ;
+	width :960px;
+}
+
+.content p
+{
+	margin-top : 1.5em;
+}
+
+.content h1, .content h2
+{
+	margin: 1.5em 0;
+}
+
+.content h1
+{
+	font-size :2em;
+}
+
+.content h2
+{
+	font-size :1.5em;
+}

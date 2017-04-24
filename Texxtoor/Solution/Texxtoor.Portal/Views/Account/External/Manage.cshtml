@@ -1,0 +1,21 @@
+﻿@model Texxtoor.ViewModels.Users.ChangePassword
+@{
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+  PageData["Title"] = Loc("title", "Manage Account");
+  PageData["ShortHelp"] = Loc("logged", "You're logged in as <strong>{0}</strong>.", User.Identity.Name);
+}
+
+<div class="alert alert-success">@ViewBag.StatusMessage</div>
+
+  @if (ViewBag.HasLocalPassword) {
+    @Html.Partial("External/_ChangePasswordPartial")
+  } else {
+    @Html.Partial("External/_SetPasswordPartial")
+  }
+
+  <section id="externalLogins">
+    @Html.Action("RemoveExternalLogins")
+
+    <h3>@Loc("extTxt", "Add an external login service provider")</h3>
+    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+  </section>

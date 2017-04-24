@@ -1,0 +1,18 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Functions.ReaderGroup
+@{
+  var rm = (Texxtoor.DataModels.Models.Common.RunMode)HttpContext.Current.Application["RunMode"];
+}
+@using (Html.BeginForm("AddMember", "Groups", new { area = "ReaderPortal", id = Model.Id }, FormMethod.Post, new { id = "addMemberForm" })) {
+  using(Html.BtFieldset(Loc("legendGrp", @"Add New Member"))) {
+      <label for="usernames">@Loc("lblUser", @"Select by Username")</label>
+      <div class="editor-field">
+        <input id="usernames" name="usernames" type="text" data-tokeninput
+               data-url="@Url.Action("SearchUsers", "Groups", new {groupID = Model.Id })"
+               data-minchars="2" data-theme="@rm.ToString().ToLowerInvariant()" />
+      </div>
+    <div class="formsendButtons">
+      @Create.FormButtonOnClick("addMemberSendButton", "", ViewResources.Action_Reader_AddMember)
+      @Create.FormButtonOnClick("addMemberCancelButton", "", ViewResources.Button_CancelAndClose, BtStyle.ButtonDefault)
+    </div>
+  }
+}

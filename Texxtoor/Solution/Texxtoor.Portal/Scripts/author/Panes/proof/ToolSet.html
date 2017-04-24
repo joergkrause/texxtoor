@@ -1,0 +1,65 @@
+﻿<ul class="ribbon">
+  <li>
+    <ul class="orb">
+      <li><a href="javascript:void(0);" accesskey="1" class="orbButton" data-lc="ToolSet" data-p="Orb_Button"></a>
+        <ul>
+          <li><a href="#">
+            <img class="Editor_icon_doc_png" alt="New" /><span data-lc="ToolSet" data-p="Orb_Actions"></span></a>
+            <ul>
+              <li><a href="#" class="ribbon-button" data-command="showpopup" data-action="globalcomments">
+                    <img class="Editor_icon_plaintext_png" alt="Global Comments" /><span data-lc="ToolSet" data-p="Orb_Actions_GlobalComments"></span></a> </li>
+            </ul>
+          </li>
+          <li><a href="#">
+            <img class="Editor_code_24_png" alt="Save" /><span data-lc="ToolSet" data-p="Orb_Toc"></span></a>
+            <ul id="tocpane"></ul>
+          </li>
+          <li><a href="#">
+            <img class="Editor_icon_save_png" alt="Preview" /><span data-lc="ToolSet" data-p="Orb_FileDown"></span></a>
+            <ul>
+              <li><a href="#" class="ribbon-button" data-command="orb" data-action="html">
+                <img class="Editor_icon_otherformats_png" alt="HTML" /><span data-lc="ToolSet" data-p="Orb_HtmlPreview"></span></a>
+              </li>
+              <li><a href="#" class="ribbon-button" data-command="orb" data-action="epub">
+                <img class="Editor_icon_otherformats_png" alt="HTML" /><span data-lc="ToolSet" data-p="Orb_EpubPreview"></span></a>
+              </li>
+              <li><a href="#" class="ribbon-button" data-command="orb" data-action="pdf">
+                    <img class="Editor_icon_otherformats_png" alt="HTML" /><span data-lc="ToolSet" data-p="Orb_PdfPreview"></span></a>
+              </li>
+              <li class="ribbon-separator"></li>
+              <li><a href="#" class="ribbon-button" data-command="orb" data-action="download">
+                    <img class="Editor_icon_otherformats_png" alt="HTML" /><span data-lc="ToolSet" data-p="Orb_Download"></span></a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#">
+            <img class="Editor_icon_print_png" alt="Document Information" /><span data-lc="ToolSet" data-p="Orb_Props_DocumentInfo"></span></a>
+            <ul>
+              <li>Word Count:
+                <label id="docPropsWordCount"></label>
+              </li>
+              <li>Character Count:
+                <label id="docPropsCharacterCount"></label>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#" class="ribbon-button" data-command="orb" data-action="close">
+            <img class="Editor_icon_exit_png" alt="Close" /><span data-lc="ToolSet" data-p="Orb_Close"></span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <ul class="menu">
+      <li class="formatPane"><a accesskey="3" data-lc="ToolSet" data-p="Tab_Review"></a>
+        <ul data-load-partial="Review" class="loadPartial">
+        </ul>
+      </li>
+      <li class="writePane"><a accesskey="2" data-lc="ToolSet" data-p="Tab_Document"></a>
+        <ul data-load-partial="Document" class="loadPartial">
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>

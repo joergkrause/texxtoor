@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ConsumerMatrix>
+@using Texxtoor.DataModels.Models.Users
+<div id="consumerMatrixDiv">
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th>
+          @Loc("lblKeyword", "Keyword")
+        </th>
+        <th>
+          @Loc("lblTarget", "Target")
+        </th>
+        <th>
+          @Loc("lblLevel", "Level")
+        </th>
+        <th class="Width200"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var item in Model) {
+        <tr>
+          <td>
+            @(Html.TextBox("keyWord-" + item.Id, item.Keyword, new Dictionary<string, object>() { { "style", "width:100px" }, { "data-item", item.Id } }))
+          </td>
+          <td>
+            @(Html.DropdownForEnum<TargetType>("targets-" + item.Id, item.Target, new Dictionary<string, object>() { { "data-item", item.Id } }))
+          </td>
+          <td>
+            @(Html.DropdownForEnum<StageType>("stages-" + item.Id, item.Stage, new Dictionary<string, object>() { { "data-item", item.Id } }))
+          </td>
+          <td>
+            <div class="optionFields">
+              <a href="#" id="consumermatrix-remove-@item.Id" class="consumermatrix-remove btn btn-danger btn-xs" data-item="@item.Id" @((Model.Count() > 1) ? "" : "disabled='disabled'")>
+                @ViewResources.Action_Common_Profile_Remove
+              </a>
+              <a href="#" id="consumermatrix-save-@item.Id" class="consumermatrix-save btn btn-primary btn-xs" data-item="@item.Id">
+                @ViewResources.Action_Common_Profile_Save
+              </a>
+            </div>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

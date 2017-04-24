@@ -1,0 +1,29 @@
+﻿<div class="book-item" data-id="{{opusId}}">
+  <div class="cover">
+    <a style="display: inline-block; overflow: hidden;" href="#">
+      <img ng-src='{{coverUrl}}' alt="" width="117" height="165" />
+    </a>
+  </div>
+  <div class="description">
+    <div>
+      <p class="small">{{teamMemberRole}}</p>
+      <h2>{{bookTitle}}</h2>
+      <h3>{{bookDetails}}</h3>
+      <p><i>{{author}}</i></p>
+    </div>
+    <hr />
+
+    <ng-switch on="messageCount">
+      <div class="mail-bar" ng-switch-when="0">
+        <div class="mail-icon-sx disabled"></div>
+        <span class="disabled">Keine neuen Nachrichten</span>
+      </div>
+      <div class="mail-bar" ng-switch-default>
+        <div class="mail-icon-sx"></div>
+        <div class="speech-bubble"><div><span>{{messageCount}}</span></div></div>
+        <span>neue Nachrichten</span>
+      </div>
+    </ng-switch>
+  </div>
+</div>
+

@@ -1,0 +1,52 @@
+﻿@model Texxtoor.DataModels.Models.Author.Invoice
+
+@{
+    PageData["Title"] = Loc("title1", "Invoices Details");
+    Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+}
+@using (Html.BeginForm()){
+  using (Html.BtFieldset(Loc("legendGrp", @"Invoice Details"))){
+    <label>Text</label>
+    <div class="editor-field">
+      @Model.Text
+    </div>
+    <label>Due</label>
+    <div class="editor-field">
+      @Model.BillingDate.AddDays(Model.DueDays)
+    </div>
+    <label>Creditor</label>
+    <div class="editor-field">
+      @Model.Creditor.UserName
+    </div>
+    <label>Debitor</label>
+    <div class="editor-field">
+      @Model.Debitor.UserName
+    </div>
+    <label>Paid</label>
+    <div class="editor-field">
+      @Model.Paid
+    </div>
+    <label>Tax (percentage)</label>
+    <div class="editor-field">
+      @Model.TaxPercentage
+    </div>
+    <label>With Tax</label>
+    <div class="editor-field">
+      @Model.WithTax
+    </div>
+    <label>Position</label>
+    <div class="editor-field">
+      @foreach (var pos in @Model.Positions){
+        @pos.Position
+        @pos.Amount<text>&euro;</text>
+        @pos.Text
+      }
+    </div>
+    <div class="formsendButtons">
+      @Create.FormButtonOnClick("btnPayInvoice", Url.Action("InvoicePayment", "Team"), "Pay Invoice")
+    </div>
+  }
+}
+  @Create.ActionTask("invoices", true, Url.Action("InvoicesIncoming", "Team", new { area = "AuthorPortal" }), "Incoming Invoices")
+
+

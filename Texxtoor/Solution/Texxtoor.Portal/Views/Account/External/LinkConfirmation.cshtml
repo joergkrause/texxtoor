@@ -1,0 +1,22 @@
+﻿@model Texxtoor.ViewModels.Users.ConfirmAssociation
+
+@{
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+  PageData["Title"] = Loc("title", @"Confirm account association");
+}
+<div class="well">
+  @Loc("textprovider", @"Confirm account association by entering below the code sent to your email id.")
+</div>
+@using (Html.BeginForm("ConfirmAssociation", "Account", new { ReturnUrl = ViewBag.ReturnUrl })) {
+  @Html.AntiForgeryToken()
+  if ((bool)ViewBag.HasError) {
+    <div class="alert alert-warning">
+      @Html.ValidationSummary(true)
+    </div>
+  }
+  @Html.EditorForModel()
+  @Html.HiddenFor(m => m.Email)
+  <div class="formsendButtons">
+    <input type="submit" value="@ViewResources.Action_Common_Confirm" class="btn btn-primary" />
+  </div>
+}

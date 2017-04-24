@@ -1,0 +1,66 @@
+﻿@using Texxtoor.BaseLibrary.Core.Utilities.Pagination
+@model IPagedList<Texxtoor.DataModels.Models.Author.TermSet>
+@if ((bool)ViewBag.IsGlobal) {
+  @Html.Partial("_Pagination", PaginationViewModel<Texxtoor.DataModels.Models.Author.TermSet>.Create(Model,
+    "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});",
+    true,
+    m => m.Name,
+    m => m.Project.Name))
+} else {
+  @Html.Partial("_Pagination", PaginationViewModel<Texxtoor.DataModels.Models.Author.TermSet>.Create(Model,
+    "javascript:ui.updateTable({page}, '{order}', '{dir}', {pagesize});",
+    new Dictionary<string, string> {
+      {"id", "createNewButton"},
+      {"action", "ui.addElement()"},
+      {"text", ViewResources.Action_Termset_CreateTermset},
+      {"cssclass", BtStyle.ButtonPrimary}
+    },
+    true,
+    m => m.Name,
+    m => m.Project.Name))
+}
+<div class="multilist">
+  @foreach (var item in Model) {
+    var owner = item.Project == null ? (item.Owner == null ? "N/a" : item.Owner.UserName) : item.Project.Team.TeamLead.UserName;
+    <div class="listitem">
+      <div class="firstRow">
+        @Badges.NewItem(String.Format("{0} - {1} is the owner, {2} element(s)", item.Name, owner, item.Terms.Count()), item.CreatedAt, TimeSpan.FromDays(2))
+      </div>
+      <div class="secondRow">
+        <i class="icon icon-2x icon-info pull-right" onmouseover="$(this).next('div[data-type=infobox]').show();" onmouseout="  $(this).next('div[data-type=infobox]').hide();"></i>
+        <div class="hidden-to-show alert alert-success well well-sm" data-type="infobox" style="position:absolute; z-index:1000; width:80%;box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.65);" onmouseout="$(this).hide();">
+
+          @Loc("text", @"
+        The termset <em><span data-args='0' data-desc='Name'>{0}</span></em>
+        was created at <em><span data-args='1' data-desc='At'>{1}</span></em>.
+        <span data-args='2' data-desc='Content'>{2}</span>.",
+          item.Name,
+          item.CreatedAt.ToShortDateString(),
+          item.Description.Ellipsis(200))
+          @if (item.Project == null) {
+            <div class="alert alert-warning">
+              @Loc("txtPubl", "The termset is a public global termset. Changes may apply to many projects.")
+            </div>
+          } else {
+            <div class="alert alert-info">@Loc("txtFor", "Termset applies to project") <em>@item.Project.Name</em>.</div>
+          }
+        </div>
+      </div>
+      <div class="thirdRow" data-item="@item.Id">
+        <div class="optionFields" data-item="@item.Id" data-value="@item.Name">
+          @Create.ActionClick("manageTermset-" + item.Id, false, "", ViewResources.Action_Termset_ManageTermset, "manageTermSet" & BtStyle.ButtonAndInfo)
+          @if (owner == User.Identity.Name) {
+            @Create.ActionClick("editTermset-" + item.Id, false, "ui.editElement('" + item.Id + "')", ViewResources.Action_Termset_ChangeTermset)
+            if ((bool)ViewBag.IsGlobal == false) {
+              @Create.ActionClick("delTermset-" + item.Id, false, "ui.deleteElement('" + item.Id + "')", ViewResources.Action_Termset_DeleteTermset, BtStyle.ButtonDanger)
+            } else {
+              <small class="text-red">@Loc("isGlob", "You cannot delete the private global list.")</small>
+            }
+          } else {
+            @Loc("isNoOwner", "You cannot delete or manage lists created by others.")
+          }
+        </div>
+      </div>
+    </div>
+  }
+</div>

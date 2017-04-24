@@ -1,0 +1,40 @@
+﻿@{
+  PageData["Title"] = Loc("titleService", "Author Services");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  PageData["ShortHelp"] = Loc("textAuthors", @"<strong>texxtoor</strong> provides many ways to increase quality, help authors to create sophisticated works and make them succeed.");
+}
+
+@section HeadContent{
+  <script>
+    $(function () {
+      ui = new Dialog(
+        {
+        },
+        {
+        },
+        {
+        },
+        {
+          formId: '#main',
+          formDivId: '#main',
+          formAction: '@Url.Action("AllPublishables", "Service")'
+        });
+      ui.updateTable();
+    });
+  </script>
+}
+<div class="well">
+  @Loc("text1", "Each author will get a welcome package, that helps to get started immediately. It's free and easy to use.")
+  <div class="btn-group">
+    <a href="~/Download/setup.exe" class="btn btn-sm btn-primary">@Loc("downloadWord", "MS Word Add-In (Click Once Executable)")</a>
+  </div>
+</div>
+
+@using (Html.BtBox(Loc("titleYour", "Your Reputation"), System.Drawing.Color.Red, BtIcon.VolumeUp, BtBoxOption.Collapse, BtBoxOption.IsCollapsed)) {
+  @Html.Action("Score")  
+}
+@Html.Heading(HtmlHeading.H2, Loc("titleRep", "Get Reputation"))
+@using (Html.BtDiv(BtStyle.WellAndSmall)){
+  @Loc("textRep", @"We're dedicated to quality. To assure high level output an advanced reputation system has been established. That's not meant to limit you, we're here to help.")
+}
+@Create.MainContentWithLoader()

@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Cms.CmsMenu>
+@foreach (var cmsMenu in Model) {
+  <div class="col-md-3 infobox-index @cmsMenu.Style" onclick="jumpAbsolute('@Url.Action("PageAlias", "Home", new { name = cmsMenu.DynamicData })')">
+    <img src="/Content/icons/front/@(cmsMenu.DynamicData).png" alt="@cmsMenu.Title" />
+    <span class="infobox-infotitle">
+      @cmsMenu.Title
+      @if (cmsMenu.Title.Length < 10) {
+        @:&nbsp; &nbsp; &nbsp;
+        }
+    </span>
+    <div class="infobox-infotext">
+      @Html.Raw(cmsMenu.Page.PageContent)
+    </div>
+    <div class="infobox-infomore">
+      <a href="@Url.Action("PageAlias", "Home", new { name = cmsMenu.DynamicData })">@ViewResources.MoreEllipses &nbsp;<i class="@BtIcon.ArrowRight"></i></a>
+    </div>
+  </div>
+}

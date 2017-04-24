@@ -1,0 +1,7 @@
+﻿@model Texxtoor.Models.Section
+@{
+  var level = Model.Deep;
+}
+<div>
+@Html.Raw(String.Format("<h{1} contenteditable='true' class='editableByTexxtoor editableSection integratedEditor saveableByTexxtoor' data-item='{2}'>{0}</h{1}><span class='editableNumberLevel{1}' >{3}{4}</span>", Model.RawContent, level, Model.Id, ViewData["ChapterNumber"], ViewData["SectionNumberChain"]))
+</div>

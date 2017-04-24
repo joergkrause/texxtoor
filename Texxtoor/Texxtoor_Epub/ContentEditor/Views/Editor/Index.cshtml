@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Texxtoor.Models.Document>
+@{
+  ViewBag.Title = "Online Editor Demo";
+}
+
+<h2>Online Editor Demo</h2>
+<p>
+  There are to documents that show the editor. 'ASP.NET Extensibility'
+  is a book, with roughly 380 pages
+  if it would be print in regular book size. It has nine chapters and a lot images,
+  tables, and sidebars. The other document
+  is like a blog entry, here with some demo content pulled from Wikipedia. It shows
+  a much simpler and shorter version.
+</p>
+@foreach (var document in Model) {
+  @:<strong>&rArr;</strong> @Html.ActionLink(document.Name, "Authoring", "Editor", new { id = document.Id }, null) (readonly)<br />
+}
+<p style="color: red">
+  You can edit and change anything, but the changes are not being saved.
+</p>
+<p>
+  @Html.ActionLink("Click here to create a new, empty, and editable document.", "NewDocument")
+</p>
+<p style="color: red">
+  This document will get saved, but to keep the demo clean a trigger will regularly remove these attempts.
+</p>
+<p>
+  Just click on the link to use the editor. When you start, the content is being reset
+  to default and connected to your session.
+  So, while editing it is yours, but we don't store any demo copies.
+</p>

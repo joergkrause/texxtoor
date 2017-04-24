@@ -1,0 +1,120 @@
+﻿@{
+  PageData["Title"] = Loc("title", "Questions and Answers&mdash;The Experts' Pages");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+  PageData["ShortHelp"] = Loc("textYes", @"Use this forum to ask and get answers to common questions.");
+}
+@section HeadContent {
+     <script>
+         $(document).ready(function () {
+             $("#addQuestion").css("display", "none");
+         });
+    </script>
+  <script type="text/javascript">
+    $(function () {
+      ui = new Dialog(
+        {
+          formId: '#addQuestionForm',
+          formDivId: '#addQuestion',
+          formAction: '@Url.Action("AddQuestion")',
+          sendBtnId: '#addQuestionSendButton',
+          cancelBtnId: '#addQuestionCancelButton',
+          onShow: function () {
+            $('#btnAddQuestion').hide();
+          },
+          onClose: function () {
+            $('#btnAddQuestion').show();
+          }
+        },
+        {
+          formId: '#editQuestionForm',
+          formDivId: '#editQuestion',
+          formAction: '@Url.Action("EditQuestion")',
+          sendBtnId: '#editQuestionSendButton',
+          cancelBtnId: '#editQuestionCancelButton',
+          onShow: function () {
+            $('#btnAddQuestion').hide();
+          },
+          onClose: function () {
+            $('#btnAddQuestion').show();
+          }
+        },
+        {
+        },
+        {
+          formId: '#main',
+          formDivId: '#main',
+          formAction: '@Url.Action("ListQuestionsForUser")',
+          onShow: function() {
+            loadAuthor(0, 'Subject', 'false');
+          }
+        });
+      ui.updateTable();
+    });
+      function update(type, page, order, dir) {
+        switch (type) {
+          case "Author":
+            loadAuthor(page, order, dir);
+            break;
+          case "user":
+            ui.updateTable(page, order, dir);
+            break;
+        }
+      }
+      function loadAuthor(page, order, dir) {
+        $.ajax({
+          url: '@Url.Action("ListQuestionsForAuthor")',
+          data: { page: page, order: order, dir: dir },
+        type: 'GET',
+        cache: false,
+        dataType: 'html',
+        success: function (data) {
+          $('#mainAuthor').html(data);
+        }
+      });
+    }
+    function answerFor(id) {
+      $.ajax({
+        url: '@Url.Action("AddAnswer")',
+        data: { id: id },
+        type: 'GET',
+        success: function (data) {
+          $("#addAnswer").html(data);
+          $("#addAnswer").fadeIn();
+          $("#addAnswerSendButton").on('click', function() {
+            var allVals = [];
+            allVals.push($('#Content').val());
+            allVals.push($('#Subject').val());
+            allVals.push($('#Mood').val());
+            allVals.push($('#Work').val());
+            allVals.push($('#Private').val());
+            allVals.push($('#Group').val());
+            allVals.push($('#Theme').val());
+            $.ajax({
+              url: '@Url.Action("AddAnswer")',
+              data: { id: id, question: JSON.stringify(allVals) },
+              type: 'POST',
+              success: function() {
+                ui.updateTable();
+              }
+            });
+            $("#addAnswerSendButton").die('click');
+          });
+        }
+      });
+    }
+  </script>
+}
+<h2>@Loc("titleUser", @"Ask your Author")</h2>
+  @if (Model == null) {
+    <div class="alert">
+     @Loc("textNo", @"There are currently now questions and answers.")
+    </div>
+  }
+@Create.ContentForm("addQuestion", @Html.Action("AddQuestion"),"New Question")
+@Create.ContentFormEmpty("editQuestion")
+@Create.MainContentWithLoader()
+<h2>@Loc("titleAiuthor", @"Answer your Readers")</h2>
+@Create.ContentFormEmpty("addAnswer")
+@Create.MainContentWithLoader("mainAuthor")
+
+@Create.ActionTask("", false, Url.Action("Groups", "Groups", new { area = "ReaderPortal" }), ViewResources.LinkButton_Reader_PublicGroups)

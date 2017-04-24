@@ -1,0 +1,16 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.Work
+
+@using (Html.BeginForm("AddWork", "Reader", new { area = "ReaderPortal" }, FormMethod.Post, new { id = "addBookForm" })) {
+  using (Html.BtFieldset(Loc("legend", "Create A Private Book"))) {
+    using (Html.BtDiv(BtStyle.WellAndSmall)) {
+      @Loc("text", @"A private book contains content you can work with, order as a printed copy, or for
+      reading on tablet device. You can use it to add bookmarks,
+      comments, or share it with your team, fellow pupils, or co-workers. You can add content
+      directly from our catalog, completely or in parts.
+      To work with parts of content check the 'My Content' function where content is stored
+      in convenient collections.")
+    }
+    @Html.EditorForModel()
+    @Button.FormSendButtons("addBookSendButton", ViewResources.Action_Library_AddContent, "addBookCancelButton", ViewResources.Button_CancelAndClose)
+  }
+}

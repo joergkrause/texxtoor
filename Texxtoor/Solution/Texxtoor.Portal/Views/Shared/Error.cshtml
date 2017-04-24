@@ -1,0 +1,19 @@
+﻿@model HandleErrorInfo
+
+@{
+  PageData["Title"] = "Error";
+  Layout = "~/Views/Shared/_LayoutCommon.cshtml";
+}
+
+<h1>
+  @Loc("lblErr", "Sorry, an error occurred while processing your request.")
+</h1>
+
+<p>
+  <ul>
+    <li>@Model.ControllerName</li>
+    <li>@Model.ActionName</li>
+    <li>@Model.Exception.Message</li>
+    <li>@( Model.Exception.InnerException != null ? Model.Exception.InnerException.Message : "")</li>
+  </ul>
+</p>

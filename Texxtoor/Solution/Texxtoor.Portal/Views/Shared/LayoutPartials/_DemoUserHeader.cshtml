@@ -1,0 +1,28 @@
+﻿@using Texxtoor.ViewModels.Users.Demo
+@if (User.Identity.Name == "DemoUser") {
+    string a = "";
+    var w = Context.Application["DemoWizard"] as IList<DemoWizard>;
+    var c = Culture.Split('-')[0];
+    var j = w.SingleOrDefault(dw => dw.Language == c && dw.DemoData.Pages.Any(p => p.Url == Context.Request.Url.PathAndQuery));
+    if (j != null) {
+      a = j.DemoData.Pages.Single(p => p.Url == Context.Request.Url.PathAndQuery).StepArray;
+    }
+    // This is the demo user account
+    <link href="~/Scripts/jquery/jguide/jguide.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery/jguide/jguide-0.0.3.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $().jguide(@Html.Raw(a));                
+        $('body')
+            .css("background-image", "url(/Content/icons/demomode.png)")
+            .css("background-repeat", "no-repeat")
+            .css("background-position", "center 45px")
+            .live('click', function (e) {
+              var bx = $(body).width() / 2;
+              if (e.pageX > (bx + 110) && e.pageX < (bx + 170) && e.pageY > 45 && e.pageY < 120) {
+                window.location.href = "/Account/LogOff";
+              }
+            });
+      });
+    </script>    
+  }

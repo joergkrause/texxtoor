@@ -1,0 +1,57 @@
+﻿@model IDictionary<string, string>
+@{
+  PageData["Title"] = Loc("title1", "Publishing News");
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+}
+<script>
+  $(function () {
+    $('.feed img').each(function () {
+      $(this).attr('src', '@ViewBag.BaseUrl' + $(this).attr('src'));
+    });
+  });
+</script>
+<table class="center-pane-divider gap" style="margin-left: 0">
+  <tr>
+    <td class="page-title"></td>
+    <td>
+      <div class="page-title">
+         @Loc("text1", "See what's going on in the publishing industry.")
+      </div>
+    </td>
+    <td class="icon">
+      <div style="cursor: pointer">
+        <img src="~/Content/images/social/facebook-white.png" />
+      </div>
+    </td>
+    <td class="icon">
+      <div style="cursor: pointer">
+        <img src="~/Content/images/social/twitter-white.png" />
+      </div>
+    </td>
+    <td class="page-title"></td>
+  </tr>
+</table>
+<div class="row" style="top:-18px; position: relative;">
+  <div class="col-md-3">
+    <div id="menu-placeholder"></div>
+  </div>
+  <div class="col-md-8">
+    <div class="page-columns">
+      @if (Model != null && Model.Any()) {
+        <div class="row feed">
+          @foreach (var news in Model) {
+            <h2>@news.Key</h2>
+            <p>@Html.Raw(news.Value)</p>
+          }
+        </div>
+      } else {
+        <div class="alert alert-warning">
+          @Loc("txtErr", "There are currently no news available.")
+        </div>
+      }
+    </div>
+  </div>
+</div>
+@section FooterContent {
+  @Html.Action("Show", "Navigation", new { menuName = "footer", area = "" })
+}

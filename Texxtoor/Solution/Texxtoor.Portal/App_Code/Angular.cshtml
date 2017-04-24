@@ -1,0 +1,62 @@
+﻿@* Generator: MvcHelper *@
+
+@using System.ComponentModel.DataAnnotations
+@using System.Linq.Expressions
+@helper NgInclude(string view) {
+  if (view.StartsWith("/")){
+    view = view.Substring(1);
+  }
+  <div data-ng-include="'/Areas/EasyAuthorPortalNew/@view'"></div>
+}
+
+@helper FieldHelpIcon(string description, string fieldName, string id) {
+  <i title="@description" data-content="@description" data-header="@fieldName" id="fh-@id" class="icon-h-sign fieldHelpIcon" ></i>
+}
+@functions
+{
+  public static HelperResult FieldHelpIcon<TModel>(System.Web.Mvc.HtmlHelper<TModel> html, Expression<Func<TModel, object>> expr) {
+    var name = "";
+    Type baseType = null;
+    if (expr.Body is MemberExpression) {
+      name = ((MemberExpression)expr.Body).Member.Name;
+      baseType = ((MemberExpression)expr.Body).Member.ReflectedType;
+    }
+    if (expr.Body is UnaryExpression) {
+      name = ((MemberExpression)((UnaryExpression)expr.Body).Operand).Member.Name;
+      baseType = ((MemberExpression)((UnaryExpression)expr.Body).Operand).Member.ReflectedType;
+    }
+    var desc = "";
+    var exnm = "";
+    if (baseType != null) {
+      var disp = baseType.GetProperty(name).GetCustomAttributes(true).OfType<DisplayAttribute>().FirstOrDefault();
+      if (disp != null) {
+        desc = disp.GetDescription();
+        exnm = disp.GetName();
+      }
+    }
+    return FieldHelpIcon(desc, exnm, name);
+  }
+
+  public static HelperResult FieldHelpIcon<TModel>(Expression<Func<TModel, object>> expr) {
+    var name = "";
+    Type baseType = null;
+    if (expr.Body is MemberExpression) {
+      name = ((MemberExpression)expr.Body).Member.Name;
+      baseType = ((MemberExpression)expr.Body).Member.ReflectedType;
+    }
+    if (expr.Body is UnaryExpression) {
+      name = ((MemberExpression)((UnaryExpression)expr.Body).Operand).Member.Name;
+      baseType = ((MemberExpression)((UnaryExpression)expr.Body).Operand).Member.ReflectedType;
+    }
+    var desc = "";
+    var exnm = "";
+    if (baseType != null) {
+      var disp = baseType.GetProperty(name).GetCustomAttributes(true).OfType<DisplayAttribute>().FirstOrDefault();
+      if (disp != null) {
+        desc = disp.GetDescription();
+        exnm = disp.GetName();
+      }
+    }
+    return FieldHelpIcon(desc, exnm, name);
+  }
+}

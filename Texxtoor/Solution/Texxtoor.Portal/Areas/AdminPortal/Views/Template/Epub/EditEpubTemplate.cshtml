@@ -1,0 +1,111 @@
+﻿@model Texxtoor.DataModels.Models.Content.Template
+@{
+  PageData["Title"] = "EPUB Templates";
+  Layout = Url.GetGlobalLayout("_LayoutTemplates", "AdminPortal");
+  var extension = Path.GetExtension(Model.InternalName).Substring(1);
+}
+@section HeadContent{
+  <link type="text/css" rel="stylesheet" href="~/Scripts/author/codemirror/codemirror.css" />
+  <link href="~/Scripts/author/codemirror/theme/eclipse.css" rel="stylesheet" />
+  <script src="~/Scripts/author/codemirror/codemirror.js"></script>
+  <script src="~/Scripts/author/codemirror/mode/css/css.js"></script>
+  <script src="~/Scripts/author/codemirror/mode/xml/xml.js"></script>
+  <script src="~/Scripts/author/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+  <style>
+    textarea#content {
+      color: black;
+      white-space: pre;
+      font-family: monospace;
+    }
+  </style>
+  <script>
+    $(function() {
+      var c = CodeMirror.fromTextArea($('textarea#content').get(0), {
+        lineNumbers: true,
+        mode: '@extension',
+        matchBrackets: true,
+        theme: 'eclipse',
+        smartIndent: true
+      });
+      c.setSize('100%', 450);
+      c.on('change', function() { $('input[data-type="savecode"]').removeClass('disabled'); });
+      $('input[data-type="savecode"]').on('click', function() {
+        c.save();
+        $.ajax({
+          url: '@Url.Action("EditEpubTemplate")',
+          data: {
+            id: @Model.Id,
+            templateGroupId: 0,
+            name: '@Model.InternalName',
+            content: $('textarea#content').val()
+          },
+          type: 'POST',
+          success: function(data) {
+            toastr.success(data.msg);
+          },
+          error: function(data) {
+            toastr.error(data.msg);
+          }
+        });
+      });
+      $('#editorTab').tabs({ selected: 0 });
+    });
+  </script>
+}
+<div class="well">
+  EPUB templates are primarily HTML and CSS files that add additional content to the autor's raw content.
+</div>
+<h2>Data and Editor</h2>
+<ul class="nav nav-tabs">
+  <li><a href="#info" data-toggle="tab">Properties</a></li>
+  <li class="active"><a href="#editor" data-toggle="tab">Edit Content</a></li>
+  <li><a href="#help" data-toggle="tab">Help</a></li>
+</ul>
+<div class="tab-content" id="editorTab">
+  <div class="tab-pane" id="info">
+    @if (Model == null) {
+      using (Html.BeginForm("CreateEpubTemplate")) {
+        using (Html.BtFieldset("Template Properties")) {
+          @Html.EditorForModel()
+        }
+      }
+    } else {
+      if (ViewBag.Message != null) {
+        using (Html.BtDiv(BtStyle.AlertAndWarning)) {
+          @:@ViewBag.Message
+        }
+      }
+      using (Html.BeginForm()) {
+        using (Html.BtFieldset("Template Properties")) {
+          @Html.HiddenFor(m => m.Id)
+          @Html.DisplayForModel()
+        }
+
+      }
+    }
+  </div>
+  <div class="tab-pane active" id="editor">
+    <div class="clearfix" id="profile_container">
+      @using (Html.BtFieldset("Template Editor (Click or double click in the text to start working)")) {
+        <div style="border: 1px solid black">
+          <textarea id="content" name="content" class="epubtextarea">
+            @if (Model != null && Model.Content != null) {
+              @Html.Raw(System.Text.Encoding.UTF8.GetString(Model.Content))
+            }
+          </textarea>
+        </div>
+      }
+    </div>
+    <br /><br />
+    <input type="submit" value="Save template" class="btn btn-primary disabled" data-type="savecode" />
+  </div>
+  <div class="tab-pane" id="help">
+    <h4>Namespace</h4>
+    The namespace xmlns="http://www.w3.org/1999/xhtml" is mandatory in XML files.
+    <h4>Placeholder</h4>
+    Elements with texxtoor namespaces, such as &lt;t:authorname /&gt; will be replaced on production.
+    <h4>Supported CSS Properties</h4>
+    Refer to <a href="http://www.idpf.org/accessibility/guidelines/content/style/reference.php" target="_blank">IDPF CSS Property Reference</a> for more
+    information about CSS allowed in EPUB 3 documents.
+  </div>
+</div>

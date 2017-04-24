@@ -1,0 +1,48 @@
+﻿@using Texxtoor.DataModels.Models.Common
+@model Texxtoor.DataModels.Models.Cms.CmsPage
+@{
+  RunMode rm = (RunMode) HttpContext.Current.Application["RunMode"];
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+  PageData["WithTask"] = false;
+  PageData["Title"] = rm.ToString();
+  PageData["IsLandingPage"] = true;
+}
+<div class="page-head">
+  <img src="~/Content/icons/Front/becomeauthor-black.png" /><span><a href="@Url.Action("PageAlias", "Home", new { name="authors"})">@Loc("hzAuthor", "Become Author")</a></span>
+  <img src="~/Content/icons/Front/usecontent-black.png" /><span><a href="@Url.Action("PageAlias", "Home", new { name="readers"})">@Loc("hzReader", "Get Content")</a></span>
+  <img src="~/Content/icons/Front/community-black.png" /><span><a href="@Url.Action("PageAlias", "Home", new { name="community"})">@Loc("hzComm", "Community")</a></span>
+</div>
+<table class="center-pane-divider gap" style="margin-left: 0">
+  <tr>
+    <td class="page-title"></td>
+    <td>
+      <div class="page-title">
+        @Html.Raw(Model.PageTitle)
+      </div>
+    </td>
+    <td class="icon">
+      <div style="cursor: pointer">
+        <img src="~/Content/images/social/facebook-white.png" />
+      </div>
+    </td>
+    <td class="icon">
+      <div style="cursor: pointer">
+        <img src="~/Content/images/social/twitter-white.png" />
+      </div>
+    </td>
+    <td class="page-title"></td>
+  </tr>
+</table>
+<div class="row" style="top:-8px; position: relative;">
+  <div class="col-md-3">
+    <div id="menu-placeholder"></div>
+  </div>
+  <div class="col-md-8">
+    <div class="page-columns">
+      @Html.Raw(Model.PageContent)
+    </div>
+  </div>
+</div>
+@section FooterContent {
+ @Html.Action("Show", "Navigation", new { menuName = "footer", area = "" }) 
+}

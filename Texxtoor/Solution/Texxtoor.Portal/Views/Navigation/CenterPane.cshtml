@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Cms.CmsMenu>
+@{
+  var buttons = "['#block-0', '" + String.Join("','", Model.Select(m => String.Format("#block-{0}", m.Id)).ToArray()) + "']";
+}
+<script>
+  $(function () {
+    $("#landing-navigation").jCarouselLite({
+      btnGo: @Html.Raw(buttons),
+      visible: 1,
+      auto: 45000,
+      speed: 300
+    });
+  });
+</script>
+<div class="section">
+  <div class="center-pane-container">
+    <div id="landing-navigation">
+      <ul>
+        <li class="landing overlay" style="background-image: url(/Content/images/landing/3.jpg)">
+          @*          <video width="500" height="400" style="border: 1px solid black" controls="controls" preload="auto">
+              <source src="~/Content/audio/130926_Texxtoor_43sec_small.mp4" type='video/mp4' />
+            </video>*@
+          <div class="col-md-3 pull-right">
+            <h1>@Loc("textWelcome", @"Welcome to texxtoor")</h1>
+            <div>
+              @Loc("textIntro", @"Making knowledge available is our mission. It has never been easier for authors to create and
+              distribute knowledge. And it is as easy as you could expect in the 21st century. This is <strong>texxtoor</strong>.")
+            </div>
+          </div>
+        </li>
+        @foreach (var menu in Model) {
+          <li class="landing default" style="background-image:url(@("Content/images/landing/" + menu.Order + ".jpg"))">
+
+            <div class="col-md-4 landing pull-right">
+              @if (menu.Page == null) {
+                continue;
+              }
+              @menu.Page.PageContent.Ellipsis(550, "<a href='" + Url.BuildMenuLink(menu) + "' title='" + menu.Title + "'>...</a>")
+              <br />
+              <small style="display: none">
+                @Loc("textMore", @"Read more...")<br />
+                @foreach (var item in menu.MenuItems) {
+                  <a href="@Url.BuildMenuLink(item)" title="@item.Title" class="button-more">... @item.Title</a><br />
+                }
+              </small>
+            </div>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>
+<table class="center-pane-divider">
+  <tr>
+    <td></td>
+    <td class="icon">
+      <div id="block-0" style="cursor: pointer">
+        <img src="~/Content/icons/bullet.png" />
+      </div>
+    </td>
+    @foreach (var menu in Model) {
+      <td class="icon">
+        <div id="block-@menu.Id" style="cursor:pointer">
+          <img src="~/Content/icons/bullet.png" />
+        </div>
+      </td>
+    }
+    <td></td>
+    <td class="icon">
+      <div style="cursor: pointer">
+        <a href="http://www.facebook.com/texxtoor">
+          <img src="~/Content/images/social/facebook-white.png" />
+        </a>
+      </div>
+    </td>
+    <td class="icon">
+      <div style="cursor: pointer">
+        <a href="http://www.twitter.com/joergisageek">
+          <img src="~/Content/images/social/twitter-white.png" />
+        </a>
+      </div>
+    </td>
+    <td class="icon">
+      <div style="cursor: pointer">
+      </div>
+    </td>
+    <td></td>
+  </tr>
+</table>

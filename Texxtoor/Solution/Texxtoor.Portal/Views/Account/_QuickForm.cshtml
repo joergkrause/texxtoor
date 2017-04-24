@@ -1,0 +1,59 @@
+﻿@using System.Web.Configuration
+@model Texxtoor.ViewModels.Users.RegisterViewModel
+<script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
+<script>
+  $(function () {
+    $('#btnQuickForm').click(function () {
+      var form = $('form#quickformform');
+      $.validator.unobtrusive.parse(form);
+      if (form.valid()) {
+        $.ajax({
+          url: '/Account/QuickForm',
+          data: form.serialize(),
+          type: 'POST',
+          dataType: 'json',
+          success: function (data) {
+            if (data.err) {
+              $('div#error').html(data.msg);
+            } else {
+              $('#quickFormAnswer').show();
+              $('#quickForm').hide();
+            }
+          }
+        });
+      }
+    });
+  });
+</script>
+<div id="quickFormAnswer" class="hidden-to-show">
+  <p>&nbsp;</p>
+  <h2>Vielen Dank!</h2>
+  <p>
+    Wir haben Ihre Anfrage erhalten. Wir setzen uns kurzfristig persönlich mit Ihnen in Verbindung, um über die 
+    Aufnahme Ihrer Inhalte zu sprechen. Wir freuen uns darauf, mit Ihnen gemeinsam die Zukunft des Fachwissens zu gestalten.
+  </p>
+  <p>
+    Ihr <strong>texxtoor</strong>-Team
+  </p>
+  <p>
+    Jörg, Fernando, Uwe, Matthias und Holger
+  </p>
+</div>
+<div id="quickForm">
+  @using (Html.BeginForm("Register", "Account", null)) {
+    <div class="alert alert-warning">
+      @Html.ValidationSummary(false)
+      @ViewBag.Status
+    </div>
+    using(Html.BtFieldset(Loc("legend1", "Register Details"))) {
+      @Html.EditorForModel()
+      <div class="col-md-offset-2">
+        <input type="submit" value="@ViewResources.Action_Common_Register" class="btn btn-primary" />
+      </div>
+    }
+  }
+</div>
+<div>
+  @Loc("textAlt", "Alternatively, you can simply register a new account and start lurking around and see what happens. Feel free to contact " +
+                       "us any time to find out how we work and what we can provide to authors like you. Membership is free and save.")    
+</div>

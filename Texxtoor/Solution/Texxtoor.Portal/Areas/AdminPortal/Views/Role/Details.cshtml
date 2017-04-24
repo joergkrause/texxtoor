@@ -1,0 +1,21 @@
+﻿@model Texxtoor.DataModels.Models.Users.Role
+
+@{
+    PageData["Title"] = "Details";
+    Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+
+<h1>Details</h1>
+<p>&nbsp;</p>
+@using(Html.BtFieldset("Role")) {
+
+    <div class="display-label">RoleName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserRole)
+    </div>
+
+}
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

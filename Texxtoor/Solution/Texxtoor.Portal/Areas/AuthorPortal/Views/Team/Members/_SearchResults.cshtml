@@ -1,0 +1,67 @@
+﻿@model IPagedList<Texxtoor.DataModels.Models.Users.User>
+@Html.Partial("_Pagination", PaginationViewModel<Texxtoor.DataModels.Models.Users.User>.Create(Model, "javascript:searchMembers({page}, '{order}', '{dir}', {pagesize});", true, m => m.UserName))
+@if (Model == null || !Model.Any()) {
+  using (Html.BtDiv(BtStyle.AlertAndError)) {
+    @Loc("noResult", "Your search did not give any results")    
+  }
+} else {
+  <table class="multilist">
+    <tr>
+      <th class="Width200">
+        <strong>@Loc("thUserName", "User Name")</strong>
+      </th>
+      <th class="HalfWidth">
+        <strong>@Loc("thRating", "Rating")</strong>
+      </th>
+      <th colspan="3" class="Width10">
+        <strong>@Loc("thRate", "Rate (&euro;)")</strong>
+      </th>
+      <th class="Width100">
+        <strong>@Loc("thAction", "Action")</strong>
+      </th>
+    </tr>
+    @foreach (var item in Model) {
+      <tr>
+        <td colspan="7"></td>
+      </tr>
+      <tr>
+        <td data-item="@item.Id" class="showProfile SearchResultsTd">
+          @item.UserName
+          <div data-item="@item.Id" title="@item.UserName" class="showProfileDialog hidden">
+            <h3>@Loc("thRoles", "Roles (Language)")</h3>
+            @String.Join(", ", item.Profile.ContributorMatrix.Select(m => m.ContributorRole + " (" + m.Culture.NativeName + ")").ToArray())&nbsp;  
+            <h3>@item.UserName</h3>
+            <div class="SearchDiv2">
+              @Html.Raw(item.Profile.Walltext)
+            </div>
+          </div>
+        </td>
+        <td>@if (item.Profile.GlobalRating == 0) {
+              <i class="icon icon-minus text-red"></i>
+            }
+            else {
+              for (int i = 0; i < (int) Math.Round(item.Profile.GlobalRating, 0); i++) {
+                 <i class="icon icon-asterisk text-orange"></i>
+               }
+              for (int i = (int) Math.Round(item.Profile.GlobalRating, 0); i < 10; i++) {
+                 <i class="icon icon-asterisk text-sea-blue"></i>
+               }
+               @item.Profile.GlobalRating
+            }
+        </td>
+        <td>@item.Profile.MinHourlyRate
+        </td>
+        <td>&nbsp;&ndash;&nbsp;
+        </td>
+        <td>@item.Profile.MaxHourlyRate
+        </td>
+        <td class="Width150">
+          <div class="optionFields">
+            <a href="#" id="user-@item.Id" onclick="addUser(@item.Id, '@item.UserName'); return false;" class="btn btn-xs btn-primary">@ViewResources.Action_Team_Add_PreSelect</a>
+            @Html.ActionLink(ViewResources.Action_Team_Add_ShowProfile, "ShowProfile", "Community", new { id = item.Profile.Id, area = "" }, new { target = "profile", @class = "btn btn-xs btn-primary" })
+          </div>
+        </td>
+      </tr>
+    }
+  </table>
+}

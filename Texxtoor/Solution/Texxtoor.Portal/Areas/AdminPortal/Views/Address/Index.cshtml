@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Users.AddressBook>
+
+@{
+  PageData["Title"] = "Users' Addresses";
+  Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+  PageData["ShortHelp"] = "View and maintain user's addresses here.";
+}
+<table class="table table-bordered table-condensed">
+  <tr>
+    <th>Name</th>
+    <th>Street / Number</th>
+    <th>Zip</th>
+    <th>City</th>
+    <th>Region</th>
+    <th>Country</th>
+    <th>Is Invoice</th>
+    <th>Is Default</th>
+    <th>Action</th>
+  </tr>
+
+  @foreach (var item in Model) {
+    <tr>
+      <td>
+        @Html.DisplayFor(modelItem => item.Name)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.StreetNumber)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Zip)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.City)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Region)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Country)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Invoice)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Default)
+      </td>
+      <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-xs btn-primary" })
+        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-xs btn-default" })
+      </td>
+    </tr>
+  }
+
+</table>

@@ -1,0 +1,158 @@
+﻿.new-text {
+  margin-top: 25px; }
+
+.dashboard-content {
+  background: url(../../Images/dashboard-content.png);
+  background-repeat: no-repeat;
+  height: 1057px;
+  width: 1260px;
+  margin-left: -150px;
+  margin-top: 25px; }
+
+.overview-content {
+  background: url(../../Images/overview-content.png);
+  background-repeat: no-repeat;
+  height: 544px;
+  width: 1260px;
+  margin-left: -150px;
+  margin-top: 25px; }
+
+.overview-content-s {
+  background: url(../../Images/overview-content-2.png);
+  background-repeat: no-repeat;
+  height: 919px;
+  width: 1260px;
+  margin-left: -150px;
+  margin-top: 25px; }
+
+.preview-content {
+  background: url(../../Images/preview-content.png);
+  background-repeat: no-repeat;
+  height: 941px;
+  width: 1260px;
+  margin-left: -150px;
+  margin-top: 5px; }
+
+.publish-content {
+  background: url(../../Images/publish-content.png);
+  background-repeat: no-repeat;
+  height: 941px;
+  width: 1260px;
+  margin-left: -150px;
+  margin-top: 5px; }
+
+.marketing-content {
+  background: url(../../Images/marketing-content.png);
+  background-repeat: no-repeat;
+  height: 941px;
+  width: 1260px;
+  margin-left: -150px;
+  margin-top: 5px; }
+
+.success-content {
+  background: url(../../Images/success-content.png);
+  background-repeat: no-repeat;
+  height: 941px;
+  width: 1260px;
+  margin-left: -150px;
+  margin-top: 5px; }
+
+.dashboard, .overview-p {
+  background-color: #F2F2F2;
+  margin-top: 5px; }
+
+.dashboard .container > hr {
+  margin-top: 35px;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #f9f9f9; }
+
+.cover {
+  width: 139px;
+  height: 182px;
+  line-height: 182px;
+  float: left;
+  background-color: white;
+  text-align: center; }
+  .cover img {
+    height: 158px;
+    width: 117px; }
+
+.book-item {
+  width: 472px;
+  height: 182px;
+  margin-top: 16px;
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: -1px 0px 1px 0px #e9e9e9, 0 2px 2px 0 #d7d7d7, 1px 0px 1px 0px #e9e9e9; }
+  .book-item h2 {
+    margin-top: 0px;
+    margin-bottom: 0px; }
+  .book-item h3 {
+    margin-top: 0px; }
+  .book-item hr {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    border-top: 1px solid #dddddd; }
+  .book-item p.small {
+    color: #a1a1a1; }
+  .book-item .description {
+    padding: 14px 19px 14px 13px;
+    width: 333px;
+    float: right;
+    background-color: #f8f8f8; }
+    .book-item .description > div:first-child {
+      height: 128px; }
+  .book-item .mail-bar {
+    height: 15px;
+    line-height: 15px; }
+
+.carusel-item {
+  display: inline-block;
+  margin-right: 24px;
+  width: 139px;
+  border-radius: 2px;
+  box-shadow: -1px 0px 1px 0px #e9e9e9, 0 2px 2px 0 #d7d7d7, 1px 0px 1px 0px #e9e9e9; }
+  .carusel-item:last-child {
+    margin-right: 0; }
+  .carusel-item .title {
+    padding: 0 12px;
+    margin-top: 183px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #f8f8f8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+    .carusel-item .title span {
+      vertical-align: middle;
+      font-size: 11px; }
+
+.carousel-control {
+  width: 58px;
+  height: 58px;
+  cursor: pointer; }
+  .carousel-control.right {
+    right: -74px;
+    top: 74px;
+    background: url(../../Images/carousel-arrows.png) -58px 0; }
+  .carousel-control.left {
+    left: -74px;
+    top: 74px;
+    background: url(../../Images/carousel-arrows.png) 0 0; }
+  .carousel-control .icon-next, .carousel-control .icon-prev {
+    display: none; }
+
+.carousel .carousel-indicators {
+  display: none; }
+
+.btn-uppercase {
+  text-transform: uppercase; }
+
+.form-group.fieldHelpIcon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  float: right;
+  margin-right: 25px; }
+
+/*# sourceMappingURL=modules.css.map */

@@ -1,0 +1,17 @@
+﻿@model Texxtoor.DataModels.Models.Users.UserProfile
+@using (Html.BtFieldset(Loc("legend3", "Give others some information about you"))) {
+  @Html.LabelFor(m => m.StatementOfTaste, new { @class = "control-label col-sm-3" })
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.StatementOfTaste)
+    @Html.ValidationMessageFor(m => m.StatementOfTaste)    
+  </div>
+  @Html.LabelFor(m => m.Notes, new { @class = "control-label col-sm-3" })
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.Notes)
+    @Html.ValidationMessageFor(m => m.Notes)
+  </div>
+  @Html.LabelFor(m => m.Newsletter, new { @class = "control-label col-sm-3" })
+  <div class="editor-field-accordion">
+    @Html.EditorFor(m => m.Newsletter)
+  </div>
+}

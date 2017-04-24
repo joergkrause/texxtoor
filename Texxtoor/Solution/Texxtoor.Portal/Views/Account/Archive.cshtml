@@ -1,0 +1,42 @@
+﻿@{
+  PageData["Title"] = "Archive";
+  Layout = Url.GetGlobalLayout();
+  PageData["Title"] = Loc("title", "Your Information Archive");
+}
+<script type="text/javascript">
+  $(function () {
+    ui = new Dialog(
+      {
+      },
+      {
+      },
+      {
+        formId: '#delUserFile',
+        formDivId: '#delUserFile',
+        formAction: '@Url.Action("DeleteUserFile")',
+        sendBtnId: '#delUserFileSendButton',
+        cancelBtnId: '#delUserFileCancelButton'
+      },
+        {
+          formId: '#main',
+          formDivId: '#main',
+          formAction: '@Url.Action("ListUserFiles")'
+        });
+    ui.updateTable();
+  });
+  function DownloadElement(id) {
+    window.location = '@Url.Action("DownloadFile")' + '/' + id;
+  }
+</script>
+@using(Html.BtDiv(BtStyle.Well)) {
+  @Loc("textFile", @"Find here all files you have ordered previously. Download any time any file from here.")
+}
+@Html.Heading(HtmlHeading.H2, Loc("titleDownload", "Downloads"))
+@using (Html.BtDeleteTemplate(Loc("txtDel", "You're about to delete a file permanently. Please confirm."))){
+  @Create.FormButtonOnClick("delUserFileSendButton", "", ViewResources.Action_Common_Archive_DeleteFile, BtStyle.ButtonWarning)
+  @Create.FormButtonOnClick("delUserFileCancelButton", "", ViewResources.Button_Cancel)
+}
+@Create.MainContentWithLoader()
+@Create.ActionTask("recBin", true, Url.Action("RecycleBin"), ViewResources.TasksButton_Common_RecycleBin)
+@Create.ActionTask("", true, Url.Action("UserProfile", "Account", new { area = "" }), ViewResources.LinkButton_Community_UserProfile)
+@Create.ActionTask("", false, Url.Action("Index", "Messaging", new { area = "" }), ViewResources.LinkButton_Common_Mail)

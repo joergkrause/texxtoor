@@ -1,0 +1,16 @@
+﻿@model Texxtoor.ViewModels.Shared.Users.Account.Tasks
+@if (Model.TeamMemberPending.Any()) {
+  <ul class="list-unstyled list-striped">
+    @foreach (var m in Model.TeamMemberPending) {
+      <li>
+        @(String.Join(", ", @m.GetLocalizedContributorRoles()))
+        (@m.Team.Name)
+        @Html.ActionLink(ViewResources.Action_Negotiate_Confirm_Membership, "ConfirmMembership", "Team", new { Id = m.Id, area = "AuthorPortal" }, new { @class = "pull-right" })
+      </li>
+    }
+  </ul>
+} else {
+  <div class="alert alert-danger">
+    @Loc("noPending", "There are no pending memberships.")
+  </div>
+}

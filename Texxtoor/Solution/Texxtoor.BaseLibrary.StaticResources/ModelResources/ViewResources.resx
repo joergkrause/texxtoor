@@ -1,0 +1,1431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Action_Assembler_AddProduct" xml:space="preserve">
+    <value>Add Product</value>
+  </data>
+  <data name="Action_Assembler_EditProduct" xml:space="preserve">
+    <value>Edit Product</value>
+  </data>
+  <data name="Action_Assembler_Products_DeleteProduct" xml:space="preserve">
+    <value>Delete Product</value>
+  </data>
+  <data name="Action_Collection_ChangeCollection" xml:space="preserve">
+    <value>Change Collection</value>
+  </data>
+  <data name="Action_Collection_CreateCollection" xml:space="preserve">
+    <value>Create Collection</value>
+  </data>
+  <data name="Action_Collection_EditCollection" xml:space="preserve">
+    <value>Edit Collection</value>
+  </data>
+  <data name="Action_Common_Archive_DeleteFile" xml:space="preserve">
+    <value>Delete File</value>
+  </data>
+  <data name="Action_Common_Archive_Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Action_Common_Archive_Recover" xml:space="preserve">
+    <value>Recover</value>
+  </data>
+  <data name="Action_Common_ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="Action_Common_Logon" xml:space="preserve">
+    <value>Log On</value>
+  </data>
+  <data name="Action_Common_Logoff" xml:space="preserve">
+    <value>Log Off</value>
+  </data>
+  <data name="Action_Common_Mail_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Action_Common_Mail_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Action_Common_Mail_DeleteAndSpam" xml:space="preserve">
+    <value>Delete and Report as Spam</value>
+  </data>
+  <data name="Action_Common_Mail_Forward" xml:space="preserve">
+    <value>Forward</value>
+  </data>
+  <data name="Action_Common_Mail_ReadAndAnswer" xml:space="preserve">
+    <value>Read and Answer</value>
+  </data>
+  <data name="Action_Common_Mail_ReportAsSpam" xml:space="preserve">
+    <value>Report as Spam</value>
+  </data>
+  <data name="Action_Common_Mail_Send" xml:space="preserve">
+    <value>Send Email</value>
+  </data>
+  <data name="Action_Common_Payment_WithDraw" xml:space="preserve">
+    <value>Withdraw</value>
+  </data>
+  <data name="Action_Common_Profile_AddLanguage" xml:space="preserve">
+    <value>Add another language</value>
+  </data>
+  <data name="Action_Common_Profile_AddMore" xml:space="preserve">
+    <value>Add more...</value>
+  </data>
+  <data name="Action_Common_Profile_AddSkill" xml:space="preserve">
+    <value>Add another skill</value>
+  </data>
+  <data name="Action_Common_Profile_DeleteAddress" xml:space="preserve">
+    <value>Delete Address</value>
+  </data>
+  <data name="Action_Common_Register" xml:space="preserve">
+    <value>Register for free</value>
+  </data>
+  <data name="Action_Common_ResetPassword" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="Action_Common_SaveProfile" xml:space="preserve">
+    <value>Save Profile</value>
+  </data>
+  <data name="Action_Delete_Mail" xml:space="preserve">
+    <value>Delete E-Mail</value>
+  </data>
+  <data name="Action_Groups_CreateGroup" xml:space="preserve">
+    <value>Create Group</value>
+  </data>
+  <data name="Action_Groups_CreateQuestion" xml:space="preserve">
+    <value>Ask New Question</value>
+  </data>
+  <data name="Action_Groups_EditGroup" xml:space="preserve">
+    <value>Edit Group</value>
+  </data>
+  <data name="Action_Groups_EditQuestion" xml:space="preserve">
+    <value>Edit Question</value>
+  </data>
+  <data name="Action_Jobs_CreateJob" xml:space="preserve">
+    <value>Create Job Advertisment</value>
+  </data>
+  <data name="Action_Jobs_EditJob" xml:space="preserve">
+    <value>Edit Job Advertisment</value>
+  </data>
+  <data name="Action_Job_DeleteJob" xml:space="preserve">
+    <value>Delete Job</value>
+  </data>
+  <data name="Action_Library_AddContent" xml:space="preserve">
+    <value>Add Content</value>
+  </data>
+  <data name="Action_Library_EditContent" xml:space="preserve">
+    <value>Edit Content</value>
+  </data>
+  <data name="Action_Marketing_ConfirmShares" xml:space="preserve">
+    <value>Confirm Shares</value>
+  </data>
+  <data name="Action_Marketing_CreatePackage" xml:space="preserve">
+    <value>Create Package</value>
+  </data>
+  <data name="Action_Marketing_DeletePackage" xml:space="preserve">
+    <value>Delete Package</value>
+  </data>
+  <data name="Action_Marketing_EditPackage" xml:space="preserve">
+    <value>Edit Package</value>
+  </data>
+  <data name="Action_Messaging_SendMail" xml:space="preserve">
+    <value>Send Mail</value>
+  </data>
+  <data name="Action_Negotiate_Confirm_Membership" xml:space="preserve">
+    <value>Negotiate &amp; Confirm Membership</value>
+  </data>
+  <data name="Action_Opus_Close" xml:space="preserve">
+    <value>Deactivate Text</value>
+  </data>
+  <data name="Action_Opus_ConfirmShares" xml:space="preserve">
+    <value>View or Confirm Shares</value>
+  </data>
+  <data name="Action_Opus_CopyToNew" xml:space="preserve">
+    <value>Copy to new Issue</value>
+  </data>
+  <data name="Action_Opus_CreateNewMilestone" xml:space="preserve">
+    <value>Create New Milestone</value>
+  </data>
+  <data name="Action_Opus_CreateNewReview" xml:space="preserve">
+    <value>Create New Review</value>
+  </data>
+  <data name="Action_Opus_CreateReview" xml:space="preserve">
+    <value>Create Review</value>
+  </data>
+  <data name="Action_Opus_DeleteInvoice" xml:space="preserve">
+    <value>Delete Invoice</value>
+  </data>
+  <data name="Action_Opus_DeleteMilestone" xml:space="preserve">
+    <value>Delete Milestone</value>
+  </data>
+  <data name="Action_Opus_DeleteReview" xml:space="preserve">
+    <value>Delete Review</value>
+  </data>
+  <data name="Action_Opus_EditMilestone" xml:space="preserve">
+    <value>Edit Milestone</value>
+  </data>
+  <data name="Action_Opus_EditReview" xml:space="preserve">
+    <value>Edit Review</value>
+  </data>
+  <data name="Action_Opus_FinishMilestone" xml:space="preserve">
+    <value>Finish Milestones</value>
+  </data>
+  <data name="Action_Opus_ManageMilestones" xml:space="preserve">
+    <value>Manage Milestones</value>
+  </data>
+  <data name="Action_Opus_RaiseInvoice" xml:space="preserve">
+    <value>Raise an Invoice</value>
+  </data>
+  <data name="Action_Opus_Reactivate" xml:space="preserve">
+    <value>Reactivate</value>
+  </data>
+  <data name="Action_Opus_WorkOnIt" xml:space="preserve">
+    <value>Work on it</value>
+  </data>
+  <data name="Action_Payment_Withdraw" xml:space="preserve">
+    <value>Withdraw</value>
+  </data>
+  <data name="Action_Profile_AddAddress" xml:space="preserve">
+    <value>Add Address</value>
+  </data>
+  <data name="Action_Profile_EditAddress" xml:space="preserve">
+    <value>Edit Address</value>
+  </data>
+  <data name="Action_Project_CreateProject" xml:space="preserve">
+    <value>Create Project</value>
+  </data>
+  <data name="Action_Project_Deactivate" xml:space="preserve">
+    <value>Deactivate</value>
+  </data>
+  <data name="Action_Project_Import" xml:space="preserve">
+    <value>Import Text</value>
+  </data>
+  <data name="Action_Project_EditCurrentText" xml:space="preserve">
+    <value>Edit last text</value>
+  </data>
+  <data name="Action_Project_PricingMarketing" xml:space="preserve">
+    <value>Marketing</value>
+  </data>
+  <data name="Action_Project_Publish" xml:space="preserve">
+    <value>Publish</value>
+  </data>
+  <data name="Action_Project_Reactivate" xml:space="preserve">
+    <value>Reactivate</value>
+  </data>
+  <data name="Action_Project_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Action_Project_ShowDashboard" xml:space="preserve">
+    <value>Show Dashboard</value>
+  </data>
+  <data name="Action_Rate_this_Member" xml:space="preserve">
+    <value>Rate this Member</value>
+  </data>
+  <data name="Action_Reader_Collections_Create" xml:space="preserve">
+    <value>Create Collection</value>
+  </data>
+  <data name="Action_Reader_Collections_Delete" xml:space="preserve">
+    <value>Delete Collection</value>
+  </data>
+  <data name="Action_Reader_Community_ManageProfile" xml:space="preserve">
+    <value>Manage your Profile here</value>
+  </data>
+  <data name="Action_Reader_Community_Save" xml:space="preserve">
+    <value>Save Profile</value>
+  </data>
+  <data name="Action_Reader_CreateGroup" xml:space="preserve">
+    <value>Create Group</value>
+  </data>
+  <data name="Action_Reader_DeleteGroup" xml:space="preserve">
+    <value>Delete Group</value>
+  </data>
+  <data name="Action_Reader_Library_AddToShelf" xml:space="preserve">
+    <value>Create private issue</value>
+  </data>
+  <data name="Action_Reader_Library_Bookmarks" xml:space="preserve">
+    <value>Bookmarks...</value>
+  </data>
+  <data name="Action_Reader_Library_Comments" xml:space="preserve">
+    <value>Comments...</value>
+  </data>
+  <data name="Action_Reader_Library_CreateCopy" xml:space="preserve">
+    <value>Create Copy</value>
+  </data>
+  <data name="Action_Reader_Library_Modify" xml:space="preserve">
+    <value>Modify</value>
+  </data>
+  <data name="Action_Reader_Library_Order" xml:space="preserve">
+    <value>Order...</value>
+  </data>
+  <data name="Action_Reader_Library_Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Action_Reader_Library_RemoveShelf" xml:space="preserve">
+    <value>Remove Work from Shelf</value>
+  </data>
+  <data name="Action_Reader_Library_Upload" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="Action_Reader_Order_Logon" xml:space="preserve">
+    <value>Log On</value>
+  </data>
+  <data name="Action_Reader_Order_ProceedWithOrder" xml:space="preserve">
+    <value>Proceed with Order</value>
+  </data>
+  <data name="Action_Reader_Order_Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Action_Reader_ReadAndWork" xml:space="preserve">
+    <value>Read the text</value>
+  </data>
+  <data name="Action_Reader_Search_AddKeyword" xml:space="preserve">
+    <value>Add keyword</value>
+  </data>
+  <data name="Action_Reader_Search_GetResults" xml:space="preserve">
+    <value>Get results</value>
+  </data>
+  <data name="Action_Remove_from_Team" xml:space="preserve">
+    <value>Remove from Team</value>
+  </data>
+  <data name="Action_Team_AddContributor" xml:space="preserve">
+    <value>Search Contributors</value>
+  </data>
+  <data name="Action_Team_AddMembers" xml:space="preserve">
+    <value>Add all in selection</value>
+  </data>
+  <data name="Action_Team_BillingCreateInvoice" xml:space="preserve">
+    <value>Create Invoice</value>
+  </data>
+  <data name="Action_Team_BillingEditInvoice" xml:space="preserve">
+    <value>Edit Invoice</value>
+  </data>
+  <data name="Action_Team_BillingNewInvoice" xml:space="preserve">
+    <value>Create New Invoice</value>
+  </data>
+  <data name="Action_Team_ChangeName" xml:space="preserve">
+    <value>Change Team's Name</value>
+  </data>
+  <data name="Action_Team_CreateTeam" xml:space="preserve">
+    <value>Create Team</value>
+  </data>
+  <data name="Action_Team_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Action_Team_DeleteMember" xml:space="preserve">
+    <value>Delete Team Member</value>
+  </data>
+  <data name="Action_Team_DeleteTeam" xml:space="preserve">
+    <value>Delete Team</value>
+  </data>
+  <data name="Action_Team_Edit" xml:space="preserve">
+    <value>Edit team's name</value>
+  </data>
+  <data name="Action_Team_ManageTeam" xml:space="preserve">
+    <value>Manage team's members</value>
+  </data>
+  <data name="Action_Team_TeamsRoom" xml:space="preserve">
+    <value>Team's Room</value>
+  </data>
+  <data name="Action_Termset_ChangeTermset" xml:space="preserve">
+    <value>Change Termset</value>
+  </data>
+  <data name="Action_Termset_CreateTermset" xml:space="preserve">
+    <value>Create Termset</value>
+  </data>
+  <data name="Action_Termset_DeleteTermset" xml:space="preserve">
+    <value>Delete Termset</value>
+  </data>
+  <data name="DropList_Profile_SelectCountry" xml:space="preserve">
+    <value>Select Country</value>
+  </data>
+  <data name="DropList_Reader_SelectTheme" xml:space="preserve">
+    <value>Select a Theme</value>
+  </data>
+  <data name="Action_Team_ConfirmShares" xml:space="preserve">
+    <value>Confirm Shares</value>
+  </data>
+  <data name="Action_Marketing_ConfirmSharesName" xml:space="preserve">
+    <value>Confirm shares for project {0}</value>
+  </data>
+  <data name="Action_Publish_Publish" xml:space="preserve">
+    <value>Publish</value>
+  </data>
+  <data name="Action_Editor_AddAudienceDefinition" xml:space="preserve">
+    <value>Add Audience Definition</value>
+  </data>
+  <data name="Action_Editor_SetOptions" xml:space="preserve">
+    <value>Save Settings</value>
+  </data>
+  <data name="UIHintMilestone_DefaultOption_SetUnset" xml:space="preserve">
+    <value>Select Next Milestone / use this option to unset</value>
+  </data>
+  <data name="Action_Publish_Go" xml:space="preserve">
+    <value>Proceed with Publishing Options</value>
+  </data>
+  <data name="Action_Account_QuickFormSend" xml:space="preserve">
+    <value>Send Form</value>
+  </data>
+  <data name="Action_Opus_Restore" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="Action_Team_SetShares" xml:space="preserve">
+    <value>Set shares</value>
+  </data>
+  <data name="DropList_Marketing_SelectProject" xml:space="preserve">
+    <value>Select a project to set shares</value>
+  </data>
+  <data name="DropList_Team_SelectProject" xml:space="preserve">
+    <value>Select Project</value>
+  </data>
+  <data name="Action_Team_Save_Assignment" xml:space="preserve">
+    <value>Assign Roles</value>
+  </data>
+  <data name="Action_Team_RateMember" xml:space="preserve">
+    <value>Rate Member</value>
+  </data>
+  <data name="Action_Billing_CreateInvoice" xml:space="preserve">
+    <value>Create an Invoice</value>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>Tasks...</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="Tools_Authors" xml:space="preserve">
+    <value>Authors</value>
+  </data>
+  <data name="Tools_Jobs" xml:space="preserve">
+    <value>Jobs</value>
+  </data>
+  <data name="Tools_Groups" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="Tools_Readers" xml:space="preserve">
+    <value>Reader</value>
+  </data>
+  <data name="Action_UploadImportFile" xml:space="preserve">
+    <value>Upload File</value>
+  </data>
+  <data name="Action_Project_ProducePdf" xml:space="preserve">
+    <value>Produce PDF</value>
+  </data>
+  <data name="Action_Project_ProduceApp" xml:space="preserve">
+    <value>Produce Apps</value>
+  </data>
+  <data name="Action_Project_ProduceEpub" xml:space="preserve">
+    <value>Produce EPUB</value>
+  </data>
+  <data name="Action_Xml_Backup" xml:space="preserve">
+    <value>Click here to restore an XML backup</value>
+  </data>
+  <data name="StaticMenu_ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="StaticMenu_Options" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="StaticMenu_Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="StaticMenu_ResetPassword" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="StaticMenu_SignIn" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="StaticMenu_SignOut" xml:space="preserve">
+    <value>Sign Out</value>
+  </data>
+  <data name="StaticMenu_UserAccount" xml:space="preserve">
+    <value>User Account</value>
+  </data>
+  <data name="Action_Create_Workspace" xml:space="preserve">
+    <value>Create Text</value>
+  </data>
+  <data name="Action_Question_Answer" xml:space="preserve">
+    <value>Answer Question</value>
+  </data>
+  <data name="Action_Question_Edit" xml:space="preserve">
+    <value>Edit Question</value>
+  </data>
+  <data name="Action_Editor_AddAudienceSavall" xml:space="preserve">
+    <value>Save all</value>
+  </data>
+  <data name="StaticMenu_ResendActivationMail" xml:space="preserve">
+    <value>Activation</value>
+  </data>
+  <data name="Action_Common_Profile_Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Action_Common_Profile_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Action_Opus_Download" xml:space="preserve">
+    <value>Download Copy</value>
+  </data>
+  <data name="Action_Opus_Delete" xml:space="preserve">
+    <value>Delete Copy</value>
+  </data>
+  <data name="Action_Team_Add_PreSelect" xml:space="preserve">
+    <value>Pre Select</value>
+  </data>
+  <data name="Action_Team_Add_ShowProfile" xml:space="preserve">
+    <value>Show User's Profile</value>
+  </data>
+  <data name="Action_Publish_SaveCommon" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Action_Publish_SaveCommon_Tab" xml:space="preserve">
+    <value>Save and Next</value>
+  </data>
+  <data name="Action_Publish_SaveGlobal" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Action_Publish_SaveGlobal_Tab" xml:space="preserve">
+    <value>Save and Next</value>
+  </data>
+  <data name="Action_Publish_Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="Action_Termset_ManageTermset" xml:space="preserve">
+    <value>Manage Termset</value>
+  </data>
+  <data name="Action_Profile_DeleteAddress" xml:space="preserve">
+    <value>Delete Address</value>
+  </data>
+  <data name="Action_Groups_Delete" xml:space="preserve">
+    <value>Delete Group</value>
+  </data>
+  <data name="Action_Groups_Edit" xml:space="preserve">
+    <value>Edit Group</value>
+  </data>
+  <data name="Action_Groups_ManageMembers" xml:space="preserve">
+    <value>Manage Group's Members</value>
+  </data>
+  <data name="Action_Groups_SendMessage" xml:space="preserve">
+    <value>Send Message</value>
+  </data>
+  <data name="Action_Groups_ShowMembers" xml:space="preserve">
+    <value>Show Members</value>
+  </data>
+  <data name="StaticMenu_Info_Author" xml:space="preserve">
+    <value>Authors</value>
+  </data>
+  <data name="StaticMenu_Info_Contributor" xml:space="preserve">
+    <value>Contributors</value>
+  </data>
+  <data name="StaticMenu_Info_For" xml:space="preserve">
+    <value>For</value>
+  </data>
+  <data name="StaticMenu_Info_Group" xml:space="preserve">
+    <value>Group Information</value>
+  </data>
+  <data name="StaticMenu_Info_User" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="Action_Product_OrderOnDevice" xml:space="preserve">
+    <value>Order On Device</value>
+  </data>
+  <data name="Action_Product_ConfirmAddress" xml:space="preserve">
+    <value>Comfirm Address</value>
+  </data>
+  <data name="Action_Product_OrderAgain" xml:space="preserve">
+    <value>Order Again</value>
+  </data>
+  <data name="Action_Publish_FinishPublishing" xml:space="preserve">
+    <value>Finish Publishing</value>
+  </data>
+  <data name="Action_Publish_PublishSettings" xml:space="preserve">
+    <value>Publishing Settings</value>
+  </data>
+  <data name="Action_Marketing_AssignPackage" xml:space="preserve">
+    <value>Assign Package</value>
+  </data>
+  <data name="Action_Milestones_Down" xml:space="preserve">
+    <value>Down</value>
+  </data>
+  <data name="Action_Milestones_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Action_Milestones_Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Action_Milestones_SetAsdone" xml:space="preserve">
+    <value>Set as Done</value>
+  </data>
+  <data name="Action_Milestones_Up" xml:space="preserve">
+    <value>Up</value>
+  </data>
+  <data name="Action_Publish_Refresh" xml:space="preserve">
+    <value>Refresh Published Text</value>
+  </data>
+  <data name="Action_Publish_UpdateVersion" xml:space="preserve">
+    <value>Create New Version</value>
+  </data>
+  <data name="Action_Publish_QuickPublish" xml:space="preserve">
+    <value>Quick Publish (RSS Feed)</value>
+  </data>
+  <data name="DropList_Culture_Select" xml:space="preserve">
+    <value>Select a language</value>
+  </data>
+  <data name="Action_Opus_ReviewDelete" xml:space="preserve">
+    <value>Delete Review</value>
+  </data>
+  <data name="Action_Opus_ReviewEdit" xml:space="preserve">
+    <value>Edit Review</value>
+  </data>
+  <data name="Layout_Scripting_jGrowl_CloseAll" xml:space="preserve">
+    <value>Close All</value>
+  </data>
+  <data name="Action_Milestone_ShowHide" xml:space="preserve">
+    <value>Show/Hide Comments</value>
+  </data>
+  <data name="Action_JobPortal_Show_Job_Advertisment" xml:space="preserve">
+    <value>Show Job Advertisments</value>
+  </data>
+  <data name="Action_JobPortal_ApplyTo" xml:space="preserve">
+    <value>Apply to this job</value>
+  </data>
+  <data name="Action_Team_SearchUsers" xml:space="preserve">
+    <value>Search for Members</value>
+  </data>
+  <data name="Action_Publish_CreateContentPreview" xml:space="preserve">
+    <value>Preview Content for Print</value>
+  </data>
+  <data name="Action_Publish_CreateCoverPreview" xml:space="preserve">
+    <value>Preview Cover for Print</value>
+  </data>
+  <data name="Title_Published_Marketing_Contributors_Biography" xml:space="preserve">
+    <value>Contributor's Biography</value>
+  </data>
+  <data name="Publishing_Catalogie_NoStoreFound" xml:space="preserve">
+    <value>Category not found</value>
+  </data>
+  <data name="Action_OpusFileImport" xml:space="preserve">
+    <value>File Import</value>
+  </data>
+  <data name="Action_OpusMapImport" xml:space="preserve">
+    <value>Assign and Import</value>
+  </data>
+  <data name="Dialog_View_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Dialog_View_Saving" xml:space="preserve">
+    <value>Saving...</value>
+  </data>
+  <data name="Dialog_View_Tooltip" xml:space="preserve">
+    <value>Click to change the image</value>
+  </data>
+  <data name="Dialog_View_Upload" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="Team_Confirm_Proposal" xml:space="preserve">
+    <value>Confirm Proposal</value>
+  </data>
+  <data name="Team_Decline_Proposal" xml:space="preserve">
+    <value>Decline Proposal</value>
+  </data>
+  <data name="Action_Team_PostAJob" xml:space="preserve">
+    <value>Post a Job</value>
+  </data>
+  <data name="Action_Reader_Overview" xml:space="preserve">
+    <value>Overview and Details</value>
+  </data>
+  <data name="Action_Project_AddMessage" xml:space="preserve">
+    <value>Send Message</value>
+  </data>
+  <data name="Action_Collection_SelectCollection_Option" xml:space="preserve">
+    <value>Select content from other collection</value>
+  </data>
+  <data name="Action_Opus_MergeWith" xml:space="preserve">
+    <value>Merge Text </value>
+  </data>
+  <data name="Action_Opus_MergeText" xml:space="preserve">
+    <value>Save Merged Text</value>
+  </data>
+  <data name="Action_Project_AssignToLeadAuthor" xml:space="preserve">
+    <value>Assign to other Lead</value>
+  </data>
+  <data name="Action_Reader_Collections_Manage" xml:space="preserve">
+    <value>Manage Content</value>
+  </data>
+  <data name="Action_Reader_AddMember" xml:space="preserve">
+    <value>Add Member</value>
+  </data>
+  <data name="Action_Reader_DeleteMember" xml:space="preserve">
+    <value>Remove Member</value>
+  </data>
+  <data name="Action_Reader_ShowProfile" xml:space="preserve">
+    <value>Show Profile</value>
+  </data>
+  <data name="Action_Publish_UnShare" xml:space="preserve">
+    <value>Do not share unselected</value>
+  </data>
+  <data name="Action_Reader_Bookmarks_Delete" xml:space="preserve">
+    <value>Delete Bookmarks</value>
+  </data>
+  <data name="Action_Groups_SharedContent" xml:space="preserve">
+    <value>Shared Content</value>
+  </data>
+  <data name="Action_Reader_MessageToMembers" xml:space="preserve">
+    <value>Send Message to all</value>
+  </data>
+  <data name="MinScoreView_YouHave" xml:space="preserve">
+    <value>You have</value>
+  </data>
+  <data name="MinScoreView_Have" xml:space="preserve">
+    <value>Your score currently is {0} points.</value>
+  </data>
+  <data name="Action_Publish_UnfreezeText" xml:space="preserve">
+    <value>Unfreeze Text</value>
+  </data>
+  <data name="Action_Publish_AskUser" xml:space="preserve">
+    <value>Request User </value>
+  </data>
+  <data name="HeadZone_Action" xml:space="preserve">
+    <value>[Action]</value>
+  </data>
+  <data name="HeadZone_Info" xml:space="preserve">
+    <value>[Information]</value>
+  </data>
+  <data name="HeadZone_Private_Data_Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="HeadZone_Private_Data_Private" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Prev" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="ItemsTotal" xml:space="preserve">
+    <value>Items</value>
+  </data>
+  <data name="ItemTotal" xml:space="preserve">
+    <value>Item</value>
+  </data>
+  <data name="Button_Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Button_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Button_CancelAndClose" xml:space="preserve">
+    <value>Cancel and Close</value>
+  </data>
+  <data name="Button_Quick_Go" xml:space="preserve">
+    <value>And go...</value>
+  </data>
+  <data name="LinkButton_Billing" xml:space="preserve">
+    <value>Billing</value>
+  </data>
+  <data name="LinkButton_Common_Archive" xml:space="preserve">
+    <value>Archive</value>
+  </data>
+  <data name="LinkButton_Common_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="LinkButton_Common_Mail" xml:space="preserve">
+    <value>Mail</value>
+  </data>
+  <data name="LinkButton_Common_Payments" xml:space="preserve">
+    <value>Payments</value>
+  </data>
+  <data name="LinkButton_Common_RecycleBin" xml:space="preserve">
+    <value>Recycle Bin</value>
+  </data>
+  <data name="LinkButton_Common_Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="LinkButton_Common_Revenues" xml:space="preserve">
+    <value>Revenues</value>
+  </data>
+  <data name="LinkButton_Common_Stats" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="LinkButton_Community_UserProfile" xml:space="preserve">
+    <value>My Data</value>
+  </data>
+  <data name="LinkButton_EditorRoom" xml:space="preserve">
+    <value>Editor</value>
+  </data>
+  <data name="LinkButton_IncomingInvoices" xml:space="preserve">
+    <value>Incoming Invoices</value>
+  </data>
+  <data name="LinkButton_OutgoingInvoices" xml:space="preserve">
+    <value>Outgoing Invoices</value>
+  </data>
+  <data name="LinkButton_PublishedDetails" xml:space="preserve">
+    <value>All about</value>
+  </data>
+  <data name="LinkButton_Publishing" xml:space="preserve">
+    <value>Publishing</value>
+  </data>
+  <data name="LinkButton_Reader_Catalog" xml:space="preserve">
+    <value>Catalog</value>
+  </data>
+  <data name="LinkButton_Reader_Comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="LinkButton_Reader_Content" xml:space="preserve">
+    <value>MyContent</value>
+  </data>
+  <data name="LinkButton_Reader_CurrentOrder" xml:space="preserve">
+    <value>Current Order</value>
+  </data>
+  <data name="LinkButton_Reader_GroupMembers" xml:space="preserve">
+    <value>Member</value>
+  </data>
+  <data name="LinkButton_Reader_Groups" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="LinkButton_Reader_Home" xml:space="preserve">
+    <value>Readers Home</value>
+  </data>
+  <data name="LinkButton_Reader_Library" xml:space="preserve">
+    <value>My Library</value>
+  </data>
+  <data name="LinkButton_Reader_Matrix" xml:space="preserve">
+    <value>Search Matrix</value>
+  </data>
+  <data name="LinkButton_Reader_Networking" xml:space="preserve">
+    <value>Networking</value>
+  </data>
+  <data name="LinkButton_Reader_Products" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="LinkButton_Reader_PublicGroups" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="LinkButton_Reader_Questions" xml:space="preserve">
+    <value>Questions</value>
+  </data>
+  <data name="LinkButton_ToDashboard" xml:space="preserve">
+    <value>To Dashboard</value>
+  </data>
+  <data name="LinkButton_ToDashboards" xml:space="preserve">
+    <value>To dashboard '{0}'</value>
+  </data>
+  <data name="LinkButton_ToImport" xml:space="preserve">
+    <value>To Import</value>
+  </data>
+  <data name="LinkButton_ToProjects" xml:space="preserve">
+    <value>To Projects</value>
+  </data>
+  <data name="LinkButton_ToTeam" xml:space="preserve">
+    <value>To Team</value>
+  </data>
+  <data name="LinkButton_ToTeams" xml:space="preserve">
+    <value>To Teams</value>
+  </data>
+  <data name="PeerReview_Approved_Is_Approved" xml:space="preserve">
+    <value>Is Approved</value>
+  </data>
+  <data name="PeerReview_Approve" xml:space="preserve">
+    <value>Approve or change approval</value>
+  </data>
+  <data name="PeerReview_Comment_Comment_Evidence" xml:space="preserve">
+    <value>Comment/Evidence</value>
+  </data>
+  <data name="PeerReview_Level_Level__higher_is_better_" xml:space="preserve">
+    <value>Level (higher is better)</value>
+  </data>
+  <data name="TasksButton_AuthorRoom" xml:space="preserve">
+    <value>Writing Tool</value>
+  </data>
+  <data name="TasksButton_Common_Archive" xml:space="preserve">
+    <value>Archive</value>
+  </data>
+  <data name="TasksButton_Common_EditProfile" xml:space="preserve">
+    <value>Edit Public Profile</value>
+  </data>
+  <data name="TasksButton_Common_Logon" xml:space="preserve">
+    <value>Log On</value>
+  </data>
+  <data name="TasksButton_Common_RecycleBin" xml:space="preserve">
+    <value>Recycle Bin</value>
+  </data>
+  <data name="TasksButton_Common_Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="TasksButton_Common_ShowProfile" xml:space="preserve">
+    <value>Show Public Profile</value>
+  </data>
+  <data name="TasksButton_Community_EditProfile" xml:space="preserve">
+    <value>Edit Profile</value>
+  </data>
+  <data name="TasksButton_Community_Profile_LivePreview" xml:space="preserve">
+    <value>Live Preview</value>
+  </data>
+  <data name="TasksButton_CreateFromImport" xml:space="preserve">
+    <value>Import Text</value>
+  </data>
+  <data name="TasksButton_CreateNewWork" xml:space="preserve">
+    <value>Create New Text</value>
+  </data>
+  <data name="TasksButton_CurrentPayments" xml:space="preserve">
+    <value>Current Payments</value>
+  </data>
+  <data name="TasksButton_DesignerRoom" xml:space="preserve">
+    <value>Design Tool</value>
+  </data>
+  <data name="TasksButton_DownloadBackup" xml:space="preserve">
+    <value>Backup Download</value>
+  </data>
+  <data name="TasksButton_EditorRoom" xml:space="preserve">
+    <value>Edit Tool</value>
+  </data>
+  <data name="TasksButton_FileResources" xml:space="preserve">
+    <value>File Resources</value>
+  </data>
+  <data name="TasksButton_IncomingInvoices" xml:space="preserve">
+    <value>Incoming Invoices</value>
+  </data>
+  <data name="TasksButton_ManageMarketingPackages" xml:space="preserve">
+    <value>Manage Marketing Packages</value>
+  </data>
+  <data name="TasksButton_ManageShares" xml:space="preserve">
+    <value>Manage Shares</value>
+  </data>
+  <data name="TasksButton_MessageBoard" xml:space="preserve">
+    <value>Message board</value>
+  </data>
+  <data name="TasksButton_NewTeamMember" xml:space="preserve">
+    <value>New Member</value>
+  </data>
+  <data name="TasksButton_OutgoingInvoices" xml:space="preserve">
+    <value>Outgoing Invoices</value>
+  </data>
+  <data name="TasksButton_PeerReviewRoom" xml:space="preserve">
+    <value>Review Tool</value>
+  </data>
+  <data name="TasksButton_PostAJob" xml:space="preserve">
+    <value>Post a Job</value>
+  </data>
+  <data name="TasksButton_PricingRevenueShare" xml:space="preserve">
+    <value>Revenue Share</value>
+  </data>
+  <data name="TasksButton_ProductionPreview" xml:space="preserve">
+    <value>Preview Production</value>
+  </data>
+  <data name="TasksButton_ProjectDeactivated" xml:space="preserve">
+    <value>Deactivated Projects</value>
+  </data>
+  <data name="TasksButton_ProofRoom" xml:space="preserve">
+    <value>Proof Tool</value>
+  </data>
+  <data name="TasksButton_Publish" xml:space="preserve">
+    <value>Publish</value>
+  </data>
+  <data name="TasksButton_QuickPublish" xml:space="preserve">
+    <value>Publish RSS Only</value>
+  </data>
+  <data name="TasksButton_Reader_Archive" xml:space="preserve">
+    <value>Your Archive</value>
+  </data>
+  <data name="TasksButton_Reader_Catalog" xml:space="preserve">
+    <value>Catalog</value>
+  </data>
+  <data name="TasksButton_Reader_Content" xml:space="preserve">
+    <value>Your Content</value>
+  </data>
+  <data name="TasksButton_Reader_CurrentContent" xml:space="preserve">
+    <value>Current Content</value>
+  </data>
+  <data name="TasksButton_Reader_Library" xml:space="preserve">
+    <value>My Library</value>
+  </data>
+  <data name="TasksButton_Reader_Library_Board" xml:space="preserve">
+    <value>Board</value>
+  </data>
+  <data name="TasksButton_Reader_Library_BuyNow" xml:space="preserve">
+    <value>Buy Now</value>
+  </data>
+  <data name="TasksButton_Reader_Library_PutIn" xml:space="preserve">
+    <value>Put In Library</value>
+  </data>
+  <data name="TasksButton_Reader_OrderNow" xml:space="preserve">
+    <value>Order Now</value>
+  </data>
+  <data name="TasksButton_Reader_PayNow" xml:space="preserve">
+    <value>Pay Now</value>
+  </data>
+  <data name="TasksButton_Reader_PrintComments" xml:space="preserve">
+    <value>Print Comments</value>
+  </data>
+  <data name="TasksButton_Reader_Products" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="TasksButton_Reader_Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="TasksButton_RestoreBackup" xml:space="preserve">
+    <value>Restore from Backup</value>
+  </data>
+  <data name="TasksButton_SemanticData" xml:space="preserve">
+    <value>Semantic Data</value>
+  </data>
+  <data name="TasksButton_ShowClosed" xml:space="preserve">
+    <value>Deactivated Texts</value>
+  </data>
+  <data name="TasksButton_TeamsRoom" xml:space="preserve">
+    <value>Team's room</value>
+  </data>
+  <data name="TasksButton_ToProjects" xml:space="preserve">
+    <value>My Projects</value>
+  </data>
+  <data name="TasksButton_ToService" xml:space="preserve">
+    <value>Author Services</value>
+  </data>
+  <data name="TasksButton_ToTeam" xml:space="preserve">
+    <value>Team</value>
+  </data>
+  <data name="TasksButton_ToTeams" xml:space="preserve">
+    <value>To Teams</value>
+  </data>
+  <data name="TasksButton_TranslatorRoom" xml:space="preserve">
+    <value>Translate Tool</value>
+  </data>
+  <data name="MoreEllipses" xml:space="preserve">
+    <value>Read  more...</value>
+  </data>
+  <data name="MoreOptionEllipses" xml:space="preserve">
+    <value>More Options</value>
+  </data>
+  <data name="SearchPlaceHolder" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Action_Hint_default" xml:space="preserve">
+    <value>(default)</value>
+  </data>
+  <data name="Action_SwitchPlatform" xml:space="preserve">
+    <value>Switch Platform</value>
+  </data>
+  <data name="Action_SwitchPlatform_EasyAuthor" xml:space="preserve">
+    <value>Easy Author</value>
+  </data>
+  <data name="Action_SwitchPlatform_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Action_SwitchPlatform_Language_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Action_SwitchPlatform_Language_German" xml:space="preserve">
+    <value>Deutsch</value>
+  </data>
+  <data name="Action_SwitchPlatform_Pro" xml:space="preserve">
+    <value>Professional</value>
+  </data>
+  <data name="Placeholder_Search" xml:space="preserve">
+    <value>Search...</value>
+  </data>
+  <data name="ItemZone_Header" xml:space="preserve">
+    <value>Current Item's Actions</value>
+  </data>
+  <data name="ProjectState_Content_Green" xml:space="preserve">
+    <value>The project has been published</value>
+  </data>
+  <data name="ProjectState_Content_Off" xml:space="preserve">
+    <value>This project is currently not available.</value>
+  </data>
+  <data name="ProjectState_Content_Red" xml:space="preserve">
+    <value>To publish a project all milestones must be done. All team members must confirm with terms and shares.</value>
+  </data>
+  <data name="ProjectState_Content_Yellow" xml:space="preserve">
+    <value>Publish your project now. Everything is ready to go.</value>
+  </data>
+  <data name="ProjectState_Header_Green" xml:space="preserve">
+    <value>Project Published</value>
+  </data>
+  <data name="ProjectState_Header_Off" xml:space="preserve">
+    <value>Project deactivated</value>
+  </data>
+  <data name="ProjectState_Header_Red" xml:space="preserve">
+    <value>Project Running</value>
+  </data>
+  <data name="ProjectState_Header_Yellow" xml:space="preserve">
+    <value>Project Ready</value>
+  </data>
+  <data name="DropList_Publish_SelectProject" xml:space="preserve">
+    <value>Select a project for publishing</value>
+  </data>
+  <data name="Action_Milestones_SetAsUndone" xml:space="preserve">
+    <value>Not started</value>
+  </data>
+  <data name="Action_Common_Profile_AddressForInvoice" xml:space="preserve">
+    <value>Invoice Address</value>
+  </data>
+  <data name="Action_Common_Profile_AddressForShipping" xml:space="preserve">
+    <value>Shipping Address</value>
+  </data>
+  <data name="Action_Publish_CreateEpubPreview" xml:space="preserve">
+    <value>Preview EPUB</value>
+  </data>
+  <data name="Action_Reader_DeleteComment" xml:space="preserve">
+    <value>Remove Comment</value>
+  </data>
+  <data name="ReaderApp_AddBookmark" xml:space="preserve">
+    <value>Add Bookmark</value>
+  </data>
+  <data name="ReaderApp_AddComment" xml:space="preserve">
+    <value>Add Comment</value>
+  </data>
+  <data name="ReaderApp_AddComments" xml:space="preserve">
+    <value>Add Comments</value>
+  </data>
+  <data name="ReaderApp_Author" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="ReaderApp_Bookmarks" xml:space="preserve">
+    <value>Bookmarks</value>
+  </data>
+  <data name="ReaderApp_Chapters" xml:space="preserve">
+    <value>Chapters</value>
+  </data>
+  <data name="ReaderApp_Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="ReaderApp_CommentOrNote" xml:space="preserve">
+    <value>Comment or Note</value>
+  </data>
+  <data name="ReaderApp_Comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="ReaderApp_CommentType" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ReaderApp_Confidelity" xml:space="preserve">
+    <value>Confidelity</value>
+  </data>
+  <data name="ReaderApp_CreateBookmark" xml:space="preserve">
+    <value>Create Bookmark</value>
+  </data>
+  <data name="ReaderApp_DeleteBookmark" xml:space="preserve">
+    <value>Delete Bookmark</value>
+  </data>
+  <data name="ReaderApp_GroupOnly" xml:space="preserve">
+    <value>Group Only</value>
+  </data>
+  <data name="ReaderApp_Invisible" xml:space="preserve">
+    <value>Invisible</value>
+  </data>
+  <data name="ReaderApp_Larger" xml:space="preserve">
+    <value>Larger</value>
+  </data>
+  <data name="ReaderApp_LogOut" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="ReaderApp_PostIt" xml:space="preserve">
+    <value>Post it</value>
+  </data>
+  <data name="ReaderApp_Private" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="ReaderApp_Reply" xml:space="preserve">
+    <value>Reply</value>
+  </data>
+  <data name="ReaderApp_ShowComments" xml:space="preserve">
+    <value>Show Comments</value>
+  </data>
+  <data name="ReaderApp_Smaller" xml:space="preserve">
+    <value>Smaller</value>
+  </data>
+  <data name="ReaderApp_Title" xml:space="preserve">
+    <value>Reader App</value>
+  </data>
+  <data name="ReaderApp_YourComment" xml:space="preserve">
+    <value>Your Comment</value>
+  </data>
+  <data name="Action_OpusFileImport_Download_HTMLFile" xml:space="preserve">
+    <value>Download HTML file</value>
+  </data>
+  <data name="Action_OpusFileImport_Download_DOCXFile" xml:space="preserve">
+    <value>Download DOCX file</value>
+  </data>
+  <data name="Action_OpusFileImport_Download_Restorable" xml:space="preserve">
+    <value>Download Backup Format</value>
+  </data>
+  <data name="Action_OpusFileImport_ImportNew" xml:space="preserve">
+    <value>Import as new text</value>
+  </data>
+  <data name="Action_OpusFileImport_ImportOverwrite" xml:space="preserve">
+    <value>Import and overwrite</value>
+  </data>
+  <data name="Action_OpusFileImport_Map_Styles" xml:space="preserve">
+    <value>Map styles</value>
+  </data>
+  <data name="Action_OpusFileImport_PreviewHTML" xml:space="preserve">
+    <value>Preview HTML</value>
+  </data>
+  <data name="Action_OpusFileImport_ViewMap_Styles" xml:space="preserve">
+    <value>View style mapper</value>
+  </data>
+  <data name="Button_Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Action_Common_RetrievePassword" xml:space="preserve">
+    <value>Retrieve password</value>
+  </data>
+  <data name="Action_AssignToLead" xml:space="preserve">
+    <value>Assign to other lead</value>
+  </data>
+  <data name="LinkButton_Contract_Confirm" xml:space="preserve">
+    <value>Confirm Contract</value>
+  </data>
+  <data name="LinkButton_Contract_Deny" xml:space="preserve">
+    <value>Deny Contract</value>
+  </data>
+  <data name="LinkButton_Contract_Print" xml:space="preserve">
+    <value>Print Contract</value>
+  </data>
+  <data name="LinkButton_Upload_WordDOCX" xml:space="preserve">
+    <value>Upload Word (*.docx)</value>
+  </data>
+  <data name="LinkButton_Upload_WordHTML" xml:space="preserve">
+    <value>Upload Word-HTML</value>
+  </data>
+  <data name="TasksButton_MessageBoard_ForProject" xml:space="preserve">
+    <value>Workroom chat for project {0}</value>
+  </data>
+  <data name="TasksButton_RecentlyPublished" xml:space="preserve">
+    <value>Recently Published</value>
+  </data>
+  <data name="Action_Team_ShowAndConfirmShares" xml:space="preserve">
+    <value>View all Shares of Team</value>
+  </data>
+  <data name="Action_Negotiate_Deny_Membership" xml:space="preserve">
+    <value>Deny Membership</value>
+  </data>
+  <data name="TasksButton_Imprint" xml:space="preserve">
+    <value>Publishing Imprint Manager</value>
+  </data>
+  <data name="Action_Imprint_Save" xml:space="preserve">
+    <value>Save Imprint</value>
+  </data>
+  <data name="Action_Isbn_Save" xml:space="preserve">
+    <value>Save ISBN List</value>
+  </data>
+  <data name="Finder_Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Finder_Crop" xml:space="preserve">
+    <value>Crop</value>
+  </data>
+  <data name="Finder_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Finder_Delete_Not" xml:space="preserve">
+    <value>Cannot delete, owned by {0}</value>
+  </data>
+  <data name="Finder_Delete_SystemFile" xml:space="preserve">
+    <value>Cannot delete, system file</value>
+  </data>
+  <data name="Finder_Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Finder_Published_to" xml:space="preserve">
+    <value>Published to</value>
+  </data>
+  <data name="Finder_Recover" xml:space="preserve">
+    <value>Recover</value>
+  </data>
+  <data name="Finder_Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="Finder_Resize" xml:space="preserve">
+    <value>Resize</value>
+  </data>
+  <data name="Finder_Rotate" xml:space="preserve">
+    <value>Rotate</value>
+  </data>
+  <data name="Layout_PrivateMenu" xml:space="preserve">
+    <value>'s private menu</value>
+  </data>
+  <data name="Navigation_History" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="LinkButton_AllTexts" xml:space="preserve">
+    <value>All Texts</value>
+  </data>
+  <data name="LinkButton_Products_ShowProperties" xml:space="preserve">
+    <value>Show Properties</value>
+  </data>
+  <data name="Finder_Copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="Finder_Duplicate" xml:space="preserve">
+    <value>Duplicate</value>
+  </data>
+  <data name="Finder_Move_ToContent" xml:space="preserve">
+    <value>Move to Content</value>
+  </data>
+  <data name="Finder_Move_ToProject" xml:space="preserve">
+    <value>Move to Project</value>
+  </data>
+  <data name="Action_Common_Associate" xml:space="preserve">
+    <value>Associate Account</value>
+  </data>
+  <data name="Action_Common_Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Action_Common_Disconnect" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
+  <data name="Action_MoveOpusToText" xml:space="preserve">
+    <value>Move Text</value>
+  </data>
+  <data name="Action_Opus_Repair" xml:space="preserve">
+    <value>Repair</value>
+  </data>
+  <data name="Action_Project_EditProject" xml:space="preserve">
+    <value>Edit Properties</value>
+  </data>
+  <data name="Action_Marketing_UnAssignPackage" xml:space="preserve">
+    <value>Unassign</value>
+  </data>
+  <data name="TasksButton_AdvancedImport" xml:space="preserve">
+    <value>Advanced MS Word Import</value>
+  </data>
+  <data name="Tab_TeamDetails_ActiveMembers" xml:space="preserve">
+    <value>Active Members</value>
+  </data>
+  <data name="Tab_TeamDetails_NewMembers" xml:space="preserve">
+    <value>New Members</value>
+  </data>
+  <data name="Tab_TeamDetails_Overview" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="Tab_TeamDetails_TeamLeader" xml:space="preserve">
+    <value>Team's Leader</value>
+  </data>
+  <data name="Action_Opus_Boilerplates" xml:space="preserve">
+    <value>Add Boilerplate </value>
+  </data>
+  <data name="Input_NameOfRecipient" xml:space="preserve">
+    <value>Type the name of an recipient</value>
+  </data>
+  <data name="Input_Search_NoResult" xml:space="preserve">
+    <value>Nothing found </value>
+  </data>
+  <data name="DropList_Resource_Select" xml:space="preserve">
+    <value>Select a resource</value>
+  </data>
+</root>

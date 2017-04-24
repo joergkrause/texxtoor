@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Texxtoor.DataModels.Models.Content.TemplateGroup>
+<form>
+  @foreach (var templateGroup in Model) {
+    using (Html.BtFieldset(String.Format("Template Group '{0}'", templateGroup.Name))) {
+      <div class="pull-right">
+        @Html.ActionLink("Add language", "CreateMailTemplate", "Template", new { id = templateGroup.Id }, new { @class = "btn btn-sm btn-default" })
+      </div>
+      <table class="table table-condensed table-striped">
+        <tr>
+          <th>Template</th>
+          <th>Language</th>
+          <th colspan="2">Action</th>
+        </tr>
+        @foreach (var template in templateGroup.Templates) {
+          <tr>
+            <td class="indexMinWidth">@template.InternalName</td>
+            <td>@templateGroup.Culture.NativeName</td>
+            <td>
+              @Html.ActionLink("Edit ", "EditMailTemplate", new { id = template.Id }, new { @class = "btn btn-xs btn-primary" })
+            </td>
+            <td>
+              @Html.ActionLink("Delete", "DeleteMailTemplate", new { id = template.Id }, new { @class = "btn btn-xs btn-danger" })
+            </td>
+          </tr>
+        }
+      </table>
+    }
+    <br />
+  }
+</form>
+

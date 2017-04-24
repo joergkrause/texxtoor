@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="2.0" unique-identifier="bookid">
+  <metadata>
+    <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/" id="bookid">urn:isbn:9780735656680</dc:identifier>
+    <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">Microsoft XNA Framework Edition: Programming Windows Phone 7</dc:title>
+    <dc:rights xmlns:dc="http://purl.org/dc/elements/1.1/">Copyright © 2012 </dc:rights>
+    <dc:publisher xmlns:dc="http://purl.org/dc/elements/1.1/">Microsoft Press</dc:publisher>
+    <dc:subject xmlns:dc="http://purl.org/dc/elements/1.1/">COMPUTERS / Programming / Microsoft Programming</dc:subject>
+    <dc:date xmlns:dc="http://purl.org/dc/elements/1.1/">2010-12-15</dc:date>
+    <dc:description xmlns:dc="http://purl.org/dc/elements/1.1/">&lt;p&gt;Focusing on XNA and the C# language, you&amp;#8217;ll learn how to extend your existing skills to the Windows Phone 7 platform&amp;#8212;mastering the core tools and techniques for creating your own games for the phone.&lt;/p&gt;</dc:description>
+    <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf" opf:file-as="Charles Petzold">Charles Petzold</dc:creator>
+    <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">en</dc:language>
+    <meta name="cover" content="cover-image"/>
+  </metadata>
+  <manifest>
+    <item id="ncxtoc" media-type="application/x-dtbncx+xml" href="toc.ncx"/>
+    <item media-type="text/css" id="css" href="core.css"/>
+    <item id="cover" href="cover.html" media-type="application/xhtml+xml"/>
+    <item id="epub.embedded.font.1" href="DejaVuSansMono.otf" media-type="font/opentype"/>
+    <item id="epub.embedded.font.2" href="DejaVuSerif.otf" media-type="font/opentype"/>
+    <item id="id2693107" href="index.html" media-type="application/xhtml+xml"/>
+    <item id="cover-image" href="httpatomoreillycomsourcemspimages741241.jpg" media-type="image/jpeg"/>
+    <item id="id2740231" href="examples_page.html" media-type="application/xhtml+xml"/>
+    <item id="id2824679" href="pr02.html" media-type="application/xhtml+xml"/>
+  </manifest>
+  <spine toc="ncxtoc">
+    <itemref idref="cover" linear="no"/>
+    <itemref idref="id2693107"/>
+    <itemref idref="id2740231"/>
+    <itemref idref="id2824679"/>
+  </spine>
+  <guide>
+    <reference href="cover.html" type="cover" title="Cover"/>
+  </guide>
+</package>

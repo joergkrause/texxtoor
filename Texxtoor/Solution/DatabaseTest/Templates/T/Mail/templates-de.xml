@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mail locale="de" name="texxtoor">
+  <template name="QuickForm">
+    <![CDATA[
+    <subject>Mail Quickform</subject>
+    <body>
+      Benutzer {Name}, Telefon {Phone}, hat folgenden Projektvorschlag: {ProjectName}.
+    </body>
+    ]]>
+  </template>
+  <template name="QuickForm-Sender">
+    <![CDATA[
+    <subject>Danke für Ihre Anfrage</subject>
+    <body>
+      Lieber Autor,
+      
+      vielen Dank für dein Interesse an unserer Plattform. Wir werden uns mit dir in Verbindung setzen.
+      
+      Ihr texxtoor Team
+      
+      Benutzer {Name}, Telefon {Phone}, Projektvorschlag: {ProjectName}.
+    </body>
+    ]]>
+  </template>
+  <template name="WelcomeUser" >
+    <![CDATA[
+    <subject>{UserName} hat sich bei texxtoor angemeldet!</subject>
+    <body>
+      Herzlich Willkommen bei texxtoor, {UserName}!
+      
+      texxtoor bietet dir eine umfassende Plattform für die Veröffentlichung von Fachtexten auf allen Geräten und im klassischen Druck. 
+      
+      Für die Kommunikation mit dir, deinem Team, Mitarbeitern und die Abwicklung der Produktion ist eine zuverlässige Verbindung notwendig. Deswegen
+      prüfen wir die angegebene E-Mail am Anfang einmalig. Bitte bestätige dies mit dem folgenden Link und du kannst alle Funktionen sofort nutzen.
+      
+      <a href="{ConfirmLink}">{ConfirmLink}</a>
+      
+      Du bist angemeldet als: {UserName}.
+
+      Vielen Dank, dein texxtoor Team
+      
+    </body>
+    ]]>
+  </template>
+  <template name="AddedToTeam" >
+    <![CDATA[
+    <subject>User {UserName} has been added to a texxtoor-team</subject>
+    <body>
+      Gratulation {UserName}!
+      
+      texxtoor bietet eine hervorragend Plattform für die Veröffentlichung von Fachtexten.
+      
+      Ein Autor hat dich seinem Team '{TeamName}' hinzugefügt. Bitte melde dich so bald wie möglich an und prüfe deinen Status und Anteile.
+
+      Viele Grüße, dein texxtoor Team
+      
+    </body>
+    ]]>
+  </template>
+  <template name="AddedToTeamLead" >
+    <![CDATA[
+    <subject>User {UserName} has been added to a texxtoor-team</subject>
+    <body>
+      Lieber {UserName}!
+              
+      Du hast als führender Autor den Benutzer {ContributorName} dem Team {TeamName} hinzugefügt.
+
+      Viele Grüße, dein texxtoor Team
+      
+    </body>
+    ]]>
+  </template>
+  <template name="RemovedFromTeam" >
+    <![CDATA[
+    <subject>User {UserName} has been removed from a texxtoor-team</subject>
+    <body>
+      Lieber {UserName}!
+      
+      Du wurdest aus dem  '{TeamName}' entfernt. 
+
+      Viele Grüße, dein texxtoor Team
+      
+    </body>
+    ]]>
+  </template>
+  <template name="RemovedFromTeamLead" >
+    <![CDATA[
+    <subject>User {UserName} has been removed from a texxtoor-team</subject>
+    <body>
+      Lieber {UserName}!
+              
+      Du hast als führender Autor den Benutzer {ContributorName} aus dem Team {TeamName} entfernt.
+
+      Viele Grüße, dein texxtoor Team
+      
+    </body>
+    ]]>
+  </template>
+  <template name="RetrievePassword" >
+    <![CDATA[
+    <subject>Dein Kennwort auf texxtoor wurde zurückgesetzt</subject>
+    <body>
+      Lieber {UserName}!
+              
+      Wir haben dein Kennwort zurückgesetzt. Du kannst dich jetzt mit '{Password}' anmelden. 
+      
+      Wenn du dann angemeldet bist, ändere bitte das Kennwort.
+
+      Liebe Grüße, dein texxtoor Team
+      
+    </body>
+    ]]>
+  </template>
+</mail>

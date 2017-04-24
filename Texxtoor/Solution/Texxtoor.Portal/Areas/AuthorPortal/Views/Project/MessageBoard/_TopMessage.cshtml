@@ -1,0 +1,49 @@
+﻿@using Texxtoor.DataModels.Models.Author
+@model IPagedList<WorkroomChat>
+<div class="box">
+  <div class="box-header orange-background">
+    <div class="title">@Loc("titleDashboardChat", "Workroom Chat")</div>
+  </div>
+  <div class="box-content box-no-padding">
+    <div class="slimScrollDiv" style="position:relative; overflow: hidden; width: auto; height: 400px">
+      <div class="scrollable" data-scrollable-height="400" data-scrollable-starts="bottom" style="position:relative; overflow: hidden; width: auto; height: 400px">
+        <ul class="list-unstyled list-hover list-striped">
+          @foreach (var item in Model) {
+            <li class="message">
+              <div class="avatar" style="width:36px; height: 24px; margin: 10px 10px 0 10px; position:absolute;">
+                <img src="/tools/getimg/@item.Owner.Profile.Id?c=ProfileByName&res=24x24" style="margin-bottom: 10px" />
+                @if (!item.Closed) {
+                  <i class="@BtIcon.MailReply"></i>
+                  <input type="radio" name="parentId" value="@item.Id" />
+                }
+              </div>
+              <div class="name-and-time" style="margin-left: 53px; display: table; width: 90%">
+                <div class="name pull-left" style="position:relative; top:8px"><small><a class="text-contrast"> @item.Owner.UserName</a></small></div>
+                <div class="time pull-right" style="position:relative; top:8px">
+                  <small class="date pull-right text-muted">
+                    <span class="timeago fade has-tooltip in" data-placement="top" title="@item.CreatedAt.ToShortDateString() @item.CreatedAt.ToShortTimeString()">@item.CreatedAt.ToShortDateString() @item.CreatedAt.ToShortTimeString()</span>
+                    <i class="@BtIcon.Time"></i>
+                    @if (item.Closed) {
+                      <div class="badge badge-warning">@Loc("lblClosed", "Closed")</div>
+                    } else {
+                      <div class="badge badge-success">@Loc("lblOpen", "Open")</div>
+                    }
+                  </small>
+                </div>
+              </div>
+              <div class="body" style="margin: 15px 0px 10px 53px; font-size:85%">
+                <strong>@item.Subject</strong><br />
+                @item.Content
+              </div>
+              <div style="margin-left: 53px">
+                @if (item.HasChildren()) {
+                  @Html.Partial("MessageBoard/_ChildMessage", item.Children)
+                }
+              </div>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

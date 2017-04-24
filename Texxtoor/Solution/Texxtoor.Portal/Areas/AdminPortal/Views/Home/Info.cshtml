@@ -1,0 +1,59 @@
+﻿@{
+  PageData["Title"] = "Info";
+  Layout = Url.GetGlobalLayout("_LayoutConfig", "AdminPortal");
+  var serverVariables = Url.RequestContext.HttpContext.Request.ServerVariables.AllKeys;
+}
+<script>
+  function showAll(element) {
+    var data = $(element).data('all');
+    $('#data').html(data);
+    $('#all').modal();
+  }
+</script>
+<form>
+  @using (Html.BtFieldset("Server")) {
+    <table class="table table-bordered table-striped smaller" style="width:880px">
+      <tr>
+        <th style="width:200px">Name</th>
+        <th style="width:100%">Value</th>
+      </tr>
+      @foreach (string key in serverVariables) {
+        var more = String.Format(" <span style='display:inline-block; font-weight: bold; cursor: hand;' data-all='{0}' onclick='showAll(this)'>Show all...</span>", Request.ServerVariables[key]);
+        <tr>
+          <td style="width:200px">@key</td>
+          <td style="width:100%; white-space: pre; overflow: hidden;">@if (Request.ServerVariables[key] != null) { @Request.ServerVariables[key].Ellipsis(85, more) } else { <small>NULL (not set)</small> }</td>
+        </tr>
+      }
+    </table>
+  }
+  @using (Html.BtFieldset("Database")) {
+    <table class="table table-bordered table-striped">
+      <tr>
+        <td>Name</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>Size</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  }
+</form>
+<div class="modal hidden-to-show" id="all" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+        <h4 class="modal-title" id="myModalLabel">All Data</h4>
+      </div>
+      <div class="modal-body" style="width: 580px; overflow:hidden;">
+        <pre id="data"></pre>
+      </div>
+      <div class="modal-footer">
+        <div class="btn-group dropdown ">
+          <button class="btn btn-default" data-dismiss="modal" type="button">@ViewResources.Button_CancelAndClose</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

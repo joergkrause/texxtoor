@@ -1,0 +1,7 @@
+﻿@using Texxtoor.Portal.Core.UI
+@model System.Globalization.CultureInfo
+@{
+  var name = ViewData.ModelMetadata.AdditionalValues["Name"].ToString();
+}
+@Create.CultureSelection(Url, name, Model.TwoLetterISOLanguageName)
+@Create.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

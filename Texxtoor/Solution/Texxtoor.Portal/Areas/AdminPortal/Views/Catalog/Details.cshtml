@@ -1,0 +1,14 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Content.Catalog
+@{
+    PageData["Title"] = "Catalog Item";
+    Layout = Url.GetGlobalLayout("_LayoutAdmin", "AdminPortal");
+}
+@using (Html.BeginForm()) {
+  using (Html.BtFieldset("Catalog Item Properties")) {
+    @Html.DisplayForModel()
+  }
+  <div class="formsendButtons">
+    @Html.ActionLink("Edit", "Edit", new {id = Model.Id}, new {@class = "btn btn-sm btn-primary"})
+    @Html.ActionLink("Back to List", "Index", null, new {@class = "btn btn-sm btn-default"})
+  </div>
+}

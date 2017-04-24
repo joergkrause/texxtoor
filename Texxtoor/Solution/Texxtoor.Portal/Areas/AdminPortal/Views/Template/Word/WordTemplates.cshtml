@@ -1,0 +1,23 @@
+﻿@model Texxtoor.DataModels.Models.Content.TemplateGroup
+@{
+    PageData["Title"] = "WordTemplates";
+    Layout = Url.GetGlobalLayout("_LayoutTemplates", "AdminPortal");    
+}
+<div class="well">
+  Word templates manage the import procedure. Internally, the template is just a mapping between
+  Word styles and <strong>texxtoor</strong> snippet types used in the editor. To create a template
+  add style names and the intendet behavior in the editor. For instance, map "header1" to "Section 1".
+  To get a list of appropriate styles start by uploading a MS Word document (*.docx is required).
+  The document will be parsed and style list appears.
+</div>
+<h2>Upload</h2>
+<p>Upload a file for further analysis. The file will not get stored.</p>
+<h2>Mapping</h2>
+@if (Model == null)
+{
+  <div class="alert alert-warning">Create a new template.</div>
+}
+else
+{
+  
+}

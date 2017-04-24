@@ -1,0 +1,1177 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+}
+html, body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+body {
+    background-color: silver;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+}
+body .loader-layout {
+    position: fixed;
+    display: none;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+}
+#editor {
+    height: 100%;
+    position: relative;
+    min-height: 200px;
+}
+.wrapper {
+    height: 100%;
+    position: relative;
+	width: 100%;
+}
+
+.loader-layout .loader-opacity {
+    background: black;
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+}
+.loader-layout .loader-block {
+    position: absolute;
+    width: 300px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -150px;
+    top: 50%;
+    left: 50%;
+    z-index: 2000000;
+}
+.loader-block img {
+    margin: 10px auto;
+    display: block;
+    background: transparent;
+}
+.loader-block .loader-msg {
+    font-family: Verdana;
+    margin-top: 20px;
+    font-size: 16px;
+    color: White;
+    text-align: center;
+    line-height: 20px;
+}
+.highlight {
+    background: yellow;
+}
+.fr-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: auto;
+    z-index: 50000;
+    display: none;
+}
+.fr-wrapper .fr-container {
+    float: right;
+    margin-right: 40px;
+    border: 1px solid #8DB2E3;
+    border-top: none;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background: #DCE5F2;
+    width: auto;
+    padding-right: 10px;
+    height: 100%;
+}
+.fr-container span {
+    display: inline-block;
+    font-family: Trebuchet MS, Arial;
+    font-size: 0.8em;
+    font-weight: normal;
+    color: #254264;
+    margin-left: 10px;
+    line-height: 24px;
+    width: 80px;
+    vertical-align: middle;
+}
+.fr-container .counter {
+    position: absolute;
+    font-family: Trebuchet MS, Arial;
+    font-size: 0.8em;
+    font-weight: normal;
+    width: 60px;
+    height: 18px;
+    top: 3px;
+    right: 80px;
+    text-align: center;
+}
+.fr-container input {
+    border: 1px solid silver;
+    border-radius: 3px;
+    width: 140px;
+    margin: 0 5px;
+    padding: 3px 70px 3px 5px;
+    vertical-align: middle;
+}
+.fr-container img {
+    height: 16px;
+    width: 16px;
+    margin: 0 2px;
+    vertical-align: middle;
+}
+.fr-container div#find {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: relative;
+}
+.fr-container div#replace {
+    margin-bottom: 5px;
+}
+*:focus {
+    outline: 0;
+}
+iframe {
+    height: 100%;
+}
+body.editableByTexxtoor {
+    height: auto;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.editableByTexxtoor {
+    position: relative;
+    font-family: Times New Roman;
+    font-size: 12pt;
+    padding-left: 28px;
+    margin-bottom: 16px;
+}
+
+.editableByTexxtoor p, ul, section, header, aside {
+    margin: 0px inherit;
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+}
+.editableByTexxtoor ul, .editableByTexxtoor ol {
+    margin: 10px 0;
+    margin-left: 20px;
+}
+.editableByTexxtoor .editor > p:before {
+    color: Blue;
+    position: absolute;
+    left: 0;
+    font-family: Courier;
+    font-size: 8pt;
+    content: "[P]";
+}
+h1.editableByTexxtoor {
+    font-family: Segoe UI;
+    font-size: 18pt;
+    margin: 10px 0;
+    padding-left: 106px;
+    line-height: 32px;
+}
+h2.editableByTexxtoor {
+    font-family: Segoe UI;
+    font-size: 16pt;
+    margin: 10px 0;
+    padding-left: 106px;
+    line-height: 32px;
+}
+h3.editableByTexxtoor {
+    font-family: Segoe UI;
+    font-size: 14pt;
+    margin: 10px 0;
+    padding-left: 106px;
+    line-height: 32px;
+}
+h4.editableByTexxtoor {
+    font-family: Segoe UI;
+    font-size: 12pt;
+    margin: 10px 0;
+    padding-left: 106px;
+    line-height: 32px;
+}
+h5.editableByTexxtoor {
+    font-family: Segoe UI;
+    font-size: 11pt;
+    margin: 10px 0;
+    padding-left: 106px;
+    line-height: 32px;
+}
+h6.editableByTexxtoor {
+    font-family: Segoe UI;
+    font-size: 11pt;
+    margin: 10px 0;
+    padding-left: 106px;
+    line-height: 32px;
+}
+.editableNumberLevel1 {
+    font-family: Segoe UI;
+    font-size: 18pt;
+    font-weight: bold;
+    background: #fff;
+    position: absolute;
+    margin-top: -52px;
+    line-height: 52px;
+}
+.editableNumberLevel2 {
+    font-family: Segoe UI;
+    font-size: 16pt;
+    font-weight: bold;
+    background: #fff;
+    position: absolute;
+    margin-top: -52px;
+    line-height: 52px;
+}
+.editableNumberLevel3 {
+    font-family: Segoe UI;
+    font-size: 14pt;
+    font-weight: bold;
+    background: #fff;
+    position: absolute;
+    margin-top: -52px;
+    line-height: 52px;
+}
+.editableNumberLevel4 {
+    font-family: Segoe UI;
+    font-size: 12pt;
+    font-weight: bold;
+    background: #fff;
+    position: absolute;
+    margin-top: -52px;
+    line-height: 52px;
+}
+.editableNumberLevel5 {
+    font-family: Segoe UI;
+    font-size: 11pt;
+    font-weight: bold;
+    background: #fff;
+    position: absolute;
+    margin-top: -52px;
+    line-height: 52px;
+}
+.editableNumberLevel6 {
+    font-family: Segoe UI;
+    font-size: 9pt;
+    font-weight: bold;
+    background: #fff;
+    position: absolute;
+    margin-top: -52px;
+    line-height: 52px;
+}
+
+.deeperIcon {
+    position: absolute;
+    right: 24px;
+    margin-top: 16px;
+}
+
+.higherIcon {
+    position: absolute;
+    right: 24px;
+}
+
+.rightButton {
+    border: 0;
+    font-family: Segoe UI, Arial;
+    font-size: 10pt;
+    text-decoration: none;
+}
+
+.leftButton {
+    border: 0;
+    position: absolute;
+    right: -135px;
+    font-family: Segoe UI, Arial;
+    font-size: 10pt;
+    text-decoration: none;
+}
+
+.rightButton IMG {
+    border: 0;
+}
+
+.leftButton IMG {
+    border: 0;
+}
+
+.chapterArea {
+    border: 0;
+    font-family: Segoe UI, Arial;
+    font-size: 24pt;
+}
+.chapterButtonLeft {
+    float: left;
+    width: 200px;
+    text-align: left;
+    vertical-align: middle;
+    color: black;
+}
+.chapterButtonRight {
+    float: right;
+    width: 200px;
+    text-align: right;
+    vertical-align: middle;
+    color: black;
+}
+#mytoolbar {
+    background-color: #dfdfdf;
+    height: 50px;
+    vertical-align: middle;
+    border-radius: 2px;
+    clear: both;
+}
+
+.upButton {
+    position: absolute;
+    border: none;
+    margin: 0;
+    right: 45px;
+    cursor: pointer;
+}
+
+.downButton {
+    position: absolute;
+    border: none;
+    margin-top: 16px;
+    right: 45px;
+    cursor: pointer;
+}
+
+.hintIcon {
+    position: relative;
+    border: none;
+    margin-top: 0px;
+    float: left;
+    top: 8px;
+    left: -85px;
+    z-index: 910;
+    cursor: help;
+}
+
+.commentIcon {
+    position: relative;
+    float: left;
+    top: 8px;
+    left: -60px;
+    cursor: pointer;
+}
+
+.editableText {
+    margin-left: 78px;
+}
+
+.editableTable {
+    margin-left: 78px;
+}
+
+table.editableTableInner.leadcol thead tr th {
+    color: #FFFFFF;
+}
+
+table.editableTableInner {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    table-layout: fixed !important;
+}
+table.editableTableInner.no-user-select {
+    -webkit-user-select: none; /* Chrome all / Safari all */
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */ /* No support for these yet, use at own risk */
+    -o-user-select: none;
+    user-select: none;
+}
+.grips {
+    height: 0px;
+    position: relative;
+}
+.grip, .last-grip {
+    position: absolute;
+    z-index: 100;
+    width: 2px;
+    border-left: 2px dotted transparent;
+    margin-left: -2px;
+}
+.grip:hover, .grip.dragged {
+    border-left: 2px dotted black;
+    cursor: e-resize;
+}
+
+table.editableTableInner thead tr th, table.editableTableInner thead tr td {
+    text-align: center;
+}
+table.editableTableInner th, table.editableTableInner td {
+    overflow: hidden;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+table.editableTableInner.simple {
+    border-top: 2px solid #4F81BD;
+    border-bottom: 2px solid #4F81BD;
+}
+table.editableTableInner.leadcol {
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+}
+table.editableTableInner.leadcol thead tr td, table.editableTableInner.leadcol thead tr th {
+    border-bottom: 2px solid #000000;
+}
+table.editableTableInner.simple thead tr td, table.editableTableInner.simple thead tr th {
+    border-bottom: 2px solid #4F81BD;
+}
+table.editableTableInner th:hover, table.editableTableInner td:hover {
+    background-color: Maroon !important;
+}
+table.editableTableInner.grid, table.editableTableInner.grid td, table.editableTableInner.grid th {
+    border: 1px solid #4F81BD;
+}
+table.editableTableInner.grid thead tr th, table.editabletableinner.grid thead tr td {
+    border-bottom: 2px solid #4F81BD;
+}
+table.editableTableInner .selected {
+    background-color: orange !important;
+}
+.editableImage .img {
+    margin-left: 78px;
+    position: relative;
+    overflow: auto;
+}
+.snippetTitle {
+    font-family: Segoe UI Semibold;
+    position: relative;
+    left: -106px;
+}
+
+.imageEditor, .listingEditor {
+    font-family: Segoe UI Semibold;
+    position: relative;
+    margin-left: 78px;
+}
+
+.snippetTitle input {
+    position: absolute;
+    left: 106px;
+    height: 19px;
+    width: 100%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+.editable_highlight {
+    width: 9px;
+    background-color: #aaffaa;
+    position: absolute;
+    z-index: 10;
+    left: -60px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.editable_highlight_haschanged {
+    width: 9px;
+    background-color: #ff9999 !important;
+    position: absolute;
+    z-index: 10;
+    left: -51px;
+    padding: 0px;
+    margin: 0px;
+}
+
+a.button-more img /* Toolbar buttons */ {
+    border: 0px;
+    vertical-align: top;
+}
+
+a.button-more /* Toolbar buttons */ {
+    font-family: Segoe UI;
+    font-size: 11pt;
+    color: Black;
+    background-color: #dadada;
+    border-radius: 2px;
+    padding: 2px 2px 6px 2px;
+    margin-right: 2px;
+}
+
+a.button-more:hover {
+    background-color: #adadad;
+}
+
+.metaDataDialog {
+    position: absolute;
+    right: 85px;
+    width: 200px;
+    background-color: #efefef;
+    padding: 15px;
+    border-radius: 2px;
+    border: 2px solid #dadada;
+    z-index: 102;
+    box-shadow: 5px 5px 5px #888888;
+    clear: right;
+}
+.metaDataDialog table {
+    width: 220px;
+    font-family: Segoe UI Light;
+    font-size: 9pt;
+}
+.metaDataDialog caption {
+    font-weight: bolder;
+    font-size: 9pt;
+    font-family: Segoe UI;
+}
+.metaDataDialog input[type=text] {
+    width: 170px;
+    font-size: 9pt;
+    font-family: Segoe UI;
+}
+.metaDataDialog td {
+    width: 80px;
+    font-size: 9pt;
+    font-family: Segoe UI;
+}
+.metaDataClose {
+    float: right;
+    margin-right: 0;
+    cursor: pointer;
+}
+
+.commentDialog {
+    position: absolute;
+    width: 65%;
+    margin-left: 80px;
+    margin-bottom: 40px;
+    margin-right: 160px;
+    min-height: 100px;
+    background-color: #efefef;
+    padding: 15px;
+    border-radius: 2px;
+    border: 2px solid #dadada;
+    box-shadow: 5px 5px 5px #888888;
+    z-index: 1010;
+}
+
+.commentClose, .linkClose {
+    float: right;
+    margin-right: 0;
+    cursor: pointer;
+}
+
+.miniToolSet {
+    position: relative;
+    top: 0px;
+    margin-right: 0px;
+    padding: 5px;
+    border: 2px solid silver;
+    float: right;
+    width: 170px;
+    background-color: white;
+    box-shadow: 5px 5px 5px #888888;
+    z-index: 101;
+    clear: right;
+}
+
+.miniToolSet label {
+    font-family: Segoe UI;
+    font-size: 9pt;
+}
+
+.miniToolSet select {
+    font-family: Segoe UI;
+    font-size: 9pt;
+    width: 150px;
+}
+
+
+.menu {
+    list-style-type: none;
+    margin: 0px 0px -8px 0px;
+    padding: 0;
+    display: inline-block;
+}
+
+.menu li.level1 {
+    float: left;
+}
+
+.menu li.level1 {
+    text-decoration: none;
+}
+
+ul.dropdown {
+    display: none;
+}
+
+.menu li:hover ul.dropdown {
+    display: inline;
+    position: absolute;
+    z-index: 100;
+    top: 140px;
+    left: 405px;
+    overflow: hidden;
+}
+
+.menu li:hover ul.dropdown li {
+    list-style-type: none;
+}
+
+li.level2 {
+    padding: 0;
+    margin: 0;
+    line-height: 24px;
+    overflow: hidden;
+}
+
+li.level2 a.button-more {
+    width: 130px;
+    border: 1px solid silver;
+    display: inline-block;
+    cursor: pointer;
+}
+
+li.level2 a.button-more img {
+    border: 0;
+}
+
+.menu-dropdown li:hover.level2 {
+    background-color: #FAFAFA;
+}
+
+header {
+    display: block;
+    background-color: #A2A2A2;
+    padding: 5px;
+    font-size: 16pt;
+}
+
+aside {
+    display: block;
+    background-color: #C2C2C2;
+    padding: 5px;
+}
+
+section {
+    display: block;
+    background-color: #F2C2C2;
+    margin-bottom: 15px;
+}
+
+div.htmlArea {
+}
+div.htmlArea div {
+}
+
+input[type="image"].disabled {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(grayScale=1);
+    cursor: auto;
+}
+input[type="image"].imgButton {
+    cursor: pointer;
+}
+.pane {
+    padding: 15px;
+    font-family: Segoe UI;
+    min-height: 100%;
+    white-space: nowrap;
+}
+.pane_close {
+    float: right;
+    margin: 8px;
+    cursor: pointer;
+}
+.pane > div {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    min-height: 100%;
+}
+.pane > p {
+    font-size: 10pt;
+}
+.listingEditor ol {
+    margin: 0px 185px 0px -40px;
+    color: blue;
+    background-color: #ffc;
+    font-family: "Courier New" ,Courier,mono;
+    padding: 0.5em 0 0.5em 2.8em;
+    font-size: small;
+}
+.listingEditor li code {
+    background: #ffc;
+    color: #000;
+    font-size: small;
+    padding-left: 5px;
+}
+/********** Semantic Elements *************/
+.editableByTexxtoor abbr {
+    font-style: normal;
+    font-weight: bold;
+    color: Maroon;
+    border-bottom: 3px double;
+}
+.editableByTexxtoor .isindex {
+    font-style: normal;
+    font-weight: bold;
+    color: orange;
+    border-bottom: 3px double;
+}
+.editableByTexxtoor cite {
+    font-style: normal;
+    font-weight: bold;
+    color: Navy;
+    border-bottom: 3px double;
+}
+.editableByTexxtoor var {
+    font-style: normal;
+    font-weight: bold;
+    color: Fuchsia;
+    border-bottom: 3px double;
+}
+.editableByTexxtoor a {
+    font-style: normal;
+    font-weight: bold;
+    color: Olive;
+    border-bottom: 3px double;
+}
+.editableByTexxtoor def {
+    font-style: normal;
+    font-weight: bold;
+    color: Lime;
+    border-bottom: 3px double;
+}
+
+
+/***********************************/
+
+a.pane_tab {
+    top: 100px;
+    left: 0;
+    width: 100px;
+    height: 26px;
+    color: Gray;
+    cursor: pointer;
+    overflow: hidden;
+    position: fixed;
+    z-index: 1005;
+    margin-left: -7px;
+    background-color: white;
+    text-decoration: none;
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
+    border-radius: 2px;
+    background-repeat: no-repeat;
+    box-shadow: 5px 5px 5px #888888;
+    font-family: Segoe UI Semibold;
+    font-size: 9pt;
+}
+a.pane_tab:hover {
+    margin-left: -4px;
+}
+
+a.pane_tab_right {
+    background-position: 2px;
+    border-left: 1px solid silver;
+    right: 2px !important;
+    left: auto !important;
+    margin-right: -80px !important;
+    margin-left: auto !important;
+    text-indent: 24px;
+}
+
+a.pane_tab_left {
+    background-position: 80px;
+    border-right: 1px solid silver;
+    left: -76px !important;
+    margin-right: -5px !important;
+    margin-left: auto !important;
+    text-indent: 40px;
+}
+
+a.pane1 {
+    top: 60px;
+}
+a.pane2 {
+    top: 90px;
+}
+a.pane3 {
+    top: 120px;
+}
+
+a.pane_tab_right:hover {
+    margin-right: -4px !important;
+    margin-left: auto !important;
+}
+a.pane_tab_left:hover {
+    margin-right: auto !important;
+    margin-left: 40px !important;
+}
+a.pane_tab_hidden {
+    display: none !important;
+}
+
+/**** TOOLSET *****/
+#tools {
+    width: 100%;
+    background-color: white;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    position: fixed;
+    z-index: 999;
+}
+#head {
+}
+
+#body {
+    margin: 15px 80px 0;
+    padding: 15px;
+    border-right: 1px dotted silver;
+    border-left: 1px dotted silver;
+    background-color: #fff;
+    width: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 40px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+#leftbar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 64px;
+    min-height: 100%;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+#rightbar {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 64px;
+    min-height: 100%;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+.equationContainer {
+    padding: 10px 0;
+    position: relative;
+    background-color: rgb(242, 242, 229);
+    width: 100%;
+    margin: 5px 0;
+    resize: none;
+}
+.equationContainer img {
+    position: absolute;
+	top: 5px;
+	left: 5px;
+	cursor: pointer;
+}
+.dialog-popup {
+    display: none;
+}
+.internalLinkDialog, .externalLinkDialog, .imageCropDialog, .imageColorsDialog  {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 400px;
+    margin-left: -250px;
+    margin-top: -200px;
+    border: 2px solid silver;
+    background-color: White;
+    box-shadow: 5px 5px 5px silver;
+    padding: 15px;
+    z-index: 110000;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.imageCropDialog  {
+    width: 900px;
+    height: 500px;
+    margin-left: -450px;
+    margin-top: -250px;
+}
+.imageColorsDialog {
+	width: 600px;
+    height: 360px;
+    margin-left: -300px;
+    margin-top: -180px;
+}
+.imageColorsDialog .image-opts-container h4 {
+	margin: 2px 0;
+}
+.imageColorsDialog .image-opts-container {
+    margin: 10px;
+}
+.imageColorsDialog .image-opts-container .t-color-picker {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #AAA;
+	vertical-align: middle;
+}
+.imageColorsDialog .image-opts-container .t-color-picker > div {
+    margin: 3px;
+    width: 14px;
+    height: 14px;
+    background: white;
+}
+.imageColorsDialog .image-opts-container .opt-titles .opts-block {
+    width: 284px;
+    display: inline-block;
+    vertical-align: top;
+    max-height: 286px;
+    overflow: auto;
+	
+}
+.imageColorsDialog .image-opts-container div.connectedSortable {
+	border: 1px solid #AAA;
+	display: inline-block;
+	width: 128px;
+	vertical-align: top;
+}
+.imageColorsDialog .image-opts-container div.connectedSortable div {
+	cursor: pointer;
+	padding-left: 5px;
+	margin: 5px;
+	width: 113px;
+}
+.imageColorsDialog .image-opts-container .opt-titles .slider {
+    margin: 8px 2px;
+    display: inline-block;
+	width: 215px;
+}
+.imageColorsDialog .image-opts-container .opt-titles .s-value {
+    display: inline-block;
+    width: 30px;
+    margin: 6px 12px 6px 0;
+    height: 15px;
+    float: left;
+}
+.imageColorsDialog .image-opts-container #t-color {
+    margin: 2px 0;
+    height: 20px;
+    border : 1px solid #AAA;
+    vertical-align: middle;
+    width: 60px;
+    padding:0 5px;
+}
+.imageCropDialog .image-container {
+	float: left;
+	margin: 10px;
+	width: 600px;
+	height: 400px;
+	text-align: center;
+}
+.imageCropDialog .options-container .preview {
+    width:260px;
+    height:240px;
+    overflow:hidden;
+    margin: 10px 0;
+    display: inline-block;
+}
+.imageCropDialog .options-container .ratio-input {
+    width: 30px !important;
+}
+.imageCropDialog .options-container .crop-width, .imageCropDialog .options-container .crop-height {
+    width: 50px !important;
+}
+.imageCropDialog .image-container .jcrop-holder, .imageCropDialog .image-container img {
+    margin: auto;
+    display: block;
+}
+.internalLinkDialog .buttons, .externalLinkDialog .buttons, .imageCropDialog .buttons, .imageColorsDialog .buttons {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    height: 24px;
+}
+.popup-layout {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100000;
+}
+.internalLinkDialog .buttons input, .externalLinkDialog .buttons input, .imageCropDialog .buttons input, .imageColorsDialog .buttons input {
+    padding: 2px 5px;
+}
+#internalLinkList, #externalLinkList {
+    margin-top: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 280px;
+}
+.internalLinkDialog .caption {
+    margin-top: 10px;
+    display: block;
+}
+.internalLinkDialog .caption input {
+    margin-left: 5px;
+    width: 250px;
+}
+.internalLinkDialog h4 {
+    padding-left: 25px;
+}
+.tableOptionsDialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 420px;
+    min-height: 250px;
+    margin-left: -230px;
+    margin-top: -180px;
+    border: 1px solid silver;
+    background-color: White;
+    box-shadow: 0 0 2px silver;
+    padding: 15px;
+    z-index: 1200;
+    display: none;
+}
+.tableOptionsDialog {
+    color: #254264;
+    font-size: 12px;
+    font-family: Segoe UI;
+}
+.tableOptionsDialog h5 {
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-family: Segoe UI;
+    white-space: nowrap;
+    line-height: 18px;
+    font-weight: 400;
+    color: #254264;
+}
+.tableOptionsDialog .block {
+    display: inline-block;
+    float: left;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+.tableOptionsDialog .col-width {
+    float: left;
+    margin-bottom: 26px;
+    margin-top: 10px;
+    min-width: 420px;
+}
+.clear {
+    clear: both;
+}
+.tableOptionsDialog .col-width > div > div {
+    display: inline-block;
+    float: left;
+}
+.tableOptionsDialog .col-width > div > div > div {
+    text-align: center;
+    padding-right: 12px;
+}
+
+.tableOptionsDialog div input[type='text'] {
+    margin: 4px;
+    border: 1px solid silver;
+    width: 30px !important;
+}
+.tableOptionsDialog .type-btn {
+    display: inline-block;
+    text-align: center;
+    height: 50px;
+    padding: 4px 6px;
+    border: 1px solid transparent;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.tableOptionsDialog .type-btn > div {
+    clear: both;
+}
+.tableOptionsDialog .type-btn.active {
+    border: 1px solid #FFB700;
+    background: url('../../Scripts/author/ribbon/themes/windows7/images/item_background.png') repeat-x 0 0;
+}
+.tableOptionsDialog .type-btn img {
+    margin-bottom: 2px;
+}
+.tableOptionsDialog .buttons {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+.tableOptionsDialog .buttons input {
+    padding: 2px 5px;
+}
+.externalLinkDialog h4 {
+    padding-left: 25px;
+}
+.clearfix {
+    display: block;
+}
+
+.clearfix:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+    line-height: 0;
+    content: ".";
+}
+
+.CodeMirror {
+    background-color: #FFFFCC;
+}
+.activeline {
+    background: #e8f2ff !important;
+}
+.CodeMirror-scroll {
+    height: auto !important;
+    overflow-y: hidden !important;
+    overflow-x: auto !important;
+}
+/* Ribbon Extensions */
+.popContainerPopup {
+    display: none;
+    position: absolute;
+    z-index: 1100;
+    width: 200px;
+    margin-left: -5px !important;
+    background-color: White;
+    border: 2px solid silver;
+    box-shadow: 5px 5px 5px silver;
+    padding: 5px !important;
+}
+.popContainerPopup span {
+	float: left;
+	margin: 0 !important;
+	padding: 2px 4px !important;
+}
+.popContainerPopup span:hover {
+    background: #8DB2E3;
+}
+#previewMath {
+    margin: 0;
+    padding: 5px;
+    position: absolute;
+	top: 67px;
+	border: 1px solid #8DB2E3;
+	background: #DCE5F2;
+	left: 5px;
+	width: auto;
+	border-radius: 2px;
+    width: auto;
+    height: auto;
+    z-index: 1000;
+    display: none;
+}
+#mathSrc {
+    resize: none;
+}
+#insMath {
+	margin-right: 10px;
+	line-height: 55px;
+}
+
+

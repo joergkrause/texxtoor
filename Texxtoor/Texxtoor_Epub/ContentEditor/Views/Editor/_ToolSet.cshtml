@@ -1,0 +1,90 @@
+﻿@model Texxtoor.Editor.ViewModels.ToolSetModel
+<ul class="ribbon">
+  <li>
+    <ul class="orb">
+      <li><a href="javascript:void(0);" accesskey="1" class="orbButton">&nbsp;</a><span>Menu)</span>
+        <ul>
+          <li><a href="#">
+            <img src="~/Content/icons/Editor/icon_doc.png" alt="New" /><span>Actions</span></a>
+            <ul>
+              <li><a href="#" class="ribbon-button" data-command="insert" data-action="chapter">
+                <img src="~/Content/icons/Editor/icon_richtext.png" alt="Rich Text" /><span>Append
+                  Chapter</span></a> </li>
+            </ul>
+          </li>
+          <li><a href="#">
+            <img src="~/Content/icons/Editor/code_24.png" alt="Save" /><span>Table of Content</span></a>
+            <ul id="tocpane">
+              @Html.Action("Toc", (int)ViewBag.DocumentId)
+            </ul>
+          </li>
+          <li><a href="#">
+            <img src="~/Content/icons/Editor/icon_print.png" alt="Preview" /><span>Preview</span></a>
+            <ul>
+              <li><a href="#" class="ribbon-button" data-command="orb" data-action="html">
+                <img src="~/Content/icons/Editor/icon_otherformats.png" alt="Print" /><span>Online</span></a>
+              </li>
+              <li><a href="#" class="ribbon-button" data-command="orb" data-action="epub">
+                <img src="~/Content/icons/Editor/icon_ooxml.png" alt="EPub" /><span>EPUB</span></a>
+              </li>
+              <li><a href="#" class="ribbon-button" data-command="orb" data-action="pdf">
+                <img src="~/Content/icons/Editor/icon_pagesetup.png" alt="PDF" /><span>PDF</span></a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#" class="ribbon-button" data-command="orb" data-action="close">
+            <img src="~/Content/icons/Editor/icon_exit.png" alt="Close" /><span>Close</span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <ul class="menu">
+      <li><a accesskey="2" onmousedown="return false;">Write</a>
+        <ul>
+          @Html.Partial("Panes/_Write")
+        </ul>
+      </li>
+      <li><a accesskey="3" onmousedown="return false;">Format</a>
+        <ul>
+          @Html.Partial("Panes/_Format")
+        </ul>
+      </li>
+      <li><a accesskey="4" onmousedown="return false;">Navigate</a>
+        <ul>
+          @Html.Partial("Panes/_Navigate")
+        </ul>
+      </li>
+      <li><a accesskey="5" onmousedown="return false;">Semantic</a>
+        <ul>
+          @Html.Partial("Panes/_Semantic", (int)ViewBag.DocumentId)
+        </ul>
+      </li>
+      <li class="pane tablePane"><a accesskey="6" onmousedown="return false;" style="background-color: rgb(227, 29, 34);">
+        Tables</a>
+        <ul>
+          @Html.Partial("Panes/_Tables")
+        </ul>
+      </li>
+      <li class="pane imagePane"><a accesskey="7" onmousedown="return false;" style="background-color: #8a9acd;">
+        Pictures</a>
+        <ul>
+          @Html.Action("Images", (int)ViewBag.DocumentId)
+        </ul>
+      </li>
+      <li class="pane equationPane"><a accesskey="8" onmousedown="return false;" style="background-color: rgb(125, 184, 64)">
+        Equations</a>
+        <ul>
+          @Html.Partial("Panes/_Equations")
+        </ul>
+      </li>
+      <li class="pane listingPane"><a accesskey="9" onmousedown="return false;" style="background-color: rgb(241, 230, 59)">
+        Listings</a>
+        <ul>
+          @Html.Partial("Panes/_Listing")
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>

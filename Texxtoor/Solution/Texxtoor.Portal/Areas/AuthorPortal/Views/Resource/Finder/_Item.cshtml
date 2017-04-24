@@ -1,0 +1,123 @@
+﻿@model Texxtoor.DataModels.Models.Content.ResourceFile
+@{
+  var user = User.Identity.Name;
+}
+<div class="input-group" data-group data-tab="@ViewData["TabName"]" data-item="@Model.Id">
+  <div class="form-horizontal">
+    <input type="text" title="Owner: @(Model.Owner == null ? "System File" : Model.Owner.UserName)" class="form-control" value="@Model.Name" name="name" @(ViewData["TabName"].ToString() == "trash-content" ? "disabled readonly" : "") />
+  </div>
+  <div class="input-group-btn" data-options>
+    @if (Model.Published == null || Model.Published.All(p => !p.IsPublished)) {
+      var tab = ViewData["TabName"].ToString();
+      switch (tab) {
+
+        case "trash-content":
+          <div class="btn-group dropdown ">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              @ViewResources.Finder_Action <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" style="top: 30px !important">
+              <li><a href="#" data-action="recover" data-option="content">@ViewResources.Finder_Recover (Content)</a></li>
+              <li><a href="#" data-action="recover" data-option="project">@ViewResources.Finder_Recover (Project)</a></li>
+              <li><a href="#" data-action="recover" data-option="import">@ViewResources.Finder_Recover (Import)</a></li>
+              <li class="divider"></li>
+              @if (Model.Owner != null && Model.Owner.UserName == User.Identity.Name) {
+                <li><a href="#" data-action="delete">@ViewResources.Finder_Delete</a></li>
+              }
+              <li><a href="#" data-action="download" rel="nofollow">@ViewResources.Finder_Download</a></li>
+            </ul>
+          </div>
+          break;
+
+        case "import-content":
+
+          <button type="button" class="btn btn-primary" data-action="rename">
+            @ViewResources.Finder_Rename
+          </button>
+          <div class="btn-group dropdown ">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              @ViewResources.Finder_Action <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" >
+              <li><a href="#" data-action="delete">@ViewResources.Finder_Delete</a></li>
+              <li><a href="#" data-action="download" rel="nofollow">@ViewResources.Finder_Download</a></li>
+            </ul>
+          </div>
+          break;
+
+        default:
+          @Html.Partial("Finder/_SelectLabel", Model, ViewData)
+          <button type="button" class="btn btn-primary" data-action="rename">
+            @ViewResources.Finder_Rename
+          </button>
+          <div class="btn-group dropdown ">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              @ViewResources.Finder_Action <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" style="margin-top: -2px">
+              <li>
+                @if (Model.Owner != null) {
+                  if (user == Model.Owner.UserName) {
+                    <a href="#" data-action="delete">@ViewResources.Finder_Delete</a>
+                  } else {
+                    <a>@String.Format(ViewResources.Finder_Delete_Not, Model.Owner.UserName)</a>
+                  }
+                } else {
+                  <a>@String.Format(ViewResources.Finder_Delete_SystemFile)</a>
+                }
+              </li>
+              <li><a href="#" data-action="download" rel="nofollow">@ViewResources.Finder_Download</a></li>
+              @*<li><a href="#" data-action="copy">@ViewResources.Finder_Copy</a></li>
+              <li><a href="#" data-action="duplicate">@ViewResources.Finder_Duplicate</a></li>*@
+              @if (tab == "default-content") {
+                <li><a href="#" data-action="move" data-option="project">@ViewResources.Finder_Move_ToProject</a></li>
+              }
+              @if (tab == "project-content") {
+                <li><a href="#" data-action="move" data-option="content">@ViewResources.Finder_Move_ToContent</a></li>
+              }
+              @if (Model.MimeType.StartsWith("image")) {
+                <li class="divider"></li>
+                if (Model.MimeType.Contains("svg")) {
+                  <li><a href="@Url.Action("DesignerRoom", "Editor", new { id = Model.ProjectId, resourceId = Model.Id })" >Edit SVG Drawing</a></li>
+                } else {
+                  <li><a href="#" data-action="crop">@ViewResources.Finder_Resize &amp; @ViewResources.Finder_Crop</a></li>
+                  <li class="hidden"><a href="#" data-action="rotate">@ViewResources.Finder_Rotate</a></li>
+                  <li><a href="#" data-action="manipulate">Manipulate Image</a></li>
+                }
+              }
+            </ul>
+
+          </div>
+          break;
+      }
+    } else {
+      <div class="btn-group dropdown open">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          @String.Format(ViewResources.Finder_Published_to, Model.Published.Count(p => p.IsPublished))
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          @foreach (var publ in Model.Published.Where(p => p.IsPublished)) {
+            <li>@publ.Title (@publ.CreatedAt.ToShortDateString())</li>
+          }
+        </ul>
+      </div>
+    }
+    @if (Model.MimeType.Contains("image")) {
+      if (Model.MimeType.Contains("svg")) {
+        <button type="button" class="btn btn-xs btn-default">
+          <span title="SVG Drawing" style="display:inline-block; width: 95px; overflow: hidden;">SVG Drawing</span>
+        </button>
+      } else {
+        <button type="button" class="btn btn-xs btn-default" data-action="show">
+          <img class="image-icon" width="24" height="24" src="/tools/getimg/@Model.Id?c=finderresource&nc=true&res=24x24" />
+          <span title="@Model.MimeType" style="display: inline-block; width: 75px; overflow: hidden;">@Model.MimeType.Ellipsis(10)</span>
+        </button>
+      }
+    } else {
+      <button type="button" class="btn btn-xs btn-default">
+        <span title="@Model.MimeType" style="display:inline-block; width: 95px; overflow: hidden;">@Model.MimeType.Ellipsis(30)</span>
+      </button>
+    }
+  </div>
+</div>
+

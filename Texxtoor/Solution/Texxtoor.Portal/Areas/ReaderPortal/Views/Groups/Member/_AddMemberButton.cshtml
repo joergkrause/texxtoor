@@ -1,0 +1,4 @@
+﻿@Create.FormButtonOnClick("addMemberBtn", "ui.addElement()", ViewResources.Action_Reader_AddMember, "btn-primary", (ViewData["MinScore"] != null))
+@if (ViewData["MinScore"] != null) {
+  @Html.Partial("LayoutPartials/_MinScoreRequired", new Tuple<string, int, int>("To add a member a min reputation of {0} is required. ", (int)ViewData["MinScore"], (int)ViewData["HasScore"]))  
+}

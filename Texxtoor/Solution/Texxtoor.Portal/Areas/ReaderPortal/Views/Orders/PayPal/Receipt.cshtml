@@ -1,0 +1,54 @@
+﻿@model Texxtoor.DataModels.Models.Reader.Orders.OrderProduct
+@{
+  PageData["Title"] = Loc("title", @"Order Confirmation");
+  Layout = Url.GetGlobalLayout("_LayoutReader", "ReaderPortal");
+  PageData["ShortHelp"] = Loc("text", @"Confirm order, show summary and link to archive and accounting.");
+}
+<i class="@BtIcon.Archive"></i> @Html.LabelFor(m => m.Name)
+<div class="alert alert-info">
+  @Html.DisplayFor(m => m.Name)
+</div>
+<i class="@BtIcon.Euro"></i> @Html.LabelFor(m => m.RealPrice)
+<div class="alert alert-danger">
+  <strong>@String.Format("{0:0.00}", Model.RealPrice) &euro;</strong>
+</div>
+<i class="@BtIcon.Tablet"></i> @Html.LabelFor(m => m.Media)
+<div class="alert alert-success">  
+  <div>
+    @String.Join(", ", Model.Media.Select(m => m.Name).ToArray())
+    @if (Model.Subscription) {
+      @Loc("asSub", "with") @Html.LabelFor(m => m.Subscription)    
+    }
+  </div>
+</div>
+<div class="well well-lg">
+  @Html.LabelFor(m => m.ShippingAddress.Name)
+  <div>
+    @Html.DisplayFor(m => m.ShippingAddress.Name)
+  </div>
+  @Html.LabelFor(m => m.ShippingAddress.StreetNumber)
+  <div>
+    @Html.DisplayFor(m => m.ShippingAddress.StreetNumber)
+  </div>
+  @Html.LabelFor(m => m.ShippingAddress.City)
+  <div>
+    @Html.DisplayFor(m => m.ShippingAddress.City)
+  </div>
+  @Html.LabelFor(m => m.ShippingAddress.Zip)
+  <div>
+    @Html.DisplayFor(m => m.ShippingAddress.Zip)
+  </div>
+  @Html.LabelFor(m => m.ShippingAddress.Country)
+  <div>
+    @Html.DisplayFor(m => m.ShippingAddress.Country)
+  </div>
+</div>
+<div class="well well-sm">
+  @Create.ImageButtonOnAction("btnConfirm", Url.Action("Confirmation", new { id = Model.Id }), ViewResources.Action_Payment_Withdraw)
+</div>
+
+@Create.ActionTask("", true, Url.Action("Archive", "Account", new { area = "" }), ViewResources.TasksButton_Reader_Archive)
+@Create.ActionTask("", false, Url.Action("Library", "Reader"), ViewResources.TasksButton_Reader_Library)
+@Create.ActionTask("", false, Url.Action("Matrix", "Home"), ViewResources.LinkButton_Reader_Matrix)
+@Create.ActionTask("", false, Url.Action("Products", "Products"), ViewResources.LinkButton_Reader_Products)
+@Create.ActionTask("", false, Url.Action("Order", "Orders"), ViewResources.LinkButton_Reader_CurrentOrder)

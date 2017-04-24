@@ -1,0 +1,15 @@
+﻿@model string
+@{
+  var selectList = new List<SelectListItem>();
+  selectList.Add(new SelectListItem {
+    Value = "de",
+    Text = "Deutsch",
+    Selected = Model == "de"
+  });
+  selectList.Add(new SelectListItem {
+    Value = "en",
+    Text = "English",
+    Selected = Model == "en"
+  });
+}
+@Html.DropDownListFor(m => m, selectList)

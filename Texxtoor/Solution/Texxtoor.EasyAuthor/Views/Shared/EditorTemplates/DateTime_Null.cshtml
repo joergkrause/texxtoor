@@ -1,0 +1,19 @@
+﻿@using System.Globalization
+@model System.DateTime?
+<script type="text/javascript">
+  @{
+    var dt = Model.HasValue ? Model.Value : DateTime.Now;
+  }
+  $(function () {
+    $(".@ViewData.ModelMetadata.PropertyName").datepicker({
+      format: '@(new CultureInfo(Culture).DateTimeFormat.ShortDatePattern.ToLower())',
+      startDate: @String.Format("new Date({0}, 1, 1)", DateTime.Now.Year - 10),
+      endDate: @String.Format("new Date({0}, 1, 1)", DateTime.Now.Year + 10),
+      buttonImage: '@Url.Content("~/Content/icons/calendar.png")',
+      language: '@Culture'
+    });
+    $(".@ViewData.ModelMetadata.PropertyName").datepicker('setDate', @(String.Format("new Date({0}, {1}, {2})", dt.Year, dt.Month - 1, dt.Day)));
+  });
+</script>
+@Html.TextBox("", dt.ToLongDateString(), new { @class = ViewData.ModelMetadata.PropertyName })
+@Angular.FieldHelpIcon(ViewData.ModelMetadata.Description, ViewData.ModelMetadata.DisplayName, ViewData.ModelMetadata.PropertyName)

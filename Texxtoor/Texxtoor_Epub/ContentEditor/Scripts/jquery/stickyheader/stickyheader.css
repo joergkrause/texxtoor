@@ -1,0 +1,919 @@
+﻿/*
+Item Name: Sticky Header
+Author: Mapalla
+Author Url: http://codecanyon.net/user/Mapalla
+Version: 1.1
+
+Modified by Joerg Krause, 3/20/2012, changed maximize/minize styles to rigth:-45px (was 20px)
+*/
+
+/* _______________________________________
+
+	CONTAINER
+__________________________________________*/
+
+/* STICKY HEADER CONTAINER */
+#header
+{
+  position: fixed;
+  top: 0;
+  left: auto;
+  width: auto;
+  min-width: 984px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: Segoe UI Light, Arial, Helvetica, sans-serif;
+  z-index: 9999; /* background */
+  background-color: #647893; 
+  /* drop shadow goes here*/
+}
+
+/* _________________________________________________
+
+	MINIMIZE AND MAXIMIZE CONTROL 
+____________________________________________________*/
+
+
+/* MINIMIZE CONTROL */
+#header #minimize
+{
+  position: absolute;
+  right: -40px;
+  top: 0px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background:#4d4d4d url("/Scripts/jquery/stickyheader/images/up.png") no-repeat center;
+  cursor: pointer;
+}
+
+#header #minimize:hover
+{
+  background-color: #647893;
+}
+
+/* MAXIMIZE CONTROL */
+#header #maximize
+{
+  position: absolute;
+  top: -45px;
+  right: -40px;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  z-index: 9999; /* Rounded Corners */  
+  background: #536987 url("/Scripts/jquery/stickyheader/images/down.png") no-repeat center; /* drop shadow */
+}
+
+#header #maximize:hover
+{
+  background-color: #647893;
+}
+
+/* ______________________________________________
+
+	MENU
+_________________________________________________ */
+
+#menu
+{
+  list-style: none;
+  width: 960px;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  padding: 0;
+  color: #FFFFFF;
+}
+
+#menu li
+{
+  float: left;
+  margin: 0;
+  border: none;
+  padding-right: 10px;
+}
+
+#menu li:hover, #menu li.click
+{
+  background: #647893;
+}
+
+#menu li img.logo
+{
+  border: 0;
+  padding: 4px 0;
+}
+
+#menu li a.link
+{
+  font-size: 12px;
+  color: #F5F5F5;
+  outline: 0;
+  font-weight: 700;
+  text-decoration: none;
+  display: block;
+  line-height: 40px;
+  padding-left: 10px;
+}
+
+#menu p
+{
+  margin-top: 1.5em;
+}
+
+#menu p a
+{
+  display: inline;
+  text-shadow: none;
+  outline: 0;
+  font-weight: normal;
+  text-decoration: underline;
+  line-height: 0px;
+  padding-left: 0px;
+}
+
+/* DROP MENU*/
+#menu li a.drop
+{
+  padding-right: 15px;
+  background: url(/Scripts/jquery/stickyheader/images/drop.png) no-repeat right center;
+}
+
+/* RIGHT ALIGNED MENU ITEM */
+#menu li.right
+{
+  float: right;
+}
+
+/* MENU ICON */
+#menu li.icon
+{
+  padding: 0;
+  margin: 0;
+}
+
+#menu li.icon:hover
+{
+  background: #647893;
+}
+
+#menu li.icon a
+{
+  padding: 0 5px;
+  margin: 0;
+}
+
+#menu li.icon img
+{
+  border: 0;
+  padding: 8px 0;
+}
+
+/* Tooltips for icons */
+#menu a.tooltip:hover
+{
+  text-decoration: none;
+}
+
+/* The span defines the tooltip appearing on mouse hover */
+#header a.tooltip span
+{
+  display: none;
+  top: 44px;
+  padding: 0 5px;
+  min-width: 40px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center; /* CSS3 Rounded Corners */
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3PX;
+  border-radius: 3px;
+}
+
+/* The hover state */
+#header a.tooltip:hover span
+{
+  display: block;
+  position: absolute;
+  border: 0;
+  background: #647893;
+  color: #fff;
+  font-size: 10px;
+  margin-left: -20px;
+}
+
+/* SEPARATOR */
+#menu li.separator
+{
+  border-left: solid 1px #44556E;
+  border-right: solid 1px #647893;
+  height: 30px;
+  margin: 5px 5px 0 5px;
+  padding: 0;
+}
+
+#menu li.separator:hover
+{
+  background: none;
+}
+
+/* ______________________________________________________
+
+	MEGA DROP DOWN MENU
+_________________________________________________________*/
+
+/* Drop Down Container */
+#menu li .dropcontent
+{
+  margin: 0px auto;
+  position: absolute;
+  left: -9999em;
+  top: 40px;
+  z-index: 9997;
+  padding: 10px 0;
+  text-align: left;
+  background: #647893; /* Rounded Corners */
+  -moz-border-radius: 0px 0px 4px 4px;
+  -webkit-border-radius: 0px 0px 4px 4px;
+  -khtml-border-radius: 0px 0px 4px 4px;
+  border-radius: 0px 0px 4px 4px;
+}
+
+#menu li:hover .dropcontent
+{
+  left: auto;
+}
+
+#menu li .align_right
+{
+  right: 0px;
+}
+
+#menu li:hover .align_right
+{
+  left: auto;
+  right: 0px;
+}
+
+/* LARGE MENU */
+#menu li .fullwidthdropcontent
+{
+  float: left;
+  position: absolute;
+  left: -9999em;
+  height: 350px;
+  top: 40px;
+  z-index: 9997;
+  padding: 10px 0;
+  text-align: left;
+  background: #647893; 
+}
+
+#header #menu li:hover .fullwidthdropcontent
+{
+  left: 0;
+}
+
+
+/* MEGA MENU CONTAINER */
+#menu .column1container
+{
+  width: 80px;
+}
+#menu .column2container
+{
+  width: 160px;
+}
+#menu .column3container
+{
+  width: 240px;
+}
+#menu .column4container
+{
+  width: 320px;
+}
+#menu .column5container
+{
+  width: 400px;
+}
+#menu .column6container
+{
+  width: 480px;
+}
+#menu .column7container
+{
+  width: 560px;
+}
+#menu .column8container
+{
+  width: 640px;
+}
+#menu .column9container
+{
+  width: 720px;
+}
+#menu .column10container
+{
+  width: 800px;
+}
+#menu .column11container
+{
+  width: 880px;
+}
+#menu .column12container
+{
+  width: 960px;
+}
+#menu .column13container
+{
+  width: 1024px;
+}
+
+/* MEGA MENU COLUMN */
+#menu .column1, #menu .column2, #menu .column3, #menu .column4, #menu .column5, #menu .column6, #menu .column7, #menu .column8, #menu .column9, #menu .column10, #menu .column11, #menu .column12
+{
+  display: inline;
+  float: left;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#menu .column1
+{
+  width: 60px;
+}
+#menu .column2
+{
+  width: 140px;
+}
+#menu .column3
+{
+  width: 220px;
+}
+#menu .column4
+{
+  width: 300px;
+}
+#menu .column5
+{
+  width: 380px;
+}
+#menu .column6
+{
+  width: 460px;
+}
+#menu .column7
+{
+  width: 540px;
+}
+#menu .column8
+{
+  width: 620px;
+}
+#menu .column9
+{
+  width: 700px;
+}
+#menu .column10
+{
+  width: 780px;
+}
+#menu .column11
+{
+  width: 860px;
+}
+#menu .column12
+{
+  width: 940px;
+}
+
+#menu .clear
+{
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+
+
+/* ________________________________________________________
+	
+	MULTI LEVEL DROP DOWN MENU 
+___________________________________________________________ */
+
+#menu li ul.dropdown
+{
+  display: none;
+  position: absolute;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 160px;
+  text-align: left;
+  background-color: #647893; /* CSS3 Rounded Corners */
+  -moz-border-radius: 0px 0px 4px 4px;
+  -webkit-border-radius: 0px 0px 4px 4px;
+  -khtml-border-radius: 0px 0px 4px 4px;
+  border-radius: 0px 0px 4px 4px;
+}
+
+#menu li:hover ul.dropdown
+{
+  display: block;
+  top: 40px;
+}
+
+#menu ul.dropdown li
+{
+  position: relative;
+  float: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menu li.icon ul.dropdown li
+{
+  padding: 0 5px;
+}
+
+#menu ul.dropdown li:last-child
+{
+  /* CSS3 Stylings - Rounded Corners */
+  -moz-border-radius: 0px 0px 4px 4px;
+  -webkit-border-radius: 0px 0px 4px 4px;
+  -khtml-border-radius: 0px 0px 4px 4px;
+  border-radius: 0px 0px 4px 4px;
+}
+
+#menu ul.dropdown li:hover
+{
+  background: #74869E;
+}
+
+#menu a.parent
+{
+  margin-right: 20px;
+  background: url(/Scripts/jquery/stickyheader/images/multidrop.png) no-repeat right center;
+}
+
+/* DROP DOWN MENU CHILD LEVEL */
+ul.dropdown li ul
+{
+  list-style: none;
+  position: absolute;
+  display: none;
+  padding: 0;
+  margin: 0;
+  width: 160px;
+  text-align: left;
+  left: 150px;
+  top: 0px;
+  background-color: #647893;
+  border: solid 1px #4B5E7A; /* CSS3 Stylings - Rounded Corners */
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+ul.dropdown li:hover > ul
+{
+  display: block;
+}
+
+/* ___________________________________________________________
+
+	SEARCH FORM
+______________________________________________________________ */
+
+#menu li.search
+{
+  position: relative;
+  margin-left: 10px;
+}
+
+#menu li.search:hover
+{
+  background: none;
+}
+
+/* TEXT INPUT */
+#menu li.search #text_search
+{
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 12px;
+  padding: 6px;
+  padding-right: 30px;
+  margin: 5px 0 5px 0;
+  width: 190px;
+  background: #fff url('images/glass.png') no-repeat 96% center; /* border #2E3849*/
+  border: 1px solid #191919;
+}
+
+/* SEARCH BUTTON */
+#menu li.search #submit_search
+{
+  z-index: 10;
+  position: absolute;
+  top: 10px;
+  right: 17px;
+  width: 20px;
+  height: 20px;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* __________________________________________________________
+	
+	SIGN IN FORM
+_____________________________________________________________ */
+
+#menu form.signin
+{
+  margin: 0;
+  padding: 0px;
+  font-size: 12px;
+}
+
+form.signin fieldset
+{
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+form.signin input#username, form.signin input#password1
+{
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 12px;
+  padding: 4px;
+  margin: 5px 0 5px 0;
+  border: 1px solid #191919;
+  width: 208px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 4px;
+}
+
+/* _______________________________________________________________
+
+	CONTACT FORM 
+__________________________________________________________________ */
+
+#menu form.contact
+{
+  margin: 0;
+  padding: 0;
+}
+
+#menu form.contact fieldset
+{
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+#menu form.contact p
+{
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+#menu form.contact label
+{
+  float: left;
+  display: block;
+  text-align: left;
+  width: 50px;
+}
+
+#menu form.contact input, #menu form.contact textarea
+{
+  margin: 0;
+  width: 200px;
+  float: right;
+  border: 1px solid #191919;
+  padding: 4px;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 12px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 4px;
+}
+#menu form.contact textarea
+{
+  height: 100px;
+  overflow: auto;
+}
+
+#menu form.contact button
+{
+  float: right;
+  margin: 0px;
+}
+
+/* ____________________________________________________________
+
+	CONTENT 
+_______________________________________________________________ */
+
+/* IMAGE POSITION */
+#menu .img_left
+{
+  /* Image sticks to the left */
+  width: auto;
+  float: left;
+  margin-right: 10px;
+}
+
+#menu .img_right
+{
+  /* Image sticks to the right */
+  width: auto;
+  float: right;
+  margin-left: 10px;
+}
+
+/* LIST ITEM WITH BLUE BOX */
+#menu ul.bluebox
+{
+  margin: 0;
+  padding: 0;
+}
+
+#menu ul.bluebox li
+{
+  list-style-type: none;
+  width: 140px;
+  height: 20px;
+  margin: 5px 0;
+  padding: 5px 0;
+  border: solid 1px #4B5E7A;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+}
+
+#menu ul.bluebox li:hover
+{
+  background: #74869E;
+}
+
+#menu ul.bluebox li a
+{
+  margin: 0 5px;
+  padding: 0;
+  line-height: 20px;
+}
+
+/* HEADING */
+#menu h2
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 21px;
+  line-height: 21px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid #4B5E7A;
+  color: #f5f5f5;
+}
+
+/* SIMPLE LIST */
+#menu ul.simple
+{
+  margin: 0;
+  padding: 0;
+}
+
+#menu ul.simple li
+{
+  list-style-type: none;
+  width: 220px;
+  height: 20px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+#menu ul.simple li a
+{
+  margin: 0 5px;
+  padding: 0;
+  line-height: 20px;
+}
+
+#menu ul.simple li a:hover
+{
+  text-decoration: underline;
+}
+
+/* __________________________________________________________________________ */
+
+/* _________________________________________________________________
+
+	COLORS
+____________________________________________________________________ */
+
+/* BLACK */
+
+#header.black
+{
+  background: #4d4d4d;
+}
+
+#header.black #menu li:hover, #header.black #menu li.click
+{
+  background: #4d4d4d;
+}
+
+#header.black #menu li.search:hover
+{
+  background: none;
+}
+
+#header.black #menu li.search #text_search
+{
+  /* Add shadows here */
+}
+
+#header.black #menu li ul.dropdown
+{
+  background-color: #4d4d4d;
+}
+
+#header.black #menu ul.dropdown li:hover
+{
+  background: #5f5f5f;
+}
+
+#header.black ul.dropdown li ul
+{
+  background-color: #4d4d4d;
+  border: solid 1px #191919;
+}
+
+#header.black #menu li .dropcontent
+{
+  background-color: #4d4d4d;
+}
+
+#header.black #menu li .fullwidthdropcontent
+{
+  background-color: #4d4d4d;
+}
+
+#header.black #menu h2
+{
+  border-bottom: 1px solid #191919;
+}
+
+#header.black #menu ul.bluebox li
+{
+  border: solid 1px #191919;
+}
+
+#header.black #menu ul.bluebox li:hover
+{
+  background: #5F5F5F;
+}
+
+#header.black a.tooltip:hover span
+{
+  background: #4d4d4d;
+}
+
+#header.black #maximize
+{
+  background-color: #333;
+}
+
+#header.black #minimize:hover
+{
+  background-color: #4d4d4d;
+}
+
+#header.black #maximize:hover
+{
+  background-color: #4d4d4d;
+}
+
+#header.black #menu li.separator
+{
+  border-left: solid 1px #191919;
+  border-right: solid 1px #333333;
+  height: 30px;
+  margin: 5px 5px 0 5px;
+  padding: 0;
+}
+
+/* CSS For Dropdown Menu For Static Submenus inside the mega menu */
+
+div.tm-container
+{
+  list-style:none;
+  padding:0px;
+  margin:0px
+}
+
+div.tm-container div.tm-dropdown
+{
+  display:inline;
+  float:left;
+}
+
+div.tm-container div.tm-dropdown a
+{
+  color:#ffffff;
+  background-color:#626262;
+  margin-right:5px;
+  font-size:12px;
+  text-decoration:none;
+  display:block;
+  width:140px;
+  height:25px;
+  line-height:25px;
+  text-align:center;
+}
+
+div.tm-container div.tm-dropdown a:hover
+{
+  color:#cccccc;
+  background-color:#A2A2A2;
+  text-decoration:none;
+  display:block;
+  width:140px;
+  text-align:center;
+}
+
+div.tm-container div.tm-sublinks a
+{
+  color:#000000;
+  background-color:#606060;
+  font-weight:normal;
+  text-decoration:none;
+  display:block;
+  width:170px;
+  text-align:left;
+  margin-top:2px;
+}
+
+div.tm-container div.tm-sublinks a:hover
+{
+  color:#000000;
+  background-color:#A0A0A0;
+  font-weight:normal;
+  text-decoration:none;
+  display:block;
+  width:170px;
+}
+
+div.tm-sublinks a
+{
+	display:none;
+}
+
+a.tm-dropdown
+{
+	text-decoration:none;
+	font-weight:bold;
+	background-image: url(/Scripts/jquery/stickyheader/images/drop.png);
+	background-repeat:no-repeat;
+	background-position:right center;
+	color:white;
+	padding-right:15px;
+}
+
+/* CSS For Dropdown Menu End */
+
+.tm-container
+{
+  margin:0px auto;
+  width:570px;
+}
+
+
+.tm-masterbutton 
+{
+  float: left; 
+  width: 160px; 
+  height: 80px; 
+  background-color: #626262; 
+  padding: 5px;
+  margin: 0px 15px 2px 0px;
+}
+

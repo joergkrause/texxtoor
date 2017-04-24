@@ -1,0 +1,32 @@
+﻿@model Texxtoor.ViewModels.Users.ContactModel
+@{
+  PageData["Title"] = @Loc("title", "Contact");
+  Layout = Url.GetGlobalLayout("_LayoutCommon");
+  PageData["ShortHelp"] = "";
+  var received = (bool)ViewBag.Received;
+}
+@if (received) {
+  <form>
+    @using (Html.BtFieldset(Loc("msgTextSent", @"The message we got"))) {
+      @Html.DisplayForModel()
+    }
+  </form>
+} else {
+  <div class="well">@Loc("msgText", @"Send us a message.")</div>
+  @:@Html.ValidationSummary(false, "", new { style = "color:red" })
+ using (Html.BeginForm("Contact", "Account", FormMethod.Post, null)) {
+   using (Html.BtFieldset(Loc("legend", @"Common Contact Form"))) {
+    @Html.EditorForModel()
+    <div class="formsendButtons">
+      @Button.Submit(ViewResources.Action_Common_Mail_Send)
+    </div>
+   }
+ }
+}
+@Html.Heading(HtmlHeading.H2, Loc("headersrv", "Useful Functions"))
+<div class="well well-sm">
+  @Loc("txtSrv", "Use these functions to help yourself navigating the platform.")
+</div>
+<div class="btn-group">
+  <a href="@Url.Action("Index", "Home")" class="btn btn-lg btn-default" title="@Loc("srvRegister", "Register for new account")">@ViewResources.LinkButton_Common_Home</a>
+</div>

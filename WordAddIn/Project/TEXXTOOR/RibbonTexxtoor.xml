@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="OnRibbonLoad">
+  <ribbon startFromScratch="true">
+    <tabs>
+      <tab idMso="TabHome"   getVisible="GetControlVisible" ></tab>
+      <tab idMso="TabInsert"  getVisible="GetControlVisible"></tab>
+      <tab idMso="TabReferences"  getVisible="GetControlVisible"></tab>
+      <tab idMso="TabMailings"  getVisible="GetControlVisible"></tab>
+      <tab idMso="TabReviewWord"  getVisible="GetControlVisible"></tab>      
+      <tab idMso="TabDeveloper"  getVisible="GetControlVisible"></tab>
+      <tab idMso="TabPageLayoutWord" getVisible="GetControlVisible"></tab>
+      <!-- <tab idMso="TabSmartArtToolsDesign" getVisible="GetControlVisible"></tab> 2013 only, throws exception in 2010 -->
+      <tab id="tabActivateTEXXTOOR" getLabel="GetLabel" getVisible="GetControlVisible">
+        <group id="grpActivateTexxtoor" getLabel="GetLabel">
+          <button id="btnActivate" imageMso="BlogHomePage" getLabel="GetLabel" getSupertip="GetSupertip" size="large" onAction="OnAction"/>
+          <separator id="separator0" />
+          <button id="btnFullAddIn" imageMso="LocalShareNotebook" getLabel="GetLabel" getSupertip="GetSupertip" size="large" onAction="OnAction"/>
+          <separator id="separator1" />
+          <button id="btnPublishRaw" imageMso="QuickPublish" onAction="OnAction" getLabel="GetLabel" size="large"/>
+          <button id="btnCheckDocumentRaw" imageMso="FormPreview" onAction="OnAction" getLabel="GetLabel" size="large"/>
+          <button id="btnExportRaw" imageMso="ShareWithBuildingBlockCommunity" onAction="OnAction" label="Export locally" size="large"/>
+        </group>
+      </tab>
+      <tab id="tabTEXXTOOR" getLabel="GetLabel" getVisible="GetControlVisible">
+        <group id="grpTextoorText" getLabel="GetLabel">
+          <splitButton id="splitbtnPublish" size="large" >
+            <button id="splitbtnPublish__btn" getSupertip="GetSupertip" getLabel="GetLabel" imageMso="BlogPublishMenu" onAction="OnAction"/>
+            <menu id="splitbtnPublish__mnu" getSupertip="GetSupertip">
+              <button id="btnPublish" imageMso="BlogPublish" onAction="OnAction" getLabel="GetLabel" />
+              <button id="btnCheckDocument" imageMso="FormPreview" onAction="OnAction" getLabel="GetLabel" />
+              <button id="btnExport" imageMso="ShareWithBuildingBlockCommunity" onAction="OnAction" label="Export locally"/>
+            </menu>
+          </splitButton>
+          <button id="btnHomePage" imageMso="BlogHomePage" getLabel="GetLabel" size="large" onAction="OnAction"/>
+          <button id="btnOpenExisting" imageMso="FileOpen" onAction="OnMsoAction" getLabel="GetLabel" size="large" />
+          <button id="btnManageProject" imageMso="BlogManageAccounts" getLabel="GetLabel" size="large" onAction="OnMsoAction" />
+        </group>
+        <group id="grpClipboard" getLabel="GetLabel">
+          <button id="btnPaste" imageMso="Paste" onAction="OnAction" enabled="true" getLabel="GetLabel" size="large" />
+          <button id="btnCut" imageMso="Cut" onAction="OnMsoAction" getLabel="GetLabel" />
+          <button id="btnCopy" imageMso="Copy" onAction="OnMsoAction" getLabel="GetLabel" />
+          <separator id="separator2" />
+          <button id="btnUndo" imageMso="Undo" onAction="OnMsoAction" getLabel="GetLabel" />
+          <button id="btnRedo" imageMso="Redo" onAction="OnMsoAction" getLabel="GetLabel" />
+        </group>
+        <group id="grpBasicText" getLabel="GetLabel">
+          <buttonGroup id="btnGrpFormat">
+            <toggleButton id="toggleBtnBold"  imageMso="Bold" onAction="OnToggleAction" getSupertip="GetSupertip" getLabel="GetLabel" showLabel="false"  getPressed="GetPressed"/>
+            <toggleButton id="toggleBtnItalic" imageMso="Italic" onAction="OnToggleAction" getSupertip="GetSupertip" getLabel="GetLabel" showLabel="false" getPressed="GetPressed"/>
+            <toggleButton id="toggleBtnUnderline" imageMso="Underline" onAction="OnToggleAction" getSupertip="GetSupertip" getLabel="GetLabel" showLabel="false" getPressed="GetPressed"/>
+          </buttonGroup>
+          <buttonGroup id="btnGrpAlignment">
+            <toggleButton id="toggleBtnAlignLeft" imageMso="AlignLeft" onAction="OnToggleAction" getSupertip="GetSupertip" getLabel="GetLabel" showLabel="false"  getPressed="GetPressed"/>
+            <toggleButton id="toggleBtnAlignCenter" imageMso="AlignCenter" onAction="OnToggleAction" getSupertip="GetSupertip" getLabel="GetLabel" showLabel="false" getPressed="GetPressed"/>
+            <toggleButton id="toggleBtnAlignRight" imageMso="AlignRight" onAction="OnToggleAction" getSupertip="GetSupertip" getLabel="GetLabel" showLabel="false" getPressed="GetPressed"/>
+          </buttonGroup>
+          <separator id="separator3" />
+          <toggleButton id="btnBulletList" imageMso="Bullets" onAction="OnToggleAction" getLabel="GetLabel" showLabel="false"  getPressed="GetPressed"/>
+          <toggleButton id="btnNumberList" imageMso="Numbering" onAction="OnToggleAction" getLabel="GetLabel" showLabel="false"  getPressed="GetPressed"/>
+          <separator id="separator4" />
+          <button id="btnRightIndent" imageMso="IndentIncreaseWord" onAction="OnMsoAction" getLabel="GetLabel" showLabel="false" />
+          <button id="btnLeftIndent" imageMso="IndentDecreaseWord" onAction="OnMsoAction" getLabel="GetLabel" showLabel="false" />
+          <separator id="separator5" />
+          <toggleButton id="btnSubscript" imageMso="Subscript" onAction="OnMsoAction" getLabel="GetLabel" showLabel="false"  getPressed="GetPressed"/>
+          <toggleButton id="btnSuperscript" imageMso="Superscript" onAction="OnMsoAction" getLabel="GetLabel" showLabel="false"  getPressed="GetPressed"/>
+        </group>
+        <group id="grpProofing" getLabel="GetLabel">
+          <splitButton id="splitBtnSpelling"  size="large">
+            <button id="splitBtnSpelling__btn" getLabel="GetLabel" imageMso="Spelling" onAction="OnMsoAction"/>
+            <menu id="splitBtnSpelling__mnu">
+              <button id="btnSpellingAndGrammar" imageMso="SpellingAndGrammar" getLabel="GetLabel" onAction="OnMsoAction"/>
+              <button id="btnResearch" imageMso="ResearchPane" getLabel="GetLabel" onAction="OnMsoAction"/>
+              <button id="btnThesaurus" imageMso="Thesaurus" getLabel="GetLabel" onAction="OnMsoAction"/>
+              <splitButton id="splitBtnTranslate" >
+                <button id="splitBtnTranslate__btn" getLabel="GetLabel" imageMso="Translate" onAction="OnMsoAction"/>
+                <menu id="splitBtnTranslate__mnu" />
+              </splitButton>
+              <button id="btnSetLanguage" imageMso="SetLanguage" getLabel="GetLabel" onAction="OnMsoAction"/>
+              <button id="btnWordCount" imageMso="WordCount" getLabel="GetLabel" onAction="OnMsoAction"/>
+            </menu>
+          </splitButton>
+        </group>
+        <group id="groupStyles" getLabel="GetLabel" >
+          <!-- need tag to make heading relations easier to check -->
+          <button id="btnHeading1" tag="1" size="large" getImage="GetImages" label="Chapter (1)" onAction="OnAction" getEnabled="OnHeadingEnabled" />
+          <button id="btnHeading2" tag="2" size="large" getImage="GetImages" label="Section (1.1)" onAction="OnAction" getEnabled="OnHeadingEnabled" />
+          <splitButton id="splitbtnInsertSection" size="large" >
+            <button id="splitbtnInsertSection__btn" getSupertip="GetSupertip" getLabel="GetLabel" imageMso="GotoNextUnreadPage" onAction="OnAction"/>
+            <menu id="splitbtnInsertSection__mnu" getSupertip="GetSupertip" label="Insert Element">
+              <button id="btnHeading3" tag="3" getImage="GetImages" label="Sub Section (1.1.1)" onAction="OnAction" getEnabled="OnHeadingEnabled" />
+              <button id="btnHeading4" tag="4" getImage="GetImages" label="Sub Section (1.1.1.1)" onAction="OnAction" getEnabled="OnHeadingEnabled" />
+              <button id="btnHeading5" tag="5" getImage="GetImages" label="Sub Section (1.1.1.1.1)" onAction="OnAction" getEnabled="OnHeadingEnabled" />
+            </menu>
+          </splitButton>
+          <splitButton id="splitbtnConvertSection" size="large" >
+            <button id="splitbtnConvertSection__btn" getSupertip="GetSupertip" getLabel="GetLabel" imageMso="FormatPainter" onAction="OnAction"/>
+            <menu id="splitbtnConvertSection__mnu" getSupertip="GetSupertip" getLabel="GetLabel">
+              <button id="btnMakeText" tag="0" getLabel="GetLabel" getImage="GetImages" onAction="OnAction" enabled="true" />
+              <button id="btnMakeHeading2" tag="2" getImage="GetImages" label="Section (1.1)" onAction="OnAction" getEnabled="OnHeadingEnabled" />
+              <button id="btnMakeHeading3" tag="3" getImage="GetImages" label="Sub Section (1.1.1)" onAction="OnAction" getEnabled="OnHeadingEnabled" />
+              <button id="btnMakeHeading4" tag="4" getImage="GetImages" label="Sub Section (1.1.1.1)" onAction="OnAction" getEnabled="OnHeadingEnabled" />
+              <button id="btnMakeHeading5" tag="5" getImage="GetImages" label="Sub Section (1.1.1.1.1)" onAction="OnAction" getEnabled="OnHeadingEnabled" />
+            </menu>
+          </splitButton>
+        </group>
+        <!--<group idMso="GroupStyles"></group>-->
+        <group id="grpInsertText" getLabel="GetLabel">
+          <button id="btnInsertText" imageMso="TextBoxInsert" getLabel="GetLabel" size="large" onAction="OnAction" getEnabled="OnInsertEnabled"/>
+        </group>
+        <group id="grpInsertPicture" getLabel="GetLabel">
+          <splitButton id="splitBtnPicture"  size="large">
+            <button id="splitBtnPicture__btn" getLabel="GetLabel" tag="Figure" imageMso="PictureInsertMenu" onAction="OnAction" getEnabled="OnInsertEnabled"/>
+            <menu id="splitBtnPicture__mnu">
+              <button id="btnGetPicturefromLocal" getLabel="GetLabel" tag="Figure" onAction="OnAction" getEnabled="OnInsertEnabled"/>
+              <gallery id="galServerImages" tag="Figure" label="Server Images" itemWidth="100" itemHeight="100" imageMso="PictureEffectsShadowGallery"
+                       columns="4" rows="4" onAction="OnGetGalleryImage" getEnabled="OnInsertEnabled"
+                       getItemCount="OnGetGalleryItemCount" getItemID="OnGetGalleryItemId" getItemImage="OnGetGalleryItemImage"
+                       >
+                <button id="btnShowServerImage" label="Retrieve Images" onAction="OnGetGalleryRefresh"/>
+              </gallery>
+            </menu>
+          </splitButton>
+        </group>
+        <group id="grpInsertTable" getLabel="GetLabel">
+          <splitButton id="splitBtnTable"  size="large">
+            <button id="splitBtnTable__btn" getLabel="GetLabel" tag="Table" imageMso="InsertTable" onAction="OnAction" getEnabled="OnInsertEnabled"/>
+            <menu id="splitBtnTable__mnu">
+              <button id="btnInsertTable"  imageMso="InsertTable" tag="Table" getLabel="GetLabel" onAction="OnAction" getEnabled="OnInsertEnabled"/>
+              <button id="btnConvertTextToTable" imageMso="ConvertTextToTable" tag="Table" getLabel="GetLabel" onAction="OnMsoAction" getEnabled="OnInsertEnabled"/>
+            </menu>
+          </splitButton>
+        </group>
+        <group id="grpSnippets" getLabel="GetLabel">
+          <button id="btnInsertCodeSnippet" tag="Listing" getLabel="GetLabel" onAction="OnAction" imageMso="CodeEdit" size="large" showImage="true" getEnabled="OnInsertEnabled" />
+          <button id="btnInsertSideBar" tag="Sidebar" getLabel="GetLabel" onAction="OnAction" imageMso="TextBoxInsert" size="large" showImage="true" getEnabled="OnInsertEnabled"/>
+          <button id="btnInsertVideo" tag="Video" imageMso="ToolboxVideo" getLabel="GetLabel" size="large" onAction="OnAction" getEnabled="OnInsertEnabled"/>
+        </group>
+        <group id="grpDelete" getLabel="GetLabel">
+          <button id="btnDelete" getLabel="GetLabel" onAction="OnAction" showImage="true" imageMso="Delete" size="large"/>
+        </group>
+      </tab>
+      <tab idMso="TabView"  visible="true" insertAfterQ="tabActivateTEXXTOOR"></tab>
+      <tab id="tabSemantics" getLabel="GetLabel" getVisible="GetControlVisible">
+        <group id="grpSemanticElements" getLabel="GetLabel">
+          <dynamicMenu id="menuAbbrevations" tag="Abbreviation" getLabel="GetLabel" showImage="true" imageMso="TextBoxInsert" getContent="GetSemanticList" size="large" ></dynamicMenu>
+          <dynamicMenu id="menuCites" tag="Cite" getLabel="GetLabel" showImage="true" imageMso="CitationInsert" getContent="GetSemanticList"  size="large"></dynamicMenu>
+          <dynamicMenu id="menuLinks" tag="Link" getLabel="GetLabel" showImage="true" imageMso="TableOfFiguresInsert" getContent="GetSemanticList"  size="large"></dynamicMenu>
+          <dynamicMenu id="menuIdioms" tag="Idiom" getLabel="GetLabel" showImage="true" imageMso="FootnoteInsert" getContent="GetSemanticList"  size="large"></dynamicMenu>
+          <dynamicMenu id="menuVariables" tag="Variable" getLabel="GetLabel" showImage="true" imageMso="QuickPartsInsertFromOnline" getContent="GetSemanticList"  size="large"></dynamicMenu>
+          <dynamicMenu id="menuDefinitions" tag="Definition" getLabel="GetLabel" showImage="true" imageMso="BibliographyInsert" getContent="GetSemanticList"  size="large"></dynamicMenu>
+          <separator id="separator6" />
+          <button id="btnIndex" getLabel="GetLabel" showImage="true" imageMso="IndexInsert" onAction="OnAction" />
+          <button id="btnShowIndex" getLabel="GetLabel" showImage="true" imageMso="IndexUpdate" onAction="ShowIndex" />
+          <button id="btnRefreshLists" getLabel="GetLabel" showImage="true" imageMso="CitationMark" onAction="OnAction" />
+        </group>
+        <group id="grpSemanticText" getLabel="GetLabel">
+          <button id="btn_CharacterCode" getLabel="GetLabel" imageMso="CodeEdit" onAction="OnAction"/>
+          <button id="btn_CharacterFile" getLabel="GetLabel" imageMso="FileOpenRecentFile" onAction="OnAction"/>
+          <button id="btn_CharacterKeystroke" getLabel="GetLabel" imageMso="OutlineNumberDefault" onAction="OnAction"/>
+        </group>
+        <group id="grpSidebarType" getLabel="GetLabel">
+          <!--<menu id="menuType" getLabel="Type" />-->
+          <menu id="mnuSideBarType" getLabel="GetLabel" showImage="true" size="large" imageMso="TextEffectsGallery" tag="SidebarType" getEnabled="OnInsertEnabled">
+            <button id="btnSidebarNote" label="Note" onAction="OnAction" />
+            <button id="btnSidebarWarning" label="Warning" onAction="OnAction" />
+            <button id="btnSidebarTip" label="Tip" onAction="OnAction" />
+            <button id="btnSidebarCustom" label="Custom" onAction="OnAction" />
+          </menu>
+        </group>
+        <group id="grpInternalLinkPane" getLabel="GetLabel">
+          <button id="btnInternalLink" getLabel="GetLabel" showImage="true" size="normal" onAction="ShowInternalLinks" imageMso="EditHyperlink"/>
+          <button id="btnRemoveLink" getLabel="GetLabel" showImage="true" size="normal" imageMso="Delete" />
+        </group>
+      </tab>
+      <tab id="tabTexxtoorInfo" label="Interactive"  getVisible="GetControlVisible">
+        <group id="grpInfo" label="Information">
+          <labelControl id="lblUserName" getLabel="GetDynamicLabel"/>
+          <labelControl id="lblDocumentId" getLabel="GetDynamicLabel"/>
+        </group>
+        <group id="grpStatus" label="Status">
+          <labelControl id="lblOrderCheck" getLabel="GetDynamicLabel"/>
+          <labelControl id="lblStyleCheck" getLabel="GetDynamicLabel"/>
+          <button id="btnAbout" getLabel="GetLabel" showImage="true" onAction="OnAction" size="large" imageMso="ContactPictureMenu" />
+        </group>
+        <group id="grpCommentsPane" getLabel="GetLabel">
+          <button id="btnComments" getLabel="GetLabel"  onAction="ShowComments" size="large" imageMso="GroupComments"/>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>
+

@@ -1,0 +1,185 @@
+﻿@using Texxtoor.DataModels.Models.Author
+@using Texxtoor.DataModels.Models.Users
+@model Team
+@{
+  PageData["Title"] = Loc("title", "Search for Contributors");
+  Layout = Url.GetGlobalLayout("_LayoutAuthor", "AuthorPortal");
+  var rm = (Texxtoor.DataModels.Models.Common.RunMode)HttpContext.Current.Application["RunMode"];
+}
+@section HeadContent{
+  @if (Model != null) {
+    <script type="text/javascript">
+      var userSelector;
+      $(function () {
+        $('#addMembers').click(function () {
+          addMembers();
+          return false;
+        });
+        $('#searchMembers').click(function () {
+          $('#searchResult').html("Searching...");
+          searchMembers(0, "UserName", true);
+        });
+        $(document).on('click', '.showProfile', function () {
+          var id = $(this).data('item');
+          $('.showProfileDialog[data-item=' + id + ']').dialog('close');
+          $('.showProfileDialog[data-item=' + id + ']').dialog('open');
+        });
+
+        userSelector = $('#usernames').tokenInput('@Url.Action("SearchUsers", "Team", new { id = Model.Id })', {
+          minChars: 2,
+          theme: "@rm.ToString().ToLowerInvariant()",
+          preventDuplicates: true
+        });
+
+        $('#searchTeamForm').show();
+      });
+
+      function searchMembers(page, order, dir) {
+        $.ajax({
+          url: '@Url.Action("SearchMembers")',
+          data: $.toJSON({
+            ct: $('#ct').val(),
+            avail: $('#avail:checked').val(),
+            shared: $('#shared:checked').val(),
+            hourly: $('#hourly').val(),
+            from: $('#from').val(),
+            to: $('#to').val(),
+            page: page,
+            order: order,
+            dir: dir
+          }),
+          type: "POST",
+          cache: false,
+          dataType: "html",
+          contentType: "application/json; charset=utf-8",
+          success: function (data) {
+            $('#searchResult').html(data);
+            $('.showProfileDialog').dialog({ autoOpen: false, width: '950px', modal: true });
+            SetTableBehavior();
+            $('.nav-tabs a[href="#add"]').tab('show');
+          },
+          error: function (data) {
+            $('#searchResult').html(data);
+          }
+        });
+      }
+
+      function addUser(id, name) {
+        userSelector.tokenInput("add", { id: id, name: name });
+      }
+
+      function addMembers() {
+        if ($('#usernames').val()) {
+          $.ajax({
+            url: '@Url.Action("AddMember", "Team", new { id = Model.Id })',
+            data: {
+              usernames: $('#usernames').val()
+            },
+            type: "POST",
+            success: function () {
+              window.location = '@Url.Action("Details", "Team", new { id = Model.Id })';
+            }
+          });
+        }
+      }
+
+    </script>
+
+    @Script.SetTableBehavior()
+  }
+}
+@if (Model == null) {
+  PageData["ShortHelp"] = Loc("textClosed", @"To add new contributors to the team you must be the team's leader. Start your own projects to become a lead author.");
+  <div class="alert alert-warning">
+    @Loc("textNo", @"You cannot add any members.The project is closed or you're not the team's lead author.")
+  </div>
+} else {
+  PageData["ShortHelp"] = Loc("textAdd", @"Add new contributors to the team <em><span data-args='0' data-desc='Team Name'>{0}</span></em> for specific roles. Users
+  without contribution roles are not being searchable.", Model.Name);
+}
+@using (Html.BeginForm())
+{
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#search" data-toggle="tab">Search</a></li>
+    <li><a href="#add" data-toggle="tab">Search Results</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="search">
+      @using (Html.BtFieldset(Loc("legendQuery", @"Search Criteria")))
+      {
+        <label for="ct">@Loc("lblSkills", @"Looking for specific skills")</label>
+        <div class="editor-field">
+          @(Html.DropdownForEnum<ContributorRole>("ct", ContributorRole.Designer, null))
+          @(Create.FieldHelpIcon<UserProfile>(profile => profile.ContributorMatrix))
+        </div>
+        <label for="culture">@Loc("lblLang", @"In a specific language")</label>
+        <div class="editor-field">
+          @(Html.CultureSelectionDropDown("", "culture", "culture"))
+          @(Create.FieldHelpIcon<UserProfile>(profile => profile.LanguageMatrix))
+        </div>
+        <label for="avail">@Loc("lblAvail", @"Limit by availability")</label>
+        <div class="editor-field">
+          <input type="checkbox" id="avail" name="avail" value="true" />&nbsp;(@Loc("rec", "recommended"))
+          @(Create.FieldHelpIcon<UserProfile>(profile => profile.Availabilities))
+        </div>
+        <label for="shared">@Loc("lblShared", @"Accepts shared revenues")</label>
+        <div class="editor-field">
+          <input type="checkbox" id="shared" name="shared" value="true" />&nbsp;(@Loc("rec", "recommended"))
+          @(Create.FieldHelpIcon<UserProfile>(profile => profile.SharingAccepted))
+        </div>
+        <label for="hourly">@Loc("lblHourly", @"Requests work on hourly base")</label>
+        <div class="editor-field">
+          <input type="checkbox" id="hourly" name="hourly" value="true" />
+          @(Create.FieldHelpIcon<UserProfile>(profile => profile.ContractAccepted))
+        </div>
+        <div class="well well-sm">
+          @Loc("acc", "If acceptable, please specify range for the hourly rates:")
+        </div>
+        <label for="from">
+          @Loc("lblFrom", "From")
+        </label>
+        <input type="text" name="from" id="from" />
+        @:&nbsp;&euro;/h
+        @(Create.FieldHelpIcon<UserProfile>(profile => profile.MinHourlyRate))
+        <br />
+        <br />
+        <label for="to">
+          @Loc("lblTo", "To")
+        </label>
+        <input type="text" name="to" id="to" />
+        @:&nbsp;&euro;/h
+        @(Create.FieldHelpIcon<UserProfile>(profile => profile.MaxHourlyRate))
+        <br />
+        <br />
+        <div class="formsendButtons">
+          <input type="button" id="searchMembers" value="@ViewResources.Action_Team_SearchUsers" class="btn btn-sm btn-primary" />
+        </div>
+      }
+    </div>
+    <div class="tab-pane" id="add">
+      @using (Html.BtFieldset(Loc("legendFound", "Members Found")))
+      {
+        <div id="searchResult">
+          @using (Html.BtDiv(BtStyle.AlertAndInfo))
+          {
+            @Loc("textResult", @"Click search to see any results.")
+          }
+        </div>
+      }
+      @using (Html.BtFieldset(Loc("legendAdd", "Add Team Members")))
+      {
+        <label for="usernames">@Loc("lblUser", @"Select by Username")</label>
+        <div class="editor-field">
+          @Create.FieldHelpIcon(Loc("textNew", @"All members in the box below are being added to the team. Enter names directly to ignore search terms.").ToString(), "", "")
+          <input id="usernames" name="usernames" type="text" />
+        </div>
+        <div class="formsendButtons">
+          <input type="button" id="addMembers" value="@ViewResources.Action_Team_AddMembers" class="btn btn-sm btn-primary" />
+        </div>
+      }
+    </div>
+  </div>
+}
+@Create.ActionTask("btnPrj", false, Url.Action("Index", "Project"), ViewResources.TasksButton_ToProjects)
+@Create.ActionTask("btnTeam", false, Url.Action("Index", "Team"), ViewResources.LinkButton_ToTeams)
+@Create.ActionTask("", false, Url.Action("Details", "Team", new { id = (int)ViewBag.TeamId }), ViewResources.LinkButton_ToTeam)
